@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-18T18:04:11.980Z",
+  "generatedAt": "2026-10-18T19:20:07.908Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -122716,6 +122716,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T11:13:44.504Z"
     },
+    "myswitzerland:c434af1e6b4f4ca595f51003f72f6963::ff92985dd232419d0fad4ff62fabddfc519cb43c46c21bc047279a2e0b3fd99a": {
+      "id": "myswitzerland:c434af1e6b4f4ca595f51003f72f6963",
+      "sourceDescriptionHash": "ff92985dd232419d0fad4ff62fabddfc519cb43c46c21bc047279a2e0b3fd99a",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Forum im Ried; comune: Landquart; cantone: GR; categoria: Theater; data: 2027-03-06; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Forum im Ried; comune: Landquart; cantone: GR; categoria: Theater; data: 2027-03-06; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Forum im Ried; municipality: Landquart; canton: GR; category: Theater; date: 2027-03-06; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Forum im Ried; gemeinde: Landquart; kanton: GR; kategorie: Theater; datum: 2027-03-06; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Forum im Ried; commune: Landquart; canton: GR; catégorie: Theater; date: 2027-03-06; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-18T19:16:21.581Z"
+    },
     "myswitzerland:c43c43e13d0c43f28b5b719141c3356a::95e8e507b40f0d61d1c8dd40ab407c27d1b44817bfdad297b80a9abfb89fe4b0": {
       "id": "myswitzerland:c43c43e13d0c43f28b5b719141c3356a",
       "sourceDescriptionHash": "95e8e507b40f0d61d1c8dd40ab407c27d1b44817bfdad297b80a9abfb89fe4b0",
@@ -140971,6 +140985,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T10:17:32.174Z"
+    },
+    "myswitzerland:ecdaa18d31ad42899cd66c9a619856e6::73dc50d20c0644594ebef061a11fedfa719557bcebb4a23238767ce9ddb3cd79": {
+      "id": "myswitzerland:ecdaa18d31ad42899cd66c9a619856e6",
+      "sourceDescriptionHash": "73dc50d20c0644594ebef061a11fedfa719557bcebb4a23238767ce9ddb3cd79",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Zurich; comune: Zürich; cantone: ZH; categoria: Event; organizzatore: Dema Agency Links:https://dema-agency.ch/https://www.giovannicacioppo.it/; data: 2027-03-05; ora: 20:45. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Zurich; comune: Zürich; cantone: ZH; categoria: Event; organizzatore: Dema Agency Links:https://dema-agency.ch/https://www.giovannicacioppo.it/; data: 2027-03-05; ora: 20:45. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Zurich; municipality: Zürich; canton: ZH; category: Event; organiser: Dema Agency Links:https://dema-agency.ch/https://www.giovannicacioppo.it/; date: 2027-03-05; time: 20:45. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Zurich; gemeinde: Zürich; kanton: ZH; kategorie: Event; veranstalter: Dema Agency Links:https://dema-agency.ch/https://www.giovannicacioppo.it/; datum: 2027-03-05; uhrzeit: 20:45. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Zurich; commune: Zürich; canton: ZH; catégorie: Event; organisateur: Dema Agency Links:https://dema-agency.ch/https://www.giovannicacioppo.it/; date: 2027-03-05; heure: 20:45. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-18T19:16:21.568Z"
     },
     "myswitzerland:ece048afb7734e9286a7ee13a2661ab6::461bf396a1452fc1398b0889c77478d17b9df8c20e1e0c93cbe1f61d596a34d6": {
       "id": "myswitzerland:ece048afb7734e9286a7ee13a2661ab6",
@@ -162368,15 +162396,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:c434af1e6b4f4ca595f51003f72f6963::ff92985dd232419d0fad4ff62fabddfc519cb43c46c21bc047279a2e0b3fd99a": {
-      "id": "myswitzerland:c434af1e6b4f4ca595f51003f72f6963",
-      "sourceDescriptionHash": "ff92985dd232419d0fad4ff62fabddfc519cb43c46c21bc047279a2e0b3fd99a",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T13:29:54.937Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:c5c9c9f820bc492fb10791a3c27e34cb::a834eecd8b422bd5cffd9af30002b3ad809c5a3698bdfdaef1e806a3f70448b2": {
       "id": "myswitzerland:c5c9c9f820bc492fb10791a3c27e34cb",
       "sourceDescriptionHash": "a834eecd8b422bd5cffd9af30002b3ad809c5a3698bdfdaef1e806a3f70448b2",
@@ -163553,15 +163572,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T21:32:44.998Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:ecdaa18d31ad42899cd66c9a619856e6::73dc50d20c0644594ebef061a11fedfa719557bcebb4a23238767ce9ddb3cd79": {
-      "id": "myswitzerland:ecdaa18d31ad42899cd66c9a619856e6",
-      "sourceDescriptionHash": "73dc50d20c0644594ebef061a11fedfa719557bcebb4a23238767ce9ddb3cd79",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T13:30:34.334Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
