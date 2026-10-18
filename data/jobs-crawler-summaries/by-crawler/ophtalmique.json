@@ -1,7 +1,7 @@
 {
   "key": "ophtalmique",
   "label": "Hôpital ophtalmique Jules-Gonin (Fondation Asile des aveugles)",
-  "generatedAt": "2026-10-17T21:27:51.438Z",
+  "generatedAt": "2026-10-18T09:28:08.620Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6665,
-  "avgDurationMs": 6665,
+  "durationMs": 7071,
+  "avgDurationMs": 7071,
   "durationHistory": [
-    6665
+    7071
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1916",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-17T21:27:32.645Z",
+      "crawledAt": "2026-10-18T09:27:50.198Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1913",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-17T21:27:32.170Z",
+      "crawledAt": "2026-10-18T09:27:49.645Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1919",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-17T21:27:33.391Z",
+      "crawledAt": "2026-10-18T09:27:51.036Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1920",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-17T21:27:33.018Z",
+      "crawledAt": "2026-10-18T09:27:50.617Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -198,5 +198,5 @@
       }
     }
   ],
-  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
+  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
 }

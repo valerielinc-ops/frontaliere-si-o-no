@@ -1,7 +1,7 @@
 {
   "key": "gim-architekten",
   "label": "GIM Architekten AG",
-  "generatedAt": "2026-10-17T21:29:47.459Z",
+  "generatedAt": "2026-10-18T09:28:48.169Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6051,
-  "avgDurationMs": 6051,
+  "durationMs": 3935,
+  "avgDurationMs": 3935,
   "durationHistory": [
-    6051
+    3935
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/5e404baa-b2f6-4200-9737-2837b9fcf049/",
       "source": "GIM Architekten AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T21:29:26.978Z",
+      "crawledAt": "2026-10-18T09:28:34.285Z",
       "addressLocality": "Courtedoux",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
+  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
 }

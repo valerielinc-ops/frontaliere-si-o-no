@@ -1,7 +1,7 @@
 {
   "key": "imerys",
   "label": "Imerys",
-  "generatedAt": "2026-10-17T21:29:22.007Z",
+  "generatedAt": "2026-10-18T09:28:11.637Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6279,
-  "avgDurationMs": 6279,
+  "durationMs": 6700,
+  "avgDurationMs": 6700,
   "durationHistory": [
-    6279
+    6700
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bironico-Switzerland/HR-Director-IGC-H-F_REQ-11508-1",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-17T21:29:03.225Z",
+      "crawledAt": "2026-10-18T09:27:55.340Z",
       "addressLocality": "Bironico",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bodio-Switzerland/MECHANICAL-MAINTENANCE-SUPERVISOR_REQ-11824",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-17T21:29:03.915Z",
+      "crawledAt": "2026-10-18T09:27:56.082Z",
       "addressLocality": "Bodio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bironico-Switzerland/Communication-Manager_REQ-11963",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-17T21:29:02.516Z",
+      "crawledAt": "2026-10-18T09:27:54.574Z",
       "addressLocality": "Bironico",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -156,5 +156,5 @@
       }
     }
   ],
-  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
+  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
 }

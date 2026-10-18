@@ -1,10 +1,10 @@
 {
   "key": "pigna",
   "label": "Stiftung Pigna",
-  "generatedAt": "2026-10-17T21:29:20.616Z",
+  "generatedAt": "2026-10-18T09:29:57.296Z",
   "total": 8,
   "discovered": null,
-  "parsed": 8,
+  "parsed": 7,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 10369,
-  "avgDurationMs": 10369,
+  "durationMs": 9967,
+  "avgDurationMs": 9967,
   "durationHistory": [
-    10369
+    9967
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -57,6 +57,7 @@
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -81,7 +82,7 @@
       "url": "https://app.reflinejobs.io/1531/0306/pub/524/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T21:29:02.720Z",
+      "crawledAt": "2026-10-18T09:29:38.004Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -123,7 +124,7 @@
       "url": "https://app.reflinejobs.io/1531/0303/pub/521/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T21:29:02.196Z",
+      "crawledAt": "2026-10-18T09:29:37.194Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -165,7 +166,7 @@
       "url": "https://app.reflinejobs.io/1531/0300/pub/516/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T21:29:01.652Z",
+      "crawledAt": "2026-10-18T09:29:36.330Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -207,7 +208,7 @@
       "url": "https://app.reflinejobs.io/1531/0297/pub/488/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T21:29:01.114Z",
+      "crawledAt": "2026-10-18T09:29:35.480Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -249,7 +250,7 @@
       "url": "https://app.reflinejobs.io/1531/0270/pub/504/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T21:28:59.386Z",
+      "crawledAt": "2026-10-18T09:29:34.690Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -291,7 +292,7 @@
       "url": "https://app.reflinejobs.io/1531/0216/pub/501/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T21:28:58.834Z",
+      "crawledAt": "2026-10-18T09:29:33.867Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -333,7 +334,7 @@
       "url": "https://app.reflinejobs.io/1531/0156/pub/498/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T21:28:58.087Z",
+      "crawledAt": "2026-10-18T09:29:32.953Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -363,5 +364,5 @@
       }
     }
   ],
-  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
+  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
 }
