@@ -21,6 +21,10 @@ const hubDriver = readFileSync(
   resolve(__dirname, '..', 'scripts/rerender-article-hubs.mjs'),
   'utf-8',
 );
+const fastDriver = readFileSync(
+  resolve(__dirname, '..', 'scripts/publish-article-fast.mjs'),
+  'utf-8',
+);
 const articleLockWorkflows = [
   '.github/workflows/fast-publish-article.yml',
   '.github/workflows/resync-cdn-article-chunks.yml',
@@ -36,6 +40,20 @@ const articleLockWorkflows = [
  */
 describe('fast-publish article workflow', () => {
   const invocations = [...workflow.matchAll(/run:\s+bash scripts\/ci\/run-pinned-tsx\.sh scripts\/publish-article-chunks\.mjs(?<args>[^\n]*)/g)];
+
+  it('proves corpus/client handoff freshness before building a publish summary', () => {
+    const renderAt = fastDriver.indexOf('await renderHubsAndOffload({');
+    const freshnessAt = fastDriver.indexOf('const freshness = await checkCorpusFreshness(');
+    const summaryAt = fastDriver.indexOf('const summary = {');
+
+    expect(renderAt).toBeGreaterThan(-1);
+    expect(freshnessAt).toBeGreaterThan(renderAt);
+    expect(freshnessAt).toBeLessThan(summaryAt);
+    expect(fastDriver).toContain('retainCheckout: true');
+    expect(fastDriver).toContain('corpusCheckoutDir: corpusOverlay.checkoutDir');
+    expect(fastDriver).toContain('countRenderedArticleArchiveItems');
+    expect(fastDriver).toContain('corpus/client handoff is not publishable');
+  });
 
   it('publishes the selected client registry before locale shards', () => {
     const publishIdx = workflow.indexOf('Publish client article chunks');
