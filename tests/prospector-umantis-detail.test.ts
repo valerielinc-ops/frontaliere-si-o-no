@@ -163,8 +163,8 @@ describe('Prospector Umantis detail boundary', () => {
 
     const evidence = extractUmantisListingEvidence(listing, seed).get('560');
     expect(evidence?.locationCandidates).toEqual([
-      expect.objectContaining({ location: 'Zürich', addressLocality: 'Zürich' }),
-      expect.objectContaining({ location: 'Lausanne', addressLocality: 'Lausanne' }),
+      expect.objectContaining({ location: 'Zürich', addressLocality: 'Zürich', addressCountry: 'CH' }),
+      expect.objectContaining({ location: 'Lausanne', addressLocality: 'Lausanne', addressCountry: 'CH' }),
     ]);
     expect(listingEvidenceFields({}, evidence)).toMatchObject({
       location: 'Zürich',

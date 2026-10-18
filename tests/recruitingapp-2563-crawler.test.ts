@@ -83,8 +83,8 @@ describe('Switch Bewerbermanagement Stellen crawler parser', () => {
           location: 'Zürich',
           addressLocality: 'Zürich',
           locationCandidates: [
-            { location: 'Zürich', addressLocality: 'Zürich' },
-            { location: 'Lausanne', addressLocality: 'Lausanne' },
+            { location: 'Zürich', addressLocality: 'Zürich', addressCountry: 'CH' },
+            { location: 'Lausanne', addressLocality: 'Lausanne', addressCountry: 'CH' },
           ],
         });
     });

@@ -177,7 +177,10 @@ export function extractUmantisTitleAlternativeLocationEvidence(title = '') {
   if (alternatives.length !== 2 || alternatives.some((part) => !part || !isKnownSwissMunicipality(part))) {
     return null;
   }
-  const locationCandidates = alternatives.map(locationCandidate).filter(Boolean);
+  const locationCandidates = alternatives
+    .map(locationCandidate)
+    .filter(Boolean)
+    .map((candidate) => ({ ...candidate, addressCountry: 'CH' }));
   if (locationCandidates.length !== alternatives.length) return null;
   return {
     ...locationCandidates[0],
