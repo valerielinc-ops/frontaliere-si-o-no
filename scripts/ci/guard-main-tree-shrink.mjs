@@ -2,12 +2,16 @@
 import { execFileSync, spawn } from 'node:child_process';
 import { randomBytes } from 'node:crypto';
 import { realpathSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { checkoutFetchTarget } from '../lib/old-history-guard.mjs';
+import { withSingleFlightLockAsync } from '../lib/single-flight-lock.mjs';
 
 export const MIN_BASE_PATHS = 1_000;
 export const MAX_REMAINING_RATIO = 0.01;
 export const MIN_REMAINING_PATHS = 10;
 export const DEFAULT_GUARDED_PUSH_TIMEOUT_MS = 120_000;
+export const MISSING_BASE_FETCH_TIMEOUT_MS = 120_000;
 
 class FatalGuardError extends Error {}
 const activeGitChildren = new Set();
@@ -134,6 +138,97 @@ export function guardTreeShrink(beforeRevision, afterRevision, cwd = process.cwd
   return evaluateTreeCounts(before, after);
 }
 
+function hasCommitWithoutLazyFetch(revision, cwd) {
+  try {
+    execFileSync('git', ['cat-file', '-e', `${revision}^{commit}`], {
+      cwd,
+      env: { ...process.env, GIT_NO_LAZY_FETCH: '1' },
+      stdio: 'ignore',
+      timeout: 5_000,
+    });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function gitCommonDir(cwd) {
+  return execFileSync('git', ['rev-parse', '--git-common-dir'], {
+    cwd,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'ignore'],
+    timeout: 5_000,
+  }).trim();
+}
+
+async function fetchMissingBaseCommit(revision, remote, cwd) {
+  const expectedLength = expectedObjectIdLength(cwd);
+  if (revision.length !== expectedLength || !/^[0-9a-f]+$/iu.test(revision)) {
+    throw new TypeError(`Expected a full ${expectedLength}-character Git object ID before fetching the main base`);
+  }
+  if (hasCommitWithoutLazyFetch(revision, cwd)) return null;
+
+  const commonDir = gitCommonDir(cwd);
+  const lockPath = resolve(cwd, commonDir, 'frontaliere-main-tree-shrink-fetch.lock');
+  const temporaryRef = `refs/ci/main-tree-guard/fetch/${process.pid}-${randomBytes(8).toString('hex')}`;
+  const fetchTarget = checkoutFetchTarget({ cwd, remote });
+  const result = await withSingleFlightLockAsync(lockPath, async () => {
+    if (hasCommitWithoutLazyFetch(revision, cwd)) return null;
+    try {
+      const fetchResult = await runGit([
+        'fetch', '--quiet', '--no-tags', '--no-write-fetch-head', '--filter=blob:none',
+        fetchTarget.remote, `${revision}:${temporaryRef}`,
+      ], {
+        cwd,
+        env: { ...fetchTarget.env, GIT_NO_LAZY_FETCH: '1', GIT_TERMINAL_PROMPT: '0' },
+        silent: true,
+        timeoutMs: MISSING_BASE_FETCH_TIMEOUT_MS,
+      });
+      if (fetchResult.status !== 0) throw new Error('git fetch failed');
+    } catch {
+      deleteTemporaryRef(temporaryRef, cwd);
+      throw new Error('Unable to fetch the advertised main commit for tree-shrink verification.');
+    }
+    let fetchedRevision;
+    try {
+      fetchedRevision = execFileSync('git', ['rev-parse', '--verify', `${temporaryRef}^{commit}`], {
+        cwd,
+        env: { ...process.env, GIT_NO_LAZY_FETCH: '1' },
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'ignore'],
+        timeout: 5_000,
+      }).trim();
+    } catch {
+      deleteTemporaryRef(temporaryRef, cwd);
+      throw new Error('Fetched main commit could not be verified for tree-shrink protection.');
+    }
+    if (fetchedRevision !== revision) {
+      deleteTemporaryRef(temporaryRef, cwd);
+      throw new Error('Fetched main commit did not match the advertised push base.');
+    }
+    return temporaryRef;
+  });
+
+  if (!result.acquired) {
+    if (hasCommitWithoutLazyFetch(revision, cwd)) return null;
+    throw new Error('Another main tree verification is fetching from this repository; retry the push.');
+  }
+  return result.value;
+}
+
+function deleteTemporaryRef(reference, cwd) {
+  if (!reference) return;
+  try {
+    execFileSync('git', ['update-ref', '-d', reference], {
+      cwd,
+      stdio: 'ignore',
+      timeout: 5_000,
+    });
+  } catch {
+    console.error('warning: could not remove temporary main-tree-guard fetch ref');
+  }
+}
+
 function signalProcessGroup(pid, signal) {
   if (!pid || process.platform === 'win32') return;
   try {
@@ -207,6 +302,7 @@ function runGit(args, {
   captureStderr = false,
   allowAfterSignal = false,
   maxOutputBytes = 64 * 1024 * 1024,
+  env = process.env,
 } = {}) {
   if (receivedSignal && !allowAfterSignal) return Promise.reject(interruptedError());
   return new Promise((resolve, reject) => {
@@ -225,6 +321,7 @@ function runGit(args, {
         silent || captureStderr ? 'pipe' : 'inherit',
       ],
       detached: process.platform !== 'win32',
+      env,
     });
     activeGitChildren.add(child);
 
@@ -539,15 +636,20 @@ async function main(args) {
     }
   }
 
-  if (args.length !== 4 || args[0] !== '--before' || args[2] !== '--after') {
+  const fetchMissingFrom = args.length === 6 && args[4] === '--fetch-missing-from' ? args[5] : null;
+  if ((args.length !== 4 && !fetchMissingFrom) || args[0] !== '--before' || args[2] !== '--after') {
     console.error('Usage: guard-main-tree-shrink.mjs --before <ref-or-object-id> --after <ref-or-object-id>\n'
+      + '       guard-main-tree-shrink.mjs --before <object-id> --after <object-id> --fetch-missing-from <push-url>\n'
       + '       guard-main-tree-shrink.mjs --push-main --remote <remote> --target main --after <commit> '
       + '[--timeout-ms <milliseconds>] [--no-thin] [--no-verify] [--git-config <key=value>]');
     return 2;
   }
 
+  let temporaryRef = null;
+  const removeSignalForwarding = installSignalForwarding();
   try {
-    const before = resolveCommitRevision(args[1]);
+    temporaryRef = fetchMissingFrom ? await fetchMissingBaseCommit(args[1], fetchMissingFrom, process.cwd()) : null;
+    const before = resolveCommitRevision(temporaryRef || args[1]);
     const after = resolveCommitRevision(args[3]);
     const result = guardTreeShrink(before, after);
     const summary = `main tree paths: ${result.before} → ${result.after} (removed ${result.removed})`;
@@ -560,6 +662,9 @@ async function main(args) {
   } catch (error) {
     console.error(`::error::Unable to verify main tree size: ${error instanceof Error ? error.message : String(error)}`);
     return 1;
+  } finally {
+    removeSignalForwarding();
+    deleteTemporaryRef(temporaryRef, process.cwd());
   }
 }
 

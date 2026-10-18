@@ -54,9 +54,14 @@ if [ -n "$push_input" ]; then
       exit 1
     fi
     if is_zero_sha "$remote_sha"; then continue; fi
+    # A concurrent writer may have advanced main after this checkout was
+    # created. The advertised push SHA is still the correct comparison base,
+    # but a shallow/stale clone may not contain its commit object. The guard
+    # fetches that exact SHA from the push URL with a bounded single-flight fetch.
     node scripts/ci/guard-main-tree-shrink.mjs \
       --before "$remote_sha" \
-      --after "$local_sha"
+      --after "$local_sha" \
+      --fetch-missing-from "$2"
   done <<< "$push_input"
 fi
 

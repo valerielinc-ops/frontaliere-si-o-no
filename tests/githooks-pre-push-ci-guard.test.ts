@@ -19,6 +19,7 @@ const ROOT = resolve(import.meta.dirname, '..');
 const HOOK = resolve(ROOT, '.githooks/pre-push');
 const OLD_HISTORY_GUARD = resolve(ROOT, 'scripts/lib/old-history-guard.mjs');
 const SINGLE_FLIGHT_LOCK = resolve(ROOT, 'scripts/lib/single-flight-lock.mjs');
+const MAIN_TREE_SHRINK_GUARD = resolve(ROOT, 'scripts/ci/guard-main-tree-shrink.mjs');
 const ZERO_SHA = '0'.repeat(40);
 
 // Run the hook with a stubbed `node` binary prepended to PATH so the real
@@ -40,6 +41,8 @@ function runHook({
     `#!/usr/bin/env bash\nif [[ "\${1:-}" == *guard-main-tree-shrink.mjs ]]; then echo ran > "${treeShrinkMarker}"; exit 0; fi\nif [[ "\${1:-}" == *old-history-guard.mjs ]]; then echo ran > "${oldHistoryMarker}"; exit 0; fi\necho ran > "${marker}"\nprintf '%s\\n' "$@" > "${argsFile}"\nexit 42\n`,
   );
   chmodSync(join(stubDir, 'node'), 0o755);
+  writeFileSync(join(stubDir, 'git'), '#!/usr/bin/env bash\nif [[ "${1:-}" == cat-file ]]; then exit 0; fi\nexit 1\n');
+  chmodSync(join(stubDir, 'git'), 0o755);
   try {
     let code = 0;
     let stdout = '';
@@ -277,6 +280,143 @@ describe('.githooks/pre-push CI automation guard', () => {
     const { gateRan, treeShrinkRan } = runHook({ githubActions: 'true', stdinRefs: '' });
     expect(gateRan).toBe(true);
     expect(treeShrinkRan).toBe(false);
+  });
+});
+
+describe('.githooks/pre-push main tree base fetch', () => {
+  it('fetches an advertised main SHA missing from a shallow checkout into a temporary ref', () => {
+    const root = mkdtempSync(join(tmpdir(), 'pre-push-main-tree-fetch-'));
+    const pushRemote = join(root, 'push.git');
+    const fetchRemote = join(root, 'fetch.git');
+    const seed = join(root, 'seed');
+    const repo = join(root, 'shallow');
+    const stubDir = join(root, 'bin');
+    const scriptsDir = join(repo, 'scripts', 'ci');
+    const hookPath = join(repo, 'pre-push');
+    try {
+      mkdirSync(pushRemote, { recursive: true });
+      mkdirSync(fetchRemote, { recursive: true });
+      mkdirSync(seed, { recursive: true });
+      mkdirSync(stubDir, { recursive: true });
+      runGit(pushRemote, ['init', '--bare', '-q', '--initial-branch=main']);
+      runGit(fetchRemote, ['init', '--bare', '-q', '--initial-branch=main']);
+      runGit(seed, ['init', '-q', '--initial-branch=main']);
+      runGit(seed, ['config', 'user.name', 'Fixture']);
+      runGit(seed, ['config', 'user.email', 'fixture@example.invalid']);
+      writeFileSync(join(seed, 'base.txt'), 'base\n');
+      runGit(seed, ['add', '.']);
+      runGit(seed, ['commit', '-q', '-m', 'base']);
+      runGit(seed, ['remote', 'add', 'push', pushRemote]);
+      runGit(seed, ['remote', 'add', 'fetch', fetchRemote]);
+      runGit(seed, ['push', '-q', 'push', 'main']);
+      runGit(seed, ['push', '-q', 'fetch', 'main']);
+
+      execFileSync('git', ['clone', '--quiet', '--depth=1', `file://${fetchRemote}`, repo]);
+      expect(runGit(repo, ['rev-parse', '--is-shallow-repository'])).toBe('true');
+      const shallowPath = runGit(repo, ['rev-parse', '--git-path', 'shallow']);
+      const originalShallowFile = readFileSync(join(repo, shallowPath), 'utf8');
+      runGit(repo, ['remote', 'set-url', '--push', 'origin', pushRemote]);
+      writeFileSync(join(seed, 'remote.txt'), 'remote main advance\n');
+      runGit(seed, ['add', '.']);
+      runGit(seed, ['commit', '-q', '-m', 'advance remote main']);
+      const remoteSha = runGit(seed, ['rev-parse', 'HEAD']);
+      runGit(seed, ['push', '-q', 'push', 'main']);
+      expect(() => runGit(repo, ['cat-file', '-e', `${remoteSha}^{commit}`])).toThrow();
+
+      runGit(repo, ['config', 'user.name', 'Fixture']);
+      runGit(repo, ['config', 'user.email', 'fixture@example.invalid']);
+      writeFileSync(join(repo, 'candidate.txt'), 'local candidate\n');
+      runGit(repo, ['add', 'candidate.txt']);
+      runGit(repo, ['commit', '-q', '-m', 'local candidate']);
+      const localSha = runGit(repo, ['rev-parse', 'HEAD']);
+
+      mkdirSync(scriptsDir, { recursive: true });
+      writeFileSync(join(scriptsDir, 'guard-main-tree-shrink.mjs'), readFileSync(MAIN_TREE_SHRINK_GUARD));
+      mkdirSync(join(repo, 'scripts', 'lib'), { recursive: true });
+      writeFileSync(join(repo, 'scripts', 'lib', 'old-history-guard.mjs'), readFileSync(OLD_HISTORY_GUARD));
+      writeFileSync(join(repo, 'scripts', 'lib', 'single-flight-lock.mjs'), readFileSync(SINGLE_FLIGHT_LOCK));
+      writeFileSync(hookPath, readFileSync(HOOK));
+      chmodSync(hookPath, 0o755);
+      writeFileSync(join(stubDir, 'node'), [
+        '#!/usr/bin/env bash',
+        `if [[ "\${1:-}" == scripts/ci/guard-main-tree-shrink.mjs ]]; then exec ${JSON.stringify(process.execPath)} "$@"; fi`,
+        'if [[ "${1:-}" == *old-history-guard.mjs ]]; then exit 0; fi',
+        'exit 99',
+        '',
+      ].join('\n'));
+      chmodSync(join(stubDir, 'node'), 0o755);
+
+      const output = execFileSync('bash', [hookPath, 'origin', pushRemote], {
+        cwd: repo,
+        env: { ...process.env, GITHUB_ACTIONS: 'true', PATH: `${stubDir}:${process.env.PATH}` },
+        input: `refs/heads/main ${localSha} refs/heads/main ${remoteSha}\n`,
+        encoding: 'utf8',
+        timeout: 10_000,
+      });
+
+      expect(output).toMatch(/tree-shrink guard: main tree paths: \d+ → \d+/u);
+      expect(output).not.toContain('Unable to verify main tree size');
+      expect(runGit(repo, ['cat-file', '-e', `${remoteSha}^{commit}`])).toBe('');
+      expect(runGit(repo, ['for-each-ref', '--format=%(refname)', 'refs/ci/main-tree-guard/fetch'])).toBe('');
+      expect(readFileSync(join(repo, shallowPath), 'utf8')).toBe(originalShallowFile);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('fetches a missing advertised main SHA without making a complete checkout shallow', () => {
+    const root = mkdtempSync(join(tmpdir(), 'main-tree-fetch-complete-'));
+    const remote = join(root, 'remote.git');
+    const seed = join(root, 'seed');
+    const repo = join(root, 'complete');
+    try {
+      mkdirSync(remote, { recursive: true });
+      mkdirSync(seed, { recursive: true });
+      runGit(remote, ['init', '--bare', '-q', '--initial-branch=main']);
+      runGit(seed, ['init', '-q', '--initial-branch=main']);
+      runGit(seed, ['config', 'user.name', 'Fixture']);
+      runGit(seed, ['config', 'user.email', 'fixture@example.invalid']);
+      writeFileSync(join(seed, 'base.txt'), 'base\n');
+      runGit(seed, ['add', '.']);
+      runGit(seed, ['commit', '-q', '-m', 'base']);
+      runGit(seed, ['remote', 'add', 'origin', remote]);
+      runGit(seed, ['push', '-q', 'origin', 'main']);
+
+      execFileSync('git', ['clone', '--quiet', remote, repo]);
+      expect(runGit(repo, ['rev-parse', '--is-shallow-repository'])).toBe('false');
+      writeFileSync(join(seed, 'remote.txt'), 'remote main advance\n');
+      runGit(seed, ['add', '.']);
+      runGit(seed, ['commit', '-q', '-m', 'advance remote main']);
+      const remoteSha = runGit(seed, ['rev-parse', 'HEAD']);
+      runGit(seed, ['push', '-q', 'origin', 'main']);
+      expect(() => runGit(repo, ['cat-file', '-e', `${remoteSha}^{commit}`])).toThrow();
+
+      runGit(repo, ['config', 'user.name', 'Fixture']);
+      runGit(repo, ['config', 'user.email', 'fixture@example.invalid']);
+      writeFileSync(join(repo, 'candidate.txt'), 'local candidate\n');
+      runGit(repo, ['add', 'candidate.txt']);
+      runGit(repo, ['commit', '-q', '-m', 'local candidate']);
+      const localSha = runGit(repo, ['rev-parse', 'HEAD']);
+
+      mkdirSync(join(repo, 'scripts', 'ci'), { recursive: true });
+      mkdirSync(join(repo, 'scripts', 'lib'), { recursive: true });
+      writeFileSync(join(repo, 'scripts', 'ci', 'guard-main-tree-shrink.mjs'), readFileSync(MAIN_TREE_SHRINK_GUARD));
+      writeFileSync(join(repo, 'scripts', 'lib', 'old-history-guard.mjs'), readFileSync(OLD_HISTORY_GUARD));
+      writeFileSync(join(repo, 'scripts', 'lib', 'single-flight-lock.mjs'), readFileSync(SINGLE_FLIGHT_LOCK));
+
+      const output = execFileSync(process.execPath, [
+        join(repo, 'scripts', 'ci', 'guard-main-tree-shrink.mjs'),
+        '--before', remoteSha,
+        '--after', localSha,
+        '--fetch-missing-from', remote,
+      ], { cwd: repo, encoding: 'utf8', timeout: 10_000 });
+
+      expect(output).toMatch(/tree-shrink guard: main tree paths: \d+ → \d+/u);
+      expect(runGit(repo, ['rev-parse', '--is-shallow-repository'])).toBe('false');
+      expect(runGit(repo, ['for-each-ref', '--format=%(refname)', 'refs/ci/main-tree-guard/fetch'])).toBe('');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 });
 

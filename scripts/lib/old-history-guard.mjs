@@ -456,7 +456,7 @@ function resolveScratchRemote({ cwd, remote }) {
  * a promisor remote. Keep the URL written by Git credential-free and pass its
  * Basic header ephemerally to the child instead.
  */
-function checkoutFetchTarget({ cwd, remote }) {
+export function checkoutFetchTarget({ cwd, remote }) {
   const location = resolveScratchRemote({ cwd, remote });
   let url;
   try {
