@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const specCrawlerMocks = vi.hoisted(() => ({
@@ -50,6 +51,15 @@ describe('Seniorenzentrum Engelhof crawler parser', () => {
   it('exports the stable company identity', () => {
     expect(SENIORENZENTRUM_ENGELHOF_KEY).toBe('seniorenzentrum-engelhof');
     expect(SENIORENZENTRUM_ENGELHOF_COMPANY_NAME).toBe('Seniorenzentrum Engelhof');
+  });
+
+  it('opts into clean-IP rescue when the listing page yields no candidates', () => {
+    const spec = JSON.parse(readFileSync(
+      new URL('../data/prospector/crawlers/seniorenzentrum-engelhof.json', import.meta.url),
+      'utf8',
+    ));
+
+    expect(spec).toMatchObject({ rescueOnEmptyListing: true });
   });
 
   describe('source and profession filters', () => {
