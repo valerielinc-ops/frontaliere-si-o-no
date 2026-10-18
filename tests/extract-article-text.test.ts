@@ -147,6 +147,25 @@ describe('extractArticleText', () => {
     expect(result.text).toContain('Editorial paragraph one');
   });
 
+  it.each([
+    ['hidden', '<p hidden>'],
+    ['aria-hidden', '<p aria-hidden="true">'],
+    ['data-nosnippet', '<p data-nosnippet="true">'],
+    ['tracking class', '<p class="tracking-pixel">'],
+  ])('filters a non-content marker on the candidate paragraph: %s', (_label, openingTag) => {
+    const payload = 'Candidate-level tracking payload that must never enter the extracted article text.';
+    const html = `<article><noscript>${openingTag}${payload}</p>`
+      + '<p>Editorial paragraph one with enough content for extraction.</p>'
+      + '<p>Editorial paragraph two with enough content for extraction.</p>'
+      + '</noscript></article>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('article-tag');
+    expect(result.text).not.toContain(payload);
+    expect(result.text).toContain('Editorial paragraph one');
+    expect(result.text).toContain('Editorial paragraph two');
+  });
+
   it('preserves editorial noscript paragraphs with normal analytics attributes', () => {
     const html = '<article><noscript>'
       + '<p data-track-id="story-1">Editorial noscript paragraph one with enough content for extraction.</p>'
