@@ -167,6 +167,15 @@ describe('extractArticleText', () => {
     expect(result.text).toBe('');
   });
 
+  it('fails closed on an ambiguous JavaScript division before a paragraph-shaped tail', () => {
+    const html = '<main><noscript><script>const value = a / b / c; '
+      + '<p>DIVISION_PAYLOAD</p></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain('DIVISION_PAYLOAD');
+    expect(result.text).toBe('');
+  });
+
   it('keeps adjacent tracking noscript blocks out of the fallback path', () => {
     const editorial = 'Editorial fallback paragraph with enough substantive source context for extraction.';
     const tracking = 'Tracking payload that is long enough to pass the paragraph floor and must never enter source text.';

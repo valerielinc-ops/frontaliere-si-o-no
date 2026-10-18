@@ -244,19 +244,6 @@ function findRecoverableNoscriptTail(markup, contentStart, rawTextTag) {
       continue;
     }
 
-    if (state === 'regex-literal' || state === 'regex-character-class') {
-      if (char === '\\') {
-        index += 1;
-      } else if (state === 'regex-literal' && char === '[') {
-        state = 'regex-character-class';
-      } else if (state === 'regex-character-class' && char === ']') {
-        state = 'regex-literal';
-      } else if (state === 'regex-literal' && char === '/') {
-        state = 'code';
-      }
-      continue;
-    }
-
     if (state === 'html-comment') {
       if (markup.startsWith('-->', index)) {
         state = 'code';
@@ -278,7 +265,10 @@ function findRecoverableNoscriptTail(markup, contentStart, rawTextTag) {
       state = 'block-comment';
       index += 1;
     } else if (char === '/') {
-      state = 'regex-literal';
+      // A non-comment slash is ambiguous between division and a regex
+      // literal. Without a JavaScript tokenizer, fail closed instead of
+      // allowing a later paragraph-shaped token to become a tail delimiter.
+      return -1;
     } else if (markup.startsWith('<!--', index)) {
       state = 'html-comment';
       index += 3;
