@@ -87,7 +87,7 @@ export function checkoutFetchTarget({ cwd, remote }) {
 
 export function checkoutHttpExtraHeaders(cwd) {
   try {
-    const output = runGit(['-C', cwd, 'config', '--get-regexp', '^http\\..*\\.extraheader$'], {
+    const output = runGit(['-C', cwd, 'config', '--get-regexp', '^http(\\..*)?\\.extraheader$'], {
       cwd,
       stdio: ['ignore', 'pipe', 'pipe'],
     });
