@@ -130,7 +130,7 @@ describe('riepilogo annunci per località', () => {
       for (const locale of PROFESSION_LOCALES) {
         const path = join(root, 'dist', buildProfessionLandingPath(locale, 'infermiere'), 'index.html');
         const html = readFileSync(path, 'utf-8');
-        expect(html).toContain('data-profession-location-summary="1"');
+        expect(html).toMatch(/data-profession-location-summary(?:="1"|=1)/u);
         expect(html).toContain(expectedSentence[locale]);
       }
     } finally {
