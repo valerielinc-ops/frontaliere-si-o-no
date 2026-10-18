@@ -289,7 +289,9 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
         .toBe("always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'");
       expect(portableProducers.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
-      expect(portableJob.steps.at(-1).name).toBe('Release cross-entry crawler live-run lease');
+      expect(portableJob.steps.at(-1).name).toBe(
+        group === '23' ? 'Cleanup crawler generation state' : 'Release cross-entry crawler live-run lease',
+      );
       expect(stepByName(portableJob.steps, 'Upload crawler generation manifest (shadow)').with['retention-days'])
         .toBe(14);
     }

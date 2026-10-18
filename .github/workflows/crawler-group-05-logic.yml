@@ -7693,6 +7693,7 @@ jobs:
           commit_attempt=1
           commit_max_attempts=3
           while true; do
+            node scripts/ci/validate-workflow-data.mjs --kind crawler-generation-ledger --file data/crawler-generation-ledger.jsonl
             bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl
             git_commit_exit=$?
             if [ "$git_commit_exit" -eq 0 ]; then
