@@ -88,6 +88,72 @@ describe('read-only loop outcome exporters', () => {
     }]);
   });
 
+  it('combines the delivery time filter with the job-alert collection path', async () => {
+    let requestBody: any;
+    const stream = [
+      JSON.stringify({
+        document: {
+          name: `${ROOT}/job_alert_subscribers/l4-fixture/campaign_deliveries/delivery`,
+          fields: { sent_at: { timestampValue: '2026-09-12T10:00:00.000Z' } },
+        },
+      }),
+      JSON.stringify({ done: true }),
+    ].join('\n');
+    const client = new GoogleDataClient({
+      serviceAccount: { project_id: 'test', client_email: 'fixture', private_key: 'fixture' },
+      fetchImpl: async (_url, init) => {
+        requestBody = JSON.parse(String(init?.body));
+        return { ok: true, text: async () => stream };
+      },
+    });
+    (client as any).token = { value: 'fixture', expiresAt: Date.now() + 120_000 };
+
+    await expect(client.runQuery({
+      collectionId: 'campaign_deliveries',
+      allDescendants: true,
+      pathPrefix: 'job_alert_subscribers',
+      where: {
+        fieldFilter: {
+          field: { fieldPath: 'sent_at' },
+          op: 'GREATER_THAN_OR_EQUAL',
+          value: { timestampValue: '2026-09-02T12:00:00.000Z' },
+        },
+      },
+    })).resolves.toHaveLength(1);
+
+    const where = requestBody.structuredQuery.where;
+    expect(where.compositeFilter.op).toBe('AND');
+    expect(where.compositeFilter.filters).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        fieldFilter: expect.objectContaining({
+          field: { fieldPath: 'sent_at' },
+          op: 'GREATER_THAN_OR_EQUAL',
+        }),
+      }),
+      expect.objectContaining({
+        compositeFilter: {
+          op: 'AND',
+          filters: expect.arrayContaining([
+            expect.objectContaining({
+              fieldFilter: expect.objectContaining({
+                field: { fieldPath: '__name__' },
+                op: 'GREATER_THAN_OR_EQUAL',
+                value: { referenceValue: `${ROOT}/job_alert_subscribers/__id-9223372036854775808__` },
+              }),
+            }),
+            expect.objectContaining({
+              fieldFilter: expect.objectContaining({
+                field: { fieldPath: '__name__' },
+                op: 'LESS_THAN',
+                value: { referenceValue: `${ROOT}/job_alert_subscribers\uf8ff/__id-9223372036854775808__` },
+              }),
+            }),
+          ]),
+        },
+      }),
+    ]));
+  });
+
   it('adds fresh L1 session fields without discarding the existing baseline', () => {
     const output = buildL1TelemetryExport({ _meta: { issue: 4304 }, oldFact: true }, {
       usefulSessions: 18595,
