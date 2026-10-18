@@ -110827,6 +110827,883 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-halloween-sassofoni-varese': {
+    title: 'Varese, il concerto di Halloween dei sassofoni il 31 ottobre',
+    description: 'Sabato 31 ottobre l’Auditorium Paolo Conti ospita il concerto L’appuntamento è alle 20.30 Dirige Giuseppina Levato In programma Orff, de Falla e Musorgskij',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, concerto, halloween, sassofoni',
+    ogTitle: 'Varese, «Due note… da paura» il 31 ottobre',
+    ogDescription: 'Sabato 31 ottobre l’Auditorium Paolo Conti ospita il concerto L’appuntamento è alle 20.30 Dirige Giuseppina Levato In programma Orff, de Falla e Musorgskij',
+    canonicalPath: '/articoli-frontaliere/halloween-sassofoni-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese, il concerto di Halloween dei sassofoni il 31 ottobre",
+      "description": "Sabato 31 ottobre l’Auditorium Paolo Conti ospita il concerto L’appuntamento è alle 20.30 Dirige Giuseppina Levato In programma Orff, de Falla e Musorgskij",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-halloween-sassofoni-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-18T00:35:29+00:00",
+      "dateModified": "2026-10-18T00:35:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/halloween-sassofoni-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-hcap-raccolta-fondi-3-milioni': {
+    title: 'HCAP: obiettivo 3,5 milioni di franchi e scadenza il 22 ottobre',
+    description: 'L\'HCAP punta a raccogliere 3-3,5 milioni di franchi Il secondo giro si chiude il 22 ottobre La raccolta è rivolta alla base dei tifosi Davide Mottis indica',
+    keywords: 'frontalieri, ticino, svizzera, italia, hcap, obiettivo, milioni, franchi',
+    ogTitle: 'L\'HCAP cerca fondi: obiettivo 3,5 milioni di franchi',
+    ogDescription: 'L\'HCAP punta a raccogliere 3-3,5 milioni di franchi Il secondo giro si chiude il 22 ottobre La raccolta è rivolta alla base dei tifosi Davide Mottis indica',
+    canonicalPath: '/articoli-frontaliere/hcap-raccolta-fondi-3-milioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "HCAP: obiettivo 3,5 milioni di franchi e scadenza il 22 ottobre",
+      "description": "L'HCAP punta a raccogliere 3-3,5 milioni di franchi Il secondo giro si chiude il 22 ottobre La raccolta è rivolta alla base dei tifosi Davide Mottis indica",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-hcap-raccolta-fondi-3-milioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-18T00:52:03+00:00",
+      "dateModified": "2026-10-18T00:52:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/hcap-raccolta-fondi-3-milioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-camerino-teatro-sociale-soccorsi': {
+    title: 'Como, sospetta frattura: 118 e vigili del fuoco al Sociale',
+    description: 'Questa sera soccorsi al Teatro Sociale di Como Un artista con sospetta frattura in un camerino Necessaria l\'autoscala per portare la barella in strada',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, sospetta, frattura, vigili',
+    ogTitle: 'Como, sospetta frattura: soccorsi al Teatro Sociale',
+    ogDescription: 'Questa sera soccorsi al Teatro Sociale di Como Un artista con sospetta frattura in un camerino Necessaria l\'autoscala per portare la barella in strada',
+    canonicalPath: '/articoli-frontaliere/camerino-teatro-sociale-soccorsi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, sospetta frattura: 118 e vigili del fuoco al Sociale",
+      "description": "Questa sera soccorsi al Teatro Sociale di Como Un artista con sospetta frattura in un camerino Necessaria l'autoscala per portare la barella in strada",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-camerino-teatro-sociale-soccorsi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-18T01:13:07+00:00",
+      "dateModified": "2026-10-18T01:13:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/camerino-teatro-sociale-soccorsi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-agra-sagra-zucca': {
+    title: 'Agra, la Sagra della Zucca rinviata al 25 ottobre',
+    description: 'La 43ª Sagra della Zucca è stata rinviata al 25 ottobre L\'appuntamento era previsto per domenica 18 ottobre Il rinvio è stato deciso per il maltempo atteso Pro',
+    keywords: 'frontalieri, ticino, svizzera, italia, agra, sagra, zucca, rinviata',
+    ogTitle: 'Agra: Sagra della Zucca rinviata al 25 ottobre',
+    ogDescription: 'La 43ª Sagra della Zucca è stata rinviata al 25 ottobre L\'appuntamento era previsto per domenica 18 ottobre Il rinvio è stato deciso per il maltempo atteso Pro',
+    canonicalPath: '/articoli-frontaliere/agra-sagra-zucca/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agra, la Sagra della Zucca rinviata al 25 ottobre",
+      "description": "La 43ª Sagra della Zucca è stata rinviata al 25 ottobre L'appuntamento era previsto per domenica 18 ottobre Il rinvio è stato deciso per il maltempo atteso Pro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-agra-sagra-zucca.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-18T02:02:43+00:00",
+      "dateModified": "2026-10-18T02:02:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agra-sagra-zucca/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aic-lombardia-varese-2026': {
+    title: 'AIC Lombardia a Varese: sport senza glutine e Pulciniadi',
+    description: 'AIC Lombardia a Varese dal 23 al 25 ottobre Desk e ristori senza glutine ai Giardini Estensi Circa 450 bambini alle Pulciniadi Chi → AIC Lombardia APS Quando →',
+    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, varese, sport, senza',
+    ogTitle: 'AIC Lombardia a Varese con sport senza glutine e Pulciniadi',
+    ogDescription: 'AIC Lombardia a Varese dal 23 al 25 ottobre Desk e ristori senza glutine ai Giardini Estensi Circa 450 bambini alle Pulciniadi Chi → AIC Lombardia APS Quando →',
+    canonicalPath: '/articoli-frontaliere/aic-lombardia-varese-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AIC Lombardia a Varese: sport senza glutine e Pulciniadi",
+      "description": "AIC Lombardia a Varese dal 23 al 25 ottobre Desk e ristori senza glutine ai Giardini Estensi Circa 450 bambini alle Pulciniadi Chi → AIC Lombardia APS Quando →",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-aic-lombardia-varese-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Desk informativo di AIC Lombardia ai Giardini Estensi a Varese"
+      },
+      "datePublished": "2026-10-18T02:15:49+00:00",
+      "dateModified": "2026-10-18T02:15:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aic-lombardia-varese-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-gallarate-furto-strappo-minori': {
+    title: 'Gallarate, due minori fermati per furto con strappo',
+    description: 'Due minori di 17 e 14 anni arrestati in flagranza Un pensionato di 75 anni cade, ma non resta ferito La refurtiva viene recuperata e restituita Luogo: piazza',
+    keywords: 'frontalieri, ticino, svizzera, italia, gallarate, minori, fermati, furto',
+    ogTitle: 'Gallarate, due minori fermati per furto con strappo',
+    ogDescription: 'Due minori di 17 e 14 anni arrestati in flagranza Un pensionato di 75 anni cade, ma non resta ferito La refurtiva viene recuperata e restituita Luogo: piazza',
+    canonicalPath: '/articoli-frontaliere/gallarate-furto-strappo-minori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gallarate, due minori fermati per furto con strappo",
+      "description": "Due minori di 17 e 14 anni arrestati in flagranza Un pensionato di 75 anni cade, ma non resta ferito La refurtiva viene recuperata e restituita Luogo: piazza",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-gallarate-furto-strappo-minori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-18T03:06:55+00:00",
+      "dateModified": "2026-10-18T03:06:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gallarate-furto-strappo-minori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-radar-velocita-ticino-ottobre': {
+    title: 'Radar in Canton Ticino dal 19 al 25 ottobre: i controlli',
+    description: 'Controlli dal 19 al 25 ottobre 2026 Radar mobili e semi-stazionari in diverse località Coinvolte anche zone frequentate dai frontalieri italiani Chi → Polizia',
+    keywords: 'frontalieri, ticino, svizzera, italia, radar, canton, ottobre, controlli',
+    ogTitle: 'Radar in Canton Ticino dal 19 al 25 ottobre: dove sono i controlli',
+    ogDescription: 'Controlli dal 19 al 25 ottobre 2026 Radar mobili e semi-stazionari in diverse località Coinvolte anche zone frequentate dai frontalieri italiani Chi → Polizia',
+    canonicalPath: '/articoli-frontaliere/radar-velocita-ticino-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Radar in Canton Ticino dal 19 al 25 ottobre: i controlli",
+      "description": "Controlli dal 19 al 25 ottobre 2026 Radar mobili e semi-stazionari in diverse località Coinvolte anche zone frequentate dai frontalieri italiani Chi → Polizia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-radar-velocita-ticino-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Controlli della velocità con radar in Canton Ticino"
+      },
+      "datePublished": "2026-10-18T03:20:55+00:00",
+      "dateModified": "2026-10-18T03:20:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/radar-velocita-ticino-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-franchigia-accordo-redditi-single': {
+    title: 'Credito d\'imposta 2026: calcolo per il frontaliere single',
+    description: 'Accordo firmato il 23 dicembre 2020 In vigore dal 1° gennaio 2024 Vecchi frontalieri: esenzione di €7\'500 Nuovi frontalieri: franchigia di €10\'000 Accordo: 23',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, calcolo, single',
+    ogTitle: 'Frontaliere single: credito d\'imposta 2026 e quadro G',
+    ogDescription: 'Accordo firmato il 23 dicembre 2020 In vigore dal 1° gennaio 2024 Vecchi frontalieri: esenzione di €7\'500 Nuovi frontalieri: franchigia di €10\'000 Accordo: 23',
+    canonicalPath: '/articoli-frontaliere/franchigia-accordo-redditi-single/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito d'imposta 2026: calcolo per il frontaliere single",
+      "description": "Accordo firmato il 23 dicembre 2020 In vigore dal 1° gennaio 2024 Vecchi frontalieri: esenzione di €7'500 Nuovi frontalieri: franchigia di €10'000 Accordo: 23",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-credito-imposta-famiglia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere single controlla busta paga svizzera e dichiarazione italiana a Mendrisio"
+      },
+      "datePublished": "2026-10-18T03:51:56+00:00",
+      "dateModified": "2026-10-18T03:51:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franchigia-accordo-redditi-single/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-varese-arconatese-18-ottobre': {
+    title: 'Il Varese affronta l\'Arconatese a Caronno Pertusella',
+    description: 'Domenica 18 ottobre il Varese gioca alle ore 15 Sfida al \'Comunale\' di Caronno Pertusella Il Varese arriva dal successo contro l\'Oltrepò Ciceri chiede conferme',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, affronta, arconatese, caronno',
+    ogTitle: 'Il Varese fa visita all\'Arconatese alla ricerca di conferme',
+    ogDescription: 'Domenica 18 ottobre il Varese gioca alle ore 15 Sfida al \'Comunale\' di Caronno Pertusella Il Varese arriva dal successo contro l\'Oltrepò Ciceri chiede conferme',
+    canonicalPath: '/articoli-frontaliere/varese-arconatese-18-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Varese affronta l'Arconatese a Caronno Pertusella",
+      "description": "Domenica 18 ottobre il Varese gioca alle ore 15 Sfida al 'Comunale' di Caronno Pertusella Il Varese arriva dal successo contro l'Oltrepò Ciceri chiede conferme",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-varese-arconatese-18-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio Comunale di Caronno Pertusella per la partita Arconatese Varese"
+      },
+      "datePublished": "2026-10-18T04:49:51+00:00",
+      "dateModified": "2026-10-18T04:49:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-arconatese-18-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-passaggio-nuovo-impiego-g': {
+    title: 'Cambio datore per frontalieri: permesso G e procedura 2026',
+    description: 'Cambio datore per frontalieri nel 2026: procedura del permesso G, preavviso, contributi AVS e LPP, LAMal, imposta alla fonte e documenti da aggiornare in Ticino',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, datore, permesso, procedura',
+    ogTitle: 'Cambio datore per frontalieri: permesso G e procedura 2026',
+    ogDescription: 'Dal preavviso al rinnovo del permesso G: guida pratica per il frontaliere che cambia datore nel 2026, con aliquote AVS, AD/AC, LAINF e LPP, regole LAMal, doppia imposizione e distinzione tra vecchi e nuovi frontalieri.',
+    canonicalPath: '/articoli-frontaliere/passaggio-nuovo-impiego-g/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambio datore per frontalieri: permesso G e procedura 2026",
+      "description": "Cambio datore per frontalieri nel 2026: procedura del permesso G, preavviso, contributi AVS e LPP, LAMal, imposta alla fonte e documenti da aggiornare in Ticino",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere al valico di Brogeda con documenti per il cambio datore"
+      },
+      "datePublished": "2026-10-18T05:22:20+00:00",
+      "dateModified": "2026-10-18T05:22:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/passaggio-nuovo-impiego-g/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-g-verifica-datore-20km': {
+    title: 'Cambio datore per frontalieri entro 20 km: permesso G',
+    description: 'Il Nuovo Accordo è in vigore dal 1° gennaio 2024 L\'imposta alla fonte è trattenuta solo in Svizzera Vecchi frontalieri: €7\'500 nel regime transitorio 2024–2033',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, datore, entro, permesso',
+    ogTitle: 'Permesso G: cambio datore frontaliere nel 2026',
+    ogDescription: 'Il Nuovo Accordo è in vigore dal 1° gennaio 2024 L\'imposta alla fonte è trattenuta solo in Svizzera Vecchi frontalieri: €7\'500 nel regime transitorio 2024–2033',
+    canonicalPath: '/articoli-frontaliere/g-verifica-datore-20km/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambio datore per frontalieri entro 20 km: permesso G",
+      "description": "Il Nuovo Accordo è in vigore dal 1° gennaio 2024 L'imposta alla fonte è trattenuta solo in Svizzera Vecchi frontalieri: €7'500 nel regime transitorio 2024–2033",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-regime-fiscale-nuovo-accordo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere al confine ticinese con documenti per il cambio datore"
+      },
+      "datePublished": "2026-10-18T05:51:33+00:00",
+      "dateModified": "2026-10-18T05:51:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/g-verifica-datore-20km/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-arianna-di-claudio-roma': {
+    title: 'Arianna di claudio alla festa del cinema di roma',
+    description: 'Arianna Di Claudio alla Festa del Cinema di Roma L\'attrice varesina ha sfilato sul red carpet Il film è firmato da Giacomo Ciarrapico e Luca Vendruscolo Foto',
+    keywords: 'frontalieri, ticino, svizzera, italia, arianna, claudio, alla, festa',
+    ogTitle: 'Arianna Di Claudio sul red carpet a Roma',
+    ogDescription: 'Arianna Di Claudio alla Festa del Cinema di Roma L\'attrice varesina ha sfilato sul red carpet Il film è firmato da Giacomo Ciarrapico e Luca Vendruscolo Foto',
+    canonicalPath: '/articoli-frontaliere/arianna-di-claudio-roma/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Arianna di claudio alla festa del cinema di roma",
+      "description": "Arianna Di Claudio alla Festa del Cinema di Roma L'attrice varesina ha sfilato sul red carpet Il film è firmato da Giacomo Ciarrapico e Luca Vendruscolo Foto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Arianna Di Claudio sul red carpet della Festa del Cinema di Roma"
+      },
+      "datePublished": "2026-10-18T07:27:16+00:00",
+      "dateModified": "2026-10-18T07:27:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arianna-di-claudio-roma/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-vendemmia-tasse-ristorni-settembre': {
+    title: 'Frontalieri: vendemmia a 15 franchi, tassa ingresso 4mila, 900 mln disoccupati',
+    description: 'Nel Mendrisiotto la vendemmia è indicata a 15 franchi l’ora La tassa d’ingresso è indicata fino a 4mila franchi Per i frontalieri disoccupati si parla di 900',
+    keywords: 'frontalieri, ticino, svizzera, italia, vendemmia, franchi, tassa, ingresso',
+    ogTitle: 'Frontalieri: vendemmia a 15 franchi, tassa ingresso 4mila, 900 mln disoccupati',
+    ogDescription: 'Nel Mendrisiotto la vendemmia è indicata a 15 franchi l’ora La tassa d’ingresso è indicata fino a 4mila franchi Per i frontalieri disoccupati si parla di 900',
+    canonicalPath: '/articoli-frontaliere/frontalieri-vendemmia-tasse-ristorni-settembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: vendemmia a 15 franchi, tassa ingresso 4mila, 900 mln disoccupati",
+      "description": "Nel Mendrisiotto la vendemmia è indicata a 15 franchi l’ora La tassa d’ingresso è indicata fino a 4mila franchi Per i frontalieri disoccupati si parla di 900",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tassa-salute-ristorni-17-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vigneti del Mendrisiotto durante la vendemmia con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-10-18T07:49:24+00:00",
+      "dateModified": "2026-10-18T07:49:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-vendemmia-tasse-ristorni-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-incendio-via-cortivallo': {
+    title: 'Lugano, incendio in Via Cortivallo: una persona deceduta',
+    description: 'Incendio poco dopo le 3.00 in Via Cortivallo a Lugano Una persona trovata senza vita nell\'alloggio al secondo piano Ventidue inquilini evacuati e sei residenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, incendio, cortivallo, persona',
+    ogTitle: 'Incendio in Via Cortivallo a Lugano: una vittima',
+    ogDescription: 'Incendio poco dopo le 3.00 in Via Cortivallo a Lugano Una persona trovata senza vita nell\'alloggio al secondo piano Ventidue inquilini evacuati e sei residenti',
+    canonicalPath: '/articoli-frontaliere/incendio-via-cortivallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano, incendio in Via Cortivallo: una persona deceduta",
+      "description": "Incendio poco dopo le 3.00 in Via Cortivallo a Lugano Una persona trovata senza vita nell'alloggio al secondo piano Ventidue inquilini evacuati e sei residenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Intervento dei soccorritori dopo l'incendio in una palazzina di Via Cortivallo a Lugano"
+      },
+      "datePublished": "2026-10-18T08:02:43+00:00",
+      "dateModified": "2026-10-18T08:02:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-via-cortivallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-morto-andena-varese': {
+    title: 'È morto Gabriele «Lele» Andena, colonna del Varese calcio',
+    description: 'Gabriele Andena è morto a 79 anni dopo un malore improvviso. Varese: sei stagioni e due promozioni in Serie A. Era a Varese per la dedica a Pietro Anastasi. Età',
+    keywords: 'frontalieri, ticino, svizzera, italia, morto, gabriele, lele, andena',
+    ogTitle: 'È morto Gabriele «Lele» Andena, colonna del Varese calcio',
+    ogDescription: 'Gabriele Andena è morto a 79 anni dopo un malore improvviso.',
+    canonicalPath: '/articoli-frontaliere/morto-andena-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "È morto Gabriele «Lele» Andena, colonna del Varese calcio",
+      "description": "Gabriele Andena è morto a 79 anni dopo un malore improvviso. Varese: sei stagioni e due promozioni in Serie A. Era a Varese per la dedica a Pietro Anastasi. Età",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-morto-andena-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio di calcio con colori biancorossi"
+      },
+      "datePublished": "2026-10-18T08:43:52+00:00",
+      "dateModified": "2026-10-18T08:43:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/morto-andena-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-incendio-palazzina-lugano': {
+    title: 'Incendio notturno in una palazzina di Lugano: una vittima',
+    description: 'Incendio poco dopo le 3 in via Cortivallo a Lugano Fiamme partite da un appartamento al secondo piano Evacuati temporaneamente 22 inquilini Una persona trovata',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, notturno, palazzina, lugano',
+    ogTitle: 'Incendio a Lugano: una vittima in via Cortivallo',
+    ogDescription: 'Incendio poco dopo le 3 in via Cortivallo a Lugano Fiamme partite da un appartamento al secondo piano Evacuati temporaneamente 22 inquilini Una persona trovata',
+    canonicalPath: '/articoli-frontaliere/incendio-palazzina-lugano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio notturno in una palazzina di Lugano: una vittima",
+      "description": "Incendio poco dopo le 3 in via Cortivallo a Lugano Fiamme partite da un appartamento al secondo piano Evacuati temporaneamente 22 inquilini Una persona trovata",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-incendio-palazzina-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzina di via Cortivallo a Lugano dopo l'incendio notturno"
+      },
+      "datePublished": "2026-10-18T09:03:30+00:00",
+      "dateModified": "2026-10-18T09:03:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-palazzina-lugano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-10-18': {
+    title: 'Frontalieri: 666 nuovi annunci in Svizzera ieri — 18 ottobre 2026',
+    description: 'Bollettino frontalieri del 18 ottobre 2026: ultime code ai valichi, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Frontalieri: 666 nuovi annunci in Svizzera ieri — 18 ottobre 2026',
+    ogDescription: 'I numeri del 18 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti nuovi annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-10-18/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: 666 nuovi annunci in Svizzera ieri — 18 ottobre 2026",
+      "description": "Bollettino frontalieri del 18 ottobre 2026: ultime code ai valichi, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "Deterministic media produced by frontaliereticino.ch.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-10-18.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 18 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-10-18T09:30:31+00:00",
+      "dateModified": "2026-10-18T09:30:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-10-18/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rogo-cortivallo-persona-morta': {
+    title: 'Incendio in appartamento a Lugano: morta una persona',
+    description: 'Incendio poco dopo le 03:00 in via Cortivallo a Lugano Le fiamme sono partite da un appartamento al secondo piano Nell\'appartamento è stato trovato un corpo',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, appartamento, lugano, morta',
+    ogTitle: 'Incendio a Lugano, morta una persona in appartamento',
+    ogDescription: 'Incendio poco dopo le 03:00 in via Cortivallo a Lugano Le fiamme sono partite da un appartamento al secondo piano Nell\'appartamento è stato trovato un corpo',
+    canonicalPath: '/articoli-frontaliere/rogo-cortivallo-persona-morta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio in appartamento a Lugano: morta una persona",
+      "description": "Incendio poco dopo le 03:00 in via Cortivallo a Lugano Le fiamme sono partite da un appartamento al secondo piano Nell'appartamento è stato trovato un corpo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Via Cortivallo a Lugano, dove un incendio in appartamento ha causato una vittima"
+      },
+      "datePublished": "2026-10-18T09:43:01+00:00",
+      "dateModified": "2026-10-18T09:43:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rogo-cortivallo-persona-morta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lissago-corte-case-popolari': {
+    title: 'Lissago, nuova occupazione abusiva e nuove denunce',
+    description: 'Nella notte del 16-17 ottobre è stata sfondata un\'altra porta La stessa coppia è stata identificata e denunciata di nuovo La corte grande ospita 18 appartamenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, lissago, nuova, occupazione, abusiva',
+    ogTitle: 'Lissago, nuova occupazione e nuove denunce',
+    ogDescription: 'Nella notte del 16-17 ottobre è stata sfondata un\'altra porta La stessa coppia è stata identificata e denunciata di nuovo La corte grande ospita 18 appartamenti',
+    canonicalPath: '/articoli-frontaliere/lissago-corte-case-popolari/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lissago, nuova occupazione abusiva e nuove denunce",
+      "description": "Nella notte del 16-17 ottobre è stata sfondata un'altra porta La stessa coppia è stata identificata e denunciata di nuovo La corte grande ospita 18 appartamenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lissago-corte-case-popolari.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Corte residenziale con appartamenti popolari nella luce autunnale"
+      },
+      "datePublished": "2026-10-18T10:15:13+00:00",
+      "dateModified": "2026-10-18T10:15:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lissago-corte-case-popolari/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-checklist-neonato-ticino': {
+    title: 'Nascita figlio e anagrafe: pratiche 2026 per frontalieri',
+    description: 'Checklist 2026 in Ticino per il frontaliere con un figlio: anagrafe, assegni e pratiche consolari, imposta alla fonte in Svizzera, quadro CE del 730 e LAMal.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nascita, figlio, anagrafe, pratiche',
+    ogTitle: 'Nascita e pratiche 2026 per famiglie frontaliere',
+    ogDescription: 'Per le famiglie frontaliere, la nascita di un figlio riunisce iscrizione anagrafica, assegni familiari e pratiche consolari. Il quadro fiscale resta distinto: imposta alla fonte solo in Svizzera e credito d\'imposta nel quadro CE del 730.',
+    canonicalPath: '/articoli-frontaliere/checklist-neonato-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nascita figlio e anagrafe: pratiche 2026 per frontalieri",
+      "description": "Checklist 2026 in Ticino per il frontaliere con un figlio: anagrafe, assegni e pratiche consolari, imposta alla fonte in Svizzera, quadro CE del 730 e LAMal.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontaliere-nascita-figlio-anagrafe-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia frontaliere con neonato e documenti sul tavolo"
+      },
+      "datePublished": "2026-10-18T10:50:48+00:00",
+      "dateModified": "2026-10-18T10:50:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/checklist-neonato-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-checklist-neonato-confine-2026': {
+    title: 'Nascita figlio: anagrafe e assegni per frontalieri 2026',
+    description: 'Nascita: anagrafe, assegni familiari e pratiche consolari Accordo frontalieri: in vigore dal 1° gennaio 2024 Vecchi: esenzione €7\'500; nuovi: franchigia €10\'000',
+    keywords: 'frontalieri, ticino, svizzera, italia, nascita, figlio, anagrafe, assegni',
+    ogTitle: 'Nascita figlio: checklist 2026 per frontalieri',
+    ogDescription: 'Nascita: anagrafe, assegni familiari e pratiche consolari Accordo frontalieri: in vigore dal 1° gennaio 2024 Vecchi: esenzione €7\'500; nuovi: franchigia €10\'000',
+    canonicalPath: '/articoli-frontaliere/checklist-neonato-confine-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nascita figlio: anagrafe e assegni per frontalieri 2026",
+      "description": "Nascita: anagrafe, assegni familiari e pratiche consolari Accordo frontalieri: in vigore dal 1° gennaio 2024 Vecchi: esenzione €7'500; nuovi: franchigia €10'000",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-accordo-frontalieri-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia frontaliera con passeggino in una strada del Ticino"
+      },
+      "datePublished": "2026-10-18T11:33:43+00:00",
+      "dateModified": "2026-10-18T11:33:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/checklist-neonato-confine-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-indennita-giornaliere-stop-cosa-fare': {
+    title: 'Indennità malattia interrotte: 5 passi per tutelarsi',
+    description: 'Un burnout porta Patrick a un\'assenza completa dal lavoro La polizza prevede un limite di 720 o 730 giorni L\'assicurazione interrompe i pagamenti dopo poche',
+    keywords: 'frontalieri, ticino, svizzera, italia, indennità, malattia, interrotte, passi',
+    ogTitle: 'Indennità malattia interrotte: cosa fare subito',
+    ogDescription: 'Un burnout porta Patrick a un\'assenza completa dal lavoro La polizza prevede un limite di 720 o 730 giorni L\'assicurazione interrompe i pagamenti dopo poche',
+    canonicalPath: '/articoli-frontaliere/indennita-giornaliere-stop-cosa-fare/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indennità malattia interrotte: 5 passi per tutelarsi",
+      "description": "Un burnout porta Patrick a un'assenza completa dal lavoro La polizza prevede un limite di 720 o 730 giorni L'assicurazione interrompe i pagamenti dopo poche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-indennita-lavoro-ridotto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliere consulta documenti assicurazione malattia in ufficio a Bellinzona"
+      },
+      "datePublished": "2026-10-18T11:49:38+00:00",
+      "dateModified": "2026-10-18T11:49:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/indennita-giornaliere-stop-cosa-fare/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ps-tre-iniziative-thun': {
+    title: 'PS, sì a tre iniziative: api, mobilità e internet',
+    description: 'Tre iniziative hanno ottenuto il sì del PS a Thun Il buono mobilità riguarda trasporti pubblici e ferrovie Il testo chiede una tassa sui biglietti aerei',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziative, mobilità, internet, hanno',
+    ogTitle: 'A Thun il PS sostiene tre iniziative',
+    ogDescription: 'Tre iniziative hanno ottenuto il sì del PS a Thun Il buono mobilità riguarda trasporti pubblici e ferrovie Il testo chiede una tassa sui biglietti aerei',
+    canonicalPath: '/articoli-frontaliere/ps-tre-iniziative-thun/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "PS, sì a tre iniziative: api, mobilità e internet",
+      "description": "Tre iniziative hanno ottenuto il sì del PS a Thun Il buono mobilità riguarda trasporti pubblici e ferrovie Il testo chiede una tassa sui biglietti aerei",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ps-tre-iniziative-thun.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Congresso socialista a Thun: sì alle iniziative su api, mobilità e sicurezza digitale."
+      },
+      "datePublished": "2026-10-18T12:57:15+00:00",
+      "dateModified": "2026-10-18T12:57:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ps-tre-iniziative-thun/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

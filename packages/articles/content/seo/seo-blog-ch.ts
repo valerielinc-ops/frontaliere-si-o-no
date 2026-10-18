@@ -106969,6 +106969,391 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-attualita-istituzioni-2026': {
+    title: 'Svizzera, istruzioni per l\'uso: politica, istituzioni e ambiente',
+    description: 'UDC quasi al 30% a un anno dalle elezioni federali Il 29 novembre si vota sulla legge sul materiale bellico Adula e Grauhorn non sono più uniti Solar Express',
+    keywords: 'frontalieri, ticino, svizzera, italia, istruzioni, politica, istituzioni, ambiente',
+    ogTitle: 'Svizzera, istruzioni per l\'uso: politica, armi e ghiacciai',
+    ogDescription: 'UDC quasi al 30% a un anno dalle elezioni federali Il 29 novembre si vota sulla legge sul materiale bellico Adula e Grauhorn non sono più uniti Solar Express',
+    canonicalPath: '/articoli-svizzera/svizzera-attualita-istituzioni-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera, istruzioni per l'uso: politica, istituzioni e ambiente",
+      "description": "UDC quasi al 30% a un anno dalle elezioni federali Il 29 novembre si vota sulla legge sul materiale bellico Adula e Grauhorn non sono più uniti Solar Express",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-svizzera-attualita-istituzioni-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna con rappresentanza della politica svizzera"
+      },
+      "datePublished": "2026-10-18T01:29:15+00:00",
+      "dateModified": "2026-10-18T01:29:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-attualita-istituzioni-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pensionato-vince-contro-ffs': {
+    title: 'Pensionato la spunta contro le FFS dopo mesi di battaglia',
+    description: 'UFT: supplemento di 75 franchi dichiarato ingiustificato Ritardo di un autobus, poi un itinerario alternativo La vicenda parte dal viaggio Küsnacht-Rafz Il caso',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensionato, spunta, contro, dopo',
+    ogTitle: 'Pensionato la spunta contro le FFS dopo mesi di battaglia',
+    ogDescription: 'UFT: supplemento di 75 franchi dichiarato ingiustificato Ritardo di un autobus, poi un itinerario alternativo La vicenda parte dal viaggio Küsnacht-Rafz Il caso',
+    canonicalPath: '/articoli-svizzera/pensionato-vince-contro-ffs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensionato la spunta contro le FFS dopo mesi di battaglia",
+      "description": "UFT: supplemento di 75 franchi dichiarato ingiustificato Ritardo di un autobus, poi un itinerario alternativo La vicenda parte dal viaggio Küsnacht-Rafz Il caso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pensionato vince la battaglia contro le FFS sui trasporti pubblici"
+      },
+      "datePublished": "2026-10-18T01:47:23+00:00",
+      "dateModified": "2026-10-18T01:47:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pensionato-vince-contro-ffs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-manager-ffs-denaro-pubblico': {
+    title: 'Ex manager FFS, Lamborghini e casa in Florida con soldi pubblici',
+    description: 'Ex dirigente FFS accusato di sottrarre circa 9 milioni Indagine federale aperta dal dicembre 2024 Processo previsto a fine ottobre Danno penalmente rilevante',
+    keywords: 'frontalieri, ticino, svizzera, italia, manager, lamborghini, casa, florida',
+    ogTitle: 'Ex manager FFS sotto inchiesta per milioni sottratti',
+    ogDescription: 'Ex dirigente FFS accusato di sottrarre circa 9 milioni Indagine federale aperta dal dicembre 2024 Processo previsto a fine ottobre Danno penalmente rilevante',
+    canonicalPath: '/articoli-svizzera/manager-ffs-denaro-pubblico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ex manager FFS, Lamborghini e casa in Florida con soldi pubblici",
+      "description": "Ex dirigente FFS accusato di sottrarre circa 9 milioni Indagine federale aperta dal dicembre 2024 Processo previsto a fine ottobre Danno penalmente rilevante",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-manager-ffs-denaro-pubblico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edifici istituzionali federali in Svizzera"
+      },
+      "datePublished": "2026-10-18T02:31:55+00:00",
+      "dateModified": "2026-10-18T02:31:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/manager-ffs-denaro-pubblico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lamal-guida-2026-canton-argovia': {
+    title: 'Sistema sanitario svizzero LAMal: guida 2026 Canton Argovia',
+    description: 'Chi risiede in Svizzera deve avere un\'assicurazione LAMal La polizza va stipulata entro tre mesi dall\'arrivo Per gli adulti sono previste franchigie di CHF 300',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, sanitario, svizzero, lamal',
+    ogTitle: 'Guida LAMal 2026 per residenti in Argovia: premi e franchigie',
+    ogDescription: 'Chi risiede in Svizzera deve avere un\'assicurazione LAMal La polizza va stipulata entro tre mesi dall\'arrivo Per gli adulti sono previste franchigie di CHF 300',
+    canonicalPath: '/articoli-svizzera/lamal-guida-2026-canton-argovia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema sanitario svizzero LAMal: guida 2026 Canton Argovia",
+      "description": "Chi risiede in Svizzera deve avere un'assicurazione LAMal La polizza va stipulata entro tre mesi dall'arrivo Per gli adulti sono previste franchigie di CHF 300",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lamal-guida-2026-canton-argovia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guida LAMal 2026 per residenti nel canton Argovia"
+      },
+      "datePublished": "2026-10-18T02:46:20+00:00",
+      "dateModified": "2026-10-18T02:46:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lamal-guida-2026-canton-argovia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ordinanza-liste-validita': {
+    title: 'ONU modifica la lista di sanzioni: SESAM aggiornato',
+    description: 'Il 16 ottobre 2026 l’ONU ha apportato una modifica a una lista di sanzioni. SESAM è stata aggiornata di conseguenza. Il 4 marzo 2016 il Consiglio federale aveva',
+    keywords: 'frontalieri, ticino, svizzera, italia, modifica, lista, sanzioni, sesam',
+    ogTitle: 'ONU modifica la lista di sanzioni: SESAM aggiornato',
+    ogDescription: 'Il 16 ottobre 2026 l’ONU ha apportato una modifica a una lista di sanzioni.',
+    canonicalPath: '/articoli-svizzera/ordinanza-liste-validita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ONU modifica la lista di sanzioni: SESAM aggiornato",
+      "description": "Il 16 ottobre 2026 l’ONU ha apportato una modifica a una lista di sanzioni. SESAM è stata aggiornata di conseguenza. Il 4 marzo 2016 il Consiglio federale aveva",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ordinanza-liste-validita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Berna, edificio istituzionale e documenti sulla modifica delle liste ONU nella banca dati SESAM."
+      },
+      "datePublished": "2026-10-18T04:35:28+00:00",
+      "dateModified": "2026-10-18T04:35:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ordinanza-liste-validita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-prezzi-carburanti-rinviati-rinviati': {
+    title: 'Carburanti: perché i prezzi alla pompa restano alti',
+    description: 'Il greggio resta vicino ai 100 dollari al barile. I transiti da Hormuz sono inferiori del 30-40%. Cressier è l\'unica raffineria in Svizzera. Circa metà',
+    keywords: 'frontalieri, ticino, svizzera, italia, carburanti, perché, prezzi, alla',
+    ogTitle: 'Carburanti: perché i prezzi alla pompa restano alti',
+    ogDescription: 'Il greggio resta vicino ai 100 dollari al barile.',
+    canonicalPath: '/articoli-svizzera/prezzi-carburanti-rinviati-rinviati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carburanti: perché i prezzi alla pompa restano alti",
+      "description": "Il greggio resta vicino ai 100 dollari al barile. I transiti da Hormuz sono inferiori del 30-40%. Cressier è l'unica raffineria in Svizzera. Circa metà",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-prezzi-carburanti-rinviati-rinviati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di carburante in Svizzera con camion cisterna in sfondo"
+      },
+      "datePublished": "2026-10-18T06:40:53+00:00",
+      "dateModified": "2026-10-18T06:40:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-carburanti-rinviati-rinviati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-dacuda-mouse-scanner': {
+    title: 'Dacuda in liquidazione: sciolta la società zurighese',
+    description: 'Dacuda entra in liquidazione dopo il voto dell\'assemblea La start-up era nata nel 2009 da uno spin-off dell\'ETH Il mouse-scanner digitalizzava documenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, dacuda, liquidazione, sciolta, società',
+    ogTitle: 'Dacuda in liquidazione: sciolta la società zurighese',
+    ogDescription: 'Dacuda entra in liquidazione dopo il voto dell\'assemblea La start-up era nata nel 2009 da uno spin-off dell\'ETH Il mouse-scanner digitalizzava documenti',
+    canonicalPath: '/articoli-svizzera/dacuda-mouse-scanner/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dacuda in liquidazione: sciolta la società zurighese",
+      "description": "Dacuda entra in liquidazione dopo il voto dell'assemblea La start-up era nata nel 2009 da uno spin-off dell'ETH Il mouse-scanner digitalizzava documenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-dacuda-mouse-scanner.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mouse con funzione di scanner accanto a documenti in un ufficio svizzero"
+      },
+      "datePublished": "2026-10-18T06:52:25+00:00",
+      "dateModified": "2026-10-18T06:52:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dacuda-mouse-scanner/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-competitivita-svizzera-ocse-berna': {
+    title: 'OCSE Svizzera: chieste riforme per sanità e crescita',
+    description: 'Rapporto OCSE pubblicato il 15 settembre 2026 Apprezzato l’approccio economico della Svizzera Servono riforme per competitività e innovazione Seguito',
+    keywords: 'frontalieri, ticino, svizzera, italia, ocse, chieste, riforme, sanità',
+    ogTitle: 'OCSE: la Svizzera va bene ma servono riforme',
+    ogDescription: 'Rapporto OCSE pubblicato il 15 settembre 2026 Apprezzato l’approccio economico della Svizzera Servono riforme per competitività e innovazione Seguito',
+    canonicalPath: '/articoli-svizzera/competitivita-svizzera-ocse-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "OCSE Svizzera: chieste riforme per sanità e crescita",
+      "description": "Rapporto OCSE pubblicato il 15 settembre 2026 Apprezzato l’approccio economico della Svizzera Servono riforme per competitività e innovazione Seguito",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-disoccupazione-berna-settembre-2026-stabile.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede delle istituzioni svizzere"
+      },
+      "datePublished": "2026-10-18T08:25:08+00:00",
+      "dateModified": "2026-10-18T08:25:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/competitivita-svizzera-ocse-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aiuti-sociali-rifugiati-ucraini': {
+    title: 'Aiuti sociali ai rifugiati ucraini: opinioni contrastanti',
+    description: 'I Cantoni potranno fissare l\'importo dell\'aiuto sociale S L\'anno prossimo 46\'000 rifugiati potranno riceverlo Consultazione sull\'ordinanza 2 sull\'asilo fino',
+    keywords: 'frontalieri, ticino, svizzera, italia, aiuti, sociali, rifugiati, ucraini',
+    ogTitle: 'Aiuti sociali ai rifugiati ucraini: opinioni contrastanti',
+    ogDescription: 'I Cantoni potranno fissare l\'importo dell\'aiuto sociale S L\'anno prossimo 46\'000 rifugiati potranno riceverlo Consultazione sull\'ordinanza 2 sull\'asilo fino',
+    canonicalPath: '/articoli-svizzera/aiuti-sociali-rifugiati-ucraini/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aiuti sociali ai rifugiati ucraini: opinioni contrastanti",
+      "description": "I Cantoni potranno fissare l'importo dell'aiuto sociale S L'anno prossimo 46'000 rifugiati potranno riceverlo Consultazione sull'ordinanza 2 sull'asilo fino",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-aiuti-sociali-rifugiati-ucraini.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficiale cantonale che consegna aiuti sociali a rifugiati ucraini in Svizzera"
+      },
+      "datePublished": "2026-10-18T10:00:31+00:00",
+      "dateModified": "2026-10-18T10:00:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aiuti-sociali-rifugiati-ucraini/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-prodex-40-anni-esericerca-spaziale': {
+    title: 'Prodex compie 40 anni: 130 progetti spaziali finanziati in Svizzera',
+    description: 'ESA celebra i primi 40 anni di Prodex Delegazioni svizzera e belga hanno avviato Prodex nel 1986 Zurigo ha ospitato conferenza e cerimonia In Svizzera',
+    keywords: 'frontalieri, ticino, svizzera, italia, prodex, compie, anni, progetti',
+    ogTitle: 'Prodex compie 40 anni: l\'impatto svizzero nella ricerca spaziale',
+    ogDescription: 'ESA celebra i primi 40 anni di Prodex Delegazioni svizzera e belga hanno avviato Prodex nel 1986 Zurigo ha ospitato conferenza e cerimonia In Svizzera',
+    canonicalPath: '/articoli-svizzera/prodex-40-anni-esericerca-spaziale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prodex compie 40 anni: 130 progetti spaziali finanziati in Svizzera",
+      "description": "ESA celebra i primi 40 anni di Prodex Delegazioni svizzera e belga hanno avviato Prodex nel 1986 Zurigo ha ospitato conferenza e cerimonia In Svizzera",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/imposta-cantonale-confronto-svizzera-2026-canton-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di ricerca svizzero con strumenti per missioni spaziali"
+      },
+      "datePublished": "2026-10-18T11:05:16+00:00",
+      "dateModified": "2026-10-18T11:05:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prodex-40-anni-esericerca-spaziale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
