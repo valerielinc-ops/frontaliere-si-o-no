@@ -64,6 +64,7 @@ describe('prepare-nanako-identical-twin-closure', () => {
         path: disposition.corpusPath,
         sitePath: disposition.sitePath,
         mode: 'adapted',
+        adaptationIssue: disposition.adaptationIssue,
         reason: disposition.reason,
       });
     }
