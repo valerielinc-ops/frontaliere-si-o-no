@@ -56,6 +56,12 @@ function fixture() {
         outcome_contract_version: 1,
         delivered_at: '2026-09-01T09:01:00.000Z',
       }),
+      // La collection group contiene anche consegne newsletter, ignorate dal
+      // ledger L4 e quindi escluse direttamente dalla query.
+      row('newsletter_subscribers/l4-fixture/campaign_deliveries/newsletter', {
+        campaign_id: 'weekly_2026-09-03',
+        sent_at: '2026-09-03T09:00:00.000Z',
+      }),
     ],
     events: [
       // `send` non e' una evidence class L4, ma il ledger usa comunque gli
@@ -96,8 +102,11 @@ function fakeRestClient(data: ReturnType<typeof fixture>, calls: Array<Record<st
           return Number.isFinite(value) && value >= start;
         })
         : source;
+      const scoped = query.pathPrefix
+        ? inWindow.filter((item) => item.name.split(`${ROOT}/`)[1]?.startsWith(`${query.pathPrefix}/`))
+        : inWindow;
       const selected = new Set(query.fieldPaths || []);
-      return inWindow.map((item) => ({
+      return scoped.map((item) => ({
         ...item,
         data: Object.fromEntries(Object.entries(item.data).filter(([field]) => selected.has(field))),
       }));
@@ -253,6 +262,7 @@ describe('L4: query Firestore', () => {
       expect(byCollection.alerts.where).toBeUndefined();
       expect(byCollection.job_alert_subscribers.where).toBeUndefined();
       expect(byCollection.newsletter_subscribers.where).toBeUndefined();
+      expect(byCollection.campaign_deliveries.pathPrefix).toBe('job_alert_subscribers');
       expect(timestampFilter(byCollection.campaign_deliveries)).toEqual({
         field: 'sent_at',
         value: '2026-09-02T12:00:00.000Z',
