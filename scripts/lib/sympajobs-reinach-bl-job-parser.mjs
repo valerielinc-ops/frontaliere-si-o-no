@@ -256,7 +256,8 @@ export async function fetchAllSympajobsReinachBlJobs(runtime = {}) {
     const title = normalizeSpace(listing.title || '');
     const description = stripHtml(listing.description || '');
     const url = canonicalUrl(listing.url || listing.sourceUrl || '');
-    const listingEvidence = BL_REGION_ONLY_RE.test(normalizeSpace(listing.location || ''))
+    const regionOnly = BL_REGION_ONLY_RE.test(normalizeSpace(listing.location || ''));
+    const listingEvidence = regionOnly
       ? { ...listing, addressLocality: '' }
       : listing.locationCandidates?.[0] || listing;
     const geography = resolveSourceBackedSwissGeography(listingEvidence);
@@ -268,10 +269,13 @@ export async function fetchAllSympajobsReinachBlJobs(runtime = {}) {
       slugify(`${title} ${geography.location} sympajobs ch`),
       urlHash.slice(0, 8),
     );
-    const geographyFields = sourceBackedSwissGeographyFields(
+    const resolvedGeographyFields = sourceBackedSwissGeographyFields(
       listingEvidence,
       geography,
     );
+    const geographyFields = regionOnly
+      ? { ...resolvedGeographyFields, addressLocality: '' }
+      : resolvedGeographyFields;
     jobs.push({
       id: `${SYMPAJOBS_REINACH_BL_KEY}-${urlHash}`,
       slug,

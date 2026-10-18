@@ -168,6 +168,7 @@ describe('Sympajobs Reinach BL source-backed crawler', () => {
       title: 'Reinigungsmitarbeiter/-in 20-100%',
       canton: 'BL',
       location: 'Baselland',
+      addressLocality: '',
       description: DESCRIPTION,
       datePosted: '2026-08-11',
     })]);
