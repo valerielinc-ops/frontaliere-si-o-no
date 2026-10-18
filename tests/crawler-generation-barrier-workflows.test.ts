@@ -39,6 +39,32 @@ function stepByName(steps: any[], name: string) {
   return matches[0];
 }
 
+function runLedgerPersistenceWithStubs(validationExit: number) {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-ledger-persistence-'));
+  const validatorPath = path.join(tmp, 'validate-workflow-data-stub.sh');
+  const commitPath = path.join(tmp, 'git-commit-data-stub.sh');
+  const summaryPath = path.join(tmp, 'summary.md');
+  const commitTracePath = path.join(tmp, 'commit-trace');
+  fs.writeFileSync(validatorPath, `#!/usr/bin/env bash\nexit ${validationExit}\n`, { mode: 0o755 });
+  fs.writeFileSync(commitPath, '#!/usr/bin/env bash\nprintf committed > "$COMMIT_TRACE"\n', { mode: 0o755 });
+
+  const validateCommand = 'node scripts/ci/validate-workflow-data.mjs --kind crawler-generation-ledger --file data/crawler-generation-ledger.jsonl';
+  const commitCommand = 'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl';
+  const run = crawlerGenerationLedgerPersistenceRun()
+    .replace(validateCommand, `bash "${validatorPath}"`)
+    .replace(commitCommand, `bash "${commitPath}"`);
+  const result = spawnSync('bash', ['-c', run], {
+    cwd: ROOT,
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      COMMIT_TRACE: commitTracePath,
+      GITHUB_STEP_SUMMARY: summaryPath,
+    },
+  });
+  return { tmp, result, summaryPath, commitTracePath };
+}
+
 function benchmarkReceipt(crawlerId: string, primarySlice: string) {
   const blobOid = 'c'.repeat(40);
   const payload = {
@@ -63,6 +89,28 @@ function benchmarkReceipt(crawlerId: string, primarySlice: string) {
 }
 
 describe('crawler generation barrier wiring from the crawler SSOT', () => {
+  it('stops ledger persistence before commit when generated validation fails', () => {
+    const { tmp, result, summaryPath, commitTracePath } = runLedgerPersistenceWithStubs(1);
+    try {
+      expect(result.status).not.toBe(0);
+      expect(result.stdout).toContain('::error::crawler generation ledger');
+      expect(fs.readFileSync(summaryPath, 'utf8')).toContain('crawler generation ledger');
+      expect(fs.existsSync(commitTracePath)).toBe(false);
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  });
+
+  it('commits the ledger when generated validation succeeds', () => {
+    const { tmp, result, commitTracePath } = runLedgerPersistenceWithStubs(0);
+    try {
+      expect(result.status).toBe(0);
+      expect(fs.readFileSync(commitTracePath, 'utf8')).toBe('committed');
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  });
+
   it('validates the complete receipt roster before replacing any generated workflow', () => {
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-render-all-'));
     try {

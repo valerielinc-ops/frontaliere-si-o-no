@@ -1968,7 +1968,11 @@ function crawlerGenerationRosterFromGroups(groups) {
 export function crawlerGenerationLedgerPersistenceRun() {
   return buildTokenBoundCommitRetryRun({
     command: [
-      'node scripts/ci/validate-workflow-data.mjs --kind crawler-generation-ledger --file data/crawler-generation-ledger.jsonl',
+      'if ! node scripts/ci/validate-workflow-data.mjs --kind crawler-generation-ledger --file data/crawler-generation-ledger.jsonl; then',
+      '  echo "::error::crawler generation ledger validation failed; data/crawler-generation-ledger.jsonl was not committed"',
+      '  echo "❌ crawler generation ledger validation failed; data/crawler-generation-ledger.jsonl was not committed" >> "$GITHUB_STEP_SUMMARY"',
+      '  exit 1',
+      'fi',
       'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl',
     ].join('\n'),
     label: 'crawler generation ledger',
