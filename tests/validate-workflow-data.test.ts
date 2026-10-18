@@ -113,8 +113,8 @@ const KINDS = [
 ] as const;
 
 describe('validate-workflow-data', () => {
-  it.each(KINDS)('accepts a valid %s artifact', (kind) => {
-    expect(validateWorkflowData(kind, fixtures()[kind], { now: NOW })).toEqual([]);
+  it.each(KINDS)('accepts a valid %s artifact', async (kind) => {
+    expect(await validateWorkflowData(kind, fixtures()[kind], { now: NOW })).toEqual([]);
   });
 
   it.each([
@@ -124,23 +124,23 @@ describe('validate-workflow-data', () => {
     ['funnel-metrics-history', (value: any) => delete value.entries[0].sourcesOk],
     ['telegram-member-count-history', (value: any) => delete value[0].count],
     ['pharmacy-google-usage-reservation', (value: any) => delete value.googlePlaces.requests],
-  ] as const)('rejects a %s artifact with a missing required field', (kind, removeField) => {
+  ] as const)('rejects a %s artifact with a missing required field', async (kind, removeField) => {
     const value: any = structuredClone(fixtures()[kind]);
     removeField(value);
-    expect(validateWorkflowData(kind, value, { now: NOW }).length).toBeGreaterThan(0);
+    expect((await validateWorkflowData(kind, value, { now: NOW })).length).toBeGreaterThan(0);
   });
 
-  it('rejects an ISO timestamp beyond the five-minute future tolerance', () => {
+  it('rejects an ISO timestamp beyond the five-minute future tolerance', async () => {
     const value: any = structuredClone(fixtures()['crawler-health']);
     value.crawlers['example-crawler']._lastObservedAt = '2026-10-18T12:06:00.000Z';
-    expect(validateWorkflowData('crawler-health', value, { now: NOW }).join('\n'))
+    expect((await validateWorkflowData('crawler-health', value, { now: NOW })).join('\n'))
       .toContain('futuro oltre');
   });
 
-  it('rejects an ISO timestamp with an impossible calendar date', () => {
+  it('rejects an ISO timestamp with an impossible calendar date', async () => {
     const value: any = structuredClone(fixtures()['crawler-health']);
     value.crawlers['example-crawler']._lastObservedAt = '2026-02-29T12:00:00.000Z';
-    expect(validateWorkflowData('crawler-health', value, { now: NOW }).join('\n'))
+    expect((await validateWorkflowData('crawler-health', value, { now: NOW })).join('\n'))
       .toContain('timestamp ISO non valido');
   });
 
@@ -151,10 +151,10 @@ describe('validate-workflow-data', () => {
     ['funnel-metrics-history', (value: any) => { value.entries[1].generatedAt = 'not-an-iso'; }],
     ['telegram-member-count-history', (value: any) => { value[0].date = 'not-a-date'; }],
     ['pharmacy-google-usage-reservation', (value: any) => { value.month = '2026-13'; }],
-  ] as const)('rejects a %s artifact with an invalid timestamp/date field', (kind, corruptTimestamp) => {
+  ] as const)('rejects a %s artifact with an invalid timestamp/date field', async (kind, corruptTimestamp) => {
     const value: any = structuredClone(fixtures()[kind]);
     corruptTimestamp(value);
-    expect(validateWorkflowData(kind, value, { now: NOW }).length).toBeGreaterThan(0);
+    expect((await validateWorkflowData(kind, value, { now: NOW })).length).toBeGreaterThan(0);
   });
 
   it.each([
@@ -162,12 +162,12 @@ describe('validate-workflow-data', () => {
     'evergreen-pool-history',
     'funnel-metrics-history',
     'telegram-member-count-history',
-  ] as const)('rejects a shortened append-only %s history', (kind) => {
+  ] as const)('rejects a shortened append-only %s history', async (kind) => {
     const baseline: any = structuredClone(fixtures()[kind]);
     const value: any = structuredClone(baseline);
     if (Array.isArray(value)) value.pop();
     else value.entries.pop();
-    expect(validateWorkflowData(kind, value, { baselineValue: baseline, now: NOW }).join('\n'))
+    expect((await validateWorkflowData(kind, value, { baselineValue: baseline, now: NOW })).join('\n'))
       .toContain('storico accorciato');
   });
 

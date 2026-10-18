@@ -1,4 +1,5 @@
 import { canonicalJson, digestDocument } from './canonical-json-digest.mjs';
+import { GROUP_MANIFEST_REASON_CODES } from './crawler-generation-ledger.mjs';
 import { validateCrawlerGenerationReceipt } from './crawler-generation-receipt.mjs';
 import { isCrawlerGenerationToken } from './crawler-generation-token.mjs';
 import {
@@ -15,22 +16,7 @@ export { canonicalJson, digestDocument, isCrawlerGenerationToken };
 // exact group set carried by the generated contract/roster, so dispatch does
 // not need a second hard-coded allowlist when that count changes.
 export const GROUP_IDS = createCrawlerGroupIds(24);
-export const GROUP_MANIFEST_REASON_CODES = Object.freeze([
-  'wait_failed',
-  'remote_fetch_failed',
-  'invalid_expected_roster',
-  'receipt_missing',
-  'receipt_invalid',
-  'generation_token_missing',
-  'ledger_persistence_failed',
-  'receipt_primary_slice_missing',
-  'receipt_failed',
-  'receipt_commit_not_ancestor',
-  'receipt_blob_mismatch',
-  'slice_hash_mismatch',
-  'duplicate_slice_ownership',
-  'manifest_internal_error',
-]);
+export { GROUP_MANIFEST_REASON_CODES };
 export const BARRIER_STATUSES = Object.freeze([
   'waiting',
   'ready',

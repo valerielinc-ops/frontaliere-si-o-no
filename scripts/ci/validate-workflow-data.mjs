@@ -5,9 +5,6 @@ import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 
-import { validateCrawlerGenerationLedgerEntry } from '../crawler-group-generation-finalizer.mjs';
-import { validateGeneratedData } from './validate-generated-data.mjs';
-
 export const MAX_FUTURE_SKEW_MS = 5 * 60 * 1000;
 
 const ISO_RE = /^(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/u;
@@ -149,7 +146,8 @@ export function parseWorkflowData(kind, raw, file = kind) {
   }
 }
 
-function validateCrawlerGenerationLedger(records, errors, nowMs) {
+async function validateCrawlerGenerationLedger(records, errors, nowMs) {
+  const { validateCrawlerGenerationLedgerEntry } = await import('../lib/crawler-generation-ledger.mjs');
   if (!Array.isArray(records) || records.length === 0) {
     add(errors, '$', 'ledger JSONL senza record');
     return;
@@ -162,7 +160,8 @@ function validateCrawlerGenerationLedger(records, errors, nowMs) {
   }
 }
 
-function validateHistory(kind, value, errors, nowMs) {
+async function validateHistory(kind, value, errors, nowMs) {
+  const { validateGeneratedData } = await import('./validate-generated-data.mjs');
   const generatedKind = kind === 'evergreen-pool-history' ? 'evergreen' : 'funnel';
   for (const error of validateGeneratedData(generatedKind, value)) add(errors, '$', error);
   if (!isObject(value)) return;
@@ -278,7 +277,7 @@ function recordCount(kind, value) {
   return Array.isArray(value?.entries) ? value.entries.length : 0;
 }
 
-export function validateWorkflowData(kind, value, { baselineValue = null, now = new Date() } = {}) {
+export async function validateWorkflowData(kind, value, { baselineValue = null, now = new Date() } = {}) {
   if (!SUPPORTED_KINDS.has(kind)) return [`$: kind non supportato: ${kind}`];
   const errors = [];
   const nowMs = now instanceof Date ? now.getTime() : new Date(now).getTime();
@@ -286,11 +285,11 @@ export function validateWorkflowData(kind, value, { baselineValue = null, now = 
 
   switch (kind) {
     case 'crawler-generation-ledger':
-      validateCrawlerGenerationLedger(value, errors, nowMs);
+      await validateCrawlerGenerationLedger(value, errors, nowMs);
       break;
     case 'evergreen-pool-history':
     case 'funnel-metrics-history':
-      validateHistory(kind, value, errors, nowMs);
+      await validateHistory(kind, value, errors, nowMs);
       break;
     case 'crawler-health':
       validateCrawlerHealth(value, errors, nowMs);
@@ -338,7 +337,7 @@ function readHeadFile(root, relative) {
   }
 }
 
-function main() {
+async function main() {
   const kind = arg('--kind');
   const file = arg('--file');
   if (!kind || !file || !SUPPORTED_KINDS.has(kind)) {
@@ -372,7 +371,7 @@ function main() {
       else baselineValue = baseline.value;
     }
   }
-  if (errors.length === 0) errors.push(...validateWorkflowData(kind, parsed.value, { baselineValue }));
+  if (errors.length === 0) errors.push(...await validateWorkflowData(kind, parsed.value, { baselineValue }));
   if (errors.length > 0) {
     console.error(`❌ ${file}: ${errors.length} errore/i di coerenza (${kind})`);
     for (const error of errors) console.error(`   - ${error}`);
@@ -384,4 +383,7 @@ function main() {
 
 if (process.argv[1] && (() => {
   try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; }
-})()) main();
+})()) main().catch((error) => {
+  console.error(`❌ ${error instanceof Error ? error.message : String(error)}`);
+  process.exitCode = 1;
+});
