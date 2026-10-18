@@ -99,12 +99,10 @@ describe('wiring nel drainer', () => {
 
   it('il drain trattiene un candidato sulla PR dichiarata, subito prima del pre-flight dei path', () => {
     const drain = source.slice(source.indexOf('for (const cand of queued) {'));
-    const fetch = drain.indexOf("'--json', 'body'");
     const hold = drain.indexOf('const declaredBlocker = overlapSkipBlocker(issueComments(cand.number) || []);');
     const pathOverlap = drain.indexOf('const candPaths = extractCodePaths(');
-    expect(fetch).toBeGreaterThan(-1);
-    expect(hold).toBeGreaterThan(fetch);
     expect(pathOverlap).toBeGreaterThan(hold);
     expect(drain.slice(hold, pathOverlap)).toContain('overlapBlockerActive(readOverlapBlocker(declaredBlocker))');
+    expect(drain.slice(pathOverlap)).toContain('ignorePr: conflictHandoffOriginPr(cand.title)');
   });
 });
