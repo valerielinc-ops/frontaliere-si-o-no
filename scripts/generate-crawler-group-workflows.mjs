@@ -2227,17 +2227,18 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
     });
   }
 
-  // Shared environment prep — pure setup, not a "commit/error mechanism".
-  // Copied verbatim from the individual workflows (identical across all 581).
+  // Shared credentials and global-write lease bootstrap. Without Firebase,
+  // there is no cross-group lock for the shared main-ref writer, so stop this
+  // run before the finalizer can commit any crawler output.
   steps.push({
-    name: 'Prepare Firebase credentials (optional)',
+    name: 'Prepare Firebase credentials and global data lease',
     env: { FIREBASE_SERVICE_ACCOUNT_JSON: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}' },
     run: [
       'if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then',
       '  printf \'%s\' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json',
       'else',
-      '  echo "ℹ️ Firebase secrets not set — crawler will use file config only."',
-      '  exit 0',
+      '  echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON is required to acquire the global data pipeline lease; refusing to continue to shared crawler commits."',
+      '  exit 1',
       'fi',
       'echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"',
       'echo "DATA_PIPELINE_LEASE=1" >> "$GITHUB_ENV"',
