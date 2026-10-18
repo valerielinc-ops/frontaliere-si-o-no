@@ -153,6 +153,19 @@ describe('extractArticleText', () => {
     expect(result.text).not.toContain('RAW_SCRIPT_GARBAGE');
   });
 
+  it.each([
+    ['JavaScript string', payload => `const template = "<p>${payload}</p>";`],
+    ['JSON string', payload => `{"html":"<p>${payload}</p>"}`],
+    ['block comment', payload => `/* <p>${payload}</p> */`],
+  ])('does not promote paragraph-shaped markup inside an unclosed raw-text %s', (_label, rawText) => {
+    const payload = 'Ambiguous paragraph-shaped script payload must remain excluded from source text.';
+    const html = `<main><noscript><script>${rawText(payload)}</main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain(payload);
+    expect(result.text).toBe('');
+  });
+
   it('keeps adjacent tracking noscript blocks out of the fallback path', () => {
     const editorial = 'Editorial fallback paragraph with enough substantive source context for extraction.';
     const tracking = 'Tracking payload that is long enough to pass the paragraph floor and must never enter source text.';

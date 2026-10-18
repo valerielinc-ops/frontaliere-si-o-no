@@ -188,7 +188,7 @@ function collectParagraphTexts(root, include = () => true, maxChars = Number.POS
 }
 
 const NOSCRIPT_RAW_TEXT_OPEN_RE = /<(script|style|textarea|title|xmp|iframe|noembed|noframes|plaintext)\b[^>]*>/gi;
-const NOSCRIPT_RECOVERABLE_TAIL_RE = /<(?:p|h2|h3|h4|li|blockquote)\b[^>]*>/gi;
+const NOSCRIPT_RECOVERABLE_TAIL_RE = /^<(?:p|h2|h3|h4|li|blockquote)\b[^>]*>/i;
 
 function findUnclosedNoscriptRawTextElement(markup) {
   const rawTextOpening = new RegExp(NOSCRIPT_RAW_TEXT_OPEN_RE.source, 'gi');
@@ -210,6 +210,69 @@ function findUnclosedNoscriptRawTextElement(markup) {
 
 function hasClosedNoscriptRawTextElements(markup) {
   return findUnclosedNoscriptRawTextElement(markup) === null;
+}
+
+function findRecoverableNoscriptTail(markup, contentStart, rawTextTag) {
+  if (rawTextTag !== 'script') return -1;
+
+  let state = 'code';
+  for (let index = contentStart; index < markup.length; index += 1) {
+    const char = markup[index];
+    const next = markup[index + 1];
+
+    if (state === 'single-quote' || state === 'double-quote' || state === 'template') {
+      if (char === '\\') {
+        index += 1;
+      } else if ((state === 'single-quote' && char === "'")
+        || (state === 'double-quote' && char === '"')
+        || (state === 'template' && char === '`')) {
+        state = 'code';
+      }
+      continue;
+    }
+
+    if (state === 'line-comment') {
+      if (char === '\n' || char === '\r') state = 'code';
+      continue;
+    }
+
+    if (state === 'block-comment') {
+      if (char === '*' && next === '/') {
+        state = 'code';
+        index += 1;
+      }
+      continue;
+    }
+
+    if (state === 'html-comment') {
+      if (markup.startsWith('-->', index)) {
+        state = 'code';
+        index += 2;
+      }
+      continue;
+    }
+
+    if (char === "'") {
+      state = 'single-quote';
+    } else if (char === '"') {
+      state = 'double-quote';
+    } else if (char === '`') {
+      state = 'template';
+    } else if (char === '/' && next === '/') {
+      state = 'line-comment';
+      index += 1;
+    } else if (char === '/' && next === '*') {
+      state = 'block-comment';
+      index += 1;
+    } else if (markup.startsWith('<!--', index)) {
+      state = 'html-comment';
+      index += 3;
+    } else if (char === '<' && NOSCRIPT_RECOVERABLE_TAIL_RE.test(markup.slice(index))) {
+      return index;
+    }
+  }
+
+  return -1;
 }
 
 /**
@@ -405,13 +468,15 @@ function prepareNoscriptSource(html) {
           const rawText = findUnclosedNoscriptRawTextElement(unterminatedMarkup);
           if (rawText) {
             // parse5 reports a zero-width noscript when both raw-text and
-            // noscript stay open. Drop the poisoned prefix, but retain the
-            // first paragraph-shaped source tail after the raw-text opener.
-            const recoverableTail = new RegExp(NOSCRIPT_RECOVERABLE_TAIL_RE.source, 'gi');
-            recoverableTail.lastIndex = rawText.contentStart;
-            const tailMatch = recoverableTail.exec(unterminatedMarkup);
-            rejectedEnd = tailMatch
-              ? location.startTag.endOffset + tailMatch.index
+            // noscript stay open. Only an editorial tag outside script
+            // strings/comments is a reliable source-level tail delimiter.
+            const tailOffset = findRecoverableNoscriptTail(
+              unterminatedMarkup,
+              rawText.contentStart,
+              rawText.tag,
+            );
+            rejectedEnd = tailOffset >= 0
+              ? location.startTag.endOffset + tailOffset
               : html.length;
           } else {
             rejectedEnd = html.length;
