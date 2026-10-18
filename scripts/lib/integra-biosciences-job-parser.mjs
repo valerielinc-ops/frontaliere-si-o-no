@@ -58,6 +58,7 @@ import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { readMetaContent } from './html-attr.mjs';
 import { decodeEntities } from './prospector/entities.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -448,20 +449,13 @@ export function parseDetailPage(html = '') {
   }
 
   // Try to extract JSON-LD first (most structured)
-  const jsonLdMatch = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-  if (jsonLdMatch) {
-    try {
-      const data = JSON.parse(jsonLdMatch[1]);
-      if (data['@type'] === 'JobPosting') {
-        if (data.description) {
-          result.description = normalizeSpace(stripHtml(data.description));
-        }
-        if (data.datePosted) {
-          result.datePosted = data.datePosted;
-        }
-      }
-    } catch {
-      // JSON parse failure — continue to HTML extraction
+  const data = extractJobPostingNodes(html)[0];
+  if (data) {
+    if (data.description) {
+      result.description = normalizeSpace(stripHtml(data.description));
+    }
+    if (data.datePosted) {
+      result.datePosted = data.datePosted;
     }
   }
 

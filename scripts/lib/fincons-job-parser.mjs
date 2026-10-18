@@ -2,6 +2,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 import { sourceLangOfBody } from './source-locale-slots.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -93,7 +94,8 @@ function parseJsonLd(document) {
   for (const node of document.querySelectorAll('script[type="application/ld+json"]')) {
     try {
       const payload = JSON.parse(node.textContent || '{}');
-      if (payload && payload['@type'] === 'JobPosting') return payload;
+      const [posting] = extractJobPostingNodesFromJson(payload);
+      if (posting) return posting;
     } catch {}
   }
   return null;

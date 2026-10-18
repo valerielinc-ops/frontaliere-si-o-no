@@ -38,6 +38,7 @@ import { launchChromium } from './ensure-chromium.mjs';
 import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { isSufficientVacancyDescription as hasPublishableJobupDetail } from './prospector/extract.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 import { evaluateSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 import { createSourceRecordQuarantine } from './source-record-quarantine.mjs';
@@ -481,20 +482,18 @@ export async function fetchJobupDetailDescription(detailUrl, { includePostingDat
       const payload = block.replace(/^<script[^>]+>/, '').replace(/<\/script>$/, '').trim();
       try {
         const data = JSON.parse(payload);
-        const items = Array.isArray(data) ? data : [data];
-        for (const item of items) {
-          if (item?.['@type'] === 'JobPosting' && item?.description) {
-            // description is HTML; strip tags and decode entities
-            const text = String(item.description)
-              .replace(/<br\s*\/?>/gi, '\n')
-              .replace(/<li[^>]*>/gi, '\n• ')
-              .replace(/<\/(p|div|li|h[1-6])>/gi, '\n')
-              .replace(/<[^>]+>/g, ' ');
-            const description = decodeEntities(text).replace(/\n{3,}/g, '\n\n').replace(/ {2,}/g, ' ').trim();
-            return includePostingDate
-              ? { description, rawPostedDate: typeof item.datePosted === 'string' ? item.datePosted : '' }
-              : description;
-          }
+        for (const item of extractJobPostingNodesFromJson(data)) {
+          if (!item?.description) continue;
+          // description is HTML; strip tags and decode entities
+          const text = String(item.description)
+            .replace(/<br\s*\/?>/gi, '\n')
+            .replace(/<li[^>]*>/gi, '\n• ')
+            .replace(/<\/(p|div|li|h[1-6])>/gi, '\n')
+            .replace(/<[^>]+>/g, ' ');
+          const description = decodeEntities(text).replace(/\n{3,}/g, '\n\n').replace(/ {2,}/g, ' ').trim();
+          return includePostingDate
+            ? { description, rawPostedDate: typeof item.datePosted === 'string' ? item.datePosted : '' }
+            : description;
         }
       } catch {
         // skip malformed JSON-LD blocks

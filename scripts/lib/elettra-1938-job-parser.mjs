@@ -13,7 +13,7 @@
  *   - isTrustedDomain()          — Validate URLs belong to this company
  *   - slugify() / stripHtml()    — Re-exported from crawler-template.mjs
  */
-import { extractJobPostingField } from './jobposting-jsonld.mjs';
+import { extractJobPostingDescription, extractJobPostingField } from './jobposting-jsonld.mjs';
 import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
@@ -210,14 +210,8 @@ export function parseElettraDetailDescription(html = '') {
   }
   if (sections.length) return normalizeDescriptionSpace(sections.join('\n\n'));
 
-  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
-    try {
-      const data = JSON.parse(script.textContent || '');
-      const postings = (Array.isArray(data) ? data : [data]).filter((node) => node?.['@type'] === 'JobPosting');
-      const description = htmlBlockToText(postings[0]?.description || '');
-      if (description) return description;
-    } catch { /* malformed JSON-LD: try the next block */ }
-  }
+  const description = htmlBlockToText(extractJobPostingDescription(html));
+  if (description) return description;
   return '';
 }
 

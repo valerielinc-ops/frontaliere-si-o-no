@@ -33,6 +33,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { fetchWithRetry } from './transient-fetch.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -270,19 +271,12 @@ async function fetchJobDetail(jobSeqNo, title, timeoutMs) {
     let postalCode = '';
     let addressLocality = '';
     let addressCountry = '';
-    const ldMatch = html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s);
-    if (ldMatch) {
-      try {
-        const ld = JSON.parse(ldMatch[1]);
-        descriptionHtml = ld.description || '';
-        const addr = ld.jobLocation?.address || {};
-        postalCode = (addr.postalCode || '').trim();
-        addressLocality = (addr.addressLocality || '').trim();
-        addressCountry = (addr.addressCountry || '').trim();
-      } catch {
-        // Malformed JSON-LD — fall through to raw-HTML regex fallback below.
-      }
-    }
+    const ld = extractJobPostingNodes(html)[0];
+    descriptionHtml = ld?.description || '';
+    const addr = ld?.jobLocation?.address || {};
+    postalCode = (addr.postalCode || '').trim();
+    addressLocality = (addr.addressLocality || '').trim();
+    addressCountry = (addr.addressCountry || '').trim();
 
     const stateMatch = html.match(/"standardisedStateCode":"([A-Z]{2})"/);
     const cantonCode = stateMatch ? stateMatch[1] : '';

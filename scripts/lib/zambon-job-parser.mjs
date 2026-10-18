@@ -23,6 +23,7 @@
 import { JSDOM } from 'jsdom';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { htmlToText } from './hospital-custom-html-helpers.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 const ZAMBON_BASE_URL = 'https://www.zambon.com';
 
@@ -97,25 +98,17 @@ export function parseListingPage(html = '') {
   const seen = new Set();
 
   // Strategy 1: Parse JSON-LD structured data
-  const jsonLdScripts = document.querySelectorAll('script[type="application/ld+json"]');
-  for (const script of jsonLdScripts) {
-    try {
-      const data = JSON.parse(script.textContent || '');
-      const items = Array.isArray(data) ? data : [data];
-      for (const item of items) {
-        if (item['@type'] === 'JobPosting' && item.title) {
-          const id = String(item.identifier || item.url || jobs.length + 1);
-          if (seen.has(id)) continue;
-          seen.add(id);
-          jobs.push({
-            id,
-            title: normalizeSpace(item.title),
-            url: item.url || '',
-            location: normalizeSpace(item.jobLocation?.address?.addressLocality || ZAMBON_SWISS_SITE.city),
-          });
-        }
-      }
-    } catch { /* ignore malformed JSON-LD */ }
+  for (const item of extractJobPostingNodes(html)) {
+    if (!item.title) continue;
+    const id = String(item.identifier || item.url || jobs.length + 1);
+    if (seen.has(id)) continue;
+    seen.add(id);
+    jobs.push({
+      id,
+      title: normalizeSpace(item.title),
+      url: item.url || '',
+      location: normalizeSpace(item.jobLocation?.address?.addressLocality || ZAMBON_SWISS_SITE.city),
+    });
   }
   if (jobs.length > 0) return jobs;
 

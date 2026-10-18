@@ -19,7 +19,34 @@
  * listing teaser; the structured-address extractor returns null.
  */
 
-function extractJobPostingNodes(html = '') {
+/**
+ * Flatten one parsed JSON-LD value and keep only JobPosting nodes.
+ *
+ * @param {unknown} value
+ * @returns {object[]}
+ */
+export function extractJobPostingNodesFromJson(value) {
+  const jobPostings = [];
+  const queue = Array.isArray(value) ? [...value] : [value];
+  while (queue.length) {
+    const node = queue.shift();
+    if (Array.isArray(node)) {
+      queue.push(...node);
+      continue;
+    }
+    if (!node || typeof node !== 'object') continue;
+    const graph = node['@graph'];
+    if (graph) queue.push(...(Array.isArray(graph) ? graph : [graph]));
+    const type = node['@type'];
+    const isJobPosting = Array.isArray(type)
+      ? type.some((item) => String(item).includes('JobPosting'))
+      : String(type || '').includes('JobPosting');
+    if (isJobPosting) jobPostings.push(node);
+  }
+  return jobPostings;
+}
+
+export function extractJobPostingNodes(html = '') {
   if (!html || typeof html !== 'string') return [];
   const blocks = [...html.matchAll(
     /<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi,
@@ -32,22 +59,7 @@ function extractJobPostingNodes(html = '') {
     } catch {
       continue; // malformed JSON-LD block — skip
     }
-    // A block may be a single object, an array, or a @graph wrapper.
-    const candidates = [];
-    const queue = Array.isArray(data) ? [...data] : [data];
-    while (queue.length) {
-      const node = queue.shift();
-      if (!node || typeof node !== 'object') continue;
-      if (Array.isArray(node['@graph'])) queue.push(...node['@graph']);
-      candidates.push(node);
-    }
-    for (const node of candidates) {
-      const type = node?.['@type'];
-      const isJobPosting = Array.isArray(type)
-        ? type.some((t) => String(t).includes('JobPosting'))
-        : String(type || '').includes('JobPosting');
-      if (isJobPosting) jobPostings.push(node);
-    }
+    jobPostings.push(...extractJobPostingNodesFromJson(data));
   }
   return jobPostings;
 }

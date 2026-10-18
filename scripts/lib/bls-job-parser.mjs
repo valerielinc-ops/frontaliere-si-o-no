@@ -17,6 +17,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml as sharedFetchHtml, slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -344,7 +345,8 @@ function extractJsonLd(html = '') {
   for (const block of blocks) {
     try {
       const parsed = JSON.parse(block[1]);
-      if (parsed?.['@type'] === 'JobPosting') return parsed;
+      const [posting] = extractJobPostingNodesFromJson(parsed);
+      if (posting) return posting;
     } catch {
       // ignore malformed JSON-LD
     }

@@ -65,6 +65,7 @@ import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs
 import { inferSwissTargetCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
 import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -252,20 +253,9 @@ function resolveAddress(rawLoc = {}) {
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
-const LD_JSON_RX = /<script type="application\/ld\+json">\s*(\[[\s\S]*?\])\s*<\/script>/;
-
-/** Extract the JobPosting object from a detail page's ld+json array. */
+/** Extract the JobPosting object from a detail page's ld+json blocks. */
 function extractJobPosting(html = '') {
-  const m = html.match(LD_JSON_RX);
-  if (!m) return null;
-  let arr;
-  try {
-    arr = JSON.parse(m[1]);
-  } catch {
-    return null;
-  }
-  if (!Array.isArray(arr)) return null;
-  return arr.find((entry) => entry && entry['@type'] === 'JobPosting') || null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 // Matches each `<div class="mod mod-text" ...><div class="row">...

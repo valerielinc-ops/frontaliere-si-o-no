@@ -23,6 +23,7 @@
  */
 
 import { stripHtmlTags } from '../../packages/articles/engine/shared/htmlMarkup.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 
 // ─── Minimal inline utilities ─────────────────────────────────────────────────
 
@@ -308,16 +309,8 @@ function extractMigrosWorkPercentage(html, overviewHtml) {
     if (single && Number(single[1]) <= 100) return `${single[1]}%`;
     return '';
   };
-  for (const match of String(html || '').matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
-    try {
-      const nodes = [].concat(JSON.parse(match[1]));
-      const posting = nodes.find((node) => node && node['@type'] === 'JobPosting');
-      const fromLd = fromText(posting?.workHours);
-      if (fromLd) return fromLd;
-    } catch {
-      // malformed block: fall through to the visible text
-    }
-  }
+  const fromLd = fromText(extractJobPostingField(html, 'workHours'));
+  if (fromLd) return fromLd;
   return fromText(stripHtml(overviewHtml));
 }
 

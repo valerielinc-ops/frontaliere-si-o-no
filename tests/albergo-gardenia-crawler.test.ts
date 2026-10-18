@@ -1071,6 +1071,14 @@ describe('Albergo Gardenia authoritative crawler', () => {
     );
   });
 
+  it('detects a graph-wrapped JobPosting career signal', () => {
+    const graphJobPosting = `<script type="application/ld+json">${JSON.stringify({
+      '@graph': [{ '@type': ['JobPosting'], title: 'Chef de partie' }],
+    })}</script>`;
+    expect(() => assertNoGardeniaCareerSurface(gardeniaPage(graphJobPosting), 'https://www.albergo-gardenia.ch/story.php'))
+      .toThrow(/JobPosting detected/);
+  });
+
   it('fails closed on missing source identity, career navigation, or JobPosting', () => {
     expect(() => assertNoGardeniaCareerSurface('<html><title>Unrelated site</title></html>', 'https://www.albergo-gardenia.ch/story.php'))
       .toThrow(/source identity is missing/);

@@ -16,6 +16,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -172,7 +173,7 @@ function extractJsonLd(html) {
 
   try {
     const cleaned = ldMatch[1].replace(/[\x00-\x1f]/g, ' ');
-    return JSON.parse(cleaned);
+    return extractJobPostingNodesFromJson(JSON.parse(cleaned))[0] || null;
   } catch {
     return null;
   }
@@ -234,7 +235,7 @@ export async function fetchAllLocalsearchJobs() {
       if (jsonLd?.url) {
         try { sameUrl = new URL(jsonLd.url, detailUrl).href === new URL(detailUrl).href; } catch { sameUrl = false; }
       }
-      if (jsonLd?.['@type'] === 'JobPosting' && sameTitle && sameUrl) detailPublication = jsonLd.datePosted;
+      if (jsonLd && sameTitle && sameUrl) detailPublication = jsonLd.datePosted;
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${title}: ${err?.message || err}`);
     }

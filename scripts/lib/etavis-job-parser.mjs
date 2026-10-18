@@ -60,6 +60,7 @@ import { fetchHtml, decodeEntities } from './hospital-custom-html-helpers.mjs';
 import SWISS_POSTAL_CODES from '../../data/swiss-postal-codes.json' with { type: 'json' };
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -274,13 +275,8 @@ export function parseDetailJsonLd(html = '') {
   if (!ldMatch) return null;
   try {
     const parsed = JSON.parse(ldMatch[1]);
-    const candidates = Array.isArray(parsed) ? parsed : [parsed];
-    for (const entry of candidates) {
-      if (!entry || typeof entry !== 'object') continue;
-      const type = entry['@type'];
-      const isJobPosting = type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'));
-      if (isJobPosting) return entry;
-    }
+    const posting = extractJobPostingNodesFromJson(parsed)[0];
+    if (posting) return posting;
   } catch {
     /* ignore parse errors — fall through to null */
   }

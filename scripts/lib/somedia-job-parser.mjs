@@ -23,6 +23,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -199,7 +200,8 @@ export function extractJsonLd(html = '') {
   for (const block of blocks) {
     try {
       const parsed = JSON.parse(block[1]);
-      if (parsed?.['@type'] === 'JobPosting') return parsed;
+      const [posting] = extractJobPostingNodesFromJson(parsed);
+      if (posting) return posting;
     } catch {
       // ignore malformed JSON-LD blocks
     }

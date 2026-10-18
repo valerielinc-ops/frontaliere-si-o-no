@@ -5,6 +5,7 @@ import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { sourceLangOfBody } from './source-locale-slots.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -127,21 +128,7 @@ export function buildSunriseDetailUrl(job = {}) {
 }
 
 function parseJsonLdJobPosting(document) {
-  const scripts = [...document.querySelectorAll('script[type="application/ld+json"]')];
-  for (const script of scripts) {
-    try {
-      const parsed = JSON.parse(script.textContent || '');
-      const items = Array.isArray(parsed) ? parsed : [parsed];
-      const jobPosting = items.find((item) => {
-        const type = item?.['@type'];
-        return type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'));
-      });
-      if (jobPosting) return jobPosting;
-    } catch {
-      // ignore malformed blocks
-    }
-  }
-  return null;
+  return extractJobPostingNodes(document?.documentElement?.outerHTML || '')[0] || null;
 }
 
 function htmlFragmentToMarkdown(html = '') {

@@ -40,6 +40,7 @@ import {
   htmlToText,
 } from './hospital-custom-html-helpers.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 export const SODEXO_KEY = 'sodexo';
 export const SODEXO_COMPANY_NAME = 'Sodexo (Suisse) SA';
@@ -129,19 +130,7 @@ export function parseSodexoListing(html = '') {
  */
 export function extractJobPostingLd(html = '') {
   if (!html) return null;
-  const scripts = html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi);
-  for (const m of scripts) {
-    const raw = m[1].trim();
-    try {
-      const data = JSON.parse(raw);
-      if (data && (data['@type'] === 'JobPosting' || data['@type']?.includes?.('JobPosting'))) {
-        return data;
-      }
-    } catch {
-      // Ignore malformed blocks and keep scanning.
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 function htmlDescriptionToText(htmlDescription = '') {

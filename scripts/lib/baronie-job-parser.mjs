@@ -3,6 +3,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /**
  * Baronie (Chocolat Alprose SA) — detail page parser
@@ -201,25 +202,18 @@ export function parseBaronieDetailHtml(html) {
   let location = '';
   let company = '';
   let addressCountry = '';
-  const jsonLdMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-  if (jsonLdMatch) {
-    try {
-      const ld = JSON.parse(jsonLdMatch[1]);
-      const candidates = Array.isArray(ld) ? ld : Array.isArray(ld?.['@graph']) ? ld['@graph'] : [ld];
-      const job = candidates.find((node) => node && node['@type'] === 'JobPosting') || null;
-      if (job) {
-        const jobLocations = Array.isArray(job.jobLocation) ? job.jobLocation : [job.jobLocation];
-        const jobLocation = jobLocations.find((loc) => /^CH$/i.test(loc?.address?.addressCountry || '')) || jobLocations[0];
-        if (jobLocation?.address) {
-          const addr = jobLocation.address;
-          location = normalizeSpace(addr.addressLocality || '');
-          addressCountry = normalizeSpace(addr.addressCountry || '');
-        }
-        if (job.hiringOrganization?.name) {
-          company = normalizeSpace(job.hiringOrganization.name);
-        }
-      }
-    } catch { /* ignore JSON parse errors */ }
+  const job = extractJobPostingNodes(html)[0];
+  if (job) {
+    const jobLocations = Array.isArray(job.jobLocation) ? job.jobLocation : [job.jobLocation];
+    const jobLocation = jobLocations.find((loc) => /^CH$/i.test(loc?.address?.addressCountry || '')) || jobLocations[0];
+    if (jobLocation?.address) {
+      const addr = jobLocation.address;
+      location = normalizeSpace(addr.addressLocality || '');
+      addressCountry = normalizeSpace(addr.addressCountry || '');
+    }
+    if (job.hiringOrganization?.name) {
+      company = normalizeSpace(job.hiringOrganization.name);
+    }
   }
 
   // Fallback location detection from text

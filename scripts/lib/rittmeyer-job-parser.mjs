@@ -3,6 +3,7 @@ import { JSDOM } from 'jsdom';
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
+import { extractJobPostingDescription } from './jobposting-jsonld.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -59,20 +60,6 @@ function blockParagraphs(block) {
   return [...block.querySelectorAll('p:not(.font-eyebrow), div.etx-text > div')]
     .map((node) => normalizeSpace(node.textContent || ''))
     .filter(Boolean);
-}
-
-function readJobPostingDescription(document) {
-  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
-    try {
-      const parsed = JSON.parse(script.textContent || '');
-      const nodes = Array.isArray(parsed) ? parsed : [parsed];
-      const posting = nodes.find((node) => node?.['@type'] === 'JobPosting');
-      if (posting?.description) return normalizeSpace(String(posting.description).replace(/<[^>]+>/g, ' '));
-    } catch {
-      // ignore malformed JSON-LD
-    }
-  }
-  return '';
 }
 
 export function parseRittmeyerListingsPage(html = '') {
@@ -144,7 +131,7 @@ export function parseRittmeyerJobDetail(html = '') {
   // jobs ended up with one identical body (audit run 36528331656) — so it is
   // never used.
   const pageIntro = firstFactValueIndex >= 1 ? paragraphs[firstFactValueIndex - 1] : '';
-  const summary = readJobPostingDescription(document)
+  const summary = normalizeSpace(extractJobPostingDescription(html).replace(/<[^>]+>/g, ' '))
     || (pageIntro.length >= 80 && !/^#/.test(pageIntro) ? pageIntro : '');
 
   const impact = eyebrowBlock(document, '#Impact') || headingBlock(document, 'La tua area di competenza');

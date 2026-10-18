@@ -190,14 +190,7 @@ export function parseAgJobsApi(payload) {
  */
 export function extractAgJobPosting(html = '') {
   const empty = { description: '', streetAddress: '', postalCode: '', addressLocality: '', datePosted: '', validThrough: '', employmentType: '' };
-  let posting = null;
-  for (const m of String(html || '').matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
-    let data;
-    try { data = JSON.parse(m[1]); } catch { continue; }
-    const nodes = Array.isArray(data) ? data : (data?.['@graph'] || [data]);
-    posting = nodes.find((node) => node?.['@type'] === 'JobPosting') || posting;
-    if (posting) break;
-  }
+  const posting = extractJobPostingLd(html);
   if (!posting) return empty;
   const sections = [];
   const body = htmlToText(String(posting.description || '').replace(/<div\b[^>]*>([\s\S]*?)<\/div>/gi, '<p>$1</p>'));

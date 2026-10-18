@@ -95,6 +95,7 @@ import { fetchHtml, slugify, normalizeSpace, stripHtml } from './crawler-templat
 import { detectLang, guessCategory, normalizeContract, decodeHtmlEntities } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { getCantonForLocation } from './crawler-location-config.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -252,16 +253,8 @@ export function parseNewYorkerListing(html = '') {
  */
 export function extractNewYorkerJsonLd(html = '', pageUrl = '', expectedTitle = '') {
   if (!html || typeof html !== 'string') return null;
-  const scriptMatch = html.match(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/i);
-  if (!scriptMatch) return null;
-
-  let data;
-  try {
-    data = JSON.parse(scriptMatch[1]);
-  } catch {
-    return null;
-  }
-  if (!data || data['@type'] !== 'JobPosting') return null;
+  const [data] = extractJobPostingNodes(html);
+  if (!data) return null;
 
   const address = data.jobLocation?.address || {};
   const descParts = [data.description, data.responsibilities, data.qualifications, data.jobBenefits]
