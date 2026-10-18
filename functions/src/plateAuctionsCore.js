@@ -453,7 +453,44 @@ export function parseUrFixedPricePdfText(value, {
   return rows;
 }
 
-/** Official indexes and machine-readable endpoints for the four structured
+/** Only the verified public eSchild envelope/vehicle pairs are accepted.
+ * A challenge page, schema drift or ambiguous identity must retain the previous
+ * snapshot, not become an empty catalogue or a guessed car/price.
+ */
+export function parseGlFixedPriceJson(value, { fetchedAt = new Date().toISOString() } = {}) {
+  if (!value || value.status !== true || !Array.isArray(value.data) || !Number.isFinite(Date.parse(fetchedAt))) {
+    throw new Error('Glarus: invalid public catalogue envelope or fetch timestamp');
+  }
+  const config = FIXED_PRICE_SOURCE_CONFIGS.gl;
+  const rows = [], ids = new Set(), identities = new Set();
+  for (const item of value.data) {
+    if (!item || !Number.isSafeInteger(item.id) || item.id < 1
+      || !Number.isSafeInteger(item.number) || item.number < 1
+      || typeof item.price !== 'number' || !Number.isFinite(item.price) || item.price < 0
+      || ![0, 1].includes(item.available) || ![0, 1].includes(item.deleted) || ![0, 1].includes(item.registered)
+      || !Object.hasOwn(item, 'reservationid')) {
+      throw new Error('Glarus: invalid public plate fields');
+    }
+    const vehicleType = item.typeid === 1 && item.platetype === 'car_long_plate' ? 'car'
+      : item.typeid === 3 && item.platetype === 'motorcycle_plate' ? 'motorcycle' : null;
+    if (!vehicleType) throw new Error('Glarus: unknown or conflicting vehicle type');
+    const identity = `${item.number}:${vehicleType}`;
+    if (ids.has(item.id) || identities.has(identity)) throw new Error('Glarus: duplicate plate identity');
+    ids.add(item.id);
+    identities.add(identity);
+    if (item.available !== 1 || item.deleted !== 0 || item.registered !== 0 || item.reservationid !== null) continue;
+    rows.push(fixedPriceRow({
+      canton: config.canton, plateCode: config.plateCode, plateNumber: String(item.number),
+      sourceRecordId: String(item.id), price: item.price, vehicleType,
+      officialUrl: config.officialUrl, officialDetailUrl: config.url, fetchedAt,
+      sourceCategory: 'fixed-price-api',
+      rawSnapshot: JSON.stringify({ id: item.id, number: item.number, price: item.price, typeid: item.typeid, platetype: item.platetype }),
+    }));
+  }
+  return value.data.length === 0 ? explicitlyEmptyCatalogue() : rows;
+}
+
+/** Official indexes and machine-readable endpoints for the structured
  * catalogues that were previously classified as "no public auction". */
 export const FIXED_PRICE_SOURCE_CONFIGS = Object.freeze({
   ai: {
@@ -503,6 +540,14 @@ export const FIXED_PRICE_SOURCE_CONFIGS = Object.freeze({
       },
     ],
     parserVersion: 'fixed-price-1.0.0',
+  },
+  gl: {
+    kind: 'json',
+    canton: 'Glarona',
+    plateCode: 'GL',
+    officialUrl: 'https://www.gl.ch/verwaltung/sicherheit-und-justiz/justiz/strassenverkehrsamt/strassenverkehr/kontrollschilder/wunschkontrollschilder.html/450',
+    url: 'https://eschild.gl.ch/api/v1/plate',
+    parserVersion: 'eschild-json-1.0.0',
   },
   lu: {
     kind: 'pdf',

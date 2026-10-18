@@ -14,6 +14,7 @@ import {
   resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
+  parseGlFixedPriceJson,
   parseLuFixedPricePdfText,
   parseUrFixedPricePdfText,
 } from '../../../functions/src/plateAuctionsCore.js';
@@ -22,6 +23,7 @@ import { fetchWithPublicApiRelay } from './api-relay.mjs';
 const PARSERS = {
   ai: parseAiFixedPricePdfText,
   bs: parseBsFixedPricePdfText,
+  gl: parseGlFixedPriceJson,
   lu: parseLuFixedPricePdfText,
   ur: parseUrFixedPricePdfText,
 };
@@ -77,5 +79,6 @@ export async function fetchFixedPriceSource(sourceKey, { now = new Date() } = {}
 
 export const fetchAiFixedPrice = (options) => fetchFixedPriceSource('ai', options);
 export const fetchBsFixedPrice = (options) => fetchFixedPriceSource('bs', options);
+export const fetchGlFixedPrice = (options) => fetchFixedPriceSource('gl', options);
 export const fetchLuFixedPrice = (options) => fetchFixedPriceSource('lu', options);
 export const fetchUrFixedPrice = (options) => fetchFixedPriceSource('ur', options);
