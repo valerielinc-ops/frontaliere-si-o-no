@@ -31,6 +31,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 export const PALLAS_KLINIKEN_KEY = 'pallas-kliniken';
 export const PALLAS_KLINIKEN_COMPANY_NAME = 'Pallas Kliniken';
@@ -107,19 +108,7 @@ export function parsePallasListing(html) {
  */
 export function extractJobPostingLd(html) {
   if (!html) return null;
-  const scripts = html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi);
-  for (const m of scripts) {
-    const raw = m[1].trim();
-    try {
-      const data = JSON.parse(raw);
-      if (data && (data['@type'] === 'JobPosting' || data['@type']?.includes?.('JobPosting'))) {
-        return data;
-      }
-    } catch {
-      // Salesforce sometimes wraps HTML in CDATA; ignore parse errors.
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 function htmlDescriptionToText(htmlDescription = '') {
