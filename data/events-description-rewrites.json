@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-18T19:20:07.908Z",
+  "generatedAt": "2026-10-18T20:19:51.982Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -49537,6 +49537,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T01:22:45.182Z"
+    },
+    "myswitzerland:1693527ea70b492eaaa00cf0217ea81d::8fd0e9950324fefaacf67167d8270bdaa7d9e8ead2bbb23b4543c1a6ea94804d": {
+      "id": "myswitzerland:1693527ea70b492eaaa00cf0217ea81d",
+      "sourceDescriptionHash": "8fd0e9950324fefaacf67167d8270bdaa7d9e8ead2bbb23b4543c1a6ea94804d",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Zurich; comune: Zürich; cantone: ZH; categoria: Event; organizzatore: MySwitzerland; data: 2027-03-06; ora: 11:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Zurich; comune: Zürich; cantone: ZH; categoria: Event; organizzatore: MySwitzerland; data: 2027-03-06; ora: 11:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Zurich; municipality: Zürich; canton: ZH; category: Event; organiser: MySwitzerland; date: 2027-03-06; time: 11:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Zurich; gemeinde: Zürich; kanton: ZH; kategorie: Event; veranstalter: MySwitzerland; datum: 2027-03-06; uhrzeit: 11:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Zurich; commune: Zürich; canton: ZH; catégorie: Event; organisateur: MySwitzerland; date: 2027-03-06; heure: 11:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-18T20:16:08.874Z"
     },
     "myswitzerland:1699fc371bfc4b69a699504aea080ecd::58a855cbee4788668fa19be640bbb494582185ed2715e0694437fa27af0b2dfb": {
       "id": "myswitzerland:1699fc371bfc4b69a699504aea080ecd",
@@ -146572,6 +146586,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T09:08:17.463Z"
     },
+    "myswitzerland:f99b820d235f4dfb85bc6ecc3bfeb3f0::9489f24352f45fdf53f45a433b3420be8babfd0c306b7c39e9cb1dceb634aad6": {
+      "id": "myswitzerland:f99b820d235f4dfb85bc6ecc3bfeb3f0",
+      "sourceDescriptionHash": "9489f24352f45fdf53f45a433b3420be8babfd0c306b7c39e9cb1dceb634aad6",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Baden; cantone: AG; categoria: Event; data: 2027-03-06; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Baden; cantone: AG; categoria: Event; data: 2027-03-06; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Baden; canton: AG; category: Event; date: 2027-03-06; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Baden; kanton: AG; kategorie: Event; datum: 2027-03-06; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Baden; canton: AG; catégorie: Event; date: 2027-03-06; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-18T20:16:08.885Z"
+    },
     "myswitzerland:f9a9a98923b242eca966da4f26ab4b3e::f987b2afb49496366359ae0082c6571683f707c6e60a88269160168e032a6554": {
       "id": "myswitzerland:f9a9a98923b242eca966da4f26ab4b3e",
       "sourceDescriptionHash": "f987b2afb49496366359ae0082c6571683f707c6e60a88269160168e032a6554",
@@ -158445,15 +158473,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:1693527ea70b492eaaa00cf0217ea81d::8fd0e9950324fefaacf67167d8270bdaa7d9e8ead2bbb23b4543c1a6ea94804d": {
-      "id": "myswitzerland:1693527ea70b492eaaa00cf0217ea81d",
-      "sourceDescriptionHash": "8fd0e9950324fefaacf67167d8270bdaa7d9e8ead2bbb23b4543c1a6ea94804d",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T11:19:32.917Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:16bf58e976ea484b94befeef0c220c21::7a6e72c147cf45cc6f6311b9d5d3243c993a991e6e84ce07ad868eecc6f22b89": {
       "id": "myswitzerland:16bf58e976ea484b94befeef0c220c21",
       "sourceDescriptionHash": "7a6e72c147cf45cc6f6311b9d5d3243c993a991e6e84ce07ad868eecc6f22b89",
@@ -163869,15 +163888,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T21:29:40.641Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:f99b820d235f4dfb85bc6ecc3bfeb3f0::9489f24352f45fdf53f45a433b3420be8babfd0c306b7c39e9cb1dceb634aad6": {
-      "id": "myswitzerland:f99b820d235f4dfb85bc6ecc3bfeb3f0",
-      "sourceDescriptionHash": "9489f24352f45fdf53f45a433b3420be8babfd0c306b7c39e9cb1dceb634aad6",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T11:19:03.598Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
