@@ -9,9 +9,10 @@ run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '
 # The daily canaries (rpm-canary.yml, user-value-canary.yml) judge settled
 # DAYS. On 2026-09-27 the Offerwall gate suppressed the CMP from 12h Zurich and
 # ad revenue fell ~75% for six hours with sessions normal: a day-level canary
-# sees that the next morning. Consent decisions and filled ads reach GA4 within
-# the hour, so this monitor catches that class in ~2 h and opens a backlog issue
-# (the channel the loop reads, not the step summary).
+# sees that the next morning. GA4 intraday rows can lag variably, so this monitor
+# waits on the requested rows, derives freshness from the latest returned hour,
+# and opens a backlog issue only for a measured signal or a distinct stale-data
+# alarm (the channel the loop reads, not the step summary).
 #
 # Signals, each a ratio compared with the median of the same hours on the same
 # weekday 1-3 weeks earlier (scripts/lib/revenue-signals.mjs, backtested on
@@ -28,7 +29,8 @@ run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '
 #   - status=alarm     → open or comment the fixed-title issue (dedup on the
 #                        first 60 chars; issue-triage routes it by the
 #                        `revenue` label, no fixer label set by hand);
-#   - status=recovered → 24 consecutive runs without alarm: resolve it;
+#   - status=recovered → 24 consecutive measured runs without alarm: resolve it;
+#   - status=pending   → GA4 lag is neutral: neither open nor resolve the issue;
 #   - a run that cannot measure (credentials, API) fails and reports as
 #     `Workflow Failure: Revenue signal monitor`, closed by
 #     close-recovered-failure-issues on the next green run — never as a
@@ -36,7 +38,8 @@ run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '
 
 on:
   schedule:
-    # :41 — the previous hour's events have mostly landed in GA4 by then.
+    # :41 — normal cadence; the detector decides from returned GA4 rows whether
+    # the requested window is complete or still pending.
     - cron: '41 * * * *'
   workflow_dispatch:
     inputs:

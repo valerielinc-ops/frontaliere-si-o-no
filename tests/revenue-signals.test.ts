@@ -10,6 +10,8 @@
  *   hours, reported by the owner as "slowing down") must not;
  * - the issue lifecycle: fixed title outside close-recovered-failure-issues,
  *   body in the bl-planner card shape, open/resolve gated on the run status.
+ * - GA4 gaps stay pending instead of becoming zero, while a real zero still
+ *   alarms and a stale report raises the distinct freshness signal.
  */
 import { existsSync, mkdtempSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -21,6 +23,7 @@ import { describe, expect, it } from 'vitest';
 import { TITLE_RE } from '../scripts/ci/close-recovered-failure-issues.mjs';
 import {
   DEFAULT_CONFIG,
+  GA4_FRESHNESS_SIGNAL,
   ISSUE_TITLE,
   buildIssueBody,
   dateHourInZone,
@@ -126,11 +129,43 @@ describe('evaluateRevenueSignals on synthetic weeks', () => {
     expect(monitorDecision({ hours, currentHour: '2026092815' }).status).toBe('alarm');
   });
 
+
+  it('keeps a window with missing recent GA4 rows pending instead of treating them as zero', () => {
+    const hours = syntheticWeeks();
+    delete hours['2026092812'];
+    const evaluation = evaluateRevenueSignals({ hours, currentHour: '2026092814' });
+    expect(statusOf(evaluation, 'traffic')).toBe('incomplete');
+    expect(monitorDecision({ hours, currentHour: '2026092814' })).toMatchObject({ status: 'pending' });
+    expect(evaluation.alarms).toEqual([]);
+    delete hours['2026092811'];
+    expect(statusOf(evaluateRevenueSignals({ hours, currentHour: '2026092814' }), 'traffic')).toBe('pending');
+  });
+
+  it('still alarms when the complete low-value rows are real', () => {
+    const hours = degrade(syntheticWeeks(), '2026092811', '2026092813', (c) => ({ ...c, pageViews: 1 }));
+    const evaluation = evaluateRevenueSignals({ hours, currentHour: '2026092815' });
+    expect(statusOf(evaluation, 'traffic')).toBe('alarm');
+    expect(evaluation.alarms.map((a) => a.signal)).toContain('traffic');
+  });
+
+  it('raises a distinct freshness alarm when no recent GA4 hour has been processed', () => {
+    const hours = syntheticWeeks();
+    for (const key of Object.keys(hours)) if (key >= '2026092810') delete hours[key];
+    const decision = monitorDecision({ hours, currentHour: '2026092816' });
+    expect(decision.status).toBe('alarm');
+    expect(decision.evaluation.alarms.map((a) => a.signal)).toEqual(['ga4_freshness']);
+    expect(statusOf(decision.evaluation, 'traffic')).toBe('pending');
+    expect(decision.evaluation.freshness.latestAvailableHour).toBe('2026092809');
+    expect(decision.evaluation.freshness.ageHours).toBe(7);
+  });
+
   it('skips night volumes and missing baselines instead of guessing', () => {
     const hours = syntheticWeeks();
-    expect(evaluateRevenueSignals({ hours, currentHour: '2026092805' }).checks.every((c) => c.status === 'low_volume')).toBe(true);
+    const night = evaluateRevenueSignals({ hours, currentHour: '2026092805' });
+    expect(night.checks.filter((c) => c.signal !== GA4_FRESHNESS_SIGNAL).every((c) => c.status === 'low_volume')).toBe(true);
     for (const k of Object.keys(hours)) if (k < '2026092800') delete hours[k];
-    expect(evaluateRevenueSignals({ hours, currentHour: '2026092816' }).checks.every((c) => c.status === 'no_baseline')).toBe(true);
+    const missingBaseline = evaluateRevenueSignals({ hours, currentHour: '2026092816' });
+    expect(missingBaseline.checks.filter((c) => c.signal !== GA4_FRESHNESS_SIGNAL).every((c) => c.status === 'no_baseline')).toBe(true);
   });
 });
 
@@ -189,6 +224,15 @@ describe('issue lifecycle', () => {
     expect(body).not.toMatch(/\.github\/workflows\//);
     expect(body).toContain(`5-FALLIMENTO: "${ISSUE_TITLE}"`);
   });
+
+  it('describes a GA4 freshness alarm without treating it as a traffic ratio', () => {
+    const hours = syntheticWeeks();
+    for (const key of Object.keys(hours)) if (key >= '2026092810') delete hours[key];
+    const body = buildIssueBody({ decision: monitorDecision({ hours, currentHour: '2026092816' }) });
+    expect(body).toContain('ga4_freshness');
+    expect(body).toContain('attesa<=6h');
+    expect(body).not.toContain('undefined');
+  });
 });
 
 describe('fetchHourlyCounts', () => {
@@ -203,10 +247,14 @@ describe('fetchHourlyCounts', () => {
       calls.push(body.dateRanges[0].startDate);
       return body.dimensions.length === 1
         ? report([{ dimensionValues: [{ value: '2026092814' }], metricValues: [{ value: '10' }, { value: '25' }, { value: '30' }, { value: '0.05' }] }])
-        : report([{ dimensionValues: [{ value: '2026092814' }, { value: 'ad_filled' }], metricValues: [{ value: '20' }] }]);
+        : report([
+            { dimensionValues: [{ value: '2026092814' }, { value: 'ad_filled' }], metricValues: [{ value: '20' }] },
+            { dimensionValues: [{ value: '2026092813' }, { value: 'ad_filled' }], metricValues: [{ value: '99' }] },
+          ]);
     };
     const hours = await fetchHourlyCounts({ token: 't', currentHour: '2026092816', fetchImpl: fetchImpl as unknown as typeof fetch });
     expect(hours['2026092814']).toEqual({ sessions: 10, pageViews: 25, impressions: 30, revenue: 0.05, ad_filled: 20 });
+    expect(hours['2026092813']).toBeUndefined();
     expect(calls).toEqual(['2026-09-06', '2026-09-06']);
     expect(bodies[0].dimensionFilter).toEqual(buildTargetMarketCountryFilter());
     expect((bodies[1].dimensionFilter as { andGroup: { expressions: unknown[] } }).andGroup.expressions[0]).toEqual(buildTargetMarketCountryFilter());
@@ -245,6 +293,18 @@ describe('runMonitor (CLI contract)', () => {
     const code = await runMonitor({ argv: ['--current-hour=2026092816'], env: { GITHUB_OUTPUT: out }, fetchImpl: ga4From(syntheticWeeks()), getToken: async () => 't', log });
     expect(code).toBe(0);
     expect(readFileSync(out, 'utf8')).toContain('status=recovered');
+  });
+
+  it('writes pending for missing recent metric rows and does not emit an alarm', async () => {
+    const out = tmpOutput();
+    const hours = syntheticWeeks();
+    delete hours['2026092811'];
+    delete hours['2026092812'];
+    const { log } = quietLog();
+    const code = await runMonitor({ argv: ['--current-hour=2026092814'], env: { GITHUB_OUTPUT: out }, fetchImpl: ga4From(hours), getToken: async () => 't', log });
+    expect(code).toBe(0);
+    expect(readFileSync(out, 'utf8')).toContain('status=pending');
+    expect(readFileSync(out, 'utf8')).toContain('alarms=');
   });
 
   it('fails with ::error:: and no status= when GA4 answers with two empty reports', async () => {
