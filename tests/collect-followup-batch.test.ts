@@ -19,6 +19,9 @@ import {
   parseCompleteMergedPRSearch,
   parseMergedPRPages,
   parseMergedPRs,
+  readCompleteMergedPRSearch,
+  MERGED_PR_SEARCH_ATTEMPTS,
+  MERGED_PR_SEARCH_RETRY_DELAYS_MS,
   hasTriageComment,
   latestTriageCommentBody,
   latestTriageComment,
@@ -185,6 +188,51 @@ describe('collector fail-closed parsing', () => {
     expect(parsed).toHaveLength(101);
     expect(parsed.at(0)?.number).toBe(9000);
     expect(parsed.at(-1)?.number).toBe(9100);
+  });
+
+  it('retries a transient incomplete snapshot without weakening the parser', () => {
+    const incomplete = JSON.stringify([{
+      total_count: 1,
+      incomplete_results: true,
+      items: [],
+    }]);
+    const complete = JSON.stringify([{
+      total_count: 1,
+      incomplete_results: false,
+      items: [{
+        number: 9101,
+        title: 'retried candidate',
+        user: { login: 'valerielinc-ops' },
+        pull_request: { merged_at: '2026-09-09T10:00:00Z' },
+      }],
+    }]);
+    let reads = 0;
+    const delays: number[] = [];
+    const result = readCompleteMergedPRSearch(
+      () => (++reads === 1 ? incomplete : complete),
+      { sleep: (delay) => delays.push(delay), log: () => {} },
+    );
+
+    expect(result.map((pr) => pr.number)).toEqual([9101]);
+    expect(reads).toBe(2);
+    expect(delays).toEqual([MERGED_PR_SEARCH_RETRY_DELAYS_MS[0]]);
+  });
+
+  it('remains fail-closed after the bounded retry budget', () => {
+    const incomplete = JSON.stringify([{
+      total_count: 1,
+      incomplete_results: true,
+      items: [],
+    }]);
+    let reads = 0;
+    const delays: number[] = [];
+
+    expect(() => readCompleteMergedPRSearch(
+      () => { reads += 1; return incomplete; },
+      { sleep: (delay) => delays.push(delay), log: () => {} },
+    )).toThrow(/incompleta\/non verificabile/);
+    expect(reads).toBe(MERGED_PR_SEARCH_ATTEMPTS);
+    expect(delays).toEqual([...MERGED_PR_SEARCH_RETRY_DELAYS_MS]);
   });
 });
 
