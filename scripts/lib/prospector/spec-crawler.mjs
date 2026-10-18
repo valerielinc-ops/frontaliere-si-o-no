@@ -800,7 +800,7 @@ function parseListingEndpointResponse(body, companyKey) {
       `[prospector:${companyKey}] listingEndpoint returned non-JSON content: ${error?.message || error}`,
     );
   }
-  const maxNumPages = Number(payload?.max_num_pages);
+  const maxNumPages = payload?.max_num_pages;
   if (!payload || typeof payload.html !== 'string'
     || !Number.isInteger(maxNumPages) || maxNumPages < 0) {
     throw new Error(
