@@ -311,6 +311,20 @@ function missingLiveHubSlugs(localRegistry, liveSlugs) {
   return liveSlugs.filter((slug) => !localItalianSlugs.has(slug));
 }
 
+/**
+ * IDs added by corpus main are recoverable only when the serving hub already
+ * proves their Italian slugs. The hub landing is the first page, so this is a
+ * deliberately narrow proof for the newest handoff: an ID not present there
+ * remains deferred rather than being treated as live by implication.
+ */
+function unpublishedIdsAbsentFromLiveHub(localRegistry, unpublishedIds, liveSlugs) {
+  const liveSlugSet = new Set(liveSlugs);
+  return unpublishedIds.filter((id) => {
+    const italianSlug = localRegistry[id]?.it;
+    return typeof italianSlug !== 'string' || italianSlug.length === 0 || !liveSlugSet.has(italianSlug);
+  });
+}
+
 function parseArgs(argv) {
   const out = {
     section: 'all',
@@ -557,10 +571,13 @@ function validateRenderedSection({ section, distDir, pathsByLocale, archivePaths
  * See MAX_ARTICLES_BEHIND for the regression this exists to prevent.
  *
  * The count is only a coarse guard. A published fast-path article can make the
- * live hub and `slugs.json` move ahead without changing the manifest count that
- * the corpus-main overlay reads. The identity checks below therefore compare
- * the corpus-main registry with both published IDs and the cards already
- * served by the hub.
+ * live hub move ahead before `slugs.json` catches up, without changing the
+ * manifest count that the corpus-main overlay reads. The identity checks below
+ * therefore compare the corpus-main registry with both published IDs and the
+ * cards already served by the hub. When the only drift is corpus-main-ahead and
+ * the live hub already proves those new IDs, the client registry can safely
+ * catch up; otherwise the known bad hub/client split remains live until the
+ * next publisher event.
  * Any unreadable external source fails closed: this function authorises a
  * destructive replacement of live bytes, so an unproved snapshot is not safe
  * to publish.
@@ -647,18 +664,61 @@ export async function checkCorpusFreshness(
     changeAtById: driftTimestamps,
     nowEpochSeconds,
   });
-  if (drift.action !== 'proceed') {
-    return { ok: false, deferred: drift.deferred, note: drift.note };
+  let liveHub;
+  let handoff = drift;
+
+  // A corpus publisher can place the new article and its hub card on the
+  // serving shard before its API registry (`slugs.json`) is visible. In this
+  // one-way race, deferring preserves the very hydration split this gate is
+  // meant to remove: the external hub is already ahead while the client stays
+  // behind. Require both a bounded/fresh drift decision and a live-hub proof
+  // for every corpus-main-only ID before allowing the client to catch up. A
+  // retired/published-ahead or mixed drift still follows the original
+  // fail-closed path.
+  if (drift.action === 'defer' && missingIds.length === 0 && unpublishedIds.length > 0) {
+    try {
+      liveHub = await fetchLiveHubSlugs(section);
+    } catch (err) {
+      return {
+        ok: false,
+        deferred: true,
+        note: `${drift.note}; live hub proof unavailable (${err.message}) — no HTML or client chunks will be published`,
+      };
+    }
+    const notYetLive = unpublishedIdsAbsentFromLiveHub(localRegistry, unpublishedIds, liveHub.slugs);
+    if (notYetLive.length > 0) {
+      return {
+        ok: false,
+        deferred: true,
+        note:
+          `${drift.note}; live hub does not yet serve corpus-main ID(s) ${notYetLive.join(', ')} `
+          + '— no HTML or client chunks will be published',
+      };
+    }
+    handoff = {
+      ...drift,
+      action: 'proceed',
+      ok: true,
+      deferred: false,
+      note:
+        `${section}: corpus-main-only handoff is already served by the live hub for ${unpublishedIds.join(', ')}; `
+        + 'publishing the client registry now closes the hub/client parity window',
+    };
   }
 
-  let liveHub;
-  try {
-    liveHub = await fetchLiveHubSlugs(section);
-  } catch (err) {
-    return {
-      ok: false,
-      note: `${section}: live hub unreadable (${err.message}) — refusing publication without a served-snapshot proof`,
-    };
+  if (handoff.action !== 'proceed') {
+    return { ok: false, deferred: handoff.deferred, note: handoff.note };
+  }
+
+  if (!liveHub) {
+    try {
+      liveHub = await fetchLiveHubSlugs(section);
+    } catch (err) {
+      return {
+        ok: false,
+        note: `${section}: live hub unreadable (${err.message}) — refusing publication without a served-snapshot proof`,
+      };
+    }
   }
   const missingLiveSlugs = missingLiveHubSlugs(localRegistry, liveHub.slugs);
   if (missingLiveSlugs.length > 0) {
