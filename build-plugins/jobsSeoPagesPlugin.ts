@@ -4525,13 +4525,35 @@ ${staticAnalyticsHtml}
  // collision/foreign-writer edge cases; the normal path drops the full HTML
  // cache before the marker.
  await releaseActiveHtmlCacheChunk();
+ // These indexes are only read by the active-detail related-links renderer.
+ // Keeping their per-job arrays alive through company/editorial emission
+ // retains another copy of the corpus graph after the active pages are done.
+ // Release them at their last reader, before the next SSG family starts.
+ const releasedRelatedPoolEntries = relatedPoolByJob.size;
+ const releasedRelatedCategoryBuckets = relatedJobsByCategory.size;
+ const releasedRelatedLocationBuckets = relatedJobsByLocation.size;
+ relatedPoolByJob.clear();
+ relatedJobsByCategory.clear();
+ relatedJobsByLocation.clear();
+
+ // `memoCanonicalCleaned` is called only by the active-job renderer. Capture
+ // its peak cardinality for the end-of-build profile, then drop the large
+ // cleaned-content values before company/editorial pages allocate more data.
+ _canonicalCleanedCacheSizeAtEnd = canonicalCleanedCache.size;
+ const releasedCanonicalCacheEntries = _canonicalCleanedCacheSizeAtEnd;
+ canonicalCleanedCache.clear();
  logJobsSeoMem('after-active-pages', {
   activeHtmlSource: 'disk',
   releasedActiveHtmlEntries,
   activeHtmlFallbackEntries: jobHtmlCache.size,
   activeHtmlCachePeakEntries,
   activeHtmlCacheChunks,
+  releasedRelatedPoolEntries,
+  releasedRelatedCategoryBuckets,
+  releasedRelatedLocationBuckets,
+  releasedCanonicalCacheEntries,
  });
+ logJobsSeoMem('after-canonical-clear');
 
  /* ── Company landing pages ────────────────────────────────── */
  type CompanyCopyEntry = {
@@ -10853,6 +10875,9 @@ ${staticAnalyticsHtml}
  }
  return entries;
  }).join('\n');
+ // The company sitemap is the final reader of the grouping map. Release its
+ // per-company job arrays before the tail phases and their additional queues.
+ companyMap.clear();
 
  const paginationSitemap = paginationSitemapEntries.length > 0 ? '\n' + paginationSitemapEntries.join('\n') : '';
  const categorySitemap = categorySitemapEntries.length > 0 ? '\n' + categorySitemapEntries.join('\n') : '';
@@ -10885,23 +10910,6 @@ ${staticAnalyticsHtml}
  jobsSeoMemContext.sitemap.eligibleJobs = sitemapEligibleJobs.length;
  jobsSeoMemContext.sitemap.previousSlugEntries = prevSlugEntries.length;
  jobsSeoMemContext.sitemap.entries = sitemapEligibleJobs.length + prevSlugEntries.length;
- logBuildMem('jobsSeoPages: before-canonical-clear', collector, jobsSeoMemDetails());
-
- // Active-job emit done — release canonicalCleanedCache (~22k entries ×
- // CleanedFallbackContent, hundreds of MB peak). Only `memoCanonicalCleaned`
- // reads it, and that function is called only inside the active-job loop
- // (line 2515). The downstream emit phases (cross-locale-active-bridge,
- // expired-soft-landing, previous-slug-bridge, related-search-clusters)
- // do NOT use it. Freeing now relieves memory pressure for the heavy
- // expired-soft-landing pass that follows — the deploy SIGTERMs since
- // 2026-05-26 14:27Z point at OS OOM on a 7 GB GHA runner.
- //
- // The diagnostic log at the end of closeBundle reads `.size` — capture
- // it BEFORE clearing so the hit-rate summary keeps reporting truth.
- _canonicalCleanedCacheSizeAtEnd = canonicalCleanedCache.size;
- canonicalCleanedCache.clear();
- logJobsSeoMem('after-canonical-clear');
-
  // Backpressure: drain pending WriteCollector flushes before the next
  // emit phase queues more. Run 26488854594 OOM'd Node at the 12 GB
  // heap cap because the 6 sequential emit phases stacked 60+ in-flight
@@ -15137,20 +15145,16 @@ ${staticAnalyticsHtml}
  // contato. Resta come rete di sicurezza, non come meccanismo.)
  jobHtmlCache.clear();
  // #6134 (strutturale): anche il CORPUS e' morto qui. `validJobs` (la
- // spread-copy dei ~22k job di data/jobs.json, con i bucket related e la
- // companyMap che puntano agli stessi oggetti) ha il suo ultimo lettore nel
- // loop cross-locale-active qui sopra; il self-heal legge `tracking` e
- // `_writtenPaths`, mai i job. Svuotare l'array NON basta da solo — ogni
- // container che punta agli stessi oggetti va svuotato nello stesso punto,
- // o il rilascio e' un no-op silenzioso. Il checkpoint subito sotto dice al
- // prossimo deploy se questo blocco libera davvero (pattern DUAL PURPOSE di
- // buildMemLog.ts).
+ // spread-copy dei ~22k job di data/jobs.json) ha il suo ultimo lettore nel
+ // loop cross-locale-active qui sopra; gli indici related e la companyMap
+ // sono gia' stati rilasciati ai rispettivi ultimi lettori. Il self-heal
+ // legge `tracking` e `_writtenPaths`, mai i job. Svuotare l'array NON basta
+ // da solo — ogni container ancora vivo che punta agli stessi oggetti va
+ // svuotato nello stesso punto, o il rilascio e' un no-op silenzioso. Il
+ // checkpoint subito sotto dice al prossimo deploy se questo blocco libera
+ // davvero (pattern DUAL PURPOSE di buildMemLog.ts).
  validJobs.length = 0;
  sitemapEligibleJobs.length = 0;
- relatedJobsByCategory.clear();
- relatedJobsByLocation.clear();
- relatedPoolByJob.clear();
- companyMap.clear();
  // Review di #6154 (finding 3): anche questi puntano agli stessi oggetti
  // job, e uno basta a tenere vivo il grafo. Ultimi lettori verificati:
  // sortedForPagination L8681, implicitPreviousSlugs L11766,

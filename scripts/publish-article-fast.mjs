@@ -110,6 +110,10 @@ import { fileURLToPath } from 'node:url';
 
 import { pinRenderEnv, renderHubsAndOffload } from './lib/render-and-push-hubs.mjs';
 import { decideCorpusOverlayMode, prepareCorpusContentOverlay } from './lib/article-corpus-overlay.mjs';
+import {
+  checkCorpusFreshness,
+  countRenderedArticleArchiveItems,
+} from './rerender-article-hubs.mjs';
 import { filterEntriesByImagePostcondition } from './lib/article-image-postcondition.mjs';
 // Output-boundary REFUSAL (see scripts/lib/control-char-publish-gate.mjs).
 // The renderer is build-plugins/ogPagesPlugin.ts, whose article half is the
@@ -156,10 +160,15 @@ async function main() {
   });
   if (overlayMode.mode === 'refuse') throw new Error(overlayMode.reason);
   const corpusOverlay = overlayMode.mode === 'overlay'
-    ? await prepareCorpusContentOverlay({ rootDir: ROOT_DIR })
+    ? await prepareCorpusContentOverlay({
+      rootDir: ROOT_DIR,
+      retainCheckout: true,
+      logPrefix: '[publish-article-fast]',
+    })
     : { commit: null, contentRevision: null };
-  const distDir = path.resolve(args.out);
-  fs.mkdirSync(distDir, { recursive: true });
+  try {
+    const distDir = path.resolve(args.out);
+    fs.mkdirSync(distDir, { recursive: true });
 
   // ASSET_CDN + TZ, both of which build-plugins/constants.ts and the renderers
   // read ONCE at module evaluation — so this must run BEFORE the first dynamic
@@ -200,7 +209,7 @@ async function main() {
     console.error(
       `[publish-article-fast] article id "${args.id}" not found in section "${args.section}" — check --id/--section`,
     );
-    process.exit(1);
+    throw new Error(`article id "${args.id}" was not rendered`);
   }
   const entry = entries[0];
 
@@ -275,6 +284,27 @@ async function main() {
     }
     throw new Error(
       `root article-hub landing refresh failed for ${args.section}; refusing to publish a partial section`,
+    );
+  }
+
+  // The hub HTML and the client registry are two representations of the same
+  // corpus snapshot. The section rerender driver has this guard already, but
+  // the fast path is another hub writer and must prove the same handoff before
+  // its workflow can publish the rendered shards. Without this check a corpus
+  // commit can make the hub see a new id while the published API/chunks still
+  // serve the previous registry — exactly the hydration parity failure this
+  // publisher is meant to prevent.
+  const renderedItemCount = countRenderedArticleArchiveItems({
+    distDir,
+    archivePathsByLocale: { it: hubResult.pathsByLocale?.it ?? [] },
+  });
+  const freshness = await checkCorpusFreshness(args.section, renderedItemCount, {
+    corpusCheckoutDir: corpusOverlay.checkoutDir ?? null,
+  });
+  console.log(`[publish-article-fast] ${freshness.note}`);
+  if (!freshness.ok) {
+    throw new Error(
+      `[publish-article-fast] corpus/client handoff is not publishable: ${freshness.note}`,
     );
   }
 
@@ -483,6 +513,9 @@ async function main() {
       `[publish-article-fast] control-char gate: ${refused.length} of ${screening.checked} rendered file(s) ` +
         `withheld, ${shards.length}/${locales.length} locale shard(s) still publishing`,
     );
+  }
+  } finally {
+    corpusOverlay.cleanup?.();
   }
 }
 
