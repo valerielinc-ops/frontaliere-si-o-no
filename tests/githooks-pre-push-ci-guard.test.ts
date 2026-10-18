@@ -18,6 +18,7 @@ import { join, resolve } from 'node:path';
 const ROOT = resolve(import.meta.dirname, '..');
 const HOOK = resolve(ROOT, '.githooks/pre-push');
 const OLD_HISTORY_GUARD = resolve(ROOT, 'scripts/lib/old-history-guard.mjs');
+const GIT_FETCH_TARGET = resolve(ROOT, 'scripts/lib/git-fetch-target.mjs');
 const SINGLE_FLIGHT_LOCK = resolve(ROOT, 'scripts/lib/single-flight-lock.mjs');
 const MAIN_TREE_SHRINK_GUARD = resolve(ROOT, 'scripts/ci/guard-main-tree-shrink.mjs');
 const ZERO_SHA = '0'.repeat(40);
@@ -112,6 +113,10 @@ function createHistoryGuardFixture({ includeMarker }: { includeMarker: boolean }
     writeFileSync(
       join(repo, 'scripts', 'lib', 'single-flight-lock.mjs'),
       readFileSync(SINGLE_FLIGHT_LOCK),
+    );
+    writeFileSync(
+      join(repo, 'scripts', 'lib', 'git-fetch-target.mjs'),
+      readFileSync(GIT_FETCH_TARGET),
     );
     writeFileSync(join(repo, 'scripts', 'ci', 'check-sibling-patterns.mjs'), 'process.exit(0);\n');
     runGit(repo, ['config', 'user.name', 'Fixture']);
@@ -334,6 +339,7 @@ describe('.githooks/pre-push main tree base fetch', () => {
       writeFileSync(join(scriptsDir, 'guard-main-tree-shrink.mjs'), readFileSync(MAIN_TREE_SHRINK_GUARD));
       mkdirSync(join(repo, 'scripts', 'lib'), { recursive: true });
       writeFileSync(join(repo, 'scripts', 'lib', 'old-history-guard.mjs'), readFileSync(OLD_HISTORY_GUARD));
+      writeFileSync(join(repo, 'scripts', 'lib', 'git-fetch-target.mjs'), readFileSync(GIT_FETCH_TARGET));
       writeFileSync(join(repo, 'scripts', 'lib', 'single-flight-lock.mjs'), readFileSync(SINGLE_FLIGHT_LOCK));
       writeFileSync(hookPath, readFileSync(HOOK));
       chmodSync(hookPath, 0o755);
@@ -402,6 +408,7 @@ describe('.githooks/pre-push main tree base fetch', () => {
       mkdirSync(join(repo, 'scripts', 'lib'), { recursive: true });
       writeFileSync(join(repo, 'scripts', 'ci', 'guard-main-tree-shrink.mjs'), readFileSync(MAIN_TREE_SHRINK_GUARD));
       writeFileSync(join(repo, 'scripts', 'lib', 'old-history-guard.mjs'), readFileSync(OLD_HISTORY_GUARD));
+      writeFileSync(join(repo, 'scripts', 'lib', 'git-fetch-target.mjs'), readFileSync(GIT_FETCH_TARGET));
       writeFileSync(join(repo, 'scripts', 'lib', 'single-flight-lock.mjs'), readFileSync(SINGLE_FLIGHT_LOCK));
 
       const output = execFileSync(process.execPath, [

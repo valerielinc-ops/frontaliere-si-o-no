@@ -4,7 +4,7 @@ import { randomBytes } from 'node:crypto';
 import { realpathSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { checkoutFetchTarget } from '../lib/old-history-guard.mjs';
+import { checkoutFetchTarget } from '../lib/git-fetch-target.mjs';
 import { withSingleFlightLockAsync } from '../lib/single-flight-lock.mjs';
 
 export const MIN_BASE_PATHS = 1_000;
