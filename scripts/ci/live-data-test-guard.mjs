@@ -755,6 +755,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'data/jobs/by-crawler e` creato dentro un mkdtemp sotto os.tmpdir() e passato a log-translation-stats.mjs con TRANSLATION_STATS_ROOT; la storia e il sidecar della coorte nascono nella stessa cartella temporanea. Dal checkout si legge solo lo script sotto test (#11286)',
   },
   {
+    file: 'tests/locale-router-apex-legacy.test.ts',
+    roots: ['data/jobs.json'],
+    reason: 'the native legacy-redirect producer receives a mkdtemp root with an explicit empty data/jobs.json fixture; the test asserts the loader selected that fixture before emission, never reads the checkout job corpus, and removes only its own temporary root',
+  },
+  {
     file: 'tests/job-board-seo-titles.test.ts',
     roots: ['data/jobs.json'],
     reason: 'data/jobs.json is written and read only under fs.mkdtempSync; the separate checkout read is the staticPagesPlugin.ts source used to verify the static landing call',

@@ -37,6 +37,8 @@ import { isSafeDistPath } from './shared/distPathSafety';
 // meta-refresh for a route whose HTTP contract is already server-side.
 const EDGE_HTTP_REDIRECT_PATHS = new Set([
  '/cookie/',
+ '/nav:health/',
+ '/nav:pension/',
  '/fr/articles-frontalier/naspi-disoccupazione-frontalieri/',
  '/job-board/',
  '/calcola-stipendio/confronta-permesso-g-vs-b/',
@@ -496,6 +498,9 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/privacy-policy/': '/en/privacy/',
  // Historical Italian cookie-policy entry; the notice lives in the privacy page.
  '/cookie/': '/privacy/',
+ // Exact legacy internal markers, using the same destinations as the apex Worker.
+ '/nav:health/': '/compara-servizi/confronta-casse-malati/',
+ '/nav:pension/': '/tasse-e-pensione/calcola-previdenza/',
  '/en/cross-border-faq/': '/en/frequently-asked-questions/',
  '/de/grenzgaenger-faq/': '/de/haeufige-fragen/',
  '/fr/faq-frontaliers/': '/fr/questions-frequentes/',
