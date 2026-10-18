@@ -10,6 +10,7 @@ import {
   evaluateRepairPolicy,
   evaluateProbe,
   formatIssueDescription,
+  purgeFromReport,
   probeRuntime,
   probePublicConfig,
   rotationFromEnv,
@@ -108,6 +109,74 @@ describe('runtime reliability watchdog', () => {
       deferReason: 'cdn_publish_changed_during_probe',
       purgeUrls: [],
     });
+  });
+
+  it('revalidates publish markers immediately before purge and defers when the start token changes', async () => {
+    const now = Date.parse('2026-10-18T20:10:00Z');
+    const stable = String(now - 60 * 60_000);
+    const started = String(now - 5 * 60_000);
+    const purgeImpl = vi.fn();
+    const fetchImpl = vi.fn(async (url: string) => {
+      const path = new URL(url).pathname;
+      if (path === CDN_PUBLISH_START_ID_PATH) return response(started);
+      if (path === CDN_PUBLISH_COMPLETE_ID_PATH) return response(stable);
+      return response('1792326278647');
+    });
+    const guarded = await purgeFromReport({
+      ok: false,
+      deferred: false,
+      cdnBuildId: '1792326278647',
+      cdnPublishState: 'stable',
+      cdnPublishStartId: stable,
+      cdnPublishCompleteId: stable,
+      purgeUrls: [`${CDN_ORIGIN}/assets/App.js`],
+      reasons: ['/assets/App.js: stale'],
+    }, {
+      fetchImpl: fetchImpl as any,
+      now: new Date(now),
+      purgeImpl,
+    });
+
+    expect(purgeImpl).not.toHaveBeenCalled();
+    expect(guarded).toMatchObject({
+      deferred: true,
+      report: {
+        deferred: true,
+        deferReason: 'cdn_publish_changed_before_purge',
+        cdnPublishState: 'in_progress',
+        purgeUrls: [],
+        repair: { action: 'defer' },
+      },
+    });
+  });
+
+  it('dispatches the exact purge only when the generation and publish window are unchanged', async () => {
+    const stable = '1792320000000';
+    const purgeUrls = [`${CDN_ORIGIN}/assets/App.js`];
+    const outcome = { purged: 1, batches: 1, failed: [] };
+    const purgeImpl = vi.fn(() => outcome);
+    const fetchImpl = vi.fn(async (url: string) => {
+      const path = new URL(url).pathname;
+      if (path === CDN_PUBLISH_START_ID_PATH || path === CDN_PUBLISH_COMPLETE_ID_PATH) {
+        return response(stable);
+      }
+      return response('1792326278647');
+    });
+    const guarded = await purgeFromReport({
+      cdnBuildId: '1792326278647',
+      cdnPublishState: 'stable',
+      cdnPublishStartId: stable,
+      cdnPublishCompleteId: stable,
+      purgeUrls,
+    }, {
+      fetchImpl: fetchImpl as any,
+      now: new Date(Number(stable) + 60_000),
+      purgeImpl,
+    });
+
+    expect(purgeImpl).toHaveBeenCalledOnce();
+    expect(purgeImpl).toHaveBeenCalledWith(purgeUrls);
+    expect(guarded).toMatchObject({ deferred: false, outcome });
   });
 
   it('allows a coherent marker pair when every critical asset is fresh', () => {
@@ -469,6 +538,8 @@ describe('runtime reliability watchdog', () => {
     it('purges from the report file in batches, never via one --files list or purge_everything', () => {
       expect(workflow).toContain('node scripts/runtime-reliability-watch.mjs --purge-from runtime-reliability.json');
       expect(workflow).toContain('node scripts/runtime-reliability-watch.mjs --purge-from runtime-reliability-final.json');
+      expect(workflow).toContain("steps.purge.outputs.deferred != 'true'");
+      expect(workflow).toContain("if [ \"$purge_deferred\" = 'true' ]");
       expect(workflow).toContain('final_probe_retry');
       expect(workflow).not.toContain('PURGE_URLS');
       expect(workflow).not.toContain('scripts/cf-purge-cache.mjs');

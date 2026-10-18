@@ -227,6 +227,74 @@ export function classifyCdnPublishWindow({
   };
 }
 
+/**
+ * Revalidate the exact generation represented by a purge report immediately
+ * before contacting Cloudflare. The probe and the purge are separate workflow
+ * steps, so an R2 upload can start after the probe's closing marker read.
+ * Reading the start marker last makes every publish that began during this
+ * check visible; a publish beginning after this read is the irreducible
+ * network boundary between two independent systems.
+ */
+export async function purgeFromReport(report, {
+  fetchImpl = fetch,
+  timeoutMs = DEFAULT_TIMEOUT_MS,
+  now = new Date(),
+  purgeImpl = purgeUrlsInBatches,
+} = {}) {
+  const urls = Array.isArray(report?.purgeUrls) ? report.purgeUrls : [];
+  if (!urls.length) {
+    return { deferred: false, report, outcome: null };
+  }
+
+  const nonce = `purge-${now instanceof Date ? now.getTime() : Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+  const [cdnMarker, cdnPublishComplete] = await Promise.all([
+    readUrl(cacheBust(`${CDN_ORIGIN}${CDN_BUILD_ID_PATH}`, nonce), { fetchImpl, timeoutMs }),
+    readUrl(cacheBust(`${CDN_ORIGIN}${CDN_PUBLISH_COMPLETE_ID_PATH}`, nonce), { fetchImpl, timeoutMs }),
+  ]);
+  const cdnPublishStart = await readUrl(
+    cacheBust(`${CDN_ORIGIN}${CDN_PUBLISH_START_ID_PATH}`, `${nonce}-last`),
+    { fetchImpl, timeoutMs },
+  );
+  const currentPublish = classifyCdnPublishWindow({
+    startMarker: cdnPublishStart,
+    completeMarker: cdnPublishComplete,
+    nowMs: now instanceof Date ? now.getTime() : Date.now(),
+  });
+  const currentBuildId = cdnMarker?.ok ? validBuildId(cdnMarker.body) : null;
+  const expectedPublishState = report?.cdnPublishState || 'legacy';
+  const unchanged = ['legacy', 'stable'].includes(currentPublish.state)
+    && currentPublish.state === expectedPublishState
+    && currentBuildId === (report?.cdnBuildId || null)
+    && currentPublish.startId === (report?.cdnPublishStartId || null)
+    && currentPublish.completeId === (report?.cdnPublishCompleteId || null);
+
+  if (unchanged) {
+    return { deferred: false, report, outcome: purgeImpl(urls) };
+  }
+
+  const deferReason = ['unavailable', 'marker_regression', 'stalled'].includes(currentPublish.state)
+    ? `cdn_publish_${currentPublish.state}_before_purge`
+    : 'cdn_publish_changed_before_purge';
+  const reason = `CDN publish markers changed before purge (build ${report?.cdnBuildId || 'unavailable'} → ${currentBuildId || 'unavailable'}, window ${expectedPublishState} → ${currentPublish.state}); purge skipped`;
+  const deferredReport = {
+    ...report,
+    ok: false,
+    deferred: true,
+    deferReason,
+    cdnBuildId: currentBuildId,
+    cdnPublishState: currentPublish.state,
+    cdnPublishStartId: currentPublish.startId,
+    cdnPublishCompleteId: currentPublish.completeId,
+    purgeUrls: [],
+    reasons: [...new Set([...(report?.reasons || []), reason])],
+    repair: {
+      action: 'defer',
+      reason: deferReason,
+    },
+  };
+  return { deferred: true, report: deferredReport, outcome: null };
+}
+
 async function readUrl(url, { fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS } = {}) {
   let lastFailure = null;
   for (let attempt = 0; attempt <= TRANSIENT_RETRIES; attempt++) {
@@ -717,7 +785,13 @@ async function main() {
       console.log('Runtime reliability: no purge candidates.');
       return;
     }
-    const outcome = purgeUrlsInBatches(urls);
+    const guarded = await purgeFromReport(report);
+    if (guarded.deferred) {
+      fs.writeFileSync(purgeFrom, `${JSON.stringify(guarded.report, null, 2)}\n`);
+      console.log(`Runtime reliability: purge deferred — ${guarded.report.deferReason}.`);
+      return;
+    }
+    const outcome = guarded.outcome;
     console.log(`Runtime reliability: purge dispatched for ${outcome.purged}/${urls.length} URL(s) in ${outcome.batches} batch(es).`);
     for (const failure of outcome.failed) {
       console.log(`::warning title=Runtime reliability purge batch failed::batch ${failure.index + 1}/${outcome.batches}: ${failure.error}`);

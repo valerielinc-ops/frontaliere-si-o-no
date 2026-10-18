@@ -182,10 +182,12 @@ jobs:
             exit 1
           fi
           node scripts/runtime-reliability-watch.mjs --purge-from runtime-reliability.json
+          deferred="$(node --input-type=module -e "import fs from 'node:fs'; const p=JSON.parse(fs.readFileSync('runtime-reliability.json','utf8')); process.stdout.write(p.deferred === true ? 'true' : 'false');")"
+          echo "deferred=$deferred" >> "$GITHUB_OUTPUT"
 
       # Cloudflare's documented worst case for a purge to reach every PoP.
       - name: Allow targeted purge propagation
-        if: steps.probe.outputs.repair_action == 'purge'
+        if: steps.probe.outputs.repair_action == 'purge' && steps.purge.outputs.deferred != 'true'
         run: sleep 30
 
       - name: Verify live runtime after repair
@@ -212,12 +214,16 @@ jobs:
                 node scripts/runtime-reliability-watch.mjs --purge-from runtime-reliability-final.json
                 purge_status=$?
                 set -e
-                sleep 30
-                set +e
-                node scripts/runtime-reliability-watch.mjs --json > runtime-reliability-final.json
-                status=$?
-                set -e
-                RETRY_PURGE_COUNT="$retry_count" RETRY_PURGE_STATUS="$purge_status" node --input-type=module <<'NODE'
+                purge_deferred="$(node --input-type=module -e "import fs from 'node:fs'; const p=JSON.parse(fs.readFileSync('runtime-reliability-final.json','utf8')); process.stdout.write(p.deferred === true ? 'true' : 'false');")"
+                if [ "$purge_deferred" = 'true' ]; then
+                  status=0
+                else
+                  sleep 30
+                  set +e
+                  node scripts/runtime-reliability-watch.mjs --json > runtime-reliability-final.json
+                  status=$?
+                  set -e
+                  RETRY_PURGE_COUNT="$retry_count" RETRY_PURGE_STATUS="$purge_status" node --input-type=module <<'NODE'
           import fs from 'node:fs';
           const path = 'runtime-reliability-final.json';
           const report = JSON.parse(fs.readFileSync(path, 'utf8'));
@@ -229,6 +235,7 @@ jobs:
           };
           fs.writeFileSync(path, `${JSON.stringify(report, null, 2)}\n`);
           NODE
+                fi
               fi
             fi
           fi
