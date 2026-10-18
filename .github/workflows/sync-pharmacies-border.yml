@@ -90,6 +90,9 @@ jobs:
           fi
 
           cp "$reservation_output" "$reservation_path"
+          node scripts/ci/validate-workflow-data.mjs \
+            --kind pharmacy-google-usage-reservation \
+            --file data/pharmacy-google-usage-reservation.json
           git add -- "$reservation_path"
           git config user.name "frontaliere-automation[bot]"
           git config user.email "296434481+frontaliere-automation[bot]@users.noreply.github.com"
