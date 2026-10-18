@@ -78,6 +78,10 @@ GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS:-
 GIT_COMMIT_DATA_HISTORY_LOOKUP_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_HISTORY_LOOKUP_TIMEOUT_SECONDS:-60}"
 GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS:-300}"
 GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS:-180}"
+# Candidate inspection is a bounded safety operation of its own. Keep its
+# ceiling independent from the network-push ceiling: a slow tree/ancestry
+# proof must not consume the entire push budget before the guarded write starts.
+GIT_COMMIT_DATA_PUSH_GUARD_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PUSH_GUARD_TIMEOUT_SECONDS:-180}"
 # The ownership archive used to run inside the cross-repository lease. Real
 # grouped-isolated attempts measured 66.8–169.0 s fetching 56–612 missing
 # slice blobs on demand (2026-10-09). Prepare it before the lease, then bound
@@ -3072,16 +3076,15 @@ commit_isolated_from_worktree() {
       return 1
     fi
 
-    guarded_deadline="$(guarded_push_deadline)"
-    guard_timeout="$(guarded_push_remaining_seconds "$guarded_deadline")" || return 1
+    guard_timeout="$GIT_COMMIT_DATA_PUSH_GUARD_TIMEOUT_SECONDS"
     if ! main_push_guard_check "$remote_sha" "$new_commit" "$guard_timeout"; then
       emit_crawler_generation_receipt "failed" "$new_commit" "$remote_sha"
       echo "❌ Main push guard rejected grouped-isolated commit ${new_commit}; refusing to publish a collapsed tree"
       return 1
     fi
-    # `push` is the network round trip alone: building the commit object and
-    # refreshing the credentials are charged to their own phase. The timeout
-    # still uses the budget left by the ancestry/tree checks above.
+    # `push` is the network round trip alone: building the commit object,
+    # refreshing credentials and the guard's safety proof have separate
+    # bounded ceilings, so the push keeps its full configured budget.
     isolated_phase_add commit "$phase_started"
     isolated_mark phase_started
     # Capture the push output (echoed below either way, so the step log stays
@@ -3089,6 +3092,7 @@ commit_isolated_from_worktree() {
     # genuine rejection/race may become exit 42.
     push_out=""
     ensure_git_auth
+    guarded_deadline="$(guarded_push_deadline)"
     push_timeout="$(guarded_push_remaining_seconds "$guarded_deadline")" || return 1
     if push_out="$(run_bounded "$push_timeout" \
       "git push --no-thin origin <commit>:refs/heads/main" \
@@ -3393,7 +3397,6 @@ fi
 
 # Push — if rejected, undo commit and re-run sync from step 3
 push_attempt=$((push_attempt + 1))
-GUARDED_PUSH_DEADLINE="$(guarded_push_deadline)"
 PUSH_BASE_SHA=""
 if ! PUSH_BASE_SHA="$(git rev-parse --verify refs/remotes/origin/main^{commit})"; then
   echo "❌ main push guard: cannot resolve refs/remotes/origin/main for the push lease"
@@ -3404,7 +3407,7 @@ if ! PUSH_CANDIDATE_SHA="$(git rev-parse --verify HEAD^{commit})"; then
   echo "❌ main push guard: cannot resolve HEAD for the guarded candidate"
   exit 1
 fi
-GUARD_TIMEOUT="$(guarded_push_remaining_seconds "$GUARDED_PUSH_DEADLINE")" || exit 1
+GUARD_TIMEOUT="$GIT_COMMIT_DATA_PUSH_GUARD_TIMEOUT_SECONDS"
 if ! main_push_guard_check "$PUSH_BASE_SHA" "$PUSH_CANDIDATE_SHA" "$GUARD_TIMEOUT"; then
   echo "❌ Main push guard rejected the candidate; refusing to publish a collapsed tree"
   exit 1
@@ -3414,6 +3417,7 @@ fi
 # genuine rejection/race may become exit 42.
 push_out=""
 ensure_git_auth
+GUARDED_PUSH_DEADLINE="$(guarded_push_deadline)"
 PUSH_TIMEOUT="$(guarded_push_remaining_seconds "$GUARDED_PUSH_DEADLINE")" || exit 1
 if push_out="$(run_bounded "$PUSH_TIMEOUT" \
   "git push --no-thin origin <commit>:refs/heads/main" \
