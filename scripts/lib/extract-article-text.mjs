@@ -286,8 +286,8 @@ function extractParagraphs(root, maxChars = Number.POSITIVE_INFINITY) {
 
   // Dedup adjacent identical paragraphs (some sites repeat the lead)
   const out = [];
-  for (const paragraph of paragraphs) {
-    if (out.length === 0 || out[out.length - 1] !== paragraph) out.push(paragraph);
+  for (const p of paragraphs) {
+    if (out.length === 0 || out[out.length - 1] !== p) out.push(p);
   }
   return out;
 }
