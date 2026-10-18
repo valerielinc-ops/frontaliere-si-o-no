@@ -388,3 +388,43 @@ test('in-place resolver preserves staged fixes when WIP overlaps the conflict', 
     await rm(scenario.root, { recursive: true, force: true });
   }
 });
+
+test('guarded main push refuses a collapsed tree before bypassing the pre-push hook', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'git-push-with-retry-tree-guard-'));
+  const bare = join(root, 'remote.git');
+  const local = join(root, 'local');
+  const bin = join(root, 'bin');
+  try {
+    git(root, ['init', '--bare', '--initial-branch=main', bare]);
+    git(root, ['init', '--initial-branch=main', local]);
+    configureIdentity(local);
+    const tracked = join(local, 'tracked');
+    await mkdir(tracked, { recursive: true });
+    for (let index = 0; index < 1_001; index += 1) {
+      await writeFile(join(tracked, `path-${index}.txt`), `tracked ${index}\n`);
+    }
+    git(local, ['add', 'tracked']);
+    git(local, ['commit', '-m', 'seed main']);
+    git(local, ['remote', 'add', 'origin', bare]);
+    git(local, ['push', '-u', 'origin', 'main']);
+
+    await rm(tracked, { recursive: true, force: true });
+    await mkdir(tracked, { recursive: true });
+    await writeFile(join(tracked, 'path-0.txt'), 'tracked 0\n');
+    git(local, ['add', '--all']);
+    git(local, ['commit', '-m', 'collapsed tree candidate']);
+
+    await mkdir(bin);
+    await writeFile(join(bin, 'sleep'), '#!/bin/sh\nexit 0\n');
+    await chmod(join(bin, 'sleep'), 0o755);
+
+    const result = invoke({ root, local, sleepPath: bin }, []);
+
+    assert.equal(result.status, 1, result.output);
+    assert.match(result.output, /Possible catastrophic main tree shrink/u);
+    assert.match(result.output, /refusing to retry or soft-fail/u);
+    assert.equal(git(bare, ['ls-tree', '-r', '--name-only', 'main']).split('\n').length, 1_001);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});

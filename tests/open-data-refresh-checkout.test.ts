@@ -36,6 +36,7 @@ function write(repo: string, file: string, content: string) {
 const PUBLISHER_RUNTIME_FILES = [
   'scripts/lib/open-data-refresh-pr.sh',
   'scripts/lib/old-history-guard.mjs',
+  'scripts/lib/git-fetch-target.mjs',
   'scripts/lib/run-bounded-command.mjs',
   'scripts/lib/pipeline-phase-timing.mjs',
   'scripts/lib/single-flight-lock.mjs',

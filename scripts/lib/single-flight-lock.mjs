@@ -22,7 +22,8 @@ import { closeSync, openSync, readFileSync, unlinkSync, writeSync } from 'node:f
 // avvelenato che disattiva il cleanup per sempre.
 //
 // DEVE restare sopra il timeout del lavoro più lungo che gira sotto questo lock
-// (oggi il fetch di catch-up, `FETCH_TIMEOUT_MS` in prune-merged-worktrees.mjs):
+// (oggi il fetch di catch-up in prune-merged-worktrees.mjs o il fetch bounded
+// della base nel main-tree guard):
 // se scadesse prima, una seconda sessione dichiarerebbe abbandonato il lock di un
 // titolare ancora al lavoro e si tornerebbe ai fetch concorrenti che questo lock
 // esiste per impedire. Invariante verificata in
@@ -59,24 +60,20 @@ function readLock(lockPath) {
   }
 }
 
-// Esegue `fn` solo se riesce ad acquisire il lock; altrimenti ritorna
-// `{ acquired: false }` senza eseguire nulla. Il lock viene SEMPRE rilasciato,
-// anche se `fn` lancia (finally) — un hook che muore non deve lasciare il
-// cleanup disabilitato per la sessione successiva.
-export function withSingleFlightLock(lockPath, fn, { now = Date.now } = {}) {
+function acquireSingleFlightLock(lockPath, now) {
   let fd;
   try {
     fd = openSync(lockPath, 'wx');
   } catch (e) {
     if (e?.code !== 'EEXIST') throw e;
     // Occupato: takeover solo se il titolare è morto o il lock è scaduto.
-    if (!isLockStale(readLock(lockPath), { now: now() })) return { acquired: false };
+    if (!isLockStale(readLock(lockPath), { now: now() })) return false;
     try {
       unlinkSync(lockPath);
       fd = openSync(lockPath, 'wx');
     } catch {
       // Un'altra istanza ha vinto la corsa al takeover: lei lavora, noi no.
-      return { acquired: false };
+      return false;
     }
   }
   try {
@@ -84,13 +81,37 @@ export function withSingleFlightLock(lockPath, fn, { now = Date.now } = {}) {
   } finally {
     closeSync(fd);
   }
+  return true;
+}
+
+function releaseSingleFlightLock(lockPath) {
+  try {
+    unlinkSync(lockPath);
+  } catch {
+    /* già rimosso da un takeover: niente da rilasciare */
+  }
+}
+
+// Esegue `fn` solo se riesce ad acquisire il lock; altrimenti ritorna
+// `{ acquired: false }` senza eseguire nulla. Il lock viene SEMPRE rilasciato,
+// anche se `fn` lancia (finally) — un hook che muore non deve lasciare il
+// cleanup disabilitato per la sessione successiva.
+export function withSingleFlightLock(lockPath, fn, { now = Date.now } = {}) {
+  if (!acquireSingleFlightLock(lockPath, now)) return { acquired: false };
   try {
     return { acquired: true, value: fn() };
   } finally {
-    try {
-      unlinkSync(lockPath);
-    } catch {
-      /* già rimosso da un takeover: niente da rilasciare */
-    }
+    releaseSingleFlightLock(lockPath);
+  }
+}
+
+// Variante async per un lavoro che deve restare single-flight fino alla sua
+// conclusione, inclusi child process terminati in modo asincrono.
+export async function withSingleFlightLockAsync(lockPath, fn, { now = Date.now } = {}) {
+  if (!acquireSingleFlightLock(lockPath, now)) return { acquired: false };
+  try {
+    return { acquired: true, value: await fn() };
+  } finally {
+    releaseSingleFlightLock(lockPath);
   }
 }
