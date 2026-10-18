@@ -601,7 +601,7 @@ describe('main writer network bounds', () => {
       expect(result.status, result.output).toBe(1);
       expect(pushAttempts(scenario)).toBe(2);
       expect(result.output).toMatch(
-        /guarded git push --no-thin origin HEAD:main timed out after 1 second|main push deadline exceeded/u,
+        /guarded git push --no-thin origin <commit>:refs\/heads\/main timed out after 1 second|main push deadline exceeded/u,
       );
       expect(result.output).toContain('Failed to push after 2 attempts');
     } finally {

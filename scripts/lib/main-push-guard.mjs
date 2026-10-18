@@ -227,8 +227,9 @@ export function pushMainWithGuard({
     deadline,
   });
   const lease = `refs/heads/${branch}:${inspection.baseSha}`;
-  // Publish the exact object inspected above. A symbolic candidate such as
-  // HEAD can move between validation and push in long-running callers.
+  // A symbolic candidate such as HEAD may move while the inspection is in
+  // progress. Push the SHA that was actually inspected, never re-resolve the
+  // mutable ref when git constructs the refspec.
   const refspec = `${inspection.candidateSha}:refs/heads/${branch}`;
   try {
     const output = git(repo, [

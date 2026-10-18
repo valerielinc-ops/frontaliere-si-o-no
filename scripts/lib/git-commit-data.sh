@@ -102,16 +102,14 @@ main_push_guard_check() {
 }
 
 guarded_push_deadline() {
-  local now
-  now="$(node -e 'process.stdout.write(String(process.hrtime.bigint() / 1000000000n))')" || return 1
-  printf '%s\n' "$(( now + GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS ))"
+  # Bash SECONDS is process-relative and monotonic; wall-clock date can jump
+  # backwards while a guarded write is spending its end-to-end budget.
+  printf '%s\n' "$(( SECONDS + GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS ))"
 }
 
 guarded_push_remaining_seconds() {
   local deadline="$1"
-  local now remaining
-  now="$(node -e 'process.stdout.write(String(process.hrtime.bigint() / 1000000000n))')" || return 1
-  remaining=$(( deadline - now ))
+  local remaining=$(( deadline - SECONDS ))
   if [ "$remaining" -le 0 ]; then
     echo "❌ main push guard: end-to-end deadline expired before the guarded push" >&2
     return 1
@@ -2381,15 +2379,11 @@ _ISOLATED_SLOWEST_FILE_MS=0
 # The parts of the per-file loop that run a subprocess over whole slices.
 _ISOLATED_FILE_PHASES=(retirement-history ownership merge integrity)
 
-# isolated_mark <variable>: milliseconds since the epoch, without a fork.
+# isolated_mark <variable>: monotonic elapsed milliseconds since this shell
+# started, without a fork. The timing is observational; second resolution is
+# sufficient for the multi-second phases measured here.
 isolated_mark() {
-  local micros
-  if [ -n "${EPOCHREALTIME:-}" ]; then
-    micros="${EPOCHREALTIME/[.,]/}"
-    printf -v "$1" '%s' "$(( micros / 1000 ))"
-  else
-    printf -v "$1" '%s' "$(node -e 'process.stdout.write(String(process.hrtime.bigint() / 1000000n))')"
-  fi
+  printf -v "$1" '%s' "$(( SECONDS * 1000 ))"
 }
 
 isolated_phase_reset() {
@@ -3407,7 +3401,7 @@ if ! PUSH_BASE_SHA="$(git rev-parse --verify refs/remotes/origin/main^{commit})"
 fi
 PUSH_CANDIDATE_SHA=""
 if ! PUSH_CANDIDATE_SHA="$(git rev-parse --verify HEAD^{commit})"; then
-  echo "❌ main push guard: cannot resolve HEAD to an immutable candidate commit"
+  echo "❌ main push guard: cannot resolve HEAD for the guarded candidate"
   exit 1
 fi
 GUARD_TIMEOUT="$(guarded_push_remaining_seconds "$GUARDED_PUSH_DEADLINE")" || exit 1
@@ -3422,7 +3416,7 @@ push_out=""
 ensure_git_auth
 PUSH_TIMEOUT="$(guarded_push_remaining_seconds "$GUARDED_PUSH_DEADLINE")" || exit 1
 if push_out="$(run_bounded "$PUSH_TIMEOUT" \
-  "git push --no-thin origin main" \
+  "git push --no-thin origin <commit>:refs/heads/main" \
   git -c pack.window=0 -c pack.threads=1 push --no-thin \
     "--force-with-lease=refs/heads/main:${PUSH_BASE_SHA}" \
     origin "${PUSH_CANDIDATE_SHA}:refs/heads/main" 2>&1)"; then

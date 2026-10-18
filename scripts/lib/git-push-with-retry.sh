@@ -391,12 +391,19 @@ push_head() {
       cat -- "$PUSH_STDERR_FILE" >&2
       return 1
     fi
+    local candidate_sha=""
+    if ! candidate_sha="$(git rev-parse --verify HEAD^{commit})"; then
+      echo "❌ main push guard: cannot resolve HEAD for the guarded candidate" >"$PUSH_STDERR_FILE"
+      PUSH_GUARD_FAILED=1
+      cat -- "$PUSH_STDERR_FILE" >&2
+      return 1
+    fi
     run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" \
-      "guarded git push --no-thin origin HEAD:${BRANCH}" \
+      "guarded git push --no-thin origin <commit>:refs/heads/${BRANCH}" \
       node "$MAIN_PUSH_GUARD_SCRIPT" \
       --repo "$PWD" \
       --base "$lease_base_sha" \
-      --candidate HEAD \
+      --candidate "$candidate_sha" \
       --branch "$BRANCH" \
       --timeout-seconds "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" \
       --push \
