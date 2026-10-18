@@ -25,6 +25,7 @@ import {
   RATE_LIMITED_OUTCOME,
   maxQuotaResetsAt,
   isAuthorizedQuotaBeaconComment,
+  latestFixOutcomeCommentFromComments,
 } from '../scripts/ci/claude-rate-limit.mjs';
 import {
   formatDeliveredDespiteMaxTurnsComment,
@@ -33,6 +34,28 @@ import {
 } from '../scripts/ci/mark-claude-terminal-outcome.mjs';
 import { parseRecoverableBranchStamp } from '../scripts/ci/harvest-agent-lessons.mjs';
 import { latestFixOutcomeFromComments } from '../scripts/ci/followup-drainer.mjs';
+
+describe('latestFixOutcomeCommentFromComments', () => {
+  it('conserva il commento che attribuisce il verdetto e ignora il backstop generico', () => {
+    const attributedAt = new Date(Date.now() - 2 * 3600 * 1000).toISOString();
+    const backstopAt = new Date(Date.parse(attributedAt) + 3600 * 1000).toISOString();
+    const itemId = `FU-${attributedAt.slice(0, 10)}-001`;
+    const attributed = {
+      body: `<!-- FOLLOWUP_ITEM: ${itemId} -->\n<!-- FIX_OUTCOME: already-fixed -->`,
+      createdAt: attributedAt,
+    };
+    const result = latestFixOutcomeCommentFromComments([
+      attributed,
+      {
+        body: '<!-- FIX_OUTCOME: no-pr-unspecified -->\npost-step deterministico',
+        createdAt: backstopAt,
+      },
+    ]);
+    expect(result.outcome).toBe('already-fixed');
+    expect(result.at).toBe(Date.parse(attributedAt));
+    expect(result.comment).toBe(attributed);
+  });
+});
 
 // Epoch relativo: mai date assolute nelle fixture (AGENTS.md → test fixture).
 const nowSec = () => Math.floor(Date.now() / 1000);
