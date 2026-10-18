@@ -185,9 +185,9 @@ function hasNoscriptNonContentMarker(element) {
   return [...element.attributes]
     .some(({ name, value }) => {
       // Instrumentation IDs such as data-track-id="story-1" are valid on
-      // editorial fallback paragraphs. Only classify them from their value,
-      // so an explicit marker like data-track-id="pixel" still stays filtered.
-      const markerSource = /^data-track(?:[-_]|$)/i.test(name) ? value : `${name} ${value}`;
+      // editorial fallback paragraphs. Only that exact attribute is classified
+      // from its value; marker names such as data-track-pixel stay visible.
+      const markerSource = /^data-track-id$/i.test(name) ? value : `${name} ${value}`;
       return NOSCRIPT_NON_CONTENT_MARKER.test(markerSource);
     });
 }
