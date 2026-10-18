@@ -141,11 +141,13 @@ credential that writes, and it only exists inside a workflow.
 
 That makes the nanako side a **two-step, ordered pipeline**, and the order is not optional:
 
-1. `transport-generator-to-nanako.yml` — structural copy. Idempotent and **non-destructive**:
-   it overlays the manifest under `generator/` and preserves files already owned by nanako.
-   The corpus has its own generator guards, rewires, tests, and CI files in that directory;
-   a new side branch may start from a default branch that already contains them, so the site
-   transport must not delete them as a side effect of copying its narrower manifest.
+1. `transport-generator-to-nanako.yml` — structural copy. Idempotent and **ownership-aware**:
+   it overlays the manifest under `generator/`, preserves files already owned by nanako, and
+   removes only paths recorded by the previous transport ledger that disappeared from the
+   resolved site manifest. The corpus has its own generator guards, rewires, tests, and CI
+   files in that directory; a new side branch may start from a default branch that already
+   contains them, so the site transport must not delete them as a side effect of copying its
+   narrower manifest. Any staged deletion outside that exact stale site-owned set fails closed.
 2. `apply-generator-rewire-to-nanako.yml` — the behavioural REWIRE, applied from
    `.github/transport/nanako-generator-rewire.patch`.
 
