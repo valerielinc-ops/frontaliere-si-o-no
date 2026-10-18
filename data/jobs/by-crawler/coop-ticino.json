@@ -25581,7 +25581,7 @@
       "slugByLocale": {
         "it": "macellaia-macellaio-pescivendola-pescivendolo-m-f-d-coop-genossenschaft-crissier",
         "en": "bouchere-butcher-fisherman-fishman-m-f-d-coop-genossenschaft-crissier",
-        "de": "bouchere-boucher-poissonniere-poissonnier-f-h-d-coop-genossenschaft-crissier",
+        "de": "bouchere-metzger-fischer-fishman-m-w-d-coop-genossenschaft-crissier",
         "fr": "bouchere-boucher-poissonniere-poissonnier-m-w-d-coop-crissier-ao5sqp"
       },
       "requirementsByLocale": {
@@ -25618,13 +25618,13 @@
         ],
         "de": [
           "bouchere-boucher-poissonniere-poissonnier-m-w-d-coop-crissier-ao5sqp",
-          "bouchere-metzger-fischer-fishman-m-w-d-coop-genossenschaft-crissier"
+          "bouchere-boucher-poissonniere-poissonnier-f-h-d-coop-genossenschaft-crissier"
         ]
       },
       "previousSlugs": [
         "bouchere-boucher-poissonniere-poissonnier-m-w-d-coop-crissier-ao5sqp",
         "bouchere-boucher-poissonniere-poissonnier-m-w-d-coop-crissier",
-        "bouchere-metzger-fischer-fishman-m-w-d-coop-genossenschaft-crissier"
+        "bouchere-boucher-poissonniere-poissonnier-f-h-d-coop-genossenschaft-crissier"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500
@@ -26583,7 +26583,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-biel-b1c2c1",
-        "en": "kochin-koch-w-m-d-coop-genossenschaft-biel",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-biel",
         "de": "kochin-koch-m-w-d-coop-ristorante-biel-2yniq4",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-biel-b1c2c1"
       },
@@ -26616,8 +26616,8 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-biel-2yniq4",
-          "chef-chef-m-f-d-coop-genossenschaft-biel",
-          "chef-chef-m-f-d-coop-genossenschaft-biel-2yniq4"
+          "chef-chef-m-f-d-coop-genossenschaft-biel-2yniq4",
+          "kochin-koch-w-m-d-coop-genossenschaft-biel"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-biel-2yniq4"
@@ -26626,8 +26626,8 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-biel-2yniq4",
         "kochin-koch-m-w-d-coop-ristorante-biel",
-        "chef-chef-m-f-d-coop-genossenschaft-biel",
-        "chef-chef-m-f-d-coop-genossenschaft-biel-2yniq4"
+        "chef-chef-m-f-d-coop-genossenschaft-biel-2yniq4",
+        "kochin-koch-w-m-d-coop-genossenschaft-biel"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -48703,7 +48703,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-biel",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-biel",
+        "en": "cook-chef-m-f-d-coop-genossenschaft-biel",
         "de": "kochin-koch-m-w-d-coop-ristorante-biel-73nf5j",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-biel"
       },
@@ -48738,7 +48738,7 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-biel-73nf5j",
-          "cook-chef-m-f-d-coop-genossenschaft-biel"
+          "kochin-koch-m-w-d-coop-genossenschaft-biel"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-biel-73nf5j"
@@ -48747,7 +48747,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-biel-73nf5j",
         "kochin-koch-m-w-d-coop-ristorante-biel",
-        "cook-chef-m-f-d-coop-genossenschaft-biel"
+        "kochin-koch-m-w-d-coop-genossenschaft-biel"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -50782,7 +50782,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-rickenbach",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-rickenbach",
+        "en": "chef-m-f-d-coop-genossenschaft-rickenbach",
         "de": "kochin-koch-m-w-d-coop-ristorante-rickenbach-9v7jb6",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-rickenbach"
       },
@@ -50808,13 +50808,13 @@
           "kochin-koch-m-w-d-coop-ristorante-rickenbach-9v7jb6"
         ],
         "en": [
-          "chef-m-f-d-coop-genossenschaft-rickenbach"
+          "kochin-koch-m-w-d-coop-genossenschaft-rickenbach"
         ]
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-rickenbach",
         "kochin-koch-m-w-d-coop-ristorante-rickenbach-9v7jb6",
-        "chef-m-f-d-coop-genossenschaft-rickenbach"
+        "kochin-koch-m-w-d-coop-genossenschaft-rickenbach"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -60506,7 +60506,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-sarnen",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-sarnen",
+        "en": "cook-m-f-d-coop-genossenschaft-sarnen",
         "de": "kochin-koch-m-w-d-coop-ristorante-sarnen-q4upx5",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-sarnen"
       },
@@ -60533,7 +60533,7 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-sarnen-q4upx5",
-          "cook-m-f-d-coop-genossenschaft-sarnen"
+          "kochin-koch-m-w-d-coop-genossenschaft-sarnen"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-sarnen-q4upx5"
@@ -60542,7 +60542,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-sarnen-q4upx5",
         "kochin-koch-m-w-d-coop-ristorante-sarnen",
-        "cook-m-f-d-coop-genossenschaft-sarnen"
+        "kochin-koch-m-w-d-coop-genossenschaft-sarnen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -72080,7 +72080,7 @@
       "slugByLocale": {
         "it": "charge-e-de-securite-f-m-d-coop-genossenschaft-vufflens-la-ville",
         "en": "security-officer-m-f-d-coop-genossenschaft-vufflens-la-ville",
-        "de": "charge-e-de-securite-m-w-d-coop-genossenschaft-vufflens-la-ville",
+        "de": "sicherheitsbeauftragter-m-w-d-coop-genossenschaft-vufflens-la-ville",
         "fr": "charge-e-de-securite-m-w-d-coop-vufflens-la-ville-nl05z1"
       },
       "requirementsByLocale": {
@@ -72114,14 +72114,14 @@
         ],
         "de": [
           "charge-e-de-securite-f-h-d-coop-genossenschaft-vufflens-la-ville",
-          "sicherheitsbeauftragter-m-w-d-coop-genossenschaft-vufflens-la-ville"
+          "charge-e-de-securite-m-w-d-coop-genossenschaft-vufflens-la-ville"
         ]
       },
       "previousSlugs": [
         "charge-e-de-securite-m-w-d-coop-vufflens-la-ville",
         "charge-e-de-securite-f-h-d-coop-genossenschaft-vufflens-la-ville",
         "charge-e-de-securite-m-w-d-coop-vufflens-la-ville-nl05z1",
-        "sicherheitsbeauftragter-m-w-d-coop-genossenschaft-vufflens-la-ville"
+        "charge-e-de-securite-m-w-d-coop-genossenschaft-vufflens-la-ville"
       ],
       "datePosted": "2026-09-29",
       "postingDateSource": "reported",
@@ -132675,9 +132675,9 @@
       "firstSeenAt": "2026-09-26T14:10:57.436Z",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-coop-gossau-oypaij",
-        "en": "logistics-coop-gossau-sg",
+        "en": "logistician-coop-gossau-68ab42",
         "de": "logistiker-in-coop-gossau-oypaij",
-        "fr": "logistique-coop-gossau-sg"
+        "fr": "logisticien-coop-gossau-68ab42"
       },
       "titleByLocale": {
         "it": "impiegata/impiegato in logistica",
@@ -132708,15 +132708,15 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "logistician-coop-gossau-68ab42"
+          "logistics-coop-gossau-sg"
         ],
         "fr": [
-          "logisticien-coop-gossau-68ab42"
+          "logistique-coop-gossau-sg"
         ]
       },
       "previousSlugs": [
-        "logistician-coop-gossau-68ab42",
-        "logisticien-coop-gossau-68ab42"
+        "logistics-coop-gossau-sg",
+        "logistique-coop-gossau-sg"
       ],
       "datePosted": "2026-08-01",
       "postingDateSource": "reported",
