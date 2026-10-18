@@ -51,6 +51,7 @@ describe('fast-publish article workflow', () => {
     expect(freshnessAt).toBeLessThan(summaryAt);
     expect(fastDriver).toContain('retainCheckout: true');
     expect(fastDriver).toContain('corpusCheckoutDir: corpusOverlay.checkoutDir');
+    expect(fastDriver).toContain('countRenderedArticleArchiveItems');
     expect(fastDriver).toContain('corpus/client handoff is not publishable');
   });
 

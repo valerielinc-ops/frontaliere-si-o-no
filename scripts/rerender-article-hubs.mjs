@@ -444,6 +444,23 @@ function findArchiveLanding(paths) {
 }
 
 /**
+ * Count the article cards emitted by the Italian archive family.
+ *
+ * The fast publisher and the section rerender use the same archive renderer,
+ * so the corpus freshness proof must measure the same rendered population in
+ * both paths.
+ */
+export function countRenderedArticleArchiveItems({ distDir, archivePathsByLocale } = {}) {
+  let itemCount = 0;
+  for (const relPath of archivePathsByLocale?.it ?? []) {
+    const file = path.join(distDir, relPath);
+    if (!fs.existsSync(file)) continue;
+    itemCount += (fs.readFileSync(file, 'utf-8').match(/<li>/g) ?? []).length;
+  }
+  return itemCount;
+}
+
+/**
  * Refuse to publish bytes that would break the pages they replace.
  *
  * Every check here defends a failure that renders "successfully". None of them
@@ -498,13 +515,8 @@ function validateRenderedSection({ section, distDir, pathsByLocale, archivePaths
   //    that exact — pagination and nav emit `<li class="…">`, which it does
   //    not match — and it is the same pattern the corpus workflow's own
   //    empty-archive gate uses.
-  let itemCount = 0;
   const itArchive = archivePathsByLocale.it ?? [];
-  for (const rel of itArchive) {
-    const abs = path.join(distDir, rel);
-    if (!fs.existsSync(abs)) continue;
-    itemCount += (fs.readFileSync(abs, 'utf-8').match(/<li>/g) ?? []).length;
-  }
+  const itemCount = countRenderedArticleArchiveItems({ distDir, archivePathsByLocale });
   if (itArchive.length > 0 && itemCount < 1) {
     errors.push(
       `${section}: the IT archive (${itArchive.length} page(s)) lists 0 articles — refusing to publish an empty archive over the live one`,

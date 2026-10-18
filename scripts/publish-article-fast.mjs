@@ -110,7 +110,10 @@ import { fileURLToPath } from 'node:url';
 
 import { pinRenderEnv, renderHubsAndOffload } from './lib/render-and-push-hubs.mjs';
 import { decideCorpusOverlayMode, prepareCorpusContentOverlay } from './lib/article-corpus-overlay.mjs';
-import { checkCorpusFreshness } from './rerender-article-hubs.mjs';
+import {
+  checkCorpusFreshness,
+  countRenderedArticleArchiveItems,
+} from './rerender-article-hubs.mjs';
 import { filterEntriesByImagePostcondition } from './lib/article-image-postcondition.mjs';
 // Output-boundary REFUSAL (see scripts/lib/control-char-publish-gate.mjs).
 // The renderer is build-plugins/ogPagesPlugin.ts, whose article half is the
@@ -291,12 +294,10 @@ async function main() {
   // commit can make the hub see a new id while the published API/chunks still
   // serve the previous registry — exactly the hydration parity failure this
   // publisher is meant to prevent.
-  const archivePaths = hubResult.pathsByLocale?.it ?? [];
-  const renderedItemCount = archivePaths.reduce((count, relPath) => {
-    const file = path.join(distDir, relPath);
-    if (!fs.existsSync(file)) return count;
-    return count + (fs.readFileSync(file, 'utf-8').match(/<li>/g) ?? []).length;
-  }, 0);
+  const renderedItemCount = countRenderedArticleArchiveItems({
+    distDir,
+    archivePathsByLocale: { it: hubResult.pathsByLocale?.it ?? [] },
+  });
   const freshness = await checkCorpusFreshness(args.section, renderedItemCount, {
     corpusCheckoutDir: corpusOverlay.checkoutDir ?? null,
   });
