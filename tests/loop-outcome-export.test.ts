@@ -2,6 +2,10 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import {
+  GLOBAL_EMAIL_OPT_OUT_FIELDS,
+  isCrossChannelStop,
+} from '../functions/src/lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from '../functions/src/lib/newsletterOptOut.js';
 import {
   buildL1TelemetryExport,
@@ -404,6 +408,7 @@ describe('read-only loop outcome exporters', () => {
       newsletterRoots: [row('newsletter_subscribers/user@example.test', { status: 'confirmed' })],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-03T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -454,6 +459,7 @@ describe('read-only loop outcome exporters', () => {
       newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: false,
@@ -494,6 +500,7 @@ describe('read-only loop outcome exporters', () => {
       })],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:10:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -534,6 +541,7 @@ describe('read-only loop outcome exporters', () => {
       })],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:10:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -556,6 +564,233 @@ describe('read-only loop outcome exporters', () => {
     });
   });
 
+  it('rejects an incomplete pre-acceptance stop even when a complete matching event follows the send', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'bounced',
+        bounced_at: '2026-09-12T09:12:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+        delivered_at: '2026-09-12T09:11:00.000Z',
+      })],
+      eventRows: [
+        row('newsletter_subscribers/user@example.test/events/bounce-incomplete', {
+          event_type: 'bounce',
+          timestamp: '2026-09-12T09:05:00.000Z',
+        }),
+        row('newsletter_subscribers/user@example.test/events/bounce-complete', {
+          event_type: 'bounce',
+          occurred_at: '2026-09-12T09:12:00.000Z',
+          timestamp: '2026-09-12T09:12:00.000Z',
+        }),
+      ],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+        isCrossChannelStop: () => true,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        deduplicationChecked: true,
+        unattributedDeliveries: 1,
+        postSendCrossChannelStopsProven: 0,
+        incompleteStopEventProofs: 1,
+        incompleteStopEventReasons: { 'bounce:missingOccurredAt': 1 },
+      },
+    });
+  });
+
+  it('uses an incomplete post-send event only when matching root server evidence completes its time proof', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'bounced',
+        bounced_at: '2026-09-12T09:12:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+        delivered_at: '2026-09-12T09:11:00.000Z',
+      })],
+      eventRows: [row('newsletter_subscribers/user@example.test/events/bounce-1', {
+        event_type: 'bounce',
+        timestamp: '2026-09-12T09:12:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+        isCrossChannelStop,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 1,
+      consentViolations: 0,
+      export: {
+        consentChecked: true,
+        unattributedDeliveries: 0,
+        incompleteStopEventProofs: 0,
+        serverLedgerProvenIncompleteStops: 1,
+        postSendCrossChannelStopsProven: 1,
+      },
+    });
+  });
+
+  it('refuses a timestamp-less event excluded by Firestore when its root server ledger proves a pre-send stop', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'confirmed',
+        unsubscribed_at: '2026-09-12T09:05:00.000Z',
+        resubscribed_at: '2026-09-12T09:20:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+      })],
+      // Firestore's timestamp filter cannot return the malformed event. The
+      // canonical writer's server stamp on the subscriber root is the second
+      // ledger and must still make the consent interval fail closed.
+      eventRows: [],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }),
+        isCrossChannelStop,
+        isNewsletterOptOutBinding,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        unattributedDeliveries: 1,
+        preAcceptanceRootStops: 1,
+      },
+    });
+  });
+
+  it('classifies a complete global stop-all ledger after the send with the canonical sender contract', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'confirmed',
+        all_email_opted_out: true,
+        global_email_opt_out: true,
+        all_email_opted_out_at: '2026-09-12T09:12:00.000Z',
+        global_email_opt_out_at: '2026-09-12T09:12:00.000Z',
+        resubscribed_at: '2026-09-12T09:08:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+        delivered_at: '2026-09-12T09:11:00.000Z',
+      })],
+      eventRows: [row('newsletter_subscribers/user@example.test/events/stop-all-1', {
+        event_type: 'all_email_unsubscribed',
+        occurred_at: '2026-09-12T09:12:00.000Z',
+        timestamp: '2026-09-12T09:12:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+        isCrossChannelStop,
+        isNewsletterOptOutBinding,
+        globalEmailOptOutFields: GLOBAL_EMAIL_OPT_OUT_FIELDS,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 1,
+      consentViolations: 0,
+      export: {
+        consentChecked: true,
+        unattributedDeliveries: 0,
+        postSendCrossChannelStopsProven: 1,
+      },
+    });
+  });
+
+  it('keeps a global stop-all fail-closed when its root server stamps are incomplete', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'confirmed',
+        global_email_opt_out: true,
+        global_email_opt_out_at: '2026-09-12T09:12:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+      })],
+      eventRows: [row('newsletter_subscribers/user@example.test/events/stop-all-1', {
+        event_type: 'all_email_unsubscribed',
+        occurred_at: '2026-09-12T09:12:00.000Z',
+        timestamp: '2026-09-12T09:12:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+        isCrossChannelStop,
+        globalEmailOptOutFields: GLOBAL_EMAIL_OPT_OUT_FIELDS,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        unattributedDeliveries: 1,
+        unprovenCurrentCrossChannelStops: 1,
+      },
+    });
+  });
+
   it('keeps the consent violation when the stop occurred before acceptance but its webhook was persisted later', () => {
     const output = buildL4OutcomeLedger({
       now: NOW,
@@ -567,6 +802,7 @@ describe('read-only loop outcome exporters', () => {
       })],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:10:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -606,6 +842,7 @@ describe('read-only loop outcome exporters', () => {
       })],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:10:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -641,6 +878,7 @@ describe('read-only loop outcome exporters', () => {
       newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:00:00.000Z',
         consent_checked: false,
         consent_allowed: false,
@@ -667,6 +905,7 @@ describe('read-only loop outcome exporters', () => {
   it('keeps duplicate recipient-alert sends out of the deduplication check', () => {
     const delivery = (id: string) => row(`job_alert_subscribers/user@example.test/campaign_deliveries/${id}`, {
       campaign_id: 'a1',
+      ranking_delivery_id: `jer_job_alert_${(id === 'd2' ? 'b' : 'a').repeat(24)}`,
       sent_at: '2026-09-12T09:00:00.000Z',
       consent_checked: true,
       consent_allowed: true,
@@ -723,6 +962,147 @@ describe('read-only loop outcome exporters', () => {
     });
   });
 
+  describe('L4 independent sender proof', () => {
+    const senderDelivery = ({
+      id = 'd1',
+      alertId = 'a1',
+      proofId = `jer_job_alert_${'a'.repeat(24)}`,
+      consent = true,
+      sentAt = '2026-09-12T09:00:00.000Z',
+    } = {}) => row(`job_alert_subscribers/user@example.test/campaign_deliveries/${id}`, {
+      campaign_id: alertId,
+      ranking_delivery_id: proofId,
+      sent_at: sentAt,
+      consent_checked: consent ? true : null,
+      consent_allowed: consent ? true : null,
+      consent_basis: consent ? 'explicit-alert' : null,
+      consent_checked_at: consent ? '2026-09-12T08:59:00.000Z' : null,
+      outcome_contract_version: 1,
+      scheduled_for: null,
+      send_time_source: 'global',
+      delivered_at: '2026-09-12T09:01:00.000Z',
+    });
+    const ledger = ({ alertRows = [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })], deliveryRows, predicates }:
+      { alertRows?: unknown[]; deliveryRows: unknown[]; predicates?: Record<string, unknown> }) => buildL4OutcomeLedger({
+      now: NOW,
+      alertRows,
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      deliveryRows,
+      predicates: predicates || { evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }) },
+    });
+
+    it('keeps missing consent evidence fail-closed even with valid sender provenance', () => {
+      const output = ledger({ deliveryRows: [senderDelivery({ consent: false })] });
+
+      expect(output).toMatchObject({
+        deliveredAlerts: 0,
+        export: {
+          consentChecked: false,
+          deduplicationChecked: true,
+          unattributedDeliveries: 1,
+          unattributedDeliveryReasons: { missingConsentEvidence: 1 },
+          senderProvenDeliveries: 1,
+        },
+      });
+    });
+
+    it.each([
+      ['missing', ''],
+      ['malformed', 'foreign-delivery-id'],
+    ])('keeps a known alert with %s sender provenance unattributed', (_label, proofId) => {
+      const output = ledger({ deliveryRows: [senderDelivery({ proofId })] });
+
+      expect(output).toMatchObject({
+        deliveredAlerts: 0,
+        export: {
+          consentChecked: false,
+          deduplicationChecked: true,
+          unattributedDeliveries: 1,
+          unattributedDeliveryReasons: { missingSenderEvidence: 1 },
+          noConsentedAlertCauses: { missingSenderEvidence: 1 },
+          senderProvenDeliveries: 0,
+          senderProofMissing: 1,
+        },
+      });
+    });
+
+    it('keeps duplicate sender-proven deliveries fail-closed', () => {
+      const output = ledger({
+        deliveryRows: [
+          senderDelivery(),
+          senderDelivery({ id: 'd2', proofId: `jer_job_alert_${'b'.repeat(24)}` }),
+        ],
+      });
+
+      expect(output).toMatchObject({
+        deliveredAlerts: 2,
+        duplicateSends: 1,
+        export: {
+          consentChecked: true,
+          deduplicationChecked: false,
+          unattributedDeliveries: 0,
+          senderProvenDeliveries: 2,
+        },
+      });
+    });
+
+    it('keeps a delivery without a current alert or valid sender proof unattributed', () => {
+      const output = ledger({
+        alertRows: [],
+        deliveryRows: [senderDelivery({ proofId: 'foreign-delivery-id' })],
+      });
+
+      expect(output).toMatchObject({
+        deliveredAlerts: 0,
+        export: {
+          consentChecked: false,
+          deduplicationChecked: true,
+          unattributedDeliveries: 1,
+          unattributedDeliveryReasons: { missingSenderEvidence: 1 },
+          noConsentedAlertCauses: { missingSenderEvidence: 1 },
+          senderProvenDeliveries: 0,
+          senderProofMissing: 1,
+        },
+      });
+    });
+
+    it('accepts only complete sender and consent proof when mutable rows no longer prove send-time state', () => {
+      const output = ledger({
+        alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', {
+          active: true,
+          backfilled_from: 'newsletter_subscribers',
+        })],
+        deliveryRows: [
+          senderDelivery(),
+          senderDelivery({
+            id: 'd2',
+            alertId: 'deleted-alert',
+            proofId: `jer_job_alert_${'c'.repeat(24)}`,
+          }),
+        ],
+        predicates: {
+          evaluateJobAlertConsent: () => ({ allowed: false, reason: 'no-subscription-basis' }),
+        },
+      });
+
+      expect(output).toMatchObject({
+        deliveredAlerts: 2,
+        duplicateSends: 0,
+        consentViolations: 0,
+        export: {
+          consentChecked: true,
+          deduplicationChecked: true,
+          unattributedDeliveries: 0,
+          senderProvenDeliveries: 2,
+          senderProofMissing: 0,
+          historicalAlertRowsRecovered: 1,
+          mutableConsentSnapshotsSuperseded: 1,
+        },
+      });
+    });
+  });
+
   it('reads the return cohort from native GA4 sessionCampaignName and never from a custom dimension', async () => {
     const calls: Array<{ url: string; body: any }> = [];
     const returningUsers = await fetchL4ReturnUsers({
@@ -763,6 +1143,7 @@ describe('read-only loop outcome exporters', () => {
       newsletters: [row('newsletter_subscribers/user@example.test', { status: 'confirmed' })],
       deliveries: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-03T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -869,6 +1250,7 @@ describe('read-only loop outcome exporters', () => {
       newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -910,6 +1292,7 @@ describe('read-only loop outcome exporters', () => {
       const checkedAt = new Date(Date.parse(sentAt) - 60_000).toISOString();
       return row(`${USER}/campaign_deliveries/${id}`, {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${(id === 'd2' ? 'b' : 'a').repeat(24)}`,
         consent_checked: true,
         consent_allowed: true,
         consent_basis: 'explicit-alert',
@@ -1006,7 +1389,13 @@ describe('read-only loop outcome exporters', () => {
     it('keeps events id-joined to operator or unattributed rows out of the window join', () => {
       for (const owner of [
         delivery('op', { is_operator_verification: true, message_id: 'msg-9', provider: 'maileroo', sent_at: '2026-09-12T08:59:00.000Z' }),
-        delivery('ux', { campaign_id: 'gone', message_id: 'msg-9', provider: 'maileroo', sent_at: '2026-09-12T08:59:00.000Z' }),
+        delivery('ux', {
+          campaign_id: 'gone',
+          ranking_delivery_id: 'foreign-delivery-id',
+          message_id: 'msg-9',
+          provider: 'maileroo',
+          sent_at: '2026-09-12T08:59:00.000Z',
+        }),
       ]) {
         const output = ledger(
           [owner, delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
@@ -1045,10 +1434,16 @@ describe('read-only loop outcome exporters', () => {
       expect(ledger([], []).export.deliveryEvidenceJoin).toBe('no-deliveries');
     });
 
-    it('keeps an unknown campaign id unattributed and the consent gates closed', () => {
+    it('keeps an unknown campaign without valid sender provenance unattributed and the consent gates closed', () => {
       const foreignId = 'x'.repeat(42);
       const output = ledger(
-        [delivery('d1', { campaign_id: foreignId, message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [delivery('d1', {
+          campaign_id: foreignId,
+          ranking_delivery_id: 'foreign-delivery-id',
+          message_id: 'ref-1',
+          provider: 'maileroo',
+          sent_at: '2026-09-12T09:00:00.000Z',
+        })],
         [event('e1', { event_type: 'delivered', message_id: 'ref-1', provider: 'maileroo', occurred_at: '2026-09-12T09:10:00.000Z' })],
       );
       expect(output.deliveredAlerts).toBe(0);
@@ -1056,7 +1451,7 @@ describe('read-only loop outcome exporters', () => {
         consentChecked: false,
         deduplicationChecked: true,
         unattributedDeliveries: 1,
-        unattributedDeliveryReasons: { noConsentedAlert: 1 },
+        unattributedDeliveryReasons: { missingSenderEvidence: 1 },
         unattributedDeliveryShapes: { [String(foreignId.length)]: 1 },
       });
       expect(JSON.stringify(output.export)).not.toContain(foreignId);
@@ -1071,6 +1466,7 @@ describe('read-only loop outcome exporters', () => {
         deliveryRows: [
           row(`${USER}/campaign_deliveries/d1`, {
             campaign_id: 'refused',
+            ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
             sent_at: '2026-09-12T09:00:00.000Z',
             consent_checked: true,
             consent_allowed: false,
@@ -1078,7 +1474,11 @@ describe('read-only loop outcome exporters', () => {
             consent_checked_at: '2026-09-12T08:59:00.000Z',
             outcome_contract_version: 1,
           }),
-          row(`${USER}/campaign_deliveries/d2`, { campaign_id: 'deleted', sent_at: '2026-09-12T09:00:00.000Z' }),
+          row(`${USER}/campaign_deliveries/d2`, {
+            campaign_id: 'deleted',
+            ranking_delivery_id: `jer_job_alert_${'b'.repeat(24)}`,
+            sent_at: '2026-09-12T09:00:00.000Z',
+          }),
         ],
         predicates: { evaluateJobAlertConsent: () => ({ allowed: false, reason: 'no-consent' }) },
       });
@@ -1226,6 +1626,7 @@ describe('read-only loop outcome exporters', () => {
       })],
       deliveries: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -1262,6 +1663,20 @@ describe('read-only loop outcome exporters', () => {
 
     expect(calls.find((query) => query.collectionId === 'newsletter_subscribers')?.fieldPaths)
       .toContain('consent_given');
+    expect(calls.find((query) => query.collectionId === 'newsletter_subscribers')?.fieldPaths)
+      .toContain('bounced_at');
+    expect(calls.find((query) => query.collectionId === 'newsletter_subscribers')?.fieldPaths)
+      .toEqual(expect.arrayContaining([
+        ...GLOBAL_EMAIL_OPT_OUT_FIELDS,
+        'all_email_opted_out_at',
+        'global_email_opt_out_at',
+      ]));
+    expect(calls.find((query) => query.collectionId === 'campaign_deliveries')?.fieldPaths)
+      .toContain('ranking_delivery_id');
+    const eventQueries = calls.filter((query) => query.collectionId === 'events');
+    expect(eventQueries).toHaveLength(1);
+    expect((eventQueries.find((query) => (query.where as any)?.fieldFilter?.field?.fieldPath === 'timestamp')?.where as any)
+      ?.fieldFilter?.value?.timestampValue).toBe('2026-09-02T11:40:00.000Z');
     expect(output).toMatchObject({
       eligibleConsentedUsers: 1,
       deliveredAlerts: 1,
@@ -1269,6 +1684,14 @@ describe('read-only loop outcome exporters', () => {
         consentChecked: true,
         deduplicationChecked: true,
         unattributedDeliveries: 0,
+        stopEvidenceContract: {
+          rootServerLedger: expect.arrayContaining([
+            'unsubscribed_at/unsubscribedAt',
+            'all_email_opted_out_at',
+            'global_email_opt_out_at',
+          ]),
+          timestamplessEventPolicy: expect.stringContaining('is refused'),
+        },
       },
     });
   });

@@ -33,6 +33,7 @@ function fixture() {
     campaign_deliveries: [
       row('job_alert_subscribers/user@example.com/campaign_deliveries/inactive', {
         campaign_id: 'inactive',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-03T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -46,6 +47,7 @@ function fixture() {
       // La finestra REST deve escludere questo documento.
       row('job_alert_subscribers/user@example.com/campaign_deliveries/old', {
         campaign_id: 'inactive',
+        ranking_delivery_id: `jer_job_alert_${'b'.repeat(24)}`,
         sent_at: '2026-09-01T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -255,9 +257,12 @@ describe('L4: query Firestore', () => {
         field: 'sent_at',
         value: '2026-09-02T12:00:00.000Z',
       });
+      // The first delivery in the rolling window may carry a consent check
+      // up to 20 minutes earlier. Stop evidence must cover that whole
+      // filter-to-send interval, not start at the delivery boundary.
       expect(timestampFilter(byCollection.events)).toEqual({
         field: 'timestamp',
-        value: '2026-09-02T12:00:00.000Z',
+        value: '2026-09-02T11:40:00.000Z',
       });
       expect(byCollection.events.fieldPaths).toEqual(expect.arrayContaining([
         'event_type', 'eventType', 'message_id', 'messageId', 'timestamp',
