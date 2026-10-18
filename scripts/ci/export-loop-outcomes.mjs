@@ -939,6 +939,12 @@ const L4_EVIDENCE_CLASS = Object.freeze({
 const L4_RECIPIENT_WINDOW_BEFORE_MS = 60_000;
 const L4_RECIPIENT_WINDOW_AFTER_MS = 72 * 3_600_000;
 const L4_JOB_ALERT_DELIVERY_ID_RE = /^jer_job_alert_[0-9a-f]{24}$/;
+const L4_GLOBAL_EMAIL_OPT_OUT_FIELDS = Object.freeze([
+  'all_email_opted_out',
+  'all_emails_opted_out',
+  'global_email_opt_out',
+  'global_email_opted_out',
+]);
 
 function normalizedProvider(value) {
   return String(value || '').trim().toLowerCase();
@@ -994,6 +1000,7 @@ const L4_UNSUBSCRIBE_EVENT_TYPES = new Set([
   'all_email_unsubscribed',
   'subscription_unsubscribed',
 ]);
+const L4_GLOBAL_UNSUBSCRIBE_EVENT_TYPES = new Set(['all_email_unsubscribed']);
 const L4_BOUNCE_EVENT_TYPES = new Set(['bounce']);
 const L4_COMPLAINT_EVENT_TYPES = new Set(['complaint', 'complained']);
 const L4_SUPPRESSION_EVENT_TYPES = new Set(['suppressed']);
@@ -1028,40 +1035,58 @@ function newsletterStopEvidenceBySubscriber(rows) {
     if (!bySubscriber.has(email)) bySubscriber.set(email, []);
     // Require both times, and use the earlier one conservatively when a
     // provider event was persisted after the event actually happened.
-    bySubscriber.get(email).push({ type, at: Math.min(occurredAtMs, recordedAtMs) });
+    bySubscriber.get(email).push({
+      type,
+      at: Math.min(occurredAtMs, recordedAtMs),
+      occurredAtMs,
+      recordedAtMs,
+    });
   }
   return { bySubscriber, incompleteBySubscriber, incompleteSubscribers, incompleteReasons };
 }
 
-function currentCrossChannelStopGroups(newsletter, isOptOutBinding) {
+function explicitTrue(value) {
+  return value === true || value === 1 || value === 'true' || value === '1';
+}
+
+function currentCrossChannelStopGroups(newsletter, isOptOutBinding, globalOptOutFields) {
   const status = String(newsletter?.status || '').trim().toLowerCase();
   const groups = [];
   if (status === 'unsubscribed' || isOptOutBinding(newsletter)) {
     groups.push({
       events: L4_UNSUBSCRIBE_EVENT_TYPES,
-      recordedAtMs: toMillis(first(newsletter, ['unsubscribed_at', 'unsubscribedAt'])),
-      allowIncompleteProviderEvent: false,
+      ledgerRootTimes: [toMillis(first(newsletter, ['unsubscribed_at', 'unsubscribedAt']))],
+    });
+  }
+  if (globalOptOutFields.some((field) => explicitTrue(newsletter?.[field]))) {
+    groups.push({
+      events: L4_GLOBAL_UNSUBSCRIBE_EVENT_TYPES,
+      // The canonical stop-all writer stamps both fields in the same write.
+      // A legacy boolean without both server stamps cannot prove when the
+      // stop happened and therefore remains fail-closed.
+      ledgerRootTimes: [
+        toMillis(newsletter?.all_email_opted_out_at),
+        toMillis(newsletter?.global_email_opt_out_at),
+      ],
+      requireRootTimes: true,
     });
   }
   if (status === 'bounced') {
     groups.push({
       events: L4_BOUNCE_EVENT_TYPES,
-      recordedAtMs: toMillis(first(newsletter, ['bounced_at', 'bouncedAt'])),
-      allowIncompleteProviderEvent: true,
+      ledgerRootTimes: [toMillis(first(newsletter, ['bounced_at', 'bouncedAt']))],
     });
   }
   if (status === 'complained') {
     groups.push({
       events: L4_COMPLAINT_EVENT_TYPES,
-      recordedAtMs: toMillis(first(newsletter, ['complained_at', 'complainedAt'])),
-      allowIncompleteProviderEvent: true,
+      ledgerRootTimes: [toMillis(first(newsletter, ['complained_at', 'complainedAt']))],
     });
   }
   if (status === 'suppressed') {
     groups.push({
       events: L4_SUPPRESSION_EVENT_TYPES,
-      recordedAtMs: toMillis(first(newsletter, ['suppressed_at', 'suppressedAt'])),
-      allowIncompleteProviderEvent: true,
+      ledgerRootTimes: [toMillis(first(newsletter, ['suppressed_at', 'suppressedAt']))],
     });
   }
   return groups;
@@ -1078,30 +1103,66 @@ function currentCrossChannelStopGroups(newsletter, isOptOutBinding) {
 function currentStopIsAfterAcceptedDelivery({
   newsletter,
   events,
-  incompleteEvents,
   checkedAtMs,
   sentAtMs,
   isOptOutBinding,
+  globalOptOutFields,
 }) {
   if (checkedAtMs == null || sentAtMs == null || checkedAtMs > sentAtMs) return false;
-  const stopGroups = currentCrossChannelStopGroups(newsletter, isOptOutBinding);
+  const stopGroups = currentCrossChannelStopGroups(newsletter, isOptOutBinding, globalOptOutFields);
   if (stopGroups.length === 0) return false;
   const subscriberEvents = events || [];
   if (subscriberEvents.some((event) => event.at >= checkedAtMs && event.at <= sentAtMs)) return false;
   return stopGroups.every((group) => {
-    if (subscriberEvents.some((event) => event.at > sentAtMs && group.events.has(event.type))) return true;
-    if (!group.allowIncompleteProviderEvent || !(group.recordedAtMs > sentAtMs)) return false;
-    // Provider bounce/complaint/suppression writers stamp both the subscriber
-    // projection and append-only event at webhook receipt. If the provider
-    // omitted its own occurrence time, require both server-side stamps after
-    // acceptance and close together; either surface alone remains untrusted.
-    return (incompleteEvents || []).some((event) => (
-      event.occurredAtMs == null
-      && event.recordedAtMs > sentAtMs
-      && group.events.has(event.type)
-      && Math.abs(event.recordedAtMs - group.recordedAtMs) <= 5 * 60_000
-    ));
+    if (group.requireRootTimes
+      && !group.ledgerRootTimes.every((time) => time != null && time > sentAtMs)) return false;
+    return subscriberEvents.some((event) => event.at > sentAtMs && group.events.has(event.type));
   });
+}
+
+function classifyIncompleteStopEvents({
+  newsletter,
+  events,
+  sentAtMs,
+  isOptOutBinding,
+  globalOptOutFields,
+}) {
+  const promoted = [];
+  const stopGroups = currentCrossChannelStopGroups(newsletter, isOptOutBinding, globalOptOutFields);
+  for (const event of events || []) {
+    // Missing server time, or a server time no later than provider acceptance,
+    // can never be upgraded by a later event or a mutable root snapshot.
+    if (event.recordedAtMs == null || event.recordedAtMs <= sentAtMs) {
+      return { blocked: true, promoted: [] };
+    }
+    const matched = stopGroups.some((group) => (
+      group.events.has(event.type)
+      && group.ledgerRootTimes.length > 0
+      && group.ledgerRootTimes.every((time) => (
+        time != null
+        && time > sentAtMs
+        && Math.abs(time - event.recordedAtMs) <= 5 * 60_000
+      ))
+    ));
+    if (!matched) return { blocked: true, promoted: [] };
+    promoted.push({ ...event, at: event.recordedAtMs, serverLedgerProven: true });
+  }
+  return { blocked: false, promoted };
+}
+
+function rootStopTimes(newsletter) {
+  return [
+    newsletter?.unsubscribed_at,
+    newsletter?.unsubscribedAt,
+    newsletter?.bounced_at,
+    newsletter?.bouncedAt,
+    newsletter?.complained_at,
+    newsletter?.complainedAt,
+    newsletter?.suppressed_at,
+    newsletter?.suppressedAt,
+    newsletter?.all_email_opted_out_at,
+    newsletter?.global_email_opt_out_at,
+  ].map(toMillis).filter((time) => time != null);
 }
 
 /**
@@ -1229,6 +1290,7 @@ export function buildL4OutcomeLedger({
   const isOptOutBinding = predicates.isNewsletterOptOutBinding || (() => false);
   const crossChannelStop = predicates.isCrossChannelStop || (() => false);
   const jobAlertExcluded = predicates.isJobAlertExcluded || (() => false);
+  const globalOptOutFields = predicates.globalEmailOptOutFields || L4_GLOBAL_EMAIL_OPT_OUT_FIELDS;
   const jobs = new Map();
   const newsletters = new Map();
   for (const row of jobAlertRoots) {
@@ -1308,7 +1370,9 @@ export function buildL4OutcomeLedger({
   let historicalAlertRowsRecovered = 0;
   let mutableConsentSnapshotsSuperseded = 0;
   let incompleteStopEventProofs = 0;
+  let serverLedgerProvenIncompleteStops = 0;
   let preAcceptanceStopEvents = 0;
+  let preAcceptanceRootStops = 0;
   let unprovenCurrentCrossChannelStops = 0;
   let postSendCrossChannelStopsProven = 0;
   const deliveryRowsByProvider = {};
@@ -1354,34 +1418,54 @@ export function buildL4OutcomeLedger({
     let consentEvidence = sentAt == null ? { status: 'missing' } : readDeliveryConsentEvidence(data, sentAt);
     const knownAlert = knownAlertKeys.has(key);
     const currentConsent = currentConsentByAlertKey.get(key);
-    const subscriberStopEvents = newsletterStopEvidence.bySubscriber.get(email) || [];
+    let subscriberStopEvents = newsletterStopEvidence.bySubscriber.get(email) || [];
     const incompleteSubscriberStopEvents = newsletterStopEvidence.incompleteBySubscriber.get(email) || [];
     const currentNewsletter = newsletters.get(email) || null;
+    if (consentEvidence.status === 'valid' && newsletterStopEvidence.incompleteSubscribers.has(email)) {
+      const incompleteVerdict = classifyIncompleteStopEvents({
+        newsletter: currentNewsletter,
+        events: incompleteSubscriberStopEvents,
+        sentAtMs: sentAt,
+        isOptOutBinding,
+        globalOptOutFields,
+      });
+      if (incompleteVerdict.blocked) {
+        incompleteStopEventProofs += 1;
+        consentEvidence = { status: 'refused' };
+      } else {
+        serverLedgerProvenIncompleteStops += incompleteVerdict.promoted.length;
+        subscriberStopEvents = [...subscriberStopEvents, ...incompleteVerdict.promoted];
+      }
+    }
+    if (consentEvidence.status === 'valid' && subscriberStopEvents.some(
+      (event) => event.at >= consentEvidence.checkedAt && event.at <= sentAt,
+    )) {
+      preAcceptanceStopEvents += 1;
+      consentEvidence = { status: 'refused' };
+    }
+    // Every canonical stop writer also stamps the subscriber root in the same
+    // write. This server-side ledger remains queryable even when a malformed
+    // append-only event has no `timestamp` and is therefore absent from the
+    // bounded collection-group query. A root stop inside the filter-to-send
+    // interval is an explicit refusal; a post-send root still needs a complete
+    // matching event below before it can preserve the earlier delivery.
+    if (consentEvidence.status === 'valid' && rootStopTimes(currentNewsletter).some(
+      (time) => time >= consentEvidence.checkedAt && time <= sentAt,
+    )) {
+      preAcceptanceRootStops += 1;
+      consentEvidence = { status: 'refused' };
+    }
     const currentStopAfterDelivery = consentEvidence.status === 'valid'
       && (crossChannelStop(currentNewsletter) || currentConsent?.reason === 'cross-channel-stop')
       && currentStopIsAfterAcceptedDelivery({
         newsletter: currentNewsletter,
         events: subscriberStopEvents,
-        incompleteEvents: incompleteSubscriberStopEvents,
         checkedAtMs: consentEvidence.checkedAt,
         sentAtMs: sentAt,
         isOptOutBinding,
+        globalOptOutFields,
       });
     if (currentStopAfterDelivery) postSendCrossChannelStopsProven += 1;
-    // The immutable filter-time allow is usable only with complete stop-event
-    // evidence. A malformed stop event could fall anywhere in the interval,
-    // so it invalidates the proof instead of being silently skipped.
-    if (consentEvidence.status === 'valid') {
-      if (newsletterStopEvidence.incompleteSubscribers.has(email) && !currentStopAfterDelivery) {
-        incompleteStopEventProofs += 1;
-        consentEvidence = { status: 'refused' };
-      } else if (subscriberStopEvents.some(
-        (event) => event.at >= consentEvidence.checkedAt && event.at <= sentAt,
-      )) {
-        preAcceptanceStopEvents += 1;
-        consentEvidence = { status: 'refused' };
-      }
-    }
     // The sender deliberately does not re-read per recipient at provider
     // time. A current cross-channel stop invalidates the filter proof only
     // when its append-only event falls before provider acceptance; a stop
@@ -1560,7 +1644,9 @@ export function buildL4OutcomeLedger({
       historicalAlertRowsRecovered,
       mutableConsentSnapshotsSuperseded,
       incompleteStopEventProofs,
+      serverLedgerProvenIncompleteStops,
       preAcceptanceStopEvents,
+      preAcceptanceRootStops,
       unprovenCurrentCrossChannelStops,
       postSendCrossChannelStopsProven,
       incompleteStopEventReasons: newsletterStopEvidence.incompleteReasons,
@@ -1598,6 +1684,8 @@ export async function exportL4({
     'consent_text_displayed', 'consentTextDisplayed', 'consent_act', 'consentAct',
     'consent_origin', 'consentOrigin', 'status', 'unsubscribed_at', 'unsubscribedAt',
     'bounced_at', 'bouncedAt', 'complained_at', 'complainedAt', 'suppressed_at', 'suppressedAt',
+    ...L4_GLOBAL_EMAIL_OPT_OUT_FIELDS,
+    'all_email_opted_out_at', 'global_email_opt_out_at',
     'resubscribed_at', 'resubscribedAt',
   ];
   const [alerts, jobs, newsletters, deliveries, events] = await Promise.all([
@@ -1626,6 +1714,7 @@ export async function exportL4({
     isCrossChannelStop: suppression.isCrossChannelStop,
     isJobAlertExcluded: suppression.isJobAlertExcluded,
     isNewsletterOptOutBinding: newsletterOptOut.isNewsletterOptOutBinding,
+    globalEmailOptOutFields: suppression.GLOBAL_EMAIL_OPT_OUT_FIELDS,
   }));
   const snoozes = snoozesPath && fs.existsSync(path.resolve(snoozesPath))
     ? JSON.parse(fs.readFileSync(path.resolve(snoozesPath), 'utf8'))
@@ -1641,6 +1730,18 @@ export async function exportL4({
     window,
     predicates: consent,
   });
+  outcome.export.stopEvidenceContract = {
+    eventWindow: `timestamp >= ${consentEventWindowStart}`,
+    rootServerLedger: [
+      'unsubscribed_at/unsubscribedAt',
+      'bounced_at/bouncedAt',
+      'complained_at/complainedAt',
+      'suppressed_at/suppressedAt',
+      'all_email_opted_out_at',
+      'global_email_opt_out_at',
+    ],
+    timestamplessEventPolicy: 'root stop in consent-to-send interval is refused; active stop without complete post-send event is refused',
+  };
   const returnCohort = outcome._returnCohort;
   if (returnCohort?.campaignNames?.length > 0) {
     const analytics = analyticsClient || new GoogleDataClient({ oauthScope: GA4_READONLY_SCOPE });

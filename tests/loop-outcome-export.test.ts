@@ -2,6 +2,10 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import {
+  GLOBAL_EMAIL_OPT_OUT_FIELDS,
+  isCrossChannelStop,
+} from '../functions/src/lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from '../functions/src/lib/newsletterOptOut.js';
 import {
   buildL1TelemetryExport,
@@ -556,7 +560,58 @@ describe('read-only loop outcome exporters', () => {
     });
   });
 
-  it('proves a post-send provider bounce from paired root and append-only server stamps', () => {
+  it('rejects an incomplete pre-acceptance stop even when a complete matching event follows the send', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'bounced',
+        bounced_at: '2026-09-12T09:12:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+        delivered_at: '2026-09-12T09:11:00.000Z',
+      })],
+      eventRows: [
+        row('newsletter_subscribers/user@example.test/events/bounce-incomplete', {
+          event_type: 'bounce',
+          timestamp: '2026-09-12T09:05:00.000Z',
+        }),
+        row('newsletter_subscribers/user@example.test/events/bounce-complete', {
+          event_type: 'bounce',
+          occurred_at: '2026-09-12T09:12:00.000Z',
+          timestamp: '2026-09-12T09:12:00.000Z',
+        }),
+      ],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+        isCrossChannelStop: () => true,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        deduplicationChecked: true,
+        unattributedDeliveries: 1,
+        postSendCrossChannelStopsProven: 0,
+        incompleteStopEventProofs: 1,
+        incompleteStopEventReasons: { 'bounce:missingOccurredAt': 1 },
+      },
+    });
+  });
+
+  it('uses an incomplete post-send event only when matching root server evidence completes its time proof', () => {
     const output = buildL4OutcomeLedger({
       now: NOW,
       alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
@@ -582,18 +637,152 @@ describe('read-only loop outcome exporters', () => {
       })],
       predicates: {
         evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
-        isCrossChannelStop: () => true,
+        isCrossChannelStop,
       },
     });
 
     expect(output).toMatchObject({
+      deliveredAlerts: 1,
       consentViolations: 0,
       export: {
         consentChecked: true,
-        deduplicationChecked: true,
+        unattributedDeliveries: 0,
+        incompleteStopEventProofs: 0,
+        serverLedgerProvenIncompleteStops: 1,
+        postSendCrossChannelStopsProven: 1,
+      },
+    });
+  });
+
+  it('refuses a timestamp-less event excluded by Firestore when its root server ledger proves a pre-send stop', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'confirmed',
+        unsubscribed_at: '2026-09-12T09:05:00.000Z',
+        resubscribed_at: '2026-09-12T09:20:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+      })],
+      // Firestore's timestamp filter cannot return the malformed event. The
+      // canonical writer's server stamp on the subscriber root is the second
+      // ledger and must still make the consent interval fail closed.
+      eventRows: [],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }),
+        isCrossChannelStop,
+        isNewsletterOptOutBinding,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        unattributedDeliveries: 1,
+        preAcceptanceRootStops: 1,
+      },
+    });
+  });
+
+  it('classifies a complete global stop-all ledger after the send with the canonical sender contract', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'confirmed',
+        all_email_opted_out: true,
+        global_email_opt_out: true,
+        all_email_opted_out_at: '2026-09-12T09:12:00.000Z',
+        global_email_opt_out_at: '2026-09-12T09:12:00.000Z',
+        resubscribed_at: '2026-09-12T09:08:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+        delivered_at: '2026-09-12T09:11:00.000Z',
+      })],
+      eventRows: [row('newsletter_subscribers/user@example.test/events/stop-all-1', {
+        event_type: 'all_email_unsubscribed',
+        occurred_at: '2026-09-12T09:12:00.000Z',
+        timestamp: '2026-09-12T09:12:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+        isCrossChannelStop,
+        isNewsletterOptOutBinding,
+        globalEmailOptOutFields: GLOBAL_EMAIL_OPT_OUT_FIELDS,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 1,
+      consentViolations: 0,
+      export: {
+        consentChecked: true,
         unattributedDeliveries: 0,
         postSendCrossChannelStopsProven: 1,
-        incompleteStopEventProofs: 0,
+      },
+    });
+  });
+
+  it('keeps a global stop-all fail-closed when its root server stamps are incomplete', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'confirmed',
+        global_email_opt_out: true,
+        global_email_opt_out_at: '2026-09-12T09:12:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+      })],
+      eventRows: [row('newsletter_subscribers/user@example.test/events/stop-all-1', {
+        event_type: 'all_email_unsubscribed',
+        occurred_at: '2026-09-12T09:12:00.000Z',
+        timestamp: '2026-09-12T09:12:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+        isCrossChannelStop,
+        globalEmailOptOutFields: GLOBAL_EMAIL_OPT_OUT_FIELDS,
+      },
+    });
+
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        unattributedDeliveries: 1,
+        unprovenCurrentCrossChannelStops: 1,
       },
     });
   });
@@ -1426,9 +1615,17 @@ describe('read-only loop outcome exporters', () => {
       .toContain('consent_given');
     expect(calls.find((query) => query.collectionId === 'newsletter_subscribers')?.fieldPaths)
       .toContain('bounced_at');
+    expect(calls.find((query) => query.collectionId === 'newsletter_subscribers')?.fieldPaths)
+      .toEqual(expect.arrayContaining([
+        ...GLOBAL_EMAIL_OPT_OUT_FIELDS,
+        'all_email_opted_out_at',
+        'global_email_opt_out_at',
+      ]));
     expect(calls.find((query) => query.collectionId === 'campaign_deliveries')?.fieldPaths)
       .toContain('ranking_delivery_id');
-    expect((calls.find((query) => query.collectionId === 'events')?.where as any)
+    const eventQueries = calls.filter((query) => query.collectionId === 'events');
+    expect(eventQueries).toHaveLength(1);
+    expect((eventQueries.find((query) => (query.where as any)?.fieldFilter?.field?.fieldPath === 'timestamp')?.where as any)
       ?.fieldFilter?.value?.timestampValue).toBe('2026-09-02T11:40:00.000Z');
     expect(output).toMatchObject({
       eligibleConsentedUsers: 1,
@@ -1437,6 +1634,14 @@ describe('read-only loop outcome exporters', () => {
         consentChecked: true,
         deduplicationChecked: true,
         unattributedDeliveries: 0,
+        stopEvidenceContract: {
+          rootServerLedger: expect.arrayContaining([
+            'unsubscribed_at/unsubscribedAt',
+            'all_email_opted_out_at',
+            'global_email_opt_out_at',
+          ]),
+          timestamplessEventPolicy: expect.stringContaining('is refused'),
+        },
       },
     });
   });

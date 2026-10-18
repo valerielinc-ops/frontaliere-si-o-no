@@ -255,9 +255,12 @@ describe('L4: query Firestore', () => {
         field: 'sent_at',
         value: '2026-09-02T12:00:00.000Z',
       });
+      // The first delivery in the rolling window may carry a consent check
+      // up to 20 minutes earlier. Stop evidence must cover that whole
+      // filter-to-send interval, not start at the delivery boundary.
       expect(timestampFilter(byCollection.events)).toEqual({
         field: 'timestamp',
-        value: '2026-09-02T12:00:00.000Z',
+        value: '2026-09-02T11:40:00.000Z',
       });
       expect(byCollection.events.fieldPaths).toEqual(expect.arrayContaining([
         'event_type', 'eventType', 'message_id', 'messageId', 'timestamp',
