@@ -8082,6 +8082,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     keywordLabel={detailAlertCategoryLabel}
     cantonCode={selectedJob.canton ?? null}
     formOrigin="job_detail_anonymous"
+    onAnonymousAuthRequired={onRequireAuth}
     onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_anonymous', detailAlertCategoryLabel)}
     onAnonymousOpen={() => {
      Analytics.trackJobAlertCtaClick('job_detail_anonymous', 'open', detailAlertCategoryLabel);
@@ -11075,6 +11076,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sectors: selectedSector === 'all' ? [] : [selectedSector],
  }}
  formOrigin="job_board_filters"
+ onAnonymousAuthRequired={onRequireAuth}
  onAccepted={() => Analytics.trackJobAlertCtaClick('job_board_filters', 'accept', boardFilterAlertKeywordLabel)}
  onAnonymousOpen={() => {
  Analytics.trackJobAlertCtaClick('job_board_filters', 'open', boardFilterAlertKeywordLabel);

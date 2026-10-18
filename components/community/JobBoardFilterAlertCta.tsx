@@ -2,10 +2,10 @@ import { useCallback, useRef, useState } from 'react';
 import { BellRing, Check, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
-import { subscribeJobAlertOneTap } from '@/services/jobAlertService';
-import type { JobAlertOneTapFilters } from '@/services/jobAlertService';
+import { subscribeJobAlertOneTap, stripKeywordEmoji } from '@/services/jobAlertService';
+import type { JobAlertConfig, JobAlertOneTapFilters } from '@/services/jobAlertService';
 import { openJobAlertForm } from '@/services/jobAlertOpenSignal';
-import type { PendingJobAlertOrigin } from '@/services/pendingJobAlert';
+import { savePendingJobAlert, type PendingJobAlertOrigin } from '@/services/pendingJobAlert';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 
 export type JobBoardFilterAlertCtaStatus = 'idle' | 'submitting' | 'success' | 'error';
@@ -48,6 +48,8 @@ export interface JobBoardFilterAlertCtaProps {
   onErrored?: (error: unknown) => void;
   /** Called when an anonymous visitor hands off to the mounted JobAlertForm. */
   onAnonymousOpen?: () => void;
+  /** Called after an anonymous one-tap intent is safely parked for auth replay. */
+  onAnonymousAuthRequired?: () => void;
   /** Surface to preserve when an anonymous tap is handed to JobAlertForm. */
   formOrigin?: PendingJobAlertOrigin;
   /** Active board filters supported by `JobAlertConfig`. */
@@ -73,6 +75,7 @@ export default function JobBoardFilterAlertCta({
   onAccepted,
   onErrored,
   onAnonymousOpen,
+  onAnonymousAuthRequired,
   formOrigin,
   filters,
   onImpression,
@@ -84,12 +87,28 @@ export default function JobBoardFilterAlertCta({
 
   const handleAnonymousOpen = useCallback(() => {
     if (!keywordLabel) return;
-    // JobAlertForm owns auth, email capture, and pending-intent replay. Keep
-    // the request queued for a lazy mount, and also notify an already-mounted
-    // list form so the tap opens it immediately.
-    openJobAlertForm(keywordLabel, formOrigin);
     onAnonymousOpen?.();
-  }, [formOrigin, keywordLabel, onAnonymousOpen]);
+    // This CTA is the anonymous equivalent of the authenticated one-tap path:
+    // park the exact criteria before entering the existing auth screen, so the
+    // JobAlertForm can create the alert automatically after the auth round-trip.
+    // If storage is unavailable, keep the old form hand-off instead of sending
+    // the visitor through auth with no replayable intent.
+    const config: JobAlertConfig = {
+      keywords: [stripKeywordEmoji(keywordLabel)],
+      locations: [...(filters?.locations ?? [])],
+      contractTypes: [...(filters?.contractTypes ?? [])],
+      sectors: [...(filters?.sectors ?? [])],
+      cantonFilter: cantonCode ? [cantonCode] : null,
+      frequency: 'weekly',
+      locale,
+    };
+    const saved = savePendingJobAlert(config, formOrigin ?? 'inline_card');
+    if (saved.ok && onAnonymousAuthRequired) return onAnonymousAuthRequired();
+
+    // Notify an already-mounted form and retain the queued request for a lazy
+    // mount (for example when the CTA was clicked on a detail route).
+    openJobAlertForm(keywordLabel, formOrigin);
+  }, [cantonCode, filters, formOrigin, keywordLabel, locale, onAnonymousAuthRequired, onAnonymousOpen]);
 
   const handleClick = useCallback(async () => {
     if (!keywordLabel) return;
