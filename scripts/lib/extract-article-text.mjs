@@ -244,6 +244,19 @@ function findRecoverableNoscriptTail(markup, contentStart, rawTextTag) {
       continue;
     }
 
+    if (state === 'regex-literal' || state === 'regex-character-class') {
+      if (char === '\\') {
+        index += 1;
+      } else if (state === 'regex-literal' && char === '[') {
+        state = 'regex-character-class';
+      } else if (state === 'regex-character-class' && char === ']') {
+        state = 'regex-literal';
+      } else if (state === 'regex-literal' && char === '/') {
+        state = 'code';
+      }
+      continue;
+    }
+
     if (state === 'html-comment') {
       if (markup.startsWith('-->', index)) {
         state = 'code';
@@ -264,6 +277,8 @@ function findRecoverableNoscriptTail(markup, contentStart, rawTextTag) {
     } else if (char === '/' && next === '*') {
       state = 'block-comment';
       index += 1;
+    } else if (char === '/') {
+      state = 'regex-literal';
     } else if (markup.startsWith('<!--', index)) {
       state = 'html-comment';
       index += 3;

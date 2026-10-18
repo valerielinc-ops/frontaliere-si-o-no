@@ -157,6 +157,7 @@ describe('extractArticleText', () => {
     ['JavaScript string', payload => `const template = "<p>${payload}</p>";`],
     ['JSON string', payload => `{"html":"<p>${payload}</p>"}`],
     ['block comment', payload => `/* <p>${payload}</p> */`],
+    ['JavaScript regex literal', payload => `const template = /<p>${payload}/;`],
   ])('does not promote paragraph-shaped markup inside an unclosed raw-text %s', (_label, rawText) => {
     const payload = 'Ambiguous paragraph-shaped script payload must remain excluded from source text.';
     const html = `<main><noscript><script>${rawText(payload)}</main>`;
