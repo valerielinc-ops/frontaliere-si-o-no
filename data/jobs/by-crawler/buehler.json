@@ -1575,11 +1575,11 @@
     },
     {
       "id": "buehler-996b27cca86e",
-      "slug": "sap-application-amp-business-process-manager-le-tm-buehler-uzwil",
+      "slug": "responsabile-delle-applicazioni-e-dei-processi-aziendali-sap-le-tm-buhler-group-uzwil",
       "slugByLocale": {
-        "it": "sap-application-amp-business-process-manager-le-tm-buehler-uzwil",
+        "it": "responsabile-delle-applicazioni-e-dei-processi-aziendali-sap-le-tm-buhler-group-uzwil",
         "en": "sap-application-business-process-manager-le-tm-buhler-group-uzwil",
-        "de": "sap-application-amp-business-process-manager-le-tm-buehler-uzwil",
+        "de": "sap-anwendungs-und-geschaftsprozessmanager-le-tm-buhler-group-uzwil",
         "fr": "gestionnaire-d-applications-et-de-processus-operationnels-sap-le-tm-buhler-group-uzwil"
       },
       "company": "Bühler Group",
@@ -1630,11 +1630,16 @@
           "sap-logistics-application-business-process-manager-buehler-uzwil"
         ],
         "it": [
-          "sap-logistics-application-business-process-manager-buehler-uzwil"
+          "sap-logistics-application-business-process-manager-buehler-uzwil",
+          "sap-application-amp-business-process-manager-le-tm-buehler-uzwil"
+        ],
+        "de": [
+          "sap-application-amp-business-process-manager-le-tm-buehler-uzwil"
         ]
       },
       "previousSlugs": [
-        "sap-logistics-application-business-process-manager-buehler-uzwil"
+        "sap-logistics-application-business-process-manager-buehler-uzwil",
+        "sap-application-amp-business-process-manager-le-tm-buehler-uzwil"
       ],
       "firstSeenAt": "2026-08-31T17:13:42.304Z",
       "salaryMin": 79000,

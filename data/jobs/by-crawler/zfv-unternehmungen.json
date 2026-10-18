@@ -3280,12 +3280,12 @@
     },
     {
       "id": "zfv-unternehmungen-679eea9c18db",
-      "slug": "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2",
+      "slug": "cucina-capo-de-partie-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "it": "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2",
-        "en": "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2",
+        "it": "cucina-capo-de-partie-zfv-unternehmungen-zurich",
+        "en": "cook-chief-de-partie-zfv-unternehmungen-zurich",
         "de": "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-qppul2",
-        "fr": "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2"
+        "fr": "cuisinier-chef-de-partie-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -3329,14 +3329,22 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich"
+        "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich",
+        "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich"
+          "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich",
+          "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2"
         ],
         "de": [
           "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2"
+        ],
+        "fr": [
+          "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2"
         ]
       },
       "firstSeenAt": "2026-08-28T05:27:15.912Z",

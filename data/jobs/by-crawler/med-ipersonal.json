@@ -71,8 +71,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich",
         "it": "installatore-trice-elettrico-a-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich",
-        "en": "elektroinstallateur-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich",
-        "fr": "elektroinstallateur-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich"
+        "en": "electrical-installer-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich",
+        "fr": "installation-electrique-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -116,6 +116,12 @@
         "it": [
           "elektroinstallateur-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich",
           "installatore-trice-elettrico-a-region-niederglatt-zh-ipersonal-ag-niederglatt-zh"
+        ],
+        "en": [
+          "elektroinstallateur-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich"
+        ],
+        "fr": [
+          "elektroinstallateur-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich"
         ]
       },
       "previousSlugs": [
@@ -219,12 +225,12 @@
     },
     {
       "id": "med-ipersonal-b7756773c230",
-      "slug": "schreinermeister-region-oberwil-bl-ipersonal-ag-oberwil-bl-basel-landschaft",
+      "slug": "carpenter-maestro-oberwil-bl-regione-ipersonal-ag-oberwil-bl-basel-landschaft",
       "slugByLocale": {
         "de": "schreinermeister-region-oberwil-bl-ipersonal-ag-oberwil-bl-basel-landschaft",
-        "it": "schreinermeister-region-oberwil-bl-ipersonal-ag-oberwil-bl-basel-landschaft",
-        "en": "schreinermeister-region-oberwil-bl-ipersonal-ag-oberwil-bl-basel-landschaft",
-        "fr": "schreinermeister-region-oberwil-bl-ipersonal-ag-oberwil-bl-basel-landschaft"
+        "it": "carpenter-maestro-oberwil-bl-regione-ipersonal-ag-oberwil-bl-basel-landschaft",
+        "en": "master-carpenter-oberwil-bl-region-ipersonal-ag-oberwil-bl-basel-landschaft",
+        "fr": "maitre-charpentier-oberwil-bl-region-ipersonal-ag-oberwil-bl-basel-landschaft"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -278,7 +284,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-18T09:34:05.236Z"
+      "firstSeenAt": "2026-10-18T09:34:05.236Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreinermeister-region-oberwil-bl-ipersonal-ag-oberwil-bl-basel-landschaft"
+        ],
+        "en": [
+          "schreinermeister-region-oberwil-bl-ipersonal-ag-oberwil-bl-basel-landschaft"
+        ],
+        "fr": [
+          "schreinermeister-region-oberwil-bl-ipersonal-ag-oberwil-bl-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "schreinermeister-region-oberwil-bl-ipersonal-ag-oberwil-bl-basel-landschaft"
+      ]
     },
     {
       "id": "med-ipersonal-d145bc607a9c",
@@ -534,12 +554,12 @@
     },
     {
       "id": "med-ipersonal-dada0a3fb9ef",
-      "slug": "schreiner-region-augst-bl-ipersonal-ag-augst-bl-basel-landschaft",
+      "slug": "falegname-regione-augst-bl-ipersonal-ag-augst-bl-basel-landschaft",
       "slugByLocale": {
         "de": "schreiner-region-augst-bl-ipersonal-ag-augst-bl-basel-landschaft",
-        "it": "schreiner-region-augst-bl-ipersonal-ag-augst-bl-basel-landschaft",
-        "en": "schreiner-region-augst-bl-ipersonal-ag-augst-bl-basel-landschaft",
-        "fr": "schreiner-region-augst-bl-ipersonal-ag-augst-bl-basel-landschaft"
+        "it": "falegname-regione-augst-bl-ipersonal-ag-augst-bl-basel-landschaft",
+        "en": "carpenter-augst-bl-region-ipersonal-ag-augst-bl-basel-landschaft",
+        "fr": "menuisier-region-augst-bl-ipersonal-ag-augst-bl-basel-landschaft"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -592,7 +612,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:34:31.438Z"
+      "firstSeenAt": "2026-10-13T09:34:31.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-region-augst-bl-ipersonal-ag-augst-bl-basel-landschaft"
+        ],
+        "en": [
+          "schreiner-region-augst-bl-ipersonal-ag-augst-bl-basel-landschaft"
+        ],
+        "fr": [
+          "schreiner-region-augst-bl-ipersonal-ag-augst-bl-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-region-augst-bl-ipersonal-ag-augst-bl-basel-landschaft"
+      ]
     },
     {
       "id": "med-ipersonal-31e4abeba3b0",

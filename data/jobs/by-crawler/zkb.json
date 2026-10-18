@@ -893,12 +893,12 @@
     },
     {
       "id": "zkb-98fff34694c3",
-      "slug": "kundenberater-in-privatkunden-zurcher-kantonalbank-meilen",
+      "slug": "consulente-per-clienti-privati-zurcher-kantonalbank-meilen",
       "slugByLocale": {
-        "it": "kundenberater-in-privatkunden-zurcher-kantonalbank-meilen",
-        "en": "kundenberater-in-privatkunden-zurcher-kantonalbank-meilen",
+        "it": "consulente-per-clienti-privati-zurcher-kantonalbank-meilen",
+        "en": "private-customer-advisor-zurcher-kantonalbank-meilen",
         "de": "kundenberater-in-privatkunden-zkb-meilen",
-        "fr": "kundenberater-in-privatkunden-zurcher-kantonalbank-meilen"
+        "fr": "conseiller-ere-clientele-particuliers-zurcher-kantonalbank-meilen"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -947,11 +947,19 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "kundenberater-in-privatkunden-zkb-meilen"
+        "kundenberater-in-privatkunden-zkb-meilen",
+        "kundenberater-in-privatkunden-zurcher-kantonalbank-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-privatkunden-zkb-meilen"
+          "kundenberater-in-privatkunden-zkb-meilen",
+          "kundenberater-in-privatkunden-zurcher-kantonalbank-meilen"
+        ],
+        "en": [
+          "kundenberater-in-privatkunden-zurcher-kantonalbank-meilen"
+        ],
+        "fr": [
+          "kundenberater-in-privatkunden-zurcher-kantonalbank-meilen"
         ]
       },
       "firstSeenAt": "2026-10-09T09:12:32.114Z",
@@ -1371,12 +1379,12 @@
     },
     {
       "id": "zkb-ede1e2dd8d41",
-      "slug": "kundenberater-in-direktbank-zurcher-kantonalbank-zurich",
+      "slug": "consulente-alla-clientela-banca-diretta-zurcher-kantonalbank-zurich",
       "slugByLocale": {
-        "it": "kundenberater-in-direktbank-zurcher-kantonalbank-zurich",
-        "en": "kundenberater-in-direktbank-zurcher-kantonalbank-zurich",
+        "it": "consulente-alla-clientela-banca-diretta-zurcher-kantonalbank-zurich",
+        "en": "direct-bank-customer-advisor-zurcher-kantonalbank-zurich",
         "de": "kundenberater-in-direktbank-zkb-zurich",
-        "fr": "kundenberater-in-direktbank-zurcher-kantonalbank-zurich"
+        "fr": "conseiller-ere-a-la-clientele-banque-directe-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -1425,11 +1433,19 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "kundenberater-in-direktbank-zkb-zurich"
+        "kundenberater-in-direktbank-zkb-zurich",
+        "kundenberater-in-direktbank-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-direktbank-zkb-zurich"
+          "kundenberater-in-direktbank-zkb-zurich",
+          "kundenberater-in-direktbank-zurcher-kantonalbank-zurich"
+        ],
+        "en": [
+          "kundenberater-in-direktbank-zurcher-kantonalbank-zurich"
+        ],
+        "fr": [
+          "kundenberater-in-direktbank-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-10-08T09:17:28.707Z",
@@ -1685,12 +1701,12 @@
     },
     {
       "id": "zkb-34fe77ce4c0f",
-      "slug": "projektleiter-strategisches-flachenmanagement-m-w-d-zurcher-kantonalbank-zurich",
+      "slug": "project-manager-gestione-strategica-area-m-f-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
-        "it": "projektleiter-strategisches-flachenmanagement-m-w-d-zurcher-kantonalbank-zurich",
-        "en": "projektleiter-strategisches-flachenmanagement-m-w-d-zurcher-kantonalbank-zurich",
+        "it": "project-manager-gestione-strategica-area-m-f-d-zurcher-kantonalbank-zurich",
+        "en": "project-manager-strategic-area-management-m-f-d-zurcher-kantonalbank-zurich",
         "de": "projektleiter-strategisches-flachenmanagement-m-w-d-zkb-zurich",
-        "fr": "projektleiter-strategisches-flachenmanagement-m-w-d-zurcher-kantonalbank-zurich"
+        "fr": "gestionnaire-de-projet-gestion-de-zone-strategique-h-f-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -1738,11 +1754,19 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "projektleiter-strategisches-flachenmanagement-m-w-d-zkb-zurich"
+        "projektleiter-strategisches-flachenmanagement-m-w-d-zkb-zurich",
+        "projektleiter-strategisches-flachenmanagement-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-strategisches-flachenmanagement-m-w-d-zkb-zurich"
+          "projektleiter-strategisches-flachenmanagement-m-w-d-zkb-zurich",
+          "projektleiter-strategisches-flachenmanagement-m-w-d-zurcher-kantonalbank-zurich"
+        ],
+        "en": [
+          "projektleiter-strategisches-flachenmanagement-m-w-d-zurcher-kantonalbank-zurich"
+        ],
+        "fr": [
+          "projektleiter-strategisches-flachenmanagement-m-w-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-10-06T09:12:03.412Z",
@@ -2149,12 +2173,12 @@
     },
     {
       "id": "zkb-a8981cd6a411",
-      "slug": "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich",
+      "slug": "responsabile-clienti-aziendali-mercato-svizzera-zurcher-kantonalbank-zurich",
       "slugByLocale": {
-        "it": "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich",
-        "en": "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich",
+        "it": "responsabile-clienti-aziendali-mercato-svizzera-zurcher-kantonalbank-zurich",
+        "en": "corporate-client-advisor-swiss-market-zurcher-kantonalbank-zurich",
         "de": "firmenkundenbetreuer-in-markt-schweiz-zkb-zurich",
-        "fr": "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich"
+        "fr": "conseiller-ere-clientele-entreprises-marche-suisse-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -2206,18 +2230,22 @@
         "mercato-del-servizio-clienti-aziendale-svizzera-zurcher-kantonalbank-zurich",
         "corporate-customer-service-market-switzerland-zurcher-kantonalbank-zurich",
         "marche-du-service-clientele-d-entreprise-suisse-zurcher-kantonalbank-zurich",
-        "firmenkundenbetreuer-in-markt-schweiz-zkb-zurich"
+        "firmenkundenbetreuer-in-markt-schweiz-zkb-zurich",
+        "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mercato-del-servizio-clienti-aziendale-svizzera-zurcher-kantonalbank-zurich",
-          "firmenkundenbetreuer-in-markt-schweiz-zkb-zurich"
+          "firmenkundenbetreuer-in-markt-schweiz-zkb-zurich",
+          "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich"
         ],
         "en": [
-          "corporate-customer-service-market-switzerland-zurcher-kantonalbank-zurich"
+          "corporate-customer-service-market-switzerland-zurcher-kantonalbank-zurich",
+          "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich"
         ],
         "fr": [
-          "marche-du-service-clientele-d-entreprise-suisse-zurcher-kantonalbank-zurich"
+          "marche-du-service-clientele-d-entreprise-suisse-zurcher-kantonalbank-zurich",
+          "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich"
         ]
       },
       "salaryMin": 124000,
@@ -2236,12 +2264,12 @@
     },
     {
       "id": "zkb-62e4b7cd0f49",
-      "slug": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich",
+      "slug": "responsabile-clienti-aziendali-edilizia-immobiliare-mercato-svizzera-zurcher-kantonalbank-zurich",
       "slugByLocale": {
-        "it": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich",
-        "en": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich",
+        "it": "responsabile-clienti-aziendali-edilizia-immobiliare-mercato-svizzera-zurcher-kantonalbank-zurich",
+        "en": "corporate-client-advisor-construction-real-estate-swiss-market-zurcher-kantonalbank-zurich",
         "de": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zkb-zurich",
-        "fr": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich"
+        "fr": "conseiller-ere-clientele-entreprises-construction-immobilier-marche-suisse-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -2292,15 +2320,21 @@
       "previousSlugs": [
         "servizio-clienti-aziendale-edilizia-real-estate-market-svizzera-zurcher-kantonalbank-zurich",
         "fournisseur-de-services-clients-d-entreprise-construction-marche-immobilier-suisse-zurcher-kantonalbank-zurich",
-        "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zkb-zurich"
+        "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zkb-zurich",
+        "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servizio-clienti-aziendale-edilizia-real-estate-market-svizzera-zurcher-kantonalbank-zurich",
-          "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zkb-zurich"
+          "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zkb-zurich",
+          "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich"
         ],
         "fr": [
-          "fournisseur-de-services-clients-d-entreprise-construction-marche-immobilier-suisse-zurcher-kantonalbank-zurich"
+          "fournisseur-de-services-clients-d-entreprise-construction-marche-immobilier-suisse-zurcher-kantonalbank-zurich",
+          "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich"
+        ],
+        "en": [
+          "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich"
         ]
       },
       "salaryMin": 121500,
@@ -2319,12 +2353,12 @@
     },
     {
       "id": "zkb-c91e30a3e0dc",
-      "slug": "filialleiter-in-zurcher-kantonalbank-meilen",
+      "slug": "direttore-di-filiale-a-zurcher-kantonalbank-meilen",
       "slugByLocale": {
-        "it": "filialleiter-in-zurcher-kantonalbank-meilen",
-        "en": "filialleiter-in-zurcher-kantonalbank-meilen",
+        "it": "direttore-di-filiale-a-zurcher-kantonalbank-meilen",
+        "en": "branch-manager-zurcher-kantonalbank-meilen",
         "de": "filialleiter-in-zkb-meilen",
-        "fr": "filialleiter-in-zurcher-kantonalbank-meilen"
+        "fr": "adjoint-e-d-agence-zurcher-kantonalbank-meilen"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -2373,11 +2407,19 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "filialleiter-in-zkb-meilen"
+        "filialleiter-in-zkb-meilen",
+        "filialleiter-in-zurcher-kantonalbank-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-zkb-meilen"
+          "filialleiter-in-zkb-meilen",
+          "filialleiter-in-zurcher-kantonalbank-meilen"
+        ],
+        "en": [
+          "filialleiter-in-zurcher-kantonalbank-meilen"
+        ],
+        "fr": [
+          "filialleiter-in-zurcher-kantonalbank-meilen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:13:46.280Z",
@@ -2397,12 +2439,12 @@
     },
     {
       "id": "zkb-592c4a5a941a",
-      "slug": "steuerberater-in-mit-mandatsverantwortung-zurcher-kantonalbank-zurich",
+      "slug": "consulente-fiscale-con-responsabilita-per-mandato-zurcher-kantonalbank-zurich",
       "slugByLocale": {
-        "it": "steuerberater-in-mit-mandatsverantwortung-zurcher-kantonalbank-zurich",
-        "en": "steuerberater-in-mit-mandatsverantwortung-zurcher-kantonalbank-zurich",
+        "it": "consulente-fiscale-con-responsabilita-per-mandato-zurcher-kantonalbank-zurich",
+        "en": "accountant-with-mandate-responsibility-zurcher-kantonalbank-zurich",
         "de": "steuerberater-in-mit-mandatsverantwortung-zkb-zurich",
-        "fr": "steuerberater-in-mit-mandatsverantwortung-zurcher-kantonalbank-zurich"
+        "fr": "conseiller-fiscal-avec-responsabilite-de-mandat-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -2451,11 +2493,19 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "steuerberater-in-mit-mandatsverantwortung-zkb-zurich"
+        "steuerberater-in-mit-mandatsverantwortung-zkb-zurich",
+        "steuerberater-in-mit-mandatsverantwortung-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "steuerberater-in-mit-mandatsverantwortung-zkb-zurich"
+          "steuerberater-in-mit-mandatsverantwortung-zkb-zurich",
+          "steuerberater-in-mit-mandatsverantwortung-zurcher-kantonalbank-zurich"
+        ],
+        "en": [
+          "steuerberater-in-mit-mandatsverantwortung-zurcher-kantonalbank-zurich"
+        ],
+        "fr": [
+          "steuerberater-in-mit-mandatsverantwortung-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-09-30T21:10:50.453Z",
@@ -2718,10 +2768,10 @@
       "id": "zkb-f5a8e3192afb",
       "slug": "senior-business-engineer-processi-di-apertura-digitali-m-f-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
-        "it": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich",
-        "en": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich",
+        "it": "senior-business-engineer-processi-di-apertura-digitali-m-f-d-zurcher-kantonalbank-zurich",
+        "en": "senior-business-engineer-digital-opening-processes-m-f-d-zurcher-kantonalbank-zurich",
         "de": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zkb-zurich",
-        "fr": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich"
+        "fr": "senior-business-engineer-processus-d-ouverture-numerique-h-f-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -2770,14 +2820,18 @@
       "pensum": "80%",
       "previousSlugs": [
         "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zkb-zurich",
-        "senior-business-engineer-processus-d-ouverture-numerique-h-f-d-zurcher-kantonalbank-zurich"
+        "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zkb-zurich"
+          "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zkb-zurich",
+          "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "fr": [
-          "senior-business-engineer-processus-d-ouverture-numerique-h-f-d-zurcher-kantonalbank-zurich"
+          "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich"
+        ],
+        "en": [
+          "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-09-28T21:12:15.459Z",

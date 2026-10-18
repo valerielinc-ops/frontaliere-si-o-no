@@ -3608,7 +3608,7 @@
         "it": "collaboratore-trice-administration-spitex-100-senevita-be-muri-b-bern",
         "en": "mitarbeiter-in-administration-spitex-100-senevita-be-muri-b",
         "de": "du-bist-mpa-oder-fage-und-hast-lust-zu-100-in-der-spitex-administration-zu-arbeiten",
-        "fr": "collaboratore-trice-administration-spitex-100-senevita-be-muri-b-bern"
+        "fr": "tu-es-mpa-ou-assc-et-tu-as-envie-de-travailler-a-100-dans-l-administration-des-soins-a-domicile-senevita-be-muri-b"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -7625,7 +7625,7 @@
         "it": "risorse-umane-collaboratore-trice-50-senevita-bl-lausen",
         "en": "hr-employee-50-senevita-bl-lausen",
         "de": "hr-mitarbeiter-in-50-senevita-bl-lausen",
-        "fr": "collaborateur-trice-rh-50-senevita-bl-lausen"
+        "fr": "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -7671,14 +7671,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hr-mitarbeiter-in-50-senevita-bl-lausen",
-        "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
+        "collaborateur-trice-rh-50-senevita-bl-lausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-mitarbeiter-in-50-senevita-bl-lausen"
         ],
         "fr": [
-          "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
+          "collaborateur-trice-rh-50-senevita-bl-lausen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:24:20.770Z",
@@ -8163,9 +8163,9 @@
       "slug": "cuocere-cucinare-80-senevita-be-bern",
       "slugByLocale": {
         "it": "cuocere-cucinare-80-senevita-be-bern",
-        "en": "kochin-koch-80-senevita-be-bern",
+        "en": "cook-cook-80-senevita-be-bern",
         "de": "kochin-koch-80-senevita-be-bern",
-        "fr": "cuisinier-ere-80-senevita-be-bern"
+        "fr": "cuire-cuir-80-senevita-be-bern"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -8211,19 +8211,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-80-senevita-be-bern",
-        "cook-cook-80-senevita-be-bern",
-        "cuire-cuir-80-senevita-be-bern"
+        "cuisinier-ere-80-senevita-be-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-80-senevita-be-bern"
         ],
         "en": [
-          "cook-cook-80-senevita-be-bern"
+          "kochin-koch-80-senevita-be-bern"
         ],
         "fr": [
           "kochin-koch-80-senevita-be-bern",
-          "cuire-cuir-80-senevita-be-bern"
+          "cuisinier-ere-80-senevita-be-bern"
         ]
       },
       "firstSeenAt": "2026-09-07T15:13:56.696Z",
@@ -11672,12 +11671,12 @@
     },
     {
       "id": "senevita-136a45397e8a",
-      "slug": "apprendistato-koch-kochin-cfc-senevita-ittigen-be",
+      "slug": "apprendistato-cuoco-cuoca-afc-senevita-be-ittigen",
       "slugByLocale": {
-        "it": "apprendistato-koch-kochin-cfc-senevita-ittigen-be",
-        "en": "apprendistato-koch-kochin-cfc-senevita-ittigen-be",
+        "it": "apprendistato-cuoco-cuoca-afc-senevita-be-ittigen",
+        "en": "apprenticeship-as-a-chef-efz-senevita-be-ittigen",
         "de": "lehrstelle-koch-kochin-efz-senevita-ittigen-be",
-        "fr": "apprendistato-koch-kochin-cfc-senevita-ittigen-be"
+        "fr": "place-d-apprentissage-de-cuisinier-cfc-senevita-be-ittigen"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -11722,11 +11721,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-koch-kochin-efz-senevita-be-ittigen"
+        "lehrstelle-koch-kochin-efz-senevita-be-ittigen",
+        "apprendistato-koch-kochin-cfc-senevita-ittigen-be"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-koch-kochin-efz-senevita-be-ittigen"
+          "lehrstelle-koch-kochin-efz-senevita-be-ittigen",
+          "apprendistato-koch-kochin-cfc-senevita-ittigen-be"
+        ],
+        "en": [
+          "apprendistato-koch-kochin-cfc-senevita-ittigen-be"
+        ],
+        "fr": [
+          "apprendistato-koch-kochin-cfc-senevita-ittigen-be"
         ]
       },
       "firstSeenAt": "2026-08-07T21:46:27.736Z",
@@ -11746,12 +11753,12 @@
     },
     {
       "id": "senevita-b2760b14dc77",
-      "slug": "apprendistato-koch-kochin-cfc-100-senevita-zh-herrliberg",
+      "slug": "posto-di-apprendistato-cuoco-cuoca-afc-100-senevita-zh-herrliberg",
       "slugByLocale": {
-        "it": "apprendistato-koch-kochin-cfc-100-senevita-zh-herrliberg",
-        "en": "apprendistato-koch-kochin-cfc-100-senevita-zh-herrliberg",
+        "it": "posto-di-apprendistato-cuoco-cuoca-afc-100-senevita-zh-herrliberg",
+        "en": "apprenticeship-as-a-cook-efz-100-senevita-zh-herrliberg",
         "de": "lehrstelle-koch-kochin-efz-100-senevita-zh-herrliberg",
-        "fr": "apprendistato-koch-kochin-cfc-100-senevita-zh-herrliberg"
+        "fr": "place-d-apprentissage-de-cuisinier-cuisiniere-cfc-100-senevita-zh-herrliberg"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -11796,11 +11803,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-koch-kochin-efz-100-senevita-zh-herrliberg"
+        "lehrstelle-koch-kochin-efz-100-senevita-zh-herrliberg",
+        "apprendistato-koch-kochin-cfc-100-senevita-zh-herrliberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-koch-kochin-efz-100-senevita-zh-herrliberg"
+          "lehrstelle-koch-kochin-efz-100-senevita-zh-herrliberg",
+          "apprendistato-koch-kochin-cfc-100-senevita-zh-herrliberg"
+        ],
+        "en": [
+          "apprendistato-koch-kochin-cfc-100-senevita-zh-herrliberg"
+        ],
+        "fr": [
+          "apprendistato-koch-kochin-cfc-100-senevita-zh-herrliberg"
         ]
       },
       "firstSeenAt": "2026-08-31T17:28:05.078Z",
@@ -15663,7 +15678,7 @@
       "id": "senevita-4127b0846e86",
       "slug": "secondo-chef-senevita-zh-dietikon",
       "slugByLocale": {
-        "it": "secondo-chef-senevita-zh-dietikon",
+        "it": "sottocuoco-senevita-zh-dietikon",
         "en": "sous-chief-senevita-zh-dietikon",
         "de": "sous-chef-senevita-zh-dietikon",
         "fr": "sous-chef-senevita-zh-dietikon"
@@ -15712,13 +15727,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sous-chef-senevita-zh-dietikon",
-        "sottocuoco-senevita-zh-dietikon"
+        "sous-chef-senevita-zh-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sous-chef-senevita-zh-dietikon",
-          "sottocuoco-senevita-zh-dietikon"
+          "sous-chef-senevita-zh-dietikon"
         ],
         "en": [
           "sous-chef-senevita-zh-dietikon"

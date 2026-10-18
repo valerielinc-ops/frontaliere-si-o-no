@@ -1581,12 +1581,12 @@
     },
     {
       "id": "pdgr-039f9e3594ea",
-      "slug": "oberarztin-oberarzt-pdgr-ch-2",
+      "slug": "medico-senior-medico-senior-psychiatrische-dienste-graubunden-samedan-scuol",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-pdgr-ch-2",
-        "en": "oberarztin-oberarzt-pdgr-ch-2",
+        "it": "medico-senior-medico-senior-psychiatrische-dienste-graubunden-samedan-scuol",
+        "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-samedan-scuol",
         "de": "oberarztin-oberarzt-pdgr-ch",
-        "fr": "oberarztin-oberarzt-pdgr-ch-2"
+        "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-samedan-scuol"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1634,11 +1634,19 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
-        "oberarztin-oberarzt-pdgr-ch-t5ts7t"
+        "oberarztin-oberarzt-pdgr-ch-t5ts7t",
+        "oberarztin-oberarzt-pdgr-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-pdgr-ch-t5ts7t"
+          "oberarztin-oberarzt-pdgr-ch-t5ts7t",
+          "oberarztin-oberarzt-pdgr-ch-2"
+        ],
+        "en": [
+          "oberarztin-oberarzt-pdgr-ch-2"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-pdgr-ch-2"
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
@@ -3080,12 +3088,12 @@
     },
     {
       "id": "pdgr-6718300e4f28",
-      "slug": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol",
+      "slug": "dipl-professionista-hf-psychiatrische-dienste-graubunden-samedan-scuol",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol",
-        "en": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol",
+        "it": "dipl-professionista-hf-psychiatrische-dienste-graubunden-samedan-scuol",
+        "en": "dipl-care-professional-hf-psychiatrische-dienste-graubunden-samedan-scuol",
         "de": "dipl-pflegefachperson-hf-pdgr-ch",
-        "fr": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol"
+        "fr": "dipl-soins-professionnels-hf-psychiatrische-dienste-graubunden-samedan-scuol"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3133,11 +3141,19 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-pdgr-ch"
+        "dipl-pflegefachperson-hf-pdgr-ch",
+        "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-pdgr-ch"
+          "dipl-pflegefachperson-hf-pdgr-ch",
+          "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol"
         ]
       },
       "firstSeenAt": "2026-05-17T10:52:07.219Z",

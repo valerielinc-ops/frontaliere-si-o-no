@@ -711,12 +711,12 @@
     },
     {
       "id": "spitex-ch-a07022ffebfa",
-      "slug": "fachfrau-mann-gesundheit-cfc-spitex-limmat-aare-reuss-ag-untersiggenthal",
+      "slug": "operatore-trice-sociosanitario-a-afc-spitex-limmat-aare-reuss-ag-untersiggenthal",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal",
-        "it": "fachfrau-mann-gesundheit-cfc-spitex-limmat-aare-reuss-ag-untersiggenthal",
-        "en": "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal",
-        "fr": "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal"
+        "it": "operatore-trice-sociosanitario-a-afc-spitex-limmat-aare-reuss-ag-untersiggenthal",
+        "en": "healthcare-professional-efz-spitex-limmat-aare-reuss-ag-untersiggenthal",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-cfc-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -764,11 +764,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal",
+          "fachfrau-mann-gesundheit-cfc-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal"
+        "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal",
+        "fachfrau-mann-gesundheit-cfc-spitex-limmat-aare-reuss-ag-untersiggenthal"
       ],
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -787,12 +795,12 @@
     },
     {
       "id": "spitex-ch-ae05f4b270ab",
-      "slug": "hf-studierende-spitex-limmat-aare-reuss-ag-untersiggenthal",
+      "slug": "studenti-hf-spitex-limmat-aare-reuss-ag-untersiggenthal",
       "slugByLocale": {
         "de": "hf-studierende-spitex-ch-untersiggenthal",
-        "it": "hf-studierende-spitex-limmat-aare-reuss-ag-untersiggenthal",
-        "en": "hf-studierende-spitex-limmat-aare-reuss-ag-untersiggenthal",
-        "fr": "hf-studierende-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        "it": "studenti-hf-spitex-limmat-aare-reuss-ag-untersiggenthal",
+        "en": "hf-students-spitex-limmat-aare-reuss-ag-untersiggenthal",
+        "fr": "etudiants-de-hf-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -840,11 +848,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "hf-studierende-spitex-ch-untersiggenthal"
+          "hf-studierende-spitex-ch-untersiggenthal",
+          "hf-studierende-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        ],
+        "en": [
+          "hf-studierende-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        ],
+        "fr": [
+          "hf-studierende-spitex-limmat-aare-reuss-ag-untersiggenthal"
         ]
       },
       "previousSlugs": [
-        "hf-studierende-spitex-ch-untersiggenthal"
+        "hf-studierende-spitex-ch-untersiggenthal",
+        "hf-studierende-spitex-limmat-aare-reuss-ag-untersiggenthal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

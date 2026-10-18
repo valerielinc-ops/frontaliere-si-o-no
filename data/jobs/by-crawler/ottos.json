@@ -348,12 +348,12 @@
     },
     {
       "id": "ottos-c4b509e5ed35",
-      "slug": "strassentransportfachfrau-mann-otto-s-ag-sursee",
+      "slug": "specialista-dei-trasporti-su-strada-otto-s-ag-sursee",
       "slugByLocale": {
-        "it": "strassentransportfachfrau-mann-otto-s-ag-sursee",
-        "en": "strassentransportfachfrau-mann-otto-s-ag-sursee",
+        "it": "specialista-dei-trasporti-su-strada-otto-s-ag-sursee",
+        "en": "road-transport-specialist-otto-s-ag-sursee",
         "de": "strassentransportfachfrau-mann-ottos-sursee",
-        "fr": "strassentransportfachfrau-mann-otto-s-ag-sursee"
+        "fr": "specialiste-du-transport-routier-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -403,11 +403,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "strassentransportfachfrau-mann-ottos-sursee"
+        "strassentransportfachfrau-mann-ottos-sursee",
+        "strassentransportfachfrau-mann-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strassentransportfachfrau-mann-ottos-sursee"
+          "strassentransportfachfrau-mann-ottos-sursee",
+          "strassentransportfachfrau-mann-otto-s-ag-sursee"
+        ],
+        "en": [
+          "strassentransportfachfrau-mann-otto-s-ag-sursee"
+        ],
+        "fr": [
+          "strassentransportfachfrau-mann-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:32.027Z",
@@ -852,12 +860,12 @@
     },
     {
       "id": "ottos-48cd9cdc044d",
-      "slug": "fahrradmechaniker-in-otto-s-ag-sursee",
+      "slug": "meccanico-a-di-biciclette-otto-s-ag-sursee",
       "slugByLocale": {
-        "it": "fahrradmechaniker-in-otto-s-ag-sursee",
-        "en": "fahrradmechaniker-in-otto-s-ag-sursee",
+        "it": "meccanico-a-di-biciclette-otto-s-ag-sursee",
+        "en": "bicycle-mechanic-otto-s-ag-sursee",
         "de": "fahrradmechaniker-in-ottos-sursee",
-        "fr": "fahrradmechaniker-in-otto-s-ag-sursee"
+        "fr": "mecanicien-ne-en-cycles-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -906,11 +914,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "fahrradmechaniker-in-ottos-sursee"
+        "fahrradmechaniker-in-ottos-sursee",
+        "fahrradmechaniker-in-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fahrradmechaniker-in-ottos-sursee"
+          "fahrradmechaniker-in-ottos-sursee",
+          "fahrradmechaniker-in-otto-s-ag-sursee"
+        ],
+        "en": [
+          "fahrradmechaniker-in-otto-s-ag-sursee"
+        ],
+        "fr": [
+          "fahrradmechaniker-in-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-10-15T09:29:53.315Z",
@@ -1278,10 +1294,10 @@
       "id": "ottos-17494d82f5a3",
       "slug": "creative-media-producer-otto-s-ag-sursee",
       "slugByLocale": {
-        "it": "creative-media-producer-otto-s-ag-sursee",
+        "it": "produttore-multimediale-creativo-otto-s-ag-sursee",
         "en": "creative-media-producer-otto-s-ag-sursee",
         "de": "creative-media-producer-ottos-sursee",
-        "fr": "creative-media-producer-otto-s-ag-sursee"
+        "fr": "producteur-de-medias-creatifs-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -1330,18 +1346,14 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "creative-media-producer-ottos-sursee",
-        "produttore-multimediale-creativo-otto-s-ag-sursee",
-        "producteur-de-medias-creatifs-otto-s-ag-sursee"
+        "creative-media-producer-ottos-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "creative-media-producer-ottos-sursee",
-          "produttore-multimediale-creativo-otto-s-ag-sursee"
+          "creative-media-producer-ottos-sursee"
         ],
         "fr": [
-          "creative-media-producer-ottos-sursee",
-          "producteur-de-medias-creatifs-otto-s-ag-sursee"
+          "creative-media-producer-ottos-sursee"
         ]
       },
       "firstSeenAt": "2026-10-15T09:29:49.009Z",
@@ -3677,9 +3689,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3730,17 +3742,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -10029,12 +10042,12 @@
     },
     {
       "id": "ottos-d31a6947c76c",
-      "slug": "abteilungsleiter-in-bike-ski-otto-s-ag-sursee",
+      "slug": "responsabile-di-reparto-bike-ski-otto-s-ag-sursee",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-bike-ski-otto-s-ag-sursee",
-        "en": "abteilungsleiter-in-bike-ski-otto-s-ag-sursee",
+        "it": "responsabile-di-reparto-bike-ski-otto-s-ag-sursee",
+        "en": "department-manager-bike-ski-otto-s-ag-sursee",
         "de": "abteilungsleiter-in-bike-ski-ottos-sursee",
-        "fr": "abteilungsleiter-in-bike-ski-otto-s-ag-sursee"
+        "fr": "responsable-de-departement-velo-ski-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -10084,11 +10097,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "abteilungsleiter-in-bike-ski-ottos-sursee"
+        "abteilungsleiter-in-bike-ski-ottos-sursee",
+        "abteilungsleiter-in-bike-ski-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-bike-ski-ottos-sursee"
+          "abteilungsleiter-in-bike-ski-ottos-sursee",
+          "abteilungsleiter-in-bike-ski-otto-s-ag-sursee"
+        ],
+        "en": [
+          "abteilungsleiter-in-bike-ski-otto-s-ag-sursee"
+        ],
+        "fr": [
+          "abteilungsleiter-in-bike-ski-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-09-19T23:05:40.471Z",
@@ -11992,12 +12013,12 @@
     },
     {
       "id": "ottos-a0a6f629836a",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-chur",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-chur",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-chur",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-chur",
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-chur",
+        "en": "sales-associate-food-non-food-otto-s-ag-chur",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-chur",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-chur"
+        "fr": "employe-e-de-vente-alimentaire-non-alimentaire-otto-s-ag-chur"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -12047,11 +12068,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-chur"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-chur",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-chur"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-chur",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-chur"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-chur"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-chur"
         ]
       },
       "salaryMin": 68500,
@@ -12407,12 +12436,12 @@
     },
     {
       "id": "ottos-8c109a1fabe9",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-cham",
+      "slug": "collaboratore-trice-di-vendita-con-funzione-polivalente-otto-s-ag-cham",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-cham",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-cham",
+        "it": "collaboratore-trice-di-vendita-con-funzione-polivalente-otto-s-ag-cham",
+        "en": "sales-associate-with-all-round-responsibilities-otto-s-ag-cham",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-cham",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-cham"
+        "fr": "collaborateur-trice-de-vente-avec-fonction-polyvalente-otto-s-ag-cham"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -12461,11 +12490,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-cham"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-cham",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-cham"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-cham"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-cham",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-cham"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-cham"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-cham"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:33.497Z",

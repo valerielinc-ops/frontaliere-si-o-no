@@ -1894,9 +1894,9 @@
     },
     {
       "id": "spital-muri-e7ba81d11b2c",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-ag",
+      "slug": "infermiera-infermiere-diplomata-o-hf-per-il-pronto-soccorso-spital-muri-muri-ag",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-ag",
+        "it": "infermiera-infermiere-diplomata-o-hf-per-il-pronto-soccorso-spital-muri-muri-ag",
         "en": "dipl-nursing-professional-hf-emergency-spital-muri-muri-ag",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
         "fr": "dipl-soins-infirmiers-professionnels-hf-urgence-spital-muri-muri-ag"
@@ -1949,12 +1949,12 @@
       "pensum": "40 - 100%",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
-        "infermiera-infermiere-diplomata-o-hf-per-il-pronto-soccorso-spital-muri-muri-ag"
+        "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
-          "infermiera-infermiere-diplomata-o-hf-per-il-pronto-soccorso-spital-muri-muri-ag"
+          "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-ag"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:48.765Z",
@@ -2302,7 +2302,7 @@
       "slugByLocale": {
         "de": "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
         "it": "fisioterapista-fh-spital-muri-muri-ag",
-        "en": "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
+        "en": "physiotherapist-fh-spital-muri-muri-ag",
         "fr": "physiotherapeute-fh-spital-muri-muri-ag"
       },
       "company": "Spital Muri",
@@ -2352,6 +2352,9 @@
       "pensum": "40 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag"
+        ],
+        "en": [
           "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag"
         ]
       },

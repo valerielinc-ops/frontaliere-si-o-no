@@ -1770,8 +1770,8 @@
       "id": "hoch-health-db42bf4ee31c",
       "slug": "ergebnis-controller-in-100-kssg-ch",
       "slugByLocale": {
-        "it": "controller-dei-risultati-100-hoch-health-ostschweiz-st-gallen",
-        "en": "results-controller-100-hoch-health-ostschweiz-st-gallen",
+        "it": "ergebnis-controller-in-100-kssg-ch",
+        "en": "ergebnis-controller-in-100-kssg-ch",
         "de": "ergebnis-controller-in-100-hoch-health-st-gallen",
         "fr": "ergebnis-controller-in-100-kssg-ch"
       },
@@ -1817,11 +1817,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ergebnis-controller-in-100-hoch-health-st-gallen"
+        "ergebnis-controller-in-100-hoch-health-st-gallen",
+        "controller-dei-risultati-100-hoch-health-ostschweiz-st-gallen",
+        "results-controller-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergebnis-controller-in-100-hoch-health-st-gallen"
+          "ergebnis-controller-in-100-hoch-health-st-gallen",
+          "controller-dei-risultati-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "en": [
+          "results-controller-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-08-24T22:09:28.890Z",

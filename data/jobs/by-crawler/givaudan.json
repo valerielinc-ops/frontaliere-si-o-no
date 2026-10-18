@@ -259,12 +259,12 @@
     },
     {
       "id": "givaudan-03f9ec147252",
-      "slug": "principal-flavourist-lead-savoury-eu-m-f-d-givaudan-ch",
+      "slug": "principale-piombo-flavourista-savoury-eu-m-f-d-givaudan-kemptthal",
       "slugByLocale": {
         "en": "principal-flavourist-lead-savoury-eu-m-f-d-givaudan-ch",
-        "it": "principal-flavourist-lead-savoury-eu-m-f-d-givaudan-ch",
-        "de": "principal-flavourist-lead-savoury-eu-m-f-d-givaudan-ch",
-        "fr": "principal-flavourist-lead-savoury-eu-m-f-d-givaudan-ch"
+        "it": "principale-piombo-flavourista-savoury-eu-m-f-d-givaudan-kemptthal",
+        "de": "leitender-aromatiker-herzhafte-produkte-eu-m-w-d-givaudan-kemptthal",
+        "fr": "principal-chef-de-file-des-aromatisants-savoureux-ue-h-f-d-givaudan-kemptthal"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -323,16 +323,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-18T09:29:47.662Z"
+      "firstSeenAt": "2026-10-18T09:29:47.662Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-flavourist-lead-savoury-eu-m-f-d-givaudan-ch"
+        ],
+        "de": [
+          "principal-flavourist-lead-savoury-eu-m-f-d-givaudan-ch"
+        ],
+        "fr": [
+          "principal-flavourist-lead-savoury-eu-m-f-d-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "principal-flavourist-lead-savoury-eu-m-f-d-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-a3ed849ac27d",
-      "slug": "consumer-and-sensory-project-leader-givaudan-ch",
+      "slug": "leader-del-progetto-di-consumo-e-sensoriale-givaudan-kemptthal",
       "slugByLocale": {
         "en": "consumer-and-sensory-project-leader-givaudan-ch",
-        "it": "consumer-and-sensory-project-leader-givaudan-ch",
-        "de": "consumer-and-sensory-project-leader-givaudan-ch",
-        "fr": "consumer-and-sensory-project-leader-givaudan-ch"
+        "it": "leader-del-progetto-di-consumo-e-sensoriale-givaudan-kemptthal",
+        "de": "projektleiter-fur-verbraucher-und-sensorik-givaudan-kemptthal",
+        "fr": "chef-de-projet-consommateur-et-sensoriel-givaudan-kemptthal"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -391,7 +405,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-18T09:29:47.197Z"
+      "firstSeenAt": "2026-10-18T09:29:47.197Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "consumer-and-sensory-project-leader-givaudan-ch"
+        ],
+        "de": [
+          "consumer-and-sensory-project-leader-givaudan-ch"
+        ],
+        "fr": [
+          "consumer-and-sensory-project-leader-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "consumer-and-sensory-project-leader-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-b6b87070365c-r8dfef58b",

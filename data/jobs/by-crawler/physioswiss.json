@@ -399,12 +399,12 @@
     },
     {
       "id": "physioswiss-a7ac1b5b7a59",
-      "slug": "header-6340-baar-physioswiss-ch",
+      "slug": "intestazioni-physio-swiss-6340-baar",
       "slugByLocale": {
         "de": "header-6340-baar-physioswiss-ch",
-        "it": "header-6340-baar-physioswiss-ch",
-        "en": "header-6340-baar-physioswiss-ch",
-        "fr": "header-6340-baar-physioswiss-ch"
+        "it": "intestazioni-physio-swiss-6340-baar",
+        "en": "headers-physio-swiss-6340-baar",
+        "fr": "en-tetes-physio-swiss-6340-baar"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -462,7 +462,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-18T09:47:31.469Z"
+      "firstSeenAt": "2026-10-18T09:47:31.469Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "header-6340-baar-physioswiss-ch"
+        ],
+        "en": [
+          "header-6340-baar-physioswiss-ch"
+        ],
+        "fr": [
+          "header-6340-baar-physioswiss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "header-6340-baar-physioswiss-ch"
+      ]
     },
     {
       "id": "physioswiss-ad8680378f2b",
