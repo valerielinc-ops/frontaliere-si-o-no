@@ -1,7 +1,7 @@
 {
   "key": "epi-geneve",
   "label": "Établissements publics pour l'intégration",
-  "generatedAt": "2026-10-18T09:13:33.210Z",
+  "generatedAt": "2026-10-18T21:12:16.198Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 7022,
-  "avgDurationMs": 7022,
+  "durationMs": 5673,
+  "avgDurationMs": 5673,
   "durationHistory": [
-    7022
+    5673
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000155701879-place-de-stage-formation-pratique-delphinium-upsa-100-?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:13:09.292Z",
+      "crawledAt": "2026-10-18T21:11:53.196Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -82,7 +82,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000110722240-un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:13:09.329Z",
+      "crawledAt": "2026-10-18T21:11:53.219Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -125,7 +125,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000154681399-assistant-e-socio-educatif-ve-veilleur-se-50-veilles-microstructure-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:13:09.324Z",
+      "crawledAt": "2026-10-18T21:11:53.213Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -168,7 +168,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000154683835-un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:13:09.321Z",
+      "crawledAt": "2026-10-18T21:11:53.202Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -211,7 +211,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133855729-un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31-12-2026?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:13:09.316Z",
+      "crawledAt": "2026-10-18T21:11:53.170Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de Chêne 48",
@@ -254,7 +254,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000155767575-un-e-maitre-esse-d-atelier-mesuiserie-spark-100-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:13:09.311Z",
+      "crawledAt": "2026-10-18T21:11:53.164Z",
       "addressLocality": "Plan-les-Ouates",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Champ-des-Filles 4A",
@@ -286,5 +286,5 @@
       }
     }
   ],
-  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
+  "codeCommit": "b6e494ea5b9a932f8e412d6ccd19c05b9a480ea5"
 }

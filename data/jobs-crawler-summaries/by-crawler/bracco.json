@@ -1,16 +1,16 @@
 {
   "key": "bracco",
   "label": "Bracco Suisse",
-  "generatedAt": "2026-10-18T09:16:36.198Z",
+  "generatedAt": "2026-10-18T21:15:09.915Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 17010,
-  "avgDurationMs": 17010,
+  "durationMs": 14719,
+  "avgDurationMs": 14719,
   "durationHistory": [
-    17010
+    14719
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -30,7 +30,7 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-18T09:16:24.676Z",
+      "crawledAt": "2026-10-18T21:14:56.866Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -72,7 +72,7 @@
       "datePosted": "2026-09-28",
       "postedDate": "2026-09-28",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-18T09:16:24.676Z",
+      "crawledAt": "2026-10-18T21:14:56.866Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -101,5 +101,5 @@
       }
     }
   ],
-  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
+  "codeCommit": "b6e494ea5b9a932f8e412d6ccd19c05b9a480ea5"
 }
