@@ -237,17 +237,37 @@
       "id": "galenica-584848f9d5ec",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-zollikofen"
+          "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-zollikofen",
+          "farmacista-per-la-formazione-fph-m-f-d-galenica-ag-galenica-zollikofen-nx27gp",
+          "apoth-mik-apoth-mikyu-m-f-d-galenica-ag-galenica-bern",
+          "apoth-mik-apoth-mikyu-h-f-d-galenica-ag-galenica-bern",
+          "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern",
+          "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern-nxkn5v",
+          "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern",
+          "pharmacien-pharmacienne-pour-la-formation-continue-fph-m-f-galenica-ag-galenica-bern",
+          "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern",
+          "apotheker-apothekerin-per-fph-weiterbildung-w-m-d-galenica-ag-galenica-zollikofen"
         ],
         "en": [
-          "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-zollikofen"
+          "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-zollikofen",
+          "apoth-mik-apoth-mikyu-m-f-d-galenica-ag-galenica-bern"
         ],
         "fr": [
-          "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-zollikofen"
+          "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-zollikofen",
+          "apoth-mik-apoth-mikyu-h-f-d-galenica-ag-galenica-bern"
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-zollikofen"
+        "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-zollikofen",
+        "farmacista-per-la-formazione-fph-m-f-d-galenica-ag-galenica-zollikofen-nx27gp",
+        "apoth-mik-apoth-mikyu-m-f-d-galenica-ag-galenica-bern",
+        "apoth-mik-apoth-mikyu-h-f-d-galenica-ag-galenica-bern",
+        "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern",
+        "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern-nxkn5v",
+        "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern",
+        "pharmacien-pharmacienne-pour-la-formation-continue-fph-m-f-galenica-ag-galenica-bern",
+        "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern",
+        "apotheker-apothekerin-per-fph-weiterbildung-w-m-d-galenica-ag-galenica-zollikofen"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3072,7 +3092,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
