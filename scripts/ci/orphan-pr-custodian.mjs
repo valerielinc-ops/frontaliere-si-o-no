@@ -347,14 +347,15 @@ export function classifyOrphan({
     };
   }
 
-  // (d) `adopt-conflict`: una PR fuori scope IN CONFLITTO senza review che la
-  // faccia adottare dal ramo (b). GitHub non avvia `pull_request` su una PR in
-  // conflitto, quindi nessuna review arrivera' mai; e `pr-autorebase` passa il
-  // conflitto a issue-fix solo per una PR con LGTM o del ciclo. Misurato su
-  // #10555 (branch `fix-gh013-...`, autore owner): test rossi, nessuna
-  // review, conflitto dalle 15:37, ferma senza un attore. Adottarla le da'
-  // l'hand-off al prossimo sweep di pr-autorebase.
-  const conflicted = (pr.labels || []).includes(CONFLICT_LABEL) || pr.mergeableState === 'dirty';
+  // (d) `adopt-conflict`: una PR fuori scope IN CONFLITTO senza review. La
+  // label `has-conflicts` non e' una prova: puo' essere stale dopo che la PR e'
+  // tornata pulita, e `unknown` non dice nulla. Il custode usa solo il valore
+  // letto dalla rilettura fresca di `/pulls/<n>`; senza `dirty` resta fail-closed
+  // (un'eventuale conferma merge-tree richiederebbe il probe del codice che la
+  // ospita, non una seconda inferenza da label).
+  const hasConflictLabel = (pr.labels || []).includes(CONFLICT_LABEL);
+  const mergeableState = String(pr.mergeableState || '').trim().toLowerCase();
+  const conflicted = mergeableState === 'dirty';
   if (conflicted) {
     if (isAutonomousPr(pr)) return none('PR gia autonoma: il conflitto lo passa a issue-fix pr-autorebase');
     if (pr.headRepo && pr.baseRepo && pr.headRepo !== pr.baseRepo) return none('head da fork: non adottabile');
@@ -362,8 +363,11 @@ export function classifyOrphan({
     if (alreadyDone('adopt-conflict')) return none('adozione del conflitto gia eseguita su questa HEAD');
     return {
       action: 'adopt-conflict',
-      reason: 'PR in conflitto con main, fuori dallo scope autonomo e senza push da oltre 2h: nessun hand-off la riapplica',
+      reason: 'PR in conflitto con main (mergeable_state=dirty letto ora), fuori dallo scope autonomo e senza push da oltre 2h: resta nel percorso umano',
     };
+  }
+  if (hasConflictLabel) {
+    return none(`label ${CONFLICT_LABEL} ignorata: conflitto non confermato da mergeable_state=${mergeableState || 'unknown'} nella rilettura fresca`);
   }
   return none('nessuno stato orfano noto');
 }
@@ -532,22 +536,23 @@ function main() {
         '- il body della review: `native-automerge-gate.mjs` pretende un conteggio dichiarato (`Important: 0`) dentro la sezione `## Findings`, mentre il review gate conta i finding reali. Una review che chiude in prosa («nessun finding azionabile») e\' approvante per il primo gate e non per il secondo.',
       ].join('\n');
     } else if (decision.action === 'adopt-conflict') {
-      // Solo le label: il conflitto non si risolve con il 🔴-fixer, lo passa a
-      // issue-fix l'hand-off di pr-autorebase, che da ora la vede del ciclo.
+      // Opzione (b): segnala l'orfanita' a una persona, senza trasformare la
+      // PR in autonoma. `stale-pr-rescuer` e `recycle-stale-prs` la salteranno
+      // perche' non c'e' ne' branch del ciclo ne' hand-off a issue-fix.
       try {
         gh(['label', 'create', ORPHANED_LABEL, '--repo', repo, '--color', 'B60205',
-          '--description', 'PR senza agente vivo: adottata dal custode per i fixer']);
+          '--description', 'PR senza agente vivo: conflitto segnalato dal custode per intervento umano']);
       } catch {
         // Esiste gia': e' il caso normale.
       }
       try {
         gh(['pr', 'edit', String(pr.number), '--repo', repo,
-          '--add-label', AUTOFIX_LABEL, '--add-label', ORPHANED_LABEL]);
+          '--add-label', ORPHANED_LABEL]);
       } catch (error) {
         ok = false;
-        console.log(`::warning::PR #${pr.number}: label di adozione non applicate (${error.message.split('\n')[0]}).`);
+        console.log(`::warning::PR #${pr.number}: label di segnalazione non applicata (${error.message.split('\n')[0]}).`);
       }
-      detail = `Etichettata \`${AUTOFIX_LABEL}\` + \`${ORPHANED_LABEL}\`: al prossimo giro \`pr-autorebase\` passa il conflitto a issue-fix, che riapplica il contributo della HEAD \`${pr.headSha.slice(0, 7)}\` su \`main\` in una PR nuova. Togli le label se un umano la riprende.`;
+      detail = `Etichettata solo \`${ORPHANED_LABEL}\`: nessun \`agent:autofix\` e nessun hand-off automatico; la PR resta nel percorso umano sulla HEAD \`${pr.headSha.slice(0, 7)}\`.`;
     } else {
       try {
         gh(['label', 'create', ORPHANED_LABEL, '--repo', repo, '--color', 'B60205',
