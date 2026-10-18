@@ -27,6 +27,7 @@ import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobB
 import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
+import { SECTION_LEGACY_TI } from '../../build-plugins/shared/cantonResolvers.mjs';
 import {
   WEEKLY_EMPLOYERS_CITIES,
   WEEKLY_EMPLOYERS_ROUTE_CONFIG,
@@ -129,7 +130,7 @@ const EDITORIAL_BRIDGE_SLUGS_BY_SECTION = (() => {
       const cantonSlug = slugs?.[locale];
       if (!cantonSlug) continue;
       const sectionSegment = canton === 'TI'
-        ? ({ it: 'cerca-lavoro-ticino', en: 'find-jobs-ticino', de: 'jobs-im-tessin', fr: 'trouver-emploi-tessin' })[locale]
+        ? SECTION_LEGACY_TI[locale]
         : locale === 'de' && slugs.dePrefix
           ? `${slugs.dePrefix}${cantonSlug}`
           : `${sectionPrefix[locale]}-${cantonSlug}`;
