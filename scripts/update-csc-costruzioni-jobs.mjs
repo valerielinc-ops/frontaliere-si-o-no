@@ -46,6 +46,7 @@ import {
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { extractBalancedTagBlock } from './lib/hospital-custom-html-helpers.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { launchChromium } from './lib/ensure-chromium.mjs';
 // NCore's listing/detail markup is shared with the Sintetica runner. Keep the
 // platform parser in one place while CSC-specific discovery and trust rules
 // remain local to this adapter.
@@ -82,10 +83,12 @@ const CSC_NCORE_HOST = 'app.ncoreplat.com';
 // NCore's canonical CSC routes are intentionally slashless. Unlike the site's
 // own routes, the platform returns 404 for the trailing-slash board URL.
 const CSC_NCORE_BOARD_URL = 'https://app.ncoreplat.com/jobboard/filters/4321/csc-costruzioni-sa';
-// NCore serves a short SPA shell to crawler-identifying UAs but the complete
-// server-rendered board/detail markup to a normal browser UA (same platform
-// contract used by the existing Sintetica adapter).
+// NCore serves the board as a client-rendered filter view. Keep the browser
+// UA for direct responses and use the same UA for the bounded DOM-rendering
+// fallback below when the initial shell exposes no positions.
 const CSC_NCORE_BROWSER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
+const CSC_NCORE_DETAIL_ROUTE_RE = /\/jobposition\/[1-9]\d*\//i;
+const CSC_NCORE_EMPTY_BOARD_RE = /\b(?:non ci sono|nessun[ao]?|non sono presenti)\b.{0,100}\b(?:offert[ae]|posizion[ei]|lavor[oi])\b|\b(?:there are no|no)\b.{0,100}\b(?:open )?(?:jobs?|positions?|vacancies)\b/i;
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -280,14 +283,67 @@ export function parseCscNcoreBoardPage(html) {
   }
 
   const plain = cscPlainText(html);
-  const authoritativeEmpty = urls.length === 0 && (
-    /\b(?:non ci sono|nessun[ao]?|non sono presenti)\b.{0,100}\b(?:offert[ae]|posizion[ei]|lavor[oi])\b/i.test(plain)
-    || /\b(?:there are no|no)\b.{0,100}\b(?:open )?(?:jobs?|positions?|vacancies)\b/i.test(plain)
-  );
+  const authoritativeEmpty = urls.length === 0 && CSC_NCORE_EMPTY_BOARD_RE.test(plain);
   if (!authoritativeEmpty && urls.length === 0) {
     throw new Error('CSC discovery degraded: NCore job board exposed no verified CSC detail URLs.');
   }
   return { urls, authoritativeEmpty };
+}
+
+/**
+ * Render the NCore filter board when its initial response is only the SPA
+ * shell. The browser path is deliberately kept behind the no-URL failure:
+ * normal HTML/embedded-state parsing remains the cheap and deterministic
+ * first path, while a browser cannot turn an unverified response into a
+ * trusted seed without the same parser and detail verification below.
+ */
+export async function renderCscNcoreBoardPage(boardUrl, { timeoutMs = 12000 } = {}) {
+  const browser = await launchChromium({ headless: true });
+  try {
+    const context = await browser.newContext({
+      userAgent: CSC_NCORE_BROWSER_UA,
+      viewport: { width: 1280, height: 720 },
+    });
+    const page = await context.newPage();
+    const response = await page.goto(boardUrl, {
+      waitUntil: 'domcontentloaded',
+      timeout: timeoutMs,
+    });
+    if (!response?.ok()) {
+      throw new Error(`${boardUrl} returned HTTP ${response?.status() ?? 'unknown'}`);
+    }
+
+    // Wait for the data-backed portion of the filter view, not an arbitrary
+    // delay. If the board is genuinely empty, the authoritative marker lets
+    // the parser finish immediately; an unknown shell remains fail-closed.
+    try {
+      await page.waitForFunction(
+        ({ detailPattern, emptyPattern }) => {
+          const source = document.documentElement?.outerHTML || '';
+          const text = document.body?.innerText || '';
+          return new RegExp(detailPattern, 'i').test(source)
+            || new RegExp(emptyPattern, 'i').test(text);
+        },
+        {
+          detailPattern: CSC_NCORE_DETAIL_ROUTE_RE.source,
+          emptyPattern: CSC_NCORE_EMPTY_BOARD_RE.source,
+        },
+        { timeout: timeoutMs },
+      );
+    } catch (error) {
+      // A timeout is handled by parseCscNcoreBoardPage below so the final
+      // failure still names the missing verified source. Navigation/runtime
+      // errors must remain failures.
+      if (error?.name !== 'TimeoutError') throw error;
+    }
+
+    return {
+      html: await page.content(),
+      responseUrl: page.url().trim(),
+    };
+  } finally {
+    await browser.close();
+  }
 }
 
 function readQuotedHtmlAttr(attrs, name) {
@@ -655,6 +711,7 @@ export async function verifyCscDetailUrls(urls, options = {}) {
 
 export async function fetchCscJobUrls(options = {}) {
   const fetchImpl = options.fetchImpl || fetch;
+  const renderBoardPage = options.renderBoardPage || renderCscNcoreBoardPage;
   const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   console.log(`🔍 Fetching CSC careers page: ${CSC_CAREERS_URL}`);
 
@@ -686,7 +743,31 @@ export async function fetchCscJobUrls(options = {}) {
     if (!cscResponseMatchesBoard(boardResponse.responseUrl, boardUrl)) {
       throw new Error(`CSC discovery degraded: NCore board redirected to ${boardResponse.responseUrl}.`);
     }
-    discovery = parseCscNcoreBoardPage(boardResponse.html);
+    try {
+      discovery = parseCscNcoreBoardPage(boardResponse.html);
+    } catch (error) {
+      if (error?.message !== 'CSC discovery degraded: NCore job board exposed no verified CSC detail URLs.') {
+        throw error;
+      }
+
+      console.log('🖥️ NCore board shell exposed no positions; rendering the board in Chromium.');
+      let renderedBoard;
+      try {
+        renderedBoard = await renderBoardPage(boardUrl, { timeoutMs });
+      } catch (renderError) {
+        throw new Error(
+          `CSC discovery degraded: NCore browser-rendered board unavailable: ${renderError?.message || renderError}`,
+          { cause: renderError },
+        );
+      }
+      if (!renderedBoard || typeof renderedBoard.html !== 'string' || !renderedBoard.responseUrl) {
+        throw new Error('CSC discovery degraded: NCore browser renderer returned an incomplete board response.');
+      }
+      if (!cscResponseMatchesBoard(renderedBoard.responseUrl, boardUrl)) {
+        throw new Error(`CSC discovery degraded: rendered NCore board redirected to ${renderedBoard.responseUrl}.`);
+      }
+      discovery = parseCscNcoreBoardPage(renderedBoard.html);
+    }
   }
   if (discovery.authoritativeEmpty) {
     console.log('ℹ️ CSC careers page explicitly reports zero open positions.');

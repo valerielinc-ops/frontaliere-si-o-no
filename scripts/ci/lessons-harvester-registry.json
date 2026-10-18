@@ -124,9 +124,9 @@
     {
       "key": "reviewer-finding/fp:scripts-correctness-treats-any",
       "outcome": "declined",
-      "decidedAt": "2026-10-09T11:59:57Z",
-      "ref": "#12413, #11718, #11713",
-      "reason": "Gia' coperto da AGENTS.md #6: parser e guard non classificano ogni URL, elemento DOM o substring come prova, ma validano dominio/contesto e gestiscono unknown, ambigui e vicino non-target."
+      "decidedAt": "2026-10-18T09:47:17Z",
+      "ref": "#13670, #13411, #13229",
+      "reason": "Gia' coperto da AGENTS.md #6: parser e guard non trattano campi parziali, regex o heading come prova senza validare dominio/contesto e gestire unknown, ambigui e vicino non-target."
     }
   ]
 }

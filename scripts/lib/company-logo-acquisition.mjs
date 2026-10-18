@@ -91,6 +91,24 @@ export const DOMAIN_OVERRIDES = {
   'farmacia-internazionale-dr-merloni': ['internationalpharmacy.swiss'],
   'mueller-steinmaur': ['mueller-steinmaur.ch'],
   'protectas-sa': ['protectas.com'],
+  // Recurrence measured on 2026-10-18. Keep these domains explicit: audit
+  // mode must never turn a company key or an ATS URL into a logo source.
+  'opus-personal': ['opus-personal.ch'],
+  agat: ['agat-job.com'],
+  'elite-interim': ['eliteinterim.ch'],
+  physioswiss: ['physioswiss.ch'],
+  'rehaklinik-seewis': ['vitrea-gesundheit.ch'],
+  'swiss-timing-swatch-group': ['swisstiming.com'],
+  'deillon-delley-architectes': ['deillondelley.ch'],
+  'project-interim': ['projectinterim.ch'],
+  'technic-emplois': ['technic-emplois.ch'],
+  'fondation-domus': ['fondation-domus.ch'],
+  gipo: ['gipo.ch'],
+  'hugo-boss': ['hugoboss.com'],
+  my: ['teojakob.ch'],
+  pianorm: ['pianorm.ch'],
+  wokin: ['wokin.ch'],
+  'zaugg-ag': ['zaugg.swiss'],
 };
 
 export function normalizeDomain(value) {
