@@ -26,7 +26,7 @@ import { resolveSourceBackedSwissGeography } from './prospector/location-evidenc
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { sourcePostingDateFields, sourceCompactOffsetPostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
-import { extractJobPostingDescription, extractJobPostingField } from './jobposting-jsonld.mjs';
+import { extractJobPostingAddress, extractJobPostingDescription, extractJobPostingField } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -243,16 +243,48 @@ async function fetchJobListings() {
  * htmlToMarkdown helper (same pattern used by the Givaudan parser).
  */
 async function fetchThermoFisherDetail(detailUrl) {
+  const empty = { description: '', detailAddress: null, ...sourcePostingDateFields('') };
   try {
     const res = await fetch(detailUrl, { headers: { 'User-Agent': UA, Accept: 'text/html' } });
-    if (!res.ok) return { description: '', ...sourcePostingDateFields('') };
+    if (!res.ok) return empty;
     const html = await res.text();
     const { markdown } = htmlToMarkdown(extractJobPostingDescription(html));
-    return { description: markdown, ...sourcePostingDateFields(extractJobPostingField(html, 'datePosted')) };
+    return {
+      description: markdown,
+      detailAddress: extractJobPostingAddress(html),
+      ...sourcePostingDateFields(extractJobPostingField(html, 'datePosted')),
+    };
   } catch {
     /* network/timeout → caller falls back to teaser */
   }
-  return { description: '', ...sourcePostingDateFields('') };
+  return empty;
+}
+
+/**
+ * The Phenom country facet can leak a foreign vacancy into the Swiss result.
+ * Let an explicit detail-page address override the widget location, while a
+ * missing structured address keeps the listing evidence for transient pages.
+ */
+export function resolveThermoFisherSourceGeography({
+  listingLocation = '',
+  listingPostalCode = '',
+  listingAddress = '',
+  detailAddress = null,
+} = {}) {
+  if (detailAddress) {
+    return resolveSourceBackedSwissGeography({
+      location: detailAddress.locality,
+      addressLocality: detailAddress.locality,
+      addressCountry: detailAddress.addressCountry,
+      postalCode: detailAddress.postalCode,
+      streetAddress: detailAddress.streetAddress,
+    });
+  }
+  return resolveSourceBackedSwissGeography({
+    location: listingLocation,
+    postalCode: listingPostalCode,
+    streetAddress: listingAddress,
+  });
 }
 
 /**
@@ -281,14 +313,6 @@ export async function fetchAllThermoFisherScientificJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const sourceLocation = normalizeSpace(listing.rawLocation || listing.location || '');
-    const geography = resolveSourceBackedSwissGeography(sourceLocation);
-    if (!geography) {
-      console.warn(`  ⚠️ Thermo Fisher Scientific: skipping unresolvable location "${sourceLocation}" (${title})`);
-      continue;
-    }
-    const { location, canton } = geography;
-    const addressLocality = normalizeSpace(location.split(',')[0]);
     const publicUrl = listing.url || CAREER_URL;
     const applyUrl = listing.applyUrl || publicUrl;
 
@@ -298,6 +322,19 @@ export async function fetchAllThermoFisherScientificJobs() {
     // Prefer FULL structured detail-page description (markdown bullets)
     // over the flat listing teaser. Falls back to teaser on any fetch failure.
     const detail = await fetchThermoFisherDetail(publicUrl);
+    const sourceLocation = normalizeSpace(listing.rawLocation || listing.location || '');
+    const geography = resolveThermoFisherSourceGeography({
+      listingLocation: sourceLocation,
+      listingPostalCode: listing.postalCode,
+      listingAddress: listing.address,
+      detailAddress: detail.detailAddress,
+    });
+    if (!geography) {
+      console.warn(`  ⚠️ Thermo Fisher Scientific: detail/listing location is not a verified Swiss place "${sourceLocation}" (${title})`);
+      continue;
+    }
+    const { location, canton } = geography;
+    const addressLocality = normalizeSpace(location.split(',')[0]);
     const descriptionText = detail.description || stripHtml(listing.description || '');
     // Only the posting's own text is published (issue 5253): with neither a
     // detail body nor a listing teaser the posting used to go out as
@@ -335,7 +372,8 @@ export async function fetchAllThermoFisherScientificJobs() {
 
       // ── Recommended fields ──
       addressLocality,
-      postalCode: thermoFisherPostalCode(addressLocality, canton, listing.postalCode),
+      postalCode: geography.postalCode || thermoFisherPostalCode(addressLocality, canton, listing.postalCode),
+      streetAddress: geography.streetAddress || listing.address || '',
       addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
