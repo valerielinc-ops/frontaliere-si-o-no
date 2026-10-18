@@ -666,6 +666,7 @@ export async function checkCorpusFreshness(
   });
   let liveHub;
   let handoff = drift;
+  let recoveredLiveHandoff = false;
 
   // A corpus publisher can place the new article and its hub card on the
   // serving shard before its API registry (`slugs.json`) is visible. In this
@@ -704,6 +705,7 @@ export async function checkCorpusFreshness(
         `${section}: corpus-main-only handoff is already served by the live hub for ${unpublishedIds.join(', ')}; `
         + 'publishing the client registry now closes the hub/client parity window',
     };
+    recoveredLiveHandoff = true;
   }
 
   if (handoff.action !== 'proceed') {
@@ -734,7 +736,10 @@ export async function checkCorpusFreshness(
     ok: true,
     note:
       `${section}: archive lists ${itemCount}, published corpus has ${published} ` +
-      `(${behind} behind, tolerance ${MAX_ARTICLES_BEHIND}); registry and live hub identities converge`,
+      `(${behind} behind, tolerance ${MAX_ARTICLES_BEHIND}); ` +
+      (recoveredLiveHandoff
+        ? `${handoff.note}; live hub and corpus-main identities converge`
+        : 'registry and live hub identities converge'),
   };
 }
 
