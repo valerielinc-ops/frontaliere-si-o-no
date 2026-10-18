@@ -9,6 +9,7 @@ import { eventsSeoPagesPlugin, pathFor, renderHistoricalEventsArchivePage } from
 import { reset } from '../build-plugins/sharedWriteRegistry';
 import { isEmittedEventArchivePath, replaceEmittedEventArchivePaths } from '../build-plugins/shared/eventArchiveCompat';
 import { MAX_HTML_BYTES } from '../scripts/audit-page-weight.mjs';
+import { allEndedEvents } from '../scripts/lib/events-retention.mjs';
 
 const fixtures = vi.hoisted(() => ({ events: [] as Array<Record<string, unknown>> }));
 vi.mock('../scripts/lib/events-utils.mjs', async (importOriginal) => {
@@ -126,6 +127,37 @@ describe('source-backed municipal event archives', () => {
       const html = fs.readFileSync(path.join(root, 'dist', pathFor('fr', canton, 'Same Town'), 'index.html'), 'utf8');
       expect(html).toContain(`Programme communal ${own}`);
       expect(html).not.toContain(`Programme communal ${other}`);
+    }
+  });
+
+  it('recovers all fifteen additional reported municipalities from their exact historical public facts', async () => {
+    const recovery = JSON.parse(fs.readFileSync(new URL('../data/events-recovery-archive.json', import.meta.url), 'utf8'));
+    const fixture = JSON.parse(fs.readFileSync(new URL('./fixtures/gsc-event-municipal-archives.json', import.meta.url), 'utf8'));
+    expect(fixture.rows).toHaveLength(15);
+    expect(fixture.records).toHaveLength(20);
+    const recovered = fixture.records.map((expected: { id: string; facts: object; sourceSnapshot: string; sourceGeneratedAt: string }) => {
+      const record = recovery.events.find((event: { id: string }) => event.id === expected.id);
+      expect(record, expected.id).toBeDefined();
+      expect(record, expected.id).toMatchObject(expected.facts);
+      expect(record.recoveryEvidence).toMatchObject({ sourceSnapshot: expected.sourceSnapshot, sourceGeneratedAt: expected.sourceGeneratedAt });
+      return record;
+    });
+    for (const id of fixture.excludedTwins) expect(recovery.events.some((event: { id: string }) => event.id === id), id).toBe(false);
+    fixtures.events = recovered;
+    const root = temporary();
+    await emitFixture(root);
+    for (const row of fixture.rows) {
+      const html = fs.readFileSync(path.join(root, 'dist', row.path, 'index.html'), 'utf8');
+      const dom = new JSDOM(html);
+      const doc = dom.window.document;
+      expect(doc.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(`https://frontaliereticino.ch${row.path}`);
+      expect(doc.querySelector('meta[name="robots"]')?.getAttribute('content')).toBe('noindex,follow');
+      const titles = [...doc.querySelectorAll('ol a')].map((link) => link.textContent);
+      const expected = allEndedEvents(recovered.filter((event: { id: string }) => row.ids.includes(event.id)), BUILD_DATE_STAMP);
+      expect(titles).toEqual(expected.map((event: { title: string; titleByLocale?: Record<string, string> }) => event.titleByLocale?.[row.locale] || event.title));
+      expect([...doc.querySelectorAll('time')].map((time) => time.getAttribute('datetime'))).toEqual(expected.map((event: { startDate: string }) => event.startDate));
+      for (const link of doc.querySelectorAll('ol a')) expect(fs.existsSync(path.join(root, 'dist', link.getAttribute('href')!, 'index.html'))).toBe(true);
+      dom.window.close();
     }
   });
 });
