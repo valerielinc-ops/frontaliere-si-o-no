@@ -13,6 +13,7 @@ import { ENTITY_MAP, ENTITY_PATTERN, decodeHtmlEntities } from './decode-html-en
 import { launchChromium } from './ensure-chromium.mjs';
 import { CAREER_TOKEN_RX, HOST_DELAY_MS, UA } from './prospector/config.mjs';
 import { NAMED, decodeEntities } from './prospector/entities.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
 import { WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
 
@@ -766,10 +767,8 @@ export function assertNoGardeniaCareerSurface(html = '', pageUrl = '') {
       throw new Error(`Albergo Gardenia source identity is missing at ${pageUrl}`);
     }
 
-    for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
-      if (/"@type"\s*:\s*"JobPosting"/i.test(script.textContent || '')) {
-        throw new Error(`Albergo Gardenia JobPosting detected at ${pageUrl}`);
-      }
+    if (extractJobPostingNodes(html).length > 0) {
+      throw new Error(`Albergo Gardenia JobPosting detected at ${pageUrl}`);
     }
 
     const semanticNodes = document.querySelectorAll('title, h1, h2, h3, a[href]');

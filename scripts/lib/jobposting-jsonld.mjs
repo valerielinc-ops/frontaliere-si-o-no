@@ -19,7 +19,7 @@
  * listing teaser; the structured-address extractor returns null.
  */
 
-function extractJobPostingNodes(html = '') {
+export function extractJobPostingNodes(html = '') {
   if (!html || typeof html !== 'string') return [];
   const blocks = [...html.matchAll(
     /<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi,

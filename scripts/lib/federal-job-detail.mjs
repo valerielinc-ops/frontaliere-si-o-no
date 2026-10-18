@@ -22,6 +22,7 @@
  */
 import { JSDOM } from 'jsdom';
 import { decodeHtmlEntities } from './decode-html-entities.mjs';
+import { extractJobPostingDescription } from './jobposting-jsonld.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
@@ -94,20 +95,6 @@ export function federalApiDescription(szas = {}) {
     .join('\n\n');
 }
 
-function readJsonLdDescription(document) {
-  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
-    try {
-      const parsed = JSON.parse(script.textContent || '');
-      const nodes = Array.isArray(parsed) ? parsed : [parsed];
-      const posting = nodes.find((node) => node?.['@type'] === 'JobPosting');
-      if (posting?.description) return String(posting.description);
-    } catch {
-      // ignore malformed JSON-LD
-    }
-  }
-  return '';
-}
-
 /**
  * @param {string} html detail page
  * @returns {{
@@ -145,7 +132,7 @@ export function parseFederalJobDetailExtras(html = '') {
   return {
     // Tasks, requirements, benefits and unit profile with the page's own
     // headings — the same content as the API fields, in the page language.
-    roleText: federalRichTextToMarkdown(readJsonLdDescription(document)),
+    roleText: federalRichTextToMarkdown(extractJobPostingDescription(html)),
     summaryHeading: sectionHeading(summarySection),
     summary: sectionBody(summarySection),
     facts,
