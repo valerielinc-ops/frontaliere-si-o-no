@@ -96,6 +96,13 @@ export function positiveHours(raw, fallback) {
   return Number.isFinite(n) && n > 0 ? n : fallback;
 }
 const SEARCH_PAGE_SIZE = 100;
+// Search API responses can be transiently incomplete while GitHub refreshes
+// the index or serves one of the paginated pages. Retry the whole snapshot,
+// never a single page: mixing pages from different attempts would make the
+// total_count/duplicate checks meaningless. A response that remains
+// unverifiable after the bounded retry budget still fails closed.
+export const MERGED_PR_SEARCH_ATTEMPTS = 3;
+export const MERGED_PR_SEARCH_RETRY_DELAYS_MS = Object.freeze([250, 1000]);
 // Capacità della sessione provider: 14 PR (era 4, 2026-09-27), con cron ogni
 // 2h (era 3h). Il 4 nasceva dalla run 34602892494, arrivata al tetto provider di
 // allora (32 minuti) su una finestra di 36 PR. Con 4 la coda non si smaltiva:
@@ -329,6 +336,55 @@ export function parseCompleteMergedPRSearch(searchPagesJson) {
   const pages = parseMergedPRPages(searchPagesJson);
   if (!pages) throw new Error('risposta paginata PR incompleta/non verificabile');
   return parseMergedPRs(JSON.stringify(pages));
+}
+
+/**
+ * Wait synchronously for the small, bounded retry delay used by the scheduled
+ * collector. The retry is deliberately outside the parser so the parser keeps
+ * its strict fail-closed contract and remains a pure validator.
+ */
+function waitForMergedPRSearchRetry(delayMs) {
+  if (!Number.isFinite(delayMs) || delayMs <= 0) return;
+  const signal = new Int32Array(new SharedArrayBuffer(4));
+  Atomics.wait(signal, 0, 0, delayMs);
+}
+
+/**
+ * Read and validate one complete merged-PR search snapshot. A transient
+ * provider/indexing inconsistency is retried as a fresh paginated request;
+ * malformed, incomplete, or persistently truncated responses remain fatal.
+ *
+ * @param {() => string|null} read
+ * @param {{attempts?: number, retryDelaysMs?: number[], sleep?: (ms:number)=>void, log?: (line:string)=>void}} [options]
+ * @returns {Array<{number:number,title?:string,author?:{login:string},mergedAt?:string,headRefName?:string}>}
+ */
+export function readCompleteMergedPRSearch(read, {
+  attempts = MERGED_PR_SEARCH_ATTEMPTS,
+  retryDelaysMs = MERGED_PR_SEARCH_RETRY_DELAYS_MS,
+  sleep = waitForMergedPRSearchRetry,
+  log = () => {},
+} = {}) {
+  if (typeof read !== 'function') throw new TypeError('lettura Search API mancante');
+  const maxAttempts = Number.isInteger(attempts) && attempts > 0 ? attempts : MERGED_PR_SEARCH_ATTEMPTS;
+  let lastError = new Error('gh api search PR non riuscita: elenco incompleto');
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    try {
+      const raw = read();
+      if (raw === null || raw === undefined) {
+        throw new Error('gh api search PR non riuscita: elenco incompleto');
+      }
+      return parseCompleteMergedPRSearch(raw);
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error));
+      if (attempt >= maxAttempts) break;
+      const delayMs = Number(retryDelaysMs[attempt - 1]) || 0;
+      log(`Search API PR non verificabile (tentativo ${attempt}/${maxAttempts}): ${lastError.message}; nuovo snapshot tra ${delayMs} ms.`);
+      sleep(delayMs);
+    }
+  }
+
+  throw lastError;
 }
 
 /**
@@ -1088,12 +1144,14 @@ export function main({ eventName = process.env.GITHUB_EVENT_NAME || '', inputPRN
   // Search API pagination has an explicit total_count, unlike `gh pr list --limit`
   // which silently truncated the batch at 100 results and advanced the watermark.
   const query = `repo:${REPO} is:pr is:merged merged:>=${watermark}`;
-  const prListRaw = gh([
+  const searchArgs = [
     'api', `search/issues?q=${encodeURIComponent(query)}&per_page=${SEARCH_PAGE_SIZE}`,
     '--paginate', '--slurp',
-  ]);
-  if (prListRaw === null) throw new Error('gh api search PR non riuscita: elenco incompleto');
-  const scheduledCandidates = parseCompleteMergedPRSearch(prListRaw);
+  ];
+  const scheduledCandidates = readCompleteMergedPRSearch(
+    () => gh(searchArgs),
+    { log: console.log },
+  );
   // FIFO: i piu' VECCHI per primi. Il cap di sessione taglia la coda, quindi
   // l'ordine decide CHI viene rinviato. Prendendo i piu' recenti (l'ordine in
   // cui la Search API li restituisce) la coda vecchia veniva servita per
