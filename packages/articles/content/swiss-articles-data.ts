@@ -28426,6 +28426,36 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ffs-binari-deformazioni-canicola-2024',
+    category: 'novita',
+    date: '2026-10-18T13:36:39.650Z',
+    image: '/images/blog/article-ffs-binari-deformazioni-canicola-2024.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'indennita-covid-abusi-aziende',
+    category: 'pratico',
+    date: '2026-10-18T16:04:41.754Z',
+    image: '/images/places/lugano-view.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso',
+    category: 'novita',
+    date: '2026-10-18T17:36:19.429Z',
+    image: '/images/blog/article-ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.webp',
+    hasCalculator: false,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

@@ -111704,6 +111704,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cassano-indagine-schianto': {
+    title: 'Varese, morta in incidente: ex accusato di femminicidio',
+    description: 'Pierina Buffon è morta nello scontro sulla tangenziale Fulvio Ielmini è indagato anche per femminicidio I carabinieri ipotizzano uno schianto provocato',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, morta, incidente, accusato',
+    ogTitle: 'Varese, morta in incidente: ex accusato di femminicidio',
+    ogDescription: 'Pierina Buffon è morta nello scontro sulla tangenziale Fulvio Ielmini è indagato anche per femminicidio I carabinieri ipotizzano uno schianto provocato',
+    canonicalPath: '/articoli-frontaliere/cassano-indagine-schianto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese, morta in incidente: ex accusato di femminicidio",
+      "description": "Pierina Buffon è morta nello scontro sulla tangenziale Fulvio Ielmini è indagato anche per femminicidio I carabinieri ipotizzano uno schianto provocato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-cassano-indagine-schianto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada del Ticino in luce mattutina, immagine simbolica per una notizia di cronaca locale"
+      },
+      "datePublished": "2026-10-18T13:16:47+00:00",
+      "dateModified": "2026-10-18T13:16:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassano-indagine-schianto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-tasse-dopo-licenziamento': {
+    title: 'Licenziamento frontaliere 2026: diritti fiscali e contributi',
+    description: 'Il Nuovo Accordo Frontalieri vale dal 1° gennaio 2024. Vecchi frontalieri: esenzione di €7\'500 nel regime 2024–2033. Nuovi frontalieri: franchigia di €10\'000',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenziamento, diritti, fiscali, contributi',
+    ogTitle: 'Licenziamento frontaliere 2026: diritti fiscali e contributi',
+    ogDescription: 'Il Nuovo Accordo Frontalieri vale dal 1° gennaio 2024.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-tasse-dopo-licenziamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Licenziamento frontaliere 2026: diritti fiscali e contributi",
+      "description": "Il Nuovo Accordo Frontalieri vale dal 1° gennaio 2024. Vecchi frontalieri: esenzione di €7'500 nel regime 2024–2033. Nuovi frontalieri: franchigia di €10'000",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere esamina documenti di lavoro vicino al confine del Ticino"
+      },
+      "datePublished": "2026-10-18T14:15:04+00:00",
+      "dateModified": "2026-10-18T14:15:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-tasse-dopo-licenziamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-live-arconatese-varese-caronno': {
+    title: 'Arconatese-varese, diretta da caronno pertusella',
+    description: 'Ottava giornata di Serie D, Girone D Il Varese sfida l\'Arconatese a Caronno Pertusella I biancorossi cercano continuità dopo la vittoria scorsa La gara è',
+    keywords: 'frontalieri, ticino, svizzera, italia, arconatese-varese, diretta, caronno, pertusella',
+    ogTitle: 'Arconatese-Varese: diretta da Caronno Pertusella',
+    ogDescription: 'Ottava giornata di Serie D, Girone D Il Varese sfida l\'Arconatese a Caronno Pertusella I biancorossi cercano continuità dopo la vittoria scorsa La gara è',
+    canonicalPath: '/articoli-frontaliere/live-arconatese-varese-caronno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Arconatese-varese, diretta da caronno pertusella",
+      "description": "Ottava giornata di Serie D, Girone D Il Varese sfida l'Arconatese a Caronno Pertusella I biancorossi cercano continuità dopo la vittoria scorsa La gara è",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-live-arconatese-varese-caronno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La sfida Arconatese-Varese a Caronno Pertusella"
+      },
+      "datePublished": "2026-10-18T15:47:28+00:00",
+      "dateModified": "2026-10-18T15:47:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/live-arconatese-varese-caronno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tutele-frontaliero-uscita-ticino': {
+    title: 'Frontaliere licenziato nel 2026: diritti oltre 20 km',
+    description: 'Guida al licenziamento del frontaliere nel 2026: preavviso, indennità, accordo CH-IT, imposta alla fonte, franchigie, AVS, LPP, LAMal e fisco italiano.',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenziato, diritti, oltre, pratica',
+    ogTitle: 'Frontaliere licenziato nel 2026: diritti e controlli',
+    ogDescription: 'Un licenziamento in Ticino va letto separando rapporto di lavoro, preavviso e indennità dal fisco: l\'accordo firmato nel 2020 è in vigore dal 2024, con franchigie diverse e credito d\'imposta nel quadro CE del 730.',
+    canonicalPath: '/articoli-frontaliere/tutele-frontaliero-uscita-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere licenziato nel 2026: diritti oltre 20 km",
+      "description": "Guida al licenziamento del frontaliere nel 2026: preavviso, indennità, accordo CH-IT, imposta alla fonte, franchigie, AVS, LPP, LAMal e fisco italiano.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lamal-guida-2026-canton-argovia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere con documenti di lavoro davanti a un ufficio in Ticino"
+      },
+      "datePublished": "2026-10-18T16:43:35+00:00",
+      "dateModified": "2026-10-18T16:43:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tutele-frontaliero-uscita-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

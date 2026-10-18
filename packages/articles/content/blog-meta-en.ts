@@ -13474,6 +13474,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ps-tre-iniziative-thun.title': 'PS, yes to three initiatives: bees, mobility and internet',
     'blog.article.ps-tre-iniziative-thun.excerpt': 'Three initiatives won the PS’s approval in Thun The mobility voucher concerns public transport and railways The text calls for a tax on airline tickets',
     'blog.article.ps-tre-iniziative-thun.imageAlt': 'Socialist congress in Thun: initiatives on bees, mobility and digital security approved.',
+    'blog.article.cassano-indagine-schianto.title': 'Varese, woman dies in accident: ex accused of femicide',
+    'blog.article.cassano-indagine-schianto.excerpt': 'Pierina Buffon died in the collision Fulvio Ielmini is also under investigation for femicide The Carabinieri suspect the crash was deliberate',
+    'blog.article.cassano-indagine-schianto.imageAlt': 'Ticino road in morning light, a symbolic image for a local news report',
+    'blog.article.frontaliere-tasse-dopo-licenziamento.title': 'Border redundancy 2026: tax rights and contributions',
+    'blog.article.frontaliere-tasse-dopo-licenziamento.excerpt': 'The New Cross-Border Commuter Agreement is valid from 1 January 2024.',
+    'blog.article.frontaliere-tasse-dopo-licenziamento.imageAlt': 'Cross-border worker checks employment papers near the Ticino border',
+    'blog.article.live-arconatese-varese-caronno.title': 'Arconatese-varese, directed by caronno pertusella',
+    'blog.article.live-arconatese-varese-caronno.excerpt': 'Eighth day of Serie D, Group D The Varese challenges Arconatese in Caronno Pertusella The red and whites are looking for continuity after the last victory The match is',
+    'blog.article.live-arconatese-varese-caronno.imageAlt': 'Arconatese-Varese match in Caronno Pertusella',
+    'blog.article.tutele-frontaliero-uscita-ticino.title': 'Cross-border commuter dismissed in 2026: rights over 20 km',
+    'blog.article.tutele-frontaliero-uscita-ticino.excerpt': 'Practical guide for cross-border commuters over 20 km: CH-IT agreement, withholding tax, deductibles, AHV, BVG, KVG and post-dismissal checks.',
+    'blog.article.tutele-frontaliero-uscita-ticino.imageAlt': 'Cross-border worker with work documents outside an office in Ticino',
 };
 
 export default blogMetaEn;
