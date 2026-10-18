@@ -1,9 +1,9 @@
 {
   "key": "stellenpartner",
   "label": "Stellenpartner AG",
-  "generatedAt": "2026-10-17T21:21:32.097Z",
+  "generatedAt": "2026-10-18T09:23:40.166Z",
   "total": 0,
-  "discovered": 729,
+  "discovered": 707,
   "parsed": 0,
   "lastFetchOutcome": "selector_miss",
   "sourceBodyFailureCount": 0,
@@ -20,5 +20,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
+  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
 }
