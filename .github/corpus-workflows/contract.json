@@ -4,20 +4,20 @@
   "generatorSha256": "82eb44275b0862f4179ef1c1075f90a03e35138601897148f7485a7147cfbfb4",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "1466856bc45aea1bf419add400c316cd2202148e",
+  "sourceCommit": "6d35d625a1f4c91fc4b53d0f27ff80ae640fd0c0",
   "artifactObservation": {
     "generatorSha256": "82eb44275b0862f4179ef1c1075f90a03e35138601897148f7485a7147cfbfb4",
     "sourceRef": "main",
-    "sourceCommit": "1466856bc45aea1bf419add400c316cd2202148e"
+    "sourceCommit": "6d35d625a1f4c91fc4b53d0f27ff80ae640fd0c0"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 644,
+  "crawlerCount": 646,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:ae039a070180a0d08219d14e2a5e4737f4a6287d4c933363348e6fd8c0f70b0f",
+    "rosterDigest": "sha256:813f571abd8a9d0f856046595f867ee1b01ab301d3c211e7c67ad3157a0456fc",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -370,6 +370,8 @@
     "scripts/update-medbase-jobs.mjs",
     "scripts/update-mediamarkt-jobs.mjs",
     "scripts/update-medics-labor-jobs.mjs",
+    "scripts/update-medimeo-ch-jobs.mjs",
+    "scripts/update-medimeo-jobs.mjs",
     "scripts/update-medtronic-jobs.mjs",
     "scripts/update-merian-iselin-jobs.mjs",
     "scripts/update-michaelpage-jobs.mjs",
@@ -754,8 +756,8 @@
     {
       "file": "crawler-group-04.yml",
       "sourceLogic": "crawler-group-04-logic.yml",
-      "sourceSha256": "03275b2e31802407653e8b4cdfa1ee5a30f78caa6dc00e220c5450fcdb3defe3",
-      "artifactSha256": "e3f69704e6a39ad679af37bc55f07e21a2e56b56c1ed69e6e01c4128cbd86fe7",
+      "sourceSha256": "3c5d79f75e98939deb32aae05abec37b287a7d731cdca6c74b9e7663a809e496",
+      "artifactSha256": "4d71070d6a502ba8281780452aa3a303fdc7341f4324e91c37207a464609603a",
       "generatorSha256": "82eb44275b0862f4179ef1c1075f90a03e35138601897148f7485a7147cfbfb4",
       "members": [
         "spital-limmattal",
@@ -786,7 +788,8 @@
         "parmag",
         "spitex-basel",
         "hospice-general",
-        "pole-sante-pays-enhaut"
+        "pole-sante-pays-enhaut",
+        "medimeo"
       ]
     },
     {
@@ -1403,8 +1406,8 @@
     {
       "file": "crawler-group-21.yml",
       "sourceLogic": "crawler-group-21-logic.yml",
-      "sourceSha256": "09b21d6991796634aa0c18fdc4cc9016f55cef9bf729115aa4f726a4dbea952f",
-      "artifactSha256": "9d599e9ebc1d63556c79480d9397f5c68bde0ad363f73e34757bdc2923de726b",
+      "sourceSha256": "456dd32f3eed971510e4292ec4aed9237f34bebf27b159af7f130350366d16e8",
+      "artifactSha256": "165a0d6facbabe70c41e94b1e217f296b7075c8f7db1a8d91aa17bf2ff8822e0",
       "generatorSha256": "82eb44275b0862f4179ef1c1075f90a03e35138601897148f7485a7147cfbfb4",
       "members": [
         "orell-fuessli-thalia",
@@ -1435,7 +1438,8 @@
         "geberit",
         "lombard-odier",
         "kone",
-        "seniorenzentrum-engelhof"
+        "seniorenzentrum-engelhof",
+        "medimeo-ch"
       ]
     },
     {
