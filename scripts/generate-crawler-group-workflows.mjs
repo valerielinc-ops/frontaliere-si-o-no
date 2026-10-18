@@ -2240,6 +2240,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
       '  exit 0',
       'fi',
       'echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"',
+      'echo "DATA_PIPELINE_LEASE=1" >> "$GITHUB_ENV"',
     ].join('\n'),
   });
 
@@ -2437,11 +2438,10 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
           // The reconstructible LLM cache is runner-local and persisted by
           // actions/cache, never by the crawler's git commit path.
           AI_CACHE_PATH: CRAWLER_AI_CACHE_PATH,
-          // Crawler groups publish disjoint slices through the private-index /
-          // ref-retry path in git-commit-data.sh. A global Firestore lease here
-          // would serialize all 24 groups behind the slowest crawler, while
-          // the live-run guard above retains its separate per-group lease.
-          // Translation already follows the same lease-free write boundary.
+          // DATA_PIPELINE_LEASE is enabled by the Firebase bootstrap only for
+          // the later commit/push boundary. It does not serialize the crawler
+          // work itself; it prevents concurrent groups from exhausting the
+          // shared main-ref push retry budget and losing their receipts.
         },
         steps,
       },
