@@ -34,7 +34,8 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserve
 } from './lib/dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceLangOfBody, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { assertHugoBossNationalReadComplete, extractPhenomDdo, parseSearchPage, parseDetailPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType, MIN_DESC_LENGTH } from './lib/hugo-boss-job-parser.mjs';
+import { assertHugoBossNationalReadComplete, extractPhenomDdo, parseSearchPage, parseDetailPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { inferAnyCanton, isKnownSwissCity } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -335,10 +336,11 @@ export async function enrichWithDetails(discoveredJobs, { fetchHtml = fetchPage 
     if (!html) continue;
 
     const detail = parseDetailPage(html);
-    if (detail.body.length < MIN_DESC_LENGTH) continue;
-    const sourceLang = sourceLangOfBody(detail.body, job.sourceLang || 'en');
-    job.description = detail.body;
-    job.descriptionByLocale = { [sourceLang]: detail.body };
+    const description = detail.body;
+    if (!meetsSourceBodyFloor(description)) continue;
+    const sourceLang = sourceLangOfBody(description, job.sourceLang || 'en');
+    job.description = description;
+    job.descriptionByLocale = { [sourceLang]: description };
     job.sourceLang = sourceLang;
   }
 
