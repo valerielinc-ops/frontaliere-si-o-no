@@ -2844,6 +2844,17 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-vietnam-relazioni-2026': { it: 'svizzera-vietnam-relazioni-2026', en: 'switzerland-vietnam-relations-2026', de: 'schweiz-vietnam-beziehungen-2026', fr: 'suisse-vietnam-relations-2026' },
  'microdrama-pubblicita-tiktok-instagram': { it: 'microdrama-pubblicita-tiktok-instagram', en: 'microdrama-advertising-tiktok-instagram', de: 'microdrama-werbung-tiktok-instagram', fr: 'microdrama-publicite-tiktok-instagram' },
  'udc-assemblea-bulle-2026': { it: 'udc-assemblea-bulle-2026', en: 'udc-assembly-bulle-2026', de: 'udc-versammlung-bulle-2026', fr: 'udc-assemblee-bulle-2026' },
+ 'scorte-cherosene-zurigo': { it: 'scorte-cherosene-zurigo', en: 'zurich-kerosene-reserves', de: 'zuerich-kerosin-reserven', fr: 'reserves-kerosene-zurich' },
+ 'svizzera-attualita-istituzioni-2026': { it: 'svizzera-attualita-istituzioni-2026', en: 'switzerland-current-affairs-institutions-2026', de: 'schweiz-aktuelles-institutionen-2026', fr: 'suisse-actualite-institutions-2026' },
+ 'pensionato-vince-contro-ffs': { it: 'pensionato-vince-contro-ffs', en: 'pensioner-wins-against-sbb', de: 'rentner-gewinnt-gegen-sbb', fr: 'retraite-gagne-contre-cff' },
+ 'manager-ffs-denaro-pubblico': { it: 'manager-ffs-denaro-pubblico', en: 'ffs-manager-public-funds', de: 'sbb-manager-oeffentliche-gelder', fr: 'manager-ffs-fonds-publics' },
+ 'lamal-guida-2026-canton-argovia': { it: 'lamal-guida-2026-canton-argovia', en: 'lamal-guide-2026-canton-aargau', de: 'lamal-leitfaden-2026-kanton-argau', fr: 'guide-lamal-2026-canton-argovie' },
+ 'ordinanza-liste-validita': { it: 'ordinanza-liste-validita', en: 'sanctions-list-validity', de: 'sanktionslisten-gueltigkeit', fr: 'validite-listes-sanctions' },
+ 'prezzi-carburanti-rinviati-rinviati': { it: 'prezzi-carburanti-rinviati-rinviati', en: 'fuel-prices-delay-switzerland', de: 'treibstoffpreise-verzoegert', fr: 'prix-carburants-retard' },
+ 'dacuda-mouse-scanner': { it: 'dacuda-mouse-scanner', en: 'dacuda-scanner-mouse', de: 'dacuda-scanner-maus', fr: 'dacuda-souris-scanner' },
+ 'competitivita-svizzera-ocse-berna': { it: 'competitivita-svizzera-ocse-berna', en: 'switzerland-oecd-competitiveness-reforms', de: 'schweiz-oecd-wettbewerbsfaehigkeit-reformen', fr: 'suisse-ocde-competitivite-reformes' },
+ 'aiuti-sociali-rifugiati-ucraini': { it: 'aiuti-sociali-rifugiati-ucraini', en: 'social-assistance-for-ukrainian-refugees-mixed-opinions', de: 'sozialhilfe-fur-ukrainische-fluchtlinge-geteilte-meinungen', fr: 'aides-sociales-aux-refugies-ukrainiens-avis-partages' },
+ 'prodex-40-anni-esericerca-spaziale': { it: 'prodex-40-anni-esericerca-spaziale', en: 'prodex-40-years-space-research', de: 'prodex-40-jahre-weltraumforschung', fr: 'prodex-40-ans-recherche-spatiale' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
