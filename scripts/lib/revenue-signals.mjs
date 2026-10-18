@@ -21,9 +21,12 @@
 
 /** @typedef {{ sessions?: number, pageViews?: number, impressions?: number, revenue?: number, ad_filled?: number, ad_consent_granted?: number, ad_consent_denied?: number }} HourCounts */
 
+export const GA4_FRESHNESS_SIGNAL = 'ga4_freshness';
+
 export const DEFAULT_CONFIG = Object.freeze({
-  // Site events (page_view, ad_*) land in GA4 within ~1 h; the current hour and
-  // the previous one are still partial, so the events window ends 2 h back.
+  // The current hour and the previous one are still partial, so the events
+  // window ends 2 h back. GA4 freshness is checked from returned rows, not
+  // from this window's end or a guessed fixed delay.
   eventsWindow: { from: 3, to: 2 },
   // publisherAdImpressions / totalAdRevenue come from the AdSense link and keep
   // growing for ~3 h: read them only on settled hours.
@@ -38,9 +41,12 @@ export const DEFAULT_CONFIG = Object.freeze({
   // false alarm in three weeks); fill and revenue need two runs because the
   // slots per page change with layout and single hours dip.
   persistence: { consent: 1, fill: 2, revenue: 2, traffic: 2 },
-  // The monitor closes its issue only after this many consecutive hourly runs
-  // without an alarm: the backlog gets a day to verify the cause first.
+  // The monitor closes its issue only after this many consecutive measured
+  // hourly runs without an alarm: the backlog gets a day to verify the cause.
   recoveryRuns: 24,
+  // A report with no newly processed hour beyond this age is a distinct GA4
+  // freshness alarm, not a traffic-zero alarm.
+  maxGa4AgeHours: 6,
 });
 
 /** Fixed title: the dedup in scripts/lib/github-issue-creator.mjs keys on its first 60 characters. */
@@ -109,17 +115,31 @@ export function windowKeys(currentHour, { from, to }, weeksBack = 0) {
   return keys;
 }
 
+function hasHour(hours, key) {
+  return Object.prototype.hasOwnProperty.call(hours, key);
+}
+
+export function latestAvailableHour(hours, currentHour) {
+  return Object.keys(hours)
+    .filter((key) => /^\d{10}$/.test(key) && (!currentHour || key <= currentHour))
+    .sort()
+    .at(-1) ?? null;
+}
+
 function sumWindow(hours, keys, signal) {
   let num = 0;
   let den = 0;
   let pageViews = 0;
+  let completeHours = 0;
   for (const k of keys) {
+    if (!hasHour(hours, k)) continue;
     const c = hours[k] || {};
+    completeHours++;
     num += signal.num(c);
     den += signal.den(c);
     pageViews += c.pageViews || 0;
   }
-  return { num, den, pageViews, value: den > 0 ? num / den : null };
+  return { num, den, pageViews, completeHours, expectedHours: keys.length, value: den > 0 ? num / den : null };
 }
 
 function median(values) {
@@ -141,8 +161,20 @@ function checkSignal(hours, currentHour, name, config) {
   const current = sumWindow(hours, keys, signal);
   const weeks = config.baselineWeeks
     .map((w) => sumWindow(hours, windowKeys(currentHour, win, w), signal))
-    .filter((b) => b.value !== null && b.pageViews >= minPv);
-  const check = { signal: name, label: signal.label, window: [keys[0], keys[keys.length - 1]], current: current.value, pageViews: current.pageViews, baselineWeeks: weeks.length };
+    .filter((b) => b.completeHours === b.expectedHours && b.value !== null && b.pageViews >= minPv);
+  const check = {
+    signal: name,
+    label: signal.label,
+    window: [keys[0], keys[keys.length - 1]],
+    current: current.value,
+    pageViews: current.pageViews,
+    completeHours: current.completeHours,
+    expectedHours: current.expectedHours,
+    missingHours: keys.filter((key) => !hasHour(hours, key)),
+    baselineWeeks: weeks.length,
+  };
+  if (current.completeHours === 0) return { ...check, status: 'pending' };
+  if (current.completeHours < current.expectedHours) return { ...check, status: 'incomplete' };
   // Low volume is a property of the SLOT, not of the current window: a night
   // hour is skipped because its baseline is thin too. A daytime slot that
   // drops to zero is the outage itself (site down, tag broken), so traffic is
@@ -155,6 +187,23 @@ function checkSignal(hours, currentHour, name, config) {
   return { ...check, baseline, ratio, threshold, status: ratio !== null && ratio < threshold ? 'below' : 'ok' };
 }
 
+function checkFreshness(hours, currentHour, config) {
+  const latest = latestAvailableHour(hours, currentHour);
+  const ageHours = latest === null ? null : (parseDateHour(currentHour).getTime() - parseDateHour(latest).getTime()) / 3_600_000;
+  const fresh = ageHours !== null && ageHours <= config.maxGa4AgeHours;
+  return {
+    signal: GA4_FRESHNESS_SIGNAL,
+    label: 'Freschezza dati GA4 (ore dall’ultima riga elaborata)',
+    window: [latest || currentHour, latest || currentHour],
+    current: ageHours,
+    pageViews: null,
+    latestAvailableHour: latest,
+    ageHours,
+    threshold: config.maxGa4AgeHours,
+    status: fresh ? 'ok' : 'alarm',
+  };
+}
+
 /**
  * @param {{ hours: Record<string, HourCounts>, currentHour: string, config?: typeof DEFAULT_CONFIG }} input
  * `currentHour` is the hour the run happens in (still incomplete).
@@ -163,7 +212,7 @@ function checkSignal(hours, currentHour, name, config) {
  * @returns {{ currentHour: string, alarms: object[], checks: object[] }}
  */
 export function evaluateRevenueSignals({ hours, currentHour, config = DEFAULT_CONFIG }) {
-  const checks = Object.keys(SIGNALS).map((name) => {
+  const signalChecks = Object.keys(SIGNALS).map((name) => {
     const check = checkSignal(hours, currentHour, name, config);
     if (check.status !== 'below') return check;
     const runs = config.persistence?.[name] ?? 1;
@@ -172,12 +221,16 @@ export function evaluateRevenueSignals({ hours, currentHour, config = DEFAULT_CO
     }
     return { ...check, status: 'alarm' };
   });
-  return { currentHour, alarms: checks.filter((c) => c.status === 'alarm'), checks };
+  const freshness = checkFreshness(hours, currentHour, config);
+  const checks = [...signalChecks, freshness];
+  return { currentHour, latestAvailableHour: freshness.latestAvailableHour, freshness, alarms: checks.filter((c) => c.status === 'alarm'), checks };
 }
 
 /**
  * What the hourly run should do with the issue:
  * - `alarm`: open it, or comment on the open one (dedup on ISSUE_TITLE);
+ * - `pending`/`incomplete`: GA4 has not completed the current window; this is neutral for
+ *   recovery and does not open or resolve the issue;
  * - `watching`: no alarm now, but one in the last `recoveryRuns` runs, or a
  *   signal below threshold for its first run: leave it;
  * - `recovered`: no alarm in the last `recoveryRuns` runs, nothing below
@@ -188,15 +241,21 @@ export function evaluateRevenueSignals({ hours, currentHour, config = DEFAULT_CO
 export function monitorDecision({ hours, currentHour, config = DEFAULT_CONFIG }) {
   const evaluation = evaluateRevenueSignals({ hours, currentHour, config });
   if (evaluation.alarms.length > 0) return { status: 'alarm', evaluation };
-  const measured = (e) => e.checks.some((c) => c.status === 'ok' || c.status === 'below_once');
+  const measured = (e) => e.checks.some((c) => SIGNALS[c.signal] && (c.status === 'ok' || c.status === 'below_once'));
+  const pending = (e) => e.checks.some((c) => c.status === 'pending' || c.status === 'incomplete');
   let anyMeasured = measured(evaluation);
+  let anyPending = pending(evaluation);
   for (let back = 1; back < config.recoveryRuns; back++) {
     const past = evaluateRevenueSignals({ hours, currentHour: shiftDateHour(currentHour, -back), config });
     if (past.alarms.length > 0) return { status: 'watching', evaluation, lastAlarmHour: past.currentHour };
     anyMeasured ||= measured(past);
+    anyPending ||= pending(past);
   }
   // A signal on its way to an alarm is not a recovery.
   if (evaluation.checks.some((c) => c.status === 'below_once')) return { status: 'watching', evaluation, lastAlarmHour: null };
+  // Pending/incomplete is neutral: do not close an issue while its recovery window is
+  // not measurable. Once rows arrive, the same data is re-evaluated here.
+  if (anyPending) return { status: 'pending', evaluation };
   return { status: anyMeasured ? 'recovered' : 'quiet', evaluation };
 }
 
@@ -221,6 +280,10 @@ const HYPOTHESES = {
     cause: 'calo delle visite umane IT+CH: clic organici (SEO, indicizzazione) o sito irraggiungibile',
     check: 'Search Console `searchAnalytics` per ora (`dataState: HOURLY_ALL`) sulle stesse ore e `curl -sI https://frontaliereticino.ch/`',
   },
+  [GA4_FRESHNESS_SIGNAL]: {
+    cause: 'GA4 non ha ancora pubblicato righe per le ore recenti: il dato potrebbe essere ancora in elaborazione oppure la raccolta/reporting GA4 è fermo',
+    check: 'confronto della `latestAvailableHour` nel JSON del monitor con il ritardo osservato nella proprietà GA4; se supera la soglia, verifica Data API e raccolta eventi',
+  },
 };
 
 const fmtHour = (key) => `${key.slice(6, 8)}-${key.slice(4, 6)} ${key.slice(8, 10)}h`;
@@ -230,12 +293,16 @@ const fmtNum = (n, digits = 3) => (n === null || n === undefined ? '—' : Numbe
 export function buildIssueBody({ decision, runUrl = '' }) {
   const { evaluation } = decision;
   const alarms = evaluation.alarms;
-  const worst = alarms.reduce((a, b) => (a && a.ratio <= b.ratio ? a : b), null);
+  const ratioAlarms = alarms.filter((alarm) => alarm.ratio !== null && alarm.ratio !== undefined);
+  const worst = ratioAlarms.reduce((a, b) => (a && a.ratio <= b.ratio ? a : b), null) || alarms[0] || null;
   const replay = `node scripts/monitor-revenue-signals.mjs --current-hour=${evaluation.currentHour}`;
   const rows = evaluation.checks.map((c) => {
-    const digits = SIGNALS[c.signal].digits;
+    const digits = SIGNALS[c.signal]?.digits ?? 1;
     return `| ${c.label} | ${fmtHour(c.window[0])}–${fmtHour(c.window[1])} | ${fmtNum(c.current, digits)} | ${fmtNum(c.baseline, digits)} | ${fmtNum(c.ratio, 2)} | ${c.threshold ?? '—'} | ${c.status} |`;
   });
+  const metric = worst?.ratio !== null && worst?.ratio !== undefined
+    ? `prima=${fmtNum(worst.ratio, 2)} (${worst.signal}, rapporto sulla baseline) atteso>=${worst.threshold}`
+    : `età=${fmtNum(worst?.ageHours, 1)}h (${worst?.signal}) attesa<=${worst?.threshold}h`;
   return [
     '<!-- revenue-signal-monitor -->',
     `Run delle ${fmtHour(evaluation.currentHour)} (Europe/Zurich)${runUrl ? ` · ${runUrl}` : ''}. Dati GA4 solo Italia e Svizzera; baseline = mediana delle stesse ore, stesso giorno della settimana, 1-3 settimane prima.`,
@@ -247,13 +314,13 @@ export function buildIssueBody({ decision, runUrl = '' }) {
     'SCHEDA: revenue-signal-monitor',
     `1-CAUSA: ipotesi da verificare, non accertata — ${alarms.map((a) => `${a.signal}: ${HYPOTHESES[a.signal].cause}`).join(' / ')}`,
     '2-FIX: da decidere dopo aver confermato la causa col comando della sua ipotesi | REPO: sito | MODE: non-nel-manifest',
-    `3-METRICA: prima=${fmtNum(worst?.ratio, 2)} (${worst?.signal}, rapporto sulla baseline) atteso>=${worst?.threshold} | COMANDO: \`${replay}\``,
+    `3-METRICA: ${metric} | COMANDO: \`${replay}\``,
     // No workflow path here: check-workflows-scope.mjs reads the body to route the fixer.
-    '4-OSSERVATORE: il workflow «Revenue signal monitor» (cron orario) — commenta a ogni run in allarme, chiude dopo 24 run consecutive senza allarme',
+    '4-OSSERVATORE: il workflow «Revenue signal monitor» (cron orario) — commenta a ogni run in allarme, chiude dopo 24 run consecutive misurabili senza allarme; `pending` è neutro',
     `5-FALLIMENTO: "${ISSUE_TITLE}"`,
     '',
     '## Ipotesi e comandi che le confermano o le smentiscono',
-    ...alarms.map((a) => `- **${a.signal}** (${fmtNum(a.ratio, 2)} della baseline): ${HYPOTHESES[a.signal].cause}. Verifica: ${HYPOTHESES[a.signal].check}.`),
+    ...alarms.map((a) => `- **${a.signal}** (${a.ratio !== null && a.ratio !== undefined ? `${fmtNum(a.ratio, 2)} della baseline` : `${fmtNum(a.ageHours, 1)}h dall’ultima riga`}): ${HYPOTHESES[a.signal].cause}. Verifica: ${HYPOTHESES[a.signal].check}.`),
     '',
     '## Suggested action',
     "- Verifica prima l'ipotesi del segnale peggiore col suo comando; se si conferma, i punti del codice sono `build-plugins/constants.ts` (gate Offerwall, loader AdSense e GPT, `BOT_GATE_FN`), `index.html` (gate inline della homepage), `services/botPatterns.ts`, `scripts/probe-live-consent-message.mjs`.",

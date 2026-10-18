@@ -7,12 +7,14 @@ import { realpathSync } from 'node:fs';
  * Reads GA4 hourly counts for Italy + Switzerland and asks
  * scripts/lib/revenue-signals.mjs whether consent decisions, filled ads,
  * revenue per page or human traffic fell below the same hours of the same
- * weekday in the previous three weeks.
+ * weekday in the previous three weeks. Missing metric rows remain pending;
+ * they are never synthesized as zero.
  *
  * It fills the gap the daily canaries leave (rpm-canary.yml, user-value-canary.yml
  * read settled DAYS): on 2026-09-27 the CMP was suppressed from 12h and ad
- * revenue fell ~75% for six hours; nothing noticed until a person did. Consent
- * decisions arrive in GA4 within the hour, so this catches that class in ~2 h.
+ * revenue fell ~75% for six hours; nothing noticed until a person did. GA4's
+ * intraday lag is variable, so incomplete windows wait for their own rows and
+ * only a report stale beyond the configured threshold raises a freshness alarm.
  *
  * The alarm travels in the output, never in the exit code: 0 whenever the run
  * measured (alarm or not), 1 only when it could not measure (credentials, API,
@@ -101,6 +103,9 @@ export async function fetchHourlyCounts({ token, currentHour, config = DEFAULT_C
   }
   for (const row of events.rows || []) {
     const [key, eventName] = row.dimensionValues.map((v) => v.value);
+    // The metric report defines which hours are complete. An event-only row
+    // must not create an hour whose page views and revenue would be assumed 0.
+    if (!Object.prototype.hasOwnProperty.call(hours, key)) continue;
     hours[key] = { ...hours[key], [eventName]: Number(row.metricValues[0].value) };
   }
   return hours;
@@ -124,6 +129,7 @@ export async function runMonitor({ argv = [], env = process.env, now = new Date(
     const result = {
       currentHour,
       status: decision.status,
+      latestAvailableHour: decision.evaluation.latestAvailableHour,
       alarms: decision.evaluation.alarms.map((a) => a.signal),
       lastAlarmHour: decision.lastAlarmHour ?? null,
       checks: decision.evaluation.checks,
