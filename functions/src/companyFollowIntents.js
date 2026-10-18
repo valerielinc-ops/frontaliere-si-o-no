@@ -350,7 +350,9 @@ export async function fulfillCompanyFollowIntents({
 
   if (!dryRun && outcome.pending === 0 && outcome.created + outcome.existing > 0 && subscriberSnap.exists) {
     // Same completion marker `subscribeCompanyAlert` clears in the browser.
-    await subscriberRef.set({ company_follow_followup_pending: false }, { merge: true });
+    if (subscriberSnap.data()?.company_follow_followup_pending !== false) {
+      await subscriberRef.set({ company_follow_followup_pending: false }, { merge: true });
+    }
   }
   return outcome;
 }

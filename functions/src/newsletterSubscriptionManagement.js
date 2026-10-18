@@ -203,7 +203,9 @@ async function clearCompanyFollowFollowupPending(db, email) {
  const ref = db.collection('newsletter_subscribers').doc(email);
  const snapshot = await ref.get();
  if (!snapshot.exists) return;
- await ref.set({ company_follow_followup_pending: false }, { merge: true });
+ if (snapshot.data()?.company_follow_followup_pending !== false) {
+  await ref.set({ company_follow_followup_pending: false }, { merge: true });
+ }
 }
 
 /**

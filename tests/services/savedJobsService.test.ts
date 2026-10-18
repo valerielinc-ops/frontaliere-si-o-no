@@ -62,7 +62,11 @@ const deleteDocMock = vi.fn(async (...args: unknown[]) => {
   const ref = args[0] as { id: string };
   firestoreStore.delete(ref.id);
 });
-const getDocMock = vi.fn(async (..._args: unknown[]) => ({ exists: () => false }));
+const getDocMock = vi.fn(async (...args: unknown[]) => {
+  const ref = args[0] as { id?: string } | undefined;
+  const data = ref?.id ? profileStore.get(ref.id) : undefined;
+  return { exists: () => data !== undefined, data: () => data };
+});
 const commitMock = vi.fn(async () => undefined);
 const batchSetMock = vi.fn((...args: unknown[]) => {
   const ref = args[0] as { id: string };
@@ -352,6 +356,21 @@ describe('savedJobsService — persistence', () => {
     await vi.waitFor(() => expect(getDocMock).toHaveBeenCalled());
     expect(commitMock).not.toHaveBeenCalled();
     expect(loadSavedJobs()).toEqual([]);
+    unsubscribe();
+  });
+
+  it('does not rewrite unchanged profile metadata on a later login', async () => {
+    profileStore.set('test-uid', {
+      email: 'a@b.ch',
+      locale: 'it',
+      savedJobsDigest: { optedIn: true, optedOut: false },
+    });
+    const unsubscribe = subscribeSavedJobsFirestore('test-uid', { email: 'a@b.ch', locale: 'it' });
+    await vi.waitFor(() => expect(getDocMock).toHaveBeenCalled());
+    expect(setDocMock).not.toHaveBeenCalled();
+    expect(profileStore.get('test-uid')).toMatchObject({
+      savedJobsDigest: { optedIn: true, optedOut: false },
+    });
     unsubscribe();
   });
 });
