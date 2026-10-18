@@ -111,6 +111,24 @@ export function buildLocaleAlternateBlock(opts: LocaleAlternateBlockOptions): st
     .join('\n');
 }
 
+/**
+ * Render a complete alternate block only when every locale path is still
+ * available to this cluster. Active pages and expired soft-landings can share
+ * the same path registry, so a collision voids the block instead of making a
+ * page advertise another job's localized URL.
+ */
+export function buildLocaleAlternateBlockForUnclaimedCluster(
+  paths: Readonly<Partial<Record<AlternateLocale, string>>>,
+  claimedPaths: ReadonlySet<string>,
+  opts: Pick<LocaleAlternateBlockOptions, 'hrefFor' | 'indent'>,
+): string {
+  if (!hasUnclaimedLocaleCluster(paths, claimedPaths)) return '';
+  return buildLocaleAlternateBlock({
+    eligibleLocales: ALTERNATE_LOCALES,
+    ...opts,
+  });
+}
+
 /** One `hreflang`/`href` pair of the alternate set. */
 export interface LocaleAlternateEntry {
   readonly hreflang: string;

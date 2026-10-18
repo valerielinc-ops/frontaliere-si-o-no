@@ -41,6 +41,7 @@ import path from 'node:path';
 import {
   ALTERNATE_LOCALES,
   buildLocaleAlternateBlock,
+  buildLocaleAlternateBlockForUnclaimedCluster,
   buildSitemapAlternateBlock,
   hasUnclaimedLocaleCluster,
   localePathClaimKey,
@@ -144,6 +145,14 @@ describe('expired soft-landing cluster claims stay shard-invariant', () => {
   it('voids the whole cluster when one locale path already belongs to an earlier slug', () => {
     const claimed = new Set([localePathClaimKey(paths.en)]);
     expect(hasUnclaimedLocaleCluster(paths, claimed)).toBe(false);
+  });
+
+  it('emits no hreflang block when a localized path belongs to an active job', () => {
+    const claimedByActiveJob = new Set([localePathClaimKey(paths.de)]);
+    const block = buildLocaleAlternateBlockForUnclaimedCluster(paths, claimedByActiveJob, {
+      hrefFor: (locale) => `${BASE}${paths[locale]}`,
+    });
+    expect(block).toBe('');
   });
 
   it('normalises URL-shaped and registry-shaped path keys identically', () => {
@@ -259,6 +268,15 @@ describe('search-landing emitters route every hreflang block through the shared 
     expect(src).toContain('const activeJobEligibleLocales = new Set(');
     expect(src).toContain('emittedActiveJobPaths.has(`${jobCanton}:${candidateLocale}:${perLocaleSlug[candidateLocale]}`)');
     expect(src).toContain('eligibleLocales: activeJobEligibleLocales');
+  });
+
+  it('expired job alternates share the active localized-path claim set', () => {
+    const src = read('build-plugins/jobsSeoPagesPlugin.ts');
+    expect(src).toContain('const claimedJobPaths = new Set<string>();');
+    expect(src).toContain('claimedJobPaths.add(localePathClaimKey(relPath));');
+    expect(src).toContain(
+      'buildLocaleAlternateBlockForUnclaimedCluster(paths, claimedJobPaths,',
+    );
   });
 
   it.each(FLOOR_EMITTERS)('%s settles its eligible set before rendering for real', (rel) => {
