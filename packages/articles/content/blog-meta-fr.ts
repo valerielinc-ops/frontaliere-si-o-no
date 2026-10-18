@@ -13476,6 +13476,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ps-tre-iniziative-thun.title': 'PS, oui à trois initiatives : abeilles, mobilité et Internet',
     'blog.article.ps-tre-iniziative-thun.excerpt': 'Trois initiatives ont obtenu le oui du PS à Thoune Le bon de mobilité concerne les transports publics et les chemins de fer Le texte demande une taxe sur les billets d’avion',
     'blog.article.ps-tre-iniziative-thun.imageAlt': 'Congrès socialiste à Thun: initiatives sur les abeilles, la mobilité et la sécurité numérique.',
+    'blog.article.cassano-indagine-schianto.title': 'Varese, morte dans un accident : son ex accusé de féminicide',
+    'blog.article.cassano-indagine-schianto.excerpt': 'Pierina Buffon est morte dans la collision sur le périphérique Fulvio Ielmini fait également l’objet d’une enquête pour féminicide Les carabiniers envisagent un accident provoqué',
+    'blog.article.cassano-indagine-schianto.imageAlt': 'Route au Tessin dans la lumière du matin, image symbolique pour une actualité locale',
+    'blog.article.frontaliere-tasse-dopo-licenziamento.title': 'Licenciement frontalier 2026 : droits fiscaux et cotisations',
+    'blog.article.frontaliere-tasse-dopo-licenziamento.excerpt': 'Le nouvel accord frontalier est valable à partir du 1er janvier 2024.',
+    'blog.article.frontaliere-tasse-dopo-licenziamento.imageAlt': 'Un frontalier vérifie des documents de travail près de la frontière tessinoise',
+    'blog.article.live-arconatese-varese-caronno.title': 'Arconatese-varese, réalisé par Caronno pertusella',
+    'blog.article.live-arconatese-varese-caronno.excerpt': 'Huitième journée de Serie D, Groupe D Le Varese défie Arconatese à Caronno Pertusella Les rouges et blancs cherchent une continuité après la dernière victoire Le match est',
+    'blog.article.live-arconatese-varese-caronno.imageAlt': 'Match Arconatese-Varese à Caronno Pertusella',
+    'blog.article.tutele-frontaliero-uscita-ticino.title': 'Un navetteur transfrontalier renvoyé en 2026 : droits sur plus de 20 km',
+    'blog.article.tutele-frontaliero-uscita-ticino.excerpt': 'Guide pratique pour les navetteurs transfrontaliers sur plus de 20 km : accord CH-IT, retenue à la source, déductibles, AHV, BVG, KVG et chèques post-congédiement.',
+    'blog.article.tutele-frontaliero-uscita-ticino.imageAlt': 'Frontalier avec des documents de travail devant un bureau au Tessin',
 };
 
 export default blogMetaFr;

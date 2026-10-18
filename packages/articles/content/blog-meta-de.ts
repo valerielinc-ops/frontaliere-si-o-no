@@ -13473,6 +13473,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ps-tre-iniziative-thun.title': 'SP sagt Ja zu drei Initiativen: Bienen, Mobilität und Internet',
     'blog.article.ps-tre-iniziative-thun.excerpt': 'Drei Initiativen haben in Thun das Ja der SP erhalten Der Mobilitätsgutschein betrifft den öffentlichen Verkehr und die Eisenbahnen Der Text fordert eine Steuer auf Flugtickets',
     'blog.article.ps-tre-iniziative-thun.imageAlt': 'Sozialistenkongress in Thun: Initiativen zu Bienen, Mobilität und digitaler Sicherheit.',
+    'blog.article.cassano-indagine-schianto.title': 'Varese, bei einem Unfall gestorben: Ex wegen Femizids beschuldigt',
+    'blog.article.cassano-indagine-schianto.excerpt': 'Pierina Buffon starb bei dem Zusammenstoß auf der Umgehungsstraße Gegen Fulvio Ielmini wird auch wegen Femizids ermittelt Die Carabinieri vermuten einen herbeigeführten Zusammenstoß',
+    'blog.article.cassano-indagine-schianto.imageAlt': 'Strasse im Tessin im Morgenlicht, symbolisches Bild für eine lokale Nachricht',
+    'blog.article.frontaliere-tasse-dopo-licenziamento.title': 'Grenzüberschreitende Entlassung 2026: Steueransprüche und Beiträge',
+    'blog.article.frontaliere-tasse-dopo-licenziamento.excerpt': 'Die neue Frontalieri-Vereinbarung gilt ab dem 1.',
+    'blog.article.frontaliere-tasse-dopo-licenziamento.imageAlt': 'Grenzgänger prüft Arbeitsunterlagen nahe der Grenze zum Tessin',
+    'blog.article.live-arconatese-varese-caronno.title': 'Arconatese-varese, Regie: caronno pertusella',
+    'blog.article.live-arconatese-varese-caronno.excerpt': 'Achter Tag der Serie D, Gruppe D. (Varese)',
+    'blog.article.live-arconatese-varese-caronno.imageAlt': 'Partie Arconatese gegen Varese in Caronno Pertusella',
+    'blog.article.tutele-frontaliero-uscita-ticino.title': 'Grenzüberschreitender Pendler 2026 entlassen: Rechte über 20 km',
+    'blog.article.tutele-frontaliero-uscita-ticino.excerpt': 'Praktischer Leitfaden für grenzüberschreitende Pendler über 20 km: CH-IT-Vereinbarung, Quellensteuer, Selbstbehalte, AHV, BVG, KVG und Nachentlassungsprüfungen.',
+    'blog.article.tutele-frontaliero-uscita-ticino.imageAlt': 'Grenzgänger mit Arbeitsunterlagen vor einem Büro im Tessin',
 };
 
 export default blogMetaDe;

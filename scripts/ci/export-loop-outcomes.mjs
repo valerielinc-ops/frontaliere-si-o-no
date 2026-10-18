@@ -261,12 +261,15 @@ export class GoogleDataClient {
     return body;
   }
 
-  async runQuery({ collectionId, allDescendants = false, where = null, fieldPaths = [] }) {
+  async runQuery({ collectionId, allDescendants = false, where = null, fieldPaths = [], pathPrefix = null }) {
     const structuredQuery = {
       from: [{ collectionId, allDescendants }],
     };
     if (fieldPaths.length) structuredQuery.select = { fields: fieldPaths.map((fieldPath) => ({ fieldPath })) };
-    if (where) structuredQuery.where = where;
+    const filters = [where, pathPrefix ? firestoreCollectionPathFilter(pathPrefix, this.serviceAccount.project_id) : null]
+      .filter(Boolean);
+    if (filters.length === 1) structuredQuery.where = filters[0];
+    if (filters.length > 1) structuredQuery.where = { compositeFilter: { op: 'AND', filters } };
     const parent = `projects/${this.serviceAccount.project_id}/databases/(default)/documents`;
     const response = await this.fetchImpl(
       `https://firestore.googleapis.com/v1/${parent}:runQuery`,
@@ -347,6 +350,34 @@ function childRow(row, collection, childCollection) {
 
 function firestoreTimestampFilter(fieldPath, iso, op = 'GREATER_THAN_OR_EQUAL') {
   return { fieldFilter: { field: { fieldPath }, op, value: { timestampValue: iso } } };
+}
+
+const FIRESTORE_MIN_DOCUMENT_ID = '__id-9223372036854775808__';
+const FIRESTORE_PATH_RANGE_END = '\uf8ff';
+
+function firestoreCollectionPathFilter(collectionId, projectId) {
+  const documents = `projects/${projectId}/databases/(default)/documents`;
+  return {
+    compositeFilter: {
+      op: 'AND',
+      filters: [
+        {
+          fieldFilter: {
+            field: { fieldPath: '__name__' },
+            op: 'GREATER_THAN_OR_EQUAL',
+            value: { referenceValue: `${documents}/${collectionId}/${FIRESTORE_MIN_DOCUMENT_ID}` },
+          },
+        },
+        {
+          fieldFilter: {
+            field: { fieldPath: '__name__' },
+            op: 'LESS_THAN',
+            value: { referenceValue: `${documents}/${collectionId}${FIRESTORE_PATH_RANGE_END}/${FIRESTORE_MIN_DOCUMENT_ID}` },
+          },
+        },
+      ],
+    },
+  };
 }
 
 export function completeUtcWindow(now, days) {
@@ -1708,6 +1739,7 @@ export async function exportL4({
     firestore.runQuery({
       collectionId: 'campaign_deliveries',
       allDescendants: true,
+      pathPrefix: 'job_alert_subscribers',
       where: firestoreTimestampFilter('sent_at', window.start),
       fieldPaths: ['campaign_id', 'campaignId', 'ranking_delivery_id', 'rankingDeliveryId', 'message_id', 'messageId', 'is_operator_verification', 'isOperatorVerification', 'sent_at', 'sentAt', 'scheduled_for', 'scheduledFor', 'send_time_source', 'sendTimeSource', 'consent_checked', 'consentChecked', 'consent_allowed', 'consentAllowed', 'consent_basis', 'consentBasis', 'consent_checked_at', 'consentCheckedAt', 'outcome_contract_version', 'outcomeContractVersion', 'delivered_at', 'deliveredAt', 'opened_at', 'openedAt', 'clicked_at', 'clickedAt', 'clicked_links', 'clickedLinks', 'provider'],
     }),

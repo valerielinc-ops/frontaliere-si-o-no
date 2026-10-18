@@ -480,6 +480,7 @@ function extractDataWritePaths(run, operationalRun) {
 const SHELL_KEYWORDS = new Set(['case', 'do', 'done', 'elif', 'else', 'esac', 'fi', 'for', 'if', 'in', 'then', 'until', 'while']);
 const SHELL_COMMENT_PRECEDERS = new Set([';', '&', '|', '(', ')', '{', '}', '<', '>']);
 const SHELL_OPERATORS = [';&', ';;&', '||', '&&', '|&', ';;', '>>', '<<', '>&', '<&', '>|', ';', '|', '&', '(', ')', '{', '}', '<', '>'];
+const DATA_WRITE_VALIDATION_RE = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i;
 
 function shellTokens(source) {
   const raw = String(source || '');
@@ -663,6 +664,54 @@ function shellConditionalBranches(parsed) {
     }
   }
   return branches.filter((branch) => branch.then && branch.bodyEnd);
+}
+
+function shellErrexitChange(command) {
+  if (command.name !== 'set') return null;
+  const values = command.args
+    .filter((token) => token.type === 'word')
+    .map((token) => token.value);
+  for (let index = 0; index < values.length; index += 1) {
+    const value = values[index];
+    if (value === '+e' || (value === '+o' && values[index + 1] === 'errexit')) return false;
+    if (value === '-e' || (/^-[^-]*e/.test(value) && value !== '-o')
+      || (value === '-o' && values[index + 1] === 'errexit')) return true;
+  }
+  return null;
+}
+
+function shellErrexitEnabledBefore(parsed, target) {
+  let enabled = true;
+  for (const command of parsed.commands) {
+    if (command.start >= target.start) break;
+    const change = shellErrexitChange(command);
+    if (change !== null) enabled = change;
+  }
+  return enabled;
+}
+
+function shellValidationIsGuarded(source, parsed, command) {
+  if (command.name === '!' && command.prefixKeywords.includes('if')) {
+    const branch = shellConditionalBranches(parsed)
+      .filter((candidate) => command.start > candidate.conditionStart.end
+        && command.end <= candidate.then.start)
+      .sort((left, right) => right.conditionStart.start - left.conditionStart.start)[0];
+    return Boolean(branch && /\bexit(?:\s|;|$)/.test(source.slice(branch.then.end, branch.bodyEnd.start)));
+  }
+  if (command.operatorAfter !== '||') return false;
+  const commandIndex = parsed.commands.indexOf(command);
+  if (parsed.commands[commandIndex + 1]?.name === 'exit') return true;
+  const block = /^\s*\|\|\s*\{([\s\S]*?)\}/.exec(source.slice(command.end));
+  return Boolean(block && /\bexit(?:\s|;|$)/.test(block[1]));
+}
+
+function hasEffectiveDataValidation(operationalRun) {
+  const parsed = parseShellCommands(operationalRun);
+  const validationCommands = parsed.commands.filter((command) =>
+    DATA_WRITE_VALIDATION_RE.test(operationalRun.slice(command.start, command.end)));
+  if (validationCommands.length === 0) return false;
+  return validationCommands.every((command) =>
+    shellErrexitEnabledBefore(parsed, command) || shellValidationIsGuarded(operationalRun, parsed, command));
 }
 
 function fileExistencePath(command) {
@@ -2035,7 +2084,7 @@ function validateJobs(workflow, file, source, root, exists, readFile, knownWorkf
         }
         const operationalRun = shellOperationalText(rawStep.run, { preserveQuotedWritePaths: true });
         const dataWritePaths = extractDataWritePaths(rawStep.run, operationalRun);
-        const hasValidation = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i.test(operationalRun);
+        const hasValidation = hasEffectiveDataValidation(operationalRun);
         if (dataWritePaths.length > 0 && !hasValidation) {
           for (const dataPath of dataWritePaths) findings.push(finding(file, 'workflow.data-write-without-check', 'warning', `scrittura di ${dataPath} senza validazione visibile nello step; verificare completezza/timestamp/schema prima del commit`, stepLine, rawStep.run.trim().slice(0, 300)));
         }
