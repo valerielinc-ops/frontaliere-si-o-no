@@ -29,8 +29,11 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
+  hasTriageComment,
   isZeroClaimLine,
+  latestTriageCommentBody,
   triageMarkerPersistenceExpectation,
+  verifyPersistenceCli,
   verifyTriageMarkerPersistence,
 } from '../scripts/ci/collect-followup-batch.mjs';
 
@@ -163,6 +166,32 @@ describe('claim di persistenza a zero', () => {
     expect(verifyTriageMarkerPersistence(body, 9435, () => {
       throw new Error('un bucket invariato non va letto');
     })).toBe(true);
+  });
+
+  it('ignora una rettifica come ultimo marker e conserva il summary canonico', () => {
+    const marker = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: 0 item.',
+    ].join('\n');
+    const correction = [
+      '## Post-merge follow-up triage — correction',
+      '',
+      'Rettifica del conteggio nel commento precedente: restano Created/updated: 0 item.',
+    ].join('\n');
+    const comments = JSON.stringify({ comments: [{ body: marker }, { body: correction }] });
+    expect(hasTriageComment(comments)).toBe(true);
+    expect(latestTriageCommentBody(comments)).toBe(marker);
+
+    const logs: string[] = [];
+    expect(verifyPersistenceCli(['13593'], {
+      read: () => comments,
+      readIssue: () => {
+        throw new Error('un claim a zero non deve leggere un bucket');
+      },
+      log: (line: string) => logs.push(line),
+    })).toBe(true);
+    expect(logs).toContain('PR #13593: persistenza provata (bucket=[-]).');
   });
 
   it('non allarga il fallback: item senza prova di bucket resta fail-closed', () => {
