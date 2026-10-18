@@ -211,7 +211,12 @@ function hasClosedNoscriptRawTextElements(markup) {
  * unclosed one rejects the whole block instead of returning a parser-dependent
  * fragment. Detached innerHTML parsing does not execute scripts or load assets.
  */
-function parseNoscriptFallback(noscript) {
+function parseNoscriptFallback(noscript, sourceMarkup) {
+  // Validate the original bytes before consulting the DOM: an unclosed
+  // raw-text element can change the tree JSDOM exposes after the damage.
+  if (typeof sourceMarkup !== 'string' || !hasClosedNoscriptRawTextElements(sourceMarkup)) {
+    return null;
+  }
   if (noscript.querySelector(`${PARAGRAPH_SELECTOR}, script[type="application/ld+json"]`)) {
     return noscript;
   }
@@ -241,11 +246,12 @@ function hasNoscriptNonContentMarker(element) {
     });
 }
 
-function hasNoscriptNonContentAncestor(node, root) {
+function hasNoscriptNonContentAncestor(node, root, { allowCandidateMetadataTag = false } = {}) {
   for (let current = node; current; current = current.parentElement) {
     const tag = current.tagName.toLowerCase();
-    if (NOSCRIPT_METADATA_TAGS.has(tag)
-      || NOSCRIPT_TRACKING_TAGS.has(tag)
+    const candidateTagIsAllowed = allowCandidateMetadataTag && current === node;
+    if ((!candidateTagIsAllowed && NOSCRIPT_METADATA_TAGS.has(tag))
+      || (!candidateTagIsAllowed && NOSCRIPT_TRACKING_TAGS.has(tag))
       || hasNoscriptNonContentMarker(current)) {
       return true;
     }
@@ -255,17 +261,33 @@ function hasNoscriptNonContentAncestor(node, root) {
 }
 
 function noscriptJsonLdIsEditorial(script, root) {
-  const parent = script.parentElement;
-  return !parent || !hasNoscriptNonContentAncestor(parent, root);
+  return !hasNoscriptNonContentAncestor(script, root, { allowCandidateMetadataTag: true });
 }
 
-function inspectNoscriptFallback(noscript, maxChars) {
-  if (!noscript || hasNoscriptNonContentMarker(noscript)) {
-    return { paragraphs: [], jsonLdBody: null };
+function emptyNoscriptFallback() {
+  return { paragraphs: [], jsonLdBody: null, legacyText: '' };
+}
+
+function extractNoscriptLegacyText(root) {
+  const clone = root.cloneNode(true);
+  for (const element of clone.querySelectorAll('*')) {
+    const tag = element.tagName.toLowerCase();
+    if (NOSCRIPT_METADATA_TAGS.has(tag)
+      || NOSCRIPT_TRACKING_TAGS.has(tag)
+      || hasNoscriptNonContentMarker(element)) {
+      element.remove();
+    }
+  }
+  return cleanText(clone.textContent || '');
+}
+
+function inspectNoscriptFallback(noscript, maxChars, sourceMarkup) {
+  if (!noscript || hasNoscriptNonContentAncestor(noscript, noscript.ownerDocument.documentElement)) {
+    return emptyNoscriptFallback();
   }
 
-  const root = parseNoscriptFallback(noscript);
-  if (!root) return { paragraphs: [], jsonLdBody: null };
+  const root = parseNoscriptFallback(noscript, sourceMarkup);
+  if (!root) return emptyNoscriptFallback();
   if (root !== noscript) removeNoiseNodes(root);
 
   return {
@@ -275,6 +297,7 @@ function inspectNoscriptFallback(noscript, maxChars) {
       maxChars,
     ),
     jsonLdBody: extractFromJsonLd(root, script => noscriptJsonLdIsEditorial(script, root)),
+    legacyText: extractNoscriptLegacyText(root),
   };
 }
 
@@ -295,7 +318,7 @@ function areAdjacentNoscripts(previous, current) {
   return sibling === current;
 }
 
-function mergeNoscriptFallbackBlocks(root, maxChars) {
+function mergeNoscriptFallbackBlocks(root, maxChars, sourceMarkupByNode) {
   const states = new Map();
   const paragraphsByNode = new Map();
   const jsonLdBodies = [];
@@ -313,7 +336,7 @@ function mergeNoscriptFallbackBlocks(root, maxChars) {
 
   let previous = null;
   for (const noscript of topLevelNoscripts(root)) {
-    const state = inspectNoscriptFallback(noscript, maxChars);
+    const state = inspectNoscriptFallback(noscript, maxChars, sourceMarkupByNode.get(noscript));
     states.set(noscript, state);
     if (state.jsonLdBody) jsonLdBodies.push(state.jsonLdBody);
 
@@ -342,7 +365,7 @@ function safeNoscriptNaiveFallback(document, fallbacks, maxChars) {
 
   for (let index = 0; index < clonedNoscripts.length; index += 1) {
     const state = fallbacks.states.get(sourceNoscripts[index]);
-    const text = state?.paragraphs.join(' ') || '';
+    const text = state?.paragraphs.join(' ') || state?.legacyText || '';
     if (text) {
       clonedNoscripts[index].replaceWith(clone.ownerDocument.createTextNode(` ${text} `));
     } else {
@@ -353,6 +376,40 @@ function safeNoscriptNaiveFallback(document, fallbacks, maxChars) {
   for (const node of clone.querySelectorAll('script, style')) node.remove();
   const text = capExtractedText(cleanText(clone.textContent || ''), maxChars);
   return { text, method: 'naive-fallback', paragraphCount: 0 };
+}
+
+function prepareNoscriptSource(html) {
+  const sourceDom = new JSDOM(html, { includeNodeLocations: true });
+  const sourceMarkup = [];
+  const rejectedRanges = [];
+
+  try {
+    for (const noscript of sourceDom.window.document.querySelectorAll('noscript')) {
+      const location = sourceDom.nodeLocation(noscript);
+      const markup = location?.startTag && location?.endTag
+        ? html.slice(location.startTag.endOffset, location.endTag.startOffset)
+        : null;
+      if (typeof markup === 'string' && hasClosedNoscriptRawTextElements(markup)) {
+        sourceMarkup.push(markup);
+      } else if (location) {
+        rejectedRanges.push([location.startOffset, location.endOffset]);
+      }
+    }
+  } finally {
+    sourceDom.window.close();
+  }
+
+  if (rejectedRanges.length === 0) return { parsedHtml: html, sourceMarkup };
+
+  let cursor = 0;
+  let parsedHtml = '';
+  for (const [start, end] of rejectedRanges.sort((a, b) => a[0] - b[0])) {
+    parsedHtml += html.slice(cursor, start);
+    parsedHtml += html.slice(start, end).replace(/[^\r\n]/g, ' ');
+    cursor = end;
+  }
+  parsedHtml += html.slice(cursor);
+  return { parsedHtml, sourceMarkup };
 }
 
 function extractParagraphs(root, maxChars = Number.POSITIVE_INFINITY, fallbacks = null) {
@@ -397,24 +454,37 @@ export function extractArticleText(html, opts = {}) {
   }
 
   let dom;
+  let parsedHtml = html;
+  let sourceMarkup = [];
   try {
     // No runScripts, no external resource loading, no CSS parsing chatter.
     // We only need the parsed DOM tree to walk for text nodes.
     const silentVirtualConsole = new (require_virtual_console_lazy())();
     silentVirtualConsole.on('jsdomError', () => {});
-    dom = new JSDOM(html, { virtualConsole: silentVirtualConsole });
+    if (opts.scriptingDisabled === true) {
+      ({ parsedHtml, sourceMarkup } = prepareNoscriptSource(html));
+    }
+    dom = new JSDOM(parsedHtml, { virtualConsole: silentVirtualConsole });
   } catch {
     return naiveFallback(html, maxChars);
   }
   const document = dom.window.document;
   const publishedAt = extractPublishedDate(document);
+  const noscriptSourceMarkup = new WeakMap();
+
+  if (opts.scriptingDisabled === true) {
+    const parsedNodes = [...document.querySelectorAll('noscript')];
+    for (let index = 0; index < parsedNodes.length; index += 1) {
+      noscriptSourceMarkup.set(parsedNodes[index], sourceMarkup[index] ?? null);
+    }
+  }
 
   // Strip noise nodes up-front. NOTE: JSON-LD `<script type="application/ld+json">`
   // MUST survive this pass — the JSON-LD extractor reads it next. We only purge
   // executable/styling script tags.
   removeNoiseNodes(document, { includeNoscript: opts.scriptingDisabled !== true });
   const noscriptFallbacks = opts.scriptingDisabled === true
-    ? mergeNoscriptFallbackBlocks(document, maxChars)
+    ? mergeNoscriptFallbackBlocks(document, maxChars, noscriptSourceMarkup)
     : null;
 
   // 1. JSON-LD articleBody (most reliable)

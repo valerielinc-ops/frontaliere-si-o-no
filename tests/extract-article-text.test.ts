@@ -125,6 +125,21 @@ describe('extractArticleText', () => {
     expect(result.text).not.toContain('unterminated');
   });
 
+  it('validates unescaped raw-text markup before trusting the parsed noscript DOM', () => {
+    const malformedParagraph = 'Paragraph before an unclosed raw-text element belongs to the rejected fallback.';
+    const outerParagraph = 'Stable source prose after the malformed noscript remains available to the extractor.';
+    const html = '<main><noscript>'
+      + `<p>${malformedParagraph}</p>`
+      + '<script type="application/ld+json">{"articleBody":"unterminated"}'
+      + '</noscript>'
+      + `<p>${outerParagraph}</p></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(outerParagraph);
+    expect(result.text).not.toContain(malformedParagraph);
+    expect(result.text).not.toContain('unterminated');
+  });
+
   it('keeps adjacent tracking noscript blocks out of the fallback path', () => {
     const editorial = 'Editorial fallback paragraph with enough substantive source context for extraction.';
     const tracking = 'Tracking payload that is long enough to pass the paragraph floor and must never enter source text.';
@@ -169,6 +184,52 @@ describe('extractArticleText', () => {
     expect(result.text).toContain('Structured JSON-LD body wins');
     expect(result.text).not.toContain(fallbackOne);
     expect(result.text).not.toContain(fallbackTwo);
+  });
+
+  it.each(['direct', 'normalized'])('rejects %s JSON-LD marked as tracking on the script candidate', (shape) => {
+    const trackingBody = 'Tracking JSON-LD payload must not become the authoritative article source. '.repeat(4);
+    const fallbackOne = 'Editorial fallback paragraph one remains available when tracking JSON-LD is rejected.';
+    const fallbackTwo = 'Editorial fallback paragraph two remains available when tracking JSON-LD is rejected.';
+    const markup = '<script type="application/ld+json" class="tracking-pixel">'
+      + `${JSON.stringify({ articleBody: trackingBody })}</script>`
+      + `<p>${fallbackOne}</p><p>${fallbackTwo}</p>`;
+    const fallback = shape === 'normalized'
+      ? markup.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+      : markup;
+    const html = `<main><noscript>${fallback}</noscript></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('main-tag');
+    expect(result.text).toContain(fallbackOne);
+    expect(result.text).toContain(fallbackTwo);
+    expect(result.text).not.toContain('Tracking JSON-LD payload');
+  });
+
+  it('rejects a noscript fallback inside an external tracking wrapper', () => {
+    const tracking = 'Tracking wrapper payload must never enter extracted article text.';
+    const first = 'First regular article paragraph remains available outside the tracking wrapper.';
+    const second = 'Second regular article paragraph remains available outside the tracking wrapper.';
+    const html = '<article>'
+      + `<div class="tracking-pixel"><noscript><p>${tracking}</p></noscript></div>`
+      + `<p>${first}</p><p>${second}</p>`
+      + '</article>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('article-tag');
+    expect(result.text).toContain(first);
+    expect(result.text).toContain(second);
+    expect(result.text).not.toContain(tracking);
+  });
+
+  it.each([
+    ['plain text', 'Plain noscript source text remains available when no paragraph wrapper is present.'],
+    ['div text', '<div>Noscript source text inside a plain div remains available without a paragraph wrapper.</div>'],
+  ])('preserves valid %s in the legacy fallback path', (_label, fallback) => {
+    const html = `<main><noscript>${fallback}</noscript></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('naive-fallback');
+    expect(result.text.toLowerCase()).toContain('noscript source text');
   });
 
   it('filters document noise wrappers from normalized noscript markup', () => {
