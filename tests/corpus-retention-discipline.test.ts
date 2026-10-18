@@ -245,6 +245,28 @@ describe('corpus retention discipline (#5330)', () => {
     expect(companyRelease, 'companyMap released after sitemap assembly').toBeLessThan(sitemapAssembly);
   });
 
+  it('evicts canonical fallback values at their last active reader', () => {
+    const source = fs.readFileSync(path.join(PLUGIN_DIR, 'jobsSeoPagesPlugin.ts'), 'utf8');
+    const memo = source.indexOf('const memoCanonicalCleaned =');
+    const releaseHelper = source.indexOf('const releaseCanonicalCleanedAfterUse =');
+    const memoRelease = source.indexOf('releaseCanonicalCleanedAfterUse(key);', memo);
+    const activeMarker = source.indexOf("logJobsSeoMem('after-active-pages'");
+    const activePhase = source.indexOf('const ACTIVE_HTML_CACHE_CHUNK_SIZE');
+    const activeLoop = source.indexOf('for (const job of validJobs)', activePhase);
+    const useCount = source.indexOf('const canonicalFallbackUsesRemaining =');
+    const useCountClear = source.indexOf('canonicalFallbackUsesRemaining.clear();');
+
+    expect(useCount, 'canonical fallback use counter disappeared').toBeGreaterThan(-1);
+    expect(releaseHelper, 'canonical fallback release helper disappeared').toBeGreaterThan(-1);
+    expect(memo, 'canonical fallback memo disappeared').toBeGreaterThan(releaseHelper);
+    expect(memoRelease, 'memo no longer releases at last use').toBeGreaterThan(memo);
+    expect(source).toContain('canonicalFallbackUsesRemaining.delete(key);');
+    expect(source).toContain('canonicalFallbackUsesRemaining.get(key) || 0) === 0');
+    expect(activeLoop, 'active jobs loop disappeared').toBeGreaterThan(activePhase);
+    expect(useCountClear, 'canonical fallback use counter is not released').toBeGreaterThan(activeLoop);
+    expect(useCountClear, 'canonical fallback use counter released too late').toBeLessThan(activeMarker);
+  });
+
   it('keeps the retention probe opt-in and limited to one candidate', () => {
     const source = fs.readFileSync(path.join(PLUGIN_DIR, 'jobsSeoPagesPlugin.ts'), 'utf8');
 
