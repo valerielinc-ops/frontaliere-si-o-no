@@ -13,7 +13,7 @@ export const PROMAN_FLEURIER_KEY = 'proman-fleurier';
 export const PROMAN_FLEURIER_COMPANY_NAME = 'PROMAN BM-EMPLOI SA — Fleurier';
 export const PROMAN_FLEURIER_COMPANY_DOMAIN = 'proman.ch';
 
-const CAREER_URL = 'https://www.proman-group.ch/Job/SearchJobs/?brancheId=0&regionId=0&typeId=0';
+const CAREER_URL = 'https://www.proman-group.ch/Job/SearchJobs?brancheId=0&regionId=0&typeId=0';
 const TRUSTED_HOSTS = new Set([
   'proman.ch',
   'www.proman.ch',

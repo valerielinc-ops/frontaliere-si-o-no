@@ -5,7 +5,7 @@
   "platform": "",
   "mode": "template",
   "seedUrls": [
-    "https://www.proman-group.ch/Job/SearchJobs/?brancheId=0&regionId=0&typeId=0"
+    "https://www.proman-group.ch/Job/SearchJobs?brancheId=0&regionId=0&typeId=0"
   ],
   "detailTemplate": "/job/#/*",
   "detailEnrichment": true,
