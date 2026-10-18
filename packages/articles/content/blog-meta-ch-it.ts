@@ -8498,6 +8498,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.prodex-40-anni-esericerca-spaziale.title': 'Prodex compie 40 anni: 130 progetti spaziali finanziati in Svizzera',
     'blog.article.prodex-40-anni-esericerca-spaziale.excerpt': 'ESA celebra i primi 40 anni di Prodex Delegazioni svizzera e belga hanno avviato Prodex nel 1986 Zurigo ha ospitato conferenza e cerimonia In Svizzera',
     'blog.article.prodex-40-anni-esericerca-spaziale.imageAlt': 'Laboratorio di ricerca svizzero con strumenti per missioni spaziali',
+    'blog.article.ffs-binari-deformazioni-canicola-2024.title': 'FFS: 97 deformazioni binari per caldo, task force per estate 2026',
+    'blog.article.ffs-binari-deformazioni-canicola-2024.excerpt': 'Le FFS hanno registrato 97 deformazioni e schiacciamenti.',
+    'blog.article.ffs-binari-deformazioni-canicola-2024.imageAlt': 'Binari ferroviari FFS sotto il sole estivo con calore visibile',
+    'blog.article.indennita-covid-abusi-aziende.title': 'Indennità Covid: abusi in centinaia di aziende. Lastminute ha restituito 28,9 milioni',
+    'blog.article.indennita-covid-abusi-aziende.excerpt': '7\'200 aziende verificate su oltre 167\'000 beneficiarie La SECO ha reclamato 243,53 milioni di ILR Lastminute ha restituito 28,9 milioni in Ticino A fine',
+    'blog.article.indennita-covid-abusi-aziende.imageAlt': 'Ufficio svizzero con impiegati che controllano documenti finanziari legati alle indennità Covid',
+    'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.title': 'PS sostiene tre iniziative e documento lavoro dignitoso',
+    'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.excerpt': 'A Thun il PS ha sostenuto tre iniziative popolari Baume-Schneider ha parlato del finanziamento della 13ª AVS Il PS chiede orari più brevi e salari più alti',
+    'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.imageAlt': 'Immagine editoriale relativa a: PS sostiene tre iniziative e documento lavoro dignitoso',
 };
 
 export default blogMetaChIt;
