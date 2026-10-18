@@ -188,7 +188,8 @@ function collectParagraphTexts(root, include = () => true, maxChars = Number.POS
 }
 
 const NOSCRIPT_RAW_TEXT_OPEN_RE = /<(script|style|textarea|title|xmp|iframe|noembed|noframes|plaintext)\b[^>]*>/gi;
-const NOSCRIPT_RECOVERABLE_TAIL_RE = /^<(?:p|h2|h3|h4|li|blockquote)\b[^>]*>/i;
+const NOSCRIPT_RECOVERABLE_TAIL_RE = /^<(p|h2|h3|h4|li|blockquote)\b[^>]*>/i;
+const NOSCRIPT_RECOVERABLE_TAIL_OPEN_RE = /<(?:p|h2|h3|h4|li|blockquote)\b[^>]*>/i;
 
 function findUnclosedNoscriptRawTextElement(markup) {
   const rawTextOpening = new RegExp(NOSCRIPT_RAW_TEXT_OPEN_RE.source, 'gi');
@@ -210,6 +211,20 @@ function findUnclosedNoscriptRawTextElement(markup) {
 
 function hasClosedNoscriptRawTextElements(markup) {
   return findUnclosedNoscriptRawTextElement(markup) === null;
+}
+
+function hasReliableNoscriptTailBoundary(markup, tailStart) {
+  const opening = NOSCRIPT_RECOVERABLE_TAIL_RE.exec(markup.slice(tailStart));
+  if (!opening) return false;
+
+  const closing = new RegExp(`</${opening[1]}\\s*>`, 'i');
+  const content = markup.slice(tailStart + opening[0].length);
+  const closingMatch = closing.exec(content);
+  if (!closingMatch) return false;
+
+  // A second block opening before the matching close means the first token
+  // may be JavaScript comparison syntax (`a<p>b`), not an HTML boundary.
+  return !NOSCRIPT_RECOVERABLE_TAIL_OPEN_RE.test(content.slice(0, closingMatch.index));
 }
 
 function findRecoverableNoscriptTail(markup, contentStart, rawTextTag) {
@@ -273,7 +288,10 @@ function findRecoverableNoscriptTail(markup, contentStart, rawTextTag) {
       state = 'html-comment';
       index += 3;
     } else if (char === '<' && NOSCRIPT_RECOVERABLE_TAIL_RE.test(markup.slice(index))) {
-      return index;
+      // An opening tag without a paired source-level close is ambiguous and
+      // poisons the rest of the raw-text block. Do not skip it and search for
+      // another candidate later in the same JavaScript source.
+      return hasReliableNoscriptTailBoundary(markup, index) ? index : -1;
     }
   }
 
