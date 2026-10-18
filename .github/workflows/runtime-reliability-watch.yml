@@ -233,6 +233,8 @@ jobs:
             fi
           fi
           echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          deferred="$(node --input-type=module -e "import fs from 'node:fs'; try { const p=JSON.parse(fs.readFileSync('runtime-reliability-final.json','utf8')); process.stdout.write(p.deferred === true ? 'true' : 'false'); } catch { process.stdout.write('false'); }")"
+          echo "deferred=$deferred" >> "$GITHUB_OUTPUT"
           if [ -s runtime-reliability-final.json ]; then
             node scripts/runtime-reliability-watch.mjs --annotate runtime-reliability-final.json || true
           fi
@@ -314,7 +316,7 @@ jobs:
             --workflow "${{ github.workflow }}"
 
       - name: Resolve reliability issue on green
-        if: steps.verify.outputs.exit_code == '0'
+        if: steps.verify.outputs.exit_code == '0' && steps.verify.outputs.deferred != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}

@@ -278,6 +278,25 @@ _publish_cdn_r2() {
     fi
     return "$sync_status"
   }
+  # Publish-window handshake for the runtime watchdog. Stable asset names are
+  # overwritten one by one, so cdn-build-id.txt deliberately stays on the last
+  # complete generation until the payload is whole. Without a separate start
+  # marker, a concurrent watchdog cannot distinguish that partial origin from a
+  # missed edge purge and may spread the half-uploaded generation to the edge.
+  #
+  # The token is the upload start epoch (not DEPLOY_BUILD_ID, which is minted
+  # hours earlier at matrix setup). The matching completion marker is written
+  # only after the authoritative build marker succeeds. A killed/failed upload
+  # therefore remains explicitly incomplete instead of looking purgeable.
+  local _publish_token _publish_marker_file
+  _publish_token="$(date +%s%3N)"
+  _publish_marker_file="${RUNNER_TEMP:-/tmp}/cdn-publish-$$_${_publish_token}.txt"
+  printf '%s' "$_publish_token" > "$_publish_marker_file"
+  if ! timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_publish_marker_file" "$bkt/cdn-publish-start-id.txt" \
+       --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
+    echo "::warning::R2 publish-start marker PUT failed — refusing to mutate the CDN origin without a visible upload window"
+    return 0
+  fi
   # assets/ Cache-Control — read this before changing it.
   #
   # Bundle filenames here are STABLE, never content-hashed
@@ -443,12 +462,20 @@ _publish_cdn_r2() {
     _purge_r2_changed_assets
     return 0
   fi
-  # Marker LAST (atomicity #2569): only now is this build's full payload on R2.
+  # Generation marker last (atomicity #2569): only now is this build's full
+  # payload on R2. Then close the publish window with the exact token written
+  # before the first payload mutation; watchdog observations are authoritative
+  # only while start == complete.
   printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
   if timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" \
        --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
-    export_env CDN_BASE "https://cdn.frontaliereticino.ch"
-    echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}"
+    if timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_publish_marker_file" "$bkt/cdn-publish-complete-id.txt" \
+         --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
+      export_env CDN_BASE "https://cdn.frontaliereticino.ch"
+      echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}; publish-window=$_publish_token"
+    else
+      echo "⚠️ R2 publish-complete marker PUT failed — offload stays unacknowledged and the full prep will retry"
+    fi
   else
     echo "⚠️ R2 marker PUT failed — offload skipped, og/data stay in dist"
   fi
