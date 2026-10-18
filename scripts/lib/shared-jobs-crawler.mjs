@@ -3460,7 +3460,11 @@ function extractJobPostingNodes(node) {
       return;
     }
     if (typeof n !== 'object') return;
-    if (n['@type'] === 'JobPosting') out.push(n);
+    const type = n['@type'];
+    const isJobPosting = Array.isArray(type)
+      ? type.some((item) => String(item).includes('JobPosting'))
+      : String(type || '').includes('JobPosting');
+    if (isJobPosting) out.push(n);
     if (Array.isArray(n['@graph'])) n['@graph'].forEach(walk);
     for (const value of Object.values(n)) {
       if (value && typeof value === 'object') walk(value);

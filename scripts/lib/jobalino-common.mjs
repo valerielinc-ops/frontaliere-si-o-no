@@ -46,6 +46,7 @@ import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, classAttrRx, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 import {
   decodeEntities,
   normalizeSpace,
@@ -226,10 +227,8 @@ export function extractJobalinoJobPostingJsonLd(html = '') {
   while ((m = re.exec(html))) {
     try {
       const parsed = JSON.parse(m[1]);
-      const arr = Array.isArray(parsed) ? parsed : [parsed];
-      for (const obj of arr) {
-        if (obj && obj['@type'] === 'JobPosting') return obj;
-      }
+      const posting = extractJobPostingNodesFromJson(parsed)[0];
+      if (posting) return posting;
     } catch { /* keep trying */ }
   }
   return null;

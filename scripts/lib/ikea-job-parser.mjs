@@ -19,6 +19,7 @@ import {
   schemaJobLocationCandidates,
 } from './prospector/location-evidence.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -195,10 +196,8 @@ export function parseJobPosting(html) {
     const raw = block.replace(/^<script[^>]*>/, '').replace(/<\/script>$/, '').trim();
     const data = parseJsonLdBlock(raw);
     if (!data) continue;
-    const candidates = Array.isArray(data) ? data : [data];
-    for (const c of candidates) {
-      if (c && c['@type'] === 'JobPosting') return c;
-    }
+    const posting = extractJobPostingNodesFromJson(data)[0];
+    if (posting) return posting;
   }
   return null;
 }

@@ -29,6 +29,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, warnIfListingAtCap } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { dropRepostedListings, selectProspectiveDetailDescription } from './prospective-ch-job-parser-common.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -225,22 +226,7 @@ function parseListingRows(html) {
 
 /** Extract the JobPosting JSON-LD object from a detail page, or null. */
 function extractJobPostingJsonLd(html) {
-  const RE = /<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = RE.exec(html)) !== null) {
-    const raw = m[1].trim();
-    if (!raw.includes('JobPosting')) continue;
-    try {
-      const data = JSON.parse(raw);
-      const candidates = Array.isArray(data) ? data : data['@graph'] || [data];
-      for (const c of [].concat(candidates)) {
-        if (c && c['@type'] === 'JobPosting') return c;
-      }
-    } catch {
-      /* malformed block — skip */
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /**
