@@ -418,6 +418,44 @@ _publish_cdn_r2() {
   _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
   timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
+  # A purge is safe only for a complete, self-consistent R2 generation. This
+  # is deliberately a fresh read for every purge branch: the error path below
+  # can run after assets/ was copied but before the completion marker, and the
+  # marker PUT itself can fail after the payload has been written.
+  _r2_revalidate_publish_window() {
+    local _build_file="$_pdir/purge-build-id.txt"
+    local _start_file="$_pdir/purge-start-id.txt"
+    local _complete_file="$_pdir/purge-complete-id.txt"
+    local _marker _dest _build _start _complete _markers_valid=1
+    for _marker in cdn-build-id.txt cdn-publish-start-id.txt cdn-publish-complete-id.txt; do
+      case "$_marker" in
+        cdn-build-id.txt) _dest="$_build_file" ;;
+        cdn-publish-start-id.txt) _dest="$_start_file" ;;
+        cdn-publish-complete-id.txt) _dest="$_complete_file" ;;
+      esac
+      rm -f "$_dest" 2>/dev/null || true
+      if ! timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$bkt/$_marker" "$_dest" --retries=1; then
+        echo "::warning::[r2] skipping targeted CDN purge: could not revalidate build/start/complete markers immediately before purge"
+        return 1
+      fi
+      if [ ! -s "$_dest" ]; then
+        echo "::warning::[r2] skipping targeted CDN purge: R2 marker $bkt/$_marker is missing or empty"
+        return 1
+      fi
+    done
+    _build="$(tr -d '[:space:]' < "$_build_file")"
+    _start="$(tr -d '[:space:]' < "$_start_file")"
+    _complete="$(tr -d '[:space:]' < "$_complete_file")"
+    case "$_start" in ''|*[!0-9]*) _markers_valid=0 ;; esac
+    case "$_complete" in ''|*[!0-9]*) _markers_valid=0 ;; esac
+    if [ "$_markers_valid" != 1 ] || [ -z "${DEPLOY_BUILD_ID:-}" ] || [ "$_build" != "$DEPLOY_BUILD_ID" ] \
+      || [ "$_start" != "$_complete" ]; then
+      echo "::warning::[r2] skipping targeted CDN purge: publish window is not coherent (build=${_build:-<empty>} expected=${DEPLOY_BUILD_ID:-<empty>}, start=${_start:-<empty>}, complete=${_complete:-<empty>})"
+      return 1
+    fi
+    echo "::notice::[r2] CDN purge revalidated build/start/complete (build=$_build, publish-window=$_start)"
+    return 0
+  }
   _purge_r2_changed_assets() {
     local _prc=0
     if [ "$assets_sync_ok" = 1 ] && [ "$_ledger_state" = present ]; then
@@ -425,29 +463,33 @@ _publish_cdn_r2() {
       # exited 0 (see the script's header). The log still goes in (union).
       # The script's own budget ends 45 s before `timeout`, so it stops
       # starting batches and still writes the ledger; the kill is the backstop.
-      CDN_PURGE_BUDGET_MS="$(( (_t_purge > 90 ? _t_purge - 45 : _t_purge / 2) * 1000 ))" \
-        timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
-        --stage-dir="$stage/assets" --ledger-in="$_pdir/ledger-in.json" \
-        --ledger-out="$_pdir/ledger-out.json" --build-id="${DEPLOY_BUILD_ID:-}" || _prc=$?
-      if [ "$_prc" -ne 0 ]; then
-        echo "::error::[r2] targeted CDN asset purge exited $_prc (124 = over ${_t_purge}s) — ledger not updated, the next deploy re-diffs and retries"
-        rm -f "$_pdir/ledger-out.json" 2>/dev/null || true
-      fi
-      # Written only AFTER the purge, and only with what the script recorded:
-      # a key takes its new MD5 only if its own batch succeeded. no-store so a
-      # read of it is never an edge copy.
-      if [ -s "$_pdir/ledger-out.json" ]; then
-        timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_pdir/ledger-out.json" "$bkt/$_ledger_key" \
-          --header-upload "Content-Type: application/json; charset=utf-8" \
-          --header-upload "Cache-Control: no-store, max-age=0" \
-          || echo "::error::[r2] purge ledger write failed or exceeded ${_t_obj}s — the next deploy re-diffs against the previous ledger"
+      if _r2_revalidate_publish_window; then
+        CDN_PURGE_BUDGET_MS="$(( (_t_purge > 90 ? _t_purge - 45 : _t_purge / 2) * 1000 ))" \
+          timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+          --stage-dir="$stage/assets" --ledger-in="$_pdir/ledger-in.json" \
+          --ledger-out="$_pdir/ledger-out.json" --build-id="${DEPLOY_BUILD_ID:-}" || _prc=$?
+        if [ "$_prc" -ne 0 ]; then
+          echo "::error::[r2] targeted CDN asset purge exited $_prc (124 = over ${_t_purge}s) — ledger not updated, the next deploy re-diffs and retries"
+          rm -f "$_pdir/ledger-out.json" 2>/dev/null || true
+        fi
+        # Written only AFTER the purge, and only with what the script recorded:
+        # a key takes its new MD5 only if its own batch succeeded. no-store so a
+        # read of it is never an edge copy.
+        if [ -s "$_pdir/ledger-out.json" ]; then
+          timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_pdir/ledger-out.json" "$bkt/$_ledger_key" \
+            --header-upload "Content-Type: application/json; charset=utf-8" \
+            --header-upload "Cache-Control: no-store, max-age=0" \
+            || echo "::error::[r2] purge ledger write failed or exceeded ${_t_obj}s — the next deploy re-diffs against the previous ledger"
+        fi
       fi
     elif [ "$assets_sync_ok" = 1 ] && [ -s "$_assets_log" ]; then
       # Fallback (stage unavailable): this run's uploads only. No budget here:
       # without a ledger, a key the budget left untried would be forgotten
       # (review of #11641); the script ignores CDN_PURGE_BUDGET_MS in this mode.
-      timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
-        || echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — edge falls back to the 7d max-age"
+      if _r2_revalidate_publish_window; then
+        timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+          || echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — edge falls back to the 7d max-age"
+      fi
     elif [ "$assets_sync_ok" != 1 ]; then
       echo "⚠️ [r2] assets/ sync failed — no edge purge this run; with a ledger, what it did upload stays dirty for the next deploy"
     fi

@@ -373,6 +373,19 @@ describe('deploy-it-pages-prep.sh — the purge is driven by state, not gated on
     expect(body[statefulAt]).toMatch(/timeout -k 10 "\$_t_purge" node scripts\/ci\/purge-changed-cdn-assets\.mjs/);
   });
 
+  it('revalidates build/start/complete immediately before both internal purge calls', () => {
+    const purges = body
+      .map((line, index) => ({ line, index }))
+      .filter(({ line }) => /purge-changed-cdn-assets\.mjs "\$_assets_log" assets \\$/.test(line));
+    expect(purges).toHaveLength(2);
+    for (const { index } of purges) {
+      expect(body.slice(Math.max(0, index - 3), index)).toContain('if _r2_revalidate_publish_window; then');
+    }
+    expect(PREP).toContain('_r2_revalidate_publish_window() {');
+    expect(PREP).toContain('cdn-build-id.txt cdn-publish-start-id.txt cdn-publish-complete-id.txt');
+    expect(PREP).toContain('[ "$_start" != "$_complete" ]');
+  });
+
   it('reads the ledger BEFORE the assets sync; a missing one starts empty, with no R2 listing and no seed', () => {
     const readAt = body.findIndex((l) => /copyto "\$bkt\/\$_ledger_key" "\$_pdir\/ledger-in\.json"/.test(l));
     const bootAt = body.findIndex((l) => l.includes(`printf '${BOOTSTRAP_LEDGER}\\n' > "$_pdir/ledger-in.json"`));
@@ -390,7 +403,7 @@ describe('deploy-it-pages-prep.sh — the purge is driven by state, not gated on
     expect(PREP).not.toContain('refusing assets/ sync');
   });
 
-  it('a later prefix failing still purges the synced assets, and the marker stays withheld (redflag fix of #11489)', () => {
+  it('a later prefix failing keeps the marker withheld and routes purge through the coherence guard', () => {
     const guardAt = body.findIndex((l) => /^if \[ "\$ok" != 1 \]; then$/.test(l));
     expect(guardAt).toBeGreaterThan(-1);
     const branch = body.slice(guardAt, body.indexOf('fi', guardAt));
