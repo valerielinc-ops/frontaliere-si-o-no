@@ -86,11 +86,13 @@ import {
 } from './shared/searchLandingMatch';
 import { registerKeywordLandingPaths } from './shared/keywordLandingPlan';
 import {
+  ALTERNATE_LOCALES,
+  buildExpiredSitemapClusterEntries,
   buildLocaleAlternateBlock,
-  buildLocaleAlternateBlockForUnclaimedCluster,
   buildLocaleAlternateEntries,
   buildSitemapAlternateBlock,
   localePathClaimKey,
+  resolveLocaleClusterClaim,
   type AlternateLocale,
 } from './shared/localeAlternateBlock';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
@@ -13371,8 +13373,12 @@ ${staticAnalyticsHtml}
  // surviving siblings point at another canton's live, non-reciprocal
  // pages. Such a cluster must NOT be treated as full — force zero hreflang
  // so the audit-hreflang invariants (esp. #4) never see the mismatched set.
- const hreflangLinks = !cantonDriftCompatSlugs.has(slug)
-  ? buildLocaleAlternateBlockForUnclaimedCluster(paths, claimedJobPaths, {
+ const expiredClusterClaim = resolveLocaleClusterClaim(paths, claimedJobPaths);
+ const expiredClusterHasHreflang = !cantonDriftCompatSlugs.has(slug)
+  && expiredClusterClaim.hasUnclaimedCluster;
+ const hreflangLinks = expiredClusterHasHreflang
+  ? buildLocaleAlternateBlock({
+   eligibleLocales: ALTERNATE_LOCALES,
    hrefFor: (locale) => `${BASE_URL}${withSlash(paths[locale] ?? '')}`,
   })
   : '';
@@ -14120,42 +14126,37 @@ ${staticAnalyticsHtml}
  const itPageFile = itPath ? np.join(distDir, itPath.slice(1), 'index.html') : '';
  const itPageOverwritten = itPageFile && _writtenPaths.has(itPageFile);
  if (itPath && itBodyWordCount >= MIN_INDEXABLE_WORDS && !itPageOverwritten && !bridgeClaimedPaths.has(paths.it)) {
- // Shard-invariance of the expired-sitemap hreflang (verify #2491, follow-up
- // to the render-skip lever #2484): `paths` is `tracking[slug]`, which is
- // populated UPSTREAM (L~9572/9681/9697/9744/10067) with NO `shouldEmitLocale`/
- // `BUILD_LOCALE` gating -- the active-jobs/implicit-prev branches iterate the
- // full `localeList`, the orphan/compat branches add the locale inherent to
- // the source record. The only `shouldEmitLocale` skips in this plugin
- // (L2331/L2508/L10691) gate render/emit, never `paths` population. So in the
- // `it`/main shard (the only shard that builds this sitemap) every locale's
- // alternate is present regardless of `BUILD_LOCALE`. A `!p` here therefore
- // reflects a genuinely partial cluster (orphan/compat slug with no localized
- // path), NOT a shard skip -- do NOT force-populate the 4 locales to "fix" it,
- // that would fabricate hreflang to non-existent pages. Same guarantee the
- // localeEmitFilter docblock gives for the active-job sitemap alternates.
- const altLinks = localeList.map((l) => {
- const p = paths[l];
- if (!p) return '';
- return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
- }).filter(Boolean).join('\n');
- const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`;
- const lastmod = renderSitemapLastmod(ejData?.expiredAt);
+ // The same cluster decision that governs HTML also governs sitemap
+ // alternates. `unclaimedLocales` is captured BEFORE this cluster claims its
+ // own paths, so an active path (or an earlier expired winner) can never leak
+ // back into an expired `<loc>` after the render loop mutates claimedJobPaths.
+ const expiredSitemapLocales = new Set<AlternateLocale>();
  // Per-locale push (#3499): non-IT locales additionally require their own
  // soft-landing page to actually exist on disk -- `paths` is shard-invariant
- // (see above) but render/emit is shard-gated (`shouldEmitLocale`, L~11223),
- // so a non-owning shard never wrote non-IT HTML this run; fall back to
+ // but render/emit is shard-gated (`shouldEmitLocale`, L~11223), so a
+ // non-owning shard never wrote non-IT HTML this run; fall back to
  // `fs.existsSync` for HTML already emitted by an earlier shard/run.
  for (const l of localeList) {
  const lPath = paths[l];
- if (!lPath) continue;
+ if (!lPath || !expiredClusterClaim.unclaimedLocales.has(l)) continue;
  if (bridgeClaimedPaths.has(lPath)) continue;
  const lFullPath = withSlash(lPath);
  if (l !== 'it') {
  const lPageFile = np.join(distDir, lFullPath.slice(1).replace(/\/$/, ''), 'index.html');
  if (!_writtenPaths.has(lPageFile) && !fs.existsSync(lPageFile)) continue;
  }
- expiredSitemapEntries.push(` <url>\n <loc>${BASE_URL}${lFullPath}</loc>\n${altLinks}\n${xDefault}\n ${lastmod}\n <changefreq>monthly</changefreq>\n <priority>0.3</priority>\n </url>`);
+ expiredSitemapLocales.add(l);
  }
+ const lastmod = renderSitemapLastmod(ejData?.expiredAt);
+ expiredSitemapEntries.push(
+  ...buildExpiredSitemapClusterEntries(paths, expiredClusterClaim, {
+   eligibleLocales: expiredSitemapLocales,
+   emitAlternates: expiredClusterHasHreflang,
+   hrefFor: (locale) => `${BASE_URL}${withSlash(paths[locale] ?? '')}`,
+   locFor: (locale) => `${BASE_URL}${withSlash(paths[locale] ?? '')}`,
+   lastmod,
+  }),
+ );
  }
  // Bound the WriteCollector background-flush backlog INSIDE this
  // ~150k-page expired-soft-landing loop. Previously the only

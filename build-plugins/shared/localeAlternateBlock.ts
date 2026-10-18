@@ -55,29 +55,64 @@ export function localePathClaimKey(path: string): string {
 }
 
 /**
- * Return true when every locale path is still available to one cluster.
+ * Resolve whether every locale path is still available to one cluster and
+ * retain the individually unclaimed paths for a collision-safe sitemap.
  *
  * Sharded builds render one locale at a time, but the winner of a colliding
  * tracking path must be identical on every shard. Callers therefore claim
  * all four paths before applying their BUILD_LOCALE write filter and use this
- * predicate to void the whole block when an earlier slug already won one
+ * decision to void the whole block when an earlier slug already won one
  * member of the cluster.
  */
+export interface LocaleClusterClaimDecision {
+  /** Whether the cluster can advertise the complete cross-locale set. */
+  readonly hasUnclaimedCluster: boolean;
+  /** Paths this cluster may still own, even when the full set is incomplete. */
+  readonly unclaimedLocales: ReadonlySet<AlternateLocale>;
+}
+
+/**
+ * Resolve cluster ownership once so HTML and sitemap emitters cannot make
+ * different decisions about the same active/expired path collision.
+ */
+export function resolveLocaleClusterClaim(
+  paths: Readonly<Partial<Record<AlternateLocale, string>>>,
+  claimedPaths: ReadonlySet<string>,
+): LocaleClusterClaimDecision {
+  const normalizedKeys = new Set<string>();
+  const unclaimedLocales = new Set<AlternateLocale>();
+  let hasUnclaimedCluster = true;
+
+  for (const locale of ALTERNATE_LOCALES) {
+    const path = paths[locale];
+    if (!path) {
+      hasUnclaimedCluster = false;
+      continue;
+    }
+
+    const normalizedKey = localePathClaimKey(path);
+    if (normalizedKeys.has(normalizedKey)) {
+      hasUnclaimedCluster = false;
+      continue;
+    }
+    normalizedKeys.add(normalizedKey);
+
+    if (claimedPaths.has(normalizedKey)) {
+      hasUnclaimedCluster = false;
+      continue;
+    }
+    unclaimedLocales.add(locale);
+  }
+
+  return { hasUnclaimedCluster, unclaimedLocales };
+}
+
+/** Return true when every locale path is still available to one cluster. */
 export function hasUnclaimedLocaleCluster(
   paths: Readonly<Partial<Record<AlternateLocale, string>>>,
   claimedPaths: ReadonlySet<string>,
 ): boolean {
-  const normalizedKeys = new Set<string>();
-  return ALTERNATE_LOCALES.every((locale) => {
-    const path = paths[locale];
-    if (!path) return false;
-
-    const normalizedKey = localePathClaimKey(path);
-    if (normalizedKeys.has(normalizedKey)) return false;
-    normalizedKeys.add(normalizedKey);
-
-    return !claimedPaths.has(normalizedKey);
-  });
+  return resolveLocaleClusterClaim(paths, claimedPaths).hasUnclaimedCluster;
 }
 
 export interface LocaleAlternateBlockOptions {
@@ -198,4 +233,46 @@ export function buildSitemapAlternateBlock(opts: {
         `${indent}<xhtml:link rel="alternate" hreflang="${locale}" href="${opts.hrefFor(locale)}" />`,
     )
     .join('\n');
+}
+
+/**
+ * Render the expired-job `<url>` entries from one already-resolved cluster.
+ * `eligibleLocales` contains only pages confirmed to exist on disk; the
+ * claim decision additionally removes active or earlier-expired collisions.
+ * A partial/collided cluster keeps its own expired `<loc>` pages, but emits
+ * no sitemap alternates because the HTML pages carry no hreflang block.
+ */
+export function buildExpiredSitemapClusterEntries(
+  paths: Readonly<Partial<Record<AlternateLocale, string>>>,
+  claim: LocaleClusterClaimDecision,
+  opts: {
+    readonly eligibleLocales: Iterable<AlternateLocale>;
+    readonly emitAlternates: boolean;
+    readonly hrefFor: (locale: AlternateLocale) => string;
+    readonly locFor: (locale: AlternateLocale) => string;
+    readonly lastmod: string;
+  },
+): string[] {
+  const eligibleLocales = new Set(opts.eligibleLocales);
+  const sitemapLocales = ALTERNATE_LOCALES.filter((locale) => {
+    return Boolean(paths[locale])
+      && claim.unclaimedLocales.has(locale)
+      && eligibleLocales.has(locale);
+  });
+  const emitAlternates = opts.emitAlternates && claim.hasUnclaimedCluster;
+  const altLinks = emitAlternates
+    ? buildSitemapAlternateBlock({
+      eligibleLocales: sitemapLocales,
+      hrefFor: opts.hrefFor,
+      indent: ' ',
+    })
+    : '';
+  const xDefault = emitAlternates && sitemapLocales.includes('it')
+    ? ` <xhtml:link rel="alternate" hreflang="x-default" href="${opts.hrefFor('it')}" />`
+    : '';
+  const alternateLines = [altLinks, xDefault].filter(Boolean).join('\n');
+
+  return sitemapLocales.map((locale) => {
+    return ` <url>\n <loc>${opts.locFor(locale)}</loc>\n${alternateLines ? `${alternateLines}\n` : ''} ${opts.lastmod}\n <changefreq>monthly</changefreq>\n <priority>0.3</priority>\n </url>`;
+  });
 }

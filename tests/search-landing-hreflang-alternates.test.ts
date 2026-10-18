@@ -42,9 +42,11 @@ import {
   ALTERNATE_LOCALES,
   buildLocaleAlternateBlock,
   buildLocaleAlternateBlockForUnclaimedCluster,
+  buildExpiredSitemapClusterEntries,
   buildSitemapAlternateBlock,
   hasUnclaimedLocaleCluster,
   localePathClaimKey,
+  resolveLocaleClusterClaim,
 } from '../build-plugins/shared/localeAlternateBlock';
 
 const ROOT = path.resolve(__dirname, '..');
@@ -155,6 +157,39 @@ describe('expired soft-landing cluster claims stay shard-invariant', () => {
     expect(block).toBe('');
   });
 
+  it('preserves an empty indent byte-for-byte in the guarded wrapper', () => {
+    const block = buildLocaleAlternateBlockForUnclaimedCluster(paths, new Set(), {
+      indent: '',
+      hrefFor: (locale) => `${BASE}${paths[locale]}`,
+    });
+    expect(block.split('\n').every((line) => line.startsWith('<link '))).toBe(true);
+  });
+
+  it('reuses claimedPaths without mutating it or changing the second result', () => {
+    const claimedPaths = new Set([localePathClaimKey('/unrelated/path/')]);
+    const before = [...claimedPaths];
+    const first = buildLocaleAlternateBlockForUnclaimedCluster(paths, claimedPaths, {
+      hrefFor: (locale) => `${BASE}${paths[locale]}`,
+    });
+    const second = buildLocaleAlternateBlockForUnclaimedCluster(paths, claimedPaths, {
+      hrefFor: (locale) => `${BASE}${paths[locale]}`,
+    });
+    expect(second).toBe(first);
+    expect([...claimedPaths]).toEqual(before);
+  });
+
+  it('keeps the wrapper newline and default-indent contract', () => {
+    const block = buildLocaleAlternateBlockForUnclaimedCluster(paths, new Set(), {
+      hrefFor: (locale) => `${BASE}${paths[locale]}`,
+    });
+    expect(block).toBe([
+      ...ALTERNATE_LOCALES.map(
+        (locale) => ` <link rel="alternate" hreflang="${locale}" href="${BASE}${paths[locale]}">`,
+      ),
+      ` <link rel="alternate" hreflang="x-default" href="${BASE}${paths.it}">`,
+    ].join('\n'));
+  });
+
   it('normalises URL-shaped and registry-shaped path keys identically', () => {
     const claimed = new Set(['en/find-jobs-appenzell/job-en']);
     expect(hasUnclaimedLocaleCluster({ ...paths, en: '//en/find-jobs-appenzell/job-en///' }, claimed)).toBe(false);
@@ -241,13 +276,14 @@ describe('search-landing emitters route every hreflang block through the shared 
   it('jobsSeoPagesPlugin derives the alternate set from eligibility, not the locale list', () => {
     const src = read('build-plugins/jobsSeoPagesPlugin.ts');
     const calls = callSites(src);
-    // Four sites are floor/dedup-gated: GSC keyword landings + search-stats
-    // leaders + combo landings + active job detail pages. The canton hub is
-    // the one full-locale site in this file: its four locale pages are always
-    // emitted, so its localeList eligibility is safe by construction.
-    expect(calls.length, 'expected every hreflang emit site').toBe(5);
+    // Five sites are floor/dedup-gated: GSC keyword landings + search-stats
+    // leaders + combo landings + active job detail pages + expired job
+    // clusters. The canton hub is the one full-locale site in this file: its
+    // four locale pages are always emitted, so its localeList eligibility is
+    // safe by construction.
+    expect(calls.length, 'expected every hreflang emit site').toBe(6);
     const gatedCalls = calls.filter((call) => !/eligibleLocales:\s*localeList/.test(call));
-    expect(gatedCalls.length, 'expected every floor/dedup-gated hreflang site').toBe(4);
+    expect(gatedCalls.length, 'expected every floor/dedup-gated hreflang site').toBe(5);
     const alwaysCompleteCalls = calls.filter((call) => /eligibleLocales:\s*localeList/.test(call));
     expect(alwaysCompleteCalls.length, 'expected only the always-emitted canton hub to use localeList').toBe(1);
     expect(alwaysCompleteCalls[0]).toMatch(/buildCantonAwareSection/);
@@ -274,9 +310,56 @@ describe('search-landing emitters route every hreflang block through the shared 
     const src = read('build-plugins/jobsSeoPagesPlugin.ts');
     expect(src).toContain('const claimedJobPaths = new Set<string>();');
     expect(src).toContain('claimedJobPaths.add(localePathClaimKey(relPath));');
-    expect(src).toContain(
-      'buildLocaleAlternateBlockForUnclaimedCluster(paths, claimedJobPaths,',
-    );
+    expect(src).toContain('const expiredClusterClaim = resolveLocaleClusterClaim(paths, claimedJobPaths);');
+    expect(src).toContain('expiredClusterClaim.hasUnclaimedCluster');
+    expect(src).toContain('expiredClusterClaim.unclaimedLocales.has(l)');
+    expect(src).toContain('emitAlternates: expiredClusterHasHreflang');
+  });
+
+  it('expired sitemap omits an active collision and all alternates for that cluster', () => {
+    const paths = {
+      it: '/cerca-lavoro-ticino/expired-acceptance-it/',
+      en: '/en/find-jobs-ticino/active-collision-en/',
+      de: '/de/jobs-im-tessin/expired-acceptance-de/',
+      fr: '/fr/trouver-emploi-tessin/expired-acceptance-fr/',
+    } as const;
+    const claimedByActiveJob = new Set([localePathClaimKey(paths.en)]);
+    const claim = resolveLocaleClusterClaim(paths, claimedByActiveJob);
+    const entries = buildExpiredSitemapClusterEntries(paths, claim, {
+      eligibleLocales: ALTERNATE_LOCALES,
+      emitAlternates: claim.hasUnclaimedCluster,
+      hrefFor: (locale) => `${BASE}${paths[locale]}`,
+      locFor: (locale) => `${BASE}${paths[locale]}`,
+      lastmod: '2026-10-18',
+    });
+    const sitemap = `<urlset>${entries.join('\n')}</urlset>`;
+
+    expect(sitemap).not.toContain(`<loc>${BASE}${paths.en}</loc>`);
+    expect(sitemap).not.toContain(`href="${BASE}${paths.en}"`);
+    expect(sitemap).not.toContain('<xhtml:link');
+    for (const locale of ['it', 'de', 'fr'] as const) {
+      expect(sitemap).toContain(`<loc>${BASE}${paths[locale]}</loc>`);
+    }
+  });
+
+  it('keeps reciprocal alternates for a complete unclaimed expired cluster', () => {
+    const paths = {
+      it: '/cerca-lavoro-appenzello/job-it/',
+      en: '/en/find-jobs-appenzell/job-en/',
+      de: '/de/jobs-in-appenzell/job-de/',
+      fr: '/fr/trouver-emploi-appenzell/job-fr/',
+    } as const;
+    const claim = resolveLocaleClusterClaim(paths, new Set());
+    const [entry] = buildExpiredSitemapClusterEntries(paths, claim, {
+      eligibleLocales: ALTERNATE_LOCALES,
+      emitAlternates: claim.hasUnclaimedCluster,
+      hrefFor: (locale) => `${BASE}${paths[locale]}`,
+      locFor: (locale) => `${BASE}${paths[locale]}`,
+      lastmod: '2026-10-18',
+    });
+
+    expect(entry).toContain(`\n <xhtml:link rel="alternate" hreflang="it" href="${BASE}${paths.it}" />\n`);
+    expect(entry).toContain(`\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE}${paths.it}" />\n`);
   });
 
   it.each(FLOOR_EMITTERS)('%s settles its eligible set before rendering for real', (rel) => {
