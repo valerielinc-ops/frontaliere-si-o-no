@@ -8465,6 +8465,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.udc-assemblea-bulle-2026.title': 'The UDC wants to stop the destruction of Switzerland',
     'blog.article.udc-assemblea-bulle-2026.excerpt': 'On October 17, 2026, in Bulle, around 420 UDC delegates rejected the 13th AVS financed through VAT (290 no, 3 yes) and voted yes on spouses (274 in favor) and war materiel (271 in favor).',
     'blog.article.udc-assemblea-bulle-2026.imageAlt': 'UDC delegates gathered in Bulle to decide voting recommendations for the 29 November 2026 referendum',
+    'blog.article.scorte-cherosene-zurigo.title': 'Zurich Airport: withdrawals from kerosene reserves',
+    'blog.article.scorte-cherosene-zurigo.excerpt': '30\'000 m³ of reserves can be used Authorized withdrawals from October 15 to November 1 The authorized quota is 6,5% of the available amount The supply',
+    'blog.article.scorte-cherosene-zurigo.imageAlt': 'Zurich Airport with aviation kerosene delivered by rail',
 };
 
 export default blogMetaChEn;

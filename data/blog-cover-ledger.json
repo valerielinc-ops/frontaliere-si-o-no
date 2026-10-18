@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5585
+      "6": 5586
     },
-    "publishedCovers": 7166,
+    "publishedCovers": 7167,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5390
+    "inferredRecords": 5391
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -192150,6 +192150,33 @@
           "id": "udc-assemblea-bulle-2026",
           "category": "novita",
           "date": "2026-10-17T21:48:13.696Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-18",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-scorte-cherosene-zurigo": {
+      "cover": "/images/blog/article-scorte-cherosene-zurigo.webp",
+      "hash": "b37a1eff407f89c7c929396a8b7a56a39622af5c1894561dfe28349e0d812d10",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "scorte-cherosene-zurigo",
+          "category": "novita",
+          "date": "2026-10-17T23:24:21.667Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

@@ -8465,6 +8465,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.udc-assemblea-bulle-2026.title': 'Die UDC will die Zerstörung der Schweiz stoppen',
     'blog.article.udc-assemblea-bulle-2026.excerpt': 'Am 17. Oktober 2026 haben in Bulle rund 420 UDC-Delegierte die durch die Mehrwertsteuer finanzierte 13. AHV-Rente abgelehnt (290 Nein, 3 Ja) und ein Ja zu Ehepaaren (274 dafür) sowie zu Kriegsmaterial (271 dafür) gutgeheissen.',
     'blog.article.udc-assemblea-bulle-2026.imageAlt': 'UDC-Delegierte versammelt in Bulle, um die Wahlempfehlungen für den 29. November 2026 zu festlegen',
+    'blog.article.scorte-cherosene-zurigo.title': 'Flughafen Zürich: Entnahmen aus den Kerosinreserven',
+    'blog.article.scorte-cherosene-zurigo.excerpt': '30\'000 m³ der Reserven können genutzt werden Entnahmen vom 15.',
+    'blog.article.scorte-cherosene-zurigo.imageAlt': 'Flughafen Zürich mit Kerosinlieferung per Bahn',
 };
 
 export default blogMetaChDe;

@@ -8465,6 +8465,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.udc-assemblea-bulle-2026.title': 'L’UDC veut arrêter la destruction de la Suisse',
     'blog.article.udc-assemblea-bulle-2026.excerpt': 'Le 17 octobre 2026 à Bulle, environ 420 délégués de l’UDC ont rejeté la 13e AVS financée par la TVA (290 non, 3 oui) et approuvé le oui aux conjoints (274 favorables) et au matériel de guerre (271 favorables).',
     'blog.article.udc-assemblea-bulle-2026.imageAlt': 'Délégués de l\'UDC réunis à Bulle pour déterminer les recommandations de vote du 29 novembre 2026',
+    'blog.article.scorte-cherosene-zurigo.title': 'Aéroport de Zurich : prélèvements sur les réserves de kérosène',
+    'blog.article.scorte-cherosene-zurigo.excerpt': '30\'000 m³ de réserves peuvent être utilisées Prélèvements autorisés du 15 octobre au 1er novembre La part autorisée est de 6,5% du disponible L\'approvisionnement',
+    'blog.article.scorte-cherosene-zurigo.imageAlt': 'Aéroport de Zurich approvisionné en kérosène par le rail',
 };
 
 export default blogMetaChFr;

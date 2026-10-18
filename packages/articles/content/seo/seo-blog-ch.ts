@@ -106930,6 +106930,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scorte-cherosene-zurigo': {
+    title: 'Aeroporto di Zurigo: prelievi dalle scorte di cherosene',
+    description: '30\'000 m³ di scorte possono essere utilizzati Prelievi autorizzati dal 15 ottobre al 1° novembre La quota autorizzata è il 6,5% del disponibile La fornitura',
+    keywords: 'frontalieri, ticino, svizzera, italia, aeroporto, zurigo, prelievi, dalle',
+    ogTitle: 'Aeroporto di Zurigo: scorte di cherosene autorizzate',
+    ogDescription: '30\'000 m³ di scorte possono essere utilizzati Prelievi autorizzati dal 15 ottobre al 1° novembre La quota autorizzata è il 6,5% del disponibile La fornitura',
+    canonicalPath: '/articoli-svizzera/scorte-cherosene-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aeroporto di Zurigo: prelievi dalle scorte di cherosene",
+      "description": "30'000 m³ di scorte possono essere utilizzati Prelievi autorizzati dal 15 ottobre al 1° novembre La quota autorizzata è il 6,5% del disponibile La fornitura",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-scorte-cherosene-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aeroporto di Zurigo con rifornimento di cherosene trasportato via ferrovia"
+      },
+      "datePublished": "2026-10-17T23:24:21+00:00",
+      "dateModified": "2026-10-17T23:24:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scorte-cherosene-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
