@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import { execFileSync, spawn } from 'node:child_process';
 import { randomBytes } from 'node:crypto';
+import { realpathSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 
 export const MIN_BASE_PATHS = 1_000;
 export const MAX_REMAINING_RATIO = 0.01;
@@ -561,7 +563,16 @@ async function main(args) {
   }
 }
 
-if (process.argv[1]?.endsWith('/guard-main-tree-shrink.mjs')) {
+const invokedDirectly = (() => {
+  if (!process.argv[1]) return false;
+  try {
+    return realpathSync(fileURLToPath(import.meta.url)) === realpathSync(process.argv[1] || '');
+  } catch {
+    return false;
+  }
+})();
+
+if (invokedDirectly) {
   main(process.argv.slice(2)).then((status) => {
     process.exitCode = status;
   }).catch((error) => {
