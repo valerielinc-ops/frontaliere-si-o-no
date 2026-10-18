@@ -46,20 +46,16 @@ function normalizeSpace(s = '') {
  * Used by the template to filter this company's jobs from the global dataset.
  */
 export function isMedimeoChJob(job) {
-  const key = normalize(job?.companyKey || job?.company || '')
+  // Both Medimeo crawlers share the company name and domain. Only the
+  // crawler key identifies which slice owns a record; company/url fallbacks
+  // would let the sibling crawler claim the same job.
+  const key = normalize(job?.companyKey || '')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-  const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
-  return (
-    key === MEDIMEO_CH_KEY ||
-    key.startsWith('medimeo-ch-') ||
-    company.includes('medimeo ag') ||
-    url.includes('medimeo.ch')
-  );
+  return key === MEDIMEO_CH_KEY;
 }
 
 /**

@@ -20,12 +20,17 @@ describe('Medimeo AG crawler parser', () => {
       expect(isMedimeoJob({ companyKey: 'medimeo' })).toBe(true);
     });
 
-    it('matches by company name', () => {
-      expect(isMedimeoJob({ company: 'Medimeo AG' })).toBe(true);
+    it('rejects the sibling crawler key even with shared company metadata', () => {
+      expect(isMedimeoJob({
+        companyKey: 'medimeo-ch',
+        company: 'Medimeo AG',
+        url: 'https://medimeo.ch/jobs/123',
+      })).toBe(false);
     });
 
-    it('matches by URL domain', () => {
-      expect(isMedimeoJob({ url: 'https://medimeo.ch/jobs/123' })).toBe(true);
+    it('rejects ambiguous company and URL fallbacks', () => {
+      expect(isMedimeoJob({ company: 'Medimeo AG' })).toBe(false);
+      expect(isMedimeoJob({ url: 'https://medimeo.ch/jobs/123' })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {
