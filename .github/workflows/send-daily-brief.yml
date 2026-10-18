@@ -97,11 +97,15 @@ jobs:
           node scripts/send-daily-brief.mjs
 
       # The cadence is a feedback loop; a feedback loop nobody measures is one
-      # nobody notices going wrong (#5415 §3.10). Never fatal — the send has
-      # already happened by here, and a missing collection-group index must not
-      # turn a successful broadcast into a red run.
+      # nobody notices going wrong (#5415 §3.10). The report scans ~108k
+      # Firestore documents per run (~93k campaign_deliveries + ~15k
+      # newsletter_subscribers over 14 days), so one report per edition sent is
+      # enough; no-op, refusal and dry-run slots do not need to pay that cost.
+      # Never fatal — the send has already happened by here, and a missing
+      # collection-group index must not turn a successful broadcast into a red
+      # run.
       - name: Cadence report
-        if: steps.send-brief.outcome == 'success'
+        if: steps.send-brief.outputs.sent > 0
         continue-on-error: true
         run: node scripts/report-daily-brief-cadence.mjs --days 14
 
