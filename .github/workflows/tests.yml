@@ -203,6 +203,85 @@ jobs:
             const { data: currentPr } = await github.rest.pulls.get({ ...context.repo, pull_number: prNumber });
             const body = currentPr.body || '';
 
+            // --- 1a) Trusted performance-claim policy (#11675) --------------------
+            // This step intentionally runs before checkout, so it cannot import the
+            // PR tree: a PR must not be able to rewrite the predicate that decides
+            // whether its own body is admissible. Fetch the helper and its one
+            // relative dependency from the protected base branch, then execute the
+            // same source-of-truth predicate used by the local body gate. Before this
+            // wiring, CI/API-generated PR descriptions bypassed the local pre-tool
+            // hook and recurrently reached Claude with an unvalidated perf claim.
+            let perfClaimViolations = [];
+            let perfClaimWarnings = [];
+            let perfClaimPolicyError = null;
+            if (/^\s{0,3}#{2,3}\s+Implementato\b/im.test(body)) {
+              try {
+                // `actions/github-script` exposes CommonJS `require`, but its
+                // AsyncFunction wrapper has no dynamic-import callback. Run the
+                // downloaded ESM policy in a child Node process instead of making
+                // the trusted gate depend on an action-runner implementation detail.
+                const fs = require('node:fs');
+                const os = require('node:os');
+                const path = require('node:path');
+                const { spawnSync } = require('node:child_process');
+                const policyRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-pr-body-policy-'));
+                const moduleDir = path.join(policyRoot, 'scripts', 'lib');
+                const dependencyDir = path.join(policyRoot, 'scripts', 'ci', 'lib');
+                fs.mkdirSync(moduleDir, { recursive: true });
+                fs.mkdirSync(dependencyDir, { recursive: true });
+                const trustedRef = context.payload.pull_request?.base?.ref || 'main';
+                const downloadTrusted = async (path, destination) => {
+                  const { data } = await github.rest.repos.getContent({
+                    ...context.repo,
+                    path,
+                    ref: trustedRef,
+                  });
+                  if (!data || Array.isArray(data) || typeof data.content !== 'string') {
+                    throw new Error(`trusted policy path is not a file: ${path}`);
+                  }
+                  fs.writeFileSync(destination, Buffer.from(data.content, 'base64'));
+                };
+                await downloadTrusted(
+                  'scripts/lib/pr-body-sections-check.mjs',
+                  path.join(moduleDir, 'pr-body-sections-check.mjs'),
+                );
+                await downloadTrusted(
+                  'scripts/ci/lib/false-positive-declaration.mjs',
+                  path.join(dependencyDir, 'false-positive-declaration.mjs'),
+                );
+                const modulePath = path.join(moduleDir, 'pr-body-sections-check.mjs');
+                const bodyPath = path.join(policyRoot, 'body.json');
+                fs.writeFileSync(bodyPath, JSON.stringify(body));
+                const evaluator = [
+                  "import { readFileSync } from 'node:fs';",
+                  "import { pathToFileURL } from 'node:url';",
+                  "const policy = await import(pathToFileURL(process.env.FRONTALIERE_BODY_POLICY_MODULE).href);",
+                  "if (typeof policy.unvalidatedPerfClaims !== 'function') throw new Error('trusted body policy does not export unvalidatedPerfClaims');",
+                  "const body = JSON.parse(readFileSync(process.env.FRONTALIERE_BODY_POLICY_BODY, 'utf8'));",
+                  "process.stdout.write(JSON.stringify(policy.unvalidatedPerfClaims(body)));",
+                ].join('\n');
+                const child = spawnSync(process.execPath, ['--input-type=module', '-e', evaluator], {
+                  encoding: 'utf8',
+                  maxBuffer: 1024 * 1024,
+                  env: {
+                    ...process.env,
+                    FRONTALIERE_BODY_POLICY_MODULE: modulePath,
+                    FRONTALIERE_BODY_POLICY_BODY: bodyPath,
+                  },
+                });
+                if (child.error || child.status !== 0) {
+                  const reason = child.error?.message || child.stderr || `exit ${child.status}`;
+                  throw new Error(`trusted body policy subprocess failed: ${String(reason).trim()}`);
+                }
+                const claims = JSON.parse(child.stdout);
+                perfClaimViolations = Array.isArray(claims?.blocking) ? claims.blocking : [];
+                perfClaimWarnings = Array.isArray(claims?.advisory) ? claims.advisory : [];
+              } catch (error) {
+                // A missing policy is a gate failure, never a silent bypass.
+                perfClaimPolicyError = error?.message || String(error);
+              }
+            }
+
             // --- 1) Required headers (REVIEW.md completeness contract) ---------------
             // Literal headers required by REVIEW.md. Tolerate trailing text on the
             // same line (e.g. "## Non implementato (ancora)"); require start-of-line.
@@ -620,6 +699,15 @@ jobs:
               );
             }
 
+            if (perfClaimWarnings.length) {
+              advisoryParts.push(
+                `⚠️ **Claim di I/O senza misura** (issue #11675, advisory — non blocca) — ` +
+                `${perfClaimWarnings.length} frase limita o evita lavoro di I/O senza evidenza locale al claim. ` +
+                'Se è un claim di prestazione, aggiungi una riga `Misura:`/`Comando:` con valore oppure ' +
+                'un trigger di revert in `## Non implementato (ancora)`.',
+              );
+            }
+
             // Fetch each closed issue; flag the multi-item follow-up aggregates.
             // Proceed-safe: any API error → skip that ref (never block on infra).
             const aggregateCloseViolations = [];
@@ -654,7 +742,7 @@ jobs:
             };
 
             // --- All-clear (violations) — advisories can still be present -----------
-            if (missing.length === 0 && sectionViolations.length === 0 && stateViolations.length === 0 && decisionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
+            if (missing.length === 0 && sectionViolations.length === 0 && stateViolations.length === 0 && decisionViolations.length === 0 && perfClaimPolicyError === null && perfClaimViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
               const okBody = `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, stati residui dichiarati, nessun \`Closes\` multi-issue su una riga, nessuna keyword di chiusura inefficace, nessun \`Closes\` su follow-up aggregata.`
                 + (advisoryParts.length ? `\n\n${advisoryParts.join('\n\n')}` : '');
               // Solo un prior da aggiornare, oppure un advisory reale da segnalare per
@@ -710,6 +798,27 @@ jobs:
                 `<azione concreta>\`.`,
               );
               fails.push(`decision deferral(s): ${decisionViolations.join('; ')}`);
+            }
+            if (perfClaimPolicyError) {
+              parts.push(
+                `🔴 **Policy dei claim di prestazione non disponibile** — il gate trusted non ha potuto ` +
+                'caricare il modulo da `main`: `' + perfClaimPolicyError + '`. ' +
+                'Il controllo resta fail-closed per evitare che una PR bypassi la verifica.',
+              );
+              fails.push(`performance-claim policy unavailable: ${perfClaimPolicyError}`);
+            }
+            if (perfClaimViolations.length) {
+              parts.push(
+                `🔴 **Claim di prestazione senza prova** (issue #11675) — ` +
+                `${perfClaimViolations.length} frase in \`## Implementato\` dichiara un guadagno di tempo, ` +
+                'memoria, disco o CI senza evidenza associata allo stesso bullet:\n\n' +
+                perfClaimViolations.map((claim) => `- ${claim.slice(0, 240)}`).join('\n') +
+                '\n\nAggiungi una prova: link alla run `/actions/runs/<id>`, una riga ' +
+                '`Misura:` o `Comando:` con output pre/post, una coppia di valori confrontati, ' +
+                'oppure dichiara il claim non validato pre-merge con `blocked: misura post-merge` ' +
+                'e workflow, soglia e trigger di revert in `## Non implementato (ancora)`.',
+              );
+              fails.push(`unvalidated performance claim(s): ${perfClaimViolations.length}`);
             }
             if (closesViolations.length) {
               const lines = closesViolations
