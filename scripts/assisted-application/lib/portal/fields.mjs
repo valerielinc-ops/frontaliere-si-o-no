@@ -450,18 +450,16 @@ export function extractFieldsInPage() {
   const BUTTONS = 'button, input[type="submit"], a[role="button"], a[href], [role="button"]';
   const actionLink = (element) => element.tagName === 'A' && Boolean(element.closest('.css_button'));
   const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element);
-  const buttonName = (element) => clean(
+  const buttonName = (element) => [
     // `innerText` is the rendered label in a browser. JSDOM does not expose
-    // it, so inspect the element text before falling back to accessibility
-    // attributes; otherwise an icon with aria-label="Upload" is no longer
-    // recognized as an icon-only upload trigger in tests or lightweight DOMs.
-    element.innerText
-      || element.textContent
-      || element.value
-      || element.getAttribute('aria-label')
-      || element.getAttribute('title')
-      || '',
-  );
+    // it, so inspect text content before accessibility attributes; normalize
+    // each candidate first so whitespace does not hide a later useful value.
+    element.innerText,
+    element.textContent,
+    element.value,
+    element.getAttribute('aria-label'),
+    element.getAttribute('title'),
+  ].map(clean).find(Boolean) || '';
   const buttonAccessibleLabel = (element) => {
     const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/)
       .map(textOf)
