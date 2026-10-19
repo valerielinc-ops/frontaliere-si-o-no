@@ -52,7 +52,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "anlagenfuhrer-in-special-products-nestle-ch"
@@ -615,8 +614,8 @@
       "slugByLocale": {
         "de": "instandhaltungsmechaniker-in-nestle-ch",
         "it": "manutenzione-nestle-basel-ch",
-        "en": "instandhaltungsmechaniker-in-nestle-basel",
-        "fr": "instandhaltungsmechaniker-in-nestle-basel"
+        "en": "maintenance-mechanic-nestle-basel-ch",
+        "fr": "mecanicien-d-entretien-nestle-basel-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -659,22 +658,22 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "instandhaltungsmechaniker-in-nestle-ch"
+          "instandhaltungsmechaniker-in-nestle-ch",
+          "instandhaltungsmechaniker-in-nestle-basel-ch"
         ],
         "en": [
-          "maintenance-mechanic-nestle-basel-ch"
+          "instandhaltungsmechaniker-in-nestle-basel"
         ],
         "fr": [
-          "mecanicien-d-entretien-nestle-basel-ch"
+          "instandhaltungsmechaniker-in-nestle-basel"
         ]
       },
       "previousSlugs": [
         "instandhaltungsmechaniker-in-nestle-ch",
-        "maintenance-mechanic-nestle-basel-ch",
-        "mecanicien-d-entretien-nestle-basel-ch"
+        "instandhaltungsmechaniker-in-nestle-basel-ch",
+        "instandhaltungsmechaniker-in-nestle-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -743,7 +742,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "stagiaire-pre-hes-food-technology-youth-nestle-ch"
@@ -819,7 +817,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1042,7 +1039,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
@@ -1074,8 +1070,8 @@
       "slugByLocale": {
         "fr": "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch",
         "it": "apprendista-operatore-di-macchine-automatizzate-nestle-henniez-ch",
-        "en": "apprenti-e-operateur-trice-de-machines-automatisees-nestle-henniez",
-        "de": "apprenti-e-operateur-trice-de-machines-automatisees-nestle-henniez"
+        "en": "apprentice-automated-machinery-operator-nestle-henniez-ch",
+        "de": "auszubildender-automatischer-maschinenbediener-nestle-henniez-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1123,16 +1119,15 @@
           "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch"
         ],
         "en": [
-          "apprentice-automated-machinery-operator-nestle-henniez-ch"
+          "apprenti-e-operateur-trice-de-machines-automatisees-nestle-henniez"
         ],
         "de": [
-          "auszubildender-automatischer-maschinenbediener-nestle-henniez-ch"
+          "apprenti-e-operateur-trice-de-machines-automatisees-nestle-henniez"
         ]
       },
       "previousSlugs": [
         "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch",
-        "apprentice-automated-machinery-operator-nestle-henniez-ch",
-        "auszubildender-automatischer-maschinenbediener-nestle-henniez-ch"
+        "apprenti-e-operateur-trice-de-machines-automatisees-nestle-henniez"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1273,7 +1268,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -1438,9 +1432,9 @@
       "slug": "brand-segment-lead-nestle-la-tour-de-peilz",
       "slugByLocale": {
         "en": "brand-segment-lead-nestle-ch",
-        "it": "brand-segment-lead-nestle-la-tour-de-peilz",
+        "it": "piombo-di-segmento-di-marca-nestle-la-tour-de-peilz",
         "fr": "segment-de-marque-plomb-nestle-la-tour-de-peilz",
-        "de": "brand-segment-lead-nestle-la-tour-de-peilz"
+        "de": "markensegment-fuhrend-nestle-la-tour-de-peilz"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1485,17 +1479,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "brand-segment-lead-nestle-ch",
-          "piombo-di-segmento-di-marca-nestle-la-tour-de-peilz"
-        ],
-        "de": [
-          "markensegment-fuhrend-nestle-la-tour-de-peilz"
+          "brand-segment-lead-nestle-ch"
         ]
       },
       "previousSlugs": [
-        "brand-segment-lead-nestle-ch",
-        "piombo-di-segmento-di-marca-nestle-la-tour-de-peilz",
-        "markensegment-fuhrend-nestle-la-tour-de-peilz"
+        "brand-segment-lead-nestle-ch"
       ],
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -1885,9 +1873,9 @@
       "slug": "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-konolfingen",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch",
-        "it": "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-konolfingen",
+        "it": "prodotti-speciali-per-operatori-di-impianti-prodotti-probiotici-nestle-konolfingen",
         "en": "plant-operator-special-products-probiotic-products-nestle-konolfingen",
-        "fr": "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-konolfingen"
+        "fr": "produits-speciaux-pour-operateurs-d-usine-produits-probiotiques-nestle-konolfingen"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1930,20 +1918,13 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch",
-          "prodotti-speciali-per-operatori-di-impianti-prodotti-probiotici-nestle-konolfingen"
-        ],
-        "fr": [
-          "produits-speciaux-pour-operateurs-d-usine-produits-probiotiques-nestle-konolfingen"
+          "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
         ]
       },
       "previousSlugs": [
-        "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch",
-        "prodotti-speciali-per-operatori-di-impianti-prodotti-probiotici-nestle-konolfingen",
-        "produits-speciaux-pour-operateurs-d-usine-produits-probiotiques-nestle-konolfingen"
+        "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -2012,14 +1993,17 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-100-nestle-ch"
+          "anlagenfuhrer-in-100-nestle-ch",
+          "anlagenfuhrer-in-100-nestle-konolfingen",
+          "1-781-t-in-100-nestle-konolfingen"
         ]
       },
       "previousSlugs": [
-        "anlagenfuhrer-in-100-nestle-ch"
+        "anlagenfuhrer-in-100-nestle-ch",
+        "anlagenfuhrer-in-100-nestle-konolfingen",
+        "1-781-t-in-100-nestle-konolfingen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3122,7 +3106,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "senior-acquisitions-business-development-manager-nestle-ch"
@@ -3228,8 +3211,8 @@
       "slug": "operateur-trice-torrefaction-4-8-h-f-d-nestle-ch",
       "slugByLocale": {
         "fr": "operateur-trice-torrefaction-4-8-h-f-d-nestle-ch",
-        "en": "operateur-trice-torrefaction-4-8-m-w-d-nestle-romont",
-        "de": "operateur-trice-torrefaction-4-8-m-w-d-nestle-romont",
+        "en": "operator-roasting-4-8-m-f-d-nestle-romont",
+        "de": "betreiber-braten-4-8-m-w-d-nestle-romont",
         "it": "operateur-trice-torrefaction-4-8-h-f-d-nestle-ch"
       },
       "company": "Nestlé",
@@ -3275,15 +3258,14 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "operator-roasting-4-8-m-f-d-nestle-romont"
+          "operateur-trice-torrefaction-4-8-m-w-d-nestle-romont"
         ],
         "de": [
-          "betreiber-braten-4-8-m-w-d-nestle-romont"
+          "operateur-trice-torrefaction-4-8-m-w-d-nestle-romont"
         ]
       },
       "previousSlugs": [
-        "operator-roasting-4-8-m-f-d-nestle-romont",
-        "betreiber-braten-4-8-m-w-d-nestle-romont"
+        "operateur-trice-torrefaction-4-8-m-w-d-nestle-romont"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3309,7 +3291,7 @@
         "en": "ip-paralegal-nestle-ch",
         "fr": "ip-paralegal-nestle-vevey",
         "it": "paralegal-ip-nestle-vevey",
-        "de": "ip-paralegal-nestle-vevey"
+        "de": "ip-rechtswidrigkeit-nestle-vevey"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -3357,12 +3339,12 @@
           "ip-paralegal-nestle-ch"
         ],
         "de": [
-          "ip-rechtswidrigkeit-nestle-vevey"
+          "ip-paralegal-nestle-vevey"
         ]
       },
       "previousSlugs": [
         "ip-paralegal-nestle-ch",
-        "ip-rechtswidrigkeit-nestle-vevey"
+        "ip-paralegal-nestle-vevey"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3648,7 +3630,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "performance-acceleration-senior-analyst-nestle-operations-nestle-ch"
@@ -3755,8 +3736,8 @@
       "slug": "project-manager-for-out-of-home-beverage-systems-nestle-orbe",
       "slugByLocale": {
         "en": "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-        "it": "project-manager-for-out-of-home-beverage-systems-nestle-orbe",
-        "fr": "project-manager-for-out-of-home-beverage-systems-nestle-orbe",
+        "it": "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe",
+        "fr": "gestionnaire-de-projet-pour-les-systemes-de-boissons-hors-maison-nestle-orbe",
         "de": "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe"
       },
       "company": "Nestlé",
@@ -3802,17 +3783,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-          "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe"
-        ],
-        "fr": [
-          "gestionnaire-de-projet-pour-les-systemes-de-boissons-hors-maison-nestle-orbe"
+          "project-manager-for-out-of-home-beverage-systems-nestle-ch"
         ]
       },
       "previousSlugs": [
-        "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-        "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe",
-        "gestionnaire-de-projet-pour-les-systemes-de-boissons-hors-maison-nestle-orbe"
+        "project-manager-for-out-of-home-beverage-systems-nestle-ch"
       ],
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -3836,9 +3811,9 @@
       "slug": "operateur-trice-logistique-en-horaires-4-8-m-w-d-nestle-romont",
       "slugByLocale": {
         "fr": "operateur-trice-logistique-en-horaires-4-8-h-f-d-nestle-ch",
-        "en": "operateur-trice-logistique-en-horaires-4-8-m-w-d-nestle-romont",
-        "de": "operateur-trice-logistique-en-horaires-4-8-m-w-d-nestle-romont",
-        "it": "operateur-trice-logistique-en-horaires-4-8-m-w-d-nestle-romont"
+        "en": "logistics-operator-in-4-8-hours-m-f-d-nestle-romont",
+        "de": "logistiker-in-4-8-stunden-m-w-d-nestle-romont",
+        "it": "operatore-operatrice-logistico-a-con-turni-4-8-m-f-d-nestle-romont"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -3881,24 +3856,15 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "operateur-trice-logistique-en-horaires-4-8-h-f-d-nestle-ch",
-          "operatore-operatrice-logistico-a-con-turni-4-8-m-f-d-nestle-romont"
-        ],
-        "en": [
-          "logistics-operator-in-4-8-hours-m-f-d-nestle-romont"
-        ],
-        "de": [
-          "logistiker-in-4-8-stunden-m-w-d-nestle-romont"
+          "logistikmitarbeiter-in-im-4-8-schichtbetrieb-m-w-d-nestle-romont"
         ]
       },
       "previousSlugs": [
         "operateur-trice-logistique-en-horaires-4-8-h-f-d-nestle-ch",
-        "operatore-operatrice-logistico-a-con-turni-4-8-m-f-d-nestle-romont",
-        "logistics-operator-in-4-8-hours-m-f-d-nestle-romont",
-        "logistiker-in-4-8-stunden-m-w-d-nestle-romont"
+        "logistikmitarbeiter-in-im-4-8-schichtbetrieb-m-w-d-nestle-romont"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4631,11 +4597,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "engineering-specialist-nestle-ch"
+          "engineering-specialist-nestle-ch",
+          "quality-specialista-nestle-konolfingen-ch",
+          "quality-specialist-nestle-ch",
+          "qualitat-spezialist-nestle-konolfingen-ch",
+          "qualite-specialiste-nestle-konolfingen-ch",
+          "quality-specialist-nestle-konolfingen-ch"
         ]
       },
       "previousSlugs": [
-        "engineering-specialist-nestle-ch"
+        "engineering-specialist-nestle-ch",
+        "quality-specialista-nestle-konolfingen-ch",
+        "quality-specialist-nestle-ch",
+        "qualitat-spezialist-nestle-konolfingen-ch",
+        "qualite-specialiste-nestle-konolfingen-ch",
+        "quality-specialist-nestle-konolfingen-ch"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -5185,7 +5161,7 @@
         "en": "demand-supply-planner-nestle-ch",
         "it": "pianificatore-di-domanda-e-di-alimentazione-nestle-henniez",
         "de": "demand-supply-planer-nestle-henniez",
-        "fr": "demand-supply-planner-nestle-henniez"
+        "fr": "demande-planificateur-de-l-offre-nestle-henniez"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -5230,15 +5206,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "demand-supply-planner-nestle-ch"
+          "demand-supply-planner-nestle-ch",
+          "pianificatore-di-domanda-e-di-alimentazione-nestle-la-tour-de-peilz-ch",
+          "demand-supply-planner-business-growth-solutions-nestle-ch",
+          "demande-planificateur-de-l-offre-nestle-la-tour-de-peilz-ch"
         ],
         "fr": [
-          "demande-planificateur-de-l-offre-nestle-henniez"
+          "demand-supply-planner-nestle-henniez"
         ]
       },
       "previousSlugs": [
         "demand-supply-planner-nestle-ch",
-        "demande-planificateur-de-l-offre-nestle-henniez"
+        "pianificatore-di-domanda-e-di-alimentazione-nestle-la-tour-de-peilz-ch",
+        "demand-supply-planner-business-growth-solutions-nestle-ch",
+        "demande-planificateur-de-l-offre-nestle-la-tour-de-peilz-ch",
+        "demand-supply-planner-nestle-henniez"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -5307,7 +5289,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "anlagenfuhrer-in-produktion-100-nestle-ch"
@@ -5772,7 +5753,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -5870,7 +5850,7 @@
       "slugByLocale": {
         "en": "community-manager-nestle-ch",
         "it": "direttore-comunitario-nestle-lausanne",
-        "fr": "community-manager-nestle-lausanne",
+        "fr": "gestionnaire-communautaire-nestle-lausanne",
         "de": "direttore-comunitario-nestle-lausanne"
       },
       "company": "Nestlé",
@@ -5920,12 +5900,12 @@
           "community-manager-nestle-ch"
         ],
         "fr": [
-          "gestionnaire-communautaire-nestle-lausanne"
+          "community-manager-nestle-lausanne"
         ]
       },
       "previousSlugs": [
         "community-manager-nestle-ch",
-        "gestionnaire-communautaire-nestle-lausanne"
+        "community-manager-nestle-lausanne"
       ],
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -6101,7 +6081,7 @@
         "fr": "operateur-trice-de-production-h-f-d-nestle-ch",
         "it": "operateur-de-production-f-m-d-nestle-romont-ch",
         "en": "production-operator-h-f-d-nestle-romont-ch",
-        "de": "operateur-trice-de-production-m-w-d-nestle-romont"
+        "de": "produktionsbetreiber-h-f-d-nestle-romont-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -6146,15 +6126,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "operateur-trice-de-production-h-f-d-nestle-ch"
+          "operateur-trice-de-production-h-f-d-nestle-ch",
+          "operateur-de-production-h-f-d-nestle-ch"
         ],
         "de": [
-          "produktionsbetreiber-h-f-d-nestle-romont-ch"
+          "operateur-trice-de-production-m-w-d-nestle-romont"
         ]
       },
       "previousSlugs": [
         "operateur-trice-de-production-h-f-d-nestle-ch",
-        "produktionsbetreiber-h-f-d-nestle-romont-ch"
+        "operateur-de-production-h-f-d-nestle-ch",
+        "operateur-trice-de-production-m-w-d-nestle-romont"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -6179,8 +6161,8 @@
       "slugByLocale": {
         "de": "operationeller-einkaufer-nestle-ch",
         "it": "acquirente-operativo-nestle-basel",
-        "en": "operationeller-einkaufer-nestle-basel",
-        "fr": "operationeller-einkaufer-nestle-basel"
+        "en": "operational-purchaser-nestle-basel",
+        "fr": "acheteur-operationnel-nestle-basel"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -6228,16 +6210,15 @@
           "operationeller-einkaufer-nestle-ch"
         ],
         "en": [
-          "operational-purchaser-nestle-basel"
+          "operationeller-einkaufer-nestle-basel"
         ],
         "fr": [
-          "acheteur-operationnel-nestle-basel"
+          "operationeller-einkaufer-nestle-basel"
         ]
       },
       "previousSlugs": [
         "operationeller-einkaufer-nestle-ch",
-        "operational-purchaser-nestle-basel",
-        "acheteur-operationnel-nestle-basel"
+        "operationeller-einkaufer-nestle-basel"
       ],
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -6321,7 +6302,15 @@
       },
       "postalCode": "1350",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-23T11:57:12.090Z"
+      "firstSeenAt": "2026-09-23T11:57:12.090Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-s-h-engineer-safety-health-nestle-orbe"
+        ]
+      },
+      "previousSlugs": [
+        "intern-s-h-engineer-safety-health-nestle-orbe"
+      ]
     },
     {
       "id": "nestle-1437635933",
@@ -6329,7 +6318,7 @@
       "slugByLocale": {
         "fr": "stagiaire-ingenieur-e-en-efficacite-energetique-nestle-ch",
         "it": "allenatore-per-l-efficienza-energetica-nestle-romont",
-        "en": "stagiaire-ingenieur-e-en-efficacite-energetique-nestle-romont",
+        "en": "energy-efficiency-engineer-trainee-nestle-romont",
         "de": "energieeffizienz-ingenieur-trainee-nestle-romont"
       },
       "company": "Nestlé",
@@ -6378,12 +6367,12 @@
           "stagiaire-ingenieur-e-en-efficacite-energetique-nestle-ch"
         ],
         "en": [
-          "energy-efficiency-engineer-trainee-nestle-romont"
+          "stagiaire-ingenieur-e-en-efficacite-energetique-nestle-romont"
         ]
       },
       "previousSlugs": [
         "stagiaire-ingenieur-e-en-efficacite-energetique-nestle-ch",
-        "energy-efficiency-engineer-trainee-nestle-romont"
+        "stagiaire-ingenieur-e-en-efficacite-energetique-nestle-romont"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -6527,14 +6516,15 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "senior-nutrition-health-administrative-assistant-nestle-ch"
+          "senior-nutrition-health-administrative-assistant-nestle-ch",
+          "senior-nutrition-health-administrative-assistant-nestle-konolfingen-ch"
         ]
       },
       "previousSlugs": [
-        "senior-nutrition-health-administrative-assistant-nestle-ch"
+        "senior-nutrition-health-administrative-assistant-nestle-ch",
+        "senior-nutrition-health-administrative-assistant-nestle-konolfingen-ch"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -6603,7 +6593,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-operations-nestle-waters-suisse-sa-nestle-ch"
@@ -6821,7 +6810,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lead-patent-counsel-digital-ai-nestle-ch"
@@ -6852,9 +6840,9 @@
       "slug": "corporate-paralegal-nestle-vevey",
       "slugByLocale": {
         "en": "corporate-paralegal-nestle-ch",
-        "fr": "corporate-paralegal-nestle-vevey",
-        "it": "corporate-paralegal-nestle-vevey",
-        "de": "corporate-paralegal-nestle-vevey"
+        "fr": "societe-parajuridique-nestle-vevey",
+        "it": "paralegale-aziendale-nestle-vevey",
+        "de": "rechtswidrige-handlungen-nestle-vevey"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -6897,24 +6885,13 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "corporate-paralegal-nestle-ch",
-          "paralegale-aziendale-nestle-vevey"
-        ],
-        "de": [
-          "rechtswidrige-handlungen-nestle-vevey"
-        ],
-        "fr": [
-          "societe-parajuridique-nestle-vevey"
+          "corporate-paralegal-nestle-ch"
         ]
       },
       "previousSlugs": [
-        "corporate-paralegal-nestle-ch",
-        "paralegale-aziendale-nestle-vevey",
-        "rechtswidrige-handlungen-nestle-vevey",
-        "societe-parajuridique-nestle-vevey"
+        "corporate-paralegal-nestle-ch"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

@@ -9233,8 +9233,8 @@
       "slugByLocale": {
         "de": "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
         "it": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
-        "fr": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
-        "en": "brandschutzfachfrau-mann-m-w-d-eth-zurich"
+        "fr": "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich",
+        "en": "fire-protection-specialist-m-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9277,22 +9277,13 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
-        ],
-        "en": [
-          "fire-protection-specialist-m-f-d-eth-zurich-zurich"
-        ],
-        "fr": [
-          "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
-        "fire-protection-specialist-m-f-d-eth-zurich-zurich",
-        "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
+        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9361,7 +9352,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-infrastrukturelles-gebaudemanagement-m-w-d-eth-zurich-ch"

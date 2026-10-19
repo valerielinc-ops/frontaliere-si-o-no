@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-09-28T23:50:57.588Z",
-    "label": "after",
-    "total": 30457,
-    "needsRetranslation": 16371,
-    "suppressed": 218,
-    "incomplete": 11830,
-    "complete": 18627,
-    "slotsPresent": 18627,
-    "flaggedAmongSlotsPresent": 5229,
-    "verifiedTranslated": 13398,
-    "sourceCopyExcused": 660,
-    "slotsPresentByLength": 30264,
-    "languageVerified": 19091,
-    "missingByLocale": {
-      "it": 5021,
-      "en": 4714,
-      "de": 228,
-      "fr": 4743
-    },
-    "queueAge": {
-      "count": 16371,
-      "withTimestamp": 16371,
-      "oldestAgeDays": 504,
-      "p50AgeDays": 10.4,
-      "p90AgeDays": 88.1,
-      "buckets": {
-        "0-1d": 4663,
-        "1-2d": 88,
-        "2-7d": 2523,
-        "0-7d": 7274,
-        "7-30d": 3699,
-        "30-90d": 3834,
-        "90-180d": 1555,
-        "180d+": 9
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 681,
-      "withTimestamp": 681,
-      "oldestAgeDays": 168.1,
-      "p50AgeDays": 25.4,
-      "p90AgeDays": 110.5,
-      "buckets": {
-        "0-1d": 73,
-        "1-2d": 2,
-        "2-7d": 89,
-        "0-7d": 164,
-        "7-30d": 216,
-        "30-90d": 183,
-        "90-180d": 118,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "genderFormRepair": {
-      "measured": false,
-      "status": "partial",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 4806,
-      "sampled": 120,
-      "processed": 20,
-      "residual": 0,
-      "residualRate": 0
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 2305
-      },
-      {
-        "company": "STA Personal AG",
-        "pending": 1656
-      },
-      {
-        "company": "Stellentreff AG",
-        "pending": 930
-      },
-      {
-        "company": "yellowshark AG",
-        "pending": 866
-      },
-      {
-        "company": "Stellenpartner AG",
-        "pending": 610
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 486
-      },
-      {
-        "company": "PEMSA",
-        "pending": 267
-      },
-      {
-        "company": "Elsa Group",
-        "pending": 247
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 217
-      },
-      {
-        "company": "fenaco",
-        "pending": 194
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-29T00:02:36.924Z",
     "label": "before",
     "total": 30457,
@@ -26572,5 +26460,111 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-10-19T14:33:34.539Z",
+    "label": "before",
+    "total": 32769,
+    "needsRetranslation": 2671,
+    "suppressed": 133,
+    "incomplete": 3111,
+    "complete": 29658,
+    "slotsPresent": 29658,
+    "flaggedAmongSlotsPresent": 67,
+    "verifiedTranslated": 29591,
+    "sourceCopyExcused": 296,
+    "slotsPresentByLength": 32631,
+    "languageVerified": 31599,
+    "missingByLocale": {
+      "it": 503,
+      "en": 449,
+      "de": 127,
+      "fr": 452
+    },
+    "queueAge": {
+      "count": 2671,
+      "withTimestamp": 2671,
+      "oldestAgeDays": 202.3,
+      "p50AgeDays": 29.6,
+      "p90AgeDays": 107.2,
+      "buckets": {
+        "0-1d": 275,
+        "1-2d": 11,
+        "2-7d": 113,
+        "0-7d": 399,
+        "7-30d": 1023,
+        "30-90d": 806,
+        "90-180d": 432,
+        "180d+": 11
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 1047,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 105,
+      "byCrawler": {
+        "fachkraft": 105
+      }
+    },
+    "predicateVersion": "562e008203bf0ab3",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 93,
+      "complete": 89
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 680
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 204
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 140
+      },
+      {
+        "company": "TRAVECO Transporte AG",
+        "pending": 139
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 137
+      },
+      {
+        "company": "Medbase",
+        "pending": 113
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 110
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 79
+      },
+      {
+        "company": "Nestlé",
+        "pending": 75
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 63
+      }
+    ]
   }
 ]
