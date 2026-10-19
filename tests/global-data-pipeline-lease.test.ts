@@ -44,8 +44,8 @@ function leaseDocument(lease: Record<string, string>, updateTime: string) {
  * A local Firestore REST double with pessimistic transaction locks. A
  * transactional GET waits for the document lock until commit/rollback or a
  * short server-side deadline, while a write acquires the same lock when it
- * commits. The fixed code never needs the transactional GET path, but keeping
- * it here models the livelock that the regression is meant to remove.
+ * commits. Active-owner polling must stay on the simple GET path; candidates
+ * still use the transactional GET to recheck the snapshot atomically.
  */
 class PessimisticFirestore {
   lease: Record<string, string> | null;
@@ -57,6 +57,7 @@ class PessimisticFirestore {
   private updateSequence = 0;
   private readonly serverLockTimeoutMs = 25;
   failNextCommitTimeout = false;
+  failNextCommitConflict = false;
   getStatus: number | null = null;
   getCount = 0;
   beginCount = 0;
@@ -136,6 +137,13 @@ class PessimisticFirestore {
       const error = new Error('The operation was aborted due to timeout');
       error.name = 'TimeoutError';
       throw error;
+    }
+    if (this.failNextCommitConflict) {
+      this.failNextCommitConflict = false;
+      state.open = false;
+      this.transactions.delete(body.transaction!);
+      this.releaseLock();
+      return firestoreResponse(409, { error: { status: 'ABORTED' } });
     }
 
     const write = body.writes?.[0];
@@ -351,15 +359,28 @@ describe('global data pipeline lease', () => {
       expect(message).toContain(`expiresAt=${expiresAt} (90 min left)`);
     });
 
-    it('segnala una scadenza malformata invece di una scadenza inventata', () => {
-      const message = describeLeaseBusy({
-        busy: true,
-        reason: 'malformed_expiry',
-        holder: { owner: 'run-b', runId: 'abc', expiresAt: 'not-a-timestamp' },
-      });
-      expect(message).toContain('reason=malformed_expiry');
-      expect(message).toContain('expiresAt="not-a-timestamp" (malformed');
-      expect(message).not.toContain('run=https://');
+    it('usa una lettura senza lock mentre il lease resta attivo', async () => {
+      const calls: string[] = [];
+      const expiresAt = new Date(Date.now() + 90 * 60_000).toISOString();
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        calls.push(url);
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        return json(200, {
+          updateTime: '2026-09-14T12:00:00.000Z',
+          fields: {
+            owner: { stringValue: 'other-run' },
+            expiresAt: { timestampValue: expiresAt },
+          },
+        });
+      }));
+
+      const result = await acquireLease({ credentials: CREDENTIALS, owner: 'this-run', waitMs: 0, ttlMs: 60_000 });
+
+      expect(result.busy).toBe(true);
+      expect(calls.some((url) => url.endsWith(':beginTransaction'))).toBe(false);
+      expect(calls.some((url) => url.endsWith(':rollback'))).toBe(false);
+      expect(calls.some((url) => url.includes('?transaction='))).toBe(false);
+      expect(calls.some((url) => url.endsWith('/ci_leases/jobs-data-pipeline'))).toBe(true);
     });
 
     it('distingue un errore Firestore transitorio da un lease occupato', async () => {
@@ -377,164 +398,164 @@ describe('global data pipeline lease', () => {
       expect(describeLeaseBusy(result)).toContain('this is not a lease conflict');
     });
 
-    it('converge con 20 writer concorrenti senza lasciare transazioni aperte', async () => {
-      const server = new PessimisticFirestore({
-        owner: 'expired-owner',
-        repo: 'org/repo',
-        workflow: 'old-workflow',
-        runId: 'old-run',
-        acquiredAt: '2026-09-14T11:00:00.000Z',
-        heartbeatAt: '2026-09-14T11:00:00.000Z',
-        expiresAt: '2026-09-14T11:59:00.000Z',
-      });
-      vi.stubGlobal('fetch', server.fetch.bind(server));
+    it('esegue rollback se il lease diventa attivo dopo lo snapshot lock-free', async () => {
+      const requests: Array<{ url: string; body?: string }> = [];
+      const expiresAt = new Date(Date.now() + 90 * 60_000).toISOString();
+      const expiredAt = new Date(Date.now() - 60_000).toISOString();
+      vi.stubGlobal('fetch', vi.fn(async (url: string, init: RequestInit = {}) => {
+        requests.push({ url, body: typeof init.body === 'string' ? init.body : undefined });
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) return json(200, { transaction: 'tx-busy' });
+        if (url.endsWith(':rollback')) return json(200, {});
+        return json(200, {
+          updateTime: '2026-09-14T12:00:00.000Z',
+          fields: {
+            owner: { stringValue: url.includes('?transaction=') ? 'other-run' : 'expired-owner' },
+            expiresAt: { timestampValue: url.includes('?transaction=') ? expiresAt : expiredAt },
+          },
+        });
+      }));
 
-      const results = await Promise.all(Array.from({ length: 20 }, (_, index) => acquireLease({
-        credentials: CREDENTIALS,
-        owner: `writer-${index}`,
-        leaseDoc: 'ci_leases/test',
-        now: NOW,
-        ttlMs: 60_000,
-        waitMs: 250,
-        pollMs: 2,
-        jitter: () => 0.5,
-      })));
+      const result = await acquireLease({ credentials: CREDENTIALS, owner: 'this-run', leaseDoc: 'ci_leases/test', waitMs: 0, ttlMs: 60_000 });
 
-      expect(results.filter((result) => result.acquired)).toHaveLength(1);
-      expect(results.every((result) => result.acquired || result.busy)).toBe(true);
-      expect(server.transactionalReadCount).toBe(0);
-      expect(server.locked).toBe(false);
+      expect(result.busy).toBe(true);
+      const rollbacks = requests.filter(({ url }) => url.endsWith(':rollback'));
+      expect(rollbacks).toHaveLength(1);
+      expect(JSON.parse(rollbacks[0].body || '{}')).toEqual({ transaction: 'tx-busy' });
     });
 
-    it('fa rollback dopo un timeout client libera subito il lock', async () => {
-      const server = new PessimisticFirestore({
-        owner: 'expired-owner',
-        repo: 'org/repo',
-        workflow: 'old-workflow',
-        runId: 'old-run',
-        acquiredAt: '2026-09-14T11:00:00.000Z',
-        heartbeatAt: '2026-09-14T11:00:00.000Z',
-        expiresAt: '2026-09-14T11:59:00.000Z',
-      });
-      server.failNextCommitTimeout = true;
-      vi.stubGlobal('fetch', server.fetch.bind(server));
+    it('esegue rollback anche quando la lettura transazionale va in timeout', async () => {
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const requests: string[] = [];
+      const expiredAt = new Date(Date.now() - 60_000).toISOString();
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        requests.push(url);
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) return json(200, { transaction: 'tx-error' });
+        if (url.endsWith(':rollback')) return json(200, {});
+        if (!url.includes('?transaction=')) {
+          return json(200, {
+            updateTime: '2026-09-14T12:00:00.000Z',
+            fields: { owner: { stringValue: 'expired-owner' }, expiresAt: { timestampValue: expiredAt } },
+          });
+        }
+        return json(503, { error: { status: 'UNAVAILABLE' } });
+      }));
 
-      const timedOut = await acquireLease({
-        credentials: CREDENTIALS,
-        owner: 'writer-timeout',
-        leaseDoc: 'ci_leases/test',
-        now: NOW,
-        ttlMs: 60_000,
-        waitMs: 0,
-        pollMs: 1,
-      });
-      expect(timedOut).toMatchObject({ transientError: true, transientErrorCount: 1 });
-      expect(server.rollbackCount).toBe(1);
-      expect(server.locked).toBe(false);
+      const result = await acquireLease({ credentials: CREDENTIALS, owner: 'this-run', leaseDoc: 'ci_leases/test', waitMs: 0, ttlMs: 60_000 });
 
-      const nextWriter = await acquireLease({
-        credentials: CREDENTIALS,
-        owner: 'writer-after-timeout',
-        leaseDoc: 'ci_leases/test',
-        now: NOW,
-        ttlMs: 60_000,
-        waitMs: 0,
-        pollMs: 1,
-      });
-      expect(nextWriter.acquired).toBe(true);
+      expect(result).toMatchObject({ busy: true, transientError: true, reason: 'transient_error' });
+      expect(requests.filter((url) => url.endsWith(':rollback'))).toHaveLength(1);
     });
 
-    it('su un lease attivo il polling usa solo GET e non apre transazioni', async () => {
-      const server = new PessimisticFirestore({
-        owner: 'other-owner',
-        repo: 'org/repo',
-        workflow: 'active-workflow',
-        runId: 'active-run',
-        acquiredAt: '2026-09-14T11:00:00.000Z',
-        heartbeatAt: '2026-09-14T11:59:00.000Z',
-        expiresAt: '2026-09-14T13:00:00.000Z',
+    it('ritenta un conflitto con una transazione nuova e rilascia quella abortita', async () => {
+      const calls: string[] = [];
+      const expiredAt = new Date(Date.now() - 60_000).toISOString();
+      let commitAttempts = 0;
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        calls.push(url);
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) return json(200, { transaction: `tx-${calls.filter((item) => item.endsWith(':beginTransaction')).length}` });
+        if (url.endsWith(':rollback')) return json(200, {});
+        if (url.endsWith(':commit')) {
+          commitAttempts += 1;
+          return commitAttempts === 1
+            ? json(409, { error: { status: 'ABORTED' } })
+            : json(200, {});
+        }
+        return json(200, {
+          updateTime: '2026-09-14T12:00:00.000Z',
+          fields: { owner: { stringValue: 'expired-owner' }, expiresAt: { timestampValue: expiredAt } },
+        });
+      }));
+
+      const result = await acquireLease({ credentials: CREDENTIALS, owner: 'this-run', leaseDoc: 'ci_leases/test', waitMs: 0, ttlMs: 60_000 });
+
+      expect(result).toMatchObject({ acquired: true, busy: false });
+      expect(calls.filter((url) => url.endsWith(':beginTransaction'))).toHaveLength(2);
+      expect(calls.filter((url) => url.endsWith(':rollback'))).toHaveLength(1);
+    });
+
+    it('rilascia il lock di release non-owner', async () => {
+      const calls: string[] = [];
+      const expiresAt = new Date(Date.now() + 90 * 60_000).toISOString();
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        calls.push(url);
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) return json(200, { transaction: 'tx-release' });
+        if (url.endsWith(':rollback')) return json(200, {});
+        return json(200, {
+          updateTime: '2026-09-14T12:00:00.000Z',
+          fields: { owner: { stringValue: 'other-run' }, expiresAt: { timestampValue: expiresAt } },
+        });
+      }));
+
+      const result = await releaseLease({ credentials: CREDENTIALS, owner: 'this-run', leaseDoc: 'ci_leases/test', ttlMs: 60_000 });
+
+      expect(result).toMatchObject({ released: false, busy: false, notOwner: true, contended: true });
+      expect(calls.filter((url) => url.endsWith(':rollback'))).toHaveLength(1);
+    });
+
+    it('segnala una scadenza malformata invece di una scadenza inventata', () => {
+      const message = describeLeaseBusy({
+        busy: true,
+        reason: 'malformed_expiry',
+        holder: { owner: 'run-b', runId: 'abc', expiresAt: 'not-a-timestamp' },
       });
-      vi.stubGlobal('fetch', server.fetch.bind(server));
+      expect(message).toContain('reason=malformed_expiry');
+      expect(message).toContain('expiresAt="not-a-timestamp" (malformed');
+      expect(message).not.toContain('run=https://');
+    });
+
+    it('conserva l errore di commit se anche il rollback fallisce', async () => {
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const calls: string[] = [];
+      const expiredAt = new Date(Date.now() - 60_000).toISOString();
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        calls.push(url);
+        if (url.startsWith('https://oauth2.googleapis.com/')) return firestoreResponse(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) return firestoreResponse(200, { transaction: 'tx-commit-error' });
+        if (url.endsWith(':rollback')) return firestoreResponse(503, { error: { status: 'UNAVAILABLE' } });
+        if (url.endsWith(':commit')) return firestoreResponse(400, { error: { status: 'INVALID_ARGUMENT' } });
+        return firestoreResponse(200, leaseDocument({
+          owner: 'expired-owner',
+          expiresAt: expiredAt,
+        }, '2026-09-14T12:00:00.000Z'));
+      }));
+
+      await expect(acquireLease({ credentials: CREDENTIALS, owner: 'this-run', leaseDoc: 'ci_leases/test', waitMs: 0, ttlMs: 60_000 }))
+        .rejects.toThrow('Firestore REST request failed: 400');
+      expect(calls.filter((url) => url.endsWith(':rollback'))).toHaveLength(1);
+    });
+
+    it('interrompe dopo tre errori transitori consecutivi e conserva l ultimo holder', async () => {
+      const expiresAt = new Date(NOW + 60_000).toISOString();
+      let documentReads = 0;
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) return json(200, { transaction: 'tx' });
+        documentReads += 1;
+        if (documentReads === 1) {
+          return json(200, {
+            updateTime: '2026-09-14T12:00:00.000Z',
+            fields: {
+              owner: { stringValue: 'active-owner' },
+              expiresAt: { timestampValue: expiresAt },
+            },
+          });
+        }
+        return json(503, { error: { status: 'UNAVAILABLE' } });
+      }));
 
       const result = await acquireLease({
         credentials: CREDENTIALS,
         owner: 'waiting-owner',
         leaseDoc: 'ci_leases/test',
         now: NOW,
-        waitMs: 0,
-        ttlMs: 60_000,
-      });
-
-      expect(result).toMatchObject({ busy: true, reason: 'active_owner' });
-      expect(server.getCount).toBe(1);
-      expect(server.beginCount).toBe(0);
-      expect(server.transactionalReadCount).toBe(0);
-    });
-
-    it('rilascia il proprietario anche se il lock e conteso e diagnostica un altro owner', async () => {
-      const server = new PessimisticFirestore({
-        owner: 'release-owner',
-        repo: 'org/repo',
-        workflow: 'active-workflow',
-        runId: 'active-run',
-        acquiredAt: '2026-09-14T11:00:00.000Z',
-        heartbeatAt: '2026-09-14T11:59:00.000Z',
-        expiresAt: '2026-09-14T13:00:00.000Z',
-      });
-      server.holdLock(5);
-      vi.stubGlobal('fetch', server.fetch.bind(server));
-
-      const released = await releaseLease({
-        credentials: CREDENTIALS,
-        owner: 'release-owner',
-        leaseDoc: 'ci_leases/test',
-        waitMs: 200,
-        pollMs: 1,
-      });
-      expect(released.released).toBe(true);
-      expect(server.lease).toBeNull();
-
-      server.lease = {
-        owner: 'different-owner',
-        repo: 'org/repo',
-        workflow: 'other-workflow',
-        runId: 'other-run',
-        acquiredAt: '2026-09-14T11:00:00.000Z',
-        heartbeatAt: '2026-09-14T11:59:00.000Z',
-        expiresAt: '2026-09-14T13:00:00.000Z',
-      };
-      const notOwner = await releaseLease({
-        credentials: CREDENTIALS,
-        owner: 'release-owner',
-        leaseDoc: 'ci_leases/test',
-        waitMs: 100,
-        pollMs: 1,
-      });
-      expect(notOwner).toMatchObject({ notOwner: true, contended: true });
-      expect(describeLeaseRelease(notOwner)).toContain('contended=yes');
-
-      server.lease = null;
-      const alreadyReleased = await releaseLease({
-        credentials: CREDENTIALS,
-        owner: 'release-owner',
-        leaseDoc: 'ci_leases/test',
-        waitMs: 0,
-      });
-      expect(alreadyReleased).toMatchObject({ released: true, alreadyReleased: true, contended: false });
-    });
-
-    it('l osservatore scelto (b) interrompe dopo errori transitori consecutivi', async () => {
-      const server = new PessimisticFirestore(null);
-      server.getStatus = 503;
-      vi.stubGlobal('fetch', server.fetch.bind(server));
-      vi.spyOn(console, 'warn').mockImplementation(() => {});
-
-      const result = await acquireLease({
-        credentials: CREDENTIALS,
-        owner: 'observed-writer',
-        leaseDoc: 'ci_leases/test',
         waitMs: 60_000,
         pollMs: 1,
+        sleep: async () => {},
         jitter: () => 0.5,
         transientErrorLimit: GLOBAL_DATA_PIPELINE_LEASE_TRANSIENT_ERROR_LIMIT,
       });
@@ -544,14 +565,17 @@ describe('global data pipeline lease', () => {
         transientError: true,
         reason: 'transient_error',
         transientErrorCount: GLOBAL_DATA_PIPELINE_LEASE_TRANSIENT_ERROR_LIMIT,
+        lastHolder: { owner: 'active-owner', expiresAt },
       });
-      expect(describeLeaseBusy(result)).toMatch(/3 transient Firestore error\(s\).*owner=unknown.*expired=unknown/u);
+      expect(describeLeaseBusy(result, NOW)).toContain('owner=active-owner');
+      expect(describeLeaseBusy(result, NOW)).toContain(`expiresAt=${expiresAt}`);
+      expect(describeLeaseBusy(result, NOW)).toContain('expired=no');
       expect(GLOBAL_DATA_PIPELINE_LEASE_TRANSIENT_ERROR_EXIT).toBe(45);
     });
 
-    it('l osservatore (b) non segnala un lease semplicemente occupato', async () => {
+    it('ritenta il release entro la finestra e indica la contesa', async () => {
       const server = new PessimisticFirestore({
-        owner: 'active-owner',
+        owner: 'release-owner',
         repo: 'org/repo',
         workflow: 'active-workflow',
         runId: 'active-run',
@@ -559,20 +583,21 @@ describe('global data pipeline lease', () => {
         heartbeatAt: '2026-09-14T11:59:00.000Z',
         expiresAt: '2026-09-14T13:00:00.000Z',
       });
+      server.failNextCommitConflict = true;
       vi.stubGlobal('fetch', server.fetch.bind(server));
 
-      const result = await acquireLease({
+      const released = await releaseLease({
         credentials: CREDENTIALS,
-        owner: 'waiting-owner',
+        owner: 'release-owner',
         leaseDoc: 'ci_leases/test',
-        now: NOW,
-        waitMs: 0,
-        ttlMs: 60_000,
+        waitMs: 60,
+        pollMs: 1,
+        sleep: async () => {},
       });
 
-      expect(result.transientError).toBeUndefined();
-      expect(result.transientErrorCount).toBeUndefined();
-      expect(server.beginCount).toBe(0);
+      expect(released).toMatchObject({ released: true, attempts: 2, contended: true });
+      expect(server.lease).toBeNull();
+      expect(describeLeaseRelease(released)).toContain('contended=yes');
     });
   });
 });

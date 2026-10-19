@@ -392,10 +392,21 @@ async function beginTransaction(baseUrl, token, requestTimeoutMs = REQUEST_TIMEO
   return body.transaction;
 }
 
-async function readLease(baseUrl, token, leaseDoc, requestTimeoutMs = REQUEST_TIMEOUT_MS) {
-  const url = baseUrl + '/' + leaseDoc;
+async function readLease(baseUrl, token, transaction, leaseDoc, requestTimeoutMs = REQUEST_TIMEOUT_MS) {
+  const url = baseUrl + '/' + leaseDoc
+    + '?transaction=' + encodeURIComponent(transaction);
   try {
     const document = await firestoreRequest(url, token, { method: 'GET' }, requestTimeoutMs);
+    return { exists: true, updateTime: document.updateTime, lease: leaseFromDocument(document) };
+  } catch (error) {
+    if (error?.status === 404) return { exists: false, updateTime: null, lease: null };
+    throw error;
+  }
+}
+
+async function readLeaseSnapshot(baseUrl, token, leaseDoc, requestTimeoutMs = REQUEST_TIMEOUT_MS) {
+  try {
+    const document = await firestoreRequest(baseUrl + '/' + leaseDoc, token, { method: 'GET' }, requestTimeoutMs);
     return { exists: true, updateTime: document.updateTime, lease: leaseFromDocument(document) };
   } catch (error) {
     if (error?.status === 404) return { exists: false, updateTime: null, lease: null };
@@ -412,6 +423,15 @@ async function commitTransaction(baseUrl, token, transaction, write, requestTime
     method: 'POST',
     body: JSON.stringify({ transaction, writes: [write] }),
   }, requestTimeoutMs);
+}
+
+async function createFirestoreContext(credentials, requestTimeoutMs = REQUEST_TIMEOUT_MS) {
+  const projectId = credentials.project_id || process.env.GOOGLE_CLOUD_PROJECT;
+  if (!projectId) throw new Error('service account project_id is missing');
+  const baseUrl = 'https://firestore.googleapis.com/v1/projects/'
+    + encodeURIComponent(projectId) + '/databases/(default)/documents';
+  const token = await exchangeAssertionForToken(createJwtAssertion(credentials), requestTimeoutMs);
+  return { projectId, baseUrl, token };
 }
 
 async function rollbackTransaction(baseUrl, token, transaction, deadlineAt) {
@@ -449,70 +469,85 @@ async function transact({
   transactionAttempts = TRANSACTION_ATTEMPTS,
   deadlineAt,
   sleepFn = sleep,
+  firestoreContext = null,
 }) {
-  const projectId = credentials.project_id || process.env.GOOGLE_CLOUD_PROJECT;
-  if (!projectId) throw new Error('service account project_id is missing');
-  const baseUrl = 'https://firestore.googleapis.com/v1/projects/'
-    + encodeURIComponent(projectId) + '/databases/(default)/documents';
-  const token = await exchangeAssertionForToken(
-    createJwtAssertion(credentials),
+  const context = firestoreContext || await createFirestoreContext(
+    credentials,
     requestTimeoutFor(deadlineAt),
   );
+  const { projectId, baseUrl, token } = context;
   const expiresAt = now + ttlMs;
 
   for (let attempt = 1; attempt <= transactionAttempts; attempt++) {
-    const current = await readLease(baseUrl, token, leaseDoc, requestTimeoutFor(deadlineAt));
-    const decision = leaseDecision(current.lease, owner, now);
-
-    if (action === 'acquire' && decision.action === 'busy') {
-      return {
-        acquired: false,
-        released: false,
-        busy: true,
-        reason: decision.reason,
-        expiresAt: decision.expiresAt,
-        holder: current.lease,
-      };
-    }
-    if (action === 'release' && !current.exists) {
-      return {
-        acquired: false,
-        released: true,
-        busy: false,
-        notOwner: false,
-        alreadyReleased: true,
-        contended: false,
-      };
-    }
-    if (action === 'release' && current.lease.owner !== owner) {
-      return {
-        acquired: false,
-        released: false,
-        busy: false,
-        notOwner: current.exists,
-        contended: current.exists && current.lease.owner !== owner,
-        holder: current.lease || undefined,
-      };
-    }
-
-    const documentName = firestoreDocumentName(projectId, leaseDoc);
-    const precondition = current.exists
-      ? { currentDocument: { updateTime: current.updateTime } }
-      : { currentDocument: { exists: false } };
-
-    const write = action === 'release'
-      ? { delete: documentName, ...precondition }
-      : {
-          update: {
-            name: documentName,
-            fields: documentFields({ owner, repo, workflow, runId, now, expiresAt }),
-          },
-          ...precondition,
-        };
-
     let transaction;
+    let transactionClosed = false;
+    let holder;
+    const rollback = async () => {
+      if (!transaction || transactionClosed) return;
+      transactionClosed = true;
+      await rollbackTransaction(baseUrl, token, transaction, deadlineAt);
+    };
+
     try {
       transaction = await beginTransaction(baseUrl, token, requestTimeoutFor(deadlineAt));
+      const current = await readLease(
+        baseUrl,
+        token,
+        transaction,
+        leaseDoc,
+        requestTimeoutFor(deadlineAt, ROLLBACK_TIMEOUT_MS),
+      );
+      holder = current.lease;
+      const decision = leaseDecision(current.lease, owner, now);
+
+      if (action === 'acquire' && decision.action === 'busy') {
+        await rollback();
+        return {
+          acquired: false,
+          released: false,
+          busy: true,
+          reason: decision.reason,
+          expiresAt: decision.expiresAt,
+          holder: current.lease,
+        };
+      }
+      if (action === 'release' && !current.exists) {
+        await rollback();
+        return {
+          acquired: false,
+          released: true,
+          busy: false,
+          notOwner: false,
+          alreadyReleased: true,
+          contended: false,
+        };
+      }
+      if (action === 'release' && current.lease.owner !== owner) {
+        await rollback();
+        return {
+          acquired: false,
+          released: false,
+          busy: false,
+          notOwner: current.exists,
+          contended: current.exists && current.lease.owner !== owner,
+          holder: current.lease || undefined,
+        };
+      }
+
+      const documentName = firestoreDocumentName(projectId, leaseDoc);
+      const precondition = current.exists
+        ? { currentDocument: { updateTime: current.updateTime } }
+        : { currentDocument: { exists: false } };
+      const write = action === 'release'
+        ? { delete: documentName, ...precondition }
+        : {
+            update: {
+              name: documentName,
+              fields: documentFields({ owner, repo, workflow, runId, now, expiresAt }),
+            },
+            ...precondition,
+          };
+
       await commitTransaction(
         baseUrl,
         token,
@@ -520,6 +555,7 @@ async function transact({
         write,
         requestTimeoutFor(deadlineAt, ROLLBACK_TIMEOUT_MS),
       );
+      transactionClosed = true;
       return {
         acquired: action === 'acquire',
         released: action === 'release',
@@ -527,12 +563,12 @@ async function transact({
         expiresAt,
       };
     } catch (error) {
-      if (transaction) await rollbackTransaction(baseUrl, token, transaction, deadlineAt);
+      await rollback();
       if (!conflictError(error) || attempt === transactionAttempts) {
-        throw attachLeaseHolder(error, current.lease);
+        throw attachLeaseHolder(error, holder);
       }
       const remaining = deadlineAt == null ? Infinity : deadlineAt - Date.now();
-      if (remaining <= 0) throw attachLeaseHolder(error, current.lease);
+      if (remaining <= 0) throw attachLeaseHolder(error, holder);
       await sleepFn(Math.min(250 * attempt, remaining));
     }
   }
@@ -571,16 +607,54 @@ export async function acquireLease(options = {}) {
     workflow: options.workflow || process.env.GITHUB_WORKFLOW || 'manual',
     runId: options.runId || process.env.GITHUB_RUN_ID || String(process.pid),
     ttlMs: options.ttlMs || positiveEnvInteger('DATA_PIPELINE_LEASE_TTL_MS', GLOBAL_DATA_PIPELINE_LEASE_TTL_MS),
+    leaseDoc: options.leaseDoc ?? GLOBAL_DATA_PIPELINE_LEASE_DOC,
     sleepFn,
   };
   const deadline = Date.now() + waitMs;
+  // waitMs=0 still permits one immediate snapshot/transaction attempt. A
+  // positive wait gets a bounded request budget for each operation.
+  const requestDeadline = waitMs === 0 ? undefined : deadline;
   let transientErrorCount = 0;
   let lastHolder;
   let pollNumber = 0;
   while (true) {
     let result;
     try {
-      result = await transact(transactionOptions);
+      // A normal waiter must not repeatedly acquire a pessimistic Firestore
+      // read lock. The simple snapshot is lock-free; only a snapshot that
+      // could be acquired is rechecked inside a transaction, where a race is
+      // resolved atomically before the write.
+      const context = await createFirestoreContext(
+        transactionOptions.credentials,
+        requestTimeoutFor(requestDeadline),
+      );
+      const snapshot = await readLeaseSnapshot(
+        context.baseUrl,
+        context.token,
+        transactionOptions.leaseDoc,
+        requestTimeoutFor(requestDeadline),
+      );
+      const decision = leaseDecision(
+        snapshot.lease,
+        transactionOptions.owner,
+        transactionOptions.now === undefined ? Date.now() : transactionOptions.now,
+      );
+      if (decision.action === 'busy') {
+        result = {
+          acquired: false,
+          released: false,
+          busy: true,
+          reason: decision.reason,
+          expiresAt: decision.expiresAt,
+          holder: snapshot.lease,
+        };
+      } else {
+        result = await transact({
+          ...transactionOptions,
+          deadlineAt: requestDeadline,
+          firestoreContext: context,
+        });
+      }
     } catch (error) {
       if (!isRetryableLeaseError(error)) throw error;
       transientErrorCount += 1;
@@ -705,10 +779,11 @@ export async function releaseLease(options = {}) {
       });
       if (result.holder) lastHolder = result.holder;
       if (result.contended !== undefined) contended = result.contended;
-      if (result.notOwner || result.released) return { ...result, attempts };
+      if (result.notOwner || result.released) return { ...result, attempts, ...(contended === undefined ? {} : { contended }) };
     } catch (error) {
       lastError = error;
       if (error?.leaseHolder) lastHolder = error.leaseHolder;
+      if (conflictError(error)) contended = true;
       if (!isRetryableLeaseError(error)) break;
     }
 
