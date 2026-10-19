@@ -1,7 +1,7 @@
 {
   "key": "my",
   "label": "Teo Jakob AG",
-  "generatedAt": "2026-10-19T01:44:29.451Z",
+  "generatedAt": "2026-10-19T09:37:09.759Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,16 +12,19 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 4521,
-  "avgDurationMs": 4521,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 4282,
+  "avgDurationMs": 4282,
   "durationHistory": [
-    4521
+    4282
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "my-d79151f26e85",
       "slug": "apprendista-commercio-al-dettaglio-afc-mobili-m-f-100-teo-jakob-ag-bern",
@@ -34,7 +37,7 @@
       "url": "https://my.jobalino.ch/job/6627a44879cd0/teo-jakob-ag/lernende-detailhandel-efz-moebel-m-w",
       "source": "Teo Jakob AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T01:44:13.053Z",
+      "crawledAt": "2026-10-19T09:36:49.531Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -65,51 +68,5 @@
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "my-d79151f26e85",
-      "slug": "apprendista-commercio-al-dettaglio-afc-mobili-m-f-100-teo-jakob-ag-bern",
-      "company": "Teo Jakob AG",
-      "companyKey": "my",
-      "companyDomain": "my.jobalino.ch",
-      "title": "Lernende Detailhandel EFZ Möbel (m/w) / 100%",
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://my.jobalino.ch/job/6627a44879cd0/lernende-detailhandel-efz-moebel-m-w",
-      "source": "Teo Jakob AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:45:56.628Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Gerechtigkeitsgasse 25",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2024-04-23",
-      "postedDate": "2024-04-23",
-      "postingDateSource": "reported",
-      "applyUrl": "https://my.jobalino.ch/job/6627a44879cd0/lernende-detailhandel-efz-moebel-m-w",
-      "firstSeenAt": "2026-10-12T21:40:17.558Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "unchangedJobs": [],
-  "codeCommit": "b6e494ea5b9a932f8e412d6ccd19c05b9a480ea5"
+  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
 }

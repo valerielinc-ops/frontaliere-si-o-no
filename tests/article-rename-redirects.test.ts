@@ -524,6 +524,11 @@ describe('every entry is in a valid phase of a rename (see the truth table above
     });
   });
 
+  it('maps the historical GSC French slug to the same 2024 Locarnese arrests story', () => {
+    expect(redirects['/fr/articles-frontalier/appels-shock-arrestations/'])
+      .toBe('/fr/articles-frontalier/appels-chocs-arrestations-locarnese-2024/');
+  });
+
   it('reads the published slugs from both section registries', () => {
     // These live under packages/articles/content/ and are present in EVERY
     // worktree (unlike public/ and data/), which is what makes the assertions

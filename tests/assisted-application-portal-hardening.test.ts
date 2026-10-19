@@ -18,6 +18,7 @@ import {
   PREREAD_CHANNELS,
   portalRequirementsFromMissingRequired,
   portalRequiredDocumentFromField,
+  portalEntryUrl,
   readPortalQuestions,
   realisticUserAgent,
   urlConfirms,
@@ -27,6 +28,15 @@ import { interviewPrepUserText } from '../functions/src/assistedApplicationInter
 
 // career-ops comparison of 2026-10-01: what the portal runner still lacked.
 describe('portal runner hardening (career-ops apply.md)', () => {
+  it('opens a SuccessFactors application from its matching posting page', () => {
+    const applyUrl = 'https://jobs.six-group.com/talentcommunity/apply/1448418433/?locale=en_US';
+    const postingUrl = 'https://jobs.six-group.com/job/Zurich-Senior-IT-Manager/1448418433/';
+
+    expect(portalEntryUrl({ applyUrl, postingUrl })).toBe(postingUrl);
+    expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('1448418433', '1448418434') })).toBe(applyUrl);
+    expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('jobs.six-group.com', 'www.six-group.com') })).toBe(applyUrl);
+  });
+
   it('stops before filling a form that names neither the company nor the role', () => {
     const job = { company: 'Ospedale Regionale di Lugano SA', title: 'Infermiere/a diplomato/a' };
     expect(postingMatch('Ospedale Regionale di Lugano · Candidatura · Infermiera diplomata', job)).toBe('match');
@@ -391,6 +401,12 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     // page is caught and returns no requirements.
     const launch = () => { throw new Error('must not launch'); };
     expect(await readPortalQuestions({ channelType: 'employer_site', applyUrl: 'https://join.com/x', codex: async () => ({}), launch })).toEqual([]);
+    expect(await readPortalQuestions({
+      channelType: 'employer_site',
+      applyUrl: 'https://jobs.six-group.com/talentcommunity/apply/1448418433/?locale=en_US',
+      postingUrl: 'https://jobs.six-group.com/job/Zurich-Senior-IT-Manager/1448418434/',
+      codex: async () => ({}), launch,
+    })).toEqual([]);
     expect(await readPortalQuestions({ channelType: 'workday', applyUrl: 'https://x.wd3.myworkdayjobs.com/a', codex: async () => ({}), launch })).toEqual([]);
     // A browser that fails: no questions, no error.
     expect(await readPortalQuestions({ channelType: 'lever', applyUrl: 'https://jobs.lever.co/x/1/apply', codex: async () => ({}), launch })).toEqual([]);

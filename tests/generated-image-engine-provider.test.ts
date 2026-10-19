@@ -1,7 +1,7 @@
 // @vitest-environment node
 
 import { describe, expect, it, vi } from 'vitest';
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
@@ -42,6 +42,11 @@ import {
 } from '../packages/articles/engine/shared/generatedImageVision.mjs';
 import { LICENSED_PHOTO_KIND } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
+const ENGINE = readFileSync(
+  new URL('../packages/articles/engine/shared/generatedImageEngine.mjs', import.meta.url),
+  'utf8',
+);
+
 describe('generated image provider contracts', () => {
   it('re-exports the shared pure article-hero vision contract', () => {
     expect(imageVisionRejectionError).toBe(pureImageVisionRejectionError);
@@ -79,6 +84,29 @@ describe('generated image provider contracts', () => {
       cause: transportCause,
     });
     expect(isVisionProviderUnavailable(localFileFailure)).toBe(false);
+  });
+
+  it('does not defer permanently invalid vision credentials as a shared outage', () => {
+    const unauthorized = Object.assign(new Error('HTTP 401: Unauthorized'), { status: 401 });
+    const forbidden = Object.assign(new Error('authentication failed'), { statusCode: 403 });
+    const mixed = new AggregateError([
+      Object.assign(new Error('rate limit exceeded'), { status: 429 }),
+      unauthorized,
+    ], 'verifier requests failed');
+
+    expect(isVisionProviderUnavailable(unauthorized)).toBe(false);
+    expect(isVisionProviderUnavailable(forbidden)).toBe(false);
+    expect(isVisionProviderUnavailable(mixed)).toBe(false);
+  });
+
+  it('recognizes Codex broker timeout and no-response errors as transient outages', () => {
+    expect(isVisionProviderUnavailable(new Error('Codex broker timed out after 120000ms'))).toBe(true);
+    expect(isVisionProviderUnavailable(new Error('Codex broker closed without a response'))).toBe(true);
+    expect(isVisionProviderUnavailable(new AggregateError([
+      'Codex broker closed without a response',
+    ], 'vision verifier unavailable'))).toBe(true);
+    expect(ENGINE).toContain("error.code = 'ETIMEDOUT';");
+    expect(ENGINE).toContain("error.code = 'ECONNRESET';");
   });
 
   it('requires a complete article-hero vision verdict for both generated and licensed photos', () => {

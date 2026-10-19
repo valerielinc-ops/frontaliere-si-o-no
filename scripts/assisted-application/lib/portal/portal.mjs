@@ -157,6 +157,27 @@ const NAVIGATION = { listboxOptions: false };
 const MAX_AGENT_CALLS = 16;
 
 /**
+ * SAP SuccessFactors' Jobs2Web apply route can redirect to the employer's
+ * careers homepage when opened cold. Enter through the matching job detail
+ * page first so its normal Apply link establishes the portal session. Match
+ * both origin and posting id: a stale or unrelated posting URL must never
+ * change which application the runner opens.
+ */
+export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
+  const directUrl = String(applyUrl || '');
+  try {
+    const apply = new URL(directUrl);
+    const posting = new URL(String(postingUrl || ''));
+    const applyId = /^\/talentcommunity\/apply\/([^/]+)\/?$/i.exec(apply.pathname)?.[1];
+    const postingId = /^\/job\/[^/]+\/([^/]+)\/?$/i.exec(posting.pathname)?.[1];
+    if (apply.origin === posting.origin && applyId && postingId === applyId) return posting.href;
+  } catch {
+    // Keep the given application URL when either address is absent or invalid.
+  }
+  return directUrl;
+}
+
+/**
  * The browser's own user agent without "Headless", on the machine's real
  * system: some ATS turn away a browser that calls itself HeadlessChrome
  * (owner decision 2026-10-01). Same Chrome version, nothing else disguised.
@@ -368,6 +389,16 @@ function hasApplicationForm(snapshot) {
   const textish = snapshot.fields.filter((field) => field.kind === 'text' || field.kind === 'textarea').length;
   const email = snapshot.fields.some((field) => field.inputType === 'email' || /e-?mail/i.test(field.label));
   return kinds.includes('file') || (textish >= 3 && email);
+}
+
+/**
+ * A page with only the employer site's header/footer controls is not an
+ * application form. Keeping this separate from hasApplicationForm matters:
+ * custom application widgets may have no native fields yet, but their own
+ * buttons are still actionable and must reach the agentic fallback.
+ */
+export function hasApplicationSurface(snapshot) {
+  return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome));
 }
 
 /** A SuccessFactors page resumed between account creation and OTP submission. */
@@ -1665,7 +1696,15 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
  * @returns {Promise<{questions:Array<object>,documents:Array<object>}>} requirements for the review page
  */
 export async function readPortalRequirements(ctx) {
-  if (!PREREAD_CHANNELS.has(ctx.channelType) || !ctx.applyUrl || !ctx.codex) return { questions: [], documents: [] };
+  const entryUrl = portalEntryUrl(ctx);
+  // Some employer sites expose a Jobs2Web application URL without using a
+  // SuccessFactors hostname. Only pre-read those when the validated same-ID
+  // posting route above proves that this is the matching application flow.
+  const verifiedJobs2WebEntry = ctx.channelType === 'employer_site'
+    && entryUrl !== String(ctx.applyUrl || '');
+  if ((!PREREAD_CHANNELS.has(ctx.channelType) && !verifiedJobs2WebEntry) || !ctx.applyUrl || !ctx.codex) {
+    return { questions: [], documents: [] };
+  }
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
   let browser = null;
   try {
@@ -1678,7 +1717,7 @@ export async function readPortalRequirements(ctx) {
       acceptDownloads: false,
     });
     let page = await context.newPage();
-    await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot;
     ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
@@ -1772,7 +1811,8 @@ export async function submitViaPortal(ctx) {
     // Which browser the portal saw (the run's logs are deleted): headed on the
     // virtual screen or headless, and the user agent it sent.
     evidence.browser = { headed: headedBrowser(), userAgent: await page.evaluate(() => navigator.userAgent).catch(() => ''), nopecha: Boolean(extensionPath) };
-    const response = await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    const entryUrl = portalEntryUrl(ctx);
+    const response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
     snapshot = await awaitCaptcha(page, snapshot, { enabled: Boolean(extensionPath) });
@@ -1780,7 +1820,7 @@ export async function submitViaPortal(ctx) {
     // fetch before the run sees only the empty shell of a JavaScript portal.
     const rendered = classifyLiveness({
       status: response?.status() || 0,
-      requestedUrl: ctx.applyUrl,
+      requestedUrl: entryUrl,
       finalUrl: page.url(),
       bodyText: await pageText(page),
       applyControls: snapshot.buttons.map((button) => button.text || button.label || ''),
@@ -1822,6 +1862,11 @@ export async function submitViaPortal(ctx) {
     };
     const match = await formMatch();
     evidence.postingMatch = match;
+    // A generic careers landing page can mention the employer and therefore
+    // pass postingMatch, while exposing only the site's Menu/Search controls.
+    // Do not send that chrome to the agent as if it were an unanswered
+    // candidate question; it is not the application form for this posting.
+    if (!hasApplicationSurface(snapshot) && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
@@ -1945,7 +1990,7 @@ export async function submitViaPortal(ctx) {
         if (auth.handoff) return await handoff(auth.handoff);
         snapshot = auth.snapshot;
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
-          await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
           ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
           snapshot = await extractFields(page);
@@ -2028,7 +2073,7 @@ export async function submitViaPortal(ctx) {
         // After a sign-in or a verification link the portal may land on its
         // home page: back to the posting and its form.
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
-          await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
           ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
           snapshot = await extractFields(page);
