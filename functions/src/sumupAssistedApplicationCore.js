@@ -1,5 +1,5 @@
 /**
- * SumUp Checkout for the one-off assisted-application payment.
+ * SumUp Checkout for assisted applications and the application concierge.
  *
  * SumUp is deliberately isolated from the existing Stripe integrations. The
  * assisted-application endpoint selects it only when the owner explicitly
@@ -10,6 +10,7 @@
 
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { ASSISTED_APPLICATION_PRICE_EUR_CENTS } from './assistedApplicationConstants.js';
+import { APPLICATION_CONCIERGE_PRICE_EUR_CENTS } from './applicationConciergeConstants.js';
 
 export const ASSISTED_APPLICATION_PAYMENT_PROVIDER_RC_KEY = 'ASSISTED_APPLICATION_PAYMENT_PROVIDER';
 export const SUMUP_API_KEY_RC_KEY = 'SUMUP_API_KEY';
@@ -23,6 +24,32 @@ function boundedString(value, max) {
   const result = String(value ?? '').trim();
   return result && result.length <= max ? result : '';
 }
+
+function timestampMillis(value) {
+  const parsed = Date.parse(String(value ?? ''));
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+/**
+ * SumUp returns the transaction list in provider order, not a contractually
+ * stable chronological order. Pick by the transaction timestamp so a later
+ * successful retry is not represented by an older failed attempt.
+ */
+export function latestSumUpTransaction(checkout) {
+  const transactions = Array.isArray(checkout?.transactions)
+    ? checkout.transactions.filter((transaction) => transaction && typeof transaction === 'object')
+    : [];
+  return transactions.reduce((latest, transaction) => {
+    if (!latest) return transaction;
+    const latestAt = timestampMillis(latest.timestamp);
+    const transactionAt = timestampMillis(transaction.timestamp);
+    if (transactionAt !== null && (latestAt === null || transactionAt > latestAt)) {
+      return transaction;
+    }
+    return latest;
+  }, null);
+}
+
 export class SumUpApiError extends Error {
   constructor(status, message = 'sumup_api_request_failed') {
     super(message);
@@ -160,6 +187,19 @@ export async function createSumUpHostedCheckout(
   read = getRemoteConfigValue,
 ) {
   return createSumUpCheckout({ ...options, hostedCheckout: true }, read);
+}
+
+export async function createSumUpApplicationConciergeCheckout(
+  { serviceId, redirectUrl },
+  read = getRemoteConfigValue,
+) {
+  return createSumUpCheckout({
+    checkoutReference: serviceId,
+    redirectUrl,
+    amountCents: APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
+    description: 'Servizio candidature assistite',
+    hostedCheckout: false,
+  }, read);
 }
 
 export async function createSumUpAssistedApplicationCheckout(

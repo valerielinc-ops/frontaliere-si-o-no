@@ -163,8 +163,11 @@ const I18N = {
     fxLabel: '1 franco',
     fxCta: 'Confronta i servizi di cambio',
     jobsTitle: 'Lavoro',
+    jobsActiveTitle: 'Annunci attivi in Svizzera',
     jobsYesterday: 'Nuovi annunci ieri',
     jobsActive: '{n} annunci attivi da {companies} aziende',
+    jobsActiveOnly: '{n} annunci attivi',
+    jobsCompanies: 'da {n} aziende',
     jobsCta: 'Cerca lavoro in Ticino e in Svizzera',
     editionCta: 'Leggi il bollettino completo',
     editionNote: 'I numeri qui sopra fotografano il momento della pubblicazione. Le pagine collegate restano aggiornate tutto il giorno.',
@@ -207,8 +210,11 @@ const I18N = {
     fxLabel: '1 franc',
     fxCta: 'Compare exchange services',
     jobsTitle: 'Jobs',
+    jobsActiveTitle: 'Active Swiss job listings',
     jobsYesterday: 'New listings yesterday',
     jobsActive: '{n} active listings from {companies} companies',
+    jobsActiveOnly: '{n} active listings',
+    jobsCompanies: 'from {n} companies',
     jobsCta: 'Search jobs in Ticino and Switzerland',
     editionCta: 'Read the full brief',
     editionNote: 'The numbers above are a snapshot taken at publication. The linked pages stay live all day.',
@@ -251,8 +257,11 @@ const I18N = {
     fxLabel: '1 Franken',
     fxCta: 'Wechseldienste vergleichen',
     jobsTitle: 'Stellen',
+    jobsActiveTitle: 'Aktive Stellenanzeigen in der Schweiz',
     jobsYesterday: 'Neue Inserate gestern',
     jobsActive: '{n} aktive Inserate von {companies} Unternehmen',
+    jobsActiveOnly: '{n} aktive Inserate',
+    jobsCompanies: 'von {n} Unternehmen',
     jobsCta: 'Stellen im Tessin und in der Schweiz suchen',
     editionCta: 'Zum vollständigen Bulletin',
     editionNote: 'Die Zahlen oben sind eine Momentaufnahme zum Zeitpunkt der Veröffentlichung. Die verlinkten Seiten bleiben den ganzen Tag aktuell.',
@@ -295,8 +304,11 @@ const I18N = {
     fxLabel: '1 franc',
     fxCta: 'Comparer les services de change',
     jobsTitle: 'Emploi',
+    jobsActiveTitle: 'Offres actives en Suisse',
     jobsYesterday: 'Nouvelles offres hier',
     jobsActive: '{n} offres actives de {companies} entreprises',
+    jobsActiveOnly: '{n} offres actives',
+    jobsCompanies: 'de {n} entreprises',
     jobsCta: 'Chercher un emploi au Tessin et en Suisse',
     editionCta: 'Lire le bulletin complet',
     editionNote: 'Les chiffres ci-dessus sont un instantané au moment de la publication. Les pages liées restent à jour toute la journée.',
@@ -519,11 +531,17 @@ export function briefSections(brief, locale, { utm = '' } = {}) {
     // jobs; without `last7dAdded` the block simply has no movement to show.
     const avg7 = Number.isFinite(jobs.last7dAdded) && jobs.last7dAdded > 0 ? jobs.last7dAdded / 7 : null;
     const diff = avg7 == null ? null : jobs.yesterdayAdded - avg7;
+    const activeJobs = Number.isFinite(jobs.activeJobs) ? int(jobs.activeJobs, locale) : null;
+    const activeCompanies = Number.isFinite(jobs.activeCompanies) ? int(jobs.activeCompanies, locale) : null;
+    const activeSummary = activeJobs == null ? '' : activeCompanies == null
+      ? fill(s.jobsActiveOnly, { n: activeJobs })
+      : fill(s.jobsActive, { n: activeJobs, companies: activeCompanies });
+    const support = [s.jobsYesterday, activeSummary].filter(Boolean).join(' · ');
     sections.push({
       key: 'jobs',
       title: s.jobsTitle,
       headline: `+${int(jobs.yesterdayAdded, locale)}`,
-      support: `${s.jobsYesterday} · ${fill(s.jobsActive, { n: int(jobs.activeJobs ?? 0, locale), companies: int(jobs.activeCompanies ?? 0, locale) })}`,
+      support,
       ctaLabel: s.jobsCta,
       ctaUrl: link('jobs'),
       ...(diff == null ? {} : {
@@ -534,7 +552,23 @@ export function briefSections(brief, locale, { utm = '' } = {}) {
           pct: (Math.abs(diff) / avg7) * 100,
         },
       }),
-      text: `${s.jobsTitle}: +${int(jobs.yesterdayAdded, locale)} — ${fill(s.jobsActive, { n: int(jobs.activeJobs ?? 0, locale), companies: int(jobs.activeCompanies ?? 0, locale) })}`,
+      text: `${s.jobsTitle}: +${int(jobs.yesterdayAdded, locale)}${support ? ` — ${support}` : ''}`,
+    });
+  } else if (jobs?.available && Number.isFinite(jobs.activeJobs)) {
+    // Date-keyed job counts can still change after the day begins. When the
+    // corpus withholds that unfinalized count, keep the email's jobs topic and
+    // show only the separately attested active total; it carries no movement.
+    const activeJobs = int(jobs.activeJobs, locale);
+    const companies = Number.isFinite(jobs.activeCompanies)
+      ? fill(s.jobsCompanies, { n: int(jobs.activeCompanies, locale) }) : '';
+    sections.push({
+      key: 'jobs',
+      title: s.jobsActiveTitle,
+      headline: activeJobs,
+      support: companies,
+      ctaLabel: s.jobsCta,
+      ctaUrl: link('jobs'),
+      text: `${s.jobsActiveTitle}: ${activeJobs}${companies ? ` — ${companies}` : ''}`,
     });
   }
 

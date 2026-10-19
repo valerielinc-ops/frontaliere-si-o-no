@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const enCore: Record<string, string> = {
+ 'whatsNew.v3990.title': "Easier payment for assisted applications",
+ 'whatsNew.v3990.conciergeCheckout.title': "Pay without leaving the site",
+ 'whatsNew.v3990.conciergeCheckout.desc': "Payment for the 30-day service is completed in an embedded form. If you close the popup or reload the page, you can resume the same attempt; the service activates only after payment is confirmed.",
  "whatsNew.v3989.title": "Pharmacy schedules preserved over time",
  "whatsNew.v3989.pharmacyArchive.title": "Two September weeks recovered",
  "whatsNew.v3989.pharmacyArchive.desc": "Observed assignments remain available with their original collection dates and sources. Historical archives do not indicate current duties or opening hours.",
@@ -857,6 +860,9 @@ const enCore: Record<string, string> = {
  'jobBoard.concierge.noRenewal': 'One-off payment · no renewal',
  'jobBoard.concierge.disclosure': 'Paid service: €39.99. Automation helps you apply more efficiently, but we do not guarantee suitable positions, applications sent, replies, interviews, or hires.',
  'jobBoard.concierge.start': 'Activate the service',
+ 'jobBoard.concierge.resumePayment': 'Continue payment',
+ 'jobBoard.concierge.paymentTitle': 'Complete your payment',
+ 'jobBoard.concierge.paymentError': 'The payment could not be completed. Check your details or try again.',
  'jobBoard.concierge.offerLink': 'Looking for more positions? Automate your job search',
  'jobBoard.concierge.offerLinkHint': 'We find suitable positions, prepare tailored applications and send them after your go-ahead.',
  'jobBoard.concierge.landingBadge': 'Automation + personal control for 30 days',

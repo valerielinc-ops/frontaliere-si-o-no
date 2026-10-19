@@ -19,8 +19,9 @@ vi.stubGlobal('fetch', fetchMock);
 
 const {
   createSumUpAssistedApplicationCheckout,
-  createSumUpHostedCheckout,
+  createSumUpApplicationConciergeCheckout,
   getAssistedApplicationPaymentProvider,
+  latestSumUpTransaction,
   refundSumUpTransaction,
   retrieveSumUpCheckout,
 } = await import('../functions/src/sumupAssistedApplicationCore.js');
@@ -39,6 +40,19 @@ beforeEach(() => {
   fetchMock.mockReset();
 });
 describe('SumUp assisted-application payment client', () => {
+  it('selects the newest transaction by timestamp, not array position', () => {
+    expect(latestSumUpTransaction({
+      transactions: [
+        { id: 'successful-retry', status: 'SUCCESSFUL', timestamp: '2026-10-12T12:22:48.309Z' },
+        { id: 'failed-retry', status: 'FAILED', timestamp: '2026-10-12T12:22:15.638Z' },
+        { id: 'failed-first', status: 'FAILED', timestamp: '2026-10-12T12:21:25.969Z' },
+      ],
+    })).toEqual(expect.objectContaining({
+      id: 'successful-retry',
+      status: 'SUCCESSFUL',
+    }));
+  });
+
   it('uses SumUp only when the payment-provider configuration explicitly selects it', async () => {
     expect(await getAssistedApplicationPaymentProvider()).toBe('sumup');
     remoteConfig.mockResolvedValue('');
@@ -79,25 +93,28 @@ describe('SumUp assisted-application payment client', () => {
     });
   });
 
-  it('keeps Hosted Checkout available for the concierge flow', async () => {
+  it('creates a 39.99 EUR embedded concierge checkout without a hosted page', async () => {
     fetchMock.mockResolvedValue({
       ok: true,
       json: async () => ({
         id: 'sumup_concierge_1',
-        hosted_checkout_url: 'https://checkout.sumup.com/pay/sumup_concierge_1',
       }),
     });
 
-    await expect(createSumUpHostedCheckout({
-      checkoutReference: 'concierge-1',
+    await expect(createSumUpApplicationConciergeCheckout({
+      serviceId: 'concierge-1',
       redirectUrl: 'https://frontaliereticino.ch/concierge?order=concierge-1',
     })).resolves.toEqual({
       id: 'sumup_concierge_1',
-      url: 'https://checkout.sumup.com/pay/sumup_concierge_1',
     });
     expect(JSON.parse(fetchMock.mock.calls[0][1].body)).toEqual(expect.objectContaining({
-      hosted_checkout: { enabled: true },
+      amount: 39.99,
+      checkout_reference: 'concierge-1',
+      currency: 'EUR',
+      description: 'Servizio candidature assistite',
+      redirect_url: 'https://frontaliereticino.ch/concierge?order=concierge-1',
     }));
+    expect(JSON.parse(fetchMock.mock.calls[0][1].body)).not.toHaveProperty('hosted_checkout');
   });
 
   it('re-fetches a checkout and supports full refunds through the SumUp API', async () => {
