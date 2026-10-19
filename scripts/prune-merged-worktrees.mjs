@@ -141,63 +141,93 @@ import { sweepStaleFetchPacks } from './lib/stale-fetch-pack-sweep.mjs';
 // contenuto ricostruibile e non può aggirare --only o una decisione report-only.
 
 const STARTED_AT = Date.now();
-const APPLY = process.argv.includes('--apply');
 const DAY_MS = 24 * 60 * 60 * 1000;
 const DEFAULT_EXPIRY_DAYS = 3;
-
-function optionNumber(name, envNames, fallback) {
-  const eq = process.argv.find((a) => a.startsWith(`${name}=`));
-  const index = process.argv.indexOf(name);
-  const raw = eq ? eq.slice(name.length + 1) : (index >= 0 ? process.argv[index + 1] : undefined);
-  const envRaw = envNames.map((key) => process.env[key]).find((value) => value !== undefined);
-  const value = raw ?? envRaw;
-  if (value === undefined || value === '') return fallback;
-  const parsed = Number(value);
-  return Number.isFinite(parsed) ? Math.max(1, parsed) : fallback;
-}
 
 // La scadenza è intenzionalmente separata da IDLE_WORKTREE_MS: un checkout
 // vuoto può essere raccolto dopo un giorno, ma un branch con commit propri
 // deve avere sia l'ultimo commit sia l'ultimo segnale HEAD/index più vecchi di
 // questa soglia. `--orphans-only` usa la stessa soglia, con guardie ancora più
 // strette perché non ha un worktree da ispezionare.
-const EXPIRY_DAYS = optionNumber('--expiry-days', ['PRUNE_WORKTREE_EXPIRY_DAYS', 'PRUNE_EXPIRY_DAYS'], DEFAULT_EXPIRY_DAYS);
-const EXPIRY_MS = EXPIRY_DAYS * DAY_MS;
-// --only è fail-closed: un valore mancante/non vuoto o duplicato non deve mai
-// degradare a uno sweep senza filtro, soprattutto con --apply.
-function parseOnly(args) {
-  const values = [];
+// Valida l'intera CLI prima di leggere o modificare lo stato Git: un refuso non
+// deve mai trasformare un prune mirato in uno sweep completo.
+function parseOptions(args, env) {
+  const values = { apply: false, only: null, orphansOnly: false, expiryDays: undefined };
+  const seen = new Set();
+  const markSeen = (name) => {
+    if (seen.has(name)) throw new Error(`${name} può essere specificato una sola volta`);
+    seen.add(name);
+  };
+
   for (let i = 0; i < args.length; i++) {
     const arg = args[i];
-    if (arg === '--only') {
+
+    if (arg === '--apply') {
+      markSeen(arg);
+      values.apply = true;
+    } else if (arg === '--orphans-only') {
+      markSeen(arg);
+      values.orphansOnly = true;
+    } else if (arg === '--only') {
+      markSeen(arg);
       const value = args[i + 1];
       if (!value || value.startsWith('--')) {
         throw new Error('--only richiede un nome di branch o il path completo di un worktree/directory');
       }
-      values.push(value);
+      values.only = value;
       i++;
     } else if (arg.startsWith('--only=')) {
       const value = arg.slice('--only='.length);
       if (!value) throw new Error('--only richiede un nome di branch o il path completo di un worktree/directory');
-      values.push(value);
+      markSeen('--only');
+      values.only = value;
+    } else if (arg === '--expiry-days' || arg.startsWith('--expiry-days=')) {
+      markSeen('--expiry-days');
+      const value = arg === '--expiry-days' ? args[i + 1] : arg.slice('--expiry-days='.length);
+      if (value === undefined || value === '' || value.startsWith('--') || !Number.isFinite(Number(value))) {
+        throw new Error('--expiry-days richiede un numero');
+      }
+      values.expiryDays = Number(value);
+      if (arg === '--expiry-days') i++;
+    } else {
+      throw new Error(`opzione o argomento non riconosciuto: ${arg}`);
     }
   }
-  if (values.length > 1) throw new Error('--only può essere specificato una sola volta');
-  return values[0] ?? null;
+
+  if (values.only && values.orphansOnly) {
+    throw new Error('--only e --orphans-only non possono essere usati insieme');
+  }
+
+  const envExpiry = env.PRUNE_WORKTREE_EXPIRY_DAYS ?? env.PRUNE_EXPIRY_DAYS;
+  const rawExpiryDays = values.expiryDays ?? (envExpiry === '' ? undefined : envExpiry);
+  const expiryDays = rawExpiryDays === undefined ? DEFAULT_EXPIRY_DAYS : Number(rawExpiryDays);
+  if (!Number.isFinite(expiryDays)) {
+    throw new Error('PRUNE_WORKTREE_EXPIRY_DAYS / PRUNE_EXPIRY_DAYS deve essere un numero');
+  }
+  return {
+    apply: values.apply,
+    only: values.only,
+    orphansOnly: values.orphansOnly,
+    expiryDays: Math.max(1, expiryDays),
+  };
 }
 
-let ONLY;
+let OPTIONS;
 try {
-  ONLY = parseOnly(process.argv.slice(2));
+  OPTIONS = parseOptions(process.argv.slice(2), process.env);
 } catch (error) {
   console.error(`✖ ${error.message}`);
   process.exit(2);
 }
+const APPLY = OPTIONS.apply;
+const ONLY = OPTIONS.only;
+const EXPIRY_DAYS = OPTIONS.expiryDays;
+const EXPIRY_MS = EXPIRY_DAYS * DAY_MS;
 const selected = (...names) => !ONLY || names.some((n) => typeof n === 'string' && n === ONLY);
 // --orphans-only: fast-path sicuro per il SessionEnd hook. Cancella SOLO i branch
 // `worktree-agent-<id>` 0-ahead orfani (dir worktree già auto-rimossa da
 // EnterWorktree). Zero gh, zero rimozione worktree → non-presidiabile.
-const ORPHANS_ONLY = process.argv.includes('--orphans-only');
+const ORPHANS_ONLY = OPTIONS.orphansOnly;
 // Le pulizie di repository non legate a un candidato sono ammesse solo nello
 // sweep completo applicato. Dry-run e --only possono aggiornare la base per le
 // prove, ma non devono potare ref, pack o metadati di worktree estranei.
