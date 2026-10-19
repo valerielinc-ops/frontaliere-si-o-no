@@ -32,6 +32,7 @@ describe('Stellenpartner AG crawler parser', () => {
     expect(spec.seedUrls).toEqual([
       'https://www.stellenpartner.ch/stellen/?sort=title-asc',
     ]);
+    expect(spec.pagination.countDuplicateRowsForCoverage).toBe(true);
   });
 
   // ── isCompanyJob ──

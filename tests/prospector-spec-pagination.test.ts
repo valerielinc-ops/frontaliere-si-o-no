@@ -129,6 +129,23 @@ describe('spec.pagination', () => {
     ]);
   });
 
+  it('può misurare la copertura sulle righe source duplicate prima del dedup', async () => {
+    const pages = {
+      [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 4, next: `${ORIGIN}/?sf_paged=2` }),
+      // The source declares four rows but repeats sa2 on the second page;
+      // three distinct URLs are still a complete raw listing walk.
+      [`${ORIGIN}/?sf_paged=2`]: listingPage({ ids: ['sa2', 'sa3'], page: 2, total: 4 }),
+    };
+    const { rows } = await collect(specWith({
+      pagination: { ...PAGINATION, countDuplicateRowsForCoverage: true },
+    }), pages);
+    expect(rows.map((row) => row.url)).toEqual([
+      `${ORIGIN}/job/sa1/`,
+      `${ORIGIN}/job/sa2/`,
+      `${ORIGIN}/job/sa3/`,
+    ]);
+  });
+
   it('fallisce chiuso quando la lettura non copre il totale dichiarato (link next sparito)', async () => {
     const pages = {
       [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 40 }),

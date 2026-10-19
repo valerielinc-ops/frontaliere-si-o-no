@@ -10,7 +10,8 @@
   "detailTemplate": "/stellen/*/",
   "pagination": {
     "maxPages": 100,
-    "declaredTotalPattern": "([\\d'’.,]+)\\s*(?:<[^>]*>\\s*)*Resultate"
+    "declaredTotalPattern": "([\\d'’.,]+)\\s*(?:<[^>]*>\\s*)*Resultate",
+    "countDuplicateRowsForCoverage": true
   },
   "sampleVacancyCount": 708,
   "sampleTitles": [
