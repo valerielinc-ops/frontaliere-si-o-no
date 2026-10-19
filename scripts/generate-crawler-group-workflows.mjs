@@ -1667,7 +1667,7 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex, { quarantin
   const slug = SHELL_SLUG_VAR;
   const memberBody = [
     'slug="$1"',
-    'crawler_id="$2"',
+    'crawler_id="${2:-$slug}"',
     `status_file="$state_dir/${slug}.status"`,
     'if [ ! -s "$status_file" ]; then',
     `  echo "::warning::${slug}: no terminal status was published"`,
@@ -1708,7 +1708,8 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex, { quarantin
     '}',
     ...crawlers.map((crawler) => {
       const crawlerId = buildCrawlerStepEnv(crawler, '').JOBS_HOUSEKEEPING_SCOPE || crawler.slug;
-      return `${AGGREGATE_MEMBER_FUNCTION} ${shellQuote(crawler.slug)} ${shellQuote(crawlerId)}`;
+      const crawlerIdArg = crawlerId === crawler.slug ? '' : ` ${shellQuote(crawlerId)}`;
+      return `${AGGREGATE_MEMBER_FUNCTION} ${shellQuote(crawler.slug)}${crawlerIdArg}`;
     }),
   );
   lines.push(

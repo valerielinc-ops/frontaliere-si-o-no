@@ -502,7 +502,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"

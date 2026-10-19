@@ -7819,7 +7819,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7863,35 +7863,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'albergo-gardenia' 'albergo-gardenia'
-          aggregate_crawler_member 'artificialy' 'artificialy'
-          aggregate_crawler_member 'csd-engineers' 'csd-engineers'
-          aggregate_crawler_member 'fust' 'fust'
-          aggregate_crawler_member 'hugo-boss' 'hugo-boss'
+          aggregate_crawler_member 'albergo-gardenia'
+          aggregate_crawler_member 'artificialy'
+          aggregate_crawler_member 'csd-engineers'
+          aggregate_crawler_member 'fust'
+          aggregate_crawler_member 'hugo-boss'
           aggregate_crawler_member 'lidl' 'lidl-svizzera'
-          aggregate_crawler_member 'migros-hq' 'migros-hq'
-          aggregate_crawler_member 'nestle' 'nestle'
+          aggregate_crawler_member 'migros-hq'
+          aggregate_crawler_member 'nestle'
           aggregate_crawler_member 'postch' 'posta-svizzera-centro-regionale'
-          aggregate_crawler_member 'brefispersonal' 'brefispersonal'
-          aggregate_crawler_member 'ecam' 'ecam'
-          aggregate_crawler_member 'christinavassalli' 'christinavassalli'
-          aggregate_crawler_member 'premiumpflege24' 'premiumpflege24'
-          aggregate_crawler_member 'mcdonald-s-switzerland' 'mcdonald-s-switzerland'
-          aggregate_crawler_member 'fachkraft' 'fachkraft'
-          aggregate_crawler_member 'postfinance' 'postfinance'
-          aggregate_crawler_member 'tsmg' 'tsmg'
-          aggregate_crawler_member 'capri-holdings' 'capri-holdings'
-          aggregate_crawler_member 'anicura' 'anicura'
-          aggregate_crawler_member 'fisba' 'fisba'
-          aggregate_crawler_member 'postauto' 'postauto'
-          aggregate_crawler_member 'pantr-ch' 'pantr-ch'
+          aggregate_crawler_member 'brefispersonal'
+          aggregate_crawler_member 'ecam'
+          aggregate_crawler_member 'christinavassalli'
+          aggregate_crawler_member 'premiumpflege24'
+          aggregate_crawler_member 'mcdonald-s-switzerland'
+          aggregate_crawler_member 'fachkraft'
+          aggregate_crawler_member 'postfinance'
+          aggregate_crawler_member 'tsmg'
+          aggregate_crawler_member 'capri-holdings'
+          aggregate_crawler_member 'anicura'
+          aggregate_crawler_member 'fisba'
+          aggregate_crawler_member 'postauto'
+          aggregate_crawler_member 'pantr-ch'
           aggregate_crawler_member 'confederazione' 'confederazione-ticino'
-          aggregate_crawler_member 'mediamarkt' 'mediamarkt'
-          aggregate_crawler_member 'pianorm' 'pianorm'
-          aggregate_crawler_member 'rehaklinik-seewis' 'rehaklinik-seewis'
-          aggregate_crawler_member 'my' 'my'
-          aggregate_crawler_member 'zaugg' 'zaugg'
-          aggregate_crawler_member 'physioswiss' 'physioswiss'
+          aggregate_crawler_member 'mediamarkt'
+          aggregate_crawler_member 'pianorm'
+          aggregate_crawler_member 'rehaklinik-seewis'
+          aggregate_crawler_member 'my'
+          aggregate_crawler_member 'zaugg'
+          aggregate_crawler_member 'physioswiss'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

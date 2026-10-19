@@ -7701,7 +7701,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7745,35 +7745,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'ottos' 'ottos'
-          aggregate_crawler_member 'kliniken-valens' 'kliniken-valens'
-          aggregate_crawler_member 'klinik-lengg' 'klinik-lengg'
-          aggregate_crawler_member 'strabag' 'strabag'
-          aggregate_crawler_member 'rfsm-fribourg' 'rfsm-fribourg'
-          aggregate_crawler_member 'vontobel' 'vontobel'
-          aggregate_crawler_member 'medics-labor' 'medics-labor'
-          aggregate_crawler_member 'igroove' 'igroove'
-          aggregate_crawler_member 'zambon' 'zambon'
+          aggregate_crawler_member 'ottos'
+          aggregate_crawler_member 'kliniken-valens'
+          aggregate_crawler_member 'klinik-lengg'
+          aggregate_crawler_member 'strabag'
+          aggregate_crawler_member 'rfsm-fribourg'
+          aggregate_crawler_member 'vontobel'
+          aggregate_crawler_member 'medics-labor'
+          aggregate_crawler_member 'igroove'
+          aggregate_crawler_member 'zambon'
           aggregate_crawler_member 'supsi' 'supsi-dti'
           aggregate_crawler_member 'pizzarotti' 'impresa-pizzarotti'
-          aggregate_crawler_member 'privatklinik-meiringen' 'privatklinik-meiringen'
-          aggregate_crawler_member 'stryker' 'stryker'
-          aggregate_crawler_member 'accor' 'accor'
-          aggregate_crawler_member 'ocst' 'ocst'
-          aggregate_crawler_member 'visionapartments' 'visionapartments'
-          aggregate_crawler_member 'ksb' 'ksb'
-          aggregate_crawler_member 'clinique-de-la-plaine' 'clinique-de-la-plaine'
-          aggregate_crawler_member 'givaudan' 'givaudan'
-          aggregate_crawler_member 'georg-fischer' 'georg-fischer'
-          aggregate_crawler_member 'klinik-wyssholzli' 'klinik-wyssholzli'
-          aggregate_crawler_member 'institution-lavigny' 'institution-lavigny'
-          aggregate_crawler_member 'buergenstock-hotels' 'buergenstock-hotels'
-          aggregate_crawler_member 'bcvs' 'bcvs'
-          aggregate_crawler_member 'hrc' 'hrc'
-          aggregate_crawler_member 'arxada' 'arxada'
-          aggregate_crawler_member 'adus-klinik' 'adus-klinik'
+          aggregate_crawler_member 'privatklinik-meiringen'
+          aggregate_crawler_member 'stryker'
+          aggregate_crawler_member 'accor'
+          aggregate_crawler_member 'ocst'
+          aggregate_crawler_member 'visionapartments'
+          aggregate_crawler_member 'ksb'
+          aggregate_crawler_member 'clinique-de-la-plaine'
+          aggregate_crawler_member 'givaudan'
+          aggregate_crawler_member 'georg-fischer'
+          aggregate_crawler_member 'klinik-wyssholzli'
+          aggregate_crawler_member 'institution-lavigny'
+          aggregate_crawler_member 'buergenstock-hotels'
+          aggregate_crawler_member 'bcvs'
+          aggregate_crawler_member 'hrc'
+          aggregate_crawler_member 'arxada'
+          aggregate_crawler_member 'adus-klinik'
           aggregate_crawler_member 'ist' 'international-school-of-ticino'
-          aggregate_crawler_member 'proman-fleurier' 'proman-fleurier'
+          aggregate_crawler_member 'proman-fleurier'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

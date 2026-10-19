@@ -7702,7 +7702,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7746,35 +7746,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'felfel' 'felfel'
-          aggregate_crawler_member 'siemens' 'siemens'
-          aggregate_crawler_member 'linnea' 'linnea'
-          aggregate_crawler_member 'oscam-castelrotto' 'oscam-castelrotto'
-          aggregate_crawler_member 'zkb' 'zkb'
-          aggregate_crawler_member 'rss-surselva' 'rss-surselva'
-          aggregate_crawler_member 'ukbb' 'ukbb'
-          aggregate_crawler_member 'totalenergies' 'totalenergies'
-          aggregate_crawler_member 'uzh' 'uzh'
-          aggregate_crawler_member 'klinik-aadorf' 'klinik-aadorf'
+          aggregate_crawler_member 'felfel'
+          aggregate_crawler_member 'siemens'
+          aggregate_crawler_member 'linnea'
+          aggregate_crawler_member 'oscam-castelrotto'
+          aggregate_crawler_member 'zkb'
+          aggregate_crawler_member 'rss-surselva'
+          aggregate_crawler_member 'ukbb'
+          aggregate_crawler_member 'totalenergies'
+          aggregate_crawler_member 'uzh'
+          aggregate_crawler_member 'klinik-aadorf'
           aggregate_crawler_member 'efg' 'efg-international'
-          aggregate_crawler_member 'spital-maennedorf' 'spital-maennedorf'
-          aggregate_crawler_member 'ubs' 'ubs'
-          aggregate_crawler_member 'ksa' 'ksa'
-          aggregate_crawler_member 'kispi-zurich' 'kispi-zurich'
-          aggregate_crawler_member 'helsinn' 'helsinn'
+          aggregate_crawler_member 'spital-maennedorf'
+          aggregate_crawler_member 'ubs'
+          aggregate_crawler_member 'ksa'
+          aggregate_crawler_member 'kispi-zurich'
+          aggregate_crawler_member 'helsinn'
           aggregate_crawler_member 'hib' 'hib-broye'
-          aggregate_crawler_member 'galliker' 'galliker'
-          aggregate_crawler_member 'clinique-cic' 'clinique-cic'
-          aggregate_crawler_member 'casale' 'casale'
-          aggregate_crawler_member 'interdiscount' 'interdiscount'
+          aggregate_crawler_member 'galliker'
+          aggregate_crawler_member 'clinique-cic'
+          aggregate_crawler_member 'casale'
+          aggregate_crawler_member 'interdiscount'
           aggregate_crawler_member 'bosch' 'bosch-thermotechnik-ag'
-          aggregate_crawler_member 'hopital-de-moutier' 'hopital-de-moutier'
-          aggregate_crawler_member 'mobiliar' 'mobiliar'
-          aggregate_crawler_member 'berner-montage' 'berner-montage'
-          aggregate_crawler_member 'climeworks' 'climeworks'
-          aggregate_crawler_member 'arosa-lenzerheide' 'arosa-lenzerheide'
-          aggregate_crawler_member 'schweizerhof-flims' 'schweizerhof-flims'
-          aggregate_crawler_member 'schindler' 'schindler'
+          aggregate_crawler_member 'hopital-de-moutier'
+          aggregate_crawler_member 'mobiliar'
+          aggregate_crawler_member 'berner-montage'
+          aggregate_crawler_member 'climeworks'
+          aggregate_crawler_member 'arosa-lenzerheide'
+          aggregate_crawler_member 'schweizerhof-flims'
+          aggregate_crawler_member 'schindler'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

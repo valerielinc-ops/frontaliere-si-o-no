@@ -7703,7 +7703,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7747,35 +7747,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'spital-emmental' 'spital-emmental'
-          aggregate_crawler_member 'swisslog' 'swisslog'
-          aggregate_crawler_member 'temenos' 'temenos'
-          aggregate_crawler_member 'stiftung-diaconis' 'stiftung-diaconis'
-          aggregate_crawler_member 'svar-spitalverbund-ar' 'svar-spitalverbund-ar'
-          aggregate_crawler_member 'kzu' 'kzu'
-          aggregate_crawler_member 'psgn' 'psgn'
-          aggregate_crawler_member 'trafigura' 'trafigura'
+          aggregate_crawler_member 'spital-emmental'
+          aggregate_crawler_member 'swisslog'
+          aggregate_crawler_member 'temenos'
+          aggregate_crawler_member 'stiftung-diaconis'
+          aggregate_crawler_member 'svar-spitalverbund-ar'
+          aggregate_crawler_member 'kzu'
+          aggregate_crawler_member 'psgn'
+          aggregate_crawler_member 'trafigura'
           aggregate_crawler_member 'vf' 'vf-international-the-north-face-timberland'
-          aggregate_crawler_member 'sobi' 'sobi'
-          aggregate_crawler_member 'therapiezentrum-meggen' 'therapiezentrum-meggen'
-          aggregate_crawler_member 'villa-im-park' 'villa-im-park'
-          aggregate_crawler_member 'vaudoise' 'vaudoise'
-          aggregate_crawler_member 'riveneuve' 'riveneuve'
+          aggregate_crawler_member 'sobi'
+          aggregate_crawler_member 'therapiezentrum-meggen'
+          aggregate_crawler_member 'villa-im-park'
+          aggregate_crawler_member 'vaudoise'
+          aggregate_crawler_member 'riveneuve'
           aggregate_crawler_member 'guess' 'guess-europe'
-          aggregate_crawler_member 'moncucco' 'moncucco'
-          aggregate_crawler_member 'fnz' 'fnz'
-          aggregate_crawler_member 'gesundheitszentrum-fricktal' 'gesundheitszentrum-fricktal'
-          aggregate_crawler_member 'medtronic' 'medtronic'
-          aggregate_crawler_member 'groupe-mutuel' 'groupe-mutuel'
-          aggregate_crawler_member 'clinique-de-valere' 'clinique-de-valere'
-          aggregate_crawler_member 'citta-di-locarno' 'citta-di-locarno'
-          aggregate_crawler_member 'deloitte' 'deloitte'
-          aggregate_crawler_member 'clinica-varini' 'clinica-varini'
-          aggregate_crawler_member 'citta-di-lugano' 'citta-di-lugano'
-          aggregate_crawler_member 'anker-swiss' 'anker-swiss'
-          aggregate_crawler_member 'guggerbach' 'guggerbach'
-          aggregate_crawler_member 'lonza' 'lonza'
-          aggregate_crawler_member 'kita-summervogel' 'kita-summervogel'
+          aggregate_crawler_member 'moncucco'
+          aggregate_crawler_member 'fnz'
+          aggregate_crawler_member 'gesundheitszentrum-fricktal'
+          aggregate_crawler_member 'medtronic'
+          aggregate_crawler_member 'groupe-mutuel'
+          aggregate_crawler_member 'clinique-de-valere'
+          aggregate_crawler_member 'citta-di-locarno'
+          aggregate_crawler_member 'deloitte'
+          aggregate_crawler_member 'clinica-varini'
+          aggregate_crawler_member 'citta-di-lugano'
+          aggregate_crawler_member 'anker-swiss'
+          aggregate_crawler_member 'guggerbach'
+          aggregate_crawler_member 'lonza'
+          aggregate_crawler_member 'kita-summervogel'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
