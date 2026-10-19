@@ -370,6 +370,16 @@ function hasApplicationForm(snapshot) {
   return kinds.includes('file') || (textish >= 3 && email);
 }
 
+/**
+ * A page with only the employer site's header/footer controls is not an
+ * application form. Keeping this separate from hasApplicationForm matters:
+ * custom application widgets may have no native fields yet, but their own
+ * buttons are still actionable and must reach the agentic fallback.
+ */
+export function hasApplicationSurface(snapshot) {
+  return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome));
+}
+
 /** A SuccessFactors page resumed between account creation and OTP submission. */
 export function isOtpVerificationPage(snapshot, host, account) {
   if (!account || account.verifiedAt || !usesOtpAccountCreation(host) || hasApplicationForm(snapshot)) return false;
@@ -1822,6 +1832,11 @@ export async function submitViaPortal(ctx) {
     };
     const match = await formMatch();
     evidence.postingMatch = match;
+    // A generic careers landing page can mention the employer and therefore
+    // pass postingMatch, while exposing only the site's Menu/Search controls.
+    // Do not send that chrome to the agent as if it were an unanswered
+    // candidate question; it is not the application form for this posting.
+    if (!hasApplicationSurface(snapshot) && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.

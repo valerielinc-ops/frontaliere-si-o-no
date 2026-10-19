@@ -257,8 +257,11 @@
     const type = tag === 'input' ? (element.getAttribute('type') || 'text').toLowerCase() : tag;
     if (['hidden', 'submit', 'button', 'reset', 'image'].includes(type)) continue;
     // The site's own search box is not part of the application; Workday's
-    // "selectinput" (a search box that picks an option) is.
-    if (type === 'search' && element.getAttribute('data-uxi-widget-type') !== 'selectinput') continue;
+    // "selectinput" (a search box that picks an option) is. Some corporate
+    // sites use a plain text input for the same global search (SIX, 2026-10-19),
+    // so the chrome guard must cover every input type, not only type=search.
+    if ((type === 'search' && element.getAttribute('data-uxi-widget-type') !== 'selectinput')
+      || (inSiteChrome(element) && element.getAttribute('data-uxi-widget-type') !== 'selectinput')) continue;
     if (element.closest(datePickerSelector)) continue;
     if (element.disabled || element.readOnly || !visible(element)) continue;
     // A field its own label keeps for robots («This input is for robots only, do not enter if you're human»)
