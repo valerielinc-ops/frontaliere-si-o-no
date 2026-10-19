@@ -178,7 +178,7 @@ describe('assisted application funnel events', () => {
       variant: 'assisted_application',
       jobId: 'job-42',
       companyId: 'company-acme',
-      price_eur_cents: 99,
+      price_eur_cents: 199,
     });
 
     expect(mocks.trackExperimentEvent).toHaveBeenCalledWith('checkout_started', expect.objectContaining({
@@ -186,7 +186,7 @@ describe('assisted application funnel events', () => {
       variant: 'assisted_application',
       job_id: 'job-42',
       company_id: 'company-acme',
-      price_eur_cents: 99,
+      price_eur_cents: 199,
     }));
   });
 

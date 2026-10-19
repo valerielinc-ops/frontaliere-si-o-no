@@ -45,7 +45,7 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // rollout is explicitly activated. The server applies the same fail-closed
  // gate; this value only describes the allowlisted client activation state.
  ASSISTED_APPLICATION_ANSWER_AI_ENABLED: 'false',
- // 0,99 € assisted-application offer shown when the job-board Offerwall and
+ // 1,99 € assisted-application offer shown when the job-board Offerwall and
  // its GPT fallback fail to load (services/assistedApplicationExperiment.ts).
  // Default 'false' keeps today's direct redirect; flip to 'true' in Remote
  // Config (the key is allowlisted in functions/src/publicConfigKeys.js).

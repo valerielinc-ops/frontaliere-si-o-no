@@ -168,7 +168,7 @@ describe('handleAssistedApplicationAdmin', () => {
     const database = makeDb({
       ready: {
         jobId: 'job-1', jobUrl: 'https://jobs.example.test/job-1', companyName: 'ACME SA',
-        jobTitle: 'Developer', paymentStatus: 'paid', amountTotal: 99, currency: 'eur',
+        jobTitle: 'Developer', paymentStatus: 'paid', amountTotal: 199, currency: 'eur',
         submissionStatus: 'ready_for_manual_submission', cvStorageKey: 'assisted-application-uploads/ready/cv.pdf',
         cvScanStatus: 'clean',
         consentVersion: 'assisted-application-v1', consentedAt: '2026-09-15T10:00:00.000Z',

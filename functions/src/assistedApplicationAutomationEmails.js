@@ -477,7 +477,7 @@ export function buildCandidateAutomationEmail(kind, vars) {
     deadline: formatDeadline(vars.deadlineAt, locale),
     count: String(vars.openQuestions || 0),
     reason: copy.reasons[vars.reason] || copy.reasons.portal_needs_candidate,
-    price: vars.price || '0,99 €',
+    price: vars.price || '1,99 €',
     days: String(vars.days || 7),
   };
   const greeting = copy.greeting(clean(vars.name, 80).split(' ')[0] || '');

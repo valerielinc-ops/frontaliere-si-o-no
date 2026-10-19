@@ -2,7 +2,7 @@
  * Contract for the 30-day application concierge.
  *
  * The concierge is a parent service with candidate-approved child
- * applications.  Keeping its vocabulary separate from the €0.99 one-off
+ * applications.  Keeping its vocabulary separate from the €1.99 one-off
  * order prevents the existing single-job flow from accidentally treating the
  * bundle as a subscription or as ten independent payments.
  */

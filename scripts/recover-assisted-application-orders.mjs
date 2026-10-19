@@ -2,7 +2,7 @@
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
- * Owner-run recovery for paid assisted applications (0,99 €) whose customer
+ * Owner-run recovery for paid assisted applications (1,99 €) whose customer
  * never received the concierge email — the orders paid before the email-first
  * flow shipped (2026-09-29), when the CV upload was failing with 403 and no
  * email left at all. The hourly sweep deliberately never touches orders older

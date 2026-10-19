@@ -888,7 +888,7 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.transparency': 'Non garantiamo risposta, colloquio o assunzione. Frontaliere Ticino non è affiliato all’azienda e il servizio riguarda solo questo annuncio.',
  'jobBoard.assisted.externalCta': 'Candidati da solo, gratis',
  'jobBoard.assisted.externalCtaVideo': 'Candidati da solo, gratis con un breve video',
- 'jobBoard.assisted.paidCta': 'Delega l’invio — 0,99 €',
+ 'jobBoard.assisted.paidCta': 'Delega l’invio — 1,99 €',
  'jobBoard.assisted.paidLoading': 'Apro il pagamento…',
  'jobBoard.assisted.priceNote': 'Pagamento unico · nessun abbonamento',
  'jobBoard.concierge.eyebrow': 'Ricerca lavoro automatizzata',

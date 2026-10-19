@@ -30,14 +30,14 @@ const VERDICT_LABELS = { strong: 'forte', good: 'buono', weak: 'debole', poor: '
 
 function formatPrice(order, locale) {
   const amount = Number(order?.amountTotal);
-  const cents = Number.isFinite(amount) ? amount : 99;
+  const cents = Number.isFinite(amount) ? amount : 199;
   try {
     return new Intl.NumberFormat({ it: 'it-IT', de: 'de-DE', fr: 'fr-FR', en: 'en-IE' }[locale] || 'it-IT', {
       style: 'currency',
       currency: String(order?.currency || 'eur').toUpperCase(),
     }).format(cents / 100);
   } catch {
-    return '0,99 €';
+    return '1,99 €';
   }
 }
 
