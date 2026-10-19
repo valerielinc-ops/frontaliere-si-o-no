@@ -341,6 +341,7 @@ export async function buildDraft(ctx) {
     const portalResult = await readPortal({
       channelType: channel.type,
       applyUrl: channel.applyUrl,
+      postingUrl: order.jobUrl || '',
       language,
       candidateLocale: locale,
       candidate: candidateForForm({ identity, profile, answers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal }),
