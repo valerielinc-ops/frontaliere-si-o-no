@@ -1004,6 +1004,8 @@ function pageWorkplaceEvidence(job, page) {
   // canton); otherwise a non-municipality branch name such as Heerbrugg would
   // become evidence merely because the listing has an unrelated canton.
   const canUseListingCanton = isKnownSwissCity(workplace, listingCanton)
+    || (Boolean(listingLocality)
+      && isKnownSwissCity(workplace, listingCanton, { allowOfficialLocality: true }))
     || sameAsListing
     || Boolean(encodedCanton && encodedCanton === listingCanton);
   const candidate = {

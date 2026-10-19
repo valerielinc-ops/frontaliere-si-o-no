@@ -197,6 +197,31 @@ function isSwissCountry(value) {
   return Boolean(country && [...SWISS_COUNTRY_LABELS].some((label) => hasToken(country, label)));
 }
 
+function isSourceLocationMetadataSuffix(value) {
+  const normalized = normalizeSwissTargetLocationText(value);
+  if (!normalized) return true;
+  if (isSwissCountry(normalized)) return true;
+  return normalized.split(' ').every((token) => token === 'ch'
+    || token === 'hq'
+    || token === 'ho'
+    || token === 'ep'
+    || /^\d{4,10}$/.test(token)
+    || Boolean(normalizeSwissCantonCode(token)));
+}
+
+function structuredLocalityCorroboratesLocation(location, locality) {
+  const localityKey = normalizeSwissTargetLocationText(locality);
+  if (!localityKey) return false;
+  return String(location || '').split(/[,;/|]/).some((segment) => {
+    const normalizedSegment = normalizeSwissTargetLocationText(segment)
+      .replace(/^(?:ch\s*)?\d{4,10}\s+/, '')
+      .trim();
+    if (normalizedSegment === localityKey) return true;
+    if (!normalizedSegment.startsWith(`${localityKey} `)) return false;
+    return isSourceLocationMetadataSuffix(normalizedSegment.slice(localityKey.length + 1));
+  });
+}
+
 export function isExplicitlyForeign(value, addressCountry = '') {
   const country = String(addressCountry || '').trim();
   if (country && !isSwissCountry(country)) return true;
@@ -238,7 +263,9 @@ export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
   // token match. Multi-location rows that also name Switzerland remain valid.
   if (isExplicitlyForeign(location, country) || hasUncorroboratedForeignSubdivision(location)) return null;
   const structuredCanton = normalizeSwissCantonCode(addressRegion);
-  const hasStructuredLocalityEvidence = Boolean(addressLocality && structuredCanton);
+  const hasStructuredLocalityEvidence = Boolean(addressLocality
+    && structuredCanton
+    && structuredLocalityCorroboratesLocation(location, addressLocality));
   const allowOfficialLocality = hasPostalAddressEvidence || hasStructuredLocalityEvidence;
   // addressRegion is an explicit subdivision slot. A value that is not one of
   // the 26 Swiss cantons is authoritative negative evidence, irrespective of
@@ -509,7 +536,9 @@ export function evaluateSourceBackedSwissGeography(candidates = []) {
     const regionLocality = String(candidate?.addressLocality || stripLocationCodes(location))
       .replace(/^\s*(?:CH[\s-]?)?\d{4}\s+/i, '')
       .trim();
-    const hasStructuredLocalityEvidence = Boolean(regionCanton && regionLocality);
+    const hasStructuredLocalityEvidence = Boolean(regionCanton
+      && regionLocality
+      && structuredLocalityCorroboratesLocation(location, regionLocality));
     const allowOfficialLocality = hasPostalAddressEvidence || hasStructuredLocalityEvidence;
     const regionIsCorroboratedSwiss = Boolean(regionCanton
       && isKnownSwissMunicipalityInCanton(regionLocality, regionCanton, {

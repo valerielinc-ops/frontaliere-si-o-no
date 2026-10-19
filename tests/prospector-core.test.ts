@@ -469,6 +469,14 @@ describe('vacancy extraction', () => {
     expect(resolveSourceBackedSwissGeography({
       location: 'Alt St. Johann', addressLocality: 'Alt St. Johann', addressCountry: 'CH',
     })).toBeNull();
+    const mismatchedLocality = {
+      location: 'Niederuzwil',
+      addressLocality: 'Alt St. Johann',
+      addressRegion: 'SG',
+      addressCountry: 'CH',
+    };
+    expect(resolveSourceBackedSwissGeography(mismatchedLocality)).toBeNull();
+    expect(evaluateSourceBackedSwissGeography([mismatchedLocality]).geography).toBeNull();
   });
 
   // Regressione arsante.ch/gmo (#6372). Il markup microdata reale mette la

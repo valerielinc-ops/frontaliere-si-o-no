@@ -2078,6 +2078,10 @@ describe('Coop-family detail page content outside the JSON-LD description', () =
     expect(applyCoopSourceDetailToJob(listing, jsonLd, page)).toMatchObject({
       location: 'Heerbrugg', canton: 'SG', postalCode: '', streetAddress: '',
     });
+    const pageOnlyListing = { ...listing, location: 'St. Gallen', addressLocality: 'St. Gallen' };
+    expect(applyCoopSourceDetailToJob(pageOnlyListing, jsonLd, page)).toMatchObject({
+      location: 'Heerbrugg', canton: 'SG', postalCode: '', streetAddress: '',
+    });
     // The same label without listing corroboration names no canton: not evidence.
     const { addressLocality, ...regionOnly } = listing;
     expect(applyCoopSourceDetailToJob({ ...regionOnly, location: 'St. Gallen' }, jsonLd, page)).toMatchObject({
