@@ -45583,6 +45583,36 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'progettista-elettrico-ticino',
+ category: 'fiscale',
+ date: '2026-10-19T12:59:22.093Z',
+ image: '/images/blog/article-progettista-elettrico-ticino.webp',
+ hasCalculator: true,
+ articleType: 'evergreen',
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'evento-for-matching-varese-2026',
+ category: 'pratico',
+ date: '2026-10-19T13:21:14.114Z',
+ image: '/images/blog/article-evento-for-matching-varese-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'italia-rincari-crescita-2027',
+ category: 'novita',
+ date: '2026-10-19T14:41:27.050Z',
+ image: '/images/blog/article-autotrasporto-rincari-confine-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
