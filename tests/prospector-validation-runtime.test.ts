@@ -509,6 +509,36 @@ describe('Prospector production validation', () => {
       clearPoliteFetchStateForTests();
     }
   });
+
+  it('fails closed on a non-empty listing with an explicit undefined fetch outcome', async () => {
+    const { spec, urls, runtime } = fixtureSpec({ populationCount: 1, allLocationsSwiss: true });
+    (runtime as any).listingExtractor = () => {
+      const rows: any[] = [{ title: 'Platform Engineer 1', url: urls[0] }];
+      Object.defineProperties(rows, {
+        fetchOutcome: { value: undefined, enumerable: false },
+        discoveredCount: { value: 1, enumerable: false },
+      });
+      return rows;
+    };
+    clearPoliteFetchStateForTests();
+    try {
+      let rejected: any;
+      try {
+        await runSpecInProduction(spec, runtime);
+      } catch (error) {
+        rejected = error;
+      }
+      expect(rejected?.specRuntimeObservation).toMatchObject({
+        fetchOutcome: null,
+        exactListingCount: false,
+        snapshotAccepted: false,
+        complete: false,
+        dropCounts: { unknown_fetch_outcome: 1 },
+      });
+    } finally {
+      clearPoliteFetchStateForTests();
+    }
+  });
 });
 
 describe('Prospector validation sample and schedule', () => {

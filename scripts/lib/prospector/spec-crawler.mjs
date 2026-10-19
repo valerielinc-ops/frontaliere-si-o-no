@@ -211,8 +211,10 @@ function configuredEmptyListingOutcome(spec) {
 function listingFetchOutcomeState(rows) {
   const hasOutcome = Object.prototype.hasOwnProperty.call(rows || {}, 'fetchOutcome');
   const rawOutcome = hasOutcome ? rows.fetchOutcome : null;
-  const outcome = rawOutcome == null ? null : String(rawOutcome);
-  const unknown = hasOutcome && rawOutcome != null && !CRAWLER_FETCH_OUTCOMES.has(outcome);
+  const outcome = typeof rawOutcome === 'string' ? rawOutcome : null;
+  const unknown = hasOutcome && rawOutcome !== null && (
+    typeof rawOutcome !== 'string' || !CRAWLER_FETCH_OUTCOMES.has(rawOutcome)
+  );
   const failed = unknown || CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome);
   const authoritativeEmpty = rows.length === 0
     && !failed
@@ -1635,13 +1637,15 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     const outcomes = sourceFetchMetadata
       .filter((source) => Object.prototype.hasOwnProperty.call(source, 'fetchOutcome'))
       .map((source) => source.fetchOutcome);
-    const failedOutcome = outcomes.find((outcome) => (
-      typeof outcome !== 'string'
-      || !CRAWLER_FETCH_OUTCOMES.has(outcome)
-      || CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome)
+    const failedOutcomeIndex = outcomes.findIndex((outcome) => (
+      outcome !== null && (
+        typeof outcome !== 'string'
+        || !CRAWLER_FETCH_OUTCOMES.has(outcome)
+        || CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome)
+      )
     ));
     const metadata = {};
-    if (failedOutcome !== undefined) metadata.fetchOutcome = failedOutcome;
+    if (failedOutcomeIndex >= 0) metadata.fetchOutcome = outcomes[failedOutcomeIndex];
     else if (outcomes.length) metadata.fetchOutcome = outcomes.includes('ok') ? 'ok' : outcomes[0];
     if (sourceFetchMetadata.length === 1) {
       const [source] = sourceFetchMetadata;
