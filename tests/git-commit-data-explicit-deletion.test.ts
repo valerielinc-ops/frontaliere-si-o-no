@@ -31,7 +31,12 @@ function initHarness() {
     companyKey: 'coop-ticino',
     description: 'x'.repeat(1_400_000),
   }])}\n`);
-  git(repoDir, 'add', ARCHIVE_PATH);
+  // Keep an unrelated tracked entry in the fixture tree. The production
+  // main-push guard must reject a candidate that deletes the only file in a
+  // repository; this test is about an explicit data deletion, not an empty
+  // repository tree.
+  writeFileSync(join(repoDir, 'main-push-guard-sentinel.txt'), 'keep the fixture tree non-empty\n');
+  git(repoDir, 'add', ARCHIVE_PATH, 'main-push-guard-sentinel.txt');
   git(repoDir, 'commit', '-q', '-m', 'seed archive');
   git(repoDir, 'push', '-q', 'origin', 'HEAD:main');
   const proofDir = mkdtempSync(join(tmpdir(), 'gcd-delete-proofs-'));
