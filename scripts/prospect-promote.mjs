@@ -37,6 +37,7 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import { pathToFileURL } from 'node:url';
 import { loadCandidates, saveCandidates, setStatus, byStatus } from './lib/prospector/candidate-store.mjs';
+import { reconcileOpenPromotions } from './lib/prospector/promotion-reconciliation.mjs';
 import {
   selectForPromotion,
   summarizePromotionBlocks,
@@ -221,26 +222,6 @@ function runGhForOutput(args) {
  * @param {ReturnType<typeof loadCandidates>} store
  * @returns {{ landed: number, reopened: number }}
  */
-function reconcileOpenPromotions(store) {
-  let landed = 0;
-  let reopened = 0;
-  for (const c of byStatus(store, 'promoting')) {
-    if (!c.promotionPr) continue;
-    let state = '';
-    try {
-      state = runGhForOutput(['pr', 'view', String(c.promotionPr), '--json', 'state', '-q', '.state']).trim();
-    } catch { continue; } // gh non disponibile o PR non leggibile: non toccare nulla
-    if (state === 'MERGED') {
-      setStatus(store, c.key, 'production', { promotedAt: new Date().toISOString() });
-      landed++;
-    } else if (state === 'CLOSED') {
-      setStatus(store, c.key, 'promoted', { reason: `PR ${c.promotionPr} chiusa senza merge, ricandidato` });
-      reopened++;
-    }
-  }
-  return { landed, reopened };
-}
-
 /**
  * Il push data-only passa deliberatamente dal PAT, ma una successiva PR può
  * dover aggiornare `.github/workflows/**` e richiede quindi il token App.
@@ -399,7 +380,13 @@ function printPromotionDiagnosis({ promotable, blocked, capped, blockedSummary }
   }
 }
 
-const reconciled = reconcileOpenPromotions(store);
+const reconciled = await reconcileOpenPromotions(store, (number) => JSON.parse(
+  runGhForOutput([
+    'pr', 'view', number,
+    '--json', 'number,state,mergedAt,closedAt,url',
+    '-q', '.',
+  ]),
+), dryRun ? null : undefined);
 if (reconciled.landed) console.log(`promozioni atterrate in produzione: ${reconciled.landed}`);
 if (reconciled.reopened) console.log(`ricandidati dopo PR chiuse senza merge: ${reconciled.reopened}`);
 if (!persistReconciledPromotionState(store, reconciled, { dryRun })) process.exit(1);

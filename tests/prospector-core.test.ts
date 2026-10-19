@@ -1489,7 +1489,11 @@ describe('quality grading', () => {
     try {
       const report = await gradeExtraction(
         { companyKey: 'acme', seedUrls: [url] },
-        [{ title: 'Software Engineer', url }],
+        [{
+          title: 'Software Engineer',
+          url,
+          description: 'Acme is looking for a software engineer to join the engineering team and build reliable services for Swiss customers. Your role includes designing, implementing, testing and documenting features, collaborating with product and operations, reviewing code, and supporting production releases. Requirements include professional experience with software development, clear communication, and a practical approach to solving problems in a team. Apply now with your CV for this full-time position.',
+        }],
         {
           sampleSize: 4,
           fetchImpl: async (requestedUrl) => new Response(
@@ -1515,18 +1519,19 @@ describe('quality grading', () => {
       + `<p>Your role includes designing, implementing, testing and documenting features, collaborating with product and operations, reviewing code, and supporting production releases.</p>`
       + `<p>Requirements include professional experience with software development, clear communication, and a practical approach to solving problems in a team. Apply now with your CV for this full-time position.</p></article></main></body></html>`;
     let extractorCalls = 0;
+    const publishableDescription = 'Software Engineer responsibilities and requirements include designing, implementing, testing and documenting reliable services for Swiss customers. The role collaborates with product and operations, reviews code and supports production releases. Apply with your CV for this full-time position.';
     clearPoliteFetchStateForTests();
     try {
       const report = await gradeExtraction(
         { companyKey: 'acme', seedUrls: [url] },
-        [{ title: 'Software Engineer', url }],
+        [{ title: 'Software Engineer', url, description: publishableDescription }],
         {
           sampleSize: 1,
           detailExtractor: () => {
             extractorCalls++;
             return {
               title: 'Software Engineer',
-              description: 'Software Engineer responsibilities and requirements include designing, implementing, testing and documenting reliable services for Swiss customers. The role collaborates with product and operations, reviews code and supports production releases. Apply with your CV for this full-time position.',
+              description: publishableDescription,
               locationCandidates: [{ location: 'Lugano', addressCountry: 'CH' }],
             };
           },

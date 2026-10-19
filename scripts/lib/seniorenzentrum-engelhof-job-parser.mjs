@@ -14,7 +14,7 @@ import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { bodyTextOf, extractDetailFields } from './prospector/extract.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { matchProfessionTitle, normalizeText } from './profession-taxonomy.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import {
   freeTextPostalCandidates,
   resolveSourceBackedSwissGeography,
@@ -287,12 +287,59 @@ export async function fetchAllSeniorenzentrumEngelhofJobs(runtime = {}) {
   const listings = await fetchJobListings(runtime);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return copySpecFetchMetadata([], listings || []);
   }
 
   console.log('  📋 Source listings found: ' + listings.length);
+  const expectedScopeFilters = listings.filter((listing) => (
+    !isSeniorenzentrumEngelhofOssJob({ title: listing?.title })
+  )).length;
   const jobs = listings.map(buildJob).filter(Boolean);
 
+  const discoveredCount = Number.isInteger(listings.discoveredCount)
+    ? listings.discoveredCount
+    : listings.length;
+  const inheritedExpectedFilterCount = Number.isInteger(listings.expectedFilterCount)
+    && listings.expectedFilterCount >= 0
+    ? listings.expectedFilterCount
+    : 0;
+  const inheritedExpectedFilters = listings.expectedFilters
+    && typeof listings.expectedFilters === 'object'
+    && !Array.isArray(listings.expectedFilters)
+    ? listings.expectedFilters
+    : {};
+  const inheritedDetailDrop = listings.detailDrop
+    && typeof listings.detailDrop === 'object'
+    && Number.isInteger(listings.detailDrop.candidates)
+    && Number.isInteger(listings.detailDrop.dropped)
+    ? listings.detailDrop
+    : null;
+  const unexpectedPostTransformDrops = Math.max(
+    0,
+    listings.length - jobs.length - expectedScopeFilters,
+  );
+  const detailDrop = {
+    candidates: Math.max(
+      0,
+      (inheritedDetailDrop?.candidates ?? Math.max(0, discoveredCount - inheritedExpectedFilterCount))
+        - expectedScopeFilters,
+    ),
+    gone: (inheritedDetailDrop?.gone || 0) + unexpectedPostTransformDrops,
+    rejected: inheritedDetailDrop?.rejected || 0,
+    dropped: (inheritedDetailDrop?.dropped || 0) + unexpectedPostTransformDrops,
+  };
+  const expectedFilterCount = inheritedExpectedFilterCount + expectedScopeFilters;
+  const expectedFilters = {
+    ...inheritedExpectedFilters,
+    ...(expectedScopeFilters ? { engelhof_target_job_scope: expectedScopeFilters } : {}),
+  };
+
   console.log('\n📋 Total ' + SENIORENZENTRUM_ENGELHOF_COMPANY_NAME + ' OSS jobs discovered: ' + jobs.length);
-  return jobs;
+  copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, {
+    discoveredCount,
+    expectedFilterCount,
+    expectedFilters,
+    detailDrop,
+  });
 }

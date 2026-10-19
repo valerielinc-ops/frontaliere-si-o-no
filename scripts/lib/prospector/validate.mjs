@@ -40,15 +40,12 @@ import {
   isSufficientVacancyDescription,
   textOf,
 } from './extract.mjs';
-import {
-  constantPostalLocations,
-  freeTextPostalCandidates,
-  resolveDetailOrListingSwissGeography,
-  variablePostalGeography,
-} from './location-evidence.mjs';
+import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { gradeJobLike } from '../job-like.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { extractRuntimeDetailFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
+import { selectValidationSample } from './validation-sample.mjs';
+import { isGenericVacancyTitle, rawDetailTitleEvidence } from './production-title.mjs';
 
 /**
  * Whether a fetched body is text we can actually read.
@@ -247,14 +244,28 @@ export function bodySignature(text = '') {
  * Grade ONE vacancy against its own detail page.
  *
  * @param {{ title: string, url: string, location?: string, description?: string }} vacancy
- * @param {{ urlPolicy?: any, dispatcher?: unknown, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown>, headers?: Record<string,string>, detailExtractor?: (html: string, url: string) => any }} [fetchOptions]
- * @returns {Promise<{ url: string, reachable: boolean, titleMatch: number, contentful: boolean, sourceBackedLocation: boolean, words: number, status: number, jobLike: boolean|null, jobSignals: string[], notJobSignals: string[] }>}
+ * @param {{ urlPolicy?: any, dispatcher?: unknown, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown>, headers?: Record<string,string>, detailExtractor?: (html: string, url: string) => any, observedDetail?: any, requireObservedDetail?: boolean, titleEvidence?: any }} [fetchOptions]
+ * @returns {Promise<{ url: string, reachable: boolean, titleMatch: number,
+ *   titleSource: string, listingTitle: string, detailTitle: string, rawH1Title: string,
+ *   rawDocumentTitle: string, finalTitle: string, recordedFinalTitle: string,
+ *   authoritativeTitle: string, titleEvidenceSource: 'listing'|'raw_h1'|'raw_document_title'|'none',
+ *   contentful: boolean, sourceBackedLocation: boolean, words: number, status: number,
+ *   jobLike: boolean|null, jobSignals: string[], notJobSignals: string[] }>}
  */
 export async function gradeVacancy(vacancy, fetchOptions = {}) {
   const out = {
     url: vacancy.url,
     reachable: false,
     titleMatch: 0,
+    titleSource: 'none',
+    listingTitle: '',
+    detailTitle: '',
+    rawH1Title: '',
+    rawDocumentTitle: '',
+    finalTitle: vacancy.title || '',
+    recordedFinalTitle: vacancy.title || '',
+    authoritativeTitle: '',
+    titleEvidenceSource: 'none',
     contentful: false,
     sourceBackedLocation: false,
     words: 0,
@@ -264,43 +275,71 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
     jobSignals: [],
     notJobSignals: [],
   };
-  try {
-    if (fetchOptions.urlPolicy) await fetchOptions.urlPolicy(vacancy.url);
-  } catch {
-    return out;
-  }
-  let res = await politeFetch(vacancy.url, fetchOptions);
-  if (!res.ok) {
-    // Stesso retry del runtime, o il gate boccia pagine che il crawler legge.
-    const fallbackUrl = runtimeDetailFallbackUrl(fetchOptions.spec || {}, res.status, vacancy.url);
-    if (fallbackUrl) res = await politeFetch(fallbackUrl, fetchOptions);
+  let res = fetchOptions.observedDetail
+    ? {
+      ok: true,
+      status: fetchOptions.observedDetail.status || 200,
+      body: fetchOptions.observedDetail.body || '',
+      url: fetchOptions.observedDetail.url || vacancy.url,
+    }
+    : null;
+  if (!res && fetchOptions.requireObservedDetail === true) return out;
+  if (!res) {
+    try {
+      if (fetchOptions.urlPolicy) await fetchOptions.urlPolicy(vacancy.url);
+    } catch {
+      return out;
+    }
+    res = await politeFetch(vacancy.url, fetchOptions);
+    if (!res.ok) {
+      // Stesso retry del runtime, o il gate boccia pagine che il crawler legge.
+      const fallbackUrl = runtimeDetailFallbackUrl(fetchOptions.spec || {}, res.status, vacancy.url);
+      if (fallbackUrl) res = await politeFetch(fallbackUrl, fetchOptions);
+    }
   }
   out.status = res.status;
   if (!res.ok || res.body.length < 200) return out;
   out.reachable = true;
 
-  const h1 = /<h1[^>]*>([\s\S]{0,300}?)<\/h1>/i.exec(res.body)?.[1] || '';
-  const title = /<title[^>]*>([\s\S]{0,300}?)<\/title>/i.exec(res.body)?.[1] || '';
-  const heading = `${textOf(h1)} ${textOf(title)}`;
+  const rawTitles = rawDetailTitleEvidence(res.body);
   const bodyText = textOf(res.body);
-  out.titleMatch = Math.max(tokenOverlap(vacancy.title, heading), tokenOverlap(vacancy.title, bodyText.slice(0, 4000)));
   // Stessa catena del runtime: se il validatore grada con un estrattore piu'
   // debole di quello che pubblichera', il gate misura un altro programma.
-  const detail = extractRuntimeDetailFields(
-    fetchOptions.spec || {},
-    res.body,
-    res.url || vacancy.url,
+  const detail = fetchOptions.observedDetail?.detail || extractRuntimeDetailFields(
+    fetchOptions.spec || {}, res.body, res.url || vacancy.url,
     {
       detailExtractor: fetchOptions.detailExtractor,
       recordUrl: vacancy.url,
       recordTitle: vacancy.title,
     },
   );
+  const titleEvidence = fetchOptions.titleEvidence || fetchOptions.observedDetail || {};
+  const titleSource = titleEvidence.titleSource || (detail.title ? 'detail' : 'structured-detail');
+  const finalTitle = vacancy.title || '';
+  const recordedFinalTitle = titleEvidence.finalTitle || finalTitle;
+  const outputTitleMatchesEvidence = norm(finalTitle) === norm(recordedFinalTitle);
+  const listingTitle = String(titleEvidence.listingTitle || '').trim();
+  const independentTitleCandidates = [
+    { title: listingTitle, source: 'listing' },
+    { title: rawTitles.rawH1Title, source: 'raw_h1' },
+    { title: rawTitles.rawDocumentTitle, source: 'raw_document_title' },
+  ].filter(({ title }) => title && !isGenericVacancyTitle(title));
+  const titleProof = independentTitleCandidates
+    .map((candidate) => ({ ...candidate, match: tokenOverlap(finalTitle, candidate.title) }))
+    .sort((left, right) => right.match - left.match)[0] || null;
+  out.titleSource = titleSource;
+  out.listingTitle = listingTitle;
+  out.detailTitle = titleEvidence.detailTitle || detail.title || '';
+  out.rawH1Title = rawTitles.rawH1Title;
+  out.rawDocumentTitle = rawTitles.rawDocumentTitle;
+  out.finalTitle = finalTitle;
+  out.recordedFinalTitle = recordedFinalTitle;
+  out.authoritativeTitle = titleProof?.title || '';
+  out.titleEvidenceSource = titleProof?.source || 'none';
+  out.titleMatch = !outputTitleMatchesEvidence || isGenericVacancyTitle(finalTitle)
+    ? 0
+    : (titleProof?.match || 0);
   out.sourceBackedLocation = Boolean(resolveDetailOrListingSwissGeography(detail, vacancy).geography);
-  // Free-text evidence, not a verdict: whether a pair is the workplace or the
-  // employer's seat is only decidable against the spec's other sampled pages,
-  // so `gradeExtraction()` settles it once the sample is complete.
-  out.postalTextCandidates = freeTextPostalCandidates(bodyText);
 
   const words = bodyText.split(/\s+/).filter(Boolean).length;
   out.words = words;
@@ -308,13 +347,16 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
   // Grade the exact description the runtime would publish. Navigation/footer
   // prose must not make a description-less shell pass validation only to be
   // dropped by production under the shared sufficiency contract.
-  const publishableDescription = isSufficientVacancyDescription(detail.description)
-    ? detail.description
-    : (vacancy.description || '');
+  // `vacancy.description` is the already selected output of the runtime's
+  // per-row transform. Re-evaluating the detail body here would allow text the
+  // crawler does not publish to satisfy the semantic quality gate.
+  const publishableDescription = vacancy.description
+    || (fetchOptions.observedDetail ? '' : detail.description || '');
   out.contentful = isSufficientVacancyDescription(publishableDescription);
 
-  if (isReadableText(res.body)) {
-    const jl = gradeJobLike(bodyText);
+  const publishableDescriptionText = textOf(publishableDescription);
+  if (publishableDescriptionText && isReadableText(publishableDescriptionText)) {
+    const jl = gradeJobLike(publishableDescriptionText);
     out.jobLike = jl.jobLike;
     out.jobSignals = jl.jobHits;
     out.notJobSignals = jl.notJobHits;
@@ -337,6 +379,8 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
  * @property {number} score           0..1, the gate value
  * @property {'good'|'weak'|'bad'|'insufficient'} verdict
  * @property {string[]} problems
+ * @property {{ algorithmVersion: string, day: string, populationCount: number, sampleCount: number,
+ *   selected: Array<{ index: number, stratum: number, id: string }> }} sampleSelection
  * @property {any[]} samples
  */
 
@@ -345,7 +389,7 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
  *
  * @param {{ companyKey: string }} spec
  * @param {any[]} vacancies
- * @param {{ sampleSize?: number, goodAt?: number, weakAt?: number, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown>, detailExtractor?: (html: string, url: string) => any }} [opts]
+ * @param {{ sampleSize?: number, goodAt?: number, weakAt?: number, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown>, detailExtractor?: (html: string, url: string) => any, observedDetailsByUrl?: Map<string, any>, requireObservedDetails?: boolean, titleEvidenceByUrl?: Map<string, any>, runtimeObservation?: Record<string, any>, sampleDate?: Date|string|number }} [opts]
  * @returns {Promise<QualityReport>}
  */
 export async function gradeExtraction(spec, vacancies, opts = {}) {
@@ -358,44 +402,38 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
   const distinctRate = titles.length ? new Set(titles).size / titles.length : 0;
   if (vacancies.length >= 3 && distinctRate < 0.6) problems.push('titoli ripetuti: il selettore ha agganciato un elemento ricorrente');
 
-  // Spread the sample across the listing rather than taking the first N: a
-  // broken listing is often correct at the top and chrome further down.
-  const step = Math.max(1, Math.floor(vacancies.length / sampleSize));
-  const picks = [];
-  for (let i = 0; i < vacancies.length && picks.length < sampleSize; i += step) picks.push(vacancies[i]);
+  const selection = selectValidationSample(vacancies, {
+    companyKey: spec.companyKey,
+    sampleSize,
+    date: opts.sampleDate,
+  });
 
   const graded = [];
   const urlPolicy = createSpecUrlPolicy(/** @type {any} */ (spec), { lookupImpl: opts.lookupImpl });
   const isPageExecutive = /** @type {any} */ (spec).platform === 'pageexecutive.com';
   try {
-    for (const v of picks) {
-      graded.push(await gradeVacancy(v, {
+    for (const picked of selection.selected) {
+      const g = await gradeVacancy(picked.vacancy, {
         spec,
         urlPolicy,
         dispatcher: urlPolicy.dispatcher,
         fetchImpl: opts.fetchImpl,
         sleepImpl: opts.sleepImpl,
         detailExtractor: opts.detailExtractor,
+        observedDetail: opts.observedDetailsByUrl?.get(picked.vacancy.url),
+        requireObservedDetail: opts.requireObservedDetails === true,
+        titleEvidence: opts.titleEvidenceByUrl?.get(picked.vacancy.url),
         ...(isPageExecutive ? { headers: { 'Accept-Encoding': 'identity' } } : {}),
-      }));
+      });
+      graded.push({
+        ...g,
+        sampleIndex: picked.index,
+        sampleStratum: picked.stratum,
+        sampleId: picked.id,
+      });
     }
   } finally {
     await urlPolicy.dispatcher.close();
-  }
-
-  // La localita' che vive solo nella prosa si decide qui, non nella singola
-  // pagina: il criterio e' «l'NPA che varia fra le pagine del datore contro
-  // quello costante», e la varianza esiste solo sul campione intero. Misurato
-  // il 2026-09-06 su physioswiss.ch: `3013 Bern` (la sede dell'associazione)
-  // su tutte e sei le pagine, l'NPA dell'annuncio su una sola.
-  const boilerplatePostalLocations = constantPostalLocations(
-    graded.map((g) => g.postalTextCandidates || []),
-  );
-  for (const g of graded) {
-    if (g.sourceBackedLocation) continue;
-    g.sourceBackedLocation = Boolean(
-      variablePostalGeography(g.postalTextCandidates || [], boilerplatePostalLocations).geography,
-    );
   }
 
   const rate = (fn) => (graded.length ? graded.filter(fn).length / graded.length : 0);
@@ -411,7 +449,10 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
     ? new Set(signed.map((g) => g.bodySignature)).size / signed.length
     : 0;
   const contentfulRate = rate((g) => g.contentful);
-  const locationSourceRate = rate((g) => g.sourceBackedLocation);
+  const measuredLocationRate = opts.runtimeObservation?.sourceBackedLocationRate;
+  const locationSourceRate = typeof measuredLocationRate === 'number' && Number.isFinite(measuredLocationRate)
+    ? measuredLocationRate
+    : rate((g) => g.sourceBackedLocation);
   const titleMatchRate = graded.length
     ? graded.reduce((a, g) => a + g.titleMatch, 0) / graded.length
     : 0;
@@ -469,8 +510,15 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
     score: Number(score.toFixed(3)),
     verdict,
     problems,
-    // L'evidenza grezza di testo libero serve al passo qui sopra, non al
-    // report committato: fuori da li' e' rumore che gonfia validation.json.
-    samples: graded.map(({ postalTextCandidates, ...sample }) => sample),
+    // The selected identities and strata are retained so a day's sample can
+    // be replayed and the next day's rotation can be inspected.
+    sampleSelection: {
+      algorithmVersion: selection.algorithmVersion,
+      day: selection.day,
+      populationCount: selection.populationCount,
+      sampleCount: selection.sampleCount,
+      selected: selection.selected.map(({ index, stratum, id }) => ({ index, stratum, id })),
+    },
+    samples: graded,
   };
 }
