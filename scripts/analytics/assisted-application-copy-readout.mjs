@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Read-only GA4 report for exposure-to-checkout by assisted-application copy. */
+/** Read-only GA4 event counts for assisted-application copy variants. */
 import fs from 'node:fs';
 import { parseArgs } from 'node:util';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
@@ -69,9 +69,8 @@ export function summarizeCopyReport(response) {
     const exposures = events[ASSISTED_APPLICATION_COPY_PRIMARY_EVENTS.exposure]?.users || 0;
     const completions = events[ASSISTED_APPLICATION_COPY_PRIMARY_EVENTS.conversion]?.users || 0;
     return [variant, {
-      exposures,
-      completedUsers: completions,
-      sameWindowCheckoutExposureRatio: exposures ? completions / exposures : null,
+      exposureEventUsers: exposures,
+      checkoutEventUsers: completions,
       events,
     }];
   }));
@@ -110,12 +109,17 @@ export async function runCopyReadout(argv = process.argv.slice(2), {
     },
   });
   const summary = summarizeCopyReport(report);
-  const result = { window, dimensions: ['eventName (copy variant encoded)'], ...summary };
+  const result = {
+    window,
+    dimensions: ['eventName (copy variant encoded)'],
+    metricSemantics: 'GA4 totalUsers is counted per eventName; these event-scoped counts are not joined across events and do not establish a same-user conversion funnel.',
+    ...summary,
+  };
   console.log(`Candidatura assistita · ${window.since} → ${window.until} · ${result.experimentId}`);
   console.log('Escluso il traffico automatico secondo la regola condivisa con gli altri readout.');
+  console.log('I conteggi utenti sono per singolo evento: non rappresentano una conversione di coorte sugli stessi utenti.');
   for (const [variant, arm] of Object.entries(result.arms)) {
-    const rate = arm.sameWindowCheckoutExposureRatio == null ? 'n/d' : `${(arm.sameWindowCheckoutExposureRatio * 100).toFixed(2)}%`;
-    console.log(`- ${variant}: ${arm.exposures} utenti con offerta vista, ${arm.completedUsers} con checkout completato (${rate} rapporto nella stessa finestra)`);
+    console.log(`- ${variant}: ${arm.exposureEventUsers} utenti con evento di esposizione, ${arm.checkoutEventUsers} con evento di checkout completato (conteggi distinti per evento)`);
     for (const eventName of ASSISTED_APPLICATION_COPY_SECONDARY_EVENTS) {
       const event = arm.events[eventName];
       if (event) console.log(`  ${eventName}: ${event.users} utenti / ${event.eventCount} eventi`);
