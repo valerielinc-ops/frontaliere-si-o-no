@@ -106815,16 +106815,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-svizzera-vietnam-relazioni-2026': {
     title: 'Svizzera e Vietnam intensificano commercio e investimenti',
-    description: 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni',
+    description: 'Il presidente della Confederazione Guy Parmelin è stato ricevuto ad Hanoi il 17 ottobre 2026 da Tô Lâm e Lê Minh Hưng. Svizzera e Vietnam hanno discusso commercio, investimenti, sviluppo urbano sostenibile, lavoro e innovazione; la firma dell’accordo di libero scambio AELS-Vietnam era prevista per il 18 ottobre.',
     keywords: 'frontalieri, ticino, svizzera, italia, vietnam, intensificano, commercio, investimenti',
     ogTitle: 'Svizzera e Vietnam intensificano commercio e investimenti',
-    ogDescription: 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni',
+    ogDescription: 'Il presidente della Confederazione Guy Parmelin è stato ricevuto ad Hanoi il 17 ottobre 2026 da Tô Lâm e Lê Minh Hưng. Svizzera e Vietnam hanno discusso commercio, investimenti, sviluppo urbano sostenibile, lavoro e innovazione; la firma dell’accordo di libero scambio AELS-Vietnam era prevista per il 18 ottobre.',
     canonicalPath: '/articoli-svizzera/svizzera-vietnam-relazioni-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Svizzera e Vietnam intensificano commercio e investimenti",
-      "description": "Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni",
+      "description": "Il presidente della Confederazione Guy Parmelin è stato ricevuto ad Hanoi il 17 ottobre 2026 da Tô Lâm e Lê Minh Hưng. Svizzera e Vietnam hanno discusso commercio, investimenti, sviluppo urbano sostenibile, lavoro e innovazione; la firma dell’accordo di libero scambio AELS-Vietnam era prevista per il 18 ottobre.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",

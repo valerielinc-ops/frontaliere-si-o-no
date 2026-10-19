@@ -8457,7 +8457,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.big-tech-franchi-bolla-ia.excerpt': 'Die US-Technologiegiganten geben Anleihen in Schweizer Franken aus, um Rechenzentren zu finanzieren.',
     'blog.article.big-tech-franchi-bolla-ia.imageAlt': 'Schweizer Stadtansicht mit Büros und Technologieinfrastruktur im Finanzbereich.',
     'blog.article.svizzera-vietnam-relazioni-2026.title': 'Schweiz und Vietnam intensivieren Handel und Investitionen',
-    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin am 17.',
+    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Bundespräsident Guy Parmelin wurde am 17. Oktober 2026 in Hanoi von Tô Lâm und Lê Minh Hưng empfangen. Die Schweiz und Vietnam vertieften ihre Zusammenarbeit bei Handel, Investitionen, nachhaltiger Stadtentwicklung, Arbeitsmarkt und Innovation; die Unterzeichnung des EFTA-Vietnam-Freihandelsabkommens war für den 18. Oktober vorgesehen.',
     'blog.article.svizzera-vietnam-relazioni-2026.imageAlt': 'Blick auf den Luganer See mit den Alpen im Hintergrund, Symbol für die Schweiz-Vietnam-Zusammenarbeit im Handel und Investment.',
     'blog.article.microdrama-pubblicita-tiktok-instagram.title': 'Sexy-Mikrodrama bewirbt auf TikTok eine kostenpflichtige App',
     'blog.article.microdrama-pubblicita-tiktok-instagram.excerpt': 'KI-Anzeigen zeigen Sex zwischen dem Bizarren und Fantasy.',
