@@ -402,9 +402,8 @@ describe('portal field extraction', () => {
       inputType: 'email',
       required: true,
     });
-    expect(page.buttons.find((button: any) => button.text === 'Apply')).toMatchObject({
-      text: 'Apply',
-      chrome: undefined,
-    });
+    const applyButton = page.buttons.find((button: any) => button.text === 'Apply');
+    expect(applyButton).toMatchObject({ text: 'Apply' });
+    expect(applyButton).not.toHaveProperty('chrome');
   });
 });
