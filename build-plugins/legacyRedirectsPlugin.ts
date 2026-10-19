@@ -278,6 +278,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/articoli-svizzera/autostrada-riapertura-ticino/': '/articoli-frontaliere/autostrada-a2-mezzovico-interrogazione/',
  '/en/swiss-articles/a2-highway-riopening-ticino/': '/en/cross-border-articles/a2-motorway-mezzovico-interpellation/',
  '/de/schweiz-artikel/a2-autobahn-wiedereroffnung-tessin/': '/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/',
+ '/de/schweiz-artikel/autostrada-riapertura-ticino/': '/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/',
  '/fr/articles-suisse/autoroute-a2-ouverture-again-tessin/': '/fr/articles-frontalier/autoroute-a2-mezzovico-interpellation/',
  '/articoli-svizzera/effetto-domino-fallite-aziende-svizzera/': '/articoli-frontaliere/fallimenti-aziende-svizzera-1994/',
  '/en/swiss-articles/domino-effect-failed-companies-switzerland/': '/en/cross-border-articles/business-bankruptcies-switzerland-1994/',
