@@ -67,6 +67,37 @@ describe('PROMAN Fleurier source-backed crawler', () => {
     expect(detail.description).not.toContain('Personne de contact');
   });
 
+  it('keeps a long rendered posting detail instead of truncating at the helper scan cap', async () => {
+    const longDescription = 'Description complète du poste avec responsabilités et compétences. '.repeat(400);
+    const longDetailFixture = `
+      <section class="u-section-job-details-header"><h1>Automaticien de production</h1></section>
+      <ul class="u-job-infos"><li><u-svg source="24/job/location"></u-svg><span>lieu</span>Fleurier</li></ul>
+      <ul class="u-specs"><div>${longDescription}</div></ul>
+    `;
+    const fetchImpl = async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 'User-agent: *\nAllow: /');
+      if (url === canonicalSeed) {
+        return response(url, `<li class="u-job-item"><a class="u-link-fit" href="${new URL(detailUrl).pathname}" aria-hidden="true"></a><div><h3>Automaticien de production</h3><ul class="u-job-infos"><li><u-svg source="24/job/location"></u-svg><span>lieu</span>Fleurier</li></ul></div></li>`);
+      }
+      if (url === detailUrl) return response(url, longDetailFixture);
+      throw new Error(`unexpected URL ${url}`);
+    };
+    const jobs = await fetchAllPromanFleurierJobs({
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      hostDelayMs: 0,
+      retries: 0,
+    });
+
+    expect(extractPromanFleurierDetailFields(longDetailFixture, detailUrl).description.length).toBeGreaterThan(20_000);
+    expect(jobs).toEqual([expect.objectContaining({
+      url: detailUrl,
+      canton: 'NE',
+      description: expect.stringContaining('responsabilità e competenze'),
+    })]);
+  });
+
   it('rejects an incomplete rendered container instead of publishing its tail', () => {
     const incompleteFixture = `
       <section class="u-section-job-details-header"><h1>Automaticien de production</h1></section>

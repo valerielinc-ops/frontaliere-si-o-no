@@ -67,15 +67,18 @@ const PROMAN_SOURCE_LOCATION_LOCALITIES = new Map([
 ]);
 
 function classContainer(html = '', className = '') {
+  const source = String(html || '');
   const escaped = String(className || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const match = new RegExp(
     `<([a-z][\\w:-]*)\\b[^>]*\\bclass\\s*=\\s*["'][^"']*\\b${escaped}\\b[^"']*["'][^>]*>`,
     'i',
-  ).exec(String(html || ''));
+  ).exec(source);
   if (!match) return '';
+  const bodyStart = match.index + match[0].length;
   const block = extractBalancedTagBlockWithStatus(
-    String(html || '').slice(match.index + match[0].length),
+    source.slice(bodyStart),
     match[1],
+    source.length - bodyStart,
   );
   return block.complete ? block.html : '';
 }

@@ -145,11 +145,14 @@ function balancedListItemScopes(html = '') {
 }
 
 function containingListItem(scopes, anchorStart, anchorEnd) {
-  for (let index = scopes.length - 1; index >= 0; index -= 1) {
-    const scope = scopes[index];
-    if (scope.start < anchorStart && scope.end >= anchorEnd) return scope;
+  let closest = null;
+  for (const scope of scopes) {
+    if (scope.start < anchorStart && scope.end >= anchorEnd
+      && (!closest || scope.start > closest.start)) {
+      closest = scope;
+    }
   }
-  return null;
+  return closest;
 }
 
 /**
