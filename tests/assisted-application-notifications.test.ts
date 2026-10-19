@@ -98,7 +98,7 @@ function paidOrder(overrides: Doc = {}): Doc {
     jobUrl: 'https://jobs.example.ch/infermiere',
     paymentStatus: 'paid',
     submissionStatus: 'awaiting_upload',
-    amountTotal: 99,
+    amountTotal: 199,
     currency: 'eur',
     customerEmail: 'Candidate@Example.com',
     paidAt: new Date(NOW - HOUR),
@@ -138,7 +138,7 @@ describe('assisted application concierge copy', () => {
     expect(email.html).toContain('rispondi a questa email');
     expect(email.html).toContain('https://frontaliereticino.ch/cerca-lavoro-ticino/?assisted_application_order_id=order-1');
     expect(email.text).toContain('https://jobs.example.ch/infermiere');
-    expect(email.text).toMatch(/0,99\s€/);
+    expect(email.text).toMatch(/1,99\s€/);
   });
 
   it('reads the locale from the return path and escapes job data', () => {

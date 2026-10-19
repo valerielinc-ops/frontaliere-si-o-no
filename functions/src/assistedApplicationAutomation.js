@@ -1,6 +1,6 @@
 /**
  * Orchestrator of the automated assisted application (the second half of the
- * 0,99 € service, formerly done by hand).
+ * 1,99 € service, formerly done by hand).
  *
  * Split of responsibilities (owner decisions 2026-09-30):
  *   - GitHub Actions (`assisted-application-agent.yml`) does the heavy work:

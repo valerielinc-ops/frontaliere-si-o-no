@@ -15,7 +15,7 @@ vi.mock('@/services/i18n', () => ({
 }));
 
 vi.mock('@/services/assistedApplicationExperiment', () => ({
-  ASSISTED_APPLICATION_PRICE_EUR_CENTS: 99,
+  ASSISTED_APPLICATION_PRICE_EUR_CENTS: 199,
 }));
 
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
@@ -52,7 +52,7 @@ describe('SumUpPaymentWidget', () => {
 
     expect(screen.getByRole('dialog')).toHaveAttribute('aria-busy', 'true');
     expect(screen.getByText('Pagamento unico · nessun abbonamento')).toBeInTheDocument();
-    expect(screen.getByText(/0,99/)).toBeInTheDocument();
+    expect(screen.getByText(/1,99/)).toBeInTheDocument();
     expect(screen.getByTestId('sumup-payment-widget-close')).toHaveAccessibleName('Chiudi');
 
     await act(async () => {});
@@ -60,7 +60,7 @@ describe('SumUpPaymentWidget', () => {
     expect(screen.getByRole('dialog')).toHaveAttribute('aria-busy', 'false');
     expect(mount).toHaveBeenCalledWith(expect.objectContaining({
       checkoutId: 'checkout-1',
-      amount: '0.99',
+      amount: '1.99',
       currency: 'EUR',
     }));
   });

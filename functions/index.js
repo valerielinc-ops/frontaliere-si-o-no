@@ -2501,7 +2501,7 @@ export const purgePublisherApplications = onSchedule(
  },
 );
 
-// Email concierge for the 0,99 € assisted application: on the payment, the
+// Email concierge for the 1,99 € assisted application: on the payment, the
 // materials upload and the "submitted" transition, the customer gets an email
 // from valerie@ (and Valerie an internal notice). Transition-based, so the
 // handler's own `notifications.*` bookkeeping never re-triggers a send.

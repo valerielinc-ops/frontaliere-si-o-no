@@ -852,7 +852,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.transparency': 'Wir garantieren keine Antwort, kein Vorstellungsgespräch und keine Einstellung. Frontaliere Ticino ist nicht mit dem Unternehmen verbunden; der Dienst gilt nur für diese Stelle.',
  'jobBoard.assisted.externalCta': 'Selbst bewerben, kostenlos',
  'jobBoard.assisted.externalCtaVideo': 'Selbst bewerben, kostenlos mit einem kurzen Video',
- 'jobBoard.assisted.paidCta': 'Einreichung delegieren — 0,99 €',
+ 'jobBoard.assisted.paidCta': 'Einreichung delegieren — 1,99 €',
  'jobBoard.assisted.paidLoading': 'Zahlung wird geöffnet…',
  'jobBoard.assisted.priceNote': 'Einmalige Zahlung · kein Abonnement',
  'jobBoard.concierge.eyebrow': 'Automatisierte Jobsuche',

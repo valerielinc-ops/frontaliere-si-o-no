@@ -375,6 +375,13 @@ describe('gate sul conio — conservazione per item e per repository', () => {
     expect(triageMarkerCitesBucket(realMarker, 1957)).toBe(true);
     expect(triageMarkerCitesBucket(realMarker, 10050)).toBe(false);
     expect(triageMarkerCitesBucket(JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\n- PR #1957 `follow-up(daily:2026-09-28)`' }] }), 1957)).toBe(false);
+    const existingParent = JSON.stringify({ comments: [{ body: [
+      '## Post-merge follow-up triage',
+      'Created/updated: parent #13803 (follow-up window 2026-10-17) with 1 existing item;',
+      '- FU-2026-10-17-004 — source PR #13825 recorded on the parent',
+    ].join('\n') }] });
+    expect(triageMarkerCitesBucket(existingParent, 13803)).toBe(true);
+    expect(triageMarkerCitesBucket(JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\nCreated/updated: parent PR #13825 with 1 item' }] }), 13825)).toBe(false);
     // Review #10338: la forma col tag vale solo nella finestra di claim del
     // collector; una citazione storica dopo la lista non qualifica il bucket.
     const withHistory = JSON.stringify({ comments: [{ body: [

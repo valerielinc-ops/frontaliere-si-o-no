@@ -2471,7 +2471,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const assistedApplicationJobContext = (job: JobListing, variant: AssistedApplicationVariant) => (
   buildAssistedApplicationJobContext(job, variant, assistedApplicationCopyVariant)
  );
- // Paid 0,99 € offer as the fallback of an Offerwall that could not load
+ // Paid 1,99 € offer as the fallback of an Offerwall that could not load
  // (owner decision 2026-09-29), only on the rewarded job-board surface.
  const offerwallPaidFallbackEnabled = useOfferwallPaidFallback(
   alwaysRewardedApplicationSurface && !shouldBypassAssistedApplicationExperiment,
