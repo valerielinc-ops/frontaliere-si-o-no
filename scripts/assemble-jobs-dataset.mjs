@@ -4908,11 +4908,12 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // of that read-only consumer path; the default remains the full assembly.
   const finishExpiredTiming = startPipelinePhase('jobs-dataset', 'expired archive and orphan reconciliation');
   if (withExpired) {
+    let sliceRepair = { changed: 0, repairedRoutes: 0, details: [] };
+    if (assembled) sliceRepair = repairExpiredArchiveSlicesAgainstActive(publishedJobs);
     const expiredJobs = assembleExpiredJobs();
     if (expiredJobs !== null) {
       let repairedExpiredJobs = expiredJobs;
       if (assembled) {
-        const sliceRepair = repairExpiredArchiveSlicesAgainstActive(publishedJobs);
         const aggregateRepair = repairExpiredRoutesAgainstActive(expiredJobs, publishedJobs);
         repairedExpiredJobs = aggregateRepair.entries;
         const repairedRoutes = sliceRepair.repairedRoutes + aggregateRepair.repairedRoutes;

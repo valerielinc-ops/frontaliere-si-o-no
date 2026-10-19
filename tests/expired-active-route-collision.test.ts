@@ -50,11 +50,13 @@ describe('repairExpiredRoutesAgainstActive', () => {
 
     repairExpiredRoutesAgainstActive([first], [activeJob()]);
     const secondResult = repairExpiredRoutesAgainstActive([second], [activeJob()]);
+    const thirdResult = repairExpiredRoutesAgainstActive([second], [activeJob()]);
 
     expect(second.slug).toBe(first.slug);
     expect(second.slugByLocale).toEqual(first.slugByLocale);
     expect(second.previousSlugs).toEqual(first.previousSlugs);
-    expect(secondResult.changed).toBe(0);
+    expect(secondResult.changed).toBe(1);
+    expect(thirdResult.changed).toBe(0);
   });
 
   it('fails closed for same-posting or identity-less archive evidence', () => {
