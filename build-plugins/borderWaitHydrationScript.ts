@@ -87,6 +87,7 @@ import {
 
 import { BORDER_WAIT_SOURCE_URLS } from './borderWaitSourceUrls';
 import { BORDER_READING_MAX_AGE_MS } from '../services/dataFreshness';
+import { PUBLIC_TRAFFIC_CURRENT_URL } from '../services/publicTrafficEndpoints';
 import {
   DECISION_MOMENT_BRIDGE_EVENT,
   DECISION_MOMENT_QUEUE_KEY,
@@ -99,7 +100,7 @@ import {
  */
 const RAW_HYDRATION_JS = `
 (function(){
-var U="https://europe-west6-frontaliere-ticino.cloudfunctions.net/getTrafficCurrent",S=${BORDER_READING_MAX_AGE_MS},P=${JSON.stringify(BORDER_WAIT_SOURCE_URLS)},R=900000,L=(document.documentElement.lang||"it").slice(0,2),T=null,B=0,M={},D=false;
+var U=${JSON.stringify(PUBLIC_TRAFFIC_CURRENT_URL)},S=${BORDER_READING_MAX_AGE_MS},P=${JSON.stringify(BORDER_WAIT_SOURCE_URLS)},R=900000,L=(document.documentElement.lang||"it").slice(0,2),T=null,B=0,M={},D=false;
  L=/^(it|en|de|fr)$/.test(L)?L:"it";
  var TC=${JSON.stringify(BORDER_WAIT_TONE_COLORS)};
  var C={it:{live:"Osservato: ",offline:"snapshot — dato live non disponibile",stale:"Dato scaduto: traffico attuale sconosciuto",na:"non disponibile",g:"Scorrevole",y:"Moderata",r:"Lunga"},en:{live:"Observed: ",offline:"snapshot — live data unavailable",stale:"Outdated reading: current traffic unknown",na:"unavailable",g:"Free-flowing",y:"Moderate",r:"Long"},de:{live:"Beobachtet: ",offline:"Snapshot — Live-Daten nicht verfügbar",stale:"Veraltete Messung: aktueller Verkehr unbekannt",na:"nicht verfügbar",g:"Fliessend",y:"Moderat",r:"Lang"},fr:{live:"Observé : ",offline:"instantané — données live indisponibles",stale:"Mesure périmée : trafic actuel inconnu",na:"indisponible",g:"Fluide",y:"Modérée",r:"Longue"}}[L]||null;

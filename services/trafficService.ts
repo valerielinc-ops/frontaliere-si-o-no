@@ -1,8 +1,9 @@
 /**
  * Traffic Service
  *
- * The browser reads the latest border-crossing snapshot from Firestore.
- * When no fresh Firestore snapshot is available, it falls back to the last-known
+ * The browser reads the latest border-crossing snapshot from a cached public
+ * read model. The server reads Firestore, so page visits do not each create a
+ * billed client read. When no fresh snapshot is available, it falls back to the last-known
  * committed snapshot (data/border-wait-current.json) — the SAME real values the
  * static /traffico-dogane/<crossing>/oggi/ pages render — instead of calling a
  * paid routing API or fabricating random numbers on the client. The latter used
@@ -14,6 +15,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { borderCrossings as centralizedCrossings } from '../data/borderCrossings';
 import borderWaitCurrent from '../data/border-wait-current.json';
 import { slugifyCrossingName } from './borderCrossingSlug';
+import { PUBLIC_TRAFFIC_CURRENT_URL } from './publicTrafficEndpoints';
 
 const IS_TEST_ENV = typeof process !== 'undefined' && (process.env.NODE_ENV === 'test' || !!process.env.VITEST);
 const TRAFFIC_LS_KEY = 'traffic_current_cache';
@@ -67,6 +69,82 @@ function normalizedTrafficStatus(value: unknown): TrafficStatus | undefined {
  return typeof value === 'string' && TRAFFIC_STATUSES.includes(value as TrafficStatus)
   ? value as TrafficStatus
   : undefined;
+}
+
+type PublicFirestoreValue = {
+ stringValue?: string;
+ integerValue?: string | number;
+ doubleValue?: number;
+ booleanValue?: boolean;
+ timestampValue?: string;
+ nullValue?: null;
+};
+
+function decodePublicFirestoreValue(value: unknown): unknown {
+ const encoded = value as PublicFirestoreValue | undefined;
+ if (!encoded || typeof encoded !== 'object') return undefined;
+ if (typeof encoded.stringValue === 'string') return encoded.stringValue;
+ if (typeof encoded.integerValue === 'string' || typeof encoded.integerValue === 'number') {
+  const parsed = Number(encoded.integerValue);
+  return Number.isFinite(parsed) ? parsed : undefined;
+ }
+ if (typeof encoded.doubleValue === 'number' && Number.isFinite(encoded.doubleValue)) return encoded.doubleValue;
+ if (typeof encoded.booleanValue === 'boolean') return encoded.booleanValue;
+ if (typeof encoded.timestampValue === 'string') {
+  const parsed = new Date(encoded.timestampValue);
+  return Number.isNaN(parsed.getTime()) ? undefined : parsed;
+ }
+ if ('nullValue' in encoded) return null;
+ return undefined;
+}
+
+/** Parse the allowlisted public read model without trusting malformed rows. */
+export function parsePublicTrafficCurrent(payload: unknown, nowMs = Date.now()): TrafficData[] {
+ const documents = (payload as { documents?: unknown[] } | null)?.documents;
+ if (!Array.isArray(documents)) throw new Error('invalid trafficCurrent response');
+
+ const results: TrafficData[] = [];
+ const staleThresholdMs = 2 * 60 * 60 * 1000;
+ for (const document of documents) {
+  const fields = (document as { fields?: Record<string, unknown> } | null)?.fields;
+  const crossingName = decodePublicFirestoreValue(fields?.crossingName);
+  const lastUpdate = decodePublicFirestoreValue(fields?.lastUpdate);
+  const waitTimeMinutes = finiteNumber(decodePublicFirestoreValue(fields?.waitTimeMinutes));
+  const totalCrossingMinutes = finiteNumber(decodePublicFirestoreValue(fields?.totalCrossingMinutes));
+
+  if (
+   typeof crossingName !== 'string'
+   || !(lastUpdate instanceof Date)
+   || Number.isNaN(lastUpdate.getTime())
+   || (waitTimeMinutes === undefined && totalCrossingMinutes === undefined)
+  ) {
+   console.warn('[trafficService] Incomplete public traffic reading');
+   continue;
+  }
+
+  const status = normalizedTrafficStatus(decodePublicFirestoreValue(fields?.status));
+  results.push({
+   crossingName,
+   ...(waitTimeMinutes === undefined ? {} : { waitTimeMinutes }),
+   ...(status === undefined ? {} : { status }),
+   lastUpdate,
+   source: 'firestore',
+   approachMinutes: finiteNumber(decodePublicFirestoreValue(fields?.approachMinutes)),
+   ...(totalCrossingMinutes === undefined ? {} : { totalCrossingMinutes }),
+  });
+ }
+
+ const freshResults = results.filter(result => nowMs - result.lastUpdate.getTime() <= staleThresholdMs);
+ if (results.length > 0 && freshResults.length === 0) {
+  console.warn('[trafficService] Public traffic data is stale (>2 h) — using committed snapshot fallback');
+  return [];
+ }
+
+ if (freshResults.length < results.length) {
+  console.warn('[trafficService] Ignoring stale public traffic readings while keeping fresh crossings');
+ }
+
+ return freshResults;
 }
 
 /** Total crossing time wins, while preserving a missing reading as missing. */
@@ -159,11 +237,11 @@ class TrafficService {
 
  /**
  * Priority order:
- * 1. localStorage cache (fresh < 5 min) — skip Firestore on repeat page loads.
- * 2. Firestore `trafficCurrent` collection — written by the scheduled collector.
+ * 1. localStorage cache (fresh < 5 min) — skip the public endpoint on repeat page loads.
+ * 2. Cached public traffic read model — the server reads `trafficCurrent`.
  * 3. Committed snapshot (data/border-wait-current.json) — last-known REAL values,
  *    the same source the static /traffico-dogane/.../oggi/ pages render, used
- *    when no fresh Firestore data is available. Never random/fabricated (#2997).
+ *    when no fresh public snapshot is available. Never random/fabricated (#2997).
  */
  async getTrafficData(): Promise<TrafficData[]> {
  // 1. Fresh localStorage cache
@@ -171,25 +249,25 @@ class TrafficService {
  if (cached) return cached;
 
  try {
- const firestoreData = await this.getTrafficDataFromFirestore();
- if (firestoreData.length > 0) {
- this.writeLocalCache(firestoreData);
- return firestoreData;
+ const publicData = await this.getTrafficDataFromPublicEndpoint();
+ if (publicData.length > 0) {
+ this.writeLocalCache(publicData);
+ return publicData;
  }
  } catch (error) {
- reportCaughtError(error, 'traffic.firestoreRead');
+ reportCaughtError(error, 'traffic.publicRead');
  }
 
  return this.getFallbackTrafficData();
  }
 
  /**
- * Used by diagnostics UI to tell whether the live scheduler is currently feeding Firestore.
+ * Used by diagnostics UI to tell whether the live scheduler is currently feeding the public snapshot.
  */
  async hasFreshTrafficSnapshot(): Promise<boolean> {
  try {
- const firestoreData = await this.getTrafficDataFromFirestore();
- return firestoreData.length > 0;
+ const publicData = await this.getTrafficDataFromPublicEndpoint();
+ return publicData.length > 0;
  } catch (error) {
  reportCaughtError(error, 'traffic.snapshotStatus');
  return false;
@@ -197,65 +275,14 @@ class TrafficService {
  }
 
  /**
- * Reads the latest traffic snapshot for all crossings from Firestore.
+ * Reads the latest traffic snapshot from the cached public endpoint.
  * Returns an empty array when the collection is empty or the data is stale
  * (scheduler inactive for more than 2 hours).
  */
- private async getTrafficDataFromFirestore(): Promise<TrafficData[]> {
- const { getApp } = await import('./firebase');
- const { getFirestore, collection, getDocs } = await import('firebase/firestore');
-
- const app = await getApp();
- const db = getFirestore(app);
- const snapshot = await getDocs(collection(db, 'trafficCurrent'));
-
- if (snapshot.empty) return [];
-
- const results: TrafficData[] = [];
- const STALE_THRESHOLD_MS = 2 * 60 * 60 * 1000;
- const now = Date.now();
-
- snapshot.forEach(docSnap => {
- const d = docSnap.data();
- let lastUpdate: Date;
- if (d.lastUpdate && typeof d.lastUpdate.toDate === 'function') {
- lastUpdate = d.lastUpdate.toDate();
- } else {
- console.warn(`[trafficService] Missing lastUpdate for Firestore doc ${docSnap.id}`);
- return;
- }
-
- const waitTimeMinutes = finiteNumber(d.waitTimeMinutes);
- const totalCrossingMinutes = finiteNumber(d.totalCrossingMinutes);
- if (!Number.isFinite(lastUpdate.getTime()) || (waitTimeMinutes === undefined && totalCrossingMinutes === undefined)) {
- console.warn(`[trafficService] Incomplete traffic reading for Firestore doc ${docSnap.id}`);
- return;
- }
-
- const status = normalizedTrafficStatus(d.status);
-
- results.push({
-  crossingName: d.crossingName,
-  ...(waitTimeMinutes === undefined ? {} : { waitTimeMinutes }),
-  ...(status === undefined ? {} : { status }),
-  lastUpdate,
-  source: 'firestore',
-  approachMinutes: d.approachMinutes,
-  ...(totalCrossingMinutes === undefined ? {} : { totalCrossingMinutes }),
- });
- });
-
- const freshResults = results.filter(r => now - r.lastUpdate.getTime() <= STALE_THRESHOLD_MS);
- if (results.length > 0 && freshResults.length === 0) {
- console.warn('[trafficService] Firestore data is stale (>2 h old) — using committed snapshot fallback');
- return [];
- }
-
- if (freshResults.length < results.length) {
- console.warn('[trafficService] Ignoring stale Firestore readings while keeping fresh crossings');
- }
-
- return freshResults;
+ private async getTrafficDataFromPublicEndpoint(): Promise<TrafficData[]> {
+ const response = await fetch(PUBLIC_TRAFFIC_CURRENT_URL, { credentials: 'omit', mode: 'cors' });
+ if (!response.ok) throw new Error(`trafficCurrent HTTP ${response.status}`);
+ return parsePublicTrafficCurrent(await response.json());
  }
 
  /**
@@ -282,7 +309,7 @@ class TrafficService {
 
  /**
  * Clears the localStorage cache so the next `getTrafficData()` call re-reads
- * Firestore. Called by tests (beforeEach) and by callers that force a refresh.
+ * public snapshot endpoint. Called by tests (beforeEach) and by callers that force a refresh.
  */
  clearCache() {
  try { localStorage.removeItem(TRAFFIC_LS_KEY); } catch { /* ignore */ }
