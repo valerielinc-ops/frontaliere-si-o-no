@@ -70,6 +70,18 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
+/**
+ * Medimeo also advertises broad jobs in the Ostschweiz/Liechtenstein area.
+ * The shared Swiss geography gate intentionally rejects that mixed location
+ * because it cannot prove a Swiss canton for the vacancy. That is an expected
+ * source filter, not a failed detail extraction; exclude it from the detail
+ * completeness denominator while retaining the fail-closed behavior for
+ * missing or broken detail pages.
+ */
+export function isMedimeoExpectedDetailFilter({ reason, decision } = {}) {
+  return reason === 'geography' && decision?.explicitlyForeign === true;
+}
+
 /* ── Category Detection ────────────────────────────────────── */
 
 function detectCategory(title = '') {
@@ -110,7 +122,9 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(MEDIMEO_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, {
+    isExpectedDetailFilter: isMedimeoExpectedDetailFilter,
+  });
 }
 
 /**

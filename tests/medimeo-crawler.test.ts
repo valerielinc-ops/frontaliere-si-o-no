@@ -3,6 +3,7 @@ import {
   MEDIMEO_KEY,
   MEDIMEO_COMPANY_NAME,
   isMedimeoJob,
+  isMedimeoExpectedDetailFilter,
   isTrustedDomain,
 } from '../scripts/lib/medimeo-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -61,6 +62,29 @@ describe('Medimeo AG crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('isMedimeoExpectedDetailFilter', () => {
+    it('classifies mixed Swiss/Liechtenstein geography as an expected filter', () => {
+      expect(isMedimeoExpectedDetailFilter({
+        reason: 'geography',
+        decision: { explicitlyForeign: true, geography: null },
+      })).toBe(true);
+    });
+
+    it('keeps missing geography evidence in the completeness denominator', () => {
+      expect(isMedimeoExpectedDetailFilter({
+        reason: 'geography',
+        decision: { explicitlyForeign: false, geography: null },
+      })).toBe(false);
+    });
+
+    it('does not classify transport or tenant failures as expected filters', () => {
+      expect(isMedimeoExpectedDetailFilter({
+        reason: 'detail',
+        decision: { explicitlyForeign: true, geography: null },
+      })).toBe(false);
     });
   });
 
