@@ -103,7 +103,11 @@ import {
   followupItemId,
 } from './followup-resolution-match.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
-import { claimDailyTagBucketReferences, hasTriageComment } from './collect-followup-batch.mjs';
+import {
+  claimBucketReferences,
+  hasTriageComment,
+  triageMarkerBucketReferences,
+} from './collect-followup-batch.mjs';
 import {
   DEFAULT_ADMISSION_READ_CAP,
   MINT_OBSERVATIONS,
@@ -1089,13 +1093,13 @@ export function demotedItemsBySourcePr(demoted, fallbackTargets = []) {
 
 /**
  * Un marker di triage della PR cita il bucket `#N` su una riga che dice
- * «bucket» (un `#N` preceduto da `PR` e' la PR, non il bucket), oppure con il
+ * «bucket», con `parent #N` quando aggiorna un bucket esistente, oppure con il
  * tag `follow-up(daily:YYYY-MM-DD)` subito dopo il numero: e' la forma del
  * triage su due repository, un bucket per bullet (``- Corpus #1957
- * `follow-up(daily:2026-09-28)` …``, marker di #10015 e #10050). La forma col
- * tag vale solo nella finestra di claim del collector (riga `Created/updated:`
- * e bullet subito sotto, `claimDailyTagBucketReferences`): una citazione
- * storica dopo la lista non qualifica un bucket che il marker non ha promesso.
+ * `follow-up(daily:2026-09-28)` …``, marker di #10015 e #10050). La grammatica
+ * della finestra di claim e' condivisa col collector; una citazione storica
+ * dopo la lista non qualifica un bucket che il marker non ha promesso. La
+ * forma legacy senza `Created/updated:` resta accettata per i marker storici.
  */
 export function triageMarkerCitesBucket(commentsJson, bucketNumber) {
   let data;
@@ -1105,12 +1109,12 @@ export function triageMarkerCitesBucket(commentsJson, bucketNumber) {
     return false;
   }
   const comments = Array.isArray(data) ? data : Array.isArray(data?.comments) ? data.comments : [];
-  const ref = new RegExp(`(?<!\\b(?:PR|pull[-\\s]+request)\\s*)#${Number(bucketNumber)}\\b`, 'i');
   return comments.some((comment) => {
     const body = typeof comment?.body === 'string' ? comment.body : '';
     if (!body.trimStart().startsWith(TRIAGE_MARKER_PREFIX)) return false;
-    return body.split(/\r?\n/).some((line) => /\bbucket\b/i.test(line) && ref.test(line))
-      || claimDailyTagBucketReferences(body).includes(Number(bucketNumber));
+    const legacyBucketLine = body.split(/\r?\n/).some((line) =>
+      /\bbucket\b/i.test(line) && claimBucketReferences(line).includes(Number(bucketNumber)));
+    return legacyBucketLine || triageMarkerBucketReferences(body).includes(Number(bucketNumber));
   });
 }
 
