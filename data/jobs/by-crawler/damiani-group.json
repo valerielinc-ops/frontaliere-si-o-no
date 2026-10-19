@@ -1,6 +1,6 @@
 {
   "crawlerKey": "damiani-group",
-  "assembledAt": "2026-10-19T09:17:19.671Z",
+  "assembledAt": "2026-10-19T21:22:51.927Z",
   "jobs": [
     {
       "title": "IT Support & Junior System Administrator",
@@ -114,7 +114,7 @@
         "it": "business-controller-damiani-group-mendrisio",
         "en": "business-controller-damiani-group-mendrisio",
         "de": "geschaftsbetrieb-damiani-group-mendrisio",
-        "fr": "entreprises-damiani-group-mendrisio"
+        "fr": "business-controller-damiani-group-mendrisio"
       },
       "id": "damiani-group-3095ed600c31",
       "needsRetranslation": true,
@@ -134,7 +134,15 @@
       },
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
-      "firstSeenAt": "2026-10-13T21:24:12.552Z"
+      "firstSeenAt": "2026-10-13T21:24:12.552Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "entreprises-damiani-group-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "entreprises-damiani-group-mendrisio"
+      ]
     },
     {
       "title": "Customer Service Specialist - German Speaking",

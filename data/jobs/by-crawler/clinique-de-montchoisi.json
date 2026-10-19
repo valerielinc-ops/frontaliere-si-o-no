@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-de-montchoisi",
-  "assembledAt": "2026-10-19T09:38:04.898Z",
+  "assembledAt": "2026-10-19T21:34:07.562Z",
   "jobs": [
     {
       "id": "clinique-de-montchoisi-480e680d951f",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155164789-chef-fe-de-partie-patisserie",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:37:56.139Z",
+      "crawledAt": "2026-10-19T21:33:59.406Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:37:56.137Z",
+      "crawledAt": "2026-10-19T21:33:59.405Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       "slugByLocale": {
         "it": "infermiera-clinique-de-montchoisi-lausanne",
         "en": "nurse-clinique-de-montchoisi-lausanne",
-        "de": "krankenschwester-clinique-de-montchoisi-lausanne",
+        "de": "infirmier-ere-clinique-de-montchoisi-lausanne",
         "fr": "infirmier-ere-clinique-de-montchoisi"
       },
       "company": "Clinique de Montchoisi",
@@ -189,7 +189,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000153754749-infirmier-ere-",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:37:56.135Z",
+      "crawledAt": "2026-10-19T21:33:59.404Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -209,14 +209,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-ere-clinique-de-montchoisi",
-        "infirmier-ere-clinique-de-montchoisi-lausanne"
+        "krankenschwester-clinique-de-montchoisi-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-clinique-de-montchoisi"
         ],
         "de": [
-          "infirmier-ere-clinique-de-montchoisi-lausanne"
+          "krankenschwester-clinique-de-montchoisi-lausanne"
         ]
       },
       "firstSeenAt": "2026-10-06T21:31:24.492Z",

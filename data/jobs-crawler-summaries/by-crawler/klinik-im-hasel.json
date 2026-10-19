@@ -1,7 +1,7 @@
 {
   "key": "klinik-im-hasel",
   "label": "Klinik im Hasel",
-  "generatedAt": "2026-10-19T09:14:30.458Z",
+  "generatedAt": "2026-10-19T21:15:06.110Z",
   "total": 9,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 11058,
-  "avgDurationMs": 11058,
+  "durationMs": 10757,
+  "avgDurationMs": 10757,
   "durationHistory": [
-    11058
+    10757
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/330/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:14:17.067Z",
+      "crawledAt": "2026-10-19T21:14:55.599Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/413/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:14:16.415Z",
+      "crawledAt": "2026-10-19T21:14:55.017Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/475/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:14:15.614Z",
+      "crawledAt": "2026-10-19T21:14:54.321Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/477/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:14:14.844Z",
+      "crawledAt": "2026-10-19T21:14:53.634Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -206,7 +206,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/478/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:14:14.071Z",
+      "crawledAt": "2026-10-19T21:14:52.923Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -248,7 +248,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/479/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:14:13.292Z",
+      "crawledAt": "2026-10-19T21:14:52.197Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -291,7 +291,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/484/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:14:12.511Z",
+      "crawledAt": "2026-10-19T21:14:51.473Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -332,7 +332,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/486/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:14:11.718Z",
+      "crawledAt": "2026-10-19T21:14:50.760Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -396,7 +396,7 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -406,5 +406,5 @@
       }
     }
   ],
-  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

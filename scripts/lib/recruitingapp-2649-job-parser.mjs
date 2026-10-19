@@ -161,18 +161,26 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-function attachSnapshotProof(rows, proof) {
-  Object.defineProperty(rows, 'authoritativeSnapshotProof', {
-    value: proof,
-    enumerable: false,
-    configurable: false,
-    writable: false,
-  });
-  Object.defineProperty(rows, 'discoveredCount', {
-    value: proof.discoveredCount,
-    enumerable: false,
-    configurable: false,
-    writable: false,
+function attachSnapshotProof(rows, proof, observedDetailsByUrl = null, titleEvidenceByUrl = null) {
+  Object.defineProperties(rows, {
+    authoritativeSnapshotProof: {
+      value: proof,
+      enumerable: false,
+      configurable: false,
+      writable: false,
+    },
+    discoveredCount: {
+      value: proof.discoveredCount,
+      enumerable: false,
+      configurable: false,
+      writable: false,
+    },
+    ...(observedDetailsByUrl ? {
+      observedDetailsByUrl: { value: observedDetailsByUrl, enumerable: false },
+    } : {}),
+    ...(titleEvidenceByUrl ? {
+      titleEvidenceByUrl: { value: titleEvidenceByUrl, enumerable: false },
+    } : {}),
   });
   return rows;
 }
@@ -188,6 +196,7 @@ async function fetchJobListings(runtime = {}) {
   const attemptedDetailIds = new Set();
   const listingTitles = new Map();
   const observedDetails = new Map();
+  const observedDetailsByUrl = new Map();
   // Same undici copy that supplies the dispatcher `politeFetch` hands down.
   // `globalThis.fetch` here would skip gunzip in silence and read every page
   // as empty — the proof below is fail-closed, but the crawler would still
@@ -230,12 +239,20 @@ async function fetchJobListings(runtime = {}) {
       const decision = resolveDetailOrListingSwissGeography(detail, {});
       observedDetails.set(vacancyId, {
         id: vacancyId,
+        listingTitle: listingTitles.get(vacancyId) || '',
         title: normalizeSpace(detail.title || ''),
         rich: isSufficientVacancyDescription(detail.description),
         swiss: Boolean(decision.geography),
         locations: detail.locationCandidates
           .map((candidate) => normalizeSpace(candidate?.addressLocality || candidate?.location || ''))
           .filter(Boolean),
+      });
+      const observedUrl = canonicalRecruitingapp2649Url(pageUrl);
+      if (observedUrl) observedDetailsByUrl.set(observedUrl, {
+        body: html,
+        status: 200,
+        url: pageUrl,
+        detail,
       });
     }
     return detail;
@@ -266,7 +283,7 @@ async function fetchJobListings(runtime = {}) {
       `recruitingapp-2649: incomplete detail snapshot (${proof.detailCount}/${proof.discoveredCount})`,
     );
   }
-  return attachSnapshotProof(rows, proof);
+  return attachSnapshotProof(rows, proof, observedDetailsByUrl);
 }
 
 export function assertCompleteRecruitingapp2649Snapshot(jobs) {
@@ -301,7 +318,7 @@ export async function fetchAllRecruitingapp2649Jobs(runtime = {}) {
       publishedCount: 0,
       complete: false,
       details: [],
-    });
+    }, listings?.observedDetailsByUrl || null, listings?.titleEvidenceByUrl || null);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -378,5 +395,20 @@ export async function fetchAllRecruitingapp2649Jobs(runtime = {}) {
   }
 
   console.log(`\n📋 Total Alexander von Humboldt-Stiftung Stellen jobs discovered: ${jobs.length}`);
-  return attachSnapshotProof(jobs, listings.authoritativeSnapshotProof);
+  const titleEvidenceByUrl = new Map(jobs.map((job) => {
+    const id = umantisVacancyIdentity(job.url);
+    const listingTitle = listings.authoritativeSnapshotProof?.details
+      ?.find((detail) => detail.id === id)?.listingTitle || '';
+    return [job.url, {
+      listingTitle,
+      finalTitle: job.title,
+      titleSource: 'source-adapter-output',
+    }];
+  }));
+  return attachSnapshotProof(
+    jobs,
+    listings.authoritativeSnapshotProof,
+    listings.observedDetailsByUrl || null,
+    titleEvidenceByUrl,
+  );
 }

@@ -1,7 +1,7 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-10-19T09:16:57.416Z",
+  "generatedAt": "2026-10-19T21:15:59.076Z",
   "total": 7,
   "discovered": null,
   "parsed": 5,
@@ -12,59 +12,16 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 17417,
-  "avgDurationMs": 17417,
+  "durationMs": 16796,
+  "avgDurationMs": 16796,
   "durationHistory": [
-    17417
+    16796
   ],
-  "newJobs": [
-    {
-      "id": "hermes-6a5a5af20aa5",
-      "slug": "cdi-department-manager-lugano-f-h-hermes-ch",
-      "company": "Hermès",
-      "companyKey": "hermes",
-      "companyDomain": "hermes.com",
-      "title": "CDI - Department Manager Lugano (F/H)",
-      "location": "Lugano, Ticino, Switzerland",
-      "canton": "TI",
-      "url": "https://talents.hermes.com/en/sites/CX/jobs/23993/",
-      "source": "Hermès Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-19T09:16:36.377Z",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Luxury goods / fashion / watchmaking",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-19",
-      "postedDate": "2026-10-19",
-      "postingDateSource": "reported",
-      "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23993/",
-      "needsRetranslation": true,
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "salarySource": "estimated",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-10-19T09:16:36.377Z",
-      "_qualityScore": 83,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 16,
-        "completeness": 22
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "hermes-f368fe61a72d",
@@ -78,7 +35,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23937/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:16:37.640Z",
+      "crawledAt": "2026-10-19T21:15:46.605Z",
       "addressLocality": "Geneve",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -104,6 +61,47 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "hermes-6a5a5af20aa5",
+      "slug": "cdi-responsabile-dipartimento-lugano-m-f-hermes-lugano-ticino-switzerland",
+      "company": "Hermès",
+      "companyKey": "hermes",
+      "companyDomain": "hermes.com",
+      "title": "CDI - Department Manager Lugano (F/H)",
+      "location": "Lugano, Ticino, Switzerland",
+      "canton": "TI",
+      "url": "https://talents.hermes.com/en/sites/CX/jobs/23993/",
+      "source": "Hermès Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-19T21:15:45.384Z",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Luxury goods / fashion / watchmaking",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-19",
+      "postedDate": "2026-10-19",
+      "postingDateSource": "reported",
+      "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23993/",
+      "firstSeenAt": "2026-10-19T09:16:36.377Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "salarySource": "estimated",
+      "postalCode": "6900",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
         "translation": 25,
         "completeness": 22
       }
@@ -141,7 +139,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "2340",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -166,7 +164,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:16:38.940Z",
+      "crawledAt": "2026-10-19T21:15:47.782Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -207,7 +205,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23939/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:16:38.294Z",
+      "crawledAt": "2026-10-19T21:15:47.193Z",
       "addressLocality": "Geneve",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -248,7 +246,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23994/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T09:16:37.023Z",
+      "crawledAt": "2026-10-19T21:15:45.998Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -310,7 +308,7 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "postalCode": "2340",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -320,5 +318,5 @@
       }
     }
   ],
-  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

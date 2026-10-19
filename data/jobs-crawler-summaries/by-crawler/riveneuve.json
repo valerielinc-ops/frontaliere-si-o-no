@@ -1,7 +1,7 @@
 {
   "key": "riveneuve",
   "label": "Fondation Rive-Neuve",
-  "generatedAt": "2026-10-19T09:16:35.288Z",
+  "generatedAt": "2026-10-19T21:14:01.606Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 8261,
-  "avgDurationMs": 8261,
+  "unchangedCount": 4,
+  "durationMs": 8026,
+  "avgDurationMs": 8026,
   "durationHistory": [
-    8261
+    8026
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "riveneuve-6211b5c5e83a",
       "slug": "infermiere-a-a-tempo-pieno-tasso-negoziabile-fondation-rive-neuve-blonay",
@@ -36,7 +38,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32273/fr/un-e-infirmier-ere-a-100-taux-negociable",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:16:22.941Z",
+      "crawledAt": "2026-10-19T21:13:46.101Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -77,7 +79,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32285/fr/un-e-assistant-e-en-soins-et-sante-communautaire-a-80",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:16:21.707Z",
+      "crawledAt": "2026-10-19T21:13:45.009Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -118,7 +120,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32286/fr/un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:16:20.968Z",
+      "crawledAt": "2026-10-19T21:13:43.758Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -160,7 +162,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32287/fr/un-e-infirmier-ere-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:16:19.897Z",
+      "crawledAt": "2026-10-19T21:13:42.709Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -190,7 +192,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

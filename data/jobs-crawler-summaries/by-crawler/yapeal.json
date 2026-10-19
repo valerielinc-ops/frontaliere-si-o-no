@@ -1,7 +1,7 @@
 {
   "key": "yapeal",
   "label": "Yapeal",
-  "generatedAt": "2026-10-19T09:14:35.497Z",
+  "generatedAt": "2026-10-19T21:17:58.424Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5786,
-  "avgDurationMs": 5786,
+  "unchangedCount": 0,
+  "durationMs": 4619,
+  "avgDurationMs": 4619,
   "durationHistory": [
-    5786
+    4619
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "yapeal-8d58ba85703f",
       "slug": "senior-harness-engineer-with-gcp-experience-80-100-yapeal-zurich-hybrid",
@@ -37,7 +35,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2733274",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T09:14:21.437Z",
+      "crawledAt": "2026-10-19T21:17:46.858Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -81,7 +79,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T09:14:21.432Z",
+      "crawledAt": "2026-10-19T21:17:46.855Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -101,6 +99,7 @@
       "applyUrl": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "jobReqId": "2821075",
       "firstSeenAt": "2026-10-03T09:13:43.793Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -113,5 +112,7 @@
       }
     }
   ],
-  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

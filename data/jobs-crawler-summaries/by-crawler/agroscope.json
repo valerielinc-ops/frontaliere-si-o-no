@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-19T09:14:41.691Z",
-  "total": 15,
+  "generatedAt": "2026-10-19T21:15:57.276Z",
+  "total": 14,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 14,
-  "durationMs": 8553,
-  "avgDurationMs": 8553,
+  "removedCount": 1,
+  "unchangedCount": 13,
+  "durationMs": 9331,
+  "avgDurationMs": 9331,
   "durationHistory": [
-    8553
+    9331
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -54,7 +54,48 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Postdoktorand/in im Bereich Data Science und prädiktive Modellierung für Kartoffelanbausysteme",
+      "slug": "postdottorando-a-nell-ambito-della-data-science-e-della-modellazione-predittiva-per-i-sistemi-di-coltivazione-delle",
+      "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-im-bereich-data-science-und-praediktive-modellierung-fuer-kartoffelanbausysteme/12457d25-9dc9-42fd-ba2a-c979632ec868",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20388",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Nyon",
+      "addressLocality": "Nyon",
+      "postalCode": "1260",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-07T22:00:00Z",
+      "postedDate": "2026-10-07T22:00:00Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-08",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "agroscope-a0865619335f",
+      "salaryMin": 81000,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-08T09:15:20.136Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Lernende/r Pferdefachmann/-frau EFZ, Orientierung Klassiches Reiten",
@@ -213,45 +254,6 @@
       }
     },
     {
-      "title": "Postdoktorand/-in Ackerbauforschung",
-      "slug": "postdottorando-a-nella-ricerca-agronomica-agroscope-nyon",
-      "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-ackerbauforschung/039aa536-beb5-4eb2-8508-9744b1dfb72a",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20610",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Nyon",
-      "addressLocality": "Nyon",
-      "postalCode": "1260",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-08T06:33:10Z",
-      "postedDate": "2026-10-08T06:33:10Z",
-      "postingDateSource": "reported",
-      "validThrough": "2026-11-08",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "id": "agroscope-f28407128d3f",
-      "salaryMin": 81000,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-08T09:15:20.136Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Wissenschaftliche/r Mitarbeiter/in - Kartoffelzüchtung und Genomik",
       "slug": "collaboratore-trice-scientifico-a-miglioramento-genetico-delle-patate-e-genomica-agroscope-zurich",
       "url": "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-kartoffelzuechtung-und-genomik/c13e4aa6-25a0-47dc-81b1-0b68a64e3a73",
@@ -286,6 +288,45 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Postdoktorand/-in Ackerbauforschung",
+      "slug": "postdottorando-a-nella-ricerca-agronomica-agroscope-nyon",
+      "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-ackerbauforschung/039aa536-beb5-4eb2-8508-9744b1dfb72a",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20610",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Nyon",
+      "addressLocality": "Nyon",
+      "postalCode": "1260",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-08T06:33:10Z",
+      "postedDate": "2026-10-08T06:33:10Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-08",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "agroscope-f28407128d3f",
+      "salaryMin": 81000,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-08T09:15:20.136Z",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -399,46 +440,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-05T21:27:52.359Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Postdoktorand/in im Bereich Data Science und prädiktive Modellierung für Kartoffelanbausysteme",
-      "slug": "postdottorando-a-nell-ambito-della-data-science-e-della-modellazione-predittiva-per-i-sistemi-di-coltivazione-delle",
-      "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-im-bereich-data-science-und-praediktive-modellierung-fuer-kartoffelanbausysteme/12457d25-9dc9-42fd-ba2a-c979632ec868",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20388",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Nyon",
-      "addressLocality": "Nyon",
-      "postalCode": "1260",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-07T22:00:00Z",
-      "postedDate": "2026-10-07T22:00:00Z",
-      "postingDateSource": "reported",
-      "validThrough": "2026-11-08",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "id": "agroscope-a0865619335f",
-      "salaryMin": 81000,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-08T09:15:20.136Z",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -608,5 +609,5 @@
       }
     }
   ],
-  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }
