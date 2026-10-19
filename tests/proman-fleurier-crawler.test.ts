@@ -74,6 +74,19 @@ describe('PROMAN Fleurier source-backed crawler', () => {
     expect(detail.description).not.toContain('Personne de contact');
   });
 
+  it('accepts only an exact class token from a real class attribute', () => {
+    const html = `
+      <section class="u-section-job-details-header"><h1>Role</h1></section>
+      <ul class="u-job-infos"><li><u-svg source="24/job/location"></u-svg> Fleurier</li></ul>
+      <div data-class="u-specs">wrong-data</div>
+      <div class="u-specs-extra">wrong-prefix</div>
+      <div class="u-specs">real description</div>
+    `;
+    const detail = extractPromanFleurierDetailFields(html, detailUrl);
+    expect(detail.description).toContain('real description');
+    expect(detail.description).not.toContain('wrong');
+  });
+
   it('keeps a long rendered posting detail and retains the crawled vacancy', async () => {
     const longDescription = 'Description complète du poste avec responsabilités et compétences. '.repeat(400);
     const longDetailFixture = `

@@ -83,17 +83,12 @@ function firstTagBlock(html = '', tag = '', predicate = () => true) {
 
 function classContainer(html = '', className = '') {
   const source = String(html || '');
-  const escaped = String(className || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const match = new RegExp(
-    `<([a-z][\\w:-]*)\\b[^>]*\\bclass\\s*=\\s*["'][^"']*\\b${escaped}\\b[^"']*["'][^>]*>`,
-    'i',
-  ).exec(source);
-  if (!match) return '';
-  const bodyStart = match.index + match[0].length;
+  const opening = scanStartTags(source).find(({ raw }) => hasClass(raw, className));
+  if (!opening) return '';
   const block = extractBalancedTagBlockWithStatus(
-    source.slice(bodyStart),
-    match[1],
-    source.length - bodyStart,
+    source.slice(opening.end),
+    opening.name,
+    source.length - opening.end,
   );
   return block.complete ? block.html : '';
 }
