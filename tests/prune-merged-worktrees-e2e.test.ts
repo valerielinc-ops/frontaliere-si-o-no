@@ -33,8 +33,11 @@ const sha: Record<string, string> = {};
 let dryRun = '';
 let applyRun = '';
 let scopedRun = '';
+let failedFetchRun = '';
+let orphanOnlyRun = '';
 let selectorPreview = '';
 let exactSelectorRun = '';
+let exactEqualsSelectorRun = '';
 let invalidOnlyErrors: string[] = [];
 let invalidOnlyPreservedTarget = false;
 type GlobalPruneProbe = { packPath: string; worktreePath: string };
@@ -42,9 +45,14 @@ type GlobalPruneState = { packExists: boolean; worktreeEntryExists: boolean };
 let dryRunProbe: GlobalPruneProbe;
 let dryRunProbeState: GlobalPruneState = { packExists: false, worktreeEntryExists: false };
 let scopedProbeState: GlobalPruneState = { packExists: false, worktreeEntryExists: false };
+let failedFetchProbeState: GlobalPruneState = { packExists: false, worktreeEntryExists: false };
+let orphanOnlyProbeState: GlobalPruneState = { packExists: false, worktreeEntryExists: false };
 let fullApplyProbeState: GlobalPruneState = { packExists: false, worktreeEntryExists: false };
 let dryRunMaintenanceCalls: string[] = [];
 let scopedMaintenanceCalls: string[] = [];
+let failedFetchMaintenanceCalls: string[] = [];
+let orphanOnlyMaintenanceCalls: string[] = [];
+let exactEqualsMaintenanceCalls: string[] = [];
 let fullApplyMaintenanceCalls: string[] = [];
 
 function git(cwd: string, ...args: string[]): string {
@@ -80,8 +88,8 @@ function ageTree(dir: string): void {
   fs.utimesSync(dir, OLD, OLD);
 }
 
-function runScript(args: string[]): string {
-  return runIsolatedPruner(SCRIPT, args, root, clone, env);
+function runScript(args: string[], overrides: NodeJS.ProcessEnv = {}): string {
+  return runIsolatedPruner(SCRIPT, args, root, clone, { ...env, ...overrides });
 }
 
 function createGlobalPruneProbe(name: string): GlobalPruneProbe {
@@ -113,6 +121,9 @@ function installGitMaintenanceRecorder(): string {
 if [ "$1" = "fetch" ] || { [ "$1" = "worktree" ] && [ "$2" = "prune" ]; }; then
   printf '%s\\n' "$*" >> "$PRUNE_GIT_MAINTENANCE_LOG"
 fi
+if [ "$1" = "fetch" ] && [ "$PRUNE_FAIL_FETCH" = "1" ]; then
+  exit 128
+fi
 exec "$PRUNE_REAL_GIT" "$@"
 `, { mode: 0o755 });
   return logPath;
@@ -124,6 +135,10 @@ function gitMaintenanceCalls(logPath: string): string[] {
   } catch {
     return [];
   }
+}
+
+function containsFetchPrune(calls: string[]): boolean {
+  return calls.some((call) => call.startsWith('fetch ') && call.split(/\s+/).includes('--prune'));
 }
 
 function captureFailure(args: string[]): string {
@@ -159,6 +174,7 @@ beforeAll(() => {
     FAKE_GH_FIXTURE: path.join(root, 'gh-fixture.json'),
     FAKE_LSOF_CWDS: '',
   };
+  delete env.PRUNE_FAIL_FETCH;
 
   const origin = path.join(root, 'origin.git');
   execFileSync('git', ['init', '-q', '--bare', '--initial-branch', 'main', origin], { env });
@@ -280,6 +296,14 @@ exit 0
   scopedRun = runScript(['--apply', '--only', 'no-fixture-matches-this']);
   scopedProbeState = readGlobalPruneState(dryRunProbe);
   scopedMaintenanceCalls = gitMaintenanceCalls(maintenanceLog).slice(callsBefore);
+  callsBefore = gitMaintenanceCalls(maintenanceLog).length;
+  failedFetchRun = runScript(['--apply', '--only', 'no-fixture-matches-this'], { PRUNE_FAIL_FETCH: '1' });
+  failedFetchProbeState = readGlobalPruneState(dryRunProbe);
+  failedFetchMaintenanceCalls = gitMaintenanceCalls(maintenanceLog).slice(callsBefore);
+  callsBefore = gitMaintenanceCalls(maintenanceLog).length;
+  orphanOnlyRun = runScript(['--apply', '--orphans-only']);
+  orphanOnlyProbeState = readGlobalPruneState(dryRunProbe);
+  orphanOnlyMaintenanceCalls = gitMaintenanceCalls(maintenanceLog).slice(callsBefore);
   // --only must not fall through to unrelated cleanup before the real apply.
   expect(fs.existsSync(wt('feat-merged'))).toBe(true);
   invalidOnlyErrors = [
@@ -293,6 +317,10 @@ exit 0
   exactSelectorRun = runScript(['--apply', '--only', 'feat-merged']);
   expect(fs.existsSync(wt('feat-merged'))).toBe(false);
   expect(fs.existsSync(wt('feat-merged-dirty'))).toBe(true);
+  callsBefore = gitMaintenanceCalls(maintenanceLog).length;
+  exactEqualsSelectorRun = runScript(['--apply', '--only=idle-main']);
+  exactEqualsMaintenanceCalls = gitMaintenanceCalls(maintenanceLog).slice(callsBefore);
+  expect(fs.existsSync(wt('idle-main'))).toBe(false);
   callsBefore = gitMaintenanceCalls(maintenanceLog).length;
   applyRun = runScript(['--apply']);
   fullApplyProbeState = readGlobalPruneState(dryRunProbe);
@@ -311,15 +339,21 @@ describe('prune-merged-worktrees.mjs su un clone di prova', () => {
     expect(dryRunProbeState).toEqual({ packExists: true, worktreeEntryExists: true });
     expect(scopedProbeState).toEqual({ packExists: true, worktreeEntryExists: true });
     expect(fullApplyProbeState).toEqual({ packExists: false, worktreeEntryExists: false });
-    const containsFetchPrune = (calls: string[]) => calls.some(
-      (call) => call.startsWith('fetch ') && call.split(/\s+/).includes('--prune'),
-    );
     expect(containsFetchPrune(dryRunMaintenanceCalls)).toBe(false);
     expect(dryRunMaintenanceCalls).not.toContain('worktree prune');
     expect(containsFetchPrune(scopedMaintenanceCalls)).toBe(false);
     expect(scopedMaintenanceCalls).not.toContain('worktree prune');
     expect(containsFetchPrune(fullApplyMaintenanceCalls)).toBe(true);
     expect(fullApplyMaintenanceCalls).toContain('worktree prune');
+  });
+  it('keeps global cleanup disabled after a failed fetch and in --orphans-only mode', () => {
+    expect(failedFetchRun).toContain('pulizie globali del repository saltate: --only attivo.');
+    expect(failedFetchProbeState).toEqual({ packExists: true, worktreeEntryExists: true });
+    expect(containsFetchPrune(failedFetchMaintenanceCalls)).toBe(false);
+    expect(failedFetchMaintenanceCalls).not.toContain('worktree prune');
+    expect(orphanOnlyRun).toContain('[orphans-only]');
+    expect(orphanOnlyProbeState).toEqual({ packExists: true, worktreeEntryExists: true });
+    expect(orphanOnlyMaintenanceCalls).toEqual([]);
   });
   it('rejects missing, empty, or duplicate --only selectors before applying', () => {
     expect(invalidOnlyErrors[0]).toContain('--only richiede un nome');
@@ -334,6 +368,13 @@ describe('prune-merged-worktrees.mjs su un clone di prova', () => {
     expect(exactSelectorRun).toContain(`removed worktree ${wt('feat-merged')}`);
     expect(exactSelectorRun).not.toContain(wt('feat-merged-dirty'));
     expect(fs.existsSync(wt('feat-merged-dirty'))).toBe(true);
+  });
+  it('--only=value removes the exact selected worktree without global cleanup', () => {
+    expect(exactEqualsSelectorRun).toContain(`removed worktree ${wt('idle-main')}`);
+    expect(exactEqualsSelectorRun).not.toContain(wt('feat-merged-dirty'));
+    expect(fs.existsSync(wt('feat-merged-dirty'))).toBe(true);
+    expect(containsFetchPrune(exactEqualsMaintenanceCalls)).toBe(false);
+    expect(exactEqualsMaintenanceCalls).not.toContain('worktree prune');
   });
   it('il dry-run non tocca niente', () => {
     expect(dryRun).toContain('dry-run: niente rimosso');
