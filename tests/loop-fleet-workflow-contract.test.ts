@@ -671,7 +671,7 @@ describe('loop fleet workflow contract', () => {
       const retryBlockStart = source.indexOf('for attempt in 1 2 3 4 5 6 7 8 9 10');
       const retryBlockEnd = source.indexOf('\n          done', retryBlockStart);
       const retryBlock = source.slice(retryBlockStart, retryBlockEnd);
-      const shallowLedgerFetch = 'bounded_remote git fetch --no-tags --depth=1 origin "$ledger_branch"';
+      const filteredLedgerFetch = 'bounded_remote git fetch --no-tags --depth=1 --filter=blob:limit=1g origin "$ledger_branch"';
       const codeCalls = [...source.matchAll(/^\s+(?:run:\s*)?node(?:\s|$)[^\n]*/gmu)]
         .map(({ index }) => index ?? -1);
       expect(mainCheckout, name).toBeGreaterThanOrEqual(0);
@@ -679,10 +679,10 @@ describe('loop fleet workflow contract', () => {
       expect(codeCalls.length, name).toBeGreaterThan(0);
       for (const codeCall of codeCalls) expect(codeCall, name).toBeGreaterThan(mainCheckout);
       expect(retryBlock, name).toContain(`node scripts/ci/${validator}`);
-      expect(retryBlock, name).toContain(shallowLedgerFetch);
-      expect(source.indexOf(shallowLedgerFetch), name).toBeGreaterThan(mainCheckout);
-      expect(source.indexOf(shallowLedgerFetch), name).toBeLessThan(retryBlockStart);
-      expect(source.split(shallowLedgerFetch).length - 1, name).toBe(2);
+      expect(retryBlock, name).toContain(filteredLedgerFetch);
+      expect(source.indexOf(filteredLedgerFetch), name).toBeGreaterThan(mainCheckout);
+      expect(source.indexOf(filteredLedgerFetch), name).toBeLessThan(retryBlockStart);
+      expect(source.split(filteredLedgerFetch).length - 1, name).toBe(2);
       expect(retryBlock, name).toContain('git -C "$ledger_worktree" checkout -B ledger-work "origin/$ledger_branch"');
       expect(retryBlock, name).toContain('git -C "$ledger_worktree" read-tree --empty');
       expect(source, name).toContain('idempotent by recordId');
@@ -698,7 +698,7 @@ describe('loop fleet workflow contract', () => {
     expect(observer).toContain('/data/loop-fleet/ledger/lifecycle-events*.jsonl');
     expect(observer).toContain("steps.overlay_durable_ledger.outputs.overlay_status == 'ready'");
     expect(observer).toContain('git checkout origin/main -- data/loop-fleet/ledger/');
-    expect(observer).toContain('bounded_remote git fetch --no-tags --depth=1 origin "$ledger_branch"');
+    expect(observer).toContain('bounded_remote git fetch --no-tags --depth=1 --filter=blob:limit=1g origin "$ledger_branch"');
   });
 
   it('preserves a separate bridge concurrency group for each immutable source run', () => {
@@ -788,7 +788,7 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}"');
       expect(source, name).toContain('bounded_remote git fetch origin main');
       expect(source, name).toContain('bounded_remote git ls-remote --exit-code --heads origin');
-      expect(source, name).toContain('bounded_remote git fetch --no-tags --depth=1 origin "$ledger_branch"');
+      expect(source, name).toContain('bounded_remote git fetch --no-tags --depth=1 --filter=blob:limit=1g origin "$ledger_branch"');
       expect(source, name).toContain('export GIT_TERMINAL_PROMPT=0');
 
       const wrapperStart = source.indexOf('bounded_remote() {');
