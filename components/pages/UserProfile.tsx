@@ -16,8 +16,8 @@ import React, { useState, useEffect, useLayoutEffect, useCallback, useMemo, useR
 import AvgRentValue from '@/components/shared/AvgRentValue';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { reportCaughtError } from '@/services/errorReporter';
-import { loadUserCvProfile, loadUserProfile as loadPrivateUserProfile, saveUserProfile, type UserCvProfileRecord } from '@/services/profileFirestore';
-import { loadStoredUserProfile, saveStoredUserProfile, userLocationCacheKey, userProfileStorageKey, userWeatherCacheKey } from '@/services/userProfileStorage';
+import { loadUserCvProfile, loadUserProfile as loadPrivateUserProfile, loadUserProfileWithStatus, saveUserProfile, type UserCvProfileRecord } from '@/services/profileFirestore';
+import { hasLegacyStoredUserProfile, loadLegacyStoredUserProfileForImport, loadStoredUserProfile, removeLegacyStoredUserProfileAfterImport, saveStoredUserProfile, userLocationCacheKey, userProfileStorageKey, userWeatherCacheKey } from '@/services/userProfileStorage';
 import {
  User, LogIn, LogOut, Camera, Briefcase, Users, Calendar,
  Shield, Save, CheckCircle2, MapPin, Heart, Baby, Loader2, Edit3, Sparkles,
@@ -190,8 +190,8 @@ const initFirestore = async () => {
  }
 };
 
-const saveProfileToFirestore = async (uid: string, data: Record<string, unknown>) => {
- await saveUserProfile(uid, data);
+const saveProfileToFirestore = async (uid: string, data: Record<string, unknown>): Promise<boolean> => {
+ return saveUserProfile(uid, data);
 };
 
 const PROFILE_STRING_FIELDS = ['workPosition', 'age', 'gender', 'familySituation', 'frontaliereType', 'municipality', 'children', 'familyMembers', 'workplace', 'preferredDogana', 'preferredLanguage', 'grossSalary', 'permitExpiry'] as const;
@@ -410,8 +410,40 @@ const FamilyMemberRow: React.FC<{
 const UserProfile: React.FC = () => {
  const { t, locale } = useTranslation();
  const { user, loading: authLoading, signIn, signInFacebook, logout } = useAuth();
+ const legacyImportCopy = ({
+  it: {
+   title: 'Hai un profilo salvato in precedenza',
+   body: 'Questo browser contiene dati di profilo salvati prima della separazione per account. Restano nascosti finché non scegli di importarli. Importali solo se sono tuoi.',
+   import: 'Importa nel mio account', importing: 'Importazione…', later: 'Non ora',
+   confirm: 'Confermi che i dati salvati in precedenza sono tuoi e vuoi importarli nel tuo profilo?',
+   failed: 'Non è stato possibile salvare il profilo. La copia precedente è rimasta intatta.',
+  },
+  en: {
+   title: 'A profile was saved earlier',
+   body: 'This browser contains profile data saved before profiles were separated by account. It stays hidden until you choose to import it. Import it only if it is yours.',
+   import: 'Import into my account', importing: 'Importing…', later: 'Not now',
+   confirm: 'Confirm that the previously saved profile is yours and that you want to import it into your account.',
+   failed: 'The profile could not be saved. The earlier copy is still intact.',
+  },
+  de: {
+   title: 'Ein früher gespeichertes Profil ist vorhanden',
+   body: 'Dieser Browser enthält Profildaten, die vor der Trennung nach Konto gespeichert wurden. Sie bleiben verborgen, bis du sie importierst. Importiere sie nur, wenn sie dir gehören.',
+   import: 'In mein Konto importieren', importing: 'Wird importiert…', later: 'Später',
+   confirm: 'Bestätigst du, dass das früher gespeicherte Profil dir gehört und in dein Konto importiert werden soll?',
+   failed: 'Das Profil konnte nicht gespeichert werden. Die frühere Kopie ist weiterhin vorhanden.',
+  },
+  fr: {
+   title: 'Un ancien profil est disponible',
+   body: 'Ce navigateur contient des données de profil enregistrées avant leur séparation par compte. Elles restent masquées jusqu’à votre choix. Importez-les uniquement si elles vous appartiennent.',
+   import: 'Importer dans mon compte', importing: 'Importation…', later: 'Plus tard',
+   confirm: 'Confirmez-vous que l’ancien profil vous appartient et que vous souhaitez l’importer dans votre compte ?',
+   failed: 'Le profil n’a pas pu être enregistré. L’ancienne copie est toujours intacte.',
+  },
+ } as const)[locale];
  const [conciergeService, setConciergeService] = useState<ApplicationConciergeService | null>(null);
  const [cvProfile, setCvProfile] = useState<UserCvProfileRecord | null>(null);
+ const currentUidRef = useRef<string | null>(null);
+ useEffect(() => { currentUidRef.current = user?.uid ?? null; }, [user?.uid]);
  // Profile page needs auth immediately — skip the interaction-deferred loading
  useEffect(() => { eagerAuth(); }, []);
  // Show a "I miei annunci" shortcut only when the user has created publisher ads.
@@ -550,6 +582,9 @@ const UserProfile: React.FC = () => {
  const [profile, setProfile] = useState<UserProfileData>(DEFAULT_PROFILE);
  const [profileCloudLoadedFor, setProfileCloudLoadedFor] = useState<string | null>(null);
  const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved'>('idle');
+ const [legacyProfileAvailable, setLegacyProfileAvailable] = useState(false);
+ const [legacyProfileImporting, setLegacyProfileImporting] = useState(false);
+ const [legacyProfileImportFailed, setLegacyProfileImportFailed] = useState(false);
  const [showFamily, setShowFamily] = useState(false);
  const [validationErrors, setValidationErrors] = useState<string[]>([]);
  const googleButtonRef = useRef<HTMLDivElement>(null);
@@ -724,6 +759,14 @@ const UserProfile: React.FC = () => {
 
  // Newsletter subscription is explicit and is not part of profile sync.
  }, [user?.uid]);
+
+ useEffect(() => {
+  setLegacyProfileAvailable(false);
+  setLegacyProfileImporting(false);
+  setLegacyProfileImportFailed(false);
+  if (!user?.uid || profileCloudLoadedFor !== user.uid) return;
+  setLegacyProfileAvailable(hasLegacyStoredUserProfile());
+ }, [user?.uid, profileCloudLoadedFor]);
 
  // Merge Facebook Graph API profile data (age from birthday) into profile
  useEffect(() => {
@@ -969,6 +1012,68 @@ const UserProfile: React.FC = () => {
  }, 800);
  }, [user?.uid]);
 
+ const handleImportLegacyProfile = async () => {
+  const uid = user?.uid;
+  if (!uid || legacyProfileImporting || !window.confirm(legacyImportCopy.confirm)) return;
+  setLegacyProfileImporting(true);
+  setLegacyProfileImportFailed(false);
+  try {
+   const legacy = loadLegacyStoredUserProfileForImport();
+   if (!legacy) {
+    setLegacyProfileAvailable(false);
+    return;
+   }
+
+   const cloudRead = await loadUserProfileWithStatus(uid);
+   if (!cloudRead.success) throw new Error('Private profile could not be read');
+   if (currentUidRef.current !== uid) return;
+   const cloudProfile = cloudRead.profile;
+   const localProfile = loadStoredUserProfile(uid);
+   const merged = { ...DEFAULT_PROFILE } as UserProfileData;
+   PROFILE_STRING_FIELDS.forEach((field) => {
+    if (localProfile && Object.hasOwn(localProfile, field)) {
+     merged[field] = typeof localProfile[field] === 'string' ? localProfile[field] as string : '';
+    } else if (cloudProfile && Object.hasOwn(cloudProfile, field)) {
+     merged[field] = typeof cloudProfile[field] === 'string' ? cloudProfile[field] as string : '';
+    } else if (userEditedProfileFieldsRef.current.has(field)) {
+     merged[field] = profile[field];
+    } else if (profile[field].trim()) {
+     merged[field] = profile[field];
+    } else if (typeof legacy[field] === 'string') {
+     merged[field] = legacy[field] as string;
+    }
+   });
+
+   if (localProfile && Object.hasOwn(localProfile, 'familyMembersList') && Array.isArray(localProfile.familyMembersList)) {
+    merged.familyMembersList = localProfile.familyMembersList as FamilyMember[];
+   } else if (cloudProfile && Object.hasOwn(cloudProfile, 'familyMembersList') && Array.isArray(cloudProfile.familyMembersList)) {
+    merged.familyMembersList = cloudProfile.familyMembersList as FamilyMember[];
+   } else if (userEditedProfileFieldsRef.current.has('familyMembersList')) {
+    merged.familyMembersList = profile.familyMembersList || [];
+   } else if (profile.familyMembersList?.length) {
+    merged.familyMembersList = profile.familyMembersList;
+   } else if (Array.isArray(legacy.familyMembersList)) {
+    merged.familyMembersList = legacy.familyMembersList as FamilyMember[];
+   }
+
+   const savedLocally = saveStoredUserProfile(uid, merged as unknown as Record<string, unknown>);
+   if (!savedLocally) throw new Error('Scoped profile cache could not be saved');
+   setProfile(merged);
+
+   const savedPrivately = await saveProfileToFirestore(uid, merged as unknown as Record<string, unknown>);
+   if (currentUidRef.current !== uid) return;
+   if (!savedPrivately || !removeLegacyStoredUserProfileAfterImport()) {
+    throw new Error('Profile recovery could not be completed');
+   }
+   setLegacyProfileAvailable(false);
+  } catch (error) {
+   console.warn('[Profile] Legacy profile recovery failed:', error);
+   if (currentUidRef.current === uid) setLegacyProfileImportFailed(true);
+  } finally {
+   if (currentUidRef.current === uid) setLegacyProfileImporting(false);
+  }
+ };
+
  const updateField = (field: keyof UserProfileData, value: string) => {
  userEditedProfileFieldsRef.current.add(field);
  setProfile(prev => {
@@ -1200,6 +1305,33 @@ const UserProfile: React.FC = () => {
  )}
  </div>
  </div>
+
+ {legacyProfileAvailable && (
+  <section role="region" aria-label={legacyImportCopy.title} className="p-4 rounded-2xl border border-info-border bg-info-subtle">
+   <h3 className="text-sm font-bold text-strong">{legacyImportCopy.title}</h3>
+   <p className="mt-1 text-xs text-subtle">{legacyImportCopy.body}</p>
+   {legacyProfileImportFailed && <p role="alert" className="mt-2 text-xs font-medium text-danger">{legacyImportCopy.failed}</p>}
+   <div className="mt-3 flex flex-wrap items-center gap-2">
+    <button
+     type="button"
+     onClick={() => { void handleImportLegacyProfile(); }}
+     disabled={legacyProfileImporting}
+     className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-info-strong text-on-accent text-xs font-semibold disabled:opacity-60"
+    >
+     {legacyProfileImporting && <Loader2 size={14} className="animate-spin" />}
+     {legacyProfileImporting ? legacyImportCopy.importing : legacyImportCopy.import}
+    </button>
+    <button
+     type="button"
+     onClick={() => setLegacyProfileAvailable(false)}
+     disabled={legacyProfileImporting}
+     className="px-3 py-2 rounded-xl border border-edge bg-surface text-xs font-medium text-subtle disabled:opacity-60"
+    >
+     {legacyImportCopy.later}
+    </button>
+   </div>
+  </section>
+ )}
 
  {/* Quick actions strip */}
  <div className="px-6 py-3 bg-surface-alt/50 border-b border-edge">
