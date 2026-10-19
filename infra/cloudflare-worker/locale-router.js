@@ -1620,7 +1620,7 @@ export const EDGE_RETIRED_PATHS = {
   '/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte/': null,
   '/articoli-frontaliere/accesso-libero-alle-rive/': null,
 
-  // ── 301 — cross-section duplicate retirements, nanako#356 (12 URLs). Three
+  // ── 301 — cross-section duplicate retirements, nanako#356 (13 URLs). Three
   // svizzera articles withdrawn in favour of a frontaliere-section winner
   // chosen on GA4 (the retired side was 0/0/0 pageviews/sessions/users in all
   // three). Bridge declared in build-plugins/legacyRedirectsPlugin.ts. Slugs
@@ -1631,6 +1631,7 @@ export const EDGE_RETIRED_PATHS = {
   '/articoli-svizzera/autostrada-riapertura-ticino/': '/articoli-frontaliere/autostrada-a2-mezzovico-interrogazione/',
   '/en/swiss-articles/a2-highway-riopening-ticino/': '/en/cross-border-articles/a2-motorway-mezzovico-interpellation/',
   '/de/schweiz-artikel/a2-autobahn-wiedereroffnung-tessin/': '/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/',
+  '/de/schweiz-artikel/autostrada-riapertura-ticino/': '/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/',
   '/fr/articles-suisse/autoroute-a2-ouverture-again-tessin/': '/fr/articles-frontalier/autoroute-a2-mezzovico-interpellation/',
   '/articoli-svizzera/effetto-domino-fallite-aziende-svizzera/': '/articoli-frontaliere/fallimenti-aziende-svizzera-1994/',
   '/en/swiss-articles/domino-effect-failed-companies-switzerland/': '/en/cross-border-articles/business-bankruptcies-switzerland-1994/',

@@ -373,17 +373,17 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
   it('pins the measured shape of the 2026-08-14 repair', () => {
     const gone = actualKeys.filter((k) => RETIRED_TABLE[k] === null);
     const moved = actualKeys.filter((k) => RETIRED_TABLE[k] !== null);
-    // 4 retired-with-no-substitute + 20 alias orphans; 35 declared redirects
-    // under the eight prefixes + 6 from data/article-redirects.json + 12 for
-    // the nanako#356 cross-section duplicate retirements (bridge in
-    // legacyRedirectsPlugin.ts, same day) + 8 for the nanako#915 / nanako#943
+    // 4 retired-with-no-substitute + 20 alias orphans; 36 declared redirects
+    // under the eight prefixes + 6 from data/article-redirects.json + 13 for
+    // nanako#356 (the original 12 cross-section paths plus this observed DE
+    // alias) + 8 for the nanako#915 / nanako#943
     // same-section duplicate retirements of 2026-09-05 + 1 for the historical
     // unsuffixed FR transit-fee URL bridged by #8730 (Bing closed loop) + 12
     // upstream-aborted article URLs from the 2026-10-07 corpus sync.
     expect({ total: actualKeys.length, gone: gone.length, moved: moved.length }).toEqual({
-      total: 99,
+      total: 100,
       gone: 36,
-      moved: 63,
+      moved: 64,
     });
   });
 });
@@ -638,6 +638,28 @@ describe('retiredEdgeResponse behaviour', () => {
       expect(redirects.get(retiredPath), `${retiredPath} build target`).toBe(target);
       expect(RETIRED_TABLE[retiredPath], `${retiredPath} Worker target`).toBe(target);
     }
+  });
+
+  it('keeps the observed German A2 alias aligned with its current locale slug', () => {
+    const source = fs.readFileSync(path.join(REPO, REGISTRY_BY_SECTION.frontaliere.file), 'utf-8');
+    const registry = parseSlugRegistry(source, 'BLOG_SLUGS') as Record<
+      string,
+      Record<'it' | 'en' | 'de' | 'fr', string>
+    >;
+    const article = Object.values(registry).find(
+      (slugs) => slugs.it === 'autostrada-a2-mezzovico-interrogazione',
+    );
+    expect(article, 'current A2 article missing from BLOG_SLUGS').toBeDefined();
+    if (!article) throw new Error('current A2 article missing from BLOG_SLUGS');
+
+    const from = '/de/schweiz-artikel/autostrada-riapertura-ticino/';
+    const target = `/de/grenzgaenger-artikel/${article.de}/`;
+    expect(declaredRedirects().get(from), `${from} build target`).toBe(target);
+    expect(RETIRED_TABLE[from], `${from} Worker target`).toBe(target);
+
+    const response = retiredEdgeResponse(new URL(`${APEX}${from}?utm_source=gsc`)) as Response | null;
+    expect(response?.status).toBe(301);
+    expect(response?.headers.get('Location')).toBe(`${target}?utm_source=gsc`);
   });
 });
 
