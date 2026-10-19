@@ -431,10 +431,10 @@ describe('cross-source redirect chains (PR #5537 review round 1)', () => {
   });
 
   it('reads the real map without hitting either guard', () => {
-    // 195 on the current main baseline, including the six redirects added
-    // after the original #8730 canary was recorded and the twelve
-    // upstream-aborted article bridges declared by issue 11916.
-    expect(Object.keys(HARDCODED).length).toBe(195);
+    // The immutable base contains 197 literal pairs (the old 195 plus the
+    // cookie and French NASpI aliases). The two explicit legacy nav aliases
+    // bring the complete inventory to 199; keep this an exact canary.
+    expect(Object.keys(HARDCODED).length).toBe(199);
   });
 });
 

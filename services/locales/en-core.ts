@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const enCore: Record<string, string> = {
+ "whatsNew.v39810.title": "Past events by municipality",
+ "whatsNew.v39810.municipalArchives.title": "Municipal archives retained",
+ "whatsNew.v39810.municipalArchives.desc": "Municipal pages with past public events retain titles, dates and links to event details, even when there are no upcoming events.",
  "whatsNew.v3988.title": "Articles with more relevant links",
  "whatsNew.v3988.contextualLinks.title": "Tools in your language",
  "whatsNew.v3988.contextualLinks.desc": "Articles link to tools relevant to the topic, in Italian, English, German and French.",

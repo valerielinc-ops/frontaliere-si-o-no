@@ -157,6 +157,10 @@ scripts/lib/borderWaitSections.mjs
 # non-destructive history check before its checkpoint writer; carry the guard
 # and its lock closure so the transported generator resolves before main().
 scripts/lib/old-history-guard.mjs
+# Added 2026-10-18: the guard now imports this shared credential-safe Git
+# target resolver; transport its dependency with the guard so corpus writers
+# do not fail module loading before main().
+scripts/lib/git-fetch-target.mjs
 scripts/lib/single-flight-lock.mjs
 
 # --- !rewired: reachable by import, deliberately NOT moved -------------------

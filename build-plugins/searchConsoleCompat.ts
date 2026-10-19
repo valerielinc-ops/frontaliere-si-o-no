@@ -1,4 +1,5 @@
 import { LEGACY_LUGANO_COMPETITION_REDIRECTS } from './shared/legacyLuganoCompetitionRedirects';
+import { isEmittedEventArchivePath } from './shared/eventArchiveCompat';
 import { resolveCantonSection, AGGREGATE_KEY, type CantonLocale } from './shared/cantonSection';
 import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG } from './jobSectorLanding';
 import { BASE_URL } from './constants';
@@ -553,6 +554,10 @@ export function resolveSearchConsoleCompatTarget(
  }
 
  const locale = inferLocale(path);
+
+ if (isEmittedEventArchivePath(path)) {
+ return { canonicalPath: ensureTrailingSlash(path), kind: 'legacy', locale };
+ }
 
  // Profession-canton landings (professionCantonLandings.ts) emit every
  // (canton × profession) combo unconditionally — either the full page or a

@@ -4,9 +4,17 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { mkdtempSync, readFileSync, realpathSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { pathToFileURL } from 'node:url';
-import { isAbsolute, join, resolve } from 'node:path';
+import { join, resolve } from 'node:path';
 
 import { withSingleFlightLock } from './single-flight-lock.mjs';
+import {
+  appendGitConfigEnvironment,
+  checkoutFetchTarget,
+  checkoutHttpExtraHeaders,
+  resolveScratchRemote,
+} from './git-fetch-target.mjs';
+
+export { appendGitConfigEnvironment, checkoutFetchTarget };
 
 // Primo commit cambiato dalla riscrittura della storia. Potrà essere tolto
 // solo dopo la riscrittura e la bonifica di tutti i clone e worktree che
@@ -65,22 +73,6 @@ function runGit(args, { cwd, stdio = 'ignore', timeout, env } = {}) {
   return output ? output.trim() : '';
 }
 
-/**
- * Appends ephemeral Git config entries without overwriting entries supplied by
- * the caller through GIT_CONFIG_COUNT and its indexed key/value variables.
- */
-export function appendGitConfigEnvironment(baseEnv, entries) {
-  const parsedCount = Number.parseInt(baseEnv.GIT_CONFIG_COUNT || '0', 10);
-  const existingCount = Number.isSafeInteger(parsedCount) && parsedCount >= 0 ? parsedCount : 0;
-  const env = { ...baseEnv };
-  entries.forEach(({ key, value }, offset) => {
-    const index = existingCount + offset;
-    env[`GIT_CONFIG_KEY_${index}`] = key;
-    env[`GIT_CONFIG_VALUE_${index}`] = value;
-  });
-  env.GIT_CONFIG_COUNT = String(existingCount + entries.length);
-  return env;
-}
 
 // What a parent git exports to bind its children to one repository, index and
 // object store: `git rev-parse --local-env-vars`, minus the two that carry
@@ -425,81 +417,6 @@ export function proveHeadAddsNoOldHistory({
   if (!boundary) return { proven: false, why: 'shallow-boundary-unreadable' };
   if (added.some((sha) => boundary.has(sha))) return { proven: false, why: 'added-commit-on-shallow-boundary' };
   return { proven: true, addedCommits: added.length };
-}
-
-function isRemoteName(value) {
-  return /^[A-Za-z0-9._-]+$/u.test(value);
-}
-
-function isRemoteLocation(value) {
-  return /^(?:[a-z][a-z\d+.-]*:|\/\/|[^/\\\s@]+@[^/\\\s:]+:)/iu.test(value);
-}
-
-function resolveScratchRemote({ cwd, remote }) {
-  let location = remote;
-  if (isRemoteName(remote)) {
-    try {
-      location = runGit(['-C', cwd, 'remote', 'get-url', remote], {
-        cwd,
-        stdio: ['ignore', 'pipe', 'pipe'],
-      });
-    } catch {
-      location = remote;
-    }
-  }
-  if (isAbsolute(location) || isRemoteLocation(location)) return location;
-  return resolve(cwd, location);
-}
-
-/**
- * A filtered fetch by credential-bearing URL asks Git to remember that URL as
- * a promisor remote. Keep the URL written by Git credential-free and pass its
- * Basic header ephemerally to the child instead.
- */
-function checkoutFetchTarget({ cwd, remote }) {
-  const location = resolveScratchRemote({ cwd, remote });
-  let url;
-  try {
-    url = new URL(location);
-  } catch {
-    return { remote, env: process.env };
-  }
-  if (!['http:', 'https:'].includes(url.protocol) || (!url.username && !url.password)) {
-    return { remote, env: process.env };
-  }
-
-  const authorization = `AUTHORIZATION: basic ${Buffer.from(
-    `${decodeURIComponent(url.username)}:${decodeURIComponent(url.password)}`,
-  ).toString('base64')}`;
-  const credentiallessUrl = new URL(url);
-  credentiallessUrl.username = '';
-  credentiallessUrl.password = '';
-  const originKey = `http.${credentiallessUrl.origin}/.extraheader`;
-  const existingHeaders = checkoutHttpExtraHeaders(cwd);
-  const resetHeaders = existingHeaders
-    .filter(({ key }) => key.toLowerCase() === 'http.extraheader'
-      || key.toLowerCase().startsWith(`http.${credentiallessUrl.origin.toLowerCase()}`))
-    .map(({ key }) => ({ key, value: '' }));
-  const env = appendGitConfigEnvironment(process.env, [
-    ...resetHeaders,
-    { key: originKey, value: authorization },
-  ]);
-  return { remote: credentiallessUrl.href, env };
-}
-
-function checkoutHttpExtraHeaders(cwd) {
-  try {
-    const output = runGit(['-C', cwd, 'config', '--get-regexp', '^http\\..*\\.extraheader$'], {
-      cwd,
-      stdio: ['ignore', 'pipe', 'pipe'],
-    });
-    return output.split('\n').map((line) => {
-      const match = /^(\S+)\s(.*)$/u.exec(line);
-      return match ? { key: match[1], value: match[2] } : null;
-    }).filter(Boolean);
-  } catch {
-    return [];
-  }
 }
 
 function githubRepositoryForRemote({ cwd, remote }) {

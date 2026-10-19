@@ -28,6 +28,7 @@ import {
 } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 const ROOT = path.resolve(__dirname, '..');
 const CLASSIFY_SAMPLE = path.join(ROOT, 'scripts/lib/classify-issue.mjs');
@@ -317,6 +318,15 @@ describe('guard di entrypoint canonico (#7292)', () => {
     const impostor = path.join(impostorDir, 'two-sided.mjs');
     writeFileSync(impostor, `import ${JSON.stringify(entry)};\n`);
     expect(runNode(impostor, [])).toBe('');
+  });
+
+  it('non fallisce importando la guardia con argv[1] che non è un path esistente', () => {
+    const guard = pathToFileURL(path.join(ROOT, 'scripts/ci/guard-main-tree-shrink.mjs')).href;
+    expect(() => execFileSync(process.execPath, [
+      '-e',
+      `import(${JSON.stringify(guard)})`,
+      'unrelated-argument',
+    ], { cwd: ROOT, encoding: 'utf8' })).not.toThrow();
   });
 
   it('i gemelli fissati anche dal pubblicatore usano la forma a due lati', () => {

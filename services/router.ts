@@ -16,6 +16,7 @@
 
 import { getLocale, type Locale } from './i18n';
 import { STABIO_DOSSO_PETITION_PATHS } from './petitionRoute';
+import { EVENTS_ARCHIVE_SEGMENT } from './eventsArchivePaths';
 import { SLUG_TABLES, type SlugTable } from './routeSlugs.data';
 import { cdnDataUrl } from './cdnDataBase';
 import { buildJobSlugRecord, jobSlugShardKey, jobSlugShardPath } from './jobSlugShards';
@@ -1092,6 +1093,12 @@ const EVENTS_PATH_PATTERN: Record<Locale, RegExp> = {
  de: /^\/de\/veranstaltungen\/([a-z0-9-]+)((?:\/[a-z0-9-]+){0,2})\/?$/,
  fr: /^\/fr\/evenements\/([a-z0-9-]+)((?:\/[a-z0-9-]+){0,2})\/?$/,
 };
+const EVENTS_ARCHIVE_PAGE_SUFFIX: Record<Locale, RegExp> = {
+ it: new RegExp(`/${EVENTS_ARCHIVE_SEGMENT.it}/page-[1-9][0-9]*/?$`),
+ en: new RegExp(`/${EVENTS_ARCHIVE_SEGMENT.en}/page-[1-9][0-9]*/?$`),
+ de: new RegExp(`/${EVENTS_ARCHIVE_SEGMENT.de}/page-[1-9][0-9]*/?$`),
+ fr: new RegExp(`/${EVENTS_ARCHIVE_SEGMENT.fr}/page-[1-9][0-9]*/?$`),
+};
 
 /**
  * Match a pathname against every locale's events URL shape and validate the
@@ -1106,6 +1113,13 @@ function matchEventsCantonLocale(pathname: string): Locale | null {
  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
   const m = EVENTS_PATH_PATTERN[locale].exec(pathname);
   if (m && EVENTS_CANTON_SLUGS[locale].has(m[1])) return locale;
+  // Municipal archive pagination has one more segment than an event detail.
+  // Strip only its localized, positive-page suffix, not arbitrary deep routes.
+  const base = pathname.replace(EVENTS_ARCHIVE_PAGE_SUFFIX[locale], '');
+  if (base !== pathname) {
+   const municipal = EVENTS_PATH_PATTERN[locale].exec(base);
+   if (municipal && /^\/[a-z0-9-]+$/.test(municipal[2]) && EVENTS_CANTON_SLUGS[locale].has(municipal[1])) return locale;
+  }
  }
  return null;
 }
