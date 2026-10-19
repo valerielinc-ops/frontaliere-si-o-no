@@ -94,7 +94,7 @@ export default function ApplicationConciergeAdmin() {
                   <p className="font-semibold text-body">{service.applicantName || service.customerEmail || 'Candidato senza dati'}</p>
                   <p className="text-xs text-muted">{service.serviceId}</p>
                 </div>
-                <span className={`rounded-full px-2 py-1 text-[11px] font-bold ${service.serviceStatus === 'active' ? 'bg-success-subtle text-success' : 'bg-surface-raised text-muted}`}>
+                <span className={`rounded-full px-2 py-1 text-[11px] font-bold ${service.serviceStatus === 'active' ? 'bg-success-subtle text-success' : 'bg-surface-raised text-muted'}`}>
                   {service.serviceStatus}
                 </span>
               </div>
