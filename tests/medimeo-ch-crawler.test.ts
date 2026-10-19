@@ -116,6 +116,23 @@ describe('Medimeo AG crawler parser', () => {
         addressCountry: 'CH',
       })).toBeNull();
     });
+
+    it('rejects contradictory country fields before preferring addressCountry', () => {
+      expect(resolveMedimeoChGeography({
+        location: 'Lugano',
+        addressCountry: 'CH',
+        country: 'Italy',
+        addressRegion: 'ZH',
+      })).toBeNull();
+    });
+
+    it('rejects a structured canton that conflicts with the source locality', () => {
+      expect(resolveMedimeoChGeography({
+        location: 'Lugano',
+        addressCountry: 'CH',
+        addressRegion: 'ZH',
+      })).toBeNull();
+    });
   });
 
   // ── slugify (imported from crawler-template) ──
