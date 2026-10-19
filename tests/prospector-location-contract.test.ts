@@ -342,7 +342,14 @@ describe('prospector location and identity contract', () => {
     politeFetch.mockImplementation(async (url: string) => ({
       ok: true,
       status: 200,
-      body: url === seed ? `<a href="${detailUrl}">${title}</a>` : detailHtml,
+      body: url === seed
+        ? `<script type="application/ld+json">${JSON.stringify({
+          '@type': 'JobPosting',
+          title,
+          url: detailUrl,
+          jobLocation: { address: { addressLocality: 'St. Gallen', addressRegion: 'SG', addressCountry: 'CH' } },
+        })}</script><a href="${detailUrl}">${title}</a>`
+        : detailHtml,
       url,
       host: new URL(url).hostname,
     }));
@@ -362,7 +369,7 @@ describe('prospector location and identity contract', () => {
 
     expect(rows).toEqual([expect.objectContaining({
       title,
-      location: '9000 St. Gallen',
+      location: 'St. Gallen, SG',
       canton: 'SG',
     })]);
   });
