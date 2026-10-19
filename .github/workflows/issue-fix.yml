@@ -1848,6 +1848,7 @@ jobs:
           REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
           ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
+          DAILY_ITEM_ID: ${{ steps.tier.outputs.selected_item_id }}
         run: |
           set -uo pipefail
           action_outcome="${ACTION_OUTCOME:-}"
@@ -1876,6 +1877,20 @@ jobs:
             exit 0
           fi
           if [ "${HAS:-0}" != "0" ]; then
+            if [[ "${DAILY_ITEM_ID:-}" =~ ^FU-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{3}$ ]]; then
+              if ! ITEM_HAS=$(printf '%s\n' "$COMMENTS" | jq -r --arg started "$RUN_STARTED_AT" --arg item "$DAILY_ITEM_ID" \
+                'if (.comments | type) != "array" then error("comments-shape") else [.comments[] | select((.createdAt // "") >= $started) | select((.body // "") | contains(("<!-- FOLLOWUP_ITEM: " + $item + " -->")))] | length end' \
+                2>/dev/null); then
+                echo "::warning::commenti issue non classificabili: backstop FOLLOWUP_ITEM non emesso."
+                exit 0
+              fi
+              if [ "${ITEM_HAS:-0}" = "0" ]; then
+                echo "FOLLOWUP_ITEM marker missing in this run — adding selected daily item."
+                if ! gh issue comment "$ISSUE" --body "$(printf '<!-- FOLLOWUP_ITEM: %s -->' "$DAILY_ITEM_ID")"; then
+                  echo "::warning::marker FOLLOWUP_ITEM non postato; nessuna garanzia di associazione daily."
+                fi
+              fi
+            fi
             echo "FIX_OUTCOME marker already present in this run — no backstop needed."
             exit 0
           fi
