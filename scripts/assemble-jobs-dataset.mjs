@@ -87,7 +87,13 @@ import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { absoluteJobUrl } from './lib/job-url-host.mjs';
-import { archiveFilteredJobsToSlices, archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
+import {
+  archiveFilteredJobsToSlices,
+  archiveRemovedJobsToSlice,
+  collapseDuplicateRouteEntries,
+  normalizeExpiredAtEntries,
+  repairExpiredRoutesAgainstActive,
+} from './lib/expired-jobs-archive.mjs';
 import { carryForwardFirstSeenAt } from './lib/first-seen-history.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
@@ -4032,6 +4038,31 @@ export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}
 }
 
 /**
+ * Repair persisted expired routes after active assembly has established the
+ * current route owners. The aggregate is assembled before this pass, so the
+ * caller also applies the same pure repair to its in-memory projection.
+ */
+function repairExpiredArchiveSlicesAgainstActive(activeJobs) {
+  if (!Array.isArray(activeJobs) || activeJobs.length === 0) {
+    return { changed: 0, repairedRoutes: 0, details: [] };
+  }
+  let changed = 0;
+  let repairedRoutes = 0;
+  const details = [];
+  for (const slicePath of listSliceFiles(EXPIRED_SLICES_DIR)) {
+    const entries = readJson(slicePath, null);
+    if (!Array.isArray(entries)) continue;
+    const result = repairExpiredRoutesAgainstActive(entries, activeJobs);
+    if (result.changed === 0) continue;
+    writeJson(slicePath, entries);
+    changed += result.changed;
+    repairedRoutes += result.repairedRoutes;
+    if (details.length < 20) details.push(...result.details);
+  }
+  return { changed, repairedRoutes, details };
+}
+
+/**
  * Assemble all per-crawler expired job slices into data/expired-jobs.json.
  * Each slice is an array of expired job entries with slugs as unique keys.
  * Returns the assembled array, or null if no slices exist.
@@ -4879,9 +4910,25 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   if (withExpired) {
     const expiredJobs = assembleExpiredJobs();
     if (expiredJobs !== null) {
+      let repairedExpiredJobs = expiredJobs;
+      if (assembled) {
+        const sliceRepair = repairExpiredArchiveSlicesAgainstActive(publishedJobs);
+        const aggregateRepair = repairExpiredRoutesAgainstActive(expiredJobs, publishedJobs);
+        repairedExpiredJobs = aggregateRepair.entries;
+        const repairedRoutes = sliceRepair.repairedRoutes + aggregateRepair.repairedRoutes;
+        if (repairedRoutes > 0) {
+          console.log(
+            `  🧭 Expired route ownership: disambiguated ${repairedRoutes} routes across `
+            + `${sliceRepair.changed + aggregateRepair.changed} archive entries`,
+          );
+          if (sliceRepair.details.length > 0) {
+            console.log(`     ${sliceRepair.details.slice(0, 5).join('; ')}`);
+          }
+        }
+      }
       // --- Ghost reconciliation: remove expired entries that match active jobs ---
       if (assembled) {
-        const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(publishedJobs, expiredJobs);
+        const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(publishedJobs, repairedExpiredJobs);
         if (ghostCount > 0) {
           console.log(`  👻 Ghost reconciliation: removed ${ghostCount} ghost expired entries, merged ${mergedSlugs} slugs into active previousSlugs`);
           // Write back active jobs with merged previousSlugs
@@ -4936,10 +4983,10 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
           console.warn(`  ⚠️ Slug reconciliation skipped: ${err.message}`);
         }
       } else {
-        writeJson(DATA_EXPIRED, expiredJobs, { streamArray: true });
+        writeJson(DATA_EXPIRED, repairedExpiredJobs, { streamArray: true });
         fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-        writeJson(PUBLIC_EXPIRED, expiredJobs, { streamArray: true });
-        console.log(`✅ data/expired-jobs.json assembled: ${expiredJobs.length} expired jobs`);
+        writeJson(PUBLIC_EXPIRED, repairedExpiredJobs, { streamArray: true });
+        console.log(`✅ data/expired-jobs.json assembled: ${repairedExpiredJobs.length} expired jobs`);
       }
     }
   } else {
