@@ -1672,6 +1672,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
           const detail = extractRuntimeDetailFields(spec, page.body, page.url || detailUrl, {
             detailExtractor: runtime.detailExtractor,
             recordUrl: row.url,
+            recordTitle: row.title,
           });
           const decision = resolveDetailOrListingSwissGeography(detail, row);
           const geography = geographyFieldsForDecision(decision, runtime);
