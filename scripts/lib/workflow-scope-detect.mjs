@@ -67,6 +67,19 @@
 // fenced code blocks, or bare markdown prose/bullets.
 export const WORKFLOW_PATH_RE = /\.github\/workflows\/[A-Za-z0-9._/-]+\.ya?ml\b/g;
 
+/**
+ * Keep issue bodies usable by the fixer without exposing a workflow path that
+ * the workflow-scope guard would classify as a workflow-only fix. The helper
+ * lives beside the canonical matcher so reporters do not carry divergent
+ * copies of the same redaction rule.
+ */
+export function redactWorkflowPaths(text) {
+  return String(text ?? '').replace(
+    WORKFLOW_PATH_RE,
+    (match) => `«workflow ${match.slice('.github/workflows/'.length)}»`,
+  );
+}
+
 // Bare `<name>.yml` (a workflow is always .yml; in a follow-up a bare .yml that isn't a
 // known config file indicates a workflow file almost every time).
 export const BARE_YML_RE = /\b[A-Za-z0-9][A-Za-z0-9._-]*\.ya?ml\b/g;

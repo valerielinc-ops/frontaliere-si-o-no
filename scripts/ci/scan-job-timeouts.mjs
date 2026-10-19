@@ -154,8 +154,10 @@ import {
 // `check-workflows-scope.mjs` (Mode 1) terminerebbe `issue-fix.yml` a zero token.
 // Il nome di uno step arriva dal `name:` scritto a mano nel workflow e può
 // contenerlo (`Run .github/workflows/foo.yml`), quindi la redazione è applicata
-// al body INTERO — stessa regola e stessa funzione di `report-workflow-failure.mjs`.
-import { redactWorkflowPaths } from './report-validate-dist-failure.mjs';
+// al body INTERO. Il matcher è condiviso col guard e vive in un gemello
+// `identical`, non nel reporter dist `adapted`: così questo file resta
+// trasportabile e runnable da solo su entrambi i repo.
+import { redactWorkflowPaths } from '../lib/workflow-scope-detect.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
