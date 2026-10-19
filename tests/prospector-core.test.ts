@@ -449,6 +449,36 @@ describe('vacancy extraction', () => {
     expect(resolveSourceBackedSwissGeography('Le Lignon')).toBeNull();
   });
 
+  it('accepts an official locality when structured canton evidence disambiguates it', () => {
+    for (const [locality, canton] of [['Alt St. Johann', 'SG'], ['Niederuzwil', 'SG']]) {
+      const evidence = {
+        location: locality,
+        addressLocality: locality,
+        addressRegion: canton,
+        addressCountry: 'CH',
+      };
+      expect(resolveSourceBackedSwissGeography(evidence), locality).toMatchObject({
+        location: locality,
+        canton,
+        addressCountry: 'CH',
+      });
+      expect(resolveDetailOrListingSwissGeography({ locationCandidates: [evidence] }, {}).geography)
+        .toMatchObject({ location: locality, canton });
+    }
+    expect(resolveSourceBackedSwissGeography('Alt St. Johann')).toBeNull();
+    expect(resolveSourceBackedSwissGeography({
+      location: 'Alt St. Johann', addressLocality: 'Alt St. Johann', addressCountry: 'CH',
+    })).toBeNull();
+    const mismatchedLocality = {
+      location: 'Niederuzwil',
+      addressLocality: 'Alt St. Johann',
+      addressRegion: 'SG',
+      addressCountry: 'CH',
+    };
+    expect(resolveSourceBackedSwissGeography(mismatchedLocality)).toBeNull();
+    expect(evaluateSourceBackedSwissGeography([mismatchedLocality]).geography).toBeNull();
+  });
+
   // Regressione arsante.ch/gmo (#6372). Il markup microdata reale mette la
   // copia dentro un <p> nidificato, non come nodo di testo diretto del div
   // itemprop: `readItempropBody` deve leggere fino alla chiusura bilanciata
