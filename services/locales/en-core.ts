@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const enCore: Record<string, string> = {
+ "whatsNew.v3989.title": "Pharmacy schedules preserved over time",
+ "whatsNew.v3989.pharmacyArchive.title": "Two September weeks recovered",
+ "whatsNew.v3989.pharmacyArchive.desc": "Observed assignments remain available with their original collection dates and sources. Historical archives do not indicate current duties or opening hours.",
  "whatsNew.v39810.title": "Past events by municipality",
  "whatsNew.v39810.municipalArchives.title": "Municipal archives retained",
  "whatsNew.v39810.municipalArchives.desc": "Municipal pages with past public events retain titles, dates and links to event details, even when there are no upcoming events.",

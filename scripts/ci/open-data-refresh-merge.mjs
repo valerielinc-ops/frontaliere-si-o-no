@@ -271,6 +271,22 @@ function mergePharmacyEnrichment(remoteRaw, refreshRaw) {
 }
 
 function mergeBothChanged(file, baseRaw, remoteRaw, refreshRaw) {
+  if (/^data\/pharmacy-duty-week-history\/\d{4}-\d{2}-\d{2}\.json$/u.test(file)) {
+    const remote = parseObject(remoteRaw, `${file} stable branch`);
+    const refresh = parseObject(refreshRaw, `${file} current refresh`);
+    const weekStart = file.slice(file.lastIndexOf('/') + 1, -5);
+    for (const edition of [remote, refresh]) {
+      if (edition.version !== 1 || edition.weekStart !== weekStart || !Array.isArray(edition.observations)) {
+        throw new Error(`Invalid pharmacy duty week history in ${file}`);
+      }
+    }
+    // Observations are append-only, unlike the complete current duty feed.
+    // Keep every distinct edition from both unmerged refreshes. The domain
+    // reader validates their facts and deduplicates repeated assignments.
+    const observations = [...new Map([...remote.observations, ...refresh.observations]
+      .map((observation) => [JSON.stringify(observation), observation])).values()];
+    return `${JSON.stringify({ version: 1, weekStart, observations })}\n`;
+  }
   if (file === 'data/events-description-rewrites.json') {
     return mergeEventDescriptionRewriteCache(file, baseRaw, remoteRaw, refreshRaw);
   }

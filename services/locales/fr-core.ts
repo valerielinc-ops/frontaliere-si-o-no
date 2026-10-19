@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ "whatsNew.v3989.title": "Des plannings de pharmacie conservés dans le temps",
+ "whatsNew.v3989.pharmacyArchive.title": "Deux semaines de septembre récupérées",
+ "whatsNew.v3989.pharmacyArchive.desc": "Les affectations relevées restent consultables avec leurs dates de collecte et sources originales. Les archives historiques n’indiquent pas les gardes ou ouvertures actuelles.",
  "whatsNew.v39810.title": "Événements passés par commune",
  "whatsNew.v39810.municipalArchives.title": "Archives communales conservées",
  "whatsNew.v39810.municipalArchives.desc": "Les pages communales ayant des événements publics passés conservent titres, dates et liens vers les fiches, même sans prochains rendez-vous.",
