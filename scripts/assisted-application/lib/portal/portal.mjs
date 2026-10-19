@@ -763,13 +763,75 @@ export function formPostingMatch(formText, job = {}, { postingMatched = false } 
 // «Bewerbung absenden», «Invia candidatura», «Envoyer ma candidature».
 const NAMES_APPLICATION_RE = /(appl|bewerb|candid|postul)/i;
 
+// A file field for a cover letter or another document must not hide the fact
+// that a SuccessFactors CV input is still in its upload dialog. Keep this
+// narrower than the complete document vocabulary used by the requirements
+// planner: only a CV/resume label counts as the CV being present.
+const CV_DOCUMENT_TERMS = 'cv|resume|résumé|lebenslauf|curriculum(?:\\s+vitae)?';
+const COVER_LETTER_DOCUMENT_TERMS = 'cover\\s+letter|motivation(?:s|al)?\\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\\s+de\\s+motivation|lettera\\s+di\\s+(?:motivazione|presentazione)';
+const documentContextRe = (terms) => new RegExp(
+  `(?<![\\p{L}\\p{N}\\p{M}])(?:${terms})(?![\\p{L}\\p{N}\\p{M}])`,
+  'iu',
+);
+const CV_DOCUMENT_CONTEXT_RE = documentContextRe(CV_DOCUMENT_TERMS);
+const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe(COVER_LETTER_DOCUMENT_TERMS);
+const CV_FILE_FIELD_RE = CV_DOCUMENT_CONTEXT_RE;
+
+const isFileField = (field) => field?.kind === 'file' || field?.inputType === 'file';
+const isCvFileField = (field) => {
+  if (!isFileField(field)) return false;
+  const label = String(field.label || '');
+  if (COVER_LETTER_DOCUMENT_CONTEXT_RE.test(label)) return false;
+  if (CV_FILE_FIELD_RE.test(label)) return true;
+  const metadata = `${field.name || ''} ${field.id || ''}`;
+  if (COVER_LETTER_DOCUMENT_CONTEXT_RE.test(metadata)) return false;
+  if (CV_FILE_FIELD_RE.test(metadata)) return true;
+  const context = String(field.context || '');
+  return CV_FILE_FIELD_RE.test(context) && !COVER_LETTER_DOCUMENT_CONTEXT_RE.test(context);
+};
+
+// SuccessFactors can render the CV input only after its icon-only upload
+// control is pressed. The visible page still has application questions (and
+// «Apply») alongside the account password fields, so the CV is not the only
+// reliable marker of an application-owned account form.
+const APPLICATION_ACCOUNT_FIELD_RE = new RegExp(
+  `(?<![\\p{L}\\p{N}\\p{M}])(?:work\\s+permit|permit\\s+for|salary|workload|starting\\s+date|notice\\s+period|criminal\\s+record|proficiency\\s+level|how\\s+did\\s+you\\s+hear|region\\s+of\\s+residence|${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}|candidatur|bewerbung)(?![\\p{L}\\p{N}\\p{M}])`,
+  'iu',
+);
+const SUCCESS_FACTORS_HOST_SUFFIXES = [
+  'successfactors.eu',
+  'successfactors.com',
+  'sapsf.eu',
+  'sapsf.com',
+  'successfactors.localhost',
+];
+
+const isSuccessFactorsUrl = (url) => {
+  try {
+    const hostname = new URL(url).hostname.toLowerCase();
+    return hostname === 'jobs.sap.com'
+      || SUCCESS_FACTORS_HOST_SUFFIXES.some((suffix) => hostname === suffix || hostname.endsWith(`.${suffix}`));
+  } catch {
+    return false;
+  }
+};
+
 /**
  * The application form asks for its account's password itself (account.mjs)
- * and its button sends an application: the form, not a login page. A bare
- * «Submit» or «Konto erstellen» under a password stays a registration.
+ * and its button sends an application: the form, not a login page. Some
+ * SuccessFactors tenants keep the CV input in an upload dialog until its
+ * icon is pressed; their other application fields are enough to identify the
+ * same mixed form before that dialog is opened. A bare «Submit» or «Konto
+ * erstellen» under a password stays a registration.
  */
 export function ownAccountForm(snapshot) {
-  return Boolean(snapshot.passwordVisible) && inlineAccountForm(snapshot) && sendsApplication(snapshot);
+  const labels = (snapshot.fields || []).map((field) => `${field.label || ''} ${field.context || ''}`).join(' ');
+  const hasCvFileField = (snapshot.fields || []).some(isCvFileField);
+  const mixedApplication = isSuccessFactorsUrl(snapshot.url)
+    && !hasCvFileField
+    && sendsApplication(snapshot)
+    && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
+  return Boolean(snapshot.passwordVisible) && sendsApplication(snapshot) && (inlineAccountForm(snapshot) || mixedApplication);
 }
 
 /** The page's button sends an application («Submit final application»), whatever else the page asks. */
@@ -1048,12 +1110,32 @@ const ICON_ONLY_BUTTON_RE = /^[^\p{L}\p{N}]{1,12}$/u;
 // JavaScript's `\b` is ASCII-only and treats `_` as a word character. Document
 // labels can contain accents and filenames commonly use underscores, so only
 // Unicode letters, numbers and combining marks are token characters here.
-const documentContextRe = (terms) => new RegExp(
-  `(?<![\\p{L}\\p{N}\\p{M}])(?:${terms})(?![\\p{L}\\p{N}\\p{M}])`,
-  'iu',
-);
-const CV_DOCUMENT_CONTEXT_RE = documentContextRe('cv|resume|résumé|lebenslauf|curriculum(?:\\s+vitae)?');
-const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe('cover\\s+letter|motivation(?:s|al)?\\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\\s+de\\s+motivation|lettera\\s+di\\s+(?:motivazione|presentazione)');
+const SUCCESS_FACTORS_UPLOAD_MARKER_RE = /(?:upload|hochladen|carica(?:re)?|charger|télécharger|joindre|importer)/i;
+
+const successFactorsButtonAssociation = (button) => [
+  button.domId,
+  button.id,
+  button.name,
+  button.label,
+  button.title,
+  button.ariaLabel,
+  button.dataAutomationId,
+  button.section,
+  button.context,
+  button.fileContext,
+].filter(Boolean).join(' ');
+
+const successFactorsDocumentPattern = (kind) => kind === 'cv'
+  ? CV_DOCUMENT_CONTEXT_RE
+  : kind === 'cover_letter'
+    ? COVER_LETTER_DOCUMENT_CONTEXT_RE
+    : null;
+const successFactorsDocumentAssociationMatches = (association, kind) => {
+  const documentPattern = successFactorsDocumentPattern(kind);
+  const otherPattern = kind === 'cv' ? COVER_LETTER_DOCUMENT_CONTEXT_RE
+    : kind === 'cover_letter' ? CV_DOCUMENT_CONTEXT_RE : null;
+  return Boolean(documentPattern && otherPattern && documentPattern.test(association) && !otherPattern.test(association));
+};
 
 /**
  * Find a document upload control without guessing from an unlabelled icon.
@@ -1076,6 +1158,34 @@ export function uploadButtonFor(snapshot, kind) {
   return candidates.length === 1 ? candidates[0] : null;
 }
 
+function successFactorsIconButtonFor(snapshot, kind) {
+  const documentPattern = successFactorsDocumentPattern(kind);
+  if (!documentPattern) return null;
+  const candidates = (snapshot?.buttons || []).filter((button) => {
+    if (button.disabled || button.chrome || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return false;
+    const association = successFactorsButtonAssociation(button);
+    return SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
+      && successFactorsDocumentAssociationMatches(association, kind);
+  });
+  return candidates.length === 1 ? candidates[0] : null;
+}
+
+function isSuccessFactorsPage(page) {
+  return isSuccessFactorsUrl(page.url());
+}
+
+function iconUploadAllowedForPage(page, button, kind = 'cv', snapshot = null) {
+  if (!button || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return true;
+  const contextPattern = kind === 'cover_letter' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : CV_DOCUMENT_CONTEXT_RE;
+  const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
+  if (contextPattern.test(context)) return true;
+  const association = successFactorsButtonAssociation(button);
+  return isSuccessFactorsPage(page)
+    && ownAccountForm(snapshot || {})
+    && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
+    && successFactorsDocumentAssociationMatches(association, kind);
+}
+
 // Tries per page and action in one run: a click a portal drops is tried again
 // at once, a page that never opens does not hold the run (review of #11022).
 const MAX_SECTION_TRIES = 3;
@@ -1083,7 +1193,8 @@ const MAX_SECTION_TRIES = 3;
 /** The CV through the dialog the trigger opens: 'unavailable' when nothing went in. */
 async function uploadThroughDialog(page, trigger, file) {
   try {
-    await trigger.click({ timeout: 6_000 });
+    if (trigger.snapshot) await clickButton(page, trigger.snapshot);
+    else await trigger.click({ timeout: 6_000 });
   } catch {
     return 'unavailable';
   }
@@ -1156,10 +1267,19 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const cvFile = Array.isArray(files.cv) ? files.cv[0] : files.cv;
   const cvKey = `cv|${where}`;
   let cv;
-  while (cvFile && !done.has(cvKey) && !current.fields.some((field) => field.kind === 'file')) {
-    const triggerButton = uploadButtonFor(current, 'cv');
-    const trigger = triggerButton ? locatorFor(page, triggerButton) : null;
-    if (!trigger || !await trigger.isVisible().catch(() => false) || !attempt(cvKey)) break;
+  while (cvFile && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
+    const namedTriggerButton = uploadButtonFor(current, 'cv');
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page) && ownAccountForm(current)
+      ? successFactorsIconButtonFor(current, 'cv')
+      : null;
+    const triggerButton = namedTriggerButton || iconTriggerButton;
+    const trigger = iconTriggerButton && !namedTriggerButton
+      ? { snapshot: triggerButton }
+      : iconUploadAllowedForPage(page, triggerButton, 'cv', current) && triggerButton
+        ? locatorFor(page, triggerButton)
+        : null;
+    const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
+    if (!trigger || !visible || !attempt(cvKey)) break;
     cv = await uploadThroughDialog(page, trigger, cvFile);
     current = await extractFields(page);
     // A file that went in, confirmed or not, never goes in twice.
@@ -1169,9 +1289,18 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const coverLetterKey = `cover-letter|${where}`;
   let coverLetter;
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
-    const triggerButton = uploadButtonFor(current, 'cover_letter');
-    const trigger = triggerButton ? locatorFor(page, triggerButton) : null;
-    if (!trigger || !await trigger.isVisible().catch(() => false)) break;
+    const namedTriggerButton = uploadButtonFor(current, 'cover_letter');
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page) && ownAccountForm(current)
+      ? successFactorsIconButtonFor(current, 'cover_letter')
+      : null;
+    const triggerButton = namedTriggerButton || iconTriggerButton;
+    const trigger = iconTriggerButton && !namedTriggerButton
+      ? { snapshot: triggerButton }
+      : iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current) && triggerButton
+        ? locatorFor(page, triggerButton)
+        : null;
+    const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
+    if (!trigger || !visible) break;
     coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile);
     current = await extractFields(page);
     if (coverLetter !== 'unavailable') done.add(coverLetterKey);
