@@ -1,7 +1,7 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-10-19T09:36:26.081Z",
+  "generatedAt": "2026-10-19T21:36:47.640Z",
   "total": 3,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7953,
-  "avgDurationMs": 7953,
+  "durationMs": 8840,
+  "avgDurationMs": 8840,
   "durationHistory": [
-    7953
+    8840
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-729790/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-19T09:36:04.755Z",
+      "crawledAt": "2026-10-19T21:36:26.218Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-729764/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-19T09:36:06.539Z",
+      "crawledAt": "2026-10-19T21:36:27.838Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -151,5 +151,5 @@
       }
     }
   ],
-  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

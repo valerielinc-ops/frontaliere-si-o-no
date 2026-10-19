@@ -1,10 +1,10 @@
 {
   "key": "ophtalmique",
   "label": "Hôpital ophtalmique Jules-Gonin (Fondation Asile des aveugles)",
-  "generatedAt": "2026-10-19T09:38:20.974Z",
+  "generatedAt": "2026-10-19T21:34:52.073Z",
   "total": 4,
   "discovered": null,
-  "parsed": 4,
+  "parsed": 5,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7372,
-  "avgDurationMs": 7372,
+  "durationMs": 6294,
+  "avgDurationMs": 6294,
   "durationHistory": [
-    7372
+    6294
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1916",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:38:05.857Z",
+      "crawledAt": "2026-10-19T21:34:36.791Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1913",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:38:05.258Z",
+      "crawledAt": "2026-10-19T21:34:36.426Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1919",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:38:06.736Z",
+      "crawledAt": "2026-10-19T21:34:37.519Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1920",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:38:06.301Z",
+      "crawledAt": "2026-10-19T21:34:37.157Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -198,5 +198,5 @@
       }
     }
   ],
-  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }
