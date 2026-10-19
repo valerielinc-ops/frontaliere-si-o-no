@@ -9,7 +9,7 @@
         "de": "analyst-in-asset-management-80-100-suva-luzern",
         "it": "analyst-in-asset-management-80-100-suva-luzern",
         "en": "analyst-in-asset-management-80-100-suva-luzern",
-        "fr": "analyst-in-asset-management-80-100-suva-luzern"
+        "fr": "analyste-en-gestion-d-actifs-80-100-suva-luzern-6004"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -1827,12 +1827,12 @@
     },
     {
       "id": "suva-bb9fe3451f5d",
-      "slug": "unternehmensentwickler-in-80-100-suva-luzern",
+      "slug": "sviluppatore-sviluppatrice-aziendale-80-100-suva-luzern-6004",
       "slugByLocale": {
         "de": "unternehmensentwickler-in-80-100-suva-luzern",
-        "it": "unternehmensentwickler-in-80-100-suva-luzern",
-        "en": "unternehmensentwickler-in-80-100-suva-luzern",
-        "fr": "unternehmensentwickler-in-80-100-suva-luzern"
+        "it": "sviluppatore-sviluppatrice-aziendale-80-100-suva-luzern-6004",
+        "en": "business-developer-80-100-suva-luzern-6004",
+        "fr": "developpeur-euse-d-entreprise-80-100-suva-luzern-6004"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -1889,7 +1889,21 @@
         }
       },
       "addressRegion": "LU",
-      "firstSeenAt": "2026-10-19T09:15:47.213Z"
+      "firstSeenAt": "2026-10-19T09:15:47.213Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unternehmensentwickler-in-80-100-suva-luzern"
+        ],
+        "en": [
+          "unternehmensentwickler-in-80-100-suva-luzern"
+        ],
+        "fr": [
+          "unternehmensentwickler-in-80-100-suva-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "unternehmensentwickler-in-80-100-suva-luzern"
+      ]
     },
     {
       "id": "suva-36471dc778f7",

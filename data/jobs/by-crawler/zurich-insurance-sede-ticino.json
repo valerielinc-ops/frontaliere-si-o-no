@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "zurich-insurance-sede-ticino-1375186457",
-      "slug": "senior-internal-auditor-m-w-d-zurich-insurance-zurich-1375186457",
+      "slug": "auditore-interno-senior-m-f-d-zurich-insurance-zurich-1375186457",
       "slugByLocale": {
         "en": "senior-internal-auditor-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "senior-internal-auditor-m-w-d-zurich-insurance-zurich-1375186457",
-        "de": "senior-internal-auditor-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "senior-internal-auditor-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "it": "auditore-interno-senior-m-f-d-zurich-insurance-zurich-1375186457",
+        "de": "senior-interner-auditor-m-w-d-zurich-insurance-zurich-1375186457",
+        "fr": "auditeur-interne-principal-h-f-d-zurich-insurance-zurich-1375186457"
       },
       "slugDisambiguator": "1375186457",
       "company": "Zurich Insurance",
@@ -58,11 +58,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "senior-internal-auditor-m-w-d-zurich-insurance-sede-ticino-zurich",
+          "senior-internal-auditor-m-w-d-zurich-insurance-zurich-1375186457"
+        ],
+        "de": [
+          "senior-internal-auditor-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
           "senior-internal-auditor-m-w-d-zurich-insurance-sede-ticino-zurich"
         ]
       },
       "previousSlugs": [
-        "senior-internal-auditor-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "senior-internal-auditor-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "senior-internal-auditor-m-w-d-zurich-insurance-zurich-1375186457"
       ],
       "salaryMin": 189000,
       "salaryMax": 331500,
@@ -1432,7 +1440,7 @@
       "slug": "rechtskonsulent-previdenza-m-w-d-zurich-insurance-zurich",
       "slugByLocale": {
         "it": "rechtskonsulent-previdenza-m-w-d-zurich-insurance-zurich",
-        "en": "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757",
+        "en": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757",
         "de": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich",
         "fr": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
       },
@@ -1480,14 +1488,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
+        "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich"
         ],
         "en": [
-          "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
+          "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757"
         ]
       },
       "slugDisambiguator": "1373916757",
@@ -3078,10 +3086,10 @@
       "id": "zurich-insurance-sede-ticino-1373207957",
       "slug": "responsabile-delle-transazioni-immobiliari-m-w-d-zurich-insurance-zurich",
       "slugByLocale": {
-        "it": "responsabile-delle-transazioni-immobiliari-m-w-d-zurich-insurance-zurich",
+        "it": "operazioni-di-testa-immobiliare-m-f-d-zurich-insurance-zurich-1373207957",
         "en": "head-transactions-real-estate-m-w-d-zurich-insurance-zurich-1373207957",
         "de": "head-transactions-real-estate-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "responsable-des-transactions-immobilieres-m-w-d-zurich-insurance-zurich"
+        "fr": "operations-principales-immobilier-h-f-d-zurich-insurance-zurich-1373207957"
       },
       "company": "Zurich Insurance",
       "companyKey": "zurich-insurance-sede-ticino",
@@ -3129,18 +3137,16 @@
       "previousSlugs": [
         "head-transactions-real-estate-m-w-d-zurich-insurance-sede-ticino-zurich",
         "head-transactions-real-estate-m-w-d-zurich-insurance-zurich",
-        "operazioni-di-testa-immobiliare-m-f-d-zurich-insurance-zurich-1373207957",
-        "operations-principales-immobilier-h-f-d-zurich-insurance-zurich-1373207957"
+        "responsable-des-transactions-immobilieres-m-w-d-zurich-insurance-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-transactions-real-estate-m-w-d-zurich-insurance-sede-ticino-zurich",
-          "head-transactions-real-estate-m-w-d-zurich-insurance-zurich",
-          "operazioni-di-testa-immobiliare-m-f-d-zurich-insurance-zurich-1373207957"
+          "head-transactions-real-estate-m-w-d-zurich-insurance-zurich"
         ],
         "fr": [
           "head-transactions-real-estate-m-w-d-zurich-insurance-sede-ticino-zurich",
-          "operations-principales-immobilier-h-f-d-zurich-insurance-zurich-1373207957"
+          "responsable-des-transactions-immobilieres-m-w-d-zurich-insurance-zurich"
         ]
       },
       "slugDisambiguator": "1373207957",

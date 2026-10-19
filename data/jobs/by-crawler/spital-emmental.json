@@ -3838,12 +3838,12 @@
     },
     {
       "id": "spital-emmental-2af6f75bc207",
-      "slug": "dipl-pflegefachperson-a-spital-emmental-burgdorf-5",
+      "slug": "infermiera-a-spital-emmental-burgdorf-e7fba2",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "it": "dipl-pflegefachperson-a-spital-emmental-burgdorf-5",
-        "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-5",
-        "fr": "dipl-pflegefachperson-a-spital-emmental-burgdorf-5"
+        "it": "infermiera-a-spital-emmental-burgdorf-e7fba2",
+        "en": "dipl-nurse-a-spital-emmental-burgdorf-e7fba2",
+        "fr": "infirmiere-a-spital-emmental-burgdorf-e7fba2"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3907,16 +3907,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T15:03:15.193Z"
+      "firstSeenAt": "2026-09-07T15:03:15.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-5"
+        ],
+        "en": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-5"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-5"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf-5"
+      ]
     },
     {
       "id": "spital-emmental-6889f5a03181",
-      "slug": "dipl-pflegefachperson-a-spital-emmental-langnau-2",
+      "slug": "infermiera-a-spital-emmental-langnau-9ff8b8",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-a-spital-emmental-langnau",
-        "it": "dipl-pflegefachperson-a-spital-emmental-langnau-2",
-        "en": "dipl-pflegefachperson-a-spital-emmental-langnau-2",
-        "fr": "dipl-pflegefachperson-a-spital-emmental-langnau-2"
+        "it": "infermiera-a-spital-emmental-langnau-9ff8b8",
+        "en": "dipl-nurse-a-spital-emmental-langnau-9ff8b8",
+        "fr": "infirmiere-a-spital-emmental-langnau-9ff8b8"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3980,16 +3994,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-03T09:10:14.957Z"
+      "firstSeenAt": "2026-10-03T09:10:14.957Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-a-spital-emmental-langnau-2"
+        ],
+        "en": [
+          "dipl-pflegefachperson-a-spital-emmental-langnau-2"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-a-spital-emmental-langnau-2"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-a-spital-emmental-langnau-2"
+      ]
     },
     {
       "id": "spital-emmental-c239877f04e9",
-      "slug": "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf",
+      "slug": "applicazioni-amministrative-di-ict-application-manager-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf",
-        "it": "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf",
-        "en": "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf",
-        "fr": "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf"
+        "it": "applicazioni-amministrative-di-ict-application-manager-a-spital-emmental-burgdorf",
+        "en": "ict-application-manager-administrative-applications-a-spital-emmental-burgdorf",
+        "fr": "applications-administratives-du-gestionnaire-d-applications-tic-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4052,16 +4080,30 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-d498698ded66",
-      "slug": "facharztin-facharzt-per-allgemeine-innere-medizin-a-spital-emmental-langnau",
+      "slug": "medica-specialista-medico-specialista-in-medicina-interna-generale-a-spital-emmental-langnau",
       "slugByLocale": {
         "de": "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau",
-        "it": "facharztin-facharzt-per-allgemeine-innere-medizin-a-spital-emmental-langnau",
-        "en": "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau",
-        "fr": "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
+        "it": "medica-specialista-medico-specialista-in-medicina-interna-generale-a-spital-emmental-langnau",
+        "en": "specialist-for-general-internal-medicine-a-spital-emmental-langnau",
+        "fr": "specialiste-en-medecine-interne-generale-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4114,11 +4156,19 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau",
+          "facharztin-facharzt-per-allgemeine-innere-medizin-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
+        ],
+        "fr": [
           "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
+        "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau",
+        "facharztin-facharzt-per-allgemeine-innere-medizin-a-spital-emmental-langnau"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4137,12 +4187,12 @@
     },
     {
       "id": "spital-emmental-dcc4149d9f35",
-      "slug": "arztsekretar-in-a-spital-emmental-burgdorf-3",
+      "slug": "segretario-a-medico-a-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "arztsekretar-in-a-spital-emmental-burgdorf",
-        "it": "arztsekretar-in-a-spital-emmental-burgdorf-3",
-        "en": "arztsekretar-in-a-spital-emmental-burgdorf-3",
-        "fr": "arztsekretar-in-a-spital-emmental-burgdorf-3"
+        "it": "segretario-a-medico-a-a-spital-emmental-burgdorf",
+        "en": "medical-secretary-a-spital-emmental-burgdorf-728382",
+        "fr": "secretaire-medical-e-a-spital-emmental-burgdorf-728382"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4206,7 +4256,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:35.353Z"
+      "firstSeenAt": "2026-09-19T22:51:35.353Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-a-spital-emmental-burgdorf-3"
+        ],
+        "en": [
+          "arztsekretar-in-a-spital-emmental-burgdorf-3"
+        ],
+        "fr": [
+          "arztsekretar-in-a-spital-emmental-burgdorf-3"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-a-spital-emmental-burgdorf-3"
+      ]
     },
     {
       "id": "spital-emmental-80eda4a0501e",

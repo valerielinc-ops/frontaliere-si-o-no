@@ -1552,7 +1552,7 @@
         "it": "responsabile-senior-dei-rischi-it-e-della-governance-m-f-d-coopers-group-ag-bern",
         "en": "devops-engineer-security-risk-m-w-d-coopers-group-ag-bern",
         "de": "senior-it-risk-governance-manager-m-w-d-coopers-bern",
-        "fr": "devops-ingenieur-security-risk-m-w-d-coopers-group-ag-bern"
+        "fr": "gestionnaire-principal-des-risques-et-de-la-gouvernance-en-ti-h-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -1621,13 +1621,13 @@
           "senior-it-risk-governance-manager-m-w-d-coopers-bern"
         ],
         "fr": [
-          "gestionnaire-principal-des-risques-et-de-la-gouvernance-en-ti-h-f-d-coopers-group-ag-bern"
+          "devops-ingenieur-security-risk-m-w-d-coopers-group-ag-bern"
         ]
       },
       "previousSlugs": [
         "senior-it-risk-governance-manager-m-w-d-coopers-bern",
         "devops-engineer-security-risk-m-w-d-coopers-bern",
-        "gestionnaire-principal-des-risques-et-de-la-gouvernance-en-ti-h-f-d-coopers-group-ag-bern"
+        "devops-ingenieur-security-risk-m-w-d-coopers-group-ag-bern"
       ],
       "firstSeenAt": "2026-09-19T22:57:56.083Z",
       "salaryMin": 77000,
@@ -3092,12 +3092,12 @@
     },
     {
       "id": "coopers-1edd56511d8e",
-      "slug": "material-declaration-expert-eh-s-data-migration-product-safety-m-f-d-coopers-basel-stadt",
+      "slug": "esperto-di-dichiarazioni-sui-materiali-migrazione-dei-dati-eh-s-sicurezza-dei-prodotti-m-f-d-coopers-group-ag-basel",
       "slugByLocale": {
         "en": "material-declaration-expert-eh-s-data-migration-product-safety-m-f-d-coopers-basel-stadt",
-        "it": "material-declaration-expert-eh-s-data-migration-product-safety-m-f-d-coopers-basel-stadt",
-        "de": "material-declaration-expert-eh-s-data-migration-product-safety-m-f-d-coopers-basel-stadt",
-        "fr": "material-declaration-expert-eh-s-data-migration-product-safety-m-f-d-coopers-basel-stadt"
+        "it": "esperto-di-dichiarazioni-sui-materiali-migrazione-dei-dati-eh-s-sicurezza-dei-prodotti-m-f-d-coopers-group-ag-basel",
+        "de": "materialdeklaration-experte-eh-s-datenmigration-produktsicherheit-m-w-d-coopers-group-ag-basel-stadt",
+        "fr": "declaration-de-materiel-expert-eh-s-migration-de-donnees-securite-des-produits-h-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3169,16 +3169,30 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-19T09:30:54.683Z"
+      "firstSeenAt": "2026-10-19T09:30:54.683Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "material-declaration-expert-eh-s-data-migration-product-safety-m-f-d-coopers-basel-stadt"
+        ],
+        "de": [
+          "material-declaration-expert-eh-s-data-migration-product-safety-m-f-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "material-declaration-expert-eh-s-data-migration-product-safety-m-f-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "material-declaration-expert-eh-s-data-migration-product-safety-m-f-d-coopers-basel-stadt"
+      ]
     },
     {
       "id": "coopers-254839baf2e7",
-      "slug": "principal-design-researcher-and-service-designer-m-f-d-coopers-zug",
+      "slug": "ricercatore-principale-e-progettista-di-servizio-m-f-d-coopers-group-ag-zug",
       "slugByLocale": {
         "en": "principal-design-researcher-and-service-designer-m-f-d-coopers-zug",
-        "it": "principal-design-researcher-and-service-designer-m-f-d-coopers-zug",
-        "de": "principal-design-researcher-and-service-designer-m-f-d-coopers-zug",
-        "fr": "principal-design-researcher-and-service-designer-m-f-d-coopers-zug"
+        "it": "ricercatore-principale-e-progettista-di-servizio-m-f-d-coopers-group-ag-zug",
+        "de": "leitender-designforscher-und-service-designer-m-w-d-coopers-group-ag-zug",
+        "fr": "chercheur-principal-en-conception-et-concepteur-de-services-h-f-d-coopers-group-ag-zug"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3248,7 +3262,21 @@
         }
       },
       "postalCode": "6300",
-      "firstSeenAt": "2026-10-19T09:30:53.783Z"
+      "firstSeenAt": "2026-10-19T09:30:53.783Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-design-researcher-and-service-designer-m-f-d-coopers-zug"
+        ],
+        "de": [
+          "principal-design-researcher-and-service-designer-m-f-d-coopers-zug"
+        ],
+        "fr": [
+          "principal-design-researcher-and-service-designer-m-f-d-coopers-zug"
+        ]
+      },
+      "previousSlugs": [
+        "principal-design-researcher-and-service-designer-m-f-d-coopers-zug"
+      ]
     },
     {
       "id": "coopers-f7d4bc29cecd",
@@ -3256,8 +3284,8 @@
       "slugByLocale": {
         "de": "softwaretester-in-fur-webapplikation-im-energiehandelskontext-m-w-d-coopers-bern",
         "it": "softwaretester-in-per-webapplikation-im-energiehandelskontext-m-w-d-coopers-group-ag-bern",
-        "en": "softwaretester-in-fur-webapplikation-im-energiehandelskontext-m-w-d-coopers-bern",
-        "fr": "softwaretester-in-fur-webapplikation-im-energiehandelskontext-m-w-d-coopers-bern"
+        "en": "software-tester-for-a-web-application-in-the-energy-trading-context-m-f-d-coopers-group-ag-bern",
+        "fr": "testeur-testeuse-de-logiciels-pour-une-application-web-dans-le-contexte-du-negoce-de-l-energie-h-f-d-coopers-group-ag"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3317,6 +3345,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "softwaretester-in-fur-webapplikation-im-energiehandelskontext-m-w-d-coopers-bern"
+        ],
+        "en": [
+          "softwaretester-in-fur-webapplikation-im-energiehandelskontext-m-w-d-coopers-bern"
+        ],
+        "fr": [
           "softwaretester-in-fur-webapplikation-im-energiehandelskontext-m-w-d-coopers-bern"
         ]
       },

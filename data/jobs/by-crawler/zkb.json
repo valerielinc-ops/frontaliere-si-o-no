@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "zkb-23341b542ed0",
-      "slug": "spezialist-in-finanzierungen-unternehmen-zkb-zurich",
+      "slug": "specialista-in-finanziamenti-alle-imprese-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "spezialist-in-finanzierungen-unternehmen-zkb-zurich",
-        "it": "spezialist-in-finanzierungen-unternehmen-zkb-zurich",
-        "en": "spezialist-in-finanzierungen-unternehmen-zkb-zurich",
-        "fr": "spezialist-in-finanzierungen-unternehmen-zkb-zurich"
+        "it": "specialista-in-finanziamenti-alle-imprese-zurcher-kantonalbank-zurich",
+        "en": "corporate-financing-specialist-zurcher-kantonalbank-zurich",
+        "fr": "specialiste-des-financements-des-entreprises-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -71,16 +71,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:16:48.791Z"
+      "firstSeenAt": "2026-10-19T09:16:48.791Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-finanzierungen-unternehmen-zkb-zurich"
+        ],
+        "en": [
+          "spezialist-in-finanzierungen-unternehmen-zkb-zurich"
+        ],
+        "fr": [
+          "spezialist-in-finanzierungen-unternehmen-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-finanzierungen-unternehmen-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-d5e9616501b9",
-      "slug": "portfolio-manager-in-hypotheken-schweiz-im-asset-management-zkb-zurich",
+      "slug": "portfolio-manager-per-le-ipoteche-in-svizzera-nell-asset-management-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "portfolio-manager-in-hypotheken-schweiz-im-asset-management-zkb-zurich",
-        "it": "portfolio-manager-in-hypotheken-schweiz-im-asset-management-zkb-zurich",
-        "en": "portfolio-manager-in-hypotheken-schweiz-im-asset-management-zkb-zurich",
-        "fr": "portfolio-manager-in-hypotheken-schweiz-im-asset-management-zkb-zurich"
+        "it": "portfolio-manager-per-le-ipoteche-in-svizzera-nell-asset-management-zurcher-kantonalbank-zurich",
+        "en": "portfolio-manager-swiss-mortgages-in-asset-management-zurcher-kantonalbank-zurich",
+        "fr": "gestionnaire-de-portefeuille-pour-les-hypotheques-en-suisse-dans-la-gestion-d-actifs-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -142,16 +156,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:16:48.315Z"
+      "firstSeenAt": "2026-10-19T09:16:48.315Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "portfolio-manager-in-hypotheken-schweiz-im-asset-management-zkb-zurich"
+        ],
+        "en": [
+          "portfolio-manager-in-hypotheken-schweiz-im-asset-management-zkb-zurich"
+        ],
+        "fr": [
+          "portfolio-manager-in-hypotheken-schweiz-im-asset-management-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "portfolio-manager-in-hypotheken-schweiz-im-asset-management-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-b57dab762479",
-      "slug": "compliance-officer-m-w-d-zkb-zurich",
+      "slug": "ufficiale-di-conformita-m-f-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "compliance-officer-m-w-d-zkb-zurich",
-        "it": "compliance-officer-m-w-d-zkb-zurich",
+        "it": "ufficiale-di-conformita-m-f-d-zurcher-kantonalbank-zurich",
         "en": "compliance-officer-m-w-d-zkb-zurich",
-        "fr": "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
+        "fr": "agent-de-conformite-h-f-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -213,7 +241,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:16:47.839Z"
+      "firstSeenAt": "2026-10-19T09:16:47.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-m-w-d-zkb-zurich"
+        ],
+        "fr": [
+          "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-m-w-d-zkb-zurich",
+        "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
+      ]
     },
     {
       "id": "zkb-c00bc5e43a9e",

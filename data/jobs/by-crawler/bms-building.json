@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "bms-building-c21f858285b1",
-      "slug": "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
+      "slug": "servizio-clienti-richner-shop-sanitary-m-f-d-100-bms-building-materials-zurich",
       "slugByLocale": {
         "de": "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
-        "it": "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
-        "en": "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
-        "fr": "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
+        "it": "servizio-clienti-richner-shop-sanitary-m-f-d-100-bms-building-materials-zurich",
+        "en": "customer-service-richner-shop-sanitary-m-f-d-100-bms-building-materials-zurich",
+        "fr": "service-clientele-richner-shop-sanitaire-h-f-d-100-bms-building-materials-zurich"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -99,7 +99,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-01T10:15:58.416Z"
+      "firstSeenAt": "2026-09-01T10:15:58.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
+        ],
+        "en": [
+          "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
+          "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-6560e8f99018",

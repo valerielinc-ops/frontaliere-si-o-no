@@ -9,7 +9,7 @@
         "it": "berater-previdenza-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
         "en": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
         "de": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "fr": "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
+        "fr": "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -58,7 +58,7 @@
       "previousSlugs": [
         "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
         "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
+        "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -66,7 +66,7 @@
         ],
         "fr": [
           "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
-          "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
+          "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:43.080Z",
@@ -166,7 +166,7 @@
       "slugByLocale": {
         "it": "consulente-55-m-f-d-4997-469-lugano-swiss-life-lugano",
         "en": "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch",
-        "de": "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch",
+        "de": "immobilienberater-m-w-d-generalagentur-italienische-schweiz-lugano-swiss-life-lugano",
         "fr": "consulente-immobiliare-h-f-d-agence-generale-suisse-italienne-lugano-swiss-life-lugano"
       },
       "company": "Swiss Life",
@@ -218,6 +218,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch"
+        ],
+        "de": [
           "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch"
         ]
       },
@@ -4294,7 +4297,7 @@
         "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-sion-valais-rom",
         "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-a",
         "de": "berater-in-fur-vorsorge-und-finanzen-f-h-d-mit-berufserfahrung-swiss-life-sion",
-        "fr": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-a"
+        "fr": "conseiller-conseil-en-prevoyance-et-en-finance-h-f-d-avec-experience-professionnelle-agence-generale-sion-valais-romand"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -4391,6 +4394,9 @@
         ],
         "de": [
           "vorsorge-und-finanzberater-w-m-d-mit-berufserfahrung-generalagentur-sitten-wallis-swiss-life-sion"
+        ],
+        "fr": [
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-a"
         ]
       },
       "needsRetranslation": true,
@@ -8280,7 +8286,7 @@
       "slugByLocale": {
         "it": "responsabile-del-team-di-vendita-m-f-d-agence-generale-geneve-rive-gauche-swiss-life-geneve",
         "en": "responsable-equipe-de-vente-f-h-d-agence-generale-geneve-rive-gauche-swiss-life-ch",
-        "de": "responsable-equipe-de-vente-f-h-d-agence-generale-geneve-rive-gauche-swiss-life-ch",
+        "de": "leiter-in-des-verkaufsteams-m-w-d-generalagentur-genf-rive-gauche-swiss-life-geneve",
         "fr": "responsable-equipe-de-vente-f-h-d-agence-generale-geneve-rive-gauche-swiss-life-ch"
       },
       "company": "Swiss Life",
@@ -8332,6 +8338,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "responsable-equipe-de-vente-f-h-d-agence-generale-geneve-rive-gauche-swiss-life-ch"
+        ],
+        "de": [
           "responsable-equipe-de-vente-f-h-d-agence-generale-geneve-rive-gauche-swiss-life-ch"
         ]
       },

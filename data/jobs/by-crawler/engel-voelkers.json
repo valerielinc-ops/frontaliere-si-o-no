@@ -42,8 +42,8 @@
       "slugByLocale": {
         "de": "immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona",
         "it": "consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona",
-        "en": "immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona",
-        "fr": "immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona"
+        "en": "real-estate-advisor-100-ascona-ticino-premium-properties-sa-ascona",
+        "fr": "conseiller-conseillere-en-immobilier-100-ascona-ticino-premium-properties-sa-ascona"
       },
       "id": "engel-voelkers-b138e8e2c828",
       "previousSlugsByLocale": {
@@ -52,10 +52,17 @@
         ],
         "de": [
           "immobilienberater-in-100-ascona-engel-voelkers-ascona"
+        ],
+        "en": [
+          "immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona"
+        ],
+        "fr": [
+          "immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona"
         ]
       },
       "previousSlugs": [
-        "immobilienberater-in-100-ascona-engel-voelkers-ascona"
+        "immobilienberater-in-100-ascona-engel-voelkers-ascona",
+        "immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

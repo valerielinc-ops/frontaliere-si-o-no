@@ -1235,7 +1235,8 @@
         "lehrperson-2-klasse-kanton-basel-landschaft-munchenstein",
         "teacher-2nd-class-kantonale-verwaltung-basel-landschaft-munchenstein",
         "lehrperson-2-klasse-kanton-basel-landschaft-munchenstein-6g2if5",
-        "lehrperson-2-klasse-kantonale-verwaltung-basel-landschaft-munchenstein"
+        "lehrperson-2-klasse-kantonale-verwaltung-basel-landschaft-munchenstein",
+        "lehrperson-2-klasse-kantonale-verwaltung-basel-landschaft-munchenstein-6g2if5"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1244,7 +1245,8 @@
         "en": [
           "2nd-grade-teacher-kantonale-verwaltung-basel-landschaft-munchenstein",
           "teacher-2nd-class-kantonale-verwaltung-basel-landschaft-munchenstein",
-          "lehrperson-2-klasse-kantonale-verwaltung-basel-landschaft-munchenstein"
+          "lehrperson-2-klasse-kantonale-verwaltung-basel-landschaft-munchenstein",
+          "lehrperson-2-klasse-kantonale-verwaltung-basel-landschaft-munchenstein-6g2if5"
         ],
         "de": [
           "lehrperson-2-klasse-kanton-basel-landschaft-munchenstein-6g2if5"
@@ -5407,12 +5409,12 @@
     },
     {
       "id": "kanton-basel-landschaft-ec1fd06dccd3",
-      "slug": "leitung-schulsozialdienst-der-sekundarschulen-kanton-basel-landschaft-fullinsdorf",
+      "slug": "capo-del-servizio-sociale-scuola-secondaria-kantonale-verwaltung-basel-landschaft-fullinsdorf",
       "slugByLocale": {
         "de": "leitung-schulsozialdienst-der-sekundarschulen-kanton-basel-landschaft-fullinsdorf",
-        "it": "leitung-schulsozialdienst-der-sekundarschulen-kanton-basel-landschaft-fullinsdorf",
-        "en": "leitung-schulsozialdienst-der-sekundarschulen-kanton-basel-landschaft-fullinsdorf",
-        "fr": "leitung-schulsozialdienst-der-sekundarschulen-kanton-basel-landschaft-fullinsdorf"
+        "it": "capo-del-servizio-sociale-scuola-secondaria-kantonale-verwaltung-basel-landschaft-fullinsdorf",
+        "en": "head-of-secondary-school-social-service-kantonale-verwaltung-basel-landschaft-fullinsdorf",
+        "fr": "chef-du-service-social-de-l-ecole-secondaire-kantonale-verwaltung-basel-landschaft-fullinsdorf"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5471,7 +5473,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:14:12.346Z"
+      "firstSeenAt": "2026-10-19T09:14:12.346Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-schulsozialdienst-der-sekundarschulen-kanton-basel-landschaft-fullinsdorf"
+        ],
+        "en": [
+          "leitung-schulsozialdienst-der-sekundarschulen-kanton-basel-landschaft-fullinsdorf"
+        ],
+        "fr": [
+          "leitung-schulsozialdienst-der-sekundarschulen-kanton-basel-landschaft-fullinsdorf"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-schulsozialdienst-der-sekundarschulen-kanton-basel-landschaft-fullinsdorf"
+      ]
     }
   ]
 }

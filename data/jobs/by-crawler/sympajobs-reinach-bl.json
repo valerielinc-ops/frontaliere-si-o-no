@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "sympajobs-reinach-bl-d34e84f36262",
-      "slug": "flachdach-vorarbeiter-baufuhrer-m-w-d-baselland-sympajobs-ch-d34e84f3",
+      "slug": "foreman-tetto-piatto-direttore-di-costruzione-m-f-d-sympajobs-ag-baselland-d34e84f3",
       "slugByLocale": {
         "de": "flachdach-vorarbeiter-baufuhrer-m-w-d-baselland-sympajobs-ch-d34e84f3",
-        "it": "flachdach-vorarbeiter-baufuhrer-m-w-d-baselland-sympajobs-ch-d34e84f3",
-        "en": "flachdach-vorarbeiter-baufuhrer-m-w-d-baselland-sympajobs-ch-d34e84f3",
-        "fr": "flachdach-vorarbeiter-baufuhrer-m-w-d-baselland-sympajobs-ch-d34e84f3"
+        "it": "foreman-tetto-piatto-direttore-di-costruzione-m-f-d-sympajobs-ag-baselland-d34e84f3",
+        "en": "flat-roof-foreman-construction-manager-m-f-d-sympajobs-ag-baselland-d34e84f3",
+        "fr": "contremaitre-de-toit-plat-responsable-de-la-construction-h-f-d-sympajobs-ag-baselland-d34e84f3"
       },
       "slugDisambiguator": "d34e84f3",
       "company": "Sympajobs AG",
@@ -66,16 +66,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:25:37.405Z"
+      "firstSeenAt": "2026-10-19T09:25:37.405Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "flachdach-vorarbeiter-baufuhrer-m-w-d-baselland-sympajobs-ch-d34e84f3"
+        ],
+        "en": [
+          "flachdach-vorarbeiter-baufuhrer-m-w-d-baselland-sympajobs-ch-d34e84f3"
+        ],
+        "fr": [
+          "flachdach-vorarbeiter-baufuhrer-m-w-d-baselland-sympajobs-ch-d34e84f3"
+        ]
+      },
+      "previousSlugs": [
+        "flachdach-vorarbeiter-baufuhrer-m-w-d-baselland-sympajobs-ch-d34e84f3"
+      ]
     },
     {
       "id": "sympajobs-reinach-bl-920cae039148",
-      "slug": "flachdachisoleure-m-w-d-baselland-sympajobs-ch-920cae03",
+      "slug": "isolanti-per-tetto-piane-m-f-d-sympajobs-ag-baselland-920cae03",
       "slugByLocale": {
         "de": "flachdachisoleure-m-w-d-baselland-sympajobs-ch-920cae03",
-        "it": "flachdachisoleure-m-w-d-baselland-sympajobs-ch-920cae03",
-        "en": "flachdachisoleure-m-w-d-baselland-sympajobs-ch-920cae03",
-        "fr": "flachdachisoleure-m-w-d-baselland-sympajobs-ch-920cae03"
+        "it": "isolanti-per-tetto-piane-m-f-d-sympajobs-ag-baselland-920cae03",
+        "en": "m-f-d-flat-roof-insulators-sympajobs-ag-baselland-920cae03",
+        "fr": "isolateurs-a-toit-plat-h-f-d-sympajobs-ag-baselland-920cae03"
       },
       "slugDisambiguator": "920cae03",
       "company": "Sympajobs AG",
@@ -132,7 +146,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:25:37.404Z"
+      "firstSeenAt": "2026-10-19T09:25:37.404Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "flachdachisoleure-m-w-d-baselland-sympajobs-ch-920cae03"
+        ],
+        "en": [
+          "flachdachisoleure-m-w-d-baselland-sympajobs-ch-920cae03"
+        ],
+        "fr": [
+          "flachdachisoleure-m-w-d-baselland-sympajobs-ch-920cae03"
+        ]
+      },
+      "previousSlugs": [
+        "flachdachisoleure-m-w-d-baselland-sympajobs-ch-920cae03"
+      ]
     },
     {
       "id": "sympajobs-reinach-bl-529b9f1da27e",
@@ -202,12 +230,12 @@
     },
     {
       "id": "sympajobs-reinach-bl-89db88c77d79",
-      "slug": "spengler-m-w-d-baselland-sympajobs-ch-89db88c7",
+      "slug": "lattoniere-m-f-d-sympajobs-ag-baselland-89db88c7",
       "slugByLocale": {
         "de": "spengler-m-w-d-baselland-sympajobs-ch-89db88c7",
-        "it": "spengler-m-w-d-baselland-sympajobs-ch-89db88c7",
-        "en": "spengler-m-w-d-baselland-sympajobs-ch-89db88c7",
-        "fr": "spengler-m-w-d-baselland-sympajobs-ch-89db88c7"
+        "it": "lattoniere-m-f-d-sympajobs-ag-baselland-89db88c7",
+        "en": "tinsmith-m-f-d-sympajobs-ag-baselland-89db88c7",
+        "fr": "ferblantier-h-f-d-sympajobs-ag-baselland-89db88c7"
       },
       "slugDisambiguator": "89db88c7",
       "company": "Sympajobs AG",
@@ -264,16 +292,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:25:37.403Z"
+      "firstSeenAt": "2026-10-19T09:25:37.403Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spengler-m-w-d-baselland-sympajobs-ch-89db88c7"
+        ],
+        "en": [
+          "spengler-m-w-d-baselland-sympajobs-ch-89db88c7"
+        ],
+        "fr": [
+          "spengler-m-w-d-baselland-sympajobs-ch-89db88c7"
+        ]
+      },
+      "previousSlugs": [
+        "spengler-m-w-d-baselland-sympajobs-ch-89db88c7"
+      ]
     },
     {
       "id": "sympajobs-reinach-bl-f9a78dd53415",
-      "slug": "gartner-m-w-d-baselland-sympajobs-ch-f9a78dd5",
+      "slug": "gardener-m-f-d-sympajobs-ag-baselland-f9a78dd5",
       "slugByLocale": {
         "de": "gartner-m-w-d-baselland-sympajobs-ch-f9a78dd5",
-        "it": "gartner-m-w-d-baselland-sympajobs-ch-f9a78dd5",
+        "it": "gardener-m-f-d-sympajobs-ag-baselland-f9a78dd5",
         "en": "gartner-m-w-d-baselland-sympajobs-ch-f9a78dd5",
-        "fr": "gartner-m-w-d-baselland-sympajobs-ch-f9a78dd5"
+        "fr": "jardinier-h-f-d-sympajobs-ag-baselland-f9a78dd5"
       },
       "slugDisambiguator": "f9a78dd5",
       "company": "Sympajobs AG",
@@ -330,16 +372,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:25:37.402Z"
+      "firstSeenAt": "2026-10-19T09:25:37.402Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-m-w-d-baselland-sympajobs-ch-f9a78dd5"
+        ],
+        "fr": [
+          "gartner-m-w-d-baselland-sympajobs-ch-f9a78dd5"
+        ]
+      },
+      "previousSlugs": [
+        "gartner-m-w-d-baselland-sympajobs-ch-f9a78dd5"
+      ]
     },
     {
       "id": "sympajobs-reinach-bl-2ac9b4c658bf",
-      "slug": "landschaftsgartner-m-w-d-baselland-sympajobs-ch-2ac9b4c6",
+      "slug": "paesaggio-m-f-d-sympajobs-ag-baselland-2ac9b4c6",
       "slugByLocale": {
         "de": "landschaftsgartner-m-w-d-baselland-sympajobs-ch-2ac9b4c6",
-        "it": "landschaftsgartner-m-w-d-baselland-sympajobs-ch-2ac9b4c6",
-        "en": "landschaftsgartner-m-w-d-baselland-sympajobs-ch-2ac9b4c6",
-        "fr": "landschaftsgartner-m-w-d-baselland-sympajobs-ch-2ac9b4c6"
+        "it": "paesaggio-m-f-d-sympajobs-ag-baselland-2ac9b4c6",
+        "en": "landscaper-m-f-d-sympajobs-ag-baselland-2ac9b4c6",
+        "fr": "paysagiste-h-f-d-sympajobs-ag-baselland-2ac9b4c6"
       },
       "slugDisambiguator": "2ac9b4c6",
       "company": "Sympajobs AG",
@@ -396,16 +449,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:25:37.401Z"
+      "firstSeenAt": "2026-10-19T09:25:37.401Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "landschaftsgartner-m-w-d-baselland-sympajobs-ch-2ac9b4c6"
+        ],
+        "en": [
+          "landschaftsgartner-m-w-d-baselland-sympajobs-ch-2ac9b4c6"
+        ],
+        "fr": [
+          "landschaftsgartner-m-w-d-baselland-sympajobs-ch-2ac9b4c6"
+        ]
+      },
+      "previousSlugs": [
+        "landschaftsgartner-m-w-d-baselland-sympajobs-ch-2ac9b4c6"
+      ]
     },
     {
       "id": "sympajobs-reinach-bl-03db24f3ae0e",
-      "slug": "kranfuhrer-m-w-d-baselland-sympajobs-ch-03db24f3",
+      "slug": "operatore-di-gru-m-f-d-sympajobs-ag-baselland-03db24f3",
       "slugByLocale": {
         "de": "kranfuhrer-m-w-d-baselland-sympajobs-ch-03db24f3",
-        "it": "kranfuhrer-m-w-d-baselland-sympajobs-ch-03db24f3",
-        "en": "kranfuhrer-m-w-d-baselland-sympajobs-ch-03db24f3",
-        "fr": "kranfuhrer-m-w-d-baselland-sympajobs-ch-03db24f3"
+        "it": "operatore-di-gru-m-f-d-sympajobs-ag-baselland-03db24f3",
+        "en": "crane-operator-m-f-d-sympajobs-ag-baselland-03db24f3",
+        "fr": "operateur-de-grue-h-f-d-sympajobs-ag-baselland-03db24f3"
       },
       "slugDisambiguator": "03db24f3",
       "company": "Sympajobs AG",
@@ -462,16 +529,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:25:37.400Z"
+      "firstSeenAt": "2026-10-19T09:25:37.400Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kranfuhrer-m-w-d-baselland-sympajobs-ch-03db24f3"
+        ],
+        "en": [
+          "kranfuhrer-m-w-d-baselland-sympajobs-ch-03db24f3"
+        ],
+        "fr": [
+          "kranfuhrer-m-w-d-baselland-sympajobs-ch-03db24f3"
+        ]
+      },
+      "previousSlugs": [
+        "kranfuhrer-m-w-d-baselland-sympajobs-ch-03db24f3"
+      ]
     },
     {
       "id": "sympajobs-reinach-bl-229067a2aae3",
-      "slug": "schreiner-m-w-d-baselland-sympajobs-ch-229067a2",
+      "slug": "carpenter-m-f-d-sympajobs-ag-baselland-229067a2",
       "slugByLocale": {
         "de": "schreiner-m-w-d-baselland-sympajobs-ch-229067a2",
-        "it": "schreiner-m-w-d-baselland-sympajobs-ch-229067a2",
+        "it": "carpenter-m-f-d-sympajobs-ag-baselland-229067a2",
         "en": "schreiner-m-w-d-baselland-sympajobs-ch-229067a2",
-        "fr": "schreiner-m-w-d-baselland-sympajobs-ch-229067a2"
+        "fr": "charpentier-h-f-d-sympajobs-ag-baselland-229067a2"
       },
       "slugDisambiguator": "229067a2",
       "company": "Sympajobs AG",
@@ -528,7 +609,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:25:37.399Z"
+      "firstSeenAt": "2026-10-19T09:25:37.399Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-m-w-d-baselland-sympajobs-ch-229067a2"
+        ],
+        "fr": [
+          "schreiner-m-w-d-baselland-sympajobs-ch-229067a2"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-m-w-d-baselland-sympajobs-ch-229067a2"
+      ]
     },
     {
       "id": "sympajobs-reinach-bl-d78219990ede",
@@ -536,8 +628,8 @@
       "slugByLocale": {
         "fr": "platrier-h-f-d-baselland-sympajobs-ch-d7821999",
         "it": "platrier-h-f-d-baselland-sympajobs-ch-d7821999",
-        "en": "platrier-h-f-d-baselland-sympajobs-ch-d7821999",
-        "de": "platrier-h-f-d-baselland-sympajobs-ch-d7821999"
+        "en": "plasterer-m-f-d-sympajobs-ag-baselland-d7821999",
+        "de": "gipser-m-w-d-sympajobs-ag-baselland-d7821999"
       },
       "slugDisambiguator": "d7821999",
       "company": "Sympajobs AG",
@@ -602,8 +694,8 @@
       "slugByLocale": {
         "fr": "couvreur-ferblantier-h-f-d-baselland-sympajobs-ch-6cd0cfad",
         "it": "couvreur-ferblantier-h-f-d-baselland-sympajobs-ch-6cd0cfad",
-        "en": "couvreur-ferblantier-h-f-d-baselland-sympajobs-ch-6cd0cfad",
-        "de": "couvreur-ferblantier-h-f-d-baselland-sympajobs-ch-6cd0cfad"
+        "en": "coverer-ferblantier-m-f-d-sympajobs-ag-baselland-6cd0cfad",
+        "de": "coverer-ferblantier-m-w-d-sympajobs-ag-baselland-6cd0cfad"
       },
       "slugDisambiguator": "6cd0cfad",
       "company": "Sympajobs AG",
@@ -668,8 +760,8 @@
       "slugByLocale": {
         "fr": "peintre-h-f-d-baselland-sympajobs-ch-3feb4cdc",
         "it": "peintre-h-f-d-baselland-sympajobs-ch-3feb4cdc",
-        "en": "peintre-h-f-d-baselland-sympajobs-ch-3feb4cdc",
-        "de": "peintre-h-f-d-baselland-sympajobs-ch-3feb4cdc"
+        "en": "painter-m-f-d-sympajobs-ag-baselland-3feb4cdc",
+        "de": "maler-m-w-d-sympajobs-ag-baselland-3feb4cdc"
       },
       "slugDisambiguator": "3feb4cdc",
       "company": "Sympajobs AG",

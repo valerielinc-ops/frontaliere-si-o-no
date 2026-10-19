@@ -3367,12 +3367,12 @@
     },
     {
       "id": "spital-maennedorf-54cdc42b7004",
-      "slug": "apothekerin-50-60-m-w-d-spital-maennedorf-ch",
+      "slug": "farmacia-50-60-m-f-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
         "de": "apothekerin-50-60-m-w-d-spital-maennedorf-ch",
-        "it": "apothekerin-50-60-m-w-d-spital-maennedorf-ch",
-        "en": "apothekerin-50-60-m-w-d-spital-mannedorf-mannedorf",
-        "fr": "apothekerin-50-60-m-w-d-spital-maennedorf-ch"
+        "it": "farmacia-50-60-m-f-d-spital-mannedorf-mannedorf",
+        "en": "pharmacist-50-60-m-f-d-spital-mannedorf-mannedorf",
+        "fr": "pharmacienne-50-60-h-f-d-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -3434,7 +3434,22 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-19T09:18:01.697Z"
+      "firstSeenAt": "2026-10-19T09:18:01.697Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apothekerin-50-60-m-w-d-spital-maennedorf-ch"
+        ],
+        "en": [
+          "apothekerin-50-60-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "fr": [
+          "apothekerin-50-60-m-w-d-spital-maennedorf-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apothekerin-50-60-m-w-d-spital-maennedorf-ch",
+        "apothekerin-50-60-m-w-d-spital-mannedorf-mannedorf"
+      ]
     },
     {
       "id": "spital-maennedorf-1a6a1e1ab57d",

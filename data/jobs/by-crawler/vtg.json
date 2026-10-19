@@ -47,7 +47,7 @@
         "it": "ict-system-ingegnere-senior-network-transport-swiss-armed-forces-vtg-bern-9ygfnn",
         "en": "ict-system-engineer-senior-network-transport-swiss-armed-forces-vtg-bern-9ygfnn",
         "de": "ict-system-ingenieur-senior-network-transport-swiss-armed-forces-vtg-bern-9ygfnn",
-        "fr": "ict-system-ingenieur-senior-network-transport-swiss-armed-forces-vtg-bern-9ygfnn"
+        "fr": "ingenieur-senior-en-systemes-ict-reseau-et-transport-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "postalCode": "3004",
@@ -57,10 +57,14 @@
       "previousSlugsByLocale": {
         "it": [
           "ict-system-engineer-senior-network-transport-swiss-armed-forces-vtg-bern"
+        ],
+        "fr": [
+          "ict-system-ingenieur-senior-network-transport-swiss-armed-forces-vtg-bern-9ygfnn"
         ]
       },
       "previousSlugs": [
-        "ict-system-engineer-senior-network-transport-swiss-armed-forces-vtg-bern"
+        "ict-system-engineer-senior-network-transport-swiss-armed-forces-vtg-bern",
+        "ict-system-ingenieur-senior-network-transport-swiss-armed-forces-vtg-bern-9ygfnn"
       ],
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -79,7 +83,7 @@
     },
     {
       "id": "company-26tj2h",
-      "slug": "automobilmechatroniker-in-swiss-armed-forces-vtg-othmarsingen-26tj2h",
+      "slug": "meccatronico-a-d-automobili-swiss-armed-forces-vtg-othmarsingen",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Automobilmechatroniker/-in",
       "location": "Othmarsingen",
@@ -119,10 +123,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "automobilmechatroniker-in-swiss-armed-forces-vtg-othmarsingen-26tj2h",
-        "en": "automobilmechatroniker-in-swiss-armed-forces-vtg-othmarsingen-26tj2h",
+        "it": "meccatronico-a-d-automobili-swiss-armed-forces-vtg-othmarsingen",
+        "en": "automotive-mechatronics-technician-swiss-armed-forces-vtg-othmarsingen",
         "de": "automobilmechatroniker-in-swiss-armed-forces-vtg-othmarsingen-26tj2h",
-        "fr": "automobilmechatroniker-in-swiss-armed-forces-vtg-othmarsingen-26tj2h"
+        "fr": "mecatronicien-ne-d-automobiles-swiss-armed-forces-vtg-othmarsingen"
       },
       "sourceLang": "de",
       "postalCode": "5504",
@@ -131,11 +135,19 @@
       "streetAddress": "Lenzburgerstrasse 86",
       "previousSlugsByLocale": {
         "it": [
-          "automobilmechatroniker-in-swiss-armed-forces-vtg-othmarsingen"
+          "automobilmechatroniker-in-swiss-armed-forces-vtg-othmarsingen",
+          "automobilmechatroniker-in-swiss-armed-forces-vtg-othmarsingen-26tj2h"
+        ],
+        "en": [
+          "automobilmechatroniker-in-swiss-armed-forces-vtg-othmarsingen-26tj2h"
+        ],
+        "fr": [
+          "automobilmechatroniker-in-swiss-armed-forces-vtg-othmarsingen-26tj2h"
         ]
       },
       "previousSlugs": [
-        "automobilmechatroniker-in-swiss-armed-forces-vtg-othmarsingen"
+        "automobilmechatroniker-in-swiss-armed-forces-vtg-othmarsingen",
+        "automobilmechatroniker-in-swiss-armed-forces-vtg-othmarsingen-26tj2h"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -11924,7 +11936,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
+        "it": "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern",
         "en": "chief-of-the-tacical-danson-center-chief-tec-swiss-armed-forces-vtg-bern",
         "de": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
         "fr": "centre-des-effets-tactiques-chef-tec-swiss-armed-forces-vtg-bern"
@@ -11932,8 +11944,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-          "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
         ],
         "en": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
@@ -11943,8 +11954,7 @@
         ]
       },
       "previousSlugs": [
-        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-        "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
       ],
       "salarySource": "estimated",
       "baseSalary": {

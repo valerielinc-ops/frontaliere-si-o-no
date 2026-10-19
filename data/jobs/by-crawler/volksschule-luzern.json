@@ -1900,12 +1900,12 @@
     },
     {
       "id": "volksschule-luzern-d78f09cee709",
-      "slug": "stellvertretung-come-klassenlehrperson-90-per-eine-4-klasse-schulhaus-wartegg-volksschule-stadt-luzern",
+      "slug": "supplenza-come-docente-di-classe-al-90-per-una-classe-4-scuola-wartegg-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "stellvertretung-als-klassenlehrperson-90-fur-eine-4-klasse-schulhaus-wartegg-volksschule",
-        "it": "stellvertretung-come-klassenlehrperson-90-per-eine-4-klasse-schulhaus-wartegg-volksschule-stadt-luzern",
-        "en": "stellvertretung-als-klassenlehrperson-90-fur-eine-4-klasse-schulhaus-wartegg-volksschule",
-        "fr": "stellvertretung-als-klassenlehrperson-90-fur-eine-4-klasse-schulhaus-wartegg-volksschule"
+        "it": "supplenza-come-docente-di-classe-al-90-per-una-classe-4-scuola-wartegg-volksschule-stadt-luzern-luzern",
+        "en": "deputy-as-class-teacher-90-for-a-4th-grade-schoolhouse-wartegg-volksschule-stadt-luzern-luzern",
+        "fr": "adjoint-comme-professeur-de-classe-90-pour-une-4e-annee-ecole-wartegg-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -1953,11 +1953,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stellvertretung-als-klassenlehrperson-90-fur-eine-4-klasse-schulhaus-wartegg-volksschule",
+          "stellvertretung-come-klassenlehrperson-90-per-eine-4-klasse-schulhaus-wartegg-volksschule-stadt-luzern"
+        ],
+        "en": [
+          "stellvertretung-als-klassenlehrperson-90-fur-eine-4-klasse-schulhaus-wartegg-volksschule"
+        ],
+        "fr": [
           "stellvertretung-als-klassenlehrperson-90-fur-eine-4-klasse-schulhaus-wartegg-volksschule"
         ]
       },
       "previousSlugs": [
-        "stellvertretung-als-klassenlehrperson-90-fur-eine-4-klasse-schulhaus-wartegg-volksschule"
+        "stellvertretung-als-klassenlehrperson-90-fur-eine-4-klasse-schulhaus-wartegg-volksschule",
+        "stellvertretung-come-klassenlehrperson-90-per-eine-4-klasse-schulhaus-wartegg-volksschule-stadt-luzern"
       ],
       "salaryMin": 53600,
       "salaryMax": 99000,
@@ -1976,12 +1984,12 @@
     },
     {
       "id": "volksschule-luzern-c826d2b94f74",
-      "slug": "klassenlehrperson-kindergarten-schulhaus-maihof-volksschule-luzern-luzern",
+      "slug": "insegnante-di-classe-kindergarten-scuola-maihof-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "klassenlehrperson-kindergarten-schulhaus-maihof-volksschule-luzern-luzern",
-        "it": "klassenlehrperson-kindergarten-schulhaus-maihof-volksschule-luzern-luzern",
-        "en": "klassenlehrperson-kindergarten-schulhaus-maihof-volksschule-luzern-luzern",
-        "fr": "klassenlehrperson-kindergarten-schulhaus-maihof-volksschule-luzern-luzern"
+        "it": "insegnante-di-classe-kindergarten-scuola-maihof-volksschule-stadt-luzern-luzern",
+        "en": "class-teacher-kindergarten-schoolhouse-maihof-volksschule-stadt-luzern-luzern",
+        "fr": "professeur-de-classe-maternelle-ecole-maihof-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -2040,16 +2048,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:12:14.902Z"
+      "firstSeenAt": "2026-10-19T09:12:14.902Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "klassenlehrperson-kindergarten-schulhaus-maihof-volksschule-luzern-luzern"
+        ],
+        "en": [
+          "klassenlehrperson-kindergarten-schulhaus-maihof-volksschule-luzern-luzern"
+        ],
+        "fr": [
+          "klassenlehrperson-kindergarten-schulhaus-maihof-volksschule-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "klassenlehrperson-kindergarten-schulhaus-maihof-volksschule-luzern-luzern"
+      ]
     },
     {
       "id": "volksschule-luzern-f85e49b3f8e7",
-      "slug": "stellvertretung-fachlehrperson-mathematik-schulhaus-hubelmatt-sek-volksschule-luzern",
+      "slug": "professore-aggiunto-matematica-scuola-casa-hubelmatt-sek-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "stellvertretung-fachlehrperson-mathematik-schulhaus-hubelmatt-sek-volksschule-luzern",
-        "it": "stellvertretung-fachlehrperson-mathematik-schulhaus-hubelmatt-sek-volksschule-luzern",
-        "en": "stellvertretung-fachlehrperson-mathematik-schulhaus-hubelmatt-sek-volksschule-luzern",
-        "fr": "stellvertretung-fachlehrperson-mathematik-schulhaus-hubelmatt-sek-volksschule-luzern"
+        "it": "professore-aggiunto-matematica-scuola-casa-hubelmatt-sek-volksschule-stadt-luzern-luzern",
+        "en": "deputy-teacher-mathematics-school-house-hubelmatt-sek-volksschule-stadt-luzern-luzern",
+        "fr": "professeur-adjoint-mathematiques-school-house-hubelmatt-sek-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -2108,16 +2130,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:12:14.899Z"
+      "firstSeenAt": "2026-10-19T09:12:14.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretung-fachlehrperson-mathematik-schulhaus-hubelmatt-sek-volksschule-luzern"
+        ],
+        "en": [
+          "stellvertretung-fachlehrperson-mathematik-schulhaus-hubelmatt-sek-volksschule-luzern"
+        ],
+        "fr": [
+          "stellvertretung-fachlehrperson-mathematik-schulhaus-hubelmatt-sek-volksschule-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretung-fachlehrperson-mathematik-schulhaus-hubelmatt-sek-volksschule-luzern"
+      ]
     },
     {
       "id": "volksschule-luzern-4bb7499ca8fc",
-      "slug": "stellvertretung-klassenlehrperson-1-sek-schulhaus-hubelmatt-sek-volksschule-luzern-luzern",
+      "slug": "vice-insegnante-di-classe-1st-sec-casa-di-scuola-hubelmatt-sek-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "stellvertretung-klassenlehrperson-1-sek-schulhaus-hubelmatt-sek-volksschule-luzern-luzern",
-        "it": "stellvertretung-klassenlehrperson-1-sek-schulhaus-hubelmatt-sek-volksschule-luzern-luzern",
-        "en": "stellvertretung-klassenlehrperson-1-sek-schulhaus-hubelmatt-sek-volksschule-luzern-luzern",
-        "fr": "stellvertretung-klassenlehrperson-1-sek-schulhaus-hubelmatt-sek-volksschule-luzern-luzern"
+        "it": "vice-insegnante-di-classe-1st-sec-casa-di-scuola-hubelmatt-sek-volksschule-stadt-luzern-luzern",
+        "en": "deputy-class-teacher-1st-sec-school-house-hubelmatt-sek-volksschule-stadt-luzern-luzern",
+        "fr": "professeur-adjoint-1ere-sec-maison-scolaire-hubelmatt-sek-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -2176,7 +2212,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:12:14.874Z"
+      "firstSeenAt": "2026-10-19T09:12:14.874Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretung-klassenlehrperson-1-sek-schulhaus-hubelmatt-sek-volksschule-luzern-luzern"
+        ],
+        "en": [
+          "stellvertretung-klassenlehrperson-1-sek-schulhaus-hubelmatt-sek-volksschule-luzern-luzern"
+        ],
+        "fr": [
+          "stellvertretung-klassenlehrperson-1-sek-schulhaus-hubelmatt-sek-volksschule-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretung-klassenlehrperson-1-sek-schulhaus-hubelmatt-sek-volksschule-luzern-luzern"
+      ]
     }
   ]
 }

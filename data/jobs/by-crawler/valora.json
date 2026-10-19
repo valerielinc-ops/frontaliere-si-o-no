@@ -312,7 +312,7 @@
         "it": "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke",
         "en": "teamlead-maintenance-f-m-d-valora-group-emmenbrucke",
         "de": "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
-        "fr": "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
+        "fr": "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -372,14 +372,14 @@
         "fr": [
           "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
           "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
-          "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
+          "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
         "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke",
-        "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
+        "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
       ],
       "firstSeenAt": "2026-07-22T22:06:00.739Z",
       "salaryMin": 69500,
@@ -855,12 +855,12 @@
     },
     {
       "id": "valora-fe89168cd526",
-      "slug": "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
+      "slug": "venditore-venditore-press-books-22-ore-valora-group-bern",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
-        "it": "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
-        "en": "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
-        "fr": "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
+        "it": "venditore-venditore-press-books-22-ore-valora-group-bern",
+        "en": "seller-seller-press-books-22-hours-valora-group-bern",
+        "fr": "vendeur-vendeur-presse-livres-22-heures-valora-group-bern"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -920,7 +920,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T13:54:50.350Z"
+      "firstSeenAt": "2026-09-26T13:54:50.350Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
+        ],
+        "en": [
+          "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
+      ]
     },
     {
       "id": "valora-1cf39074e462",
@@ -2685,12 +2699,12 @@
     },
     {
       "id": "valora-32b19543bde1",
-      "slug": "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100-valora-kandersteg",
+      "slug": "amministratore-delegato-amministratore-delegato-k-kiosk-100-valora-group-kandersteg",
       "slugByLocale": {
         "de": "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100-valora-kandersteg",
-        "it": "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100-valora-kandersteg",
-        "en": "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100-valora-kandersteg",
-        "fr": "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100-valora-kandersteg"
+        "it": "amministratore-delegato-amministratore-delegato-k-kiosk-100-valora-group-kandersteg",
+        "en": "managing-director-managing-director-k-kiosk-100-valora-group-kandersteg",
+        "fr": "directeur-general-directeur-general-k-kiosque-100-valora-group-kandersteg"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2751,16 +2765,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:16:18.177Z"
+      "firstSeenAt": "2026-10-19T09:16:18.177Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100-valora-kandersteg"
+        ],
+        "en": [
+          "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100-valora-kandersteg"
+        ],
+        "fr": [
+          "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100-valora-kandersteg"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100-valora-kandersteg"
+      ]
     },
     {
       "id": "valora-059b1050418d",
-      "slug": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2",
+      "slug": "venditore-venditore-k-kiosk-8-6-ore-valora-group-bern",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern",
-        "it": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2",
-        "en": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2",
-        "fr": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2"
+        "it": "venditore-venditore-k-kiosk-8-6-ore-valora-group-bern",
+        "en": "seller-seller-k-kiosk-8-6-hours-valora-group-bern-000a69",
+        "fr": "vendeur-vendeur-k-kiosque-8-6-heures-valora-group-bern-000a69"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2820,7 +2848,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:06:13.972Z"
+      "firstSeenAt": "2026-09-10T23:06:13.972Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2"
+      ]
     }
   ]
 }

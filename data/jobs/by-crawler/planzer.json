@@ -491,12 +491,12 @@
     },
     {
       "id": "planzer-13556f854eb4",
-      "slug": "speditionsprofi-m-w-d-planzer-dallikon",
+      "slug": "inoltro-professionale-m-f-d-planzer-dallikon",
       "slugByLocale": {
         "de": "speditionsprofi-m-w-d-planzer-dallikon",
-        "it": "speditionsprofi-m-w-d-planzer-dallikon",
-        "en": "speditionsprofi-m-w-d-planzer-dallikon",
-        "fr": "speditionsprofi-m-w-d-planzer-dallikon"
+        "it": "inoltro-professionale-m-f-d-planzer-dallikon",
+        "en": "forwarding-professional-m-f-d-planzer-dallikon",
+        "fr": "transmission-professionnelle-h-f-d-planzer-dallikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -556,16 +556,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:15:54.874Z"
+      "firstSeenAt": "2026-10-19T09:15:54.874Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "speditionsprofi-m-w-d-planzer-dallikon"
+        ],
+        "en": [
+          "speditionsprofi-m-w-d-planzer-dallikon"
+        ],
+        "fr": [
+          "speditionsprofi-m-w-d-planzer-dallikon"
+        ]
+      },
+      "previousSlugs": [
+        "speditionsprofi-m-w-d-planzer-dallikon"
+      ]
     },
     {
       "id": "planzer-8fd073638e0d",
-      "slug": "paketzusteller-m-w-d-planzer-schmerikon",
+      "slug": "consegna-del-parco-m-f-d-planzer-schmerikon",
       "slugByLocale": {
         "de": "paketzusteller-m-w-d-planzer-schmerikon",
-        "it": "paketzusteller-m-w-d-planzer-schmerikon",
-        "en": "paketzusteller-m-w-d-planzer-schmerikon",
-        "fr": "paketzusteller-m-w-d-planzer-schmerikon"
+        "it": "consegna-del-parco-m-f-d-planzer-schmerikon",
+        "en": "parcel-delivery-m-f-d-planzer-schmerikon",
+        "fr": "livraison-de-colis-h-f-d-planzer-schmerikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -625,16 +639,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:15:54.191Z"
+      "firstSeenAt": "2026-10-19T09:15:54.191Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "paketzusteller-m-w-d-planzer-schmerikon"
+        ],
+        "en": [
+          "paketzusteller-m-w-d-planzer-schmerikon"
+        ],
+        "fr": [
+          "paketzusteller-m-w-d-planzer-schmerikon"
+        ]
+      },
+      "previousSlugs": [
+        "paketzusteller-m-w-d-planzer-schmerikon"
+      ]
     },
     {
       "id": "planzer-7ab0a5be2c51",
-      "slug": "disponent-stuckgut-regional-m-w-d-planzer-bern",
+      "slug": "cargo-generale-regionale-m-f-d-planzer-bern",
       "slugByLocale": {
         "de": "disponent-stuckgut-regional-m-w-d-planzer-bern",
-        "it": "disponent-stuckgut-regional-m-w-d-planzer-bern",
-        "en": "disponent-stuckgut-regional-m-w-d-planzer-bern",
-        "fr": "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        "it": "cargo-generale-regionale-m-f-d-planzer-bern",
+        "en": "disponent-general-cargo-regional-m-f-d-planzer-bern",
+        "fr": "marchandises-generales-detachees-h-f-d-planzer-bern"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -694,16 +722,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-18T23:10:22.940Z"
+      "firstSeenAt": "2026-09-18T23:10:22.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        ],
+        "en": [
+          "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        ],
+        "fr": [
+          "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-stuckgut-regional-m-w-d-planzer-bern"
+      ]
     },
     {
       "id": "planzer-93d34def796d",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-bern",
+      "slug": "chauffeur-cat-ce-m-f-d-z-planzer-bern",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-bern",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-bern",
+        "it": "chauffeur-cat-ce-m-f-d-z-planzer-bern",
         "en": "chauffeur-kat-ce-m-w-d-planzer-bern",
-        "fr": "chauffeur-kat-ce-m-w-d-planzer-bern"
+        "fr": "chauffeur-cat-ce-h-f-d-z-planzer-bern"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -763,7 +805,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:15:52.711Z"
+      "firstSeenAt": "2026-10-19T09:15:52.711Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-bern"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-m-w-d-planzer-bern"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-bern"
+      ]
     },
     {
       "id": "planzer-4b9fc94bfe16",

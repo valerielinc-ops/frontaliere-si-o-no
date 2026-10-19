@@ -707,7 +707,7 @@
       "slug": "dipl-infermieristica-specialista-hf-fh-stazione-privata-spital-muri-muri-ag",
       "slugByLocale": {
         "it": "dipl-infermieristica-specialista-hf-fh-stazione-privata-spital-muri-muri-ag",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
+        "en": "dipl-nursing-specialist-hf-fh-private-station-spital-muri-muri-ag",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-poste-prive-spital-muri-muri-ag"
       },
@@ -760,8 +760,7 @@
       "previousSlugs": [
         "qualified-nurse-nurse-hf-fh-private-ward-spital-muri-muri-ag",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-ag",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
-        "dipl-nursing-specialist-hf-fh-private-station-spital-muri-muri-ag"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -770,7 +769,7 @@
         "en": [
           "qualified-nurse-nurse-hf-fh-private-ward-spital-muri-muri-ag",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-ag",
-          "dipl-nursing-specialist-hf-fh-private-station-spital-muri-muri-ag"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:38.734Z",
@@ -1656,7 +1655,7 @@
       "slug": "dipl-expert-expert-cura-intensiva-nds-hf-spital-muri-muri-ag",
       "slugByLocale": {
         "it": "dipl-expert-expert-cura-intensiva-nds-hf-spital-muri-muri-ag",
-        "en": "dipl-expertin-experte-intensivpflege-nds-hf-spital-muri-muri-ag",
+        "en": "dipl-expert-expert-intensive-care-nds-hf-spital-muri-muri-ag",
         "de": "dipl-expertin-experte-intensivpflege-nds-hf-spital-muri-muri-ag",
         "fr": "dipl-expert-expert-soins-intensifs-nds-hf-spital-muri-muri-ag"
       },
@@ -1708,8 +1707,7 @@
       "pensum": "40 - 100%",
       "previousSlugs": [
         "dipl-expertin-experte-intensivpflege-nds-hf-spital-muri-muri-ag",
-        "dipl-expert-in-intensive-care-nds-hf-spital-muri-muri-ag",
-        "dipl-expert-expert-intensive-care-nds-hf-spital-muri-muri-ag"
+        "dipl-expert-in-intensive-care-nds-hf-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1717,7 +1715,7 @@
         ],
         "en": [
           "dipl-expert-in-intensive-care-nds-hf-spital-muri-muri-ag",
-          "dipl-expert-expert-intensive-care-nds-hf-spital-muri-muri-ag"
+          "dipl-expertin-experte-intensivpflege-nds-hf-spital-muri-muri-ag"
         ]
       },
       "firstSeenAt": "2026-09-30T21:12:39.255Z",
@@ -1740,7 +1738,7 @@
       "slug": "dipl-expert-emergency-care-nds-hf-salario-orario-spital-muri-muri-ag",
       "slugByLocale": {
         "it": "dipl-expert-emergency-care-nds-hf-salario-orario-spital-muri-muri-ag",
-        "en": "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag",
+        "en": "dipl-expert-emergency-care-nds-hf-hourly-wage-spital-muri-muri-ag",
         "de": "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag",
         "fr": "dipl-expert-soins-d-urgence-nds-hf-salaire-horaire-spital-muri-muri-ag"
       },
@@ -1791,15 +1789,14 @@
       "pensumMax": 100,
       "pensum": "10 - 100%",
       "previousSlugs": [
-        "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag",
-        "dipl-expert-emergency-care-nds-hf-hourly-wage-spital-muri-muri-ag"
+        "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag"
         ],
         "en": [
-          "dipl-expert-emergency-care-nds-hf-hourly-wage-spital-muri-muri-ag"
+          "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag"
         ]
       },
       "firstSeenAt": "2026-10-03T09:16:37.938Z",
@@ -1897,9 +1894,9 @@
     },
     {
       "id": "spital-muri-e7ba81d11b2c",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
+      "slug": "infermiera-infermiere-diplomata-o-hf-per-il-pronto-soccorso-spital-muri-muri-ag",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
+        "it": "infermiera-infermiere-diplomata-o-hf-per-il-pronto-soccorso-spital-muri-muri-ag",
         "en": "dipl-nursing-professional-hf-emergency-spital-muri-muri-ag",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
         "fr": "dipl-soins-infirmiers-professionnels-hf-urgence-spital-muri-muri-ag"
@@ -1952,12 +1949,12 @@
       "pensum": "40 - 100%",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-ag",
-        "infermiera-infermiere-diplomata-o-hf-per-il-pronto-soccorso-spital-muri-muri-ag"
+        "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-ag",
-          "infermiera-infermiere-diplomata-o-hf-per-il-pronto-soccorso-spital-muri-muri-ag"
+          "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:48.765Z",
@@ -2145,7 +2142,7 @@
         "it": "dipl-tecnico-operativo-tecnico-chirurgico-hf-nella-piscina-dei-dipendenti-spital-muri-muri-ag",
         "en": "dipl-operational-technician-surgical-technician-hf-in-the-employee-pool-spital-muri-muri-ag",
         "de": "dipl-operationstechnikerin-operationstechniker-hf-im-mitarbeiterpool-spital-muri-muri-ag",
-        "fr": "dipl-operationstechnikerin-operationstechniker-hf-im-mitarbeiterpool-spital-muri-muri-ag"
+        "fr": "dipl-technicien-operationnel-technicien-chirurgical-hf-dans-le-bassin-d-employes-spital-muri-muri-ag"
       },
       "company": "Spital Muri",
       "companyKey": "spital-muri",
@@ -2193,8 +2190,7 @@
       "pensumMax": 5,
       "pensum": "5%",
       "previousSlugs": [
-        "dipl-operationstechnikerin-operationstechniker-hf-im-mitarbeiterpool-spital-muri-muri-ag",
-        "dipl-technicien-operationnel-technicien-chirurgical-hf-dans-le-bassin-d-employes-spital-muri-muri-ag"
+        "dipl-operationstechnikerin-operationstechniker-hf-im-mitarbeiterpool-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2204,7 +2200,7 @@
           "dipl-operationstechnikerin-operationstechniker-hf-im-mitarbeiterpool-spital-muri-muri-ag"
         ],
         "fr": [
-          "dipl-technicien-operationnel-technicien-chirurgical-hf-dans-le-bassin-d-employes-spital-muri-muri-ag"
+          "dipl-operationstechnikerin-operationstechniker-hf-im-mitarbeiterpool-spital-muri-muri-ag"
         ]
       },
       "firstSeenAt": "2026-10-13T21:17:14.615Z",
@@ -2305,7 +2301,7 @@
       "slug": "fisioterapista-fh-spital-muri-muri-ag",
       "slugByLocale": {
         "it": "fisioterapista-fh-spital-muri-muri-ag",
-        "en": "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
+        "en": "physiotherapist-fh-spital-muri-muri-ag",
         "de": "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
         "fr": "physiotherapeute-fh-spital-muri-muri-ag"
       },
@@ -2355,15 +2351,14 @@
       "pensumMax": 100,
       "pensum": "40 - 100%",
       "previousSlugs": [
-        "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
-        "physiotherapist-fh-spital-muri-muri-ag"
+        "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag"
         ],
         "en": [
-          "physiotherapist-fh-spital-muri-muri-ag"
+          "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:45.311Z",

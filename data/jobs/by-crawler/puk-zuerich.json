@@ -3293,8 +3293,8 @@
       "slugByLocale": {
         "de": "fachfrau-betreuung-fachmann-betreuung-efz-oder-fachfrau-gesundheit-fachmann-gesundheit-efz",
         "it": "fachfrau-betreuung-fachmann-betreuung-cfc-o-fachfrau-gesundheit-fachmann-gesundheit-cfc-psychiatrische-universitatsklinik-zurich",
-        "en": "fachfrau-betreuung-fachmann-betreuung-efz-oder-fachfrau-gesundheit-fachmann-gesundheit-efz",
-        "fr": "fachfrau-betreuung-fachmann-betreuung-efz-oder-fachfrau-gesundheit-fachmann-gesundheit-efz"
+        "en": "specialist-care-specialist-care-efz-or-specialist-health-specialist-health-efz-psychiatrische-universitatsklinik-zurich",
+        "fr": "soins-specialises-soins-specialises-efz-ou-specialiste-sante-specialiste-sante-efz-psychiatrische-universitatsklinik"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -3345,6 +3345,12 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-betreuung-fachmann-betreuung-efz-oder-fachfrau-gesundheit-fachmann-gesundheit-efz"
+        ],
+        "en": [
+          "fachfrau-betreuung-fachmann-betreuung-efz-oder-fachfrau-gesundheit-fachmann-gesundheit-efz"
+        ],
+        "fr": [
           "fachfrau-betreuung-fachmann-betreuung-efz-oder-fachfrau-gesundheit-fachmann-gesundheit-efz"
         ]
       },

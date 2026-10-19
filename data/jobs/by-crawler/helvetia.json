@@ -7157,9 +7157,9 @@
       "slug": "immobilienbewirtschafter-basel-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-basel-w-m-d-teilzeit-vollzeit-helvetia-basel",
-        "it": "immobilienbewirtschafter-basel-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
-        "en": "immobilienbewirtschafter-basel-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
-        "fr": "immobilienbewirtschafter-basel-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel"
+        "it": "gestore-immobiliare-basilea-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
+        "en": "property-manager-basel-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
+        "fr": "gestionnaire-immobilier-bale-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -7207,21 +7207,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "immobilienbewirtschafter-basel-w-m-d-teilzeit-vollzeit-helvetia-basel",
-          "gestore-immobiliare-basilea-m-f-d-part-time-full-time-helvetia-versicherungen-basel"
-        ],
-        "en": [
-          "property-manager-basel-m-f-d-part-time-full-time-helvetia-versicherungen-basel"
-        ],
-        "fr": [
-          "gestionnaire-immobilier-bale-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-basel"
+          "immobilienbewirtschafter-basel-w-m-d-teilzeit-vollzeit-helvetia-basel"
         ]
       },
       "previousSlugs": [
-        "immobilienbewirtschafter-basel-w-m-d-teilzeit-vollzeit-helvetia-basel",
-        "gestore-immobiliare-basilea-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
-        "property-manager-basel-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
-        "gestionnaire-immobilier-bale-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-basel"
+        "immobilienbewirtschafter-basel-w-m-d-teilzeit-vollzeit-helvetia-basel"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -10439,12 +10429,12 @@
     },
     {
       "id": "helvetia-715d8b0030b7",
-      "slug": "kundenberater-w-m-d-versicherung-hauptagentur-stans-teilzeit-vollzeit-helvetia-stans",
+      "slug": "consulente-clienti-m-f-d-agenzia-principale-stans-part-time-full-time-helvetia-versicherungen-stans-9e8c5d",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherung-hauptagentur-stans-teilzeit-vollzeit-helvetia-stans",
-        "it": "kundenberater-w-m-d-versicherung-hauptagentur-stans-teilzeit-vollzeit-helvetia-stans",
-        "en": "kundenberater-w-m-d-versicherung-hauptagentur-stans-teilzeit-vollzeit-helvetia-stans",
-        "fr": "kundenberater-w-m-d-versicherung-hauptagentur-stans-teilzeit-vollzeit-helvetia-stans"
+        "it": "consulente-clienti-m-f-d-agenzia-principale-stans-part-time-full-time-helvetia-versicherungen-stans-9e8c5d",
+        "en": "customer-consultant-m-f-d-insurance-main-agency-stans-part-time-full-time-helvetia-versicherungen-stans-9e8c5d",
+        "fr": "consultant-client-h-f-d-assurance-principale-stans-temps-partiel-temps-plein-helvetia-versicherungen-stans-9e8c5d"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -10503,7 +10493,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:23:59.658Z"
+      "firstSeenAt": "2026-09-04T13:23:59.658Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-versicherung-hauptagentur-stans-teilzeit-vollzeit-helvetia-stans"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherung-hauptagentur-stans-teilzeit-vollzeit-helvetia-stans"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherung-hauptagentur-stans-teilzeit-vollzeit-helvetia-stans"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-versicherung-hauptagentur-stans-teilzeit-vollzeit-helvetia-stans"
+      ]
     },
     {
       "id": "helvetia-253f707aa648",
@@ -10749,12 +10753,12 @@
     },
     {
       "id": "helvetia-cb921198aa2c",
-      "slug": "kundenberater-w-m-d-versicherungen-oensingen-teilzeit-vollzeit-helvetia-oensingen",
+      "slug": "consulente-clienti-m-f-d-versicherungen-oensingen-part-time-full-time-helvetia-versicherungen-oensingen",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherungen-oensingen-teilzeit-vollzeit-helvetia-oensingen",
-        "it": "kundenberater-w-m-d-versicherungen-oensingen-teilzeit-vollzeit-helvetia-oensingen",
-        "en": "kundenberater-w-m-d-versicherungen-oensingen-teilzeit-vollzeit-helvetia-oensingen",
-        "fr": "kundenberater-w-m-d-versicherungen-oensingen-teilzeit-vollzeit-helvetia-oensingen"
+        "it": "consulente-clienti-m-f-d-versicherungen-oensingen-part-time-full-time-helvetia-versicherungen-oensingen",
+        "en": "customer-advisor-m-f-d-versicherungen-oensingen-part-time-full-time-helvetia-versicherungen-oensingen",
+        "fr": "conseiller-client-h-f-d-versicherungen-oensingen-temps-partiel-temps-plein-helvetia-versicherungen-oensingen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -10813,7 +10817,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:17:29.932Z"
+      "firstSeenAt": "2026-10-19T09:17:29.932Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-versicherungen-oensingen-teilzeit-vollzeit-helvetia-oensingen"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherungen-oensingen-teilzeit-vollzeit-helvetia-oensingen"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherungen-oensingen-teilzeit-vollzeit-helvetia-oensingen"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-versicherungen-oensingen-teilzeit-vollzeit-helvetia-oensingen"
+      ]
     },
     {
       "id": "helvetia-902fe7970edf",

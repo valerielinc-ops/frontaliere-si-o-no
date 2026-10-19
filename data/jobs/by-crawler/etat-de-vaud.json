@@ -2416,12 +2416,12 @@
     },
     {
       "id": "etat-de-vaud-6025",
-      "slug": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2",
+      "slug": "dipendente-di-manutenzione-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz-591b6c",
       "slugByLocale": {
         "fr": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz",
-        "it": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2",
-        "en": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2",
-        "de": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2"
+        "it": "dipendente-di-manutenzione-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz-591b6c",
+        "en": "maintenance-employee-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz-591b6c",
+        "de": "instandhaltungspersonal-fahrer-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz-591b6c"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -2480,7 +2480,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:35:33.691Z"
+      "firstSeenAt": "2026-10-05T21:35:33.691Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2"
+        ],
+        "en": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2"
+        ],
+        "de": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2"
+      ]
     },
     {
       "id": "etat-de-vaud-6031",
@@ -3292,12 +3306,12 @@
     },
     {
       "id": "etat-de-vaud-6043",
-      "slug": "responsable-d-atelier-insertion-etat-de-vaud-orbe",
+      "slug": "responsabile-del-workshop-di-integrazione-etat-de-vaud-administration-cantonale-vaudoise-orbe",
       "slugByLocale": {
         "fr": "responsable-d-atelier-insertion-etat-de-vaud-orbe",
-        "it": "responsable-d-atelier-insertion-etat-de-vaud-orbe",
-        "en": "responsable-d-atelier-insertion-etat-de-vaud-orbe",
-        "de": "responsable-d-atelier-insertion-etat-de-vaud-orbe"
+        "it": "responsabile-del-workshop-di-integrazione-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+        "en": "head-of-integration-workshop-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+        "de": "leiter-des-integrationsworkshops-etat-de-vaud-administration-cantonale-vaudoise-orbe"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3356,16 +3370,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:31:15.958Z"
+      "firstSeenAt": "2026-10-19T09:31:15.958Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-atelier-insertion-etat-de-vaud-orbe"
+        ],
+        "en": [
+          "responsable-d-atelier-insertion-etat-de-vaud-orbe"
+        ],
+        "de": [
+          "responsable-d-atelier-insertion-etat-de-vaud-orbe"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-atelier-insertion-etat-de-vaud-orbe"
+      ]
     },
     {
       "id": "etat-de-vaud-6032",
-      "slug": "conservateur-trice-des-collections-mineralogiques-et-petrographiques-au-natureum-etat-de",
+      "slug": "conservatore-delle-collezioni-mineralogiche-e-petrolografiche-al-natureum-etat-de-vaud-administration-cantonale-vaudoise",
       "slugByLocale": {
         "fr": "conservateur-trice-des-collections-mineralogiques-et-petrographiques-au-natureum-etat-de",
-        "it": "conservateur-trice-des-collections-mineralogiques-et-petrographiques-au-natureum-etat-de",
-        "en": "conservateur-trice-des-collections-mineralogiques-et-petrographiques-au-natureum-etat-de",
-        "de": "conservateur-trice-des-collections-mineralogiques-et-petrographiques-au-natureum-etat-de"
+        "it": "conservatore-delle-collezioni-mineralogiche-e-petrolografiche-al-natureum-etat-de-vaud-administration-cantonale-vaudoise",
+        "en": "conservator-of-mineralogic-and-petrographic-collections-at-the-natureum-etat-de-vaud-administration-cantonale-vaudoise",
+        "de": "konservator-fur-mineralogische-und-petrographische-sammlungen-im-natureum-etat-de-vaud-administration-cantonale-vaudoise"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3424,16 +3452,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:31:15.522Z"
+      "firstSeenAt": "2026-10-19T09:31:15.522Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conservateur-trice-des-collections-mineralogiques-et-petrographiques-au-natureum-etat-de"
+        ],
+        "en": [
+          "conservateur-trice-des-collections-mineralogiques-et-petrographiques-au-natureum-etat-de"
+        ],
+        "de": [
+          "conservateur-trice-des-collections-mineralogiques-et-petrographiques-au-natureum-etat-de"
+        ]
+      },
+      "previousSlugs": [
+        "conservateur-trice-des-collections-mineralogiques-et-petrographiques-au-natureum-etat-de"
+      ]
     },
     {
       "id": "etat-de-vaud-5980",
-      "slug": "responsable-de-domaine-etat-de-vaud-lausanne",
+      "slug": "gestione-del-dominio-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "responsable-de-domaine-etat-de-vaud-lausanne",
-        "it": "responsable-de-domaine-etat-de-vaud-lausanne",
-        "en": "responsable-de-domaine-etat-de-vaud-lausanne",
-        "de": "responsable-de-domaine-etat-de-vaud-lausanne"
+        "it": "gestione-del-dominio-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "domain-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "domanenmanager-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3492,7 +3534,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:31:15.108Z"
+      "firstSeenAt": "2026-10-19T09:31:15.108Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-domaine-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "responsable-de-domaine-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "responsable-de-domaine-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-domaine-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-5937",

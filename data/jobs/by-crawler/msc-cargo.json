@@ -353,12 +353,12 @@
     },
     {
       "id": "msc-cargo-cc1a353fd70d",
-      "slug": "manager-cruise-development-and-execution-msc-geneva",
+      "slug": "manager-sviluppo-crociera-e-esecuzione-msc-group-geneva",
       "slugByLocale": {
         "en": "manager-cruise-development-and-execution-msc-geneva",
-        "it": "manager-cruise-development-and-execution-msc-geneva",
+        "it": "manager-sviluppo-crociera-e-esecuzione-msc-group-geneva",
         "de": "manager-cruise-development-and-execution-msc-geneva",
-        "fr": "manager-cruise-development-and-execution-msc-geneva"
+        "fr": "gestionnaire-developpement-et-execution-des-croisieres-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -420,28 +420,27 @@
       "firstSeenAt": "2026-09-27T11:33:51.809Z",
       "previousSlugsByLocale": {
         "it": [
-          "manager-sviluppo-crociera-e-esecuzione-msc-group-geneva",
           "manager-sviluppo-ed-esecuzione-crociere-msc-group-geneva",
           "manager-entwicklung-und-umsetzung-der-kreuzfahrt-msc-group-geneva",
           "responsable-du-developpement-et-de-l-execution-des-croisieres-msc-group-geneva",
-          "manager-cruise-development-und-ausfuhrung-msc-group-geneva"
+          "manager-cruise-development-und-ausfuhrung-msc-group-geneva",
+          "manager-cruise-development-and-execution-msc-geneva"
         ],
         "de": [
           "manager-cruise-development-und-ausfuhrung-msc-group-geneva",
           "manager-entwicklung-und-umsetzung-der-kreuzfahrt-msc-group-geneva"
         ],
         "fr": [
-          "gestionnaire-developpement-et-execution-des-croisieres-msc-group-geneva",
-          "responsable-du-developpement-et-de-l-execution-des-croisieres-msc-group-geneva"
+          "responsable-du-developpement-et-de-l-execution-des-croisieres-msc-group-geneva",
+          "manager-cruise-development-and-execution-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "manager-sviluppo-crociera-e-esecuzione-msc-group-geneva",
         "manager-cruise-development-und-ausfuhrung-msc-group-geneva",
-        "gestionnaire-developpement-et-execution-des-croisieres-msc-group-geneva",
         "manager-sviluppo-ed-esecuzione-crociere-msc-group-geneva",
         "manager-entwicklung-und-umsetzung-der-kreuzfahrt-msc-group-geneva",
-        "responsable-du-developpement-et-de-l-execution-des-croisieres-msc-group-geneva"
+        "responsable-du-developpement-et-de-l-execution-des-croisieres-msc-group-geneva",
+        "manager-cruise-development-and-execution-msc-geneva"
       ]
     },
     {
@@ -1151,7 +1150,7 @@
         "it": "risorse-umane-direttore-msc-group-geneva",
         "en": "hr-director-msc-geneva",
         "de": "personalwesen-direktor-msc-group-geneva",
-        "fr": "hr-director-msc-group-geneva"
+        "fr": "directeur-des-ressources-humaines-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1197,7 +1196,7 @@
       "previousSlugs": [
         "directeur-rh-msc-group-geneva",
         "hr-director-msc-geneva",
-        "directeur-des-ressources-humaines-msc-group-geneva"
+        "hr-director-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1209,7 +1208,7 @@
         ],
         "fr": [
           "directeur-rh-msc-group-geneva",
-          "directeur-des-ressources-humaines-msc-group-geneva"
+          "hr-director-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-10-03T09:25:31.059Z",

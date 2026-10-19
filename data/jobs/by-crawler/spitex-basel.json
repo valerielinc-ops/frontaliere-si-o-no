@@ -743,12 +743,12 @@
     },
     {
       "id": "spitex-basel-34e8be9686a7",
-      "slug": "pflegeprofi-per-flexible-einsatze-a-spitex-basel",
+      "slug": "professionista-dell-assistenza-per-impieghi-flessibili-a-spitex-basel-basel",
       "slugByLocale": {
         "de": "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel",
-        "it": "pflegeprofi-per-flexible-einsatze-a-spitex-basel",
-        "en": "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel",
-        "fr": "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel"
+        "it": "professionista-dell-assistenza-per-impieghi-flessibili-a-spitex-basel-basel",
+        "en": "care-professional-for-flexible-assignments-a-spitex-basel-basel",
+        "fr": "professionnel-de-soins-pour-des-affectations-flexibles-a-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -796,11 +796,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel",
+          "pflegeprofi-per-flexible-einsatze-a-spitex-basel"
+        ],
+        "en": [
+          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel"
+        ],
+        "fr": [
           "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel"
         ]
       },
       "previousSlugs": [
-        "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel"
+        "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel",
+        "pflegeprofi-per-flexible-einsatze-a-spitex-basel"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
