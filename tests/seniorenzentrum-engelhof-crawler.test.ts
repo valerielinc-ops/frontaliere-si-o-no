@@ -135,6 +135,20 @@ describe('Seniorenzentrum Engelhof crawler parser', () => {
     expect(detail.locationGateRejected).toBe(true);
   });
 
+  it('accepts an unlabelled variable postal pair only after the employer seat', () => {
+    const detail = extractSeniorenzentrumEngelhofDetailFields(
+      '<div data-cy="job-detail"><p>8852 Altendorf.</p><p>8853 Lachen.</p></div>',
+      sourceListing.url,
+    );
+
+    expect(detail).toMatchObject({
+      location: '8853 Lachen',
+      addressLocality: 'Lachen',
+      postalCode: '8853',
+      canton: 'SZ',
+    });
+  });
+
   describe('fetchAllSeniorenzentrumEngelhofJobs', () => {
     it('publishes source-backed target jobs and drops neighbouring roles', async () => {
       specCrawlerMocks.loadSpec.mockReturnValue({ companyKey: SENIORENZENTRUM_ENGELHOF_KEY });

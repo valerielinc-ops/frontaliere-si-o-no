@@ -37,7 +37,6 @@ const SENIORENZENTRUM_ENGELHOF_EMPLOYER_POSTAL_LOCATIONS = Object.freeze([
   '8852 Altendorf',
 ]);
 const SENIORENZENTRUM_ENGELHOF_POSTAL_LOCATION_RX = /(?:^|\D)(?:CH[\s-]?)?(\d{4})\s+(\p{Lu}[\p{L}'’.-]*(?:[ -][\p{L}][\p{L}'’.-]*){0,3})/gu;
-const SENIORENZENTRUM_ENGELHOF_WORKPLACE_LABEL_RX = /(?:Arbeitsort|Arbeitsplatz|Einsatzort|Standort)\s*[:\-]\s*([^\n;|]+)/giu;
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -89,22 +88,36 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
-function explicitWorkplacePostalCandidates(text = '') {
-  const candidates = [];
-  const seen = new Set();
-  for (const label of String(text || '').matchAll(SENIORENZENTRUM_ENGELHOF_WORKPLACE_LABEL_RX)) {
-    const value = label[1];
-    for (const match of String(value).matchAll(SENIORENZENTRUM_ENGELHOF_POSTAL_LOCATION_RX)) {
-      const postalCode = match[1];
-      const addressLocality = match[2]
+function sourceBodyPostalCandidates(text = '') {
+  const candidates = freeTextPostalCandidates(text);
+  const seen = new Set(candidates.map((candidate) => candidate.location.toLowerCase()));
+  const addCandidate = (candidate) => {
+    const key = candidate.location.toLowerCase();
+    if (seen.has(key)) return;
+    seen.add(key);
+    candidates.push(candidate);
+  };
+
+  // The shared free-text tier deliberately rejects everyday-word localities
+  // such as Lachen. Here a postal pair inside this source's reviewed vacancy
+  // body is stronger evidence than the bare word; still require the shared
+  // resolver before adding it, then let variablePostalGeography remove the
+  // reviewed employer seat below.
+  for (const match of String(text || '').matchAll(SENIORENZENTRUM_ENGELHOF_POSTAL_LOCATION_RX)) {
+    const postalCode = match[1];
+    const words = match[2].replace(/\s+/g, ' ').trim().split(' ').filter(Boolean);
+    for (let size = words.length; size >= 1; size -= 1) {
+      const addressLocality = words.slice(0, size).join(' ')
         .replace(/[.,;:!?]+$/u, '')
-        .replace(/\s+/g, ' ')
         .trim();
-      const location = `${postalCode} ${addressLocality}`;
-      const key = location.toLowerCase();
-      if (!addressLocality || seen.has(key)) continue;
-      seen.add(key);
-      candidates.push({ location, addressLocality, postalCode });
+      const candidate = {
+        location: `${postalCode} ${addressLocality}`,
+        addressLocality,
+        postalCode,
+      };
+      if (!addressLocality || !resolveSourceBackedSwissGeography(candidate)) continue;
+      addCandidate(candidate);
+      break;
     }
   }
   return candidates;
@@ -131,8 +144,8 @@ function rejectUnverifiedEngelhofLocation(detail = {}) {
  * `wwj-text[data-cy="job-detail"]` body. It no longer exposes a JobPosting
  * `jobLocation` or a recognised address container, so the generic extractor
  * otherwise drops every detail page. The reviewed employer seat
- * `8852 Altendorf` is boilerplate: only a different postal pair explicitly
- * labelled as the workplace is accepted.
+ * `8852 Altendorf` is boilerplate: only a different source-backed postal pair
+ * in the vacancy body is accepted.
  *
  * Keep this rescue source-specific and scoped to the vacancy body. In
  * particular, do not scan the whole page or substitute the employer address:
@@ -151,10 +164,7 @@ export function extractSeniorenzentrumEngelhofDetailFields(html = '', pageUrl = 
     if (!vacancyBody) return rejectUnverifiedEngelhofLocation(detail);
 
     const vacancyText = bodyTextOf(vacancyBody.innerHTML);
-    const candidates = [
-      ...freeTextPostalCandidates(vacancyText),
-      ...explicitWorkplacePostalCandidates(vacancyText),
-    ];
+    const candidates = sourceBodyPostalCandidates(vacancyText);
     const decision = variablePostalGeography(
       candidates,
       SENIORENZENTRUM_ENGELHOF_EMPLOYER_POSTAL_LOCATIONS,
