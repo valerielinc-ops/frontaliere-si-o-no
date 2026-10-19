@@ -78,7 +78,10 @@ import {
   runConsultingPaidNoticeSweep,
 } from './src/consultingCore.js';
 import { handleCreateAssistedApplicationCheckout } from './src/assistedApplicationCheckout.js';
-import { handleAssistedApplicationSumUpWebhook } from './src/assistedApplicationSumupWebhook.js';
+import {
+  handleAssistedApplicationSumUpWebhook,
+  runAssistedApplicationSumUpReconciliation,
+} from './src/assistedApplicationSumupWebhook.js';
 import { recordApplicationIntent as handleRecordApplicationIntent } from './src/applicationIntentCore.js';
 import { handleCreateApplicationConciergeCheckout } from './src/applicationConciergeCheckout.js';
 import {
@@ -2089,6 +2092,34 @@ export const sumupAssistedApplicationWebhook = onRequest(
         error instanceof Error ? error.message : String(error),
       );
       res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// SumUp retries webhook delivery, but a callback can still be acknowledged
+// while the provider is processing a later attempt. Re-check recent, unpaid
+// assisted-app checkouts so a provider-confirmed PAID state cannot remain
+// locked in the local ledger indefinitely.
+export const reconcileAssistedApplicationSumUpPayments = onSchedule(
+  {
+    region: 'europe-west6',
+    schedule: 'every 30 minutes',
+    timeZone: 'Europe/Zurich',
+    memory: '256MiB',
+    timeoutSeconds: 120,
+  },
+  async () => {
+    try {
+      const summary = await runAssistedApplicationSumUpReconciliation({ db: getAdminDb() });
+      if (summary.promoted || summary.errors) {
+        console.log('[reconcileAssistedApplicationSumUpPayments]', summary);
+      }
+    } catch (error) {
+      console.error(
+        '[reconcileAssistedApplicationSumUpPayments]',
+        error instanceof Error ? error.message : String(error),
+      );
+      throw error;
     }
   },
 );

@@ -76,12 +76,14 @@ export interface SumUpPaymentWidgetProps {
   onResponse: (type: string, body: unknown) => void;
   onError: (error: unknown) => void;
   onClose: () => void;
+  amountCents?: number;
+  title?: string;
   error?: string | null;
   busy?: boolean;
 }
 
 /**
- * Embedded SumUp payment form for the assisted-application flow.
+ * Embedded SumUp payment form shared by assisted applications and concierge.
  *
  * The checkout status is still confirmed by the SumUp webhook on the server;
  * the widget callback only controls the client's return to the order page.
@@ -92,6 +94,8 @@ export default function SumUpPaymentWidget({
   onResponse,
   onError,
   onClose,
+  amountCents = ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+  title,
   error = null,
   busy = false,
 }: SumUpPaymentWidgetProps) {
@@ -107,7 +111,7 @@ export default function SumUpPaymentWidget({
     style: 'currency',
     currency: 'EUR',
     minimumFractionDigits: 2,
-  }).format(ASSISTED_APPLICATION_PRICE_EUR_CENTS / 100);
+  }).format(amountCents / 100);
 
   useEffect(() => {
     responseRef.current = onResponse;
@@ -143,7 +147,7 @@ export default function SumUpPaymentWidget({
         card = sumUpCard.mount({
           id: containerId,
           checkoutId,
-          amount: (ASSISTED_APPLICATION_PRICE_EUR_CENTS / 100).toFixed(2),
+          amount: (amountCents / 100).toFixed(2),
           currency: 'EUR',
           locale: SUMUP_LOCALE[locale],
           country: 'CH',
@@ -166,7 +170,7 @@ export default function SumUpPaymentWidget({
       cancelled = true;
       card?.unmount?.();
     };
-  }, [checkoutId, containerId, locale]);
+  }, [amountCents, checkoutId, containerId, locale]);
 
   const handleBackdropMouseDown = (event: MouseEvent<HTMLDivElement>) => {
     if (!busy && event.target === event.currentTarget) onClose();
@@ -194,7 +198,7 @@ export default function SumUpPaymentWidget({
               </div>
               <div className="min-w-0">
                 <h2 id={titleId} className="font-display text-lg font-semibold text-heading sm:text-xl">
-                  {t('jobBoard.assisted.title')}
+                  {title || t('jobBoard.assisted.title')}
                 </h2>
                 <p className="mt-1 text-sm text-subtle">SumUp</p>
               </div>
