@@ -379,6 +379,12 @@ function runPublish(name: string, env: Record<string, string>) {
 
 const COPIED_A = JSON.stringify({ level: 'info', msg: 'Copied (replaced existing)', object: 'a.js' });
 
+function completionMarkerPuts(calls: string[]): string[] {
+  return calls.filter((call) => (
+    /^rclone copyto (?!:s3:)\S+ :s3:bkt\/cdn-publish-complete-id\.txt(?:\s|$)/.test(call)
+  ));
+}
+
 describe('behaviour: the R2 images batch holds the blog writer lease', () => {
   const acquiredContext = '{"version":1,"leases":[{"namespace":"blog","owner":"test-owner","leaseId":"acquired-blog-lease","expiresAt":1800000000000}]}';
 
@@ -402,7 +408,7 @@ describe('behaviour: the R2 images batch holds the blog writer lease', () => {
     expect(r.stdout).toMatch(/could not acquire the blog image lease; skipping images\/ sync/);
     expect(r.leaseCalls).toEqual(['acquire:blog']);
     expect(r.calls.some((call) => /^rclone copy \S+ :s3:bkt\/images /.test(call))).toBe(false);
-    expect(r.calls.some((call) => /cdn-publish-complete-id\.txt/.test(call))).toBe(false);
+    expect(completionMarkerPuts(r.calls)).toEqual([]);
   });
 
   it('a release error withholds the completion marker after the protected copy', () => {
@@ -417,7 +423,7 @@ describe('behaviour: the R2 images batch holds the blog writer lease', () => {
       `release:${acquiredContext}`,
     ]);
     expect(r.stdout).toMatch(/blog image lease release failed; refusing to mark the R2 payload complete/);
-    expect(r.calls.some((call) => /cdn-publish-complete-id\.txt/.test(call))).toBe(false);
+    expect(completionMarkerPuts(r.calls)).toEqual([]);
   });
 
   it('verifies a caller-owned capability and never releases it', () => {
@@ -444,7 +450,7 @@ describe('behaviour: the R2 images batch holds the blog writer lease', () => {
     expect(r.stdout).toMatch(/existing image lease does not cover blog or is no longer valid; skipping images\/ sync/);
     expect(r.leaseCalls).toEqual([`verify:blog:${callerContext}`]);
     expect(r.calls.some((call) => /^rclone copy \S+ :s3:bkt\/images /.test(call))).toBe(false);
-    expect(r.calls.some((call) => /cdn-publish-complete-id\.txt/.test(call))).toBe(false);
+    expect(completionMarkerPuts(r.calls)).toEqual([]);
   });
 });
 
@@ -505,7 +511,7 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     expect(r.stdout).toMatch(/skipping targeted CDN purge: publish window is not coherent/);
     expect(r.stdout).not.toMatch(/ledger: 1 key\(s\) uploaded by this run/);
     expect(r.ledger).toBeNull();
-    expect(r.calls.some((c) => /:s3:bkt\/cdn-publish-complete-id\.txt/.test(c))).toBe(true);
+    expect(completionMarkerPuts(r.calls)).toHaveLength(1);
     expect(r.calls.some((c) => /rclone \S+\/stage\/cdn-build-id\.txt :s3:bkt\/cdn-build-id\.txt/.test(c))).toBe(false);
   });
 
@@ -522,7 +528,7 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     expect(r.stdout).not.toMatch(/ledger: 1 key\(s\) uploaded by this run/);
     expect(r.ledger).toBeNull();
     expect(r.calls.some((c) => /:s3:bkt\/cdn-build-id\.txt/.test(c))).toBe(true);
-    expect(r.calls.some((c) => /:s3:bkt\/cdn-publish-complete-id\.txt/.test(c))).toBe(true);
+    expect(completionMarkerPuts(r.calls)).toHaveLength(1);
   });
 });
 

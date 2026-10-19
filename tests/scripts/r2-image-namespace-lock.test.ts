@@ -237,7 +237,12 @@ describe('r2-image-namespace-lock', () => {
       sleep: async () => {},
     });
 
-    expect(calls.find(({ method }) => method === 'PUT')?.headers['if-match']).toBe('expired-etag');
+    const lockPuts = calls.filter(({ method, key: requestKey }) => method === 'PUT' && requestKey === key);
+    expect(lockPuts).toHaveLength(2);
+    expect(lockPuts[0].headers['if-none-match']).toBe('*');
+    expect(lockPuts[0].headers['if-match']).toBeUndefined();
+    expect(lockPuts[1].headers['if-match']).toBe('expired-etag');
+    expect(lockPuts[1].headers['if-none-match']).toBeUndefined();
     const replacement = objects.get(key)!;
     objects.set(key, {
       etag: 'new-owner-etag',
