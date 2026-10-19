@@ -8,11 +8,19 @@ export interface ApplicationConciergeCheckoutInput {
   requestKey?: string;
 }
 
-export interface ApplicationConciergeCheckoutResult {
-  ok: true;
-  url: string;
-  serviceId: string;
-}
+export type ApplicationConciergeCheckoutResult =
+  | {
+    ok: true;
+    paymentProvider: 'sumup';
+    checkoutId: string;
+    serviceId: string;
+  }
+  | {
+    ok: true;
+    paymentProvider: 'stripe';
+    url: string;
+    serviceId: string;
+  };
 
 function requestKey(): string {
   try {
@@ -44,8 +52,14 @@ export async function createApplicationConciergeCheckout(
     body: JSON.stringify({ ...input, requestKey: input.requestKey || requestKey() }),
   });
   const data = await response.json().catch(() => ({}));
-  if (!response.ok || !data?.ok || !data?.url || !data?.serviceId) {
+  if (!response.ok || !data?.ok || !data?.serviceId) {
     throw new Error(errorCode(data?.error));
   }
-  return data as ApplicationConciergeCheckoutResult;
+  if (data.paymentProvider === 'sumup' && data.checkoutId) {
+    return data as ApplicationConciergeCheckoutResult;
+  }
+  if (data.url) {
+    return { ...data, paymentProvider: 'stripe' } as ApplicationConciergeCheckoutResult;
+  }
+  throw new Error('application_concierge_checkout_failed');
 }

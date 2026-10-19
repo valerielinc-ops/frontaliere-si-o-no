@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3990.title': "Einfachere Zahlung für die begleitete Bewerbung",
+ 'whatsNew.v3990.conciergeCheckout.title': "Bezahlen, ohne die Website zu verlassen",
+ 'whatsNew.v3990.conciergeCheckout.desc': "Die Zahlung für den 30-Tage-Service erfolgt in einem eingebetteten Formular. Wenn du das Popup schließt oder die Seite neu lädst, kannst du denselben Zahlungsversuch fortsetzen; der Service wird erst nach bestätigter Zahlung aktiviert.",
  "whatsNew.v3989.title": "Apothekenpläne langfristig nachschlagen",
  "whatsNew.v3989.pharmacyArchive.title": "Zwei Septemberwochen wiederhergestellt",
  "whatsNew.v3989.pharmacyArchive.desc": "Erfasste Einteilungen bleiben mit den ursprünglichen Abrufdaten und Quellen verfügbar. Historische Archive zeigen keine aktuellen Notdienste oder Öffnungszeiten.",
@@ -860,6 +863,9 @@ const deCore: Record<string, string> = {
  'jobBoard.concierge.noRenewal': 'Einmalige Zahlung · keine Verlängerung',
  'jobBoard.concierge.disclosure': 'Kostenpflichtiger Dienst: 39,99 €. Die Automatisierung hilft dir, effizienter Bewerbungen zu senden, garantiert aber keine passenden Stellen, gesendeten Bewerbungen, Antworten, Gespräche oder Einstellungen.',
  'jobBoard.concierge.start': 'Dienst aktivieren',
+ 'jobBoard.concierge.resumePayment': 'Zahlung fortsetzen',
+ 'jobBoard.concierge.paymentTitle': 'Zahlung abschliessen',
+ 'jobBoard.concierge.paymentError': 'Die Zahlung konnte nicht abgeschlossen werden. Prüfe deine Angaben oder versuche es erneut.',
  'jobBoard.concierge.offerLink': 'Du suchst mehrere Stellen? Automatisiere deine Jobsuche',
  'jobBoard.concierge.offerLinkHint': 'Wir finden passende Stellen, bereiten Bewerbungen vor und senden sie nach deinem Einverständnis.',
  'jobBoard.concierge.landingBadge': 'Automatisierung + persönliche Kontrolle für 30 Tage',

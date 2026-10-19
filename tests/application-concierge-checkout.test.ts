@@ -39,6 +39,7 @@ const mocks = vi.hoisted(() => {
   };
 
   const stripeCheckoutSessionsCreate = vi.fn();
+  const createSumUpApplicationConciergeCheckout = vi.fn();
   const stripe = { checkout: { sessions: { create: stripeCheckoutSessionsCreate } } };
   return {
     store,
@@ -48,11 +49,13 @@ const mocks = vi.hoisted(() => {
     verifyCaller: vi.fn(async () => ({ uid: 'candidate-42', email: 'candidate@example.test' })),
     getAssistedApplicationPaymentProvider: vi.fn(async () => 'stripe'),
     createSumUpHostedCheckout: vi.fn(),
+    createSumUpApplicationConciergeCheckout,
     stripeCheckoutSessionsCreate,
     reset() {
       store.clear();
       sequence = 0;
       stripeCheckoutSessionsCreate.mockReset();
+      createSumUpApplicationConciergeCheckout.mockReset();
     },
   };
 });
@@ -83,6 +86,7 @@ vi.mock('../functions/src/sumupAssistedApplicationCore.js', () => ({
   SUMUP_PAYMENT_PROVIDER: 'sumup',
   getAssistedApplicationPaymentProvider: mocks.getAssistedApplicationPaymentProvider,
   createSumUpHostedCheckout: mocks.createSumUpHostedCheckout,
+  createSumUpApplicationConciergeCheckout: mocks.createSumUpApplicationConciergeCheckout,
 }));
 
 const {
@@ -112,6 +116,7 @@ beforeEach(() => {
     id: 'cs_concierge_1',
     url: 'https://checkout.stripe.com/cs_concierge_1',
   });
+  mocks.createSumUpApplicationConciergeCheckout.mockResolvedValue({ id: 'sumup_concierge_1' });
 });
 
 describe('application concierge checkout', () => {
@@ -151,6 +156,43 @@ describe('application concierge checkout', () => {
       paymentStatus: 'pending',
       serviceStatus: 'awaiting_payment',
     }));
+  });
+
+  it('creates an embedded SumUp checkout for the concierge price', async () => {
+    mocks.getAssistedApplicationPaymentProvider.mockResolvedValue('sumup');
+
+    const result = await handleCreateApplicationConciergeCheckout(request());
+
+    expect(result).toEqual({
+      status: 200,
+      body: {
+        ok: true,
+        paymentProvider: 'sumup',
+        checkoutId: 'sumup_concierge_1',
+        serviceId: 'application_concierge_services-1',
+      },
+    });
+    expect(mocks.createSumUpApplicationConciergeCheckout).toHaveBeenCalledWith({
+      serviceId: 'application_concierge_services-1',
+      redirectUrl: 'https://frontaliereticino.ch/lavoro?application_concierge_service_id=application_concierge_services-1',
+    });
+    expect(mocks.createSumUpHostedCheckout).not.toHaveBeenCalled();
+    expect(mocks.store.get('application_concierge_services/application_concierge_services-1')).toEqual(expect.objectContaining({
+      paymentProvider: 'sumup',
+      sumupCheckoutId: 'sumup_concierge_1',
+      amountTotal: 3999,
+      paymentStatus: 'pending',
+    }));
+  });
+
+  it('reuses the same embedded SumUp checkout for an idempotent retry', async () => {
+    mocks.getAssistedApplicationPaymentProvider.mockResolvedValue('sumup');
+
+    const first = await handleCreateApplicationConciergeCheckout(request());
+    const second = await handleCreateApplicationConciergeCheckout(request());
+
+    expect(second).toEqual(first);
+    expect(mocks.createSumUpApplicationConciergeCheckout).toHaveBeenCalledTimes(1);
   });
 
   it('rejects redirect URLs that are not HTTPS', async () => {
