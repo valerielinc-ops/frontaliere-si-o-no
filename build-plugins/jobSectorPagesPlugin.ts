@@ -1,8 +1,8 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 /**
- * Vite build plugin that emits static HTML for the 3 sector-based job hubs
- * (Infermieri / Case Anziani / Educatori) in all 4 locales — 12 pages total.
+ * Vite build plugin that emits static HTML for every registered sector-based
+ * job hub in all 4 locales.
  *
  * Filters `data/jobs.json` to canton TI (via `resolveJobCanton`), then by
  * sector keyword pattern (title/description/category/tags), and emits a
@@ -388,7 +388,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   </details>`;
 
   // Sibling-sector rail — links this hub to its 3-5 nearest siblings so the
-  // 49 sector hubs are mutually reachable in the BFS graph (the orphan fix).
+  // Registered sector hubs are mutually reachable in the BFS graph (the orphan fix).
   // Empty string for unmapped long-tail sectors.
   const siblingRailHtml = renderSiblingSectorRail(locale, sector, opts.siblingCounts);
 

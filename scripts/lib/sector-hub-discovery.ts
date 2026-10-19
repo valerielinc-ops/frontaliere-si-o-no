@@ -27,6 +27,20 @@ const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 const DAY_MS = 24 * 60 * 60 * 1000;
 const CATEGORY_FIELDS = ['sector', 'category'] as const;
+// Exact publisher categories map to the IT umbrella; generic "tech" is kept
+// out of the title matcher because the source label also covers unrelated jobs.
+const CURATED_SOURCE_LABEL_ALIASES: Partial<Record<SectorHubKey, readonly string[]>> = {
+  informatica: [
+    'tech',
+    'technology',
+    'information technology',
+    'informatica',
+    'informatik',
+    'informatique',
+    'tecnologia & it',
+    'technology & it',
+  ],
+};
 
 const GENERIC_LABELS = new Set([
   'altro', 'altri', 'altre', 'other', 'others', 'miscellaneous', 'general',
@@ -137,6 +151,7 @@ function isCuratedLabel(label: string): boolean {
       sector,
       SECTOR_HUB_DISPLAY.it[sector],
       ...LOCALES.map((locale) => SECTOR_HUB_SLUG[locale][sector]),
+      ...(CURATED_SOURCE_LABEL_ALIASES[sector] || []),
     ];
     if (aliases.some((alias) => normalizePhrase(alias) === normalized)) return true;
     if (jobMatchesSector({ title: label, category: label, sector: label }, sector, 'it')) return true;
@@ -577,7 +592,8 @@ export function buildSectorHubDiscoveryReport({
     existingHubPerformance,
     candidates: candidateRows.slice(0, MAX_CANDIDATES),
     notes: [
-      'Candidates are grouped only from active Ticino ads whose title/category does not match any of the 49 curated hubs.',
+      'Candidates are grouped only from active Ticino ads whose title/category does not match any of the '
+        + SECTOR_HUB_KEYS.length + ' curated hubs.',
       'The popularity export is cumulative; only views attached to active ads are counted and the score uses views per live day from the best available posting date.',
       'Eligible candidates require 15 active ads, 4 distinct employers, traffic evidence and 3 consecutive weekly observations.',
       'Eligibility means ready for editorial review. New indexed routes still require localized labels, a matcher, unique SEO copy, canonical/hreflang and thin-content checks.',
