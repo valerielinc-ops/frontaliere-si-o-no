@@ -266,6 +266,7 @@ globalThis.fetch = async () => {
       const now = Date.now();
       writeFileSync(statePath, JSON.stringify({
         version: 0,
+        testControl: { placesBusy: true },
         locks: {
           places: {
             etag: 'other-places-etag',
@@ -296,7 +297,7 @@ globalThis.fetch = async (url, options = {}) => {
   const method = options.method ?? 'GET';
   const headers = options.headers ?? {};
   const state = load();
-  if (namespace === 'places' && process.env.STUB_PLACES_BUSY !== '1'
+  if (namespace === 'places' && state.testControl?.placesBusy !== true
       && method === 'GET' && state.locks.places?.payload.owner === 'other-owner') {
     const releasedAt = Date.now() - 1;
     state.locks.places.payload = { ...state.locks.places.payload, releasedAt, expiresAt: releasedAt };
@@ -336,7 +337,6 @@ globalThis.fetch = async (url, options = {}) => {
           NODE_OPTIONS: `--import=${preload}`,
           STUB_R2_STATE: statePath,
           STUB_R2_REQUEST_LOG: requestLog,
-          STUB_PLACES_BUSY: '1',
           R2_S3_ENDPOINT: 'https://r2.invalid',
           R2_BUCKET: 'test-bucket',
           R2_ACCESS_KEY_ID: 'test-access-key',
@@ -372,6 +372,9 @@ globalThis.fetch = async (url, options = {}) => {
       const requestsAfterTerm = readFileSync(requestLog, 'utf8');
       expect(requestsAfterTerm).toMatch(/PUT blog \* -\n[\s\S]*PUT places \* -\n[\s\S]*PUT blog - lease-\d+/);
 
+      stateAfterTerm.testControl.placesBusy = false;
+      writeFileSync(statePath, JSON.stringify(stateAfterTerm));
+
       const acquire = spawnSync(process.execPath, [cli, 'acquire', '--namespace', 'blog,places'], {
         encoding: 'utf8',
         env: {
@@ -379,7 +382,6 @@ globalThis.fetch = async (url, options = {}) => {
           NODE_OPTIONS: `--import=${preload}`,
           STUB_R2_STATE: statePath,
           STUB_R2_REQUEST_LOG: requestLog,
-          STUB_PLACES_BUSY: '0',
           R2_S3_ENDPOINT: 'https://r2.invalid',
           R2_BUCKET: 'test-bucket',
           R2_ACCESS_KEY_ID: 'test-access-key',
