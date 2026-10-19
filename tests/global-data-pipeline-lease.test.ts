@@ -294,7 +294,9 @@ describe('global data pipeline lease', () => {
     const timeout = new Error('The operation was aborted due to timeout');
     timeout.name = 'TimeoutError';
     expect(isRetryableLeaseError(timeout)).toBe(true);
+    expect(isRetryableLeaseError({ status: 429 })).toBe(true);
     expect(isRetryableLeaseError({ status: 503 })).toBe(true);
+    expect(isRetryableLeaseError({ status: 500 })).toBe(true);
     expect(isRetryableLeaseError({ body: { error: { status: 'ABORTED' } } })).toBe(true);
     expect(isRetryableLeaseError({ status: 400, body: { error: { status: 'FAILED_PRECONDITION' } } })).toBe(true);
     expect(isRetryableLeaseError({ status: 400, body: { error: { status: 'INVALID_ARGUMENT' } } })).toBe(false);
@@ -695,6 +697,39 @@ describe('global data pipeline lease', () => {
       expect(released).toMatchObject({ released: true, attempts: 2, contended: true });
       expect(server.lease).toBeNull();
       expect(describeLeaseRelease(released)).toContain('contended=yes');
+    });
+
+    it('ritenta il release quando lo scambio OAuth risponde con HTTP 503', async () => {
+      const server = new PessimisticFirestore({
+        owner: 'release-owner',
+        repo: 'org/repo',
+        workflow: 'active-workflow',
+        runId: 'active-run',
+        acquiredAt: '2026-09-14T11:00:00.000Z',
+        heartbeatAt: '2026-09-14T11:59:00.000Z',
+        expiresAt: '2026-09-14T13:00:00.000Z',
+      });
+      let tokenRequests = 0;
+      vi.stubGlobal('fetch', vi.fn(async (url: string, init?: RequestInit) => {
+        if (url.startsWith('https://oauth2.googleapis.com/')) {
+          tokenRequests += 1;
+          if (tokenRequests === 1) return json(503, { error: 'temporarily_unavailable' });
+        }
+        return server.fetch(url, init);
+      }));
+
+      const released = await releaseLease({
+        credentials: CREDENTIALS,
+        owner: 'release-owner',
+        leaseDoc: 'ci_leases/test',
+        waitMs: 60,
+        pollMs: 1,
+        sleep: async () => {},
+      });
+
+      expect(released).toMatchObject({ released: true, attempts: 2 });
+      expect(tokenRequests).toBe(2);
+      expect(server.lease).toBeNull();
     });
 
     it('ritenta il release oltre tre conflitti fino al quarto commit entro 60 secondi', async () => {

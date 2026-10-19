@@ -346,7 +346,9 @@ async function exchangeAssertionForToken(assertion, requestTimeoutMs = REQUEST_T
   }
   if (!response.ok) {
     const reason = typeof body?.error === 'string' ? ' (' + body.error + ')' : '';
-    throw new Error('OAuth token exchange failed: ' + response.status + reason);
+    const error = new Error('OAuth token exchange failed: ' + response.status + reason);
+    error.status = response.status;
+    throw error;
   }
   if (!body?.access_token) throw new Error('OAuth response missing access_token');
   return body.access_token;
