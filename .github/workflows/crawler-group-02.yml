@@ -197,6 +197,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- roche: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -210,7 +211,7 @@ jobs:
           fi
 
           # ---- roche: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run roche" \
               --description "## Crawler fallito
@@ -220,6 +221,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run roche"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed roche"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::roche: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -240,10 +242,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -398,6 +400,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- privatklinik-wyss: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -411,7 +414,7 @@ jobs:
           fi
 
           # ---- privatklinik-wyss: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run privatklinik-wyss" \
               --description "## Crawler fallito
@@ -421,6 +424,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run privatklinik-wyss"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed privatklinik-wyss"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::privatklinik-wyss: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -441,10 +445,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -599,6 +603,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- sintetica: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -612,7 +617,7 @@ jobs:
           fi
 
           # ---- sintetica: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run sintetica" \
               --description "## Crawler fallito
@@ -622,6 +627,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run sintetica"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed sintetica"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::sintetica: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -642,10 +648,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -800,6 +806,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- spital-zollikerberg: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -813,7 +820,7 @@ jobs:
           fi
 
           # ---- spital-zollikerberg: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run spital-zollikerberg" \
               --description "## Crawler fallito
@@ -823,6 +830,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run spital-zollikerberg"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed spital-zollikerberg"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::spital-zollikerberg: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -843,10 +851,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -1001,6 +1009,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- sodexo: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -1014,7 +1023,7 @@ jobs:
           fi
 
           # ---- sodexo: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run sodexo" \
               --description "## Crawler fallito
@@ -1024,6 +1033,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run sodexo"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed sodexo"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::sodexo: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -1044,10 +1054,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -1202,6 +1212,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- raiffeisen-vc: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -1215,7 +1226,7 @@ jobs:
           fi
 
           # ---- raiffeisen-vc: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run raiffeisen-vc" \
               --description "## Crawler fallito
@@ -1225,6 +1236,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run raiffeisen-vc"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed raiffeisen-vc"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::raiffeisen-vc: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -1245,10 +1257,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -1403,6 +1415,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- yapeal: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -1416,7 +1429,7 @@ jobs:
           fi
 
           # ---- yapeal: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run yapeal" \
               --description "## Crawler fallito
@@ -1426,6 +1439,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run yapeal"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed yapeal"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::yapeal: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -1446,10 +1460,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -1604,6 +1618,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- sonova: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -1617,7 +1632,7 @@ jobs:
           fi
 
           # ---- sonova: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run sonova" \
               --description "## Crawler fallito
@@ -1627,6 +1642,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run sonova"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed sonova"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::sonova: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -1647,10 +1663,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -1805,6 +1821,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- sonnweid: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -1818,7 +1835,7 @@ jobs:
           fi
 
           # ---- sonnweid: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run sonnweid" \
               --description "## Crawler fallito
@@ -1828,6 +1845,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run sonnweid"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed sonnweid"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::sonnweid: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -1848,10 +1866,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -2006,6 +2024,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- helvetia: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -2019,7 +2038,7 @@ jobs:
           fi
 
           # ---- helvetia: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run helvetia" \
               --description "## Crawler fallito
@@ -2029,6 +2048,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run helvetia"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed helvetia"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::helvetia: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -2049,10 +2069,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -2207,6 +2227,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- prosenectute-ti: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -2220,7 +2241,7 @@ jobs:
           fi
 
           # ---- prosenectute-ti: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run prosenectute-ti" \
               --description "## Crawler fallito
@@ -2230,6 +2251,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run prosenectute-ti"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed prosenectute-ti"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::prosenectute-ti: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -2250,10 +2272,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -2408,6 +2430,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- ksw: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -2421,7 +2444,7 @@ jobs:
           fi
 
           # ---- ksw: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run ksw" \
               --description "## Crawler fallito
@@ -2431,6 +2454,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run ksw"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed ksw"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::ksw: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -2451,10 +2475,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -2609,6 +2633,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- stadt-bern: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -2622,7 +2647,7 @@ jobs:
           fi
 
           # ---- stadt-bern: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run stadt-bern" \
               --description "## Crawler fallito
@@ -2632,6 +2657,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run stadt-bern"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed stadt-bern"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::stadt-bern: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -2652,10 +2678,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -2810,6 +2836,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- microsoft: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -2823,7 +2850,7 @@ jobs:
           fi
 
           # ---- microsoft: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run microsoft" \
               --description "## Crawler fallito
@@ -2833,6 +2860,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run microsoft"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed microsoft"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::microsoft: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -2853,10 +2881,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -3011,6 +3039,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- lups: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -3024,7 +3053,7 @@ jobs:
           fi
 
           # ---- lups: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run lups" \
               --description "## Crawler fallito
@@ -3034,6 +3063,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run lups"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed lups"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::lups: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -3054,10 +3084,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -3212,6 +3242,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- ikea: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -3225,7 +3256,7 @@ jobs:
           fi
 
           # ---- ikea: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run ikea" \
               --description "## Crawler fallito
@@ -3235,6 +3266,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run ikea"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed ikea"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::ikea: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -3255,10 +3287,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -3413,6 +3445,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- bkw: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -3426,7 +3459,7 @@ jobs:
           fi
 
           # ---- bkw: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run bkw" \
               --description "## Crawler fallito
@@ -3436,6 +3469,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run bkw"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed bkw"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::bkw: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -3456,10 +3490,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -3614,6 +3648,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- galenica: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -3627,7 +3662,7 @@ jobs:
           fi
 
           # ---- galenica: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run galenica" \
               --description "## Crawler fallito
@@ -3637,6 +3672,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run galenica"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed galenica"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::galenica: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -3657,10 +3693,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -3815,6 +3851,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- cler: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -3828,7 +3865,7 @@ jobs:
           fi
 
           # ---- cler: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run cler" \
               --description "## Crawler fallito
@@ -3838,6 +3875,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run cler"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed cler"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::cler: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -3858,10 +3896,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -4016,6 +4054,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- breitling: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -4029,7 +4068,7 @@ jobs:
           fi
 
           # ---- breitling: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run breitling" \
               --description "## Crawler fallito
@@ -4039,6 +4078,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run breitling"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed breitling"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::breitling: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -4059,10 +4099,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -4217,6 +4257,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- globus: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -4230,7 +4271,7 @@ jobs:
           fi
 
           # ---- globus: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run globus" \
               --description "## Crawler fallito
@@ -4240,6 +4281,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run globus"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed globus"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::globus: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -4260,10 +4302,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -4418,6 +4460,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- cordenpharma: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -4431,7 +4474,7 @@ jobs:
           fi
 
           # ---- cordenpharma: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run cordenpharma" \
               --description "## Crawler fallito
@@ -4441,6 +4484,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run cordenpharma"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed cordenpharma"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::cordenpharma: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -4461,10 +4505,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -4619,6 +4663,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- kanton-gr: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -4632,7 +4677,7 @@ jobs:
           fi
 
           # ---- kanton-gr: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run kanton-gr" \
               --description "## Crawler fallito
@@ -4642,6 +4687,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run kanton-gr"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed kanton-gr"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::kanton-gr: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -4662,10 +4708,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -4820,6 +4866,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- chicco-doro: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -4833,7 +4880,7 @@ jobs:
           fi
 
           # ---- chicco-doro: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run chicco-doro" \
               --description "## Crawler fallito
@@ -4843,6 +4890,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run chicco-doro"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed chicco-doro"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::chicco-doro: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -4863,10 +4911,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -5021,6 +5069,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- belimo: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -5034,7 +5083,7 @@ jobs:
           fi
 
           # ---- belimo: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run belimo" \
               --description "## Crawler fallito
@@ -5044,6 +5093,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run belimo"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed belimo"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::belimo: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -5064,10 +5114,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -5222,6 +5272,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- fart: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -5235,7 +5286,7 @@ jobs:
           fi
 
           # ---- fart: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run fart" \
               --description "## Crawler fallito
@@ -5245,6 +5296,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run fart"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed fart"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::fart: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -5265,10 +5317,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -5423,6 +5475,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- mcm-group: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -5436,7 +5489,7 @@ jobs:
           fi
 
           # ---- mcm-group: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run mcm-group" \
               --description "## Crawler fallito
@@ -5446,6 +5499,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run mcm-group"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed mcm-group"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::mcm-group: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -5466,10 +5520,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -5624,6 +5678,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- grischapersonal: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -5637,7 +5692,7 @@ jobs:
           fi
 
           # ---- grischapersonal: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run grischapersonal" \
               --description "## Crawler fallito
@@ -5647,6 +5702,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run grischapersonal"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed grischapersonal"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::grischapersonal: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -5667,10 +5723,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -5825,6 +5881,7 @@ jobs:
             fi
           fi
           git_commit_exit=0
+          report_exit=0
 
           # ---- oscam: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
@@ -5838,7 +5895,7 @@ jobs:
           fi
 
           # ---- oscam: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
               --title "Crawler Failure: Run oscam" \
               --description "## Crawler fallito
@@ -5848,6 +5905,7 @@ jobs:
               --priority 2 \
               --label Bug \
               --workflow "Run oscam"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed oscam"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::oscam: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
@@ -5868,10 +5926,10 @@ jobs:
             exit 143
           fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 45 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
-          if [ "$git_commit_exit" -eq 45 ]; then exit 45; fi
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e

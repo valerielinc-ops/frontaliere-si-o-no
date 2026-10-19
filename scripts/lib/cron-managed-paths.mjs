@@ -59,6 +59,7 @@ export const CRON_MANAGED_GLOBS = Object.freeze([
   'data/canton-notices.json',
   'public/data/canton-notices.json',
   'public/data/pharmacy-duty-cantons.json',
+  'data/pharmacy-duty-week-history/*',
 
   // Weekly aggregates
   'data/weekly-employers-delta.json',

@@ -2,11 +2,15 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it, vi } from 'vitest';
 import {
   CDN_ORIGIN,
+  CDN_PUBLISH_COMPLETE_ID_PATH,
+  CDN_PUBLISH_START_ID_PATH,
   PUBLIC_CONFIG_URL,
+  classifyCdnPublishWindow,
   classifyPublicConfig,
   evaluateRepairPolicy,
   evaluateProbe,
   formatIssueDescription,
+  purgeFromReport,
   probeRuntime,
   probePublicConfig,
   rotationFromEnv,
@@ -26,6 +30,155 @@ const PUBLIC_KEY_FIXTURE = `AIza${'x'.repeat(35)}`;
 const publicConfigBody = JSON.stringify({ FIREBASE_API_KEY: PUBLIC_KEY_FIXTURE });
 
 describe('runtime reliability watchdog', () => {
+  it('defers while the CDN origin is being mutated and fails closed when the window stalls', () => {
+    const now = Date.parse('2026-10-18T20:10:00Z');
+    const start = String(now - 10 * 60_000);
+    const previous = String(now - 60 * 60_000);
+    expect(classifyCdnPublishWindow({
+      startMarker: { ok: true, status: 200, body: start },
+      completeMarker: { ok: true, status: 200, body: previous },
+      nowMs: now,
+    })).toMatchObject({ state: 'in_progress', startId: start, completeId: previous });
+    expect(classifyCdnPublishWindow({
+      startMarker: { ok: true, status: 200, body: String(now - 51 * 60_000) },
+      completeMarker: { ok: true, status: 200, body: previous },
+      nowMs: now,
+    })).toMatchObject({ state: 'stalled' });
+
+    const deferred = evaluateProbe({
+      siteCached: { body: '1792310390925', status: 200, ok: true },
+      siteFresh: { body: '1792310390925', status: 200, ok: true },
+      cdnMarker: { body: '1792326278647', status: 200, ok: true },
+      assets: [],
+      cdnPublish: { state: 'in_progress', startId: start, completeId: previous },
+      deferReason: 'cdn_publish_in_progress',
+    });
+    expect(deferred).toMatchObject({ ok: false, deferred: true, purgeUrls: [] });
+    expect(evaluateRepairPolicy({ probe: deferred })).toMatchObject({
+      action: 'defer',
+      reason: 'cdn_publish_in_progress',
+    });
+  });
+
+  it('does not read or purge mutable assets while a CDN publish is open', async () => {
+    const now = Date.parse('2026-10-18T20:10:00Z');
+    const calls: string[] = [];
+    const fetchImpl = vi.fn(async (url: string) => {
+      calls.push(url);
+      const path = new URL(url).pathname;
+      if (url.startsWith(PUBLIC_CONFIG_URL)) return response(publicConfigBody);
+      if (path === CDN_PUBLISH_START_ID_PATH) return response(String(now - 10 * 60_000));
+      if (path === CDN_PUBLISH_COMPLETE_ID_PATH) return response(String(now - 60 * 60_000));
+      return response(path === '/build-id.txt' ? '1792310390925' : '1792326278647');
+    });
+    const result = await probeRuntime({
+      fetchImpl: fetchImpl as any,
+      now: new Date(now),
+      assetPaths: ['/assets/App.js'],
+      chunkGraph: false,
+    });
+    expect(result).toMatchObject({ ok: false, deferred: true, cdnPublishState: 'in_progress', purgeUrls: [] });
+    expect(calls.some((url) => new URL(url).pathname.startsWith('/assets/'))).toBe(false);
+  });
+
+  it('discards stale findings when a CDN publish starts during the graph walk', async () => {
+    const now = Date.parse('2026-10-18T20:10:00Z');
+    const stable = String(now - 60 * 60_000);
+    const started = String(now - 5 * 60_000);
+    let startReads = 0;
+    const fetchImpl = vi.fn(async (url: string) => {
+      const path = new URL(url).pathname;
+      if (url.startsWith(PUBLIC_CONFIG_URL)) return response(publicConfigBody);
+      if (path === CDN_PUBLISH_START_ID_PATH) {
+        startReads += 1;
+        return response(startReads === 1 ? stable : started);
+      }
+      if (path === CDN_PUBLISH_COMPLETE_ID_PATH) return response(stable);
+      if (path === '/assets/App.js') return response(url.includes('ft_reliability=') ? 'new' : 'old');
+      return response(path === '/build-id.txt' ? '1792310390925' : '1792326278647');
+    });
+    const result = await probeRuntime({
+      fetchImpl: fetchImpl as any,
+      now: new Date(now),
+      assetPaths: ['/assets/App.js'],
+      chunkGraph: false,
+    });
+    expect(result).toMatchObject({
+      ok: false,
+      deferred: true,
+      deferReason: 'cdn_publish_changed_during_probe',
+      purgeUrls: [],
+    });
+  });
+
+  it('revalidates publish markers immediately before purge and defers when the start token changes', async () => {
+    const now = Date.parse('2026-10-18T20:10:00Z');
+    const stable = String(now - 60 * 60_000);
+    const started = String(now - 5 * 60_000);
+    const purgeImpl = vi.fn();
+    const fetchImpl = vi.fn(async (url: string) => {
+      const path = new URL(url).pathname;
+      if (path === CDN_PUBLISH_START_ID_PATH) return response(started);
+      if (path === CDN_PUBLISH_COMPLETE_ID_PATH) return response(stable);
+      return response('1792326278647');
+    });
+    const guarded = await purgeFromReport({
+      ok: false,
+      deferred: false,
+      cdnBuildId: '1792326278647',
+      cdnPublishState: 'stable',
+      cdnPublishStartId: stable,
+      cdnPublishCompleteId: stable,
+      purgeUrls: [`${CDN_ORIGIN}/assets/App.js`],
+      reasons: ['/assets/App.js: stale'],
+    }, {
+      fetchImpl: fetchImpl as any,
+      now: new Date(now),
+      purgeImpl,
+    });
+
+    expect(purgeImpl).not.toHaveBeenCalled();
+    expect(guarded).toMatchObject({
+      deferred: true,
+      report: {
+        deferred: true,
+        deferReason: 'cdn_publish_changed_before_purge',
+        cdnPublishState: 'in_progress',
+        purgeUrls: [],
+        repair: { action: 'defer' },
+      },
+    });
+  });
+
+  it('dispatches the exact purge only when the generation and publish window are unchanged', async () => {
+    const stable = '1792320000000';
+    const purgeUrls = [`${CDN_ORIGIN}/assets/App.js`];
+    const outcome = { purged: 1, batches: 1, failed: [] };
+    const purgeImpl = vi.fn(() => outcome);
+    const fetchImpl = vi.fn(async (url: string) => {
+      const path = new URL(url).pathname;
+      if (path === CDN_PUBLISH_START_ID_PATH || path === CDN_PUBLISH_COMPLETE_ID_PATH) {
+        return response(stable);
+      }
+      return response('1792326278647');
+    });
+    const guarded = await purgeFromReport({
+      cdnBuildId: '1792326278647',
+      cdnPublishState: 'stable',
+      cdnPublishStartId: stable,
+      cdnPublishCompleteId: stable,
+      purgeUrls,
+    }, {
+      fetchImpl: fetchImpl as any,
+      now: new Date(Number(stable) + 60_000),
+      purgeImpl,
+    });
+
+    expect(purgeImpl).toHaveBeenCalledOnce();
+    expect(purgeImpl).toHaveBeenCalledWith(purgeUrls);
+    expect(guarded).toMatchObject({ deferred: false, outcome });
+  });
+
   it('allows a coherent marker pair when every critical asset is fresh', () => {
     const result = evaluateProbe({
       siteCached: { body: '1789306155656', status: 200, ok: true, bytes: 13, hash: 'site' },
@@ -296,7 +449,7 @@ describe('runtime reliability watchdog', () => {
     });
     const result = await probeRuntime({ fetchImpl: fetchImpl as any, now: new Date('2026-09-13T00:00:00Z'), assetPaths: ['/assets/App.js'], chunkGraph: false });
     expect(result.ok).toBe(true);
-    expect(calls).toHaveLength(7); // three markers + cached/fresh asset and public config
+    expect(calls).toHaveLength(12); // five initial reads + public config, asset pair, three closing marker reads
     expect(calls.some((url) => url.includes('ft_reliability='))).toBe(true);
   });
 
@@ -385,12 +538,32 @@ describe('runtime reliability watchdog', () => {
     it('purges from the report file in batches, never via one --files list or purge_everything', () => {
       expect(workflow).toContain('node scripts/runtime-reliability-watch.mjs --purge-from runtime-reliability.json');
       expect(workflow).toContain('node scripts/runtime-reliability-watch.mjs --purge-from runtime-reliability-final.json');
+      expect(workflow).toContain("steps.purge.outputs.deferred != 'true'");
+      expect(workflow).toContain("if [ \"$purge_deferred\" = 'true' ]");
       expect(workflow).toContain('final_probe_retry');
       expect(workflow).not.toContain('PURGE_URLS');
       expect(workflow).not.toContain('scripts/cf-purge-cache.mjs');
       expect(workflow).not.toContain('CF_PURGE_ZONE_WIDE');
       expect(workflow).toContain('--issue-body runtime-reliability-final.json --first runtime-reliability.json');
       expect(workflow).toContain('--annotate runtime-reliability-final.json');
+      expect(workflow).toContain('steps.verify.outputs.deferred');
+    });
+
+    it('brackets every mutable R2 payload with an observable publish window', () => {
+      const deployPrep = readFileSync(
+        new URL('../scripts/lib/deploy-it-pages-prep.sh', import.meta.url),
+        'utf8',
+      );
+      const start = deployPrep.indexOf('"$bkt/cdn-publish-start-id.txt"');
+      const assets = deployPrep.indexOf('_r2_sync 420 "$stage/assets"');
+      const generation = deployPrep.indexOf('"$bkt/cdn-build-id.txt"');
+      const complete = deployPrep.indexOf('"$bkt/cdn-publish-complete-id.txt"');
+      expect(start).toBeGreaterThan(-1);
+      expect(start).toBeLessThan(assets);
+      expect(assets).toBeLessThan(generation);
+      expect(generation).toBeLessThan(complete);
+      expect(CDN_PUBLISH_START_ID_PATH).toBe('/cdn-publish-start-id.txt');
+      expect(CDN_PUBLISH_COMPLETE_ID_PATH).toBe('/cdn-publish-complete-id.txt');
     });
 
     // The first version of this case compared import paths with the pattern

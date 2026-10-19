@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ "whatsNew.v3989.title": "Apothekenpläne langfristig nachschlagen",
+ "whatsNew.v3989.pharmacyArchive.title": "Zwei Septemberwochen wiederhergestellt",
+ "whatsNew.v3989.pharmacyArchive.desc": "Erfasste Einteilungen bleiben mit den ursprünglichen Abrufdaten und Quellen verfügbar. Historische Archive zeigen keine aktuellen Notdienste oder Öffnungszeiten.",
  "whatsNew.v39810.title": "Vergangene Veranstaltungen nach Gemeinde",
  "whatsNew.v39810.municipalArchives.title": "Gemeindearchive bleiben erreichbar",
  "whatsNew.v39810.municipalArchives.desc": "Gemeindeseiten mit vergangenen öffentlichen Veranstaltungen bewahren Titel, Daten und Links zu den Details, auch ohne kommende Termine.",

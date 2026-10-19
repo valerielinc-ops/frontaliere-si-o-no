@@ -1669,7 +1669,7 @@ describe('push-contention class (exit 42) in generated steps', () => {
       expect(y).toContain('global data-pipeline lease busy (exit 44)');
       // A bounded transient Firestore outage is not retryable in this
       // generation: it must stay red and skip the per-crawler flood.
-      expect(y).toContain('[ "$git_commit_exit" -ne 45 ]');
+      expect(y).toContain('git_commit_exit != 45');
       expect(y).toContain('consecutive transient Firestore errors (exit 45)');
       // real failures still fail the step (the plain exit 1 path survives)
       expect(y).toContain('exit 1');

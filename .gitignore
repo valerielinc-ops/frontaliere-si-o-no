@@ -184,3 +184,5 @@ changed-paths.txt
 changed-paths-status.txt
 data/pharmacy-data-health-report.json
 .scratch/
+# Interrupted atomic pharmacy-history writes are never refresh-PR payloads.
+/data/pharmacy-duty-week-history/*.tmp

@@ -45,6 +45,11 @@ describe('pharmacy atomic refresh workflow', () => {
     expect(finalizer).toBeGreaterThan(dutyFetch);
     expect(checker).toBeGreaterThan(finalizer);
     expect(publisher).toBeGreaterThan(checker);
+    const archive = source.indexOf('run: npx --no-install tsx scripts/archive-pharmacy-duty-weeks.mts');
+    expect(archive).toBeGreaterThan(checker);
+    expect(publisher).toBeGreaterThan(archive);
+    expect(source).toContain('--path data/pharmacy-duty-week-history');
+    expect(source).toContain('git status --porcelain -- public/data/pharmacy-duty-cantons.json data/pharmacy-duty-week-history');
   });
 
   it('publishes every atomic snapshot through the protected PR publisher', () => {

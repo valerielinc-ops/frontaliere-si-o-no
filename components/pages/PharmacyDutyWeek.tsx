@@ -14,6 +14,8 @@ import type { Locale } from '@/services/i18n';
 import type { Pharmacy, PharmacyCatalogueDataset, PharmacyDutiesDataset } from '@/services/pharmacies/types';
 import dutiesJson from '@/data/pharmacy-duties-ticino.json';
 import completeTicinoJson from '@/data/pharmacies-ticino-complete.json';
+import { isClosedDutyWeek } from '@/services/pharmacies/dutyWeekHistory';
+import PharmacyDutyWeekArchive from './PharmacyDutyWeekArchive';
 
 const DUTIES = dutiesJson as PharmacyDutiesDataset;
 const COMPLETE_TICINO = completeTicinoJson as unknown as PharmacyCatalogueDataset;
@@ -125,6 +127,7 @@ export default function PharmacyDutyWeek({ page }: { page: PharmacyPath }) {
   const locale = page.locale;
   const copy = COPY[locale];
   const weekStart = page.weekStart || currentDutyWeekStart();
+  if (isClosedDutyWeek(weekStart)) return <PharmacyDutyWeekArchive weekStart={weekStart} locale={locale} />;
   const model = buildDutyWeekModel(DUTIES, weekStart, {
     catalogue: COMPLETE_TICINO,
   });

@@ -1,6 +1,9 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ "whatsNew.v3989.title": "Calendari farmacia consultabili nel tempo",
+ "whatsNew.v3989.pharmacyArchive.title": "Recuperate due settimane di settembre",
+ "whatsNew.v3989.pharmacyArchive.desc": "Le assegnazioni osservate restano consultabili con le date e le fonti originali. L’archivio storico non indica turni o aperture attuali.",
  "whatsNew.v39810.title": "Eventi passati consultabili per comune",
  "whatsNew.v39810.municipalArchives.title": "Archivi comunali conservati",
  "whatsNew.v39810.municipalArchives.desc": "Le pagine dei comuni con eventi pubblici passati conservano titoli, date e collegamenti alle schede, anche senza appuntamenti futuri.",
