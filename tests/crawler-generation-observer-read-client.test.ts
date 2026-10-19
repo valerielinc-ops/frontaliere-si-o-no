@@ -99,7 +99,7 @@ describe('GitHub Actions read-only client', () => {
 for (const [label, load] of [
   ['scripts/lib', () => import('../scripts/lib/github-actions-read-client.mjs')],
   ['corpus-workflows observer copy', () => import('../.github/corpus-workflows/observers/scripts/lib/github-actions-read-client.mjs')],
-]) {
+] as const) {
   describe(`releaseLock() that throws is non-fatal (${label})`, () => {
   function responseWithThrowingRelease(chunks: number[][]) {
     const queue = chunks.map((chunk) => Uint8Array.from(chunk));
