@@ -91,7 +91,10 @@ import {
   createCrawlerGenerationRoster,
   validateCrawlerGenerationRoster,
 } from './lib/crawler-generation-contract.mjs';
-import { GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT } from './lib/global-data-pipeline-lease.mjs';
+import {
+  GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT,
+  GLOBAL_DATA_PIPELINE_LEASE_TRANSIENT_ERROR_EXIT,
+} from './lib/global-data-pipeline-lease.mjs';
 import {
   QUARANTINE_OUTCOMES_NOTICE_TITLE,
   assertQuarantineMembership,
@@ -786,6 +789,7 @@ const CRAWLER_SHELL_PREAMBLE = Object.freeze(['set -uo pipefail', 'set +e', ''])
 // consolidates the signal, it does not silence it.
 const GROUP_SHARED_PRECONDITION_EXIT = 43;
 const GLOBAL_LEASE_BUSY_EXIT = GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT;
+const GLOBAL_LEASE_TRANSIENT_ERROR_EXIT = GLOBAL_DATA_PIPELINE_LEASE_TRANSIENT_ERROR_EXIT;
 // A token-bound group must finish its commit in the same generation. The
 // helper already retries individual pushes, but a whole group can still lose
 // the final ref race after that budget. Retry the complete atomic operation a
@@ -845,10 +849,11 @@ export function withMemberLogExcerpt(run, logFileExpression = `\${${MEMBER_LOG_F
     .join(`${ISSUE_CREATOR_INVOCATION} --log-excerpt-file "${logFileExpression}"`);
 }
 // Fires the per-crawler failure reporter. Any non-zero commit exit still
-// reports EXCEPT the four systemic classes, which are not per-crawler signals.
-const PER_CRAWLER_REPORT_CONDITION = 'if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ]'
-  + ` && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ]`
-  + ` && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; }; then`;
+// reports EXCEPT the five systemic classes, which are not per-crawler signals.
+const PER_CRAWLER_REPORT_CONDITION = 'if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0'
+  + ` && git_commit_exit != 42 && git_commit_exit != ${GROUP_SHARED_PRECONDITION_EXIT}`
+  + ` && git_commit_exit != ${GLOBAL_LEASE_BUSY_EXIT} && git_commit_exit != ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT}`
+  + ` && git_commit_exit != ${RUNNER_SHUTDOWN_EXIT}) )); then`;
 
 /**
  * Run a crawler failure reporter as an observable shell operation.
@@ -1004,6 +1009,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   work.push(...globalLeaseBusyNotice(crawler.slug, { propagate: true }));
   work.push(...sharedPreconditionNotice(crawler.slug, { propagate: true }));
   work.push(...runnerShutdownNotice(crawler.slug, { propagate: true }));
+  work.push(`(( git_commit_exit == ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT} )) && exit ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT}`);
   work.push(`if [ "$crawler_exit" -eq ${TARGET_TIMEOUT_EXIT} ] || [ "$git_commit_exit" -eq ${TARGET_TIMEOUT_EXIT} ]; then`);
   work.push(`  echo "::error::${crawler.slug}: nested timeout reached the target deadline (exit ${TARGET_TIMEOUT_EXIT}); preserving timeout classification"`);
   work.push(`  exit ${TARGET_TIMEOUT_EXIT}`);
@@ -1049,12 +1055,12 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
     outer.push('if [ "$target_exit" -eq 124 ]; then');
     outer.push(`  crawler_failure_timeout_detail=${shellQuote(`\n**Causa:** timeout del target dopo ${timeoutMinutes} minuti (exit 124).`)}`);
     outer.push('fi');
-    // `-ne 43`/`-ne 44`/`-ne 143`: the work phase re-exits the systemic
+    // `-ne 43`/`-ne 44`/`-ne 45`/`-ne 143`: the work phase re-exits the systemic
     // outcomes verbatim so this gate can drop the per-crawler report.
     // The final gate
     // still fails for real errors, but treats a lease convoy as a retryable
     // scheduling outcome.
-    outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$target_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; then`);
+    outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$target_exit" -ne ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT} ] && [ "$target_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; then`);
     outer.push(...reportCrawlerAlert({ slug: crawler.slug, run: timeoutAwareRun, indent: 2 }));
     outer.push('fi');
     outer.push('');
@@ -1066,6 +1072,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   outer.push(`if [ "$target_exit" -eq ${TARGET_TIMEOUT_EXIT} ]; then`);
   outer.push(`  exit ${TARGET_TIMEOUT_EXIT}`);
   outer.push('fi');
+  outer.push(`(( target_exit == ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT} )) && exit ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT}`);
   outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$target_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; then`);
   outer.push('  exit 1');
   outer.push('fi');
@@ -1258,7 +1265,8 @@ export function buildCrawlerShellBody(crawler) {
   // blocked the sweep from draining every sibling's recovered issue and made
   // real failures indistinguishable from herd noise. Real crawl/commit
   // failures (any other non-zero) still fail the step as before.
-  lines.push(`if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; } || [ "$report_exit" -ne 0 ]; then`);
+  lines.push(`(( git_commit_exit == ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT} )) && exit ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT}`);
+  lines.push(`if (( (crawler_exit != 0 && crawler_exit != ${RUNNER_SHUTDOWN_EXIT}) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != ${GLOBAL_LEASE_BUSY_EXIT} && git_commit_exit != ${RUNNER_SHUTDOWN_EXIT}) )) || (( report_exit != 0 )); then`);
   lines.push('  exit 1');
   lines.push('fi');
   lines.push('exit 0');
@@ -1671,6 +1679,10 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex, { quarantin
     `    echo "::error::${slug}: invalid terminal status: $status"`,
     `    printf '%s\\n' "| ${slug} | invalid status |" >> "$summary_file"`,
     '    failure_count=$((failure_count + 1))',
+    `  elif [ "$status" -eq ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT} ]; then`,
+    `    echo "::error::${slug}: global data-pipeline lease hit consecutive transient Firestore errors (exit ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT}); this generation will not retry and no per-crawler issue will be filed (systemic class)"`,
+    `    printf '%s\\n' "| ${slug} | global lease transient error (45) |" >> "$summary_file"`,
+    '    failure_count=$((failure_count + 1))',
     `  elif [ "$status" -eq ${TARGET_TIMEOUT_EXIT} ]; then`,
     `    echo "::error::${slug}: target timeout recorded as an actionable failure (exit ${TARGET_TIMEOUT_EXIT})"`,
     `    printf '%s\\n' "| ${slug} | target timeout (124) |" >> "$summary_file"`,
@@ -1793,6 +1805,11 @@ function buildQuarantineAggregateShellBody(crawlers, groupIndex, quarantine) {
       '  if ! [[ "$status" =~ ^[0-9]+$ ]]; then',
       `    echo "::error::${slug}: invalid terminal status: $status"`,
       `    printf '%s\\n' '| ${slug} | invalid status |' >> "$summary_file"`,
+      '    failure_count=$((failure_count + 1))',
+      '    outcome=failure',
+      `  elif [ "$status" -eq ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT} ]; then`,
+      `    echo "::error::${slug}: global data-pipeline lease hit consecutive transient Firestore errors (exit ${GLOBAL_LEASE_TRANSIENT_ERROR_EXIT}); this generation will not retry and no per-crawler issue will be filed (systemic class)"`,
+      `    printf '%s\\n' '| ${slug} | global lease transient error (45) |' >> "$summary_file"`,
       '    failure_count=$((failure_count + 1))',
       '    outcome=failure',
       `  elif [ "$status" -eq ${RUNNER_SHUTDOWN_EXIT} ]; then`,
@@ -2794,7 +2811,7 @@ function translatePendingQueueGuardJob() {
         'done <<< "$in_progress_ids"',
         'waiting_candidates="${waiting_candidates}${waiting_candidates:+$\'\\n\'}${current_created_at} ${GITHUB_RUN_ID}"',
         'candidate_count="$(printf "%s\\n" "$waiting_candidates" | awk \'NF {count++} END {print count + 0}\')"',
-        'oldest_candidate="$(printf "%s\\n" "$waiting_candidates" | LC_ALL=C sort -k1,1 -k2,2n | head -n 1)"',
+        'oldest_candidate="$(printf "%s\\n" "$waiting_candidates" | LC_ALL=C sort -k1,1 -k2,2n | awk \'NR == 1 { first=$0 } END { print first }\')"',
         'oldest_run_id="$(printf "%s\\n" "$oldest_candidate" | awk \'{print $2}\')"',
         'if [ -z "$oldest_run_id" ]; then fail_closed "oldest_run"; fi',
         'other_waiting=$((candidate_count - 1))',
