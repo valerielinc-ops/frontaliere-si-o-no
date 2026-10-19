@@ -8519,6 +8519,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-donazione-zurigo-regole.title': 'Imposta di successione e donazione nel Cantone di Zurigo',
     'blog.article.imposta-successione-donazione-zurigo-regole.excerpt': 'Guida all\'imposta di successione e di donazione nel Cantone di Zurigo: aliquote per grado di parentela, esenzioni per coniuge e discendenti, e adempimenti.',
     'blog.article.imposta-successione-donazione-zurigo-regole.imageAlt': 'Imposta di successione e donazione nel Cantone di Zurigo',
+    'blog.article.securitas-violazioni-lavoro.title': 'Securitas avrebbe violato migliaia di volte la legge sul lavoro',
+    'blog.article.securitas-violazioni-lavoro.excerpt': 'Circa 20\'000 presunte violazioni tra 2023 e 2025 Circa 900 dipendenti coinvolti nella Svizzera centrale Turni troppo lunghi e recuperi troppo brevi Securitas',
+    'blog.article.securitas-violazioni-lavoro.imageAlt': 'Personale di sicurezza Securitas in Svizzera centrale',
 };
 
 export default blogMetaChIt;

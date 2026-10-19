@@ -8519,6 +8519,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-donazione-zurigo-regole.title': 'Erbschafts- und Schenkungssteuer im Kanton Zürich',
     'blog.article.imposta-successione-donazione-zurigo-regole.excerpt': 'Leitfaden zur Erbschafts- und Schenkungssteuer im Kanton Zürich: Steuersätze nach Verwandtschaftsgrad, Befreiungen für Ehegatten und Nachkommen sowie erforderliche Formalitäten.',
     'blog.article.imposta-successione-donazione-zurigo-regole.imageAlt': 'Erbschafts- und Schenkungssteuer im Kanton Zürich',
+    'blog.article.securitas-violazioni-lavoro.title': 'Securitas soll tausende Male gegen das Arbeitsgesetz verstoßen haben',
+    'blog.article.securitas-violazioni-lavoro.excerpt': 'Rund 20\'000 mutmaßliche Verstöße zwischen 2023 und 2025 Rund 900 betroffene Mitarbeitende in der Zentralschweiz Zu lange Schichten und zu kurze Ruhezeiten Securitas',
+    'blog.article.securitas-violazioni-lavoro.imageAlt': 'Securitas Sicherheitspersonal in der Zentralschweiz',
 };
 
 export default blogMetaChDe;

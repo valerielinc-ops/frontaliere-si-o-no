@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 647,
+      "5": 650,
       "6": 5054
     },
-    "publishedCovers": 7384,
+    "publishedCovers": 7387,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -200197,6 +200197,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-berna-tassa-ecclesiastica": {
+      "cover": "/images/blog/article-berna-tassa-ecclesiastica.webp",
+      "hash": "d330731abe033f4baaa5e6d63e3328ff473975036a1275c12aea6cd7810bb39c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "berna-tassa-ecclesiastica",
+          "category": "fiscale",
+          "date": "2026-10-19T06:36:37.308Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-berna-tassa-ecclesiastica.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-berna-tassa-ecclesiastica",
+        "imageUrl": "/images/blog/article-berna-tassa-ecclesiastica.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-como-manifestazioni-24-ottobre": {
       "cover": "/images/blog/article-como-manifestazioni-24-ottobre.webp",
       "hash": "67c2daed02ff0784f3065ae4cb8747c7f8a3713f312727b47d44883ac61f430e",
@@ -200425,6 +200458,72 @@
         "provider": "openai-codex",
         "assetId": "article-rapporto-consiglio-federale-schengen",
         "imageUrl": "/images/blog/article-rapporto-consiglio-federale-schengen.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-securitas-violazioni-lavoro": {
+      "cover": "/images/blog/article-securitas-violazioni-lavoro.webp",
+      "hash": "bc8b72938cfc7c7b83b28a0e19bdc35ed8e8fbebb59b949936d893698fa4fccf",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "securitas-violazioni-lavoro",
+          "category": "novita",
+          "date": "2026-10-19T06:33:36.357Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-securitas-violazioni-lavoro.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-securitas-violazioni-lavoro",
+        "imageUrl": "/images/blog/article-securitas-violazioni-lavoro.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-taf-regolamento-aeroporto-ginevra": {
+      "cover": "/images/blog/article-taf-regolamento-aeroporto-ginevra.webp",
+      "hash": "40bd57bf382e820967b655942ba8ae020c499c12755a7a7366d66204685b9430",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ge",
+          "id": "taf-regolamento-aeroporto-ginevra",
+          "category": "novita",
+          "date": "2026-10-19T06:20:16.297Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-taf-regolamento-aeroporto-ginevra.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-taf-regolamento-aeroporto-ginevra",
+        "imageUrl": "/images/blog/article-taf-regolamento-aeroporto-ginevra.webp",
         "evidence": "generated-engine-record"
       }
     }
