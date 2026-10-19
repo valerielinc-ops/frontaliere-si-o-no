@@ -850,6 +850,25 @@ const PER_CRAWLER_REPORT_CONDITION = 'if { [ "$crawler_exit" -ne 0 ] && [ "$craw
   + ` && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ]`
   + ` && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; }; then`;
 
+/**
+ * Run a crawler failure reporter as an observable shell operation.
+ *
+ * The grouped workflow deliberately runs with `set +e`: the crawler and the
+ * report must both be attempted so one member cannot hide its own diagnosis.
+ * That also means the issue creator's exit code is otherwise easy to lose.
+ * Keep it in `report_exit`, emit an Actions error, and let the caller include
+ * it in the member verdict.
+ */
+export function reportCrawlerAlert({ slug, run, indent = 0 } = {}) {
+  if (typeof slug !== 'string' || slug.length === 0) throw new TypeError('crawler slug is required');
+  if (typeof run !== 'string' || run.trim().length === 0) throw new TypeError('failure reporter command is required');
+  const pad = ' '.repeat(indent);
+  return [
+    indentBlock(run.trimEnd(), indent),
+    `${pad}report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed ${slug}"`,
+  ];
+}
+
 function buildTokenBoundCommitRetryRun({ command, label, nonRetryableFailureLines } = {}) {
   if (typeof command !== 'string' || command.length === 0) throw new TypeError('token-bound commit command is required');
   if (typeof label !== 'string' || label.length === 0) throw new TypeError('token-bound commit label is required');
@@ -1036,7 +1055,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
     // still fails for real errors, but treats a lease convoy as a retryable
     // scheduling outcome.
     outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$target_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; then`);
-    outer.push(indentBlock(timeoutAwareRun.trimEnd(), 2));
+    outer.push(...reportCrawlerAlert({ slug: crawler.slug, run: timeoutAwareRun, indent: 2 }));
     outer.push('fi');
     outer.push('');
   }
@@ -1050,6 +1069,9 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$target_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; then`);
   outer.push('  exit 1');
   outer.push('fi');
+  // A timed report only runs after target_exit is already non-zero. Preserve
+  // that original status (especially 124) after annotating a reporter error;
+  // changing it to a generic report status would erase the timeout diagnosis.
   outer.push('exit 0');
   return outer.join('\n');
 }
@@ -1116,6 +1138,7 @@ export function buildCrawlerShellBody(crawler) {
   // case — only the crawl failure. This variable is only ever overwritten
   // with a real exit code when the commit step actually executes.
   lines.push('git_commit_exit=0');
+  lines.push('report_exit=0');
   lines.push('');
 
   for (const step of crawler.postSteps) {
@@ -1171,7 +1194,7 @@ export function buildCrawlerShellBody(crawler) {
       // RUNNER SHUTDOWN CLASS (exit 143): the hosted runner terminated the
       // worker wave; it is systemic and must not create one issue per sibling.
       lines.push(PER_CRAWLER_REPORT_CONDITION);
-      lines.push(indentBlock(literalizedRun.trimEnd(), 2));
+      lines.push(...reportCrawlerAlert({ slug: crawler.slug, run: literalizedRun, indent: 2 }));
       lines.push('fi');
       lines.push('if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then');
       lines.push(`  echo "::warning::${crawler.slug}: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."`);
@@ -1235,7 +1258,7 @@ export function buildCrawlerShellBody(crawler) {
   // blocked the sweep from draining every sibling's recovered issue and made
   // real failures indistinguishable from herd noise. Real crawl/commit
   // failures (any other non-zero) still fail the step as before.
-  lines.push(`if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; }; then`);
+  lines.push(`if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; } || [ "$report_exit" -ne 0 ]; then`);
   lines.push('  exit 1');
   lines.push('fi');
   lines.push('exit 0');
