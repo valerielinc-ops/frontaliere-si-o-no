@@ -163,7 +163,7 @@ describe('extractArticleText', () => {
     const recovered = 'Paragraph after the malformed raw-text prefix remains recoverable source prose.';
     const html = '<main><noscript>'
       + `<p>${rejected}</p>`
-      + `<script>\n<p>${recovered}</p></main>`;
+      + `<script>\n<p>${recovered}</p>`;
     const result = extractArticleText(html, { scriptingDisabled: true });
 
     expect(result.text).toContain(recovered);

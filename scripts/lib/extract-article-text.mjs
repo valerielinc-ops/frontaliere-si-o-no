@@ -329,10 +329,7 @@ function findReliableNoscriptTailBoundary(markup, tailStart) {
 }
 
 function hasSafeNoscriptTailSuffix(markup, tailEnd) {
-  // Document-level closing tags are inert context around a malformed block;
-  // no text, opening tag or code may follow the recovered paragraph.
-  return /^\s*(?:<\/noscript\s*>)?\s*(?:<\/(?:main|body|html)\s*>\s*)*$/i
-    .test(markup.slice(tailEnd));
+  return /^\s*(?:<\/noscript\s*>)?\s*$/i.test(markup.slice(tailEnd));
 }
 
 function findRecoverableNoscriptTail(markup, contentStart, rawTextTag) {
