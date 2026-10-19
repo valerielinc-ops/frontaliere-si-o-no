@@ -30,7 +30,6 @@ export type SectorHubKey =
   | 'ingegneri'
   | 'autisti'
   | 'sviluppatori'
-  | 'informatica'
   | 'ristorazione'
   | 'oss'
   | 'logistica'
@@ -41,6 +40,7 @@ export type SectorHubKey =
   | 'data-scientist'
   | 'cybersecurity'
   | 'project-manager'
+  | 'informatica'
   | 'contabili'
   | 'banca'
   | 'assicurazioni'
@@ -82,7 +82,6 @@ export const SECTOR_HUB_KEYS: readonly SectorHubKey[] = [
   'ingegneri',
   'autisti',
   'sviluppatori',
-  'informatica',
   'ristorazione',
   'oss',
   'logistica',
@@ -93,6 +92,8 @@ export const SECTOR_HUB_KEYS: readonly SectorHubKey[] = [
   'data-scientist',
   'cybersecurity',
   'project-manager',
+  // The IT umbrella follows specialist hubs because first-match consumers use this order.
+  'informatica',
   'contabili',
   'banca',
   'assicurazioni',
