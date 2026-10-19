@@ -1,5 +1,9 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
+import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { assembleExpiredJobs } from '../scripts/assemble-jobs-dataset.mjs';
 import { repairExpiredRoutesAgainstActive } from '../scripts/lib/expired-jobs-archive.mjs';
 
 const COLLIDING_ROUTE = 'same-title-company-lugano';
@@ -67,5 +71,34 @@ describe('repairExpiredRoutesAgainstActive', () => {
     expect(repairExpiredRoutesAgainstActive([unknownPosting], [activeJob()]).changed).toBe(0);
     expect(samePosting.slug).toBe(COLLIDING_ROUTE);
     expect(unknownPosting.slug).toBe(COLLIDING_ROUTE);
+  });
+
+  it('carries a legacy aggregate through route repair when no slices exist', () => {
+    const root = mkdtempSync(join(tmpdir(), 'expired-legacy-route-'));
+    try {
+      const slicesDir = join(root, 'expired-slices');
+      const aggregatePath = join(root, 'expired-jobs.json');
+      mkdirSync(slicesDir, { recursive: true });
+
+      const active = {
+        ...activeJob(),
+        id: 'active-source-test',
+        url: 'https://source.test/active',
+      };
+      const legacyExpired = expiredJob('url:expired');
+      writeFileSync(aggregatePath, JSON.stringify([legacyExpired]));
+
+      const assembledLegacy = assembleExpiredJobs({ sliceDir: slicesDir, aggregatePath });
+      const repair = repairExpiredRoutesAgainstActive(assembledLegacy, [active]);
+      writeFileSync(aggregatePath, JSON.stringify(repair.entries));
+
+      const persisted = JSON.parse(readFileSync(aggregatePath, 'utf8'));
+      expect(persisted[0].slug).toMatch(/^same-title-company-lugano-[0-9a-f]{8}$/);
+      expect(persisted[0].slug).not.toBe(COLLIDING_ROUTE);
+      expect(active.slug).toBe(COLLIDING_ROUTE);
+      expect(repair.repairedRoutes).toBe(1);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 });

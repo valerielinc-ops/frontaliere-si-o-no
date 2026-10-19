@@ -4066,14 +4066,34 @@ function repairExpiredArchiveSlicesAgainstActive(activeJobs) {
 /**
  * Assemble all per-crawler expired job slices into data/expired-jobs.json.
  * Each slice is an array of expired job entries with slugs as unique keys.
- * Returns the assembled array, or null if no slices exist.
+ * When no slice exists, carry the legacy aggregate through the same caller
+ * path so active-route ownership repair can still run before persistence.
+ * Returns the assembled array, or null if neither slices nor a legacy
+ * aggregate exists.
+ *
+ * The path overrides are used by the isolated regression test; production
+ * callers use the repository defaults.
  */
-function assembleExpiredJobs() {
-  const sliceFiles = listSliceFiles(EXPIRED_SLICES_DIR);
+export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePath = DATA_EXPIRED } = {}) {
+  const sliceFiles = listSliceFiles(sliceDir);
 
   if (sliceFiles.length === 0) {
-    console.log('ℹ️  No per-crawler expired job slices found — data/expired-jobs.json left unchanged.');
-    return null;
+    const legacyEntries = readJson(aggregatePath, null);
+    if (!Array.isArray(legacyEntries)) {
+      console.log('ℹ️  No per-crawler expired job slices or readable legacy archive found — expired archive left unchanged.');
+      return null;
+    }
+
+    // The legacy aggregate is still a live source when slice generation is
+    // absent (for example during a partial crawler rollout). Keep it in the
+    // normal return path so the caller repairs route ownership against the
+    // active dataset and persists the repaired archive below.
+    normalizeExpiredAtEntries(legacyEntries, { source: 'assemble/legacy-aggregate' });
+    const expiredBrandLabels = declaredBrandLabels();
+    applyDeclaredBrandRelabel(legacyEntries, expiredBrandLabels);
+    refreshDeclaredBrandSlugs(legacyEntries, expiredBrandLabels);
+    console.log(`  📄 No per-crawler expired slices: carried ${legacyEntries.length} legacy archive entries into assembly`);
+    return legacyEntries;
   }
 
   // Keyed by companyKey+slug, not bare slug — this aggregates EVERY
@@ -4123,7 +4143,7 @@ function assembleExpiredJobs() {
   }
 
   // Also merge any existing aggregated expired-jobs.json (from deploy-time cleanup)
-  const existingAgg = readJson(DATA_EXPIRED, []);
+  const existingAgg = readJson(aggregatePath, []);
   if (Array.isArray(existingAgg)) {
     normalizeExpiredAtEntries(existingAgg, { source: 'assemble/existing-aggregate' });
     for (const entry of existingAgg) {
