@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T19:24:34.810Z",
+  "generatedAt": "2026-10-19T20:34:12.078Z",
   "totalEvents": 14524,
   "events": [
     {
@@ -381700,7 +381700,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un appuntamento di danza associato ad Aurélien Dougé e previsto a Ginevra. L’agenda della Ville de Genève figura come organizzatore e performer, mentre l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "È un appuntamento di danza associato ad Aurélien Dougé e previsto a Ginevra. L’agenda della Ville de Genève figura come organizzatore e performer, mentre l’ingresso è gratuito.",
+        "en": "This dance event is associated with Aurélien Dougé and is scheduled in Geneva. Ville de Genève Agenda is listed as both organiser and performer, and admission is free.",
+        "de": "Die Tanzveranstaltung ist Aurélien Dougé zugeordnet und in Genf angesetzt. Die Ville de Genève Agenda ist sowohl als Veranstalterin als auch als auftretende Organisation angegeben; der Eintritt ist kostenlos.",
+        "fr": "Ce rendez-vous de danse est associé à Aurélien Dougé et est prévu à Genève. Ville de Genève Agenda figure comme organisateur et interprète, et l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:APbBGNq",
@@ -389495,7 +389503,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento di porte aperte presenta la facoltà di medicina a Genève, che compie 150 anni. Il programma combina attività e visite per avvicinare il pubblico e le famiglie alla ricerca medica.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento di porte aperte presenta la facoltà di medicina a Genève, che compie 150 anni. Il programma combina attività e visite per avvicinare il pubblico e le famiglie alla ricerca medica.",
+        "en": "This open-house event focuses on the Faculty of Medicine in Genève as it marks its 150th anniversary. Activities and visits introduce medical research to members of the public and families.",
+        "de": "Der Tag der offenen Tür stellt die medizinische Fakultät in Genève vor, die ihr 150-jähriges Bestehen begeht. Das Programm umfasst Aktivitäten und Besichtigungen, die medizinische Forschung für die Öffentlichkeit und Familien vorstellen.",
+        "fr": "Cette journée portes ouvertes concerne la Faculté de médecine à Genève, qui marque son 150e anniversaire. Le programme propose au public ainsi qu’aux familles des activités et des visites liées à la recherche médicale."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ARnKZkM",
@@ -533601,7 +533617,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il quartetto vocale Frib’or presenta a Montreux un programma di canti. La rappresentazione si svolge presso l’Eglise évangélique-réformée allemande e vi partecipano quattro cantanti di Fribourg.",
+      "descriptionByLocale": {
+        "it": "Il quartetto vocale Frib’or presenta a Montreux un programma di canti. La rappresentazione si svolge presso l’Eglise évangélique-réformée allemande e vi partecipano quattro cantanti di Fribourg.",
+        "en": "The Frib’or Vocal Quartet presents a song programme in Montreux. The performance is held at the Eglise évangélique-réformée allemande and features four singers from Fribourg.",
+        "de": "Das Vokalquartett Frib’or präsentiert in Montreux ein Liederprogramm. Die Aufführung findet in der Eglise évangélique-réformée allemande statt und wird von vier Sängern aus Freiburg gestaltet.",
+        "fr": "Le quatuor vocal Frib’or présente à Montreux un programme de chants. La représentation a lieu à l’Eglise évangélique-réformée allemande et réunit quatre chanteurs fribourgeois."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AReHWic",
@@ -574255,7 +574279,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone un racconto di viaggio articolato in cinque capitoli, con testo e musica. La rappresentazione è ospitata dal GZ Hottingen e rientra nell’ambito dell’altro teatro.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un racconto di viaggio articolato in cinque capitoli, con testo e musica. La rappresentazione è ospitata dal GZ Hottingen e rientra nell’ambito dell’altro teatro.",
+        "en": "The event presents a travel narrative arranged in five chapters, combining text with music. It takes place at GZ Hottingen as a theatre event.",
+        "de": "Die Veranstaltung erzählt eine Reisegeschichte in fünf Kapiteln und verbindet Text mit Musik. Sie findet im GZ Hottingen als Theaterveranstaltung statt.",
+        "fr": "Le rendez-vous présente un récit de voyage en cinq chapitres, avec du texte et de la musique. Il se déroule au GZ Hottingen dans le domaine du théâtre."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f8d0ef92b37e41429bcff0b82fbc86ba",
@@ -608189,7 +608221,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento «Marc Pircher KuhBar» si svolge ad Arosa, nel cantone dei Grigioni. La manifestazione appartiene all’ambito della musica folk ed è associata a un artista noto per numerosi successi.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento «Marc Pircher KuhBar» si svolge ad Arosa, nel cantone dei Grigioni. La manifestazione appartiene all’ambito della musica folk ed è associata a un artista noto per numerosi successi.",
+        "en": "The event “Marc Pircher KuhBar” takes place in Arosa, in the canton of Graubünden. It is associated with folk music and an artist known for numerous successful songs.",
+        "de": "Die Veranstaltung «Marc Pircher KuhBar» findet in Arosa im Kanton Graubünden statt. Sie ist der Volksmusik zugeordnet und mit einem Künstler verbunden, der für zahlreiche Erfolge bekannt ist.",
+        "fr": "L’événement «Marc Pircher KuhBar» a lieu à Arosa, dans le canton des Grisons. Il est lié à la musique folklorique et à un artiste connu pour de nombreux succès."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1d226e29978649d1833150d5ee25bdc9",
@@ -633860,7 +633900,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento a Zinal si rivolge alle persone che praticano lo sci. Grimentz-Zinal e Garage Olympic offrono loro la possibilità di vincere un’automobile.",
+      "descriptionByLocale": {
+        "it": "L’evento a Zinal si rivolge alle persone che praticano lo sci. Grimentz-Zinal e Garage Olympic offrono loro la possibilità di vincere un’automobile.",
+        "en": "The event in Zinal is aimed at people who ski. Grimentz-Zinal and Garage Olympic offer them the possibility of winning a car.",
+        "de": "Die Veranstaltung in Zinal richtet sich an Skifahrerinnen und Skifahrer. Grimentz-Zinal und die Garage Olympic bieten ihnen die Möglichkeit, ein Auto zu gewinnen.",
+        "fr": "Le rendez-vous à Zinal s’adresse aux personnes qui pratiquent le ski. Grimentz-Zinal et le Garage Olympic leur offrent la possibilité de gagner une voiture."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ce09a0412ba94bfeb5587f84194db312",
