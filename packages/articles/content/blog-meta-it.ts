@@ -13508,6 +13508,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.oss-ticino-stipendio.title': 'OSS frontaliere in Ticino: stipendio e requisiti',
     'blog.article.oss-ticino-stipendio.excerpt': 'Permesso G, accordo in vigore dal 1° gennaio 2024, franchigie e contributi: il quadro per l\'OSS frontaliere in Ticino.',
     'blog.article.oss-ticino-stipendio.imageAlt': 'Operatore socio sanitario in un ambiente di cura del Ticino',
+    'blog.article.riqualifica-aliquote-frontalieri-2026.title': 'Riqualifica frontalieri: errori comuni da evitare nel 2026',
+    'blog.article.riqualifica-aliquote-frontalieri-2026.excerpt': 'Accordo frontalieri, franchigie, imposta alla fonte e contributi: i dati da controllare per valutare corsi e riqualifica professionale da frontaliere nel 2026.',
+    'blog.article.riqualifica-aliquote-frontalieri-2026.imageAlt': 'Lavoratore frontaliere studia documenti di formazione professionale in Ticino.',
 };
 
 export default blogMetaIt;

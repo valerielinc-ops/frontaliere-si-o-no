@@ -13507,6 +13507,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.oss-ticino-stipendio.title': 'Border OSS in Ticino: salary and requirements',
     'blog.article.oss-ticino-stipendio.excerpt': 'Permit G, agreement in force from 1 January 2024, deductibles and contributions: the framework for the border OSS in Ticino.',
     'blog.article.oss-ticino-stipendio.imageAlt': 'Healthcare assistant in a care setting in Ticino',
+    'blog.article.riqualifica-aliquote-frontalieri-2026.title': 'Reclassification of cross-border workers: common mistakes to avoid in 2026',
+    'blog.article.riqualifica-aliquote-frontalieri-2026.excerpt': 'Cross-border worker agreement, exemptions, withholding tax and contributions: the data to check when evaluating courses and professional retraining as a cross-border worker in 2026.',
+    'blog.article.riqualifica-aliquote-frontalieri-2026.imageAlt': 'Cross-border worker studies professional training documents in Ticino.',
 };
 
 export default blogMetaEn;

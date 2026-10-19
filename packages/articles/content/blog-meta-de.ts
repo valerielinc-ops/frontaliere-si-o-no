@@ -13506,6 +13506,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.oss-ticino-stipendio.title': 'Grenzüberschreitendes OSS im Tessin: Gehalt und Anforderungen',
     'blog.article.oss-ticino-stipendio.excerpt': 'Bewilligung G, Vereinbarung in Kraft seit 1.',
     'blog.article.oss-ticino-stipendio.imageAlt': 'Gesundheitsassistent in einer Pflegeeinrichtung im Tessin',
+    'blog.article.riqualifica-aliquote-frontalieri-2026.title': 'Grenzgänger-Umschulung: Fehler 2026 vermeiden',
+    'blog.article.riqualifica-aliquote-frontalieri-2026.excerpt': 'Grenzgängerabkommen, Freibeträge, Quellensteuer und Beiträge: Die Daten, die Sie prüfen sollten, um Kurse und berufliche Neuqualifizierung als Grenzgänger im Jahr 2026 zu bewerten.',
+    'blog.article.riqualifica-aliquote-frontalieri-2026.imageAlt': 'Grenzgänger prüft Unterlagen zur beruflichen Weiterbildung im Tessin.',
 };
 
 export default blogMetaDe;

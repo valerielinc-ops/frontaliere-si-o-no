@@ -112138,6 +112138,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riqualifica-aliquote-frontalieri-2026': {
+    title: 'Riqualifica frontalieri: errori comuni da evitare nel 2026',
+    description: 'Accordo frontalieri, franchigie, imposta alla fonte e contributi: i dati da controllare per valutare corsi e riqualifica professionale da frontaliere nel 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, riqualifica, errori, comuni, evitare',
+    ogTitle: 'Riqualifica frontalieri: errori comuni nel 2026',
+    ogDescription: 'Nel 2026 la data dell\'accordo resta il 1° gennaio 2024: vecchi e nuovi frontalieri hanno franchigie diverse, mentre il reddito da lavoro è tassato solo in Svizzera. La guida separa anche credito d\'imposta, contributi AVS e LAMal, chiarendo quali',
+    canonicalPath: '/articoli-frontaliere/riqualifica-aliquote-frontalieri-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riqualifica frontalieri: errori comuni da evitare nel 2026",
+      "description": "Accordo frontalieri, franchigie, imposta alla fonte e contributi: i dati da controllare per valutare corsi e riqualifica professionale da frontaliere nel 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-riqualifica-aliquote-frontalieri-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliere studia documenti di formazione professionale in Ticino."
+      },
+      "datePublished": "2026-10-19T09:23:32+00:00",
+      "dateModified": "2026-10-19T09:23:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riqualifica-aliquote-frontalieri-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

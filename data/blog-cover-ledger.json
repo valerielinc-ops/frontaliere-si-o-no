@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 657,
+      "5": 659,
       "6": 5054
     },
-    "publishedCovers": 7394,
+    "publishedCovers": 7396,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -200428,6 +200428,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-hsg-optime-orario-lavoro": {
+      "cover": "/images/blog/article-hsg-optime-orario-lavoro.webp",
+      "hash": "b4127b57656e387379c1730342db3181b371d84421d19c146f6f9a3a3dfdfaa0",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "hsg-optime-orario-lavoro",
+          "category": "novita",
+          "date": "2026-10-19T09:46:11.999Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-hsg-optime-orario-lavoro.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-hsg-optime-orario-lavoro",
+        "imageUrl": "/images/blog/article-hsg-optime-orario-lavoro.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-imposta-successione-donazione-zurigo-regole": {
       "cover": "/images/blog/article-imposta-successione-donazione-zurigo-regole.webp",
       "hash": "b5ccfc109529e37bf5238a24ba8a6e124530e24e3ad4d75b34e066c8b5217503",
@@ -200623,6 +200656,39 @@
         "provider": "openai-codex",
         "assetId": "article-rapporto-consiglio-federale-schengen",
         "imageUrl": "/images/blog/article-rapporto-consiglio-federale-schengen.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-riqualifica-aliquote-frontalieri-2026": {
+      "cover": "/images/blog/article-riqualifica-aliquote-frontalieri-2026.webp",
+      "hash": "aecc3ea39ec1111b75a9aa6212b9b3c53a79cb968a95ec8e7959ef2c4a3b108b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "riqualifica-aliquote-frontalieri-2026",
+          "category": "pratico",
+          "date": "2026-10-19T09:23:32.610Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-riqualifica-aliquote-frontalieri-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-riqualifica-aliquote-frontalieri-2026",
+        "imageUrl": "/images/blog/article-riqualifica-aliquote-frontalieri-2026.webp",
         "evidence": "generated-engine-record"
       }
     },
