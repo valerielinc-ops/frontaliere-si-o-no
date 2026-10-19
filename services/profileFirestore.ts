@@ -47,44 +47,63 @@ async function authenticatedUidForEmail(email: string): Promise<string | null> {
   }
 }
 
-async function saveUserProfileFields(uid: string, partial: Record<string, unknown>): Promise<void> {
-  if (!uid || !Object.keys(partial).length) return;
+async function saveUserProfileFields(uid: string, partial: Record<string, unknown>): Promise<boolean> {
+  if (!uid || !Object.keys(partial).length) return false;
   const db = await initFirestore();
-  if (!db) return;
+  if (!db) return false;
   const { doc, serverTimestamp, setDoc } = await import('firebase/firestore');
   await setDoc(
     doc(db as never, 'users', uid),
     { profile: partial, profileUpdatedAt: serverTimestamp() },
     { merge: true },
   );
+  return true;
 }
 
 /** Saves the signed-in owner's complete profile under their UID. */
-export async function saveUserProfile(uid: string, profile: Record<string, unknown>): Promise<void> {
+export async function saveUserProfile(uid: string, profile: Record<string, unknown>): Promise<boolean> {
   try {
-    await saveUserProfileFields(uid, profile);
+    return await saveUserProfileFields(uid, profile);
   } catch (error) {
     console.warn('[profileFirestore] saveUserProfile failed:', error);
     reportCaughtError(error, 'profileFirestore.saveUserProfile', { type: 'api_error' });
+    return false;
+  }
+}
+
+export interface UserProfileReadResult {
+  success: boolean;
+  exists: boolean;
+  profile: Record<string, unknown> | null;
+}
+
+/** Loads profile fields and distinguishes a missing document from a read failure. */
+export async function loadUserProfileWithStatus(uid: string): Promise<UserProfileReadResult> {
+  if (!uid) return { success: false, exists: false, profile: null };
+  try {
+    const db = await initFirestore();
+    if (!db) return { success: false, exists: false, profile: null };
+    const { doc, getDoc } = await import('firebase/firestore');
+    const snapshot = await getDoc(doc(db as never, 'users', uid));
+    if (!snapshot.exists()) return { success: true, exists: false, profile: null };
+    const profile = snapshot.data()?.profile;
+    return {
+      success: true,
+      exists: true,
+      profile: profile && typeof profile === 'object' && !Array.isArray(profile)
+        ? profile as Record<string, unknown>
+        : null,
+    };
+  } catch (error) {
+    reportCaughtError(error, 'profileFirestore.loadUserProfile', { type: 'api_error' });
+    return { success: false, exists: false, profile: null };
   }
 }
 
 /** Loads profile fields from the authenticated owner's private user document. */
 export async function loadUserProfile(uid: string): Promise<Record<string, unknown> | null> {
-  if (!uid) return null;
-  try {
-    const db = await initFirestore();
-    if (!db) return null;
-    const { doc, getDoc } = await import('firebase/firestore');
-    const snapshot = await getDoc(doc(db as never, 'users', uid));
-    const profile = snapshot.data()?.profile;
-    return profile && typeof profile === 'object' && !Array.isArray(profile)
-      ? profile as Record<string, unknown>
-      : null;
-  } catch (error) {
-    reportCaughtError(error, 'profileFirestore.loadUserProfile', { type: 'api_error' });
-    return null;
-  }
+  const result = await loadUserProfileWithStatus(uid);
+  return result.success ? result.profile : null;
 }
 
 /** The subset of `UserProfileData` the enrichment-gating engine reads. */
