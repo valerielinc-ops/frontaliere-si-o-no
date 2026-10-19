@@ -346,6 +346,52 @@ export async function renderCscNcoreBoardPage(boardUrl, { timeoutMs = 12000 } = 
   }
 }
 
+/**
+ * Render an NCore detail page when the initial response is only its client
+ * rendered shell. The resulting HTML is still passed through
+ * parseCscNcoreJobDetail and the final URL is checked by the caller, so a
+ * browser response alone never promotes an unverified seed.
+ */
+export async function renderCscNcoreDetailPage(detailUrl, { timeoutMs = 12000 } = {}) {
+  const browser = await launchChromium({ headless: true });
+  try {
+    const context = await browser.newContext({
+      userAgent: CSC_NCORE_BROWSER_UA,
+      viewport: { width: 1280, height: 720 },
+    });
+    const page = await context.newPage();
+    const response = await page.goto(detailUrl, {
+      waitUntil: 'domcontentloaded',
+      timeout: timeoutMs,
+    });
+    if (!response?.ok()) {
+      throw new Error(`${detailUrl} returned HTTP ${response?.status() ?? 'unknown'}`);
+    }
+
+    // Wait for the NCore posting body, not merely for the SPA shell. A timeout
+    // is handled by the parser below so short/unknown pages remain fail-closed.
+    try {
+      await page.waitForFunction(
+        ({ selector, minTextLength }) => {
+          const detail = document.querySelector(selector);
+          return Boolean(detail && (detail.textContent || '').trim().length >= minTextLength);
+        },
+        { selector: '.singlePosition', minTextLength: 180 },
+        { timeout: timeoutMs },
+      );
+    } catch (error) {
+      if (error?.name !== 'TimeoutError') throw error;
+    }
+
+    return {
+      html: await page.content(),
+      responseUrl: page.url().trim(),
+    };
+  } finally {
+    await browser.close();
+  }
+}
+
 function readQuotedHtmlAttr(attrs, name) {
   const match = String(attrs || '').match(new RegExp(`\\b${name}\\s*=\\s*(["'])(.*?)\\1`, 'i'));
   return match?.[2] || '';
@@ -670,6 +716,7 @@ function cscResponseMatchesBoard(responseUrl, candidate) {
 
 export async function verifyCscDetailUrls(urls, options = {}) {
   const fetchImpl = options.fetchImpl || fetch;
+  const renderDetailPage = options.renderDetailPage || renderCscNcoreDetailPage;
   const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   const candidates = [...new Set((urls || []).map(canonicalCscDetailUrl).filter(Boolean))];
   if (candidates.length !== (urls || []).length) {
@@ -683,9 +730,29 @@ export async function verifyCscDetailUrls(urls, options = {}) {
     if (!cscResponseMatchesCandidate(responseUrl, candidate)) {
       throw new Error(`CSC detail invariant failed: ${candidate} redirected outside its exact detail contract to ${responseUrl}.`);
     }
-    const detail = canonicalCscNcoreDetailUrl(candidate)
+    const isNcoreDetail = Boolean(canonicalCscNcoreDetailUrl(candidate));
+    let detail = isNcoreDetail
       ? parseCscNcoreJobDetail(html, candidate)
       : parseCscPrimaryJobDetail(html);
+    if (!detail && isNcoreDetail) {
+      console.log(`🖥️ NCore detail shell exposed no verified posting; rendering ${candidate} in Chromium.`);
+      let renderedDetail;
+      try {
+        renderedDetail = await renderDetailPage(candidate, { timeoutMs });
+      } catch (renderError) {
+        throw new Error(
+          `CSC detail invariant failed: NCore browser-rendered detail unavailable: ${renderError?.message || renderError}`,
+          { cause: renderError },
+        );
+      }
+      if (!renderedDetail || typeof renderedDetail.html !== 'string' || !renderedDetail.responseUrl) {
+        throw new Error('CSC detail invariant failed: NCore browser renderer returned an incomplete detail response.');
+      }
+      if (!cscResponseMatchesCandidate(renderedDetail.responseUrl, candidate)) {
+        throw new Error(`CSC detail invariant failed: rendered detail redirected outside its exact detail contract to ${renderedDetail.responseUrl}.`);
+      }
+      detail = parseCscNcoreJobDetail(renderedDetail.html, candidate);
+    }
     if (!detail) {
       throw new Error(`CSC detail invariant failed: ${candidate} did not return a canonical work-position page.`);
     }
@@ -712,6 +779,7 @@ export async function verifyCscDetailUrls(urls, options = {}) {
 export async function fetchCscJobUrls(options = {}) {
   const fetchImpl = options.fetchImpl || fetch;
   const renderBoardPage = options.renderBoardPage || renderCscNcoreBoardPage;
+  const renderDetailPage = options.renderDetailPage || renderCscNcoreDetailPage;
   const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   console.log(`🔍 Fetching CSC careers page: ${CSC_CAREERS_URL}`);
 
@@ -776,6 +844,7 @@ export async function fetchCscJobUrls(options = {}) {
 
   const urls = await verifyCscDetailUrls(discovery.urls, {
     fetchImpl,
+    renderDetailPage,
     timeoutMs,
     structureSnapshotPath: options.structureSnapshotPath,
   });

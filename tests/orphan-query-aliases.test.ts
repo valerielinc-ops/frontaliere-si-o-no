@@ -9,7 +9,7 @@ const ctx = { waitUntil: () => {} };
 beforeEach(() => vi.stubGlobal('caches', { default: { match: async () => undefined, put: async () => {} } }));
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
-describe('exact query variants within a known cluster', () => {
+describe.each(['GET', 'HEAD'])('exact query variants within a known cluster (%s)', (method) => {
   it.each([
     ['/ricerca/cerco-lavoro-a-zurigo/', '/ricerca/cerco-lavoro-zurigo/'],
     ['/en/search/jobs-zurich/', '/en/search/zurich-jobs/'],
@@ -22,9 +22,10 @@ describe('exact query variants within a known cluster', () => {
         ? Response.json({ schema: 1, aliases: { [from]: target } })
         : new Response(url.pathname === from ? 'Pagina archiviata | Frontaliere Ticino' : 'real content');
     });
-    const response = await worker.fetch(new Request(`https://frontaliereticino.ch${from}?utm_source=gsc`), {}, ctx);
+    const response = await worker.fetch(new Request(`https://frontaliereticino.ch${from}?utm_source=gsc`, { method }), {}, ctx);
     expect(response.status).toBe(301);
     expect(response.headers.get('Location')).toBe(`${target}?utm_source=gsc`);
+    expect(await response.text()).toBe('');
   });
 
   it.each(['miss', 'server', 'network', 'bad-json', 'bad-schema', 'missing-catalog'])('preserves a healthy 200 on an unproven alias (%s)', async (mode) => {
@@ -39,7 +40,7 @@ describe('exact query variants within a known cluster', () => {
       }
       return new Response('existing canonical content', { headers: { 'X-Origin': 'preserved' } });
     });
-    const response = await worker.fetch(new Request('https://frontaliereticino.ch/de/suche/rhb-jobs/'), {}, ctx);
+    const response = await worker.fetch(new Request('https://frontaliereticino.ch/de/suche/rhb-jobs/', { method }), {}, ctx);
     expect(response.status).toBe(200);
     expect(response.headers.get('X-Origin')).toBe('preserved');
     expect(await response.text()).toBe('existing canonical content');
@@ -51,7 +52,7 @@ describe('exact query variants within a known cluster', () => {
       if (url.pathname === '/orphan-query-aliases.json') return Response.json(registry);
       return new Response('page', { status: url.pathname === '/de/suche/rhb-jobs/' ? status : 200 });
     });
-    const response = await worker.fetch(new Request('https://frontaliereticino.ch/de/suche/jobs-rhb/'), {}, ctx);
+    const response = await worker.fetch(new Request('https://frontaliereticino.ch/de/suche/jobs-rhb/', { method }), {}, ctx);
     expect(response.status).toBe(status === 404 || status === 410 ? 200 : 503);
     expect(response.headers.get('Location')).toBeNull();
     if (response.status === 503) expect(response.headers.get('Cache-Control')).toBe('no-store');
@@ -59,7 +60,7 @@ describe('exact query variants within a known cluster', () => {
 
   it.each([410, 503])('does not override an origin withdrawal or outage (%s)', async (status) => {
     const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response('origin', { status }));
-    expect((await worker.fetch(new Request('https://frontaliereticino.ch/ricerca/posti/'), {}, {})).status).toBe(status);
+    expect((await worker.fetch(new Request('https://frontaliereticino.ch/ricerca/posti/', { method }), {}, {})).status).toBe(status);
     expect(fetchMock.mock.calls.some(([input]) => String(input).includes('/orphan-query-aliases.json'))).toBe(false);
   });
 
@@ -85,9 +86,10 @@ describe('exact query variants within a known cluster', () => {
       if (url.pathname === '/orphan-query-aliases.json') return new Response(JSON.stringify(registry));
       return new Response('page', { status: url.pathname === target ? 200 : 404 });
     });
-    const response = await worker.fetch(new Request(`https://frontaliereticino.ch${from}?utm_source=gsc`), {}, { waitUntil: () => {} });
+    const response = await worker.fetch(new Request(`https://frontaliereticino.ch${from}?utm_source=gsc`, { method }), {}, { waitUntil: () => {} });
     expect(response.status).toBe(301);
     expect(response.headers.get('Location')).toBe(`${target}?utm_source=gsc`);
+    expect(await response.text()).toBe('');
   });
   it.each([404, 410, 429, 503])('does not confuse a missing destination with unavailable verification (%s)', async (status) => {
     vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
@@ -95,7 +97,7 @@ describe('exact query variants within a known cluster', () => {
       if (url.pathname === '/orphan-query-aliases.json') return new Response(JSON.stringify(registry));
       return new Response('page', { status: url.pathname === '/de/suche/rhb-jobs/' ? status : 404 });
     });
-    const response = await worker.fetch(new Request('https://frontaliereticino.ch/de/suche/jobs-rhb/'), {}, {});
+    const response = await worker.fetch(new Request('https://frontaliereticino.ch/de/suche/jobs-rhb/', { method }), {}, {});
     expect(response.status).toBe(status === 404 || status === 410 ? 404 : 503);
     expect(response.headers.get('Location')).toBeNull();
     if (response.status === 503) expect(response.headers.get('Cache-Control')).toBe('no-store');
@@ -112,7 +114,7 @@ describe('exact query variants within a known cluster', () => {
       }
       return new Response('missing', { status: 404 });
     });
-    const response = await worker.fetch(new Request('https://frontaliereticino.ch/de/suche/jobs-rhb/'), {}, {});
+    const response = await worker.fetch(new Request('https://frontaliereticino.ch/de/suche/jobs-rhb/', { method }), {}, {});
     expect(response.status).toBe(503);
     expect(response.headers.get('Location')).toBeNull();
     expect(response.headers.get('Retry-After')).toBe('60');
@@ -124,6 +126,6 @@ describe('exact query variants within a known cluster', () => {
       return url.pathname === '/orphan-query-aliases.json'
         ? Response.json(registry) : new Response('missing', { status: 404 });
     });
-    expect((await worker.fetch(new Request('https://frontaliereticino.ch/de/suche/unknown/'), {}, {})).status).toBe(404);
+    expect((await worker.fetch(new Request('https://frontaliereticino.ch/de/suche/unknown/', { method }), {}, {})).status).toBe(404);
   });
 });

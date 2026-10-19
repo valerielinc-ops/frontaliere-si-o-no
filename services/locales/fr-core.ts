@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ "whatsNew.v39810.title": "Événements passés par commune",
+ "whatsNew.v39810.municipalArchives.title": "Archives communales conservées",
+ "whatsNew.v39810.municipalArchives.desc": "Les pages communales ayant des événements publics passés conservent titres, dates et liens vers les fiches, même sans prochains rendez-vous.",
  "whatsNew.v3988.title": "Articles avec des liens plus pertinents",
  "whatsNew.v3988.contextualLinks.title": "Outils dans votre langue",
  "whatsNew.v3988.contextualLinks.desc": "Les articles renvoient aux outils pertinents en italien, anglais, allemand et français.",

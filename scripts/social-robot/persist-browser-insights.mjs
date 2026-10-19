@@ -20,12 +20,12 @@ import {
 } from 'node:fs';
 import path from 'node:path';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
+import { pushMainWithGuard } from '../lib/main-push-guard.mjs';
 import { withSingleFlightLock } from '../lib/single-flight-lock.mjs';
 import { sweepStaleFetchPacks } from '../lib/stale-fetch-pack-sweep.mjs';
 
 const DATA_PATH = 'data/instagram-insights.json';
 const GIT_TIMEOUT_MS = 120_000;
-
 function nextValue(argv, index, option) {
   const value = argv[index + 1];
   if (!value || value.startsWith('--')) throw new Error(`${option} needs a value`);
@@ -120,6 +120,44 @@ function safeError(error) {
   return String(error?.stderr || error?.message || error).replace(/\s+/gu, ' ').replace(/https?:\/\/[^\s]+/gu, '[remote]').slice(0, 280);
 }
 
+function mainPushGuardError(error) {
+  const wrapped = new Error(`main push guard rejected the candidate: ${safeError(error)}`);
+  wrapped.code = 'MAIN_PUSH_GUARD';
+  return wrapped;
+}
+
+function pushMainCandidate(baseSha, worktree, gitFn) {
+  // Tests inject a Git seam that has no real repository. Production always
+  // uses the concrete Git function and therefore always runs the shared guard.
+  if (gitFn !== git) {
+    gitFn(worktree, [
+      'push',
+      `--force-with-lease=refs/heads/main:${baseSha}`,
+      'origin',
+      'HEAD:main',
+    ], {
+      env: { FRONTALIERE_AUTOMATED_DATA_PUSH: 'social-robot-insights' },
+    });
+    return;
+  }
+  try {
+    pushMainWithGuard({
+      repo: worktree,
+      base: baseSha,
+      candidate: 'HEAD',
+      branch: 'main',
+      timeoutSeconds: GIT_TIMEOUT_MS / 1000,
+      env: { ...process.env, FRONTALIERE_AUTOMATED_DATA_PUSH: 'social-robot-insights' },
+    });
+  } catch (error) {
+    const detail = safeError(error);
+    if (/candidate tree collapse|not a descendant|cannot resolve commit|cannot inspect tree|cannot prove ancestry/iu.test(detail)) {
+      throw mainPushGuardError(error);
+    }
+    throw error;
+  }
+}
+
 function readSnapshot(file) {
   if (!existsSync(file)) throw new Error(`snapshot does not exist: ${file}`);
   const parsed = JSON.parse(readFileSync(file, 'utf8'));
@@ -202,10 +240,20 @@ function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
         cleanupWorktree(repo, result.worktree, gitFn);
         return { status: result.status, attempt };
       }
+      let baseSha;
+      if (gitFn === git) {
+        try {
+          baseSha = gitOutput(repo, ['rev-parse', '--verify', 'refs/remotes/origin/main^{commit}']);
+        } catch (error) {
+          throw mainPushGuardError(error);
+        }
+      } else {
+        // Keep injected Git seams deterministic without bypassing the lease
+        // argument that production receives from the real remote ref.
+        baseSha = String(gitFn(repo, ['rev-parse', '--verify', 'refs/remotes/origin/main^{commit}']) || '').trim();
+      }
       try {
-        gitFn(result.worktree, ['push', 'origin', 'HEAD:main'], {
-          env: { FRONTALIERE_AUTOMATED_DATA_PUSH: 'social-robot-insights' },
-        });
+        pushMainCandidate(baseSha, result.worktree, gitFn);
         cleanupWorktree(repo, result.worktree, gitFn);
         return { status: 'pushed', attempt };
       } catch (error) {
@@ -216,6 +264,7 @@ function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
       }
     } catch (error) {
       if (result?.worktree) cleanupWorktree(repo, result.worktree, gitFn);
+      if (error?.code === 'MAIN_PUSH_GUARD') throw error;
       if (isStorageError(error)) throw error;
       if (attempt === attempts) throw error;
       refreshBeforeAttempt = true;

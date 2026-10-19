@@ -19,7 +19,7 @@ beforeEach(() => vi.stubGlobal('caches', { default: { match: async () => undefin
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
 function mockOrigin(from: string, to: string, sourceStatus = 200, targetStatus: number | 'network' = 200) {
-  return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+  return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL, _init?: RequestInit) => {
     const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
     if (url.pathname === to) {
       if (targetStatus === 'network') throw new TypeError('Target unavailable');
@@ -29,18 +29,22 @@ function mockOrigin(from: string, to: string, sourceStatus = 200, targetStatus: 
   });
 }
 
-describe('exact employer profile display-name migrations', () => {
+describe.each(['GET', 'HEAD'])('exact employer profile display-name migrations (%s)', (method) => {
   for (const sourceStatus of [200, 404]) {
     it.each(paths)(`returns a verified same-locale 301 over an origin ${sourceStatus}: $from`, async ({ from, to }) => {
-      mockOrigin(from, to, sourceStatus);
-      const response = await worker.fetch(new Request(`${APEX}${from}?utm_source=gsc`), {}, ctx);
+      const fetchMock = mockOrigin(from, to, sourceStatus);
+      const response = await worker.fetch(new Request(`${APEX}${from}?utm_source=gsc`, { method }), {}, ctx);
       expect(response.status).toBe(301);
       expect(response.headers.get('Location')).toBe(`${to}?utm_source=gsc`);
+      expect(await response.text()).toBe('');
+      const probe = fetchMock.mock.calls.find(([input]) => new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url).pathname === to);
+      expect(probe).toBeDefined();
+      expect(probe?.[1]?.method ?? 'GET').toBe('GET');
     });
 
     it.each([404, 410, 429, 503, 302])(`does not redirect an origin ${sourceStatus} to an unverified target (%s)`, async status => {
       const { from, to } = paths[0]; mockOrigin(from, to, sourceStatus, status);
-      const response = await worker.fetch(new Request(`${APEX}${from}`), {}, ctx);
+      const response = await worker.fetch(new Request(`${APEX}${from}`, { method }), {}, ctx);
       expect(response.status).toBe([404, 410].includes(status) ? sourceStatus : 503);
       expect(response.headers.get('Location')).toBeNull();
       if (response.status === 503) {
@@ -51,7 +55,7 @@ describe('exact employer profile display-name migrations', () => {
 
     it(`keeps target network failure temporary over an origin ${sourceStatus}`, async () => {
       const { from, to } = paths[0]; mockOrigin(from, to, sourceStatus, 'network');
-      expect((await worker.fetch(new Request(`${APEX}${from}`), {}, ctx)).status).toBe(503);
+      expect((await worker.fetch(new Request(`${APEX}${from}`, { method }), {}, ctx)).status).toBe(503);
     });
   }
 
@@ -62,7 +66,7 @@ describe('exact employer profile display-name migrations', () => {
     '/en/companies/denner-sa/', '/en/aziende/constructor/',
   ])('never guesses an alias or probes a healthy canonical: %s', async from => {
     const fetchMock = mockOrigin(from, '/unused/');
-    const response = await worker.fetch(new Request(`${APEX}${from}`), {}, ctx);
+    const response = await worker.fetch(new Request(`${APEX}${from}`, { method }), {}, ctx);
     expect(response.status).toBe(200);
     expect(await response.text()).toBe('existing origin content');
     expect(fetchMock.mock.calls).toHaveLength(1);
@@ -70,7 +74,7 @@ describe('exact employer profile display-name migrations', () => {
 
   it.each([410, 503])('does not override an explicit origin withdrawal or outage (%s)', async status => {
     const { from, to } = paths[0]; const fetchMock = mockOrigin(from, to, status);
-    expect((await worker.fetch(new Request(`${APEX}${from}`), {}, ctx)).status).toBe(status);
+    expect((await worker.fetch(new Request(`${APEX}${from}`, { method }), {}, ctx)).status).toBe(status);
     expect(fetchMock.mock.calls.some(([input]) => String(input).includes(to))).toBe(false);
   });
 });

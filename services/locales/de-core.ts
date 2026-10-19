@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ "whatsNew.v39810.title": "Vergangene Veranstaltungen nach Gemeinde",
+ "whatsNew.v39810.municipalArchives.title": "Gemeindearchive bleiben erreichbar",
+ "whatsNew.v39810.municipalArchives.desc": "Gemeindeseiten mit vergangenen öffentlichen Veranstaltungen bewahren Titel, Daten und Links zu den Details, auch ohne kommende Termine.",
  "whatsNew.v3988.title": "Artikel mit passenderen Links",
  "whatsNew.v3988.contextualLinks.title": "Werkzeuge in Ihrer Sprache",
  "whatsNew.v3988.contextualLinks.desc": "Artikel verlinken passende Werkzeuge zum Thema auf Italienisch, Englisch, Deutsch und Französisch.",

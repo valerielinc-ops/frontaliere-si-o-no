@@ -1752,6 +1752,8 @@ export const EDGE_LEGACY_REDIRECTS = Object.freeze({
   '/grenzgaenger-artikel/': '/de/grenzgaenger-artikel/',
   '/trouver-emploi-tessin/': '/fr/trouver-emploi-tessin/', // cathedral-allow: legacy SEO redirect
   '/nav:pension/': '/tasse-e-pensione/calcola-previdenza/',
+  // Observed malformed internal marker; NAV_ACTION_ROUTES.health owns this tool.
+  '/nav:health/': '/compara-servizi/confronta-casse-malati/',
   // These two legacy SPA bridges were 200/noindex pages. Keep the same
   // destinations as legacyRedirectsPlugin, but expose the migration as a
   // real HTTP redirect so crawlers do not retain a noindex warning URL.
@@ -2728,6 +2730,15 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     if (stale) return stale;
   }
 
+  // HEAD must resolve the same catalog-declared query and employer identities
+  // as GET, without reading or caching a response body. Other families stay unchanged.
+  if (request.method === 'HEAD' && (resp.status === 200 || resp.status === 404)) {
+    const queryRedirect = await recoverOrphanQueryAlias(url, origin, resp.status === 200);
+    if (queryRedirect) return queryRedirect;
+    const employerRedirect = await recoverEmployerProfileAlias(url, origin);
+    if (employerRedirect) return employerRedirect;
+  }
+
   // Stamp Cache-Control on successful GETs, and store an APEX-KEYED copy in the
   // colo cache for the over-cap/stale-if-error fail-open path. Body buffered ONCE
   // via arrayBuffer and reused — no clone()/stream tee (the #1791/#1814 deadlock
@@ -3048,7 +3059,7 @@ const router = {
       // cf caching opts: this passthrough must respect the zone's cache rules.
       try {
         const response = await fetchOriginWithRetry(url, request);
-        if (request.method === 'GET' && (response.status === 404 || response.status === 200)) {
+        if ((request.method === 'GET' || request.method === 'HEAD') && (response.status === 404 || response.status === 200)) {
           const redirect = await recoverOrphanQueryAlias(url, url.hostname, response.status === 200);
           if (redirect) return redirect;
           const employerRedirect = await recoverEmployerProfileAlias(url, url.hostname);

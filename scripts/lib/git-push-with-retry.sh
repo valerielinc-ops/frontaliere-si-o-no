@@ -77,6 +77,7 @@
 set -euo pipefail
 
 BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
+MAIN_PUSH_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/main-push-guard.mjs"
 
 # The 300-second fetch ceiling is supported by issue 12175's 61.6, 62.6,
 # 83.0 and 95.1-second commit-graph measurements. The 180-second push ceiling
@@ -377,15 +378,59 @@ attempt=1
 # same stream as before.
 PUSH_STDERR_FILE="$(mktemp)"
 trap 'rm -f -- "$PUSH_STDERR_FILE"' EXIT
+PUSH_GUARD_FAILED=0
 push_head() {
   local status=0
+  local lease_base_sha=""
+  PUSH_GUARD_FAILED=0
+
+  if [ "$BRANCH" = "main" ]; then
+    if ! lease_base_sha="$(git rev-parse --verify "refs/remotes/origin/${BRANCH}^{commit}")"; then
+      echo "❌ main push guard: cannot resolve refs/remotes/origin/${BRANCH} for the push lease" >"$PUSH_STDERR_FILE"
+      PUSH_GUARD_FAILED=1
+      cat -- "$PUSH_STDERR_FILE" >&2
+      return 1
+    fi
+    local candidate_sha=""
+    if ! candidate_sha="$(git rev-parse --verify HEAD^{commit})"; then
+      echo "❌ main push guard: cannot resolve HEAD for the guarded candidate" >"$PUSH_STDERR_FILE"
+      PUSH_GUARD_FAILED=1
+      cat -- "$PUSH_STDERR_FILE" >&2
+      return 1
+    fi
+    run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" \
+      "guarded git push --no-thin origin <commit>:refs/heads/${BRANCH}" \
+      node "$MAIN_PUSH_GUARD_SCRIPT" \
+      --repo "$PWD" \
+      --base "$lease_base_sha" \
+      --candidate "$candidate_sha" \
+      --branch "$BRANCH" \
+      --timeout-seconds "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" \
+      --push \
+      2>"$PUSH_STDERR_FILE" || status=$?
+    if [ "$status" -ne 0 ] && grep -qiE \
+      'candidate tree collapse|not a descendant|cannot resolve commit|cannot inspect tree|cannot prove ancestry' \
+      "$PUSH_STDERR_FILE"; then
+      PUSH_GUARD_FAILED=1
+    fi
+    cat -- "$PUSH_STDERR_FILE" >&2
+    return "$status"
+  fi
   run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" "git push --no-thin origin HEAD:${BRANCH}" \
-    git -c pack.window=0 -c pack.threads=1 push --no-thin --no-verify origin "HEAD:${BRANCH}" \
-    2>"$PUSH_STDERR_FILE" || status=$?
+    git -c pack.window=0 -c pack.threads=1 push --no-thin --no-verify \
+    origin "HEAD:${BRANCH}" 2>"$PUSH_STDERR_FILE" || status=$?
   cat -- "$PUSH_STDERR_FILE" >&2
+  if [ "$status" -ne 0 ] && grep -q 'MAIN_TREE_GUARD_FATAL:' "$PUSH_STDERR_FILE"; then
+    echo '::error::Guarded main push failed on an integrity or permanent remote error; refusing to retry or soft-fail.'
+    exit 1
+  fi
   return "$status"
 }
 until push_head; do
+  if [ "$PUSH_GUARD_FAILED" -eq 1 ]; then
+    echo "::error::Main push guard rejected the candidate; refusing to retry a potentially destructive write"
+    exit 1
+  fi
   # A ruleset / protected-branch decline is not a ref race: the rebase below
   # cannot change the verdict, and --soft-fail-exhausted does not apply (it
   # covers a lost race whose delta the next run recaptures, while a declined

@@ -35,8 +35,11 @@ function fakeGitBin(root: string): string {
   fs.writeFileSync(git, `#!/bin/sh
 case "$*" in
   *"worktree add"*) mkdir -p "$7" ;;
+  *"rev-parse"*) printf '%s\\n' '1111111111111111111111111111111111111111' ;;
+  *"merge-base --is-ancestor"*) exit 0 ;;
+  *"ls-tree"*) printf 'tracked-0\\0tracked-1\\0' ;;
   *"diff --cached --quiet"*) exit 1 ;;
-  *"push origin HEAD:main"*)
+  *"push "*)
     # Two MiB exceeds Node's default execFileSync buffer.
     dd if=/dev/zero bs=1048576 count=2 2>/dev/null
     if [ "\${FAKE_GIT_FAIL:-0}" = "1" ]; then exit 42; fi

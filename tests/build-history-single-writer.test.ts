@@ -213,7 +213,10 @@ const WRITER_FILES = [
   'scripts/lib/clear-checkout-git-credentials.sh',
   'scripts/lib/git-push-rejection.sh',
   'scripts/lib/old-history-guard.mjs',
+  'scripts/lib/git-fetch-target.mjs',
   'scripts/lib/single-flight-lock.mjs',
+  // Il wrapper di push invoca questa CLI prima di aggiornare main.
+  'scripts/ci/guard-main-tree-shrink.mjs',
   'scripts/lib/accumulator-byte-floor-guard.mjs',
   'scripts/ci/assert-accumulator-write.mjs',
 ];
