@@ -7,6 +7,7 @@ import {
   resolveElpromGeography,
 } from '../scripts/lib/elprom-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { loadSpec, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('elprom crawler parser', () => {
   describe('source-backed country', () => {
@@ -42,6 +43,18 @@ describe('elprom crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(ELPROM_KEY).toBe('elprom');
     expect(ELPROM_COMPANY_NAME).toBe('elprom');
+  });
+
+  it('uses the live careers listing and a shared detail URL template', () => {
+    const spec = loadSpec(ELPROM_KEY);
+    const detailPattern = templateToRegex(spec.detailTemplate);
+
+    expect(spec.mode).toBe('template');
+    expect(spec.seedUrls).toEqual(['https://elprom.ch/jobs-karriere/']);
+    expect(spec.detailTemplate).toBe('/job/*/');
+    expect(spec.detailEnrichment).toBe(true);
+    expect(detailPattern.test('/job/elektroplaner-netzversorgung-m-w-d-80-100-pratteln/')).toBe(true);
+    expect(detailPattern.test('/jobs-karriere/')).toBe(false);
   });
 
   // ── isCompanyJob ──
