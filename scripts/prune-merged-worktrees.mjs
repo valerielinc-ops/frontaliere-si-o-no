@@ -75,8 +75,8 @@
 //   node scripts/prune-merged-worktrees.mjs --apply    # esegue le rimozioni safe
 //   node scripts/prune-merged-worktrees.mjs --expiry-days 5
 //   PRUNE_WORKTREE_EXPIRY_DAYS=5 node scripts/prune-merged-worktrees.mjs
-//   node scripts/prune-merged-worktrees.mjs --only <testo>  # solo worktree,
-//        branch e directory il cui path o nome contiene <testo> (diagnosi)
+//   node scripts/prune-merged-worktrees.mjs --only <branch-o-path>  # solo il
+//        branch col nome esatto o worktree/directory col path completo
 //
 // `--orphans-only` è volutamente più prudente: considera solo branch
 // `worktree-agent-*` senza worktree, richiede una lista completa delle PR aperte
@@ -163,18 +163,45 @@ function optionNumber(name, envNames, fallback) {
 // strette perché non ha un worktree da ispezionare.
 const EXPIRY_DAYS = optionNumber('--expiry-days', ['PRUNE_WORKTREE_EXPIRY_DAYS', 'PRUNE_EXPIRY_DAYS'], DEFAULT_EXPIRY_DAYS);
 const EXPIRY_MS = EXPIRY_DAYS * DAY_MS;
-// --only <testo>: limita lo sweep ai worktree/branch/directory che lo contengono.
-const ONLY = (() => {
-  const eq = process.argv.find((a) => a.startsWith('--only='));
-  if (eq) return eq.slice('--only='.length) || null;
-  const i = process.argv.indexOf('--only');
-  return i > 0 ? process.argv[i + 1] || null : null;
-})();
-const selected = (...names) => !ONLY || names.some((n) => typeof n === 'string' && n.includes(ONLY));
+// --only è fail-closed: un valore mancante/non vuoto o duplicato non deve mai
+// degradare a uno sweep senza filtro, soprattutto con --apply.
+function parseOnly(args) {
+  const values = [];
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+    if (arg === '--only') {
+      const value = args[i + 1];
+      if (!value || value.startsWith('--')) {
+        throw new Error('--only richiede un nome di branch o il path completo di un worktree/directory');
+      }
+      values.push(value);
+      i++;
+    } else if (arg.startsWith('--only=')) {
+      const value = arg.slice('--only='.length);
+      if (!value) throw new Error('--only richiede un nome di branch o il path completo di un worktree/directory');
+      values.push(value);
+    }
+  }
+  if (values.length > 1) throw new Error('--only può essere specificato una sola volta');
+  return values[0] ?? null;
+}
+
+let ONLY;
+try {
+  ONLY = parseOnly(process.argv.slice(2));
+} catch (error) {
+  console.error(`✖ ${error.message}`);
+  process.exit(2);
+}
+const selected = (...names) => !ONLY || names.some((n) => typeof n === 'string' && n === ONLY);
 // --orphans-only: fast-path sicuro per il SessionEnd hook. Cancella SOLO i branch
 // `worktree-agent-<id>` 0-ahead orfani (dir worktree già auto-rimossa da
 // EnterWorktree). Zero gh, zero rimozione worktree → non-presidiabile.
 const ORPHANS_ONLY = process.argv.includes('--orphans-only');
+// Le pulizie di repository non legate a un candidato sono ammesse solo nello
+// sweep completo applicato. Dry-run e --only possono aggiornare la base per le
+// prove, ma non devono potare ref, pack o metadati di worktree estranei.
+const GLOBAL_PRUNE_ENABLED = APPLY && !ONLY;
 
 // Costo dello sweep, stampato in coda: le chiamate gh sono la risorsa scarsa
 // (quota condivisa col resto del workspace), le prove il tempo in più.
@@ -486,7 +513,10 @@ const fetchRun = withSingleFlightLock(fetchLock, () => {
   // uccidono una `gh api` senza stato su disco, questo uccide un trasferimento
   // che sta scrivendo un pack multi-GB.
   try {
-    execFileSync('git', ['fetch', 'origin', mainBranch, '--prune', '-q'], {
+    const fetchArgs = ['fetch', 'origin', mainBranch];
+    if (GLOBAL_PRUNE_ENABLED) fetchArgs.push('--prune');
+    fetchArgs.push('-q');
+    execFileSync('git', fetchArgs, {
       stdio: 'ignore',
       timeout: FETCH_TIMEOUT_MS,
       killSignal: 'SIGTERM',
@@ -494,11 +524,15 @@ const fetchRun = withSingleFlightLock(fetchLock, () => {
   } catch {
     /* fetch fallito/scaduto: si prosegue con l'origin/<main> locale (vedi sopra) */
   }
-  return sweepStaleFetchPacks(join(gitDir, 'objects', 'pack'));
+  return GLOBAL_PRUNE_ENABLED
+    ? sweepStaleFetchPacks(join(gitDir, 'objects', 'pack'))
+    : { removed: 0, bytes: 0, candidates: 0 };
 });
 
 if (!fetchRun.acquired) {
   console.log(`ℹ️  fetch saltato: un'altra istanza tiene ${fetchLock} — uso origin/${mainBranch} locale.`);
+} else if (!GLOBAL_PRUNE_ENABLED) {
+  console.log(`ℹ️  pulizie globali del repository saltate: ${APPLY ? '--only attivo' : 'dry-run'}.`);
 } else if (fetchRun.value?.removed) {
   const mb = Math.round(fetchRun.value.bytes / 1048576);
   console.log(`🧹 potati ${fetchRun.value.removed} pack temporanei di fetch abortiti (${mb} MB).`);
@@ -2161,7 +2195,11 @@ for (const o of orphanRemove) {
     console.log(`⚠️  FALLITA rimozione directory ${o.path} — saltata`);
   }
 }
-sh('git worktree prune', { allowFail: true });
+if (GLOBAL_PRUNE_ENABLED) {
+  sh('git worktree prune', { allowFail: true });
+} else {
+  console.log(`ℹ️  git worktree prune saltato: ${APPLY ? '--only attivo' : 'dry-run'}.`);
+}
 
 console.log('');
 console.log(`✓ applicate ${done} rimozioni${failed ? `, ${failed} FALLITE (vedi sopra)` : ''}. ${reportWt.length + reportBranch.length + orphanReport.length} voci report-only lasciate intatte.`);

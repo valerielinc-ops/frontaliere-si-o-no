@@ -1918,6 +1918,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Upload write-collisions analysis
+        id: write_collisions_analysis
         if: always() && matrix.locale == 'it'
         # Diagnostic-only: an artifact-service outage must not fail the deploy.
         continue-on-error: true
@@ -1930,6 +1931,19 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
           include-hidden-files: true
+
+      - name: Retry write-collisions analysis upload
+        if: always() && matrix.locale == 'it' && steps.write_collisions_analysis.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: write-collisions-analysis-${{ github.run_id }}
+          path: |
+            dist/.write-collisions.json
+            dist/.write-collisions-data/
+          retention-days: 7
+          if-no-files-found: ignore
+          include-hidden-files: true
+          overwrite: true
 
       - name: Detect previous-slug winners changes
         if: matrix.locale == 'it'

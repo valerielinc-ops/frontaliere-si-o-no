@@ -604,6 +604,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       sumupCheckoutId: 'sumup_checkout_1',
       sumupTransactionId: 'sumup_successful_transaction',
       paidAt: '__paid_timestamp__',
+      paymentFailureReason: null,
     }));
   });
 

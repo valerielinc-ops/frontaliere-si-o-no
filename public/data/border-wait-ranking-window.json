@@ -1,9 +1,9 @@
 {
-  "generatedFor": "2026-10-18",
+  "generatedFor": "2026-10-19",
   "windowDays": 7,
   "current": {
-    "weekStart": "2026-10-11",
-    "weekEnd": "2026-10-17",
+    "weekStart": "2026-10-12",
+    "weekEnd": "2026-10-18",
     "perCrossing": {
       "anieres": {
         "weightedAvgMinutes": 0,
@@ -11,17 +11,17 @@
         "canton": "GE"
       },
       "au-lustenau": {
-        "weightedAvgMinutes": 0.06382978723404255,
+        "weightedAvgMinutes": 0.02127659574468085,
         "totalSamples": 47,
         "canton": "SG"
       },
       "bad-sackingen-stein-ag": {
-        "weightedAvgMinutes": 0.0425531914893617,
+        "weightedAvgMinutes": 0.02127659574468085,
         "totalSamples": 47,
         "canton": "AG"
       },
       "bardonnex": {
-        "weightedAvgMinutes": 5.680851063829787,
+        "weightedAvgMinutes": 5.617021276595745,
         "totalSamples": 47,
         "canton": "GE"
       },
@@ -31,17 +31,17 @@
         "canton": "SH"
       },
       "basel-weil-am-rhein-autostrada-a2-a5": {
-        "weightedAvgMinutes": 0.2127659574468085,
+        "weightedAvgMinutes": 0.14893617021276595,
         "totalSamples": 47,
         "canton": "BASILEA"
       },
       "basel-weil-am-rhein-freiburgerstrasse": {
-        "weightedAvgMinutes": 0.10638297872340426,
+        "weightedAvgMinutes": 0.0425531914893617,
         "totalSamples": 47,
         "canton": "BASILEA"
       },
       "basel-weil-am-rhein-hiltalingerstrasse": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "BASILEA"
       },
@@ -51,7 +51,7 @@
         "canton": "NE"
       },
       "biegno-indemini": {
-        "weightedAvgMinutes": 0.10638297872340426,
+        "weightedAvgMinutes": 0.0851063829787234,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -61,12 +61,12 @@
         "canton": "TI"
       },
       "blumberg-bargen-sh-alte-bargener-strasse": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SH"
       },
       "blumberg-bargen-sh-autostrasse-h4": {
-        "weightedAvgMinutes": 0.0425531914893617,
+        "weightedAvgMinutes": 0.02127659574468085,
         "totalSamples": 47,
         "canton": "SH"
       },
@@ -76,7 +76,7 @@
         "canton": "SH"
       },
       "boncourt-delle": {
-        "weightedAvgMinutes": 0.0425531914893617,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "JU"
       },
@@ -96,22 +96,22 @@
         "canton": "SH"
       },
       "busingen-am-hochrhein-dorflingen-siedlerstrasse": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SH"
       },
       "busingen-am-hochrhein-schaffhausen-felsgasse": {
-        "weightedAvgMinutes": 0.0425531914893617,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SH"
       },
       "busingen-am-hochrhein-schaffhausen-gennersbrunnerstrasse": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SH"
       },
       "busingen-am-hochrhein-schaffhausen-rheinhaldenstrasse": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SH"
       },
@@ -121,17 +121,17 @@
         "canton": "SH"
       },
       "busingen-am-hochrhein-schaffhausen-vogelingasschen": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SH"
       },
       "camedo": {
-        "weightedAvgMinutes": 0.06382978723404255,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "TI"
       },
       "campione-d-italia-bissone": {
-        "weightedAvgMinutes": 3.765957446808511,
+        "weightedAvgMinutes": 4.425531914893617,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -141,7 +141,7 @@
         "canton": "GR"
       },
       "castasegna-villa-di-chiavenna": {
-        "weightedAvgMinutes": 0.0425531914893617,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "GR"
       },
@@ -151,22 +151,22 @@
         "canton": "VD"
       },
       "chiasso-brogeda": {
-        "weightedAvgMinutes": 1.9574468085106382,
+        "weightedAvgMinutes": 1.6808510638297873,
         "totalSamples": 47,
         "canton": "TI"
       },
       "chiasso-centro": {
-        "weightedAvgMinutes": 0.23404255319148937,
+        "weightedAvgMinutes": 0.19148936170212766,
         "totalSamples": 47,
         "canton": "TI"
       },
       "chiasso-strada": {
-        "weightedAvgMinutes": 1.1063829787234043,
+        "weightedAvgMinutes": 0.425531914893617,
         "totalSamples": 47,
         "canton": "TI"
       },
       "clivio-ligornetto": {
-        "weightedAvgMinutes": 0.10638297872340426,
+        "weightedAvgMinutes": 0.0425531914893617,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -181,7 +181,7 @@
         "canton": "VD"
       },
       "cremenaga-ponte-cremenaga": {
-        "weightedAvgMinutes": 0.0851063829787234,
+        "weightedAvgMinutes": 0.02127659574468085,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -191,7 +191,7 @@
         "canton": "TI"
       },
       "dettighofen-rafz": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "ZH"
       },
@@ -241,7 +241,7 @@
         "canton": "JU"
       },
       "ferney-voltaire-grand-saconnex": {
-        "weightedAvgMinutes": 3.4680851063829787,
+        "weightedAvgMinutes": 3.404255319148936,
         "totalSamples": 47,
         "canton": "GE"
       },
@@ -251,7 +251,7 @@
         "canton": "GR"
       },
       "gaggiolo": {
-        "weightedAvgMinutes": 3.2127659574468086,
+        "weightedAvgMinutes": 3.021276595744681,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -266,7 +266,7 @@
         "canton": "SH"
       },
       "giogo-di-santa-maria": {
-        "weightedAvgMinutes": 0.06382978723404255,
+        "weightedAvgMinutes": 0.0425531914893617,
         "totalSamples": 47,
         "canton": "GR"
       },
@@ -276,17 +276,17 @@
         "canton": "SH"
       },
       "gottmadingen-buch-sh": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SH"
       },
       "gottmadingen-ramsen-hofenacker": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SH"
       },
       "gottmadingen-thayngen-autostrada-a81-a4": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SH"
       },
@@ -301,12 +301,12 @@
         "canton": "JU"
       },
       "grenzach-wyhlen-riehen": {
-        "weightedAvgMinutes": 0.0425531914893617,
+        "weightedAvgMinutes": 0.02127659574468085,
         "totalSamples": 47,
         "canton": "BASILEA"
       },
       "haag-bendern": {
-        "weightedAvgMinutes": 0.06382978723404255,
+        "weightedAvgMinutes": 0.02127659574468085,
         "totalSamples": 47,
         "canton": "SG"
       },
@@ -336,7 +336,7 @@
         "canton": "ZH"
       },
       "inzlingen-riehen": {
-        "weightedAvgMinutes": 0.0425531914893617,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "BASILEA"
       },
@@ -351,7 +351,7 @@
         "canton": "ZH"
       },
       "jestetten-neuhausen-am-rheinfall-buchweg": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SH"
       },
@@ -361,7 +361,7 @@
         "canton": "SH"
       },
       "jestetten-rheinau": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "ZH"
       },
@@ -391,12 +391,12 @@
         "canton": "TG"
       },
       "konstanz-tagerwilen-autostrada-b33n-a7": {
-        "weightedAvgMinutes": 0.06382978723404255,
+        "weightedAvgMinutes": 0.02127659574468085,
         "totalSamples": 47,
         "canton": "TG"
       },
       "konstanz-tagerwilen-gottlieber-strasse": {
-        "weightedAvgMinutes": 0.06382978723404255,
+        "weightedAvgMinutes": 0.02127659574468085,
         "totalSamples": 47,
         "canton": "TG"
       },
@@ -411,7 +411,7 @@
         "canton": "AG"
       },
       "l-auberson-les-fourgs": {
-        "weightedAvgMinutes": 0.0425531914893617,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "VD"
       },
@@ -426,7 +426,7 @@
         "canton": "GE"
       },
       "lanzo-d-intelvi-arogno": {
-        "weightedAvgMinutes": 0.0425531914893617,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -441,7 +441,7 @@
         "canton": "VD"
       },
       "le-chatelard-vallorcine": {
-        "weightedAvgMinutes": 0.0425531914893617,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "VS"
       },
@@ -461,17 +461,17 @@
         "canton": "ZH"
       },
       "lottstetten-rafz-schaffhausener-strasse": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "ZH"
       },
       "lottstetten-rudlingen": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SH"
       },
       "luino-fornasette": {
-        "weightedAvgMinutes": 0.14893617021276595,
+        "weightedAvgMinutes": 0.06382978723404255,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -481,7 +481,7 @@
         "canton": "GR"
       },
       "maslianico-pizzamiglio": {
-        "weightedAvgMinutes": 0.0425531914893617,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -496,7 +496,7 @@
         "canton": "GE"
       },
       "moillesulaz": {
-        "weightedAvgMinutes": 0.10638297872340426,
+        "weightedAvgMinutes": 0.0425531914893617,
         "totalSamples": 47,
         "canton": "GE"
       },
@@ -506,7 +506,7 @@
         "canton": "SG"
       },
       "morgins-chatel": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "VS"
       },
@@ -526,7 +526,7 @@
         "canton": "TI"
       },
       "passo-dello-spluga": {
-        "weightedAvgMinutes": 0.0425531914893617,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "GR"
       },
@@ -541,17 +541,17 @@
         "canton": "TI"
       },
       "ponte-tresa": {
-        "weightedAvgMinutes": 0.40425531914893614,
-        "totalSamples": 47,
-        "canton": "TI"
-      },
-      "porto-ceresio-brusino": {
         "weightedAvgMinutes": 0.2978723404255319,
         "totalSamples": 47,
         "canton": "TI"
       },
+      "porto-ceresio-brusino": {
+        "weightedAvgMinutes": 0.06382978723404255,
+        "totalSamples": 47,
+        "canton": "TI"
+      },
       "ramsen-moskau-rielasingen-worblingen": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SH"
       },
@@ -561,22 +561,22 @@
         "canton": "SG"
       },
       "rheinfelden-rheinfelden-ag-alte-rheinbrucke": {
-        "weightedAvgMinutes": 0.1702127659574468,
+        "weightedAvgMinutes": 0.06382978723404255,
         "totalSamples": 47,
         "canton": "AG"
       },
       "rheinfelden-rheinfelden-ag-autostrada-a861-a3": {
-        "weightedAvgMinutes": 0.3404255319148936,
+        "weightedAvgMinutes": 0.2553191489361702,
         "totalSamples": 47,
         "canton": "AG"
       },
       "riehen-lorrach-stetten": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "BASILEA"
       },
       "riehen-weil-am-rhein": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "BASILEA"
       },
@@ -591,7 +591,7 @@
         "canton": "TI"
       },
       "ruthi-meiningen": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SG"
       },
@@ -606,17 +606,17 @@
         "canton": "SG"
       },
       "saltrio-arzo": {
-        "weightedAvgMinutes": 0.1276595744680851,
+        "weightedAvgMinutes": 0.06382978723404255,
         "totalSamples": 47,
         "canton": "TI"
       },
       "samnaun-spiss": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "GR"
       },
       "san-pietro": {
-        "weightedAvgMinutes": 3.0851063829787235,
+        "weightedAvgMinutes": 2.893617021276596,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -626,7 +626,7 @@
         "canton": "GE"
       },
       "sempione": {
-        "weightedAvgMinutes": 0.5957446808510638,
+        "weightedAvgMinutes": 0.3829787234042553,
         "totalSamples": 47,
         "canton": "VS"
       },
@@ -641,7 +641,7 @@
         "canton": "GR"
       },
       "st-margrethen-hochst": {
-        "weightedAvgMinutes": 0.2765957446808511,
+        "weightedAvgMinutes": 0.0425531914893617,
         "totalSamples": 47,
         "canton": "SG"
       },
@@ -656,7 +656,7 @@
         "canton": "SH"
       },
       "tengen-thayngen-l188": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SH"
       },
@@ -666,12 +666,12 @@
         "canton": "SH"
       },
       "thonex-vallard": {
-        "weightedAvgMinutes": 0.14893617021276595,
+        "weightedAvgMinutes": 0.0851063829787234,
         "totalSamples": 47,
         "canton": "GE"
       },
       "traforo-del-gran-san-bernardo": {
-        "weightedAvgMinutes": 0.10638297872340426,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "VS"
       },
@@ -691,7 +691,7 @@
         "canton": "VD"
       },
       "waldshut-tiengen-koblenz-ag": {
-        "weightedAvgMinutes": 0.0425531914893617,
+        "weightedAvgMinutes": 0.02127659574468085,
         "totalSamples": 47,
         "canton": "AG"
       },
@@ -701,7 +701,7 @@
         "canton": "SG"
       },
       "widnau-lustenau-schmitterbrucke": {
-        "weightedAvgMinutes": 0.0851063829787234,
+        "weightedAvgMinutes": 0,
         "totalSamples": 47,
         "canton": "SG"
       },
@@ -713,26 +713,26 @@
     }
   },
   "previous": {
-    "weekStart": "2026-10-04",
-    "weekEnd": "2026-10-10",
+    "weekStart": "2026-10-05",
+    "weekEnd": "2026-10-11",
     "perCrossing": {
       "anieres": {
-        "weightedAvgMinutes": 0.0851063829787234,
+        "weightedAvgMinutes": 0.06382978723404255,
         "totalSamples": 47,
         "canton": "GE"
       },
       "au-lustenau": {
-        "weightedAvgMinutes": 1.3191489361702127,
+        "weightedAvgMinutes": 1.3404255319148937,
         "totalSamples": 47,
         "canton": "SG"
       },
       "bad-sackingen-stein-ag": {
-        "weightedAvgMinutes": 1.8297872340425532,
+        "weightedAvgMinutes": 1.851063829787234,
         "totalSamples": 47,
         "canton": "AG"
       },
       "bardonnex": {
-        "weightedAvgMinutes": 10.382978723404255,
+        "weightedAvgMinutes": 10.425531914893616,
         "totalSamples": 47,
         "canton": "GE"
       },
@@ -742,17 +742,17 @@
         "canton": "SH"
       },
       "basel-weil-am-rhein-autostrada-a2-a5": {
-        "weightedAvgMinutes": 1.5319148936170213,
+        "weightedAvgMinutes": 1.574468085106383,
         "totalSamples": 47,
         "canton": "BASILEA"
       },
       "basel-weil-am-rhein-freiburgerstrasse": {
-        "weightedAvgMinutes": 0.9361702127659575,
+        "weightedAvgMinutes": 1,
         "totalSamples": 47,
         "canton": "BASILEA"
       },
       "basel-weil-am-rhein-hiltalingerstrasse": {
-        "weightedAvgMinutes": 2.5319148936170213,
+        "weightedAvgMinutes": 2.5106382978723403,
         "totalSamples": 47,
         "canton": "BASILEA"
       },
@@ -762,22 +762,22 @@
         "canton": "NE"
       },
       "biegno-indemini": {
-        "weightedAvgMinutes": 0.2127659574468085,
+        "weightedAvgMinutes": 0.23404255319148937,
         "totalSamples": 47,
         "canton": "TI"
       },
       "bizzarone-novazzano": {
-        "weightedAvgMinutes": 2.4893617021276597,
+        "weightedAvgMinutes": 2.4468085106382977,
         "totalSamples": 47,
         "canton": "TI"
       },
       "blumberg-bargen-sh-alte-bargener-strasse": {
-        "weightedAvgMinutes": 0.1276595744680851,
+        "weightedAvgMinutes": 0.14893617021276595,
         "totalSamples": 47,
         "canton": "SH"
       },
       "blumberg-bargen-sh-autostrasse-h4": {
-        "weightedAvgMinutes": 0.2553191489361702,
+        "weightedAvgMinutes": 0.2765957446808511,
         "totalSamples": 47,
         "canton": "SH"
       },
@@ -787,7 +787,7 @@
         "canton": "SH"
       },
       "boncourt-delle": {
-        "weightedAvgMinutes": 0.1702127659574468,
+        "weightedAvgMinutes": 0.2127659574468085,
         "totalSamples": 47,
         "canton": "JU"
       },
@@ -807,22 +807,22 @@
         "canton": "SH"
       },
       "busingen-am-hochrhein-dorflingen-siedlerstrasse": {
-        "weightedAvgMinutes": 0.0851063829787234,
+        "weightedAvgMinutes": 0.10638297872340426,
         "totalSamples": 47,
         "canton": "SH"
       },
       "busingen-am-hochrhein-schaffhausen-felsgasse": {
-        "weightedAvgMinutes": 0.7446808510638298,
+        "weightedAvgMinutes": 0.7659574468085106,
         "totalSamples": 47,
         "canton": "SH"
       },
       "busingen-am-hochrhein-schaffhausen-gennersbrunnerstrasse": {
-        "weightedAvgMinutes": 0.23404255319148937,
+        "weightedAvgMinutes": 0.2553191489361702,
         "totalSamples": 47,
         "canton": "SH"
       },
       "busingen-am-hochrhein-schaffhausen-rheinhaldenstrasse": {
-        "weightedAvgMinutes": 0.6170212765957447,
+        "weightedAvgMinutes": 0.5957446808510638,
         "totalSamples": 47,
         "canton": "SH"
       },
@@ -832,27 +832,27 @@
         "canton": "SH"
       },
       "busingen-am-hochrhein-schaffhausen-vogelingasschen": {
-        "weightedAvgMinutes": 0.8085106382978723,
+        "weightedAvgMinutes": 0.7872340425531915,
         "totalSamples": 47,
         "canton": "SH"
       },
       "camedo": {
-        "weightedAvgMinutes": 0.3191489361702128,
+        "weightedAvgMinutes": 0.3829787234042553,
         "totalSamples": 47,
         "canton": "TI"
       },
       "campione-d-italia-bissone": {
-        "weightedAvgMinutes": 1.7234042553191489,
+        "weightedAvgMinutes": 1.7446808510638299,
         "totalSamples": 47,
         "canton": "TI"
       },
       "campocologno-tirano": {
-        "weightedAvgMinutes": 0.23404255319148937,
+        "weightedAvgMinutes": 0.19148936170212766,
         "totalSamples": 47,
         "canton": "GR"
       },
       "castasegna-villa-di-chiavenna": {
-        "weightedAvgMinutes": 0.3404255319148936,
+        "weightedAvgMinutes": 0.3617021276595745,
         "totalSamples": 47,
         "canton": "GR"
       },
@@ -862,22 +862,22 @@
         "canton": "VD"
       },
       "chiasso-brogeda": {
-        "weightedAvgMinutes": 6.404255319148936,
+        "weightedAvgMinutes": 5.9361702127659575,
         "totalSamples": 47,
         "canton": "TI"
       },
       "chiasso-centro": {
-        "weightedAvgMinutes": 3.0851063829787235,
+        "weightedAvgMinutes": 2.9361702127659575,
         "totalSamples": 47,
         "canton": "TI"
       },
       "chiasso-strada": {
-        "weightedAvgMinutes": 15.042553191489361,
+        "weightedAvgMinutes": 14.74468085106383,
         "totalSamples": 47,
         "canton": "TI"
       },
       "clivio-ligornetto": {
-        "weightedAvgMinutes": 0.8085106382978723,
+        "weightedAvgMinutes": 0.8723404255319149,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -892,7 +892,7 @@
         "canton": "VD"
       },
       "cremenaga-ponte-cremenaga": {
-        "weightedAvgMinutes": 0.10638297872340426,
+        "weightedAvgMinutes": 0.1702127659574468,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -902,7 +902,7 @@
         "canton": "TI"
       },
       "dettighofen-rafz": {
-        "weightedAvgMinutes": 0.2127659574468085,
+        "weightedAvgMinutes": 0.23404255319148937,
         "totalSamples": 47,
         "canton": "ZH"
       },
@@ -952,32 +952,32 @@
         "canton": "JU"
       },
       "ferney-voltaire-grand-saconnex": {
-        "weightedAvgMinutes": 4.297872340425532,
+        "weightedAvgMinutes": 4,
         "totalSamples": 47,
         "canton": "GE"
       },
       "forcola-di-livigno": {
-        "weightedAvgMinutes": 0.2978723404255319,
+        "weightedAvgMinutes": 0.2553191489361702,
         "totalSamples": 47,
         "canton": "GR"
       },
       "gaggiolo": {
-        "weightedAvgMinutes": 5.957446808510638,
+        "weightedAvgMinutes": 5.638297872340425,
         "totalSamples": 47,
         "canton": "TI"
       },
       "gailingen-am-hochrhein-dorflingen": {
-        "weightedAvgMinutes": 0.5106382978723404,
+        "weightedAvgMinutes": 0.46808510638297873,
         "totalSamples": 47,
         "canton": "SH"
       },
       "gailingen-am-hochrhein-ramsen-sh": {
-        "weightedAvgMinutes": 0.0425531914893617,
+        "weightedAvgMinutes": 0.02127659574468085,
         "totalSamples": 47,
         "canton": "SH"
       },
       "giogo-di-santa-maria": {
-        "weightedAvgMinutes": 0.06382978723404255,
+        "weightedAvgMinutes": 0.0851063829787234,
         "totalSamples": 47,
         "canton": "GR"
       },
@@ -987,17 +987,17 @@
         "canton": "SH"
       },
       "gottmadingen-buch-sh": {
-        "weightedAvgMinutes": 0.19148936170212766,
+        "weightedAvgMinutes": 0.2127659574468085,
         "totalSamples": 47,
         "canton": "SH"
       },
       "gottmadingen-ramsen-hofenacker": {
-        "weightedAvgMinutes": 0.5957446808510638,
+        "weightedAvgMinutes": 0.5319148936170213,
         "totalSamples": 47,
         "canton": "SH"
       },
       "gottmadingen-thayngen-autostrada-a81-a4": {
-        "weightedAvgMinutes": 0.23404255319148937,
+        "weightedAvgMinutes": 0.2553191489361702,
         "totalSamples": 47,
         "canton": "SH"
       },
@@ -1007,17 +1007,17 @@
         "canton": "SH"
       },
       "goumois": {
-        "weightedAvgMinutes": 0.10638297872340426,
+        "weightedAvgMinutes": 0.06382978723404255,
         "totalSamples": 47,
         "canton": "JU"
       },
       "grenzach-wyhlen-riehen": {
-        "weightedAvgMinutes": 4.638297872340425,
+        "weightedAvgMinutes": 4.595744680851064,
         "totalSamples": 47,
         "canton": "BASILEA"
       },
       "haag-bendern": {
-        "weightedAvgMinutes": 2.021276595744681,
+        "weightedAvgMinutes": 2.0638297872340425,
         "totalSamples": 47,
         "canton": "SG"
       },
@@ -1047,7 +1047,7 @@
         "canton": "ZH"
       },
       "inzlingen-riehen": {
-        "weightedAvgMinutes": 1.2127659574468086,
+        "weightedAvgMinutes": 1.1914893617021276,
         "totalSamples": 47,
         "canton": "BASILEA"
       },
@@ -1062,7 +1062,7 @@
         "canton": "ZH"
       },
       "jestetten-neuhausen-am-rheinfall-buchweg": {
-        "weightedAvgMinutes": 0.1276595744680851,
+        "weightedAvgMinutes": 0.14893617021276595,
         "totalSamples": 47,
         "canton": "SH"
       },
@@ -1072,7 +1072,7 @@
         "canton": "SH"
       },
       "jestetten-rheinau": {
-        "weightedAvgMinutes": 0,
+        "weightedAvgMinutes": 0.02127659574468085,
         "totalSamples": 47,
         "canton": "ZH"
       },
@@ -1092,12 +1092,12 @@
         "canton": "ZH"
       },
       "klettgau-wilchingen": {
-        "weightedAvgMinutes": 0.0851063829787234,
+        "weightedAvgMinutes": 0.06382978723404255,
         "totalSamples": 47,
         "canton": "SH"
       },
       "konstanz-kreuzlingen": {
-        "weightedAvgMinutes": 1.0425531914893618,
+        "weightedAvgMinutes": 1,
         "totalSamples": 47,
         "canton": "TG"
       },
@@ -1107,7 +1107,7 @@
         "canton": "TG"
       },
       "konstanz-tagerwilen-gottlieber-strasse": {
-        "weightedAvgMinutes": 2.148936170212766,
+        "weightedAvgMinutes": 2.106382978723404,
         "totalSamples": 47,
         "canton": "TG"
       },
@@ -1122,7 +1122,7 @@
         "canton": "AG"
       },
       "l-auberson-les-fourgs": {
-        "weightedAvgMinutes": 0.14893617021276595,
+        "weightedAvgMinutes": 0.19148936170212766,
         "totalSamples": 47,
         "canton": "VD"
       },
@@ -1132,17 +1132,17 @@
         "canton": "VD"
       },
       "landecy": {
-        "weightedAvgMinutes": 0.9361702127659575,
+        "weightedAvgMinutes": 0.9148936170212766,
         "totalSamples": 47,
         "canton": "GE"
       },
       "lanzo-d-intelvi-arogno": {
-        "weightedAvgMinutes": 0.5319148936170213,
+        "weightedAvgMinutes": 0.5106382978723404,
         "totalSamples": 47,
         "canton": "TI"
       },
       "laufenburg-laufenburg-ag": {
-        "weightedAvgMinutes": 1.127659574468085,
+        "weightedAvgMinutes": 1.1063829787234043,
         "totalSamples": 47,
         "canton": "AG"
       },
@@ -1152,7 +1152,7 @@
         "canton": "VD"
       },
       "le-chatelard-vallorcine": {
-        "weightedAvgMinutes": 0.19148936170212766,
+        "weightedAvgMinutes": 0.2127659574468085,
         "totalSamples": 47,
         "canton": "VS"
       },
@@ -1172,17 +1172,17 @@
         "canton": "ZH"
       },
       "lottstetten-rafz-schaffhausener-strasse": {
-        "weightedAvgMinutes": 0.425531914893617,
+        "weightedAvgMinutes": 0.44680851063829785,
         "totalSamples": 47,
         "canton": "ZH"
       },
       "lottstetten-rudlingen": {
-        "weightedAvgMinutes": 0.02127659574468085,
+        "weightedAvgMinutes": 0.0425531914893617,
         "totalSamples": 47,
         "canton": "SH"
       },
       "luino-fornasette": {
-        "weightedAvgMinutes": 0.2553191489361702,
+        "weightedAvgMinutes": 0.3404255319148936,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -1192,7 +1192,7 @@
         "canton": "GR"
       },
       "maslianico-pizzamiglio": {
-        "weightedAvgMinutes": 0.7872340425531915,
+        "weightedAvgMinutes": 0.8085106382978723,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -1207,7 +1207,7 @@
         "canton": "GE"
       },
       "moillesulaz": {
-        "weightedAvgMinutes": 2.5531914893617023,
+        "weightedAvgMinutes": 2.5319148936170213,
         "totalSamples": 47,
         "canton": "GE"
       },
@@ -1217,7 +1217,7 @@
         "canton": "SG"
       },
       "morgins-chatel": {
-        "weightedAvgMinutes": 0.3617021276595745,
+        "weightedAvgMinutes": 0.3829787234042553,
         "totalSamples": 47,
         "canton": "VS"
       },
@@ -1232,12 +1232,12 @@
         "canton": "SH"
       },
       "oria-gandria": {
-        "weightedAvgMinutes": 0.5106382978723404,
+        "weightedAvgMinutes": 0.46808510638297873,
         "totalSamples": 47,
         "canton": "TI"
       },
       "passo-dello-spluga": {
-        "weightedAvgMinutes": 0.48936170212765956,
+        "weightedAvgMinutes": 0.40425531914893614,
         "totalSamples": 47,
         "canton": "GR"
       },
@@ -1252,17 +1252,17 @@
         "canton": "TI"
       },
       "ponte-tresa": {
-        "weightedAvgMinutes": 7.1063829787234045,
+        "weightedAvgMinutes": 5.702127659574468,
         "totalSamples": 47,
         "canton": "TI"
       },
       "porto-ceresio-brusino": {
-        "weightedAvgMinutes": 4.148936170212766,
+        "weightedAvgMinutes": 4.0212765957446805,
         "totalSamples": 47,
         "canton": "TI"
       },
       "ramsen-moskau-rielasingen-worblingen": {
-        "weightedAvgMinutes": 0.1276595744680851,
+        "weightedAvgMinutes": 0.14893617021276595,
         "totalSamples": 47,
         "canton": "SH"
       },
@@ -1272,27 +1272,27 @@
         "canton": "SG"
       },
       "rheinfelden-rheinfelden-ag-alte-rheinbrucke": {
-        "weightedAvgMinutes": 2.723404255319149,
+        "weightedAvgMinutes": 2.765957446808511,
         "totalSamples": 47,
         "canton": "AG"
       },
       "rheinfelden-rheinfelden-ag-autostrada-a861-a3": {
-        "weightedAvgMinutes": 4.48936170212766,
+        "weightedAvgMinutes": 4.51063829787234,
         "totalSamples": 47,
         "canton": "AG"
       },
       "riehen-lorrach-stetten": {
-        "weightedAvgMinutes": 1.2127659574468086,
+        "weightedAvgMinutes": 1.1914893617021276,
         "totalSamples": 47,
         "canton": "BASILEA"
       },
       "riehen-weil-am-rhein": {
-        "weightedAvgMinutes": 0.7872340425531915,
+        "weightedAvgMinutes": 0.723404255319149,
         "totalSamples": 47,
         "canton": "BASILEA"
       },
       "rielasingen-worblingen-ramsen-hofenacker": {
-        "weightedAvgMinutes": 0.7872340425531915,
+        "weightedAvgMinutes": 0.6808510638297872,
         "totalSamples": 47,
         "canton": "SH"
       },
@@ -1302,7 +1302,7 @@
         "canton": "TI"
       },
       "ruthi-meiningen": {
-        "weightedAvgMinutes": 0.1276595744680851,
+        "weightedAvgMinutes": 0.14893617021276595,
         "totalSamples": 47,
         "canton": "SG"
       },
@@ -1317,17 +1317,17 @@
         "canton": "SG"
       },
       "saltrio-arzo": {
-        "weightedAvgMinutes": 0.8297872340425532,
+        "weightedAvgMinutes": 0.8936170212765957,
         "totalSamples": 47,
         "canton": "TI"
       },
       "samnaun-spiss": {
-        "weightedAvgMinutes": 0.19148936170212766,
+        "weightedAvgMinutes": 0.2127659574468085,
         "totalSamples": 47,
         "canton": "GR"
       },
       "san-pietro": {
-        "weightedAvgMinutes": 4.319148936170213,
+        "weightedAvgMinutes": 4,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -1337,7 +1337,7 @@
         "canton": "GE"
       },
       "sempione": {
-        "weightedAvgMinutes": 1.7659574468085106,
+        "weightedAvgMinutes": 1.9787234042553192,
         "totalSamples": 47,
         "canton": "VS"
       },
@@ -1352,7 +1352,7 @@
         "canton": "GR"
       },
       "st-margrethen-hochst": {
-        "weightedAvgMinutes": 2.106382978723404,
+        "weightedAvgMinutes": 2.2127659574468086,
         "totalSamples": 47,
         "canton": "SG"
       },
@@ -1362,12 +1362,12 @@
         "canton": "SH"
       },
       "stuhlingen-schleitheim": {
-        "weightedAvgMinutes": 0.19148936170212766,
+        "weightedAvgMinutes": 0.1702127659574468,
         "totalSamples": 47,
         "canton": "SH"
       },
       "tengen-thayngen-l188": {
-        "weightedAvgMinutes": 0.10638297872340426,
+        "weightedAvgMinutes": 0.1276595744680851,
         "totalSamples": 47,
         "canton": "SH"
       },
@@ -1382,7 +1382,7 @@
         "canton": "GE"
       },
       "traforo-del-gran-san-bernardo": {
-        "weightedAvgMinutes": 0.46808510638297873,
+        "weightedAvgMinutes": 0.5319148936170213,
         "totalSamples": 47,
         "canton": "VS"
       },
@@ -1402,7 +1402,7 @@
         "canton": "VD"
       },
       "waldshut-tiengen-koblenz-ag": {
-        "weightedAvgMinutes": 2.148936170212766,
+        "weightedAvgMinutes": 2.127659574468085,
         "totalSamples": 47,
         "canton": "AG"
       },
@@ -1412,12 +1412,12 @@
         "canton": "SG"
       },
       "widnau-lustenau-schmitterbrucke": {
-        "weightedAvgMinutes": 0.1702127659574468,
+        "weightedAvgMinutes": 0.2553191489361702,
         "totalSamples": 47,
         "canton": "SG"
       },
       "zenna-dirinella": {
-        "weightedAvgMinutes": 0.40425531914893614,
+        "weightedAvgMinutes": 0.3617021276595745,
         "totalSamples": 47,
         "canton": "TI"
       }

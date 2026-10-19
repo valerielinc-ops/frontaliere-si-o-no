@@ -58,6 +58,7 @@ import { handleEmployerInsights } from './src/employerInsights.js';
 import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
 import { getPublicConfigValues } from './src/publicConfig.js';
 import { getPublicTrafficCurrent } from './src/publicTrafficCurrent.js';
+import { getPublicTrafficHistory } from './src/publicTrafficHistory.js';
 import { handleGeminiGenerate } from './src/geminiGenerate.js';
 import { handleGetExchangeRate } from './src/exchangeRate.js';
 import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
@@ -78,7 +79,10 @@ import {
   runConsultingPaidNoticeSweep,
 } from './src/consultingCore.js';
 import { handleCreateAssistedApplicationCheckout } from './src/assistedApplicationCheckout.js';
-import { handleAssistedApplicationSumUpWebhook } from './src/assistedApplicationSumupWebhook.js';
+import {
+  handleAssistedApplicationSumUpWebhook,
+  runAssistedApplicationSumUpReconciliation,
+} from './src/assistedApplicationSumupWebhook.js';
 import { recordApplicationIntent as handleRecordApplicationIntent } from './src/applicationIntentCore.js';
 import { handleCreateApplicationConciergeCheckout } from './src/applicationConciergeCheckout.js';
 import {
@@ -503,6 +507,32 @@ export const getTrafficCurrent = onRequest(
  // A non-2xx response is essential: the client then keeps the pre-rendered
  // values instead of treating an empty 200 snapshot as authoritative.
  res.status(503).json({ documents: [], error: 'traffic_snapshot_unavailable' });
+ }
+ },
+);
+
+// Public traffic history aggregate. The browser must not issue six 500-row
+// Firestore queries per visit; the function keeps the same sample and serves
+// the derived day/hour averages from a warm six-hour cache.
+export const getTrafficHistory = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ if (req.method !== 'GET') {
+  res.status(405).json({ error: 'method_not_allowed' });
+  return;
+ }
+ try {
+  const snapshot = await getPublicTrafficHistory();
+  res.set('Cache-Control', 'public, max-age=21600, s-maxage=21600');
+  res.status(200).json(snapshot);
+ } catch (error) {
+  console.error('[getTrafficHistory]', error instanceof Error ? error.message : String(error));
+  res.status(503).json({ history: {}, error: 'traffic_history_unavailable' });
  }
  },
 );
@@ -2089,6 +2119,34 @@ export const sumupAssistedApplicationWebhook = onRequest(
         error instanceof Error ? error.message : String(error),
       );
       res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// SumUp retries webhook delivery, but a callback can still be acknowledged
+// while the provider is processing a later attempt. Re-check recent, unpaid
+// assisted-app checkouts so a provider-confirmed PAID state cannot remain
+// locked in the local ledger indefinitely.
+export const reconcileAssistedApplicationSumUpPayments = onSchedule(
+  {
+    region: 'europe-west6',
+    schedule: 'every 30 minutes',
+    timeZone: 'Europe/Zurich',
+    memory: '256MiB',
+    timeoutSeconds: 120,
+  },
+  async () => {
+    try {
+      const summary = await runAssistedApplicationSumUpReconciliation({ db: getAdminDb() });
+      if (summary.promoted || summary.errors) {
+        console.log('[reconcileAssistedApplicationSumUpPayments]', summary);
+      }
+    } catch (error) {
+      console.error(
+        '[reconcileAssistedApplicationSumUpPayments]',
+        error instanceof Error ? error.message : String(error),
+      );
+      throw error;
     }
   },
 );

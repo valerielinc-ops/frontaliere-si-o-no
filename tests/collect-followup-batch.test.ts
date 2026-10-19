@@ -379,6 +379,25 @@ describe('marker idempotency requires durable bucket/item evidence', () => {
     )).toEqual({ buckets: [42], requiresBucket: true });
   });
 
+  it('recognizes an existing parent bucket updated without creating a child issue', () => {
+    const marker = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: parent #13803 (follow-up window 2026-10-17) with 1 existing item; no child issue created:',
+      '- FU-2026-10-17-004 — source PR #13825 recorded on the parent',
+    ].join('\n');
+    const persisted = {
+      number: 13803,
+      title: 'follow-up(daily:2026-10-17): 6 items — owner/repo',
+      body: '### FU-2026-10-17-004 — item\n- Sources: PR #13825\n',
+    };
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [13803], requiresBucket: true });
+    expect(verifyTriageMarkerPersistence(marker, 13825, () => persisted)).toBe(true);
+    expect(triageMarkerPersistenceExpectation(
+      '## Post-merge follow-up triage\nCreated/updated: parent PR #13825 with 1 item',
+    )).toEqual({ buckets: [], requiresBucket: true });
+  });
+
   it('ignores historical bucket references in a positive marker', () => {
     const markerWithHistory = [
       '## Post-merge follow-up triage',

@@ -10,6 +10,36 @@ const registry = {
   swiss: { 'swiss-id': { it: 'svizzero', en: 'swiss', de: 'schweizer', fr: 'suisse' } },
   swissReverse: { it: { svizzero: 'swiss-id' } },
 };
+const reportedNestedArticleRegistry = {
+  blog: {
+    'nuovo-potabilizzatore-mobile-ticino-emergenza': { en: 'ticino-mobile-water-treatment-emergency' },
+    'chiasso-scoperta-enti-primo-intervento': { en: 'chiasso-scoperta-enti-primo-intervento' },
+    'dazi-usa-rimborsi-ritardi': { de: 'zoll-erstattungs-verzogerungen-usa' },
+    'lago-maggiore-accesso-tutto-l-anno': { de: 'see-maggiore-zugang-ganzjaehrig' },
+  },
+  blogReverse: {
+    en: {
+      'ticino-mobile-water-treatment-emergency': 'nuovo-potabilizzatore-mobile-ticino-emergenza',
+      'chiasso-scoperta-enti-primo-intervento': 'chiasso-scoperta-enti-primo-intervento',
+    },
+    de: {
+      'zoll-erstattungs-verzogerungen-usa': 'dazi-usa-rimborsi-ritardi',
+      'see-maggiore-zugang-ganzjaehrig': 'lago-maggiore-accesso-tutto-l-anno',
+    },
+  },
+};
+const reportedNestedArticleTargets = [
+  '/en/cross-border-articles/ticino-mobile-water-treatment-emergency/',
+  '/en/cross-border-articles/chiasso-scoperta-enti-primo-intervento/',
+  '/de/grenzgaenger-artikel/zoll-erstattungs-verzogerungen-usa/',
+  '/de/grenzgaenger-artikel/see-maggiore-zugang-ganzjaehrig/',
+];
+const reportedNestedArticleCases = [
+  ['/en/cross-border-articles/ticino-mobile-water-treatment-emergency/alertswiss.ch', reportedNestedArticleTargets[0]],
+  ['/en/cross-border-articles/chiasso-scoperta-enti-primo-intervento/www.chiasso.ch/missione-emergenza-chiasso-2026', reportedNestedArticleTargets[1]],
+  ['/de/grenzgaenger-artikel/zoll-erstattungs-verzogerungen-usa/calculator', reportedNestedArticleTargets[2]],
+  ['/de/grenzgaenger-artikel/see-maggiore-zugang-ganzjaehrig/calculator', reportedNestedArticleTargets[3]],
+];
 
 beforeEach(() => {
   __resetCorpusRegistryForTests();
@@ -17,11 +47,13 @@ beforeEach(() => {
 });
 afterEach(() => { __resetCorpusRegistryForTests(); vi.useRealTimers(); vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
-function mockOrigin({ current = 404, target = 200, api = 200, payload = JSON.stringify(registry) } = {}) {
+function mockOrigin({ current = 404, target = 200, api = 200, payload = JSON.stringify(registry),
+  targetPaths = ['/de/grenzgaenger-artikel/artikel/'] } = {}) {
+  const verifiedTargets = new Set(targetPaths);
   return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
     const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
     if (url.pathname.endsWith('/slugs.json')) return new Response(payload, { status: api });
-    return new Response('page', { status: url.pathname === '/de/grenzgaenger-artikel/artikel/' ? target : current });
+    return new Response('page', { status: verifiedTargets.has(url.pathname) ? target : current });
   });
 }
 
@@ -36,9 +68,17 @@ describe('article aliases from the public corpus registry', () => {
     expect(articleAliasTarget(from, registry)).toBe(target);
   });
 
+  it.each(reportedNestedArticleCases)(
+    'recovers a reported nested URL only when its first segment is the current same-locale slug: %s',
+    (from, target) => {
+      expect(articleAliasTarget(from, reportedNestedArticleRegistry)).toBe(target);
+    },
+  );
+
   it.each([
     '/de/grenzgaenger-artikel/artikel/', '/de/grenzgaenger-artikel/unknown/',
     '/de/grenzgaenger-artikel/articolo/alertswiss.ch', '/en/swiss-articles/article-id/',
+    '/de/grenzgaenger-artikel/unknown/calculator', '/de/grenzgaenger-artikel/article-id/calculator',
     '/cerca-lavoro-ticino/article-id/', '/de/grenzgaenger-artikel/toString/',
   ])('does not invent a replacement for %s', (pathname) => {
     expect(articleAliasTarget(pathname, registry)).toBeNull();
@@ -61,6 +101,20 @@ describe('article aliases from the public corpus registry', () => {
     const response = await worker.fetch(new Request(`${APEX}/de/grenzgaenger-artikel/articolo/?utm_source=gsc`, { method }), {}, ctx);
     expect(response.status).toBe(301);
     expect(response.headers.get('Location')).toBe('/de/grenzgaenger-artikel/artikel/?utm_source=gsc');
+  });
+
+  it.each(reportedNestedArticleCases.flatMap(([from, target]) => ['GET', 'HEAD'].map((method) => [from, target, method])))
+  ('redirects an exact reported nested URL only after a live registry target check: %s (%s)', async (from, target, method) => {
+    mockOrigin({ payload: JSON.stringify(reportedNestedArticleRegistry), targetPaths: reportedNestedArticleTargets });
+    const response = await worker.fetch(new Request(`${APEX}${from}?utm_source=gsc`, { method }), {}, ctx);
+    expect(response.status).toBe(301);
+    expect(response.headers.get('Location')).toBe(`${target}?utm_source=gsc`);
+  });
+
+  it('keeps a nested article path at 404 when its canonical target is missing', async () => {
+    mockOrigin({ target: 404, payload: JSON.stringify(reportedNestedArticleRegistry), targetPaths: reportedNestedArticleTargets });
+    const [from] = reportedNestedArticleCases[0];
+    expect((await worker.fetch(new Request(`${APEX}${from}`), {}, ctx)).status).toBe(404);
   });
 
   it.each(['GET', 'HEAD'])('preserves an unknown national 410: %s', async (method) => {
