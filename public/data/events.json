@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T11:52:13.804Z",
+  "generatedAt": "2026-10-19T11:53:27.668Z",
   "totalEvents": 14523,
   "events": [
     {
@@ -237202,7 +237202,7 @@
       "startDate": "2026-10-17",
       "endDate": "2026-10-17",
       "startTime": "20:30",
-      "category": "musica",
+      "category": "Metal / Hardcore",
       "venue": "Salzhaus",
       "comune": "Brugg",
       "canton": "AG",
@@ -237233,26 +237233,18 @@
         "name": "Salzhaus"
       },
       "sourceDescriptionHash": "c38bc6b6376f52d062284a3db0f860d2036d78a97a7bbf0f7e176fb84c5ddc67",
-      "musicStyle": "avant-garde pop",
-      "imageUrl": "/images/events/library/event-musica-svizzera-urbana-autunno-inverno-v02.webp",
-      "imageAssetId": "event-musica-svizzera-urbana-autunno-inverno-v02",
-      "imageLicense": "Pixabay Content License",
-      "imageLicenseUrl": "https://pixabay.com/service/license-summary/",
-      "imageCredit": "GPhotography · Pixabay",
-      "imageProvider": "pixabay",
-      "imageAuthor": {
-        "name": "GPhotography",
-        "url": "https://pixabay.com/users/GPhotography-19753942/"
-      },
-      "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
-      "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
+      "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex",
       "description": "LA SIRENA si esibisce al Salzhaus di Brugg nell'ambito di un evento metal/hardcore. Il concerto accompagna l'uscita del suo nuovo album.",
       "descriptionByLocale": {
-        "it": "LA SIRENA, artista di avant-garde pop, si esibisce al Salzhaus di Brugg. L’evento accompagna l’uscita del suo nuovo album.",
-        "en": "LA SIRENA, an avant-garde pop artist, performs at Salzhaus in Brugg. The event accompanies the release of her new album.",
-        "de": "LA SIRENA, eine Avantgarde-Pop-Künstlerin, tritt im Salzhaus in Brugg auf. Der Anlass begleitet die Veröffentlichung ihres neuen Albums.",
-        "fr": "LA SIRENA, artiste d’avant-garde pop, se produit au Salzhaus de Brugg. L’événement accompagne la sortie de son nouvel album."
+        "it": "LA SIRENA si esibisce al Salzhaus di Brugg nell'ambito di un evento metal/hardcore. Il concerto accompagna l'uscita del suo nuovo album.",
+        "en": "LA SIRENA performs at Salzhaus in Brugg as part of a metal/hardcore event. The performance is associated with the release of a new album.",
+        "de": "LA SIRENA tritt im Salzhaus in Brugg bei einer Veranstaltung aus dem Bereich Metal/Hardcore auf. Der Auftritt steht im Zusammenhang mit der Veröffentlichung eines neuen Albums.",
+        "fr": "LA SIRENA se produit au Salzhaus de Brugg dans le cadre d’un événement metal/hardcore. Le spectacle est lié à la sortie d’un nouvel album."
       },
       "descriptionRewriteValidated": true
     },
@@ -264821,6 +264813,11 @@
       },
       "sourceDescriptionHash": "2213a5b3b31bd2638e1b4a142d39ff28ec0ac0c91377990f7d9194f4b968ad53",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "complet-les-secrets-du-monde-fongique-a-la-2026-10-21-2"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -395896,6 +395893,13 @@
         "name": "Ville de Genève Agenda"
       },
       "sourceDescriptionHash": "4c07c79996dca90135a5cf10e9ff278a8d33ae58d124e7cf5d967cd46f7c9e75",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "80e-concours-de-geneve-demi-finale-3-de-direction-2026-11-2"
+        }
+      ],
       "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
       "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
       "imageLicense": "generated-provider",
@@ -491492,6 +491496,13 @@
         "@type": "Organization",
         "name": "altes Spritzenhaus, Sarnen"
       },
+      "previousRoutes": [
+        {
+          "canton": "OW",
+          "comune": "Sarnen",
+          "slug": "kerzenziehen-freizeitzentrum-obwalden-2026-12-01-2"
+        }
+      ],
       "imageUrl": "/images/events/library/event-generico-alpi-montagna-autunno-inverno.webp",
       "imageAssetId": "event-generico-alpi-montagna-autunno-inverno",
       "imageLicense": "generated-provider",
@@ -650079,7 +650090,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Wetzikon; comune: Wetzikon (ZH); cantone: ZH; categoria: Event; data: 2027-06-03; ora: 16:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Wetzikon; comune: Wetzikon (ZH); cantone: ZH; categoria: Event; data: 2027-06-03; ora: 16:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Wetzikon; municipality: Wetzikon (ZH); canton: ZH; category: Event; date: 2027-06-03; time: 16:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Wetzikon; gemeinde: Wetzikon (ZH); kanton: ZH; kategorie: Event; datum: 2027-06-03; uhrzeit: 16:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Wetzikon; commune: Wetzikon (ZH); canton: ZH; catégorie: Event; date: 2027-06-03; heure: 16:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:cff781ea4ae7416b8dd1609b759164d2",

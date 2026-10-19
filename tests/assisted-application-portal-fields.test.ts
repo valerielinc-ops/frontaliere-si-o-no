@@ -374,6 +374,8 @@ describe('portal field extraction', () => {
   it('keeps Workday’s select-input search boxes and leaves the site’s own search out', () => {
     const page = extract(`
       <form role="search"><input type="search" name="q" aria-label="Jobs durchsuchen"></form>
+      <header><form><label for="global-query">Finden</label><input id="global-query" name="as_q"></form></header>
+      <footer><form><label for="footer-query">Suche</label><input id="footer-query" name="as_q"></form></footer>
       <div class="field">
         <label for="country">Land*</label>
         <input id="country" type="search" data-uxi-widget-type="selectinput" data-uxi-multiselect-id="country">
@@ -381,5 +383,27 @@ describe('portal field extraction', () => {
     const searchFields = page.fields.filter((field: any) => field.inputType === 'search');
     expect(searchFields).toHaveLength(1);
     expect(searchFields[0]).toMatchObject({ label: 'Land*', search: true, required: true });
+    expect(page.fields.some((field: any) => ['Finden', 'Suche'].includes(field.label))).toBe(false);
+  });
+
+  it('keeps required application fields and submit controls nested in site chrome', () => {
+    const page = extract(`
+      <header>
+        <form><label for="global-query">Suche</label><input id="global-query" name="as_q"></form>
+        <form>
+          <label for="app-email">Email address*</label>
+          <input id="app-email" name="email" type="email" required>
+          <button type="submit">Apply</button>
+        </form>
+      </header>`);
+
+    expect(page.fields.some((field: any) => field.label === 'Suche')).toBe(false);
+    expect(page.fields.find((field: any) => field.label === 'Email address*')).toMatchObject({
+      inputType: 'email',
+      required: true,
+    });
+    const applyButton = page.buttons.find((button: any) => button.text === 'Apply');
+    expect(applyButton).toMatchObject({ text: 'Apply' });
+    expect(applyButton).not.toHaveProperty('chrome');
   });
 });

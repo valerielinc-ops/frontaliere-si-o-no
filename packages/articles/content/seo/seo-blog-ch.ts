@@ -106815,16 +106815,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-svizzera-vietnam-relazioni-2026': {
     title: 'Svizzera e Vietnam intensificano commercio e investimenti',
-    description: 'Il presidente della Confederazione Guy Parmelin è stato ricevuto ad Hanoi il 17 ottobre 2026 da Tô Lâm e Lê Minh Hưng. Svizzera e Vietnam hanno discusso commercio, investimenti, sviluppo urbano sostenibile, lavoro e innovazione; la firma dell’accordo di libero scambio AELS-Vietnam era prevista per il 18 ottobre.',
+    description: 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni',
     keywords: 'frontalieri, ticino, svizzera, italia, vietnam, intensificano, commercio, investimenti',
     ogTitle: 'Svizzera e Vietnam intensificano commercio e investimenti',
-    ogDescription: 'Il presidente della Confederazione Guy Parmelin è stato ricevuto ad Hanoi il 17 ottobre 2026 da Tô Lâm e Lê Minh Hưng. Svizzera e Vietnam hanno discusso commercio, investimenti, sviluppo urbano sostenibile, lavoro e innovazione; la firma dell’accordo di libero scambio AELS-Vietnam era prevista per il 18 ottobre.',
+    ogDescription: 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni',
     canonicalPath: '/articoli-svizzera/svizzera-vietnam-relazioni-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Svizzera e Vietnam intensificano commercio e investimenti",
-      "description": "Il presidente della Confederazione Guy Parmelin è stato ricevuto ad Hanoi il 17 ottobre 2026 da Tô Lâm e Lê Minh Hưng. Svizzera e Vietnam hanno discusso commercio, investimenti, sviluppo urbano sostenibile, lavoro e innovazione; la firma dell’accordo di libero scambio AELS-Vietnam era prevista per il 18 ottobre.",
+      "description": "Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
@@ -107027,10 +107027,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-pensionato-vince-contro-ffs.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Pensionato vince la battaglia contro le FFS sui trasporti pubblici"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-18T01:47:23+00:00",
       "dateModified": "2026-10-18T01:47:23+00:00",
@@ -107467,6 +107467,196 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-apprendistato-zurigo-guida-pratica': {
+    title: 'Apprendistato a Zurigo: posto, contratto, retribuzione e maturità',
+    description: 'Guida pratica per l\'apprendistato nel Canton Zurigo: come trovare il posto, verificare il contratto, leggere la retribuzione e inquadrare la maturità',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, zurigo, posto, contratto',
+    ogTitle: 'Apprendistato a Zurigo: posto, contratto, retribuzione e maturità',
+    ogDescription: 'Una mappa pratica per orientarsi nell\'apprendistato nel Canton Zurigo: dalla ricerca del posto di tirocinio alla verifica del contratto, dalla lettura della busta paga con i contributi sociali alla maturità professionale. Scopri i passaggi chiave',
+    canonicalPath: '/articoli-svizzera/apprendistato-zurigo-guida-pratica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato a Zurigo: posto, contratto, retribuzione e maturità",
+      "description": "Guida pratica per l'apprendistato nel Canton Zurigo: come trovare il posto, verificare il contratto, leggere la retribuzione e inquadrare la maturità",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/apprendistato-formazione-professionale-canton-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovane apprendista in un'officina svizzera a Zurigo che esamina un contratto"
+      },
+      "datePublished": "2026-10-18T19:10:16+00:00",
+      "dateModified": "2026-10-18T19:10:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-zurigo-guida-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-agenda-federale-voto-2026': {
+    title: 'Consiglio federale ha trasmesso il pacchetto Svizzera-UE',
+    description: 'Il pacchetto Svizzera-UE è stato trasmesso il 13 marzo 2026 Il 29 novembre 2026 si vota sul finanziamento supplementare dell\'AVS Guy Parmelin ha annunciato',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, trasmesso, pacchetto',
+    ogTitle: 'Consiglio federale ha trasmesso il pacchetto Svizzera-UE',
+    ogDescription: 'Il pacchetto Svizzera-UE è stato trasmesso il 13 marzo 2026 Il 29 novembre 2026 si vota sul finanziamento supplementare dell\'AVS Guy Parmelin ha annunciato',
+    canonicalPath: '/articoli-svizzera/agenda-federale-voto-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale ha trasmesso il pacchetto Svizzera-UE",
+      "description": "Il pacchetto Svizzera-UE è stato trasmesso il 13 marzo 2026 Il 29 novembre 2026 si vota sul finanziamento supplementare dell'AVS Guy Parmelin ha annunciato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-agenda-federale-voto-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena istituzionale svizzera legata a decisioni federali e votazioni popolari"
+      },
+      "datePublished": "2026-10-19T02:24:47+00:00",
+      "dateModified": "2026-10-19T02:24:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/agenda-federale-voto-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-giovani-donne-stipendi-svizzera': {
+    title: 'Di più Le giovani svizzere guadagnano meno nonostante siano più istruite',
+    description: 'Nati nel 1995: divario di reddito del 14% Nati nel 1965: divario di reddito del 55% Nel 2025: istruzione terziaria al 54% contro il 48% Tra i genitori',
+    keywords: 'frontalieri, ticino, svizzera, italia, giovani, svizzere, guadagnano, meno',
+    ogTitle: 'Le giovani svizzere guadagnano meno nonostante siano piu istruite',
+    ogDescription: 'Nati nel 1995: divario di reddito del 14% Nati nel 1965: divario di reddito del 55% Nel 2025: istruzione terziaria al 54% contro il 48% Tra i genitori',
+    canonicalPath: '/articoli-svizzera/giovani-donne-stipendi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Le giovani svizzere guadagnano meno nonostante siano più istruite",
+      "description": "Nati nel 1995: divario di reddito del 14% Nati nel 1965: divario di reddito del 55% Nel 2025: istruzione terziaria al 54% contro il 48% Tra i genitori",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-divario-reddito-giovani-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovane donna lavora in un ufficio moderno in Svizzera"
+      },
+      "datePublished": "2026-10-19T03:17:11+00:00",
+      "dateModified": "2026-10-19T03:17:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/giovani-donne-stipendi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-successione-donazione-zurigo-regole': {
+    title: 'Imposta di successione e donazione nel Cantone di Zurigo',
+    description: 'Scopri le regole per l\'imposta di successione e donazione nel Cantone di Zurigo: gradi di parentela, esenzioni per coniuge e discendenti e dichiarazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, cantone',
+    ogTitle: 'Imposta di successione e donazione nel Cantone di Zurigo',
+    ogDescription: 'Analisi completa dell\'imposta di successione e donazione nel Cantone di Zurigo. Scopri come funzionano le aliquote per grado di parentela, le esenzioni per coniuge e discendenti e gli adempimenti.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-donazione-zurigo-regole/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione e donazione nel Cantone di Zurigo",
+      "description": "Scopri le regole per l'imposta di successione e donazione nel Cantone di Zurigo: gradi di parentela, esenzioni per coniuge e discendenti e dichiarazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-imposta-successione-donazione-zurigo-regole.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imposta di successione e donazione nel Cantone di Zurigo"
+      },
+      "datePublished": "2026-10-19T05:15:43+00:00",
+      "dateModified": "2026-10-19T05:15:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-donazione-zurigo-regole/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-securitas-violazioni-lavoro': {
+    title: 'Securitas avrebbe violato migliaia di volte la legge sul lavoro',
+    description: 'Circa 20\'000 presunte violazioni tra 2023 e 2025 Circa 900 dipendenti coinvolti nella Svizzera centrale Turni troppo lunghi e recuperi troppo brevi Securitas',
+    keywords: 'frontalieri, ticino, svizzera, italia, securitas, avrebbe, violato, migliaia',
+    ogTitle: 'Securitas avrebbe violato migliaia di volte la legge sul lavoro',
+    ogDescription: 'Circa 20\'000 presunte violazioni tra 2023 e 2025 Circa 900 dipendenti coinvolti nella Svizzera centrale Turni troppo lunghi e recuperi troppo brevi Securitas',
+    canonicalPath: '/articoli-svizzera/securitas-violazioni-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Securitas avrebbe violato migliaia di volte la legge sul lavoro",
+      "description": "Circa 20'000 presunte violazioni tra 2023 e 2025 Circa 900 dipendenti coinvolti nella Svizzera centrale Turni troppo lunghi e recuperi troppo brevi Securitas",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-securitas-violazioni-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Personale di sicurezza Securitas in Svizzera centrale"
+      },
+      "datePublished": "2026-10-19T06:33:36+00:00",
+      "dateModified": "2026-10-19T06:33:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/securitas-violazioni-lavoro/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
