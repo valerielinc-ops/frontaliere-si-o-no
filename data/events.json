@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T12:51:40.726Z",
+  "generatedAt": "2026-10-19T13:52:30.888Z",
   "totalEvents": 14524,
   "events": [
     {
@@ -258349,7 +258349,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo laboratorio riguarda la preparazione di cioccolato a tema Halloween. L’incontro si svolge a Ginevra, nel Cantone di Ginevra, ed è organizzato da Ville de Genève Agenda; la partecipazione costa 50 CHF.",
+      "descriptionByLocale": {
+        "it": "Questo laboratorio riguarda la preparazione di cioccolato a tema Halloween. L’incontro si svolge a Ginevra, nel Cantone di Ginevra, ed è organizzato da Ville de Genève Agenda; la partecipazione costa 50 CHF.",
+        "en": "This workshop focuses on creating chocolate for Halloween. It takes place in Geneva in the canton of Geneva, is organized by Ville de Genève Agenda, and costs CHF 50.",
+        "de": "In diesem Workshop geht es um die Herstellung von Schokolade zu Halloween. Die Veranstaltung findet in Genf im Kanton Genf statt, wird von Ville de Genève Agenda organisiert und kostet 50 CHF.",
+        "fr": "Cet atelier est consacré à la création de chocolat sur le thème d’Halloween. Il se déroule à Genève, dans le canton de Genève, est organisé par Ville de Genève Agenda et coûte 50 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:atelier-fabrication-film-stop-motion-bibliotheque-cite",
@@ -261974,7 +261982,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa mostra del MASI presenta a Lugano nove opere video appartenenti alla collezione del museo. L’allestimento presso la sede di Palazzo Reali è organizzato in tre sezioni tematiche.",
+      "descriptionByLocale": {
+        "it": "Questa mostra del MASI presenta a Lugano nove opere video appartenenti alla collezione del museo. L’allestimento presso la sede di Palazzo Reali è organizzato in tre sezioni tematiche.",
+        "en": "This exhibition at MASI in Lugano brings together nine video works from the museum’s collection. The presentation at Palazzo Reali is arranged in three thematic sections.",
+        "de": "Die Ausstellung des MASI in Lugano zeigt neun Videoarbeiten aus der Museumssammlung. Die Präsentation im Palazzo Reali ist in drei thematische Bereiche gegliedert.",
+        "fr": "L’exposition du MASI à Lugano réunit neuf œuvres vidéo issues de la collection du musée. La présentation à Palazzo Reali est répartie en trois volets thématiques."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AnQK2e9",
@@ -281180,7 +281196,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa mostra racconta la storia di Bitcoin attraverso dieci designer toy dipinti a mano, realizzati da artisti che hanno lavorato a partire dalla stessa figura bianca e senza volto. L’esposizione, ospitata a Villa Ciani a Lugano, comprende anche un’installazione luminosa costruita a mano, nella quale le figure collocate attivano motivi luminosi differenti; l’accesso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Questa mostra racconta la storia di Bitcoin attraverso dieci designer toy dipinti a mano, realizzati da artisti che hanno lavorato a partire dalla stessa figura bianca e senza volto. L’esposizione, ospitata a Villa Ciani a Lugano, comprende anche un’installazione luminosa costruita a mano, nella quale le figure collocate attivano motivi luminosi differenti; l’accesso è gratuito.",
+        "en": "This exhibition explores Bitcoin’s history through ten hand-painted designer toys created by artists who all started from the same white, faceless figure. Presented at Villa Ciani in Lugano, it also includes a handmade light installation in which placing a figure produces a different light pattern; admission is free.",
+        "de": "Die Ausstellung stellt die Geschichte von Bitcoin anhand von zehn handbemalten Designer-Toys dar, die ausgehend von derselben weissen, gesichtslosen Figur entstanden sind. In der Villa Ciani in Lugano ist zudem eine von Hand gefertigte Lichtinstallation zu sehen, die bei jeder aufgelegten Figur ein anderes Lichtmuster erzeugt; der Eintritt ist kostenlos.",
+        "fr": "Cette exposition retrace l’histoire du Bitcoin à travers dix jouets de designer peints à la main, créés à partir d’une même figurine blanche et sans visage. Présentée à la Villa Ciani de Lugano, elle comprend aussi une installation lumineuse fabriquée à la main ; chaque figurine posée sur celle-ci produit un motif lumineux différent et l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AvX8NbX",
@@ -285815,7 +285839,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo laboratorio di Halloween presenta la lavorazione del cioccolato a Ginevra. La partecipazione costa 50 CHF.",
+      "descriptionByLocale": {
+        "it": "Questo laboratorio di Halloween presenta la lavorazione del cioccolato a Ginevra. La partecipazione costa 50 CHF.",
+        "en": "The Halloween workshop introduces chocolate-making in Geneva. Participation costs CHF 50.",
+        "de": "Der Halloween-Workshop gibt einen Einblick in die Schokoladenherstellung in Genf. Die Teilnahme kostet 50 CHF.",
+        "fr": "Cet atelier consacré à Halloween présente la fabrication du chocolat à Genève. La participation coûte 50 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63719",
@@ -299335,7 +299367,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Per la chiusura stagionale, il Museo Moesano presenta tre testimonianze del territorio: il torchio di Valdort, la gra di Dro Alt e la diligenza postale della Val Calanca. Sono previste visite guidate con dimostrazioni pratiche a Monticello, Verdabbio e Grono; il museo di San Vittore offre ingresso gratuito e un aperitivo, ma in caso di maltempo si svolge soltanto l’aperitivo al museo.",
+      "descriptionByLocale": {
+        "it": "Per la chiusura stagionale, il Museo Moesano presenta tre testimonianze del territorio: il torchio di Valdort, la gra di Dro Alt e la diligenza postale della Val Calanca. Sono previste visite guidate con dimostrazioni pratiche a Monticello, Verdabbio e Grono; il museo di San Vittore offre ingresso gratuito e un aperitivo, ma in caso di maltempo si svolge soltanto l’aperitivo al museo.",
+        "en": "For the seasonal closing, the Museo Moesano presents three pieces of local heritage: the Valdort press, the gra at Dro Alt and the Val Calanca postal coach. Guided visits with practical demonstrations are planned in Monticello, Verdabbio and Grono; admission to the museum in San Vittore is free and an aperitif is offered, while bad weather cancels the visits and leaves only the aperitif at the museum.",
+        "de": "Anlässlich des Saisonabschlusses stellt das Museo Moesano drei Zeugnisse des lokalen Kulturerbes vor: die Presse von Valdort, die Gra von Dro Alt und die Postkutsche des Val Calanca. In Monticello, Verdabbio und Grono sind Führungen mit praktischen Vorführungen vorgesehen; der Eintritt ins Museum in San Vittore ist frei und ein Apéro wird angeboten, bei schlechtem Wetter findet jedoch nur der Apéro im Museum statt.",
+        "fr": "À l’occasion de la clôture de la saison, le Museo Moesano présente trois éléments du patrimoine local : le pressoir de Valdort, la gra de Dro Alt et la diligence postale du Val Calanca. Des visites guidées avec démonstrations pratiques sont prévues à Monticello, Verdabbio et Grono ; l’entrée au musée de San Vittore est gratuite et un apéritif est proposé, tandis qu’en cas de mauvais temps seul l’apéritif au musée est maintenu."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AQTXnh5",
@@ -304352,7 +304392,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma musicale a Mendrisio è affidato a Sandra Landini e Francesca Amato, che eseguono repertorio per pianoforte a quattro mani. La selezione comprende trascrizioni e opere di Johann Sebastian Bach, Edvard Grieg, Čajkovskij, Gioachino Rossini e Vincenzo Bellini. L’appuntamento si svolge alla Sala Musica nel Mendrisiotto e l’ingresso costa 20 CHF.",
+      "descriptionByLocale": {
+        "it": "Il programma musicale a Mendrisio è affidato a Sandra Landini e Francesca Amato, che eseguono repertorio per pianoforte a quattro mani. La selezione comprende trascrizioni e opere di Johann Sebastian Bach, Edvard Grieg, Čajkovskij, Gioachino Rossini e Vincenzo Bellini. L’appuntamento si svolge alla Sala Musica nel Mendrisiotto e l’ingresso costa 20 CHF.",
+        "en": "The musical matinee in Mendrisio is performed by Sandra Landini and Francesca Amato as a four-hand piano duo. Its programme includes transcriptions and works by Johann Sebastian Bach, Edvard Grieg, Tchaikovsky, Gioachino Rossini and Vincenzo Bellini. The event takes place at Sala Musica nel Mendrisiotto, with admission priced at CHF 20.",
+        "de": "Bei der musikalischen Matinee in Mendrisio spielen Sandra Landini und Francesca Amato vierhändig Klavier. Das Programm umfasst Transkriptionen und Werke von Johann Sebastian Bach, Edvard Grieg, Tschaikowski, Gioachino Rossini und Vincenzo Bellini. Die Veranstaltung findet in der Sala Musica nel Mendrisiotto statt; der Eintritt beträgt 20 CHF.",
+        "fr": "La matinée musicale à Mendrisio réunit Sandra Landini et Francesca Amato au piano à quatre mains. Le programme comprend des transcriptions et des œuvres de Johann Sebastian Bach, Edvard Grieg, Tchaïkovski, Gioachino Rossini et Vincenzo Bellini. La rencontre a lieu à la Sala Musica nel Mendrisiotto et l’entrée est fixée à 20 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1daff35c70aa4c8f832e518a4abe8dd1",
@@ -315481,7 +315529,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il laboratorio propone la realizzazione di una creazione di cioccolato dedicata ad Halloween. L’attività si svolge nel centro di Ginevra e offre un momento conviviale.",
+      "descriptionByLocale": {
+        "it": "Il laboratorio propone la realizzazione di una creazione di cioccolato dedicata ad Halloween. L’attività si svolge nel centro di Ginevra e offre un momento conviviale.",
+        "en": "This chocolate workshop focuses on creating a Halloween-themed piece. It takes place in central Geneva and offers a convivial setting.",
+        "de": "Der Schokoladenworkshop widmet sich der Gestaltung einer Kreation zu Halloween. Er findet im Zentrum von Genf statt und bietet einen geselligen Rahmen.",
+        "fr": "Cet atelier de chocolat propose de réaliser une création sur le thème d’Halloween. Il se déroule au centre de Genève et offre un moment convivial."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ab06b415d5d74d4dbc6a6ea178433e64",
@@ -344981,7 +345037,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento gratuito a Ginevra è dedicato alla sensibilizzazione sul cancro ai testicoli. Prevede informazioni sul tema e controlli gratuiti effettuati da un urologo.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento gratuito a Ginevra è dedicato alla sensibilizzazione sul cancro ai testicoli. Prevede informazioni sul tema e controlli gratuiti effettuati da un urologo.",
+        "en": "The free event in Geneva focuses on raising awareness of testicular cancer. It offers information on the subject and free screening carried out by a urologist.",
+        "de": "Die kostenlose Veranstaltung in Genf widmet sich der Sensibilisierung für Hodenkrebs. Sie bietet Informationen zum Thema sowie kostenlose Untersuchungen durch einen Urologen.",
+        "fr": "Le rendez-vous gratuit à Genève est consacré à la sensibilisation au cancer du testicule. Il propose des informations sur le sujet ainsi que des dépistages gratuits réalisés par un urologue."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AvBWBMv",
@@ -358876,7 +358940,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma musicale propone un workshop di jazz con appuntamenti serali al Bar La Grotta dell’Hotel Ascona, ad Ascona. Le serate ruotano attorno a esecuzioni jazz in un contesto informale; la partecipazione ha un costo di 25 CHF.",
+      "descriptionByLocale": {
+        "it": "Il programma musicale propone un workshop di jazz con appuntamenti serali al Bar La Grotta dell’Hotel Ascona, ad Ascona. Le serate ruotano attorno a esecuzioni jazz in un contesto informale; la partecipazione ha un costo di 25 CHF.",
+        "en": "This music event presents a jazz workshop with evening sessions at Bar La Grotta dell’Hotel Ascona in Ascona. The programme centres on live jazz and has an admission price of CHF 25.",
+        "de": "Die Musikveranstaltung umfasst einen Jazz-Workshop mit Abendterminen in der Bar La Grotta dell’Hotel Ascona in Ascona. Im Mittelpunkt stehen Jazzdarbietungen; der Eintritt kostet 25 CHF.",
+        "fr": "Cette manifestation musicale propose un atelier de jazz avec des rendez-vous en soirée au Bar La Grotta dell’Hotel Ascona, à Ascona. Le programme comprend des prestations de jazz et l’entrée coûte 25 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d3b52ddedb044fc9a2acba34e01695a2",
@@ -363942,7 +364014,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è una proiezione nell’ambito di un festival a Ginevra. È inserito nell’agenda di Ville de Genève Agenda e prevede un prezzo di 8 CHF.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è una proiezione nell’ambito di un festival a Ginevra. È inserito nell’agenda di Ville de Genève Agenda e prevede un prezzo di 8 CHF.",
+        "en": "The event is a festival screening in Geneva. It is listed by Ville de Genève Agenda and has an admission price of CHF 8.",
+        "de": "Die Veranstaltung ist eine Vorführung im Rahmen eines Festivals in Genf. Sie wird von Ville de Genève Agenda aufgeführt und kostet 8 CHF.",
+        "fr": "Le rendez-vous est une projection organisée dans le cadre d’un festival à Genève. Il figure dans l’agenda de Ville de Genève Agenda et son tarif est de 8 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:giff-projection-yesterday-didt-sleep",
@@ -368813,7 +368893,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una proiezione cinematografica nell’ambito di un festival. Si tiene a Ginevra ed è curato da Ville de Genève Agenda; l’ingresso costa 8 CHF.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una proiezione cinematografica nell’ambito di un festival. Si tiene a Ginevra ed è curato da Ville de Genève Agenda; l’ingresso costa 8 CHF.",
+        "en": "The event presents a film screening as part of a festival. It takes place in Geneva and is organised by Ville de Genève Agenda; admission costs CHF 8.",
+        "de": "Die Veranstaltung umfasst eine Filmvorführung im Rahmen eines Festivals. Sie findet in Genf statt und wird von Ville de Genève Agenda organisiert; der Eintritt kostet 8 CHF.",
+        "fr": "Ce rendez-vous propose une projection cinématographique dans le cadre d’un festival. Il se déroule à Genève et est organisé par Ville de Genève Agenda; l’entrée coûte 8 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AykpEHQ",
@@ -368998,7 +369086,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è uno spettacolo teatrale di improvvisazione in formato lungo, presentato a Ginevra. L’ingresso costa 15 CHF e l’evento è curato dalla Ville de Genève Agenda.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è uno spettacolo teatrale di improvvisazione in formato lungo, presentato a Ginevra. L’ingresso costa 15 CHF e l’evento è curato dalla Ville de Genève Agenda.",
+        "en": "This is a long-form improvisational theatre performance taking place in Geneva. Admission costs CHF 15, and the event is presented by Ville de Genève Agenda.",
+        "de": "Die Veranstaltung ist eine Theateraufführung mit Improvisation im Langformat und findet in Genf statt. Der Eintritt kostet 15 CHF; als Veranstalter ist die Ville de Genève Agenda angegeben.",
+        "fr": "Ce rendez-vous est un spectacle théâtral d’improvisation en format long, présenté à Genève. L’entrée coûte 15 CHF et l’événement est organisé par la Ville de Genève Agenda."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a7f69556cca54d1293b950bbc202f136",
@@ -373449,7 +373545,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il trio Faubourg Tango si esibisce alla Librería Albatros di Ginevra. Tra gli artisti del concerto figurano Carmela Delgado e Alejo de los Reyes, oltre a Pedro Ratto; l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Il trio Faubourg Tango si esibisce alla Librería Albatros di Ginevra. Tra gli artisti del concerto figurano Carmela Delgado e Alejo de los Reyes, oltre a Pedro Ratto; l’ingresso è gratuito.",
+        "en": "The Faubourg Tango trio performs at Librería Albatros in Geneva. The concert features Carmela Delgado and Pedro Ratto, together with Alejo de los Reyes; admission is free.",
+        "de": "Das Trio Faubourg Tango tritt in der Librería Albatros in Genf auf. Bei dem Konzert treten Carmela Delgado und Pedro Ratto zusammen mit Alejo de los Reyes auf; der Eintritt ist frei.",
+        "fr": "Le trio Faubourg Tango se produit à la Librería Albatros, à Genève. Carmela Delgado et Alejo de los Reyes se joignent à Pedro Ratto pour ce concert, dont l’entrée est libre."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:42dda1ffb8ac41f2a4da9027f17a9674",
@@ -378256,7 +378360,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra è segnalata una proposta di danza associata a Soraya Leila Emery. L’ingresso costa 12 CHF.",
+      "descriptionByLocale": {
+        "it": "A Ginevra è segnalata una proposta di danza associata a Soraya Leila Emery. L’ingresso costa 12 CHF.",
+        "en": "The Geneva listing concerns a dance presentation associated with Soraya Leila Emery. Admission is CHF 12.",
+        "de": "In Genf ist eine Tanzveranstaltung mit Bezug zu Soraya Leila Emery aufgeführt. Der Eintritt kostet 12 CHF.",
+        "fr": "À Genève, une proposition de danse liée à Soraya Leila Emery est annoncée. Le prix d’entrée est de 12 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f92602d824264102ab1d6126d1e23d0f",
@@ -378538,7 +378650,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il concerto di Ginevra riunisce Tagada Jones, Darcy e Bob’s Not Dead. L’appuntamento si tiene all’Alhambra.",
+      "descriptionByLocale": {
+        "it": "Il concerto di Ginevra riunisce Tagada Jones, Darcy e Bob’s Not Dead. L’appuntamento si tiene all’Alhambra.",
+        "en": "The Geneva concert brings together Tagada Jones, Darcy and Bob’s Not Dead. The event takes place at the Alhambra.",
+        "de": "Das Konzert in Genf bringt Tagada Jones, Darcy und Bob’s Not Dead zusammen. Die Veranstaltung findet im Alhambra statt.",
+        "fr": "Le concert genevois réunit Tagada Jones, Darcy et Bob’s Not Dead. Le rendez-vous se déroule à l’Alhambra."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f25032e10d88435a8e905baca23635f3",
@@ -379693,7 +379813,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo laboratorio gratuito a Ginevra affronta la comprensione e la prevenzione della violenza ostetrica. Si tratta di una giornata formativa con diversi relatori.",
+      "descriptionByLocale": {
+        "it": "Questo laboratorio gratuito a Ginevra affronta la comprensione e la prevenzione della violenza ostetrica. Si tratta di una giornata formativa con diversi relatori.",
+        "en": "This free workshop in Geneva addresses the understanding and prevention of obstetric violence. It takes the form of a training day with several contributing speakers.",
+        "de": "Dieser kostenlose Workshop in Genf befasst sich mit dem Verständnis und der Prävention geburtshilflicher Gewalt. Er ist als Ausbildungstag mit mehreren Mitwirkenden konzipiert.",
+        "fr": "Cet atelier gratuit à Genève porte sur la compréhension et la prévention des violences obstétricales. Il prend la forme d’une journée de formation réunissant plusieurs intervenantes et intervenants."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b18772cf5f64486ca544d1663ac07afc",
@@ -388033,7 +388161,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone Or Bareket Quartet all’AMR di Ginevra. Il concerto fa parte della stagione concertistica 2026–2027.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone Or Bareket Quartet all’AMR di Ginevra. Il concerto fa parte della stagione concertistica 2026–2027.",
+        "en": "The concert presents Or Bareket Quartet at AMR in Geneva. It is part of the 2026–2027 concert season.",
+        "de": "Bei der Veranstaltung tritt Or Bareket Quartet im AMR in Genf auf. Das Konzert gehört zur Saison 2026–2027.",
+        "fr": "Le rendez-vous présente Or Bareket Quartet à l’AMR, à Genève. Le concert s’inscrit dans la saison 2026–2027."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b294669b8d4c4e30950805b8b40612a5",
