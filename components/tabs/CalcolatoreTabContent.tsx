@@ -64,7 +64,7 @@ export default function CalcolatoreTabContent() {
  const { calcolatoreSubTab } = useNavigation();
  const {
  inputs, setInputs, result, isResultStale, handleCalculate,
- showDeferredHomeWidgets, seoLanding, userProfile,
+ showDeferredHomeWidgets, seoLanding, userProfile, authUser,
  setActiveTab, setBlogArticle, navigateTo,
  } = useTabContent();
  const { t } = useTranslation();
@@ -398,7 +398,7 @@ export default function CalcolatoreTabContent() {
  return (
  <>
  <DesktopTopBannerSlot />
- <div className="w-full"><PayslipSimulator userProfile={userProfile} />{adBottom}</div>
+ <div className="w-full"><PayslipSimulator key={authUser?.uid ?? 'anonymous'} userProfile={userProfile} />{adBottom}</div>
  </>
  );
  }
@@ -407,7 +407,7 @@ export default function CalcolatoreTabContent() {
  <>
  <DesktopTopBannerSlot />
  <div className={`w-full transition-opacity duration-200${isResultStale ? ' opacity-50' : ''}`}>
- {result && <WhatIfSimulator baseInputs={inputs} baseResult={result} userProfile={userProfile} />}
+ {result && <WhatIfSimulator key={authUser?.uid ?? 'anonymous'} baseInputs={inputs} baseResult={result} userProfile={userProfile} />}
  {adBottom}
  </div>
  </>
@@ -417,7 +417,7 @@ export default function CalcolatoreTabContent() {
  return (
  <>
  <DesktopTopBannerSlot />
- <div className="max-w-7xl mx-auto"><RalComparator userProfile={userProfile} />{adBottom}</div>
+ <div className="max-w-7xl mx-auto"><RalComparator key={authUser?.uid ?? 'anonymous'} userProfile={userProfile} />{adBottom}</div>
  </>
  );
  }
@@ -425,7 +425,7 @@ export default function CalcolatoreTabContent() {
  return (
  <>
  <DesktopTopBannerSlot />
- <div className="max-w-7xl mx-auto"><BonusCalculator userProfile={userProfile} />{adBottom}</div>
+ <div className="max-w-7xl mx-auto"><BonusCalculator key={authUser?.uid ?? 'anonymous'} userProfile={userProfile} />{adBottom}</div>
  </>
  );
  }
@@ -433,7 +433,7 @@ export default function CalcolatoreTabContent() {
  return (
  <>
  <DesktopTopBannerSlot />
- <div className="max-w-7xl mx-auto"><ParentalLeaveCalculator userProfile={userProfile} />{adBottom}</div>
+ <div className="max-w-7xl mx-auto"><ParentalLeaveCalculator key={authUser?.uid ?? 'anonymous'} userProfile={userProfile} />{adBottom}</div>
  </>
  );
  }

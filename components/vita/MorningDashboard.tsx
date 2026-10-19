@@ -9,7 +9,7 @@
  * - Personalized greeting based on time of day
  */
 
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useMemo, useCallback, useRef } from 'react';
 import {
  Sun, Cloud, CloudRain, CloudSnow, CloudLightning, CloudDrizzle, CloudFog, Wind,
  Thermometer, Droplets, ArrowRightLeft, Clock, MapPin, AlertTriangle,
@@ -29,6 +29,7 @@ import { Analytics } from '@/services/analytics';
 import { unlockAchievement } from '@/services/gamificationService';
 import { useAuth, getUserDisplayName } from '@/services/authService';
 import { findMunicipality } from '@/data/municipalities';
+import { loadStoredUserProfile, userWeatherCacheKey } from '@/services/userProfileStorage';
 
 // ─── Open-Meteo Weather Types ────────────────────────────────
 
@@ -97,9 +98,7 @@ function getWeatherLabel(code: number, t: (key: string) => string): string {
  return t('morning.weather.clear');
 }
 
-const WEATHER_CACHE_KEY = 'morning_weather_cache';
 const WEATHER_CACHE_TTL = 30 * 60 * 1000; // 30 minutes
-const PROFILE_STORAGE_KEY = 'frontaliere_user_profile';
 
 async function fetchWeather(loc: { lat: number; lng: number; name: string; country: string }): Promise<LocationWeather | null> {
  try {
@@ -134,20 +133,34 @@ async function fetchWeather(loc: { lat: number; lng: number; name: string; count
  }
 }
 
-function useWeather() {
+function useWeather(uid?: string | null) {
  const [weather, setWeather] = useState<{ lugano: LocationWeather | null; como: LocationWeather | null; user: LocationWeather | null }>({ lugano: null, como: null, user: null });
  const [loading, setLoading] = useState(true);
+ const requestSequence = useRef(0);
+
+ useLayoutEffect(() => {
+  requestSequence.current += 1;
+  setWeather({ lugano: null, como: null, user: null });
+  setLoading(true);
+  return () => { requestSequence.current += 1; };
+ }, [uid]);
 
  const fetchAll = useCallback(async () => {
+ const request = ++requestSequence.current;
+ const isCurrentRequest = () => request === requestSequence.current;
  setLoading(true);
+ setWeather({ lugano: null, como: null, user: null });
+ const cacheKey = userWeatherCacheKey(uid);
  // Try cache first
  try {
- const cached = localStorage.getItem(WEATHER_CACHE_KEY);
+ const cached = localStorage.getItem(cacheKey);
  if (cached) {
  const { data, timestamp } = JSON.parse(cached);
  if (Date.now() - timestamp < WEATHER_CACHE_TTL) {
- setWeather(data);
- setLoading(false);
+ if (isCurrentRequest()) {
+  setWeather(data);
+  setLoading(false);
+ }
  return;
  }
  }
@@ -156,10 +169,8 @@ function useWeather() {
  // Check user profile for municipality
  let userLocation: { lat: number; lng: number; name: string; country: string } | null = null;
  try {
- const profileStr = localStorage.getItem(PROFILE_STORAGE_KEY);
- if (profileStr) {
- const profile = JSON.parse(profileStr);
- if (profile.municipality) {
+ const profile = loadStoredUserProfile(uid);
+ if (typeof profile?.municipality === 'string') {
  const mun = findMunicipality(profile.municipality);
  if (mun && mun.lat && mun.lng) {
  // Don't fetch user weather if it's the same as Lugano or Como
@@ -170,7 +181,6 @@ function useWeather() {
  }
  }
  }
- }
  } catch { /* ignore */ }
 
  const [lugano, como, user] = await Promise.all([
@@ -178,15 +188,19 @@ function useWeather() {
  fetchWeather(LOCATIONS.como),
  userLocation ? fetchWeather(userLocation) : Promise.resolve(null),
  ]);
+ if (!isCurrentRequest()) return;
  const result = { lugano, como, user };
  setWeather(result);
  try {
- localStorage.setItem(WEATHER_CACHE_KEY, JSON.stringify({ data: result, timestamp: Date.now() }));
+ localStorage.setItem(cacheKey, JSON.stringify({ data: result, timestamp: Date.now() }));
  } catch { /* ignore */ }
  setLoading(false);
- }, []);
+ }, [uid]);
 
- useEffect(() => { fetchAll(); }, [fetchAll]);
+ useEffect(() => {
+  void fetchAll();
+  return () => { requestSequence.current += 1; };
+ }, [fetchAll]);
 
  return { weather, loading, refresh: fetchAll };
 }
@@ -217,7 +231,7 @@ const MorningDashboard: React.FC = () => {
  const { t } = useTranslation();
  const { user } = useAuth();
  const displayName = getUserDisplayName(user);
- const { weather, loading: weatherLoading, refresh: refreshWeather } = useWeather();
+ const { weather, loading: weatherLoading, refresh: refreshWeather } = useWeather(user?.uid);
  const { rate, loading: rateLoading } = useExchangeRate();
  const [traffic, setTraffic] = useState<TrafficData[]>([]);
  const [trafficLoading, setTrafficLoading] = useState(true);
