@@ -231,6 +231,44 @@ describe('legacy portal sections', () => {
     expect(fileInput.setInputFiles).toHaveBeenCalledWith('/tmp/candidate-cv.pdf');
     expect(result.snapshot.fields.some((field: any) => field.kind === 'file')).toBe(true);
   });
+
+  it('does not treat an unrelated private-use button as a CV trigger outside SuccessFactors', async () => {
+    let clicked = false;
+    const base = {
+      url: 'https://jobs.example.test/careers',
+      title: 'Career Opportunities',
+      fields: [
+        { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *', required: true },
+        { id: 'permit', kind: 'combobox', form: 0, label: 'Do you hold a valid work permit for Switzerland?', required: true },
+      ],
+      buttons: [{ id: 'toolbar-help', text: '\uE1EF', disabled: false }, { id: 'apply', text: 'Apply', disabled: false }],
+      captcha: false,
+      passwordVisible: true,
+      errors: [],
+      text: '',
+    };
+    const frame = {
+      url: () => base.url,
+      evaluate: vi.fn(async () => base),
+      locator: vi.fn(() => ({ first: () => ({ click: vi.fn(async () => { clicked = true; }) }) })),
+    };
+    const page = {
+      url: () => base.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      getByRole: vi.fn(() => ({ first: () => ({ isVisible: vi.fn(async () => false) }) })),
+      locator: vi.fn((selector: string) => selector === '.group_head'
+        ? { count: vi.fn(async () => 0) }
+        : { first: () => ({ waitFor: vi.fn(), setInputFiles: vi.fn() }) }),
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    const result = await openFormSections(page as any, base as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
+
+    expect(result.cv).toBeUndefined();
+    expect(clicked).toBe(false);
+  });
 });
 
 describe('portal plan guard (career-ops apply rules in code)', () => {

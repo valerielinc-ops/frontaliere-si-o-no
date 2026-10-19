@@ -763,6 +763,16 @@ export function formPostingMatch(formText, job = {}, { postingMatched = false } 
 // «Bewerbung absenden», «Invia candidatura», «Envoyer ma candidature».
 const NAMES_APPLICATION_RE = /(appl|bewerb|candid|postul)/i;
 
+// A file field for a cover letter or another document must not hide the fact
+// that a SuccessFactors CV input is still in its upload dialog. Keep this
+// narrower than the complete document vocabulary used by the requirements
+// planner: only a CV/resume label counts as the CV being present.
+const CV_FILE_FIELD_RE = /(?<![\p{L}\p{N}])(?:cv|resume|résumé|lebenslauf|curriculum(?:\s+vitae)?)(?![\p{L}\p{N}])/iu;
+
+const isFileField = (field) => field?.kind === 'file' || field?.inputType === 'file';
+const isCvFileField = (field) => isFileField(field)
+  && CV_FILE_FIELD_RE.test(`${field.label || ''} ${field.context || ''} ${field.name || ''} ${field.id || ''}`);
+
 // SuccessFactors can render the CV input only after its icon-only upload
 // control is pressed. The visible page still has application questions (and
 // «Apply») alongside the account password fields, so the CV is not the only
@@ -779,8 +789,8 @@ const APPLICATION_ACCOUNT_FIELD_RE = /(work\s+permit|permit\s+for|salary|workloa
  */
 export function ownAccountForm(snapshot) {
   const labels = (snapshot.fields || []).map((field) => `${field.label || ''} ${field.context || ''}`).join(' ');
-  const hasFileField = (snapshot.fields || []).some((field) => field.kind === 'file' || field.inputType === 'file');
-  const mixedApplication = !hasFileField && sendsApplication(snapshot) && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
+  const hasCvFileField = (snapshot.fields || []).some(isCvFileField);
+  const mixedApplication = !hasCvFileField && sendsApplication(snapshot) && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
   return Boolean(snapshot.passwordVisible) && sendsApplication(snapshot) && (inlineAccountForm(snapshot) || mixedApplication);
 }
 

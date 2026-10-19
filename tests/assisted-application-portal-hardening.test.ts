@@ -220,6 +220,19 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     };
     expect(sendsApplication(successFactors)).toBe(true);
     expect(ownAccountForm(successFactors)).toBe(true);
+
+    // A separate cover-letter input must not count as the CV already being
+    // present: the CV can still be behind the SuccessFactors upload dialog.
+    expect(ownAccountForm({
+      ...successFactors,
+      fields: [...successFactors.fields, {
+        id: 'cover-letter',
+        kind: 'file',
+        inputType: 'file',
+        form: 1,
+        label: 'Cover letter',
+      }],
+    })).toBe(true);
   });
 
   it('finds SuccessFactors privacy review without selecting the optional job alert', () => {
