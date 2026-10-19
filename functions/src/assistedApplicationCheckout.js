@@ -720,8 +720,9 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
     currency: obj.currency || ASSISTED_APPLICATION_CURRENCY,
     ...(checkoutCustomerEmail ? { customerEmail: checkoutCustomerEmail } : {}),
     updatedAt: ts,
-    ...(paymentStatus === 'paid' ? { paidAt: ts } : {}),
-    ...(paymentFailureReason ? { paymentFailureReason } : {}),
+    ...(paymentStatus === 'paid'
+      ? { paidAt: ts, paymentFailureReason: null }
+      : paymentFailureReason ? { paymentFailureReason } : {}),
   };
 
   const orderRef = firestore.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);

@@ -23,6 +23,32 @@ function boundedString(value, max) {
   const result = String(value ?? '').trim();
   return result && result.length <= max ? result : '';
 }
+
+function timestampMillis(value) {
+  const parsed = Date.parse(String(value ?? ''));
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+/**
+ * SumUp returns the transaction list in provider order, not a contractually
+ * stable chronological order. Pick by the transaction timestamp so a later
+ * successful retry is not represented by an older failed attempt.
+ */
+export function latestSumUpTransaction(checkout) {
+  const transactions = Array.isArray(checkout?.transactions)
+    ? checkout.transactions.filter((transaction) => transaction && typeof transaction === 'object')
+    : [];
+  return transactions.reduce((latest, transaction) => {
+    if (!latest) return transaction;
+    const latestAt = timestampMillis(latest.timestamp);
+    const transactionAt = timestampMillis(transaction.timestamp);
+    if (transactionAt !== null && (latestAt === null || transactionAt > latestAt)) {
+      return transaction;
+    }
+    return latest;
+  }, null);
+}
+
 export class SumUpApiError extends Error {
   constructor(status, message = 'sumup_api_request_failed') {
     super(message);

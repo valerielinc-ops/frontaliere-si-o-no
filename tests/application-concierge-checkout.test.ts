@@ -229,4 +229,34 @@ describe('application concierge checkout', () => {
       serviceStatus: 'payment_failed',
     }));
   });
+
+  it('upgrades a failed SumUp attempt when a later retry is paid', async () => {
+    mocks.store.set('application_concierge_services/service-44', {
+      paymentProvider: 'sumup',
+      sumupCheckoutId: 'sumup_concierge_retry',
+      paymentStatus: 'failed',
+      serviceStatus: 'payment_failed',
+      paymentFailureReason: 'payment_not_confirmed',
+    });
+
+    await expect(handleApplicationConciergeWebhookEvent({
+      type: 'checkout.session.completed',
+      data: {
+        object: {
+          id: 'sumup_concierge_retry',
+          amount_total: 3999,
+          currency: 'eur',
+          payment_status: 'paid',
+          client_reference_id: 'service-44',
+          metadata: { product: 'application_concierge', paymentProvider: 'sumup', serviceId: 'service-44' },
+        },
+      },
+    }, { db: mocks.db, ts: '__webhook_timestamp__', nowMs: () => 1_700_000_000_000 })).resolves.toBe(true);
+
+    expect(mocks.store.get('application_concierge_services/service-44')).toEqual(expect.objectContaining({
+      paymentStatus: 'paid',
+      serviceStatus: 'active',
+      paymentFailureReason: null,
+    }));
+  });
 });
