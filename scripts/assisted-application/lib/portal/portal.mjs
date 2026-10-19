@@ -1242,7 +1242,7 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const cvFile = Array.isArray(files.cv) ? files.cv[0] : files.cv;
   const cvKey = `cv|${where}`;
   let cv;
-  while (cvFile && !done.has(cvKey) && !current.fields.some((field) => field.kind === 'file')) {
+  while (cvFile && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
     const namedTriggerButton = uploadButtonFor(current, 'cv');
     const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page) && ownAccountForm(current)
       ? successFactorsIconButtonFor(current, 'cv')

@@ -191,6 +191,7 @@ describe('legacy portal sections', () => {
         { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *', required: true },
         { id: 'password-repeat', kind: 'text', inputType: 'password', form: 0, label: 'Retype Password: *', required: true },
         { id: 'permit', kind: 'combobox', form: 0, label: 'Do you hold a valid work permit for Switzerland?', required: true },
+        { id: 'cover-letter', kind: 'file', inputType: 'file', form: 0, label: 'Cover letter', required: false },
       ],
       buttons: [{ id: 'f5', domId: 'upload-control', dataAutomationId: 'cv-upload', text: '\uE1EF', disabled: false }, { id: 'f6', text: 'Apply', disabled: false }],
       captcha: false,
@@ -226,6 +227,8 @@ describe('legacy portal sections', () => {
 
     const result = await openFormSections(page as any, base as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
 
+    // The visible cover-letter field must not block the CV trigger that opens
+    // the SuccessFactors upload dialog.
     expect(result.cv).toBe('uploaded');
     expect(uploaded).toBe(true);
     expect(fileInput.setInputFiles).toHaveBeenCalledWith('/tmp/candidate-cv.pdf');
