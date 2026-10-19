@@ -87,7 +87,13 @@ import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { absoluteJobUrl } from './lib/job-url-host.mjs';
-import { archiveFilteredJobsToSlices, archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
+import {
+  archiveFilteredJobsToSlices,
+  archiveRemovedJobsToSlice,
+  collapseDuplicateRouteEntries,
+  normalizeExpiredAtEntries,
+  repairExpiredRoutesAgainstActive,
+} from './lib/expired-jobs-archive.mjs';
 import { carryForwardFirstSeenAt } from './lib/first-seen-history.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
@@ -4032,16 +4038,66 @@ export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}
 }
 
 /**
+ * Repair persisted expired routes after active assembly has established the
+ * current route owners. The caller runs this before aggregate assembly and
+ * applies the same pure repair to the in-memory aggregate for legacy entries
+ * that exist only in the old aggregate file.
+ */
+function repairExpiredArchiveSlicesAgainstActive(activeJobs) {
+  if (!Array.isArray(activeJobs) || activeJobs.length === 0) {
+    return { changed: 0, repairedRoutes: 0, details: [] };
+  }
+  let changed = 0;
+  let repairedRoutes = 0;
+  const details = [];
+  for (const slicePath of listSliceFiles(EXPIRED_SLICES_DIR)) {
+    const entries = readJson(slicePath, null);
+    if (!Array.isArray(entries)) continue;
+    const result = repairExpiredRoutesAgainstActive(entries, activeJobs);
+    if (result.changed === 0) continue;
+    writeJson(slicePath, entries);
+    changed += result.changed;
+    repairedRoutes += result.repairedRoutes;
+    if (details.length < 20) details.push(...result.details);
+  }
+  return { changed, repairedRoutes, details };
+}
+
+/**
  * Assemble all per-crawler expired job slices into data/expired-jobs.json.
  * Each slice is an array of expired job entries with slugs as unique keys.
- * Returns the assembled array, or null if no slices exist.
+ * When no slice exists, carry the legacy aggregate through the same caller
+ * path so active-route ownership repair can still run before persistence.
+ * Returns the assembled array, or null if neither slices nor a legacy
+ * aggregate exists.
+ *
+ * The path overrides are used by the isolated regression test; production
+ * callers use the repository defaults.
  */
-function assembleExpiredJobs() {
-  const sliceFiles = listSliceFiles(EXPIRED_SLICES_DIR);
+function relabelExpiredArchiveEntries(entries) {
+  const expiredBrandLabels = declaredBrandLabels();
+  applyDeclaredBrandRelabel(entries, expiredBrandLabels);
+  refreshDeclaredBrandSlugs(entries, expiredBrandLabels);
+}
+
+export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePath = DATA_EXPIRED } = {}) {
+  const sliceFiles = listSliceFiles(sliceDir);
 
   if (sliceFiles.length === 0) {
-    console.log('ℹ️  No per-crawler expired job slices found — data/expired-jobs.json left unchanged.');
-    return null;
+    const legacyEntries = readJson(aggregatePath, null);
+    if (!Array.isArray(legacyEntries)) {
+      console.log('ℹ️  No per-crawler expired job slices or readable legacy archive found — expired archive left unchanged.');
+      return null;
+    }
+
+    // The legacy aggregate is still a live source when slice generation is
+    // absent (for example during a partial crawler rollout). Keep it in the
+    // normal return path so the caller repairs route ownership against the
+    // active dataset and persists the repaired archive below.
+    normalizeExpiredAtEntries(legacyEntries, { source: 'assemble/legacy-aggregate' });
+    relabelExpiredArchiveEntries(legacyEntries);
+    console.log(`  📄 No per-crawler expired slices: carried ${legacyEntries.length} legacy archive entries into assembly`);
+    return legacyEntries;
   }
 
   // Keyed by companyKey+slug, not bare slug — this aggregates EVERY
@@ -4091,7 +4147,7 @@ function assembleExpiredJobs() {
   }
 
   // Also merge any existing aggregated expired-jobs.json (from deploy-time cleanup)
-  const existingAgg = readJson(DATA_EXPIRED, []);
+  const existingAgg = readJson(aggregatePath, []);
   if (Array.isArray(existingAgg)) {
     normalizeExpiredAtEntries(existingAgg, { source: 'assemble/existing-aggregate' });
     for (const entry of existingAgg) {
@@ -4122,12 +4178,19 @@ function assembleExpiredJobs() {
   // sit under the same employer brand. Reconcile them in the same pass so a
   // corrected label does not read one way on the active page and another on
   // the expired one.
-  const expiredBrandLabels = declaredBrandLabels();
-  applyDeclaredBrandRelabel(assembled, expiredBrandLabels);
-  refreshDeclaredBrandSlugs(assembled, expiredBrandLabels);
+  relabelExpiredArchiveEntries(assembled);
 
   console.log(`  📄 ${sliceFiles.length} expired slices: ${totalSliceEntries} entries → ${assembled.length} unique slugs`);
   return assembled;
+}
+
+export function persistExpiredArchive(entries, {
+  aggregatePath = DATA_EXPIRED,
+  publicPath = PUBLIC_EXPIRED,
+} = {}) {
+  writeJson(aggregatePath, entries, { streamArray: true });
+  fs.mkdirSync(path.dirname(publicPath), { recursive: true });
+  writeJson(publicPath, entries, { streamArray: true });
 }
 
 /* ── Auto slug-history tracking ────────────────────────────────────── */
@@ -4877,20 +4940,35 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // of that read-only consumer path; the default remains the full assembly.
   const finishExpiredTiming = startPipelinePhase('jobs-dataset', 'expired archive and orphan reconciliation');
   if (withExpired) {
+    let sliceRepair = { changed: 0, repairedRoutes: 0, details: [] };
+    if (assembled) sliceRepair = repairExpiredArchiveSlicesAgainstActive(publishedJobs);
     const expiredJobs = assembleExpiredJobs();
     if (expiredJobs !== null) {
+      let repairedExpiredJobs = expiredJobs;
+      if (assembled) {
+        const aggregateRepair = repairExpiredRoutesAgainstActive(expiredJobs, publishedJobs);
+        repairedExpiredJobs = aggregateRepair.entries;
+        const repairedRoutes = sliceRepair.repairedRoutes + aggregateRepair.repairedRoutes;
+        if (repairedRoutes > 0) {
+          console.log(
+            `  🧭 Expired route ownership: disambiguated ${repairedRoutes} routes across `
+            + `${sliceRepair.changed + aggregateRepair.changed} archive entries`,
+          );
+          if (sliceRepair.details.length > 0) {
+            console.log(`     ${sliceRepair.details.slice(0, 5).join('; ')}`);
+          }
+        }
+      }
       // --- Ghost reconciliation: remove expired entries that match active jobs ---
       if (assembled) {
-        const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(publishedJobs, expiredJobs);
+        const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(publishedJobs, repairedExpiredJobs);
         if (ghostCount > 0) {
           console.log(`  👻 Ghost reconciliation: removed ${ghostCount} ghost expired entries, merged ${mergedSlugs} slugs into active previousSlugs`);
           // Write back active jobs with merged previousSlugs
           writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
           writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
         }
-        writeJson(DATA_EXPIRED, cleanedExpired, { streamArray: true });
-        fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-        writeJson(PUBLIC_EXPIRED, cleanedExpired, { streamArray: true });
+        persistExpiredArchive(cleanedExpired);
         console.log(`✅ data/expired-jobs.json assembled: ${cleanedExpired.length} expired jobs`);
 
         // --- Orphan + Expired slug reconciliation (Jaccard similarity) ---
@@ -4929,8 +5007,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
             console.log(`  🔗 Expired reconciliation: ${expResult.mergedCount} slugs merged into active jobs' previousSlugs`);
             writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
             writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
-            writeJson(DATA_EXPIRED, cleanedExpired, { streamArray: true });
-            writeJson(PUBLIC_EXPIRED, cleanedExpired, { streamArray: true });
+            persistExpiredArchive(cleanedExpired);
           }
         } catch (err) {
           console.warn(`  ⚠️ Slug reconciliation skipped: ${err.message}`);
@@ -4950,10 +5027,8 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
           writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
         }
       } else {
-        writeJson(DATA_EXPIRED, expiredJobs, { streamArray: true });
-        fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-        writeJson(PUBLIC_EXPIRED, expiredJobs, { streamArray: true });
-        console.log(`✅ data/expired-jobs.json assembled: ${expiredJobs.length} expired jobs`);
+        persistExpiredArchive(repairedExpiredJobs);
+        console.log(`✅ data/expired-jobs.json assembled: ${repairedExpiredJobs.length} expired jobs`);
       }
     }
   } else {
