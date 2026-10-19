@@ -13,7 +13,12 @@ export function readDutyWeekHistoryArchive(directory: string, recoveryFile: stri
   const recovery = JSON.parse(fs.readFileSync(recoveryFile, 'utf8')) as { version: number; weeks: unknown[] };
   if (recovery.version !== 1 || !Array.isArray(recovery.weeks) || !recovery.weeks.every(validateDutyWeekHistory)) throw new Error('Invalid pharmacy duty recovery archive');
   const byWeek = new Map<string, DutyWeekHistory>();
-  const add = (week: DutyWeekHistory) => byWeek.set(week.weekStart, mergeDutyWeekHistory(byWeek.get(week.weekStart), week));
+  const add = (week: DutyWeekHistory) => {
+    const observations = week.observations.filter((observation) =>
+      Math.max(Date.parse(observation.fetchedAt), Date.parse(observation.catalogueFetchedAt)) <= now.getTime());
+    if (observations.length === 0) return;
+    byWeek.set(week.weekStart, mergeDutyWeekHistory(byWeek.get(week.weekStart), { ...week, observations }));
+  };
   recovery.weeks.forEach(add);
   if (fs.existsSync(directory)) {
     for (const name of fs.readdirSync(directory).filter((name) => /^\d{4}-\d{2}-\d{2}\.json$/.test(name)).sort()) {
@@ -22,9 +27,9 @@ export function readDutyWeekHistoryArchive(directory: string, recoveryFile: stri
       add(week);
     }
   }
-  return [...byWeek.values()].filter((week) => isClosedDutyWeek(week.weekStart, now)).map((week) => {
-    if (!resolveDutyWeekHistory(week, week.weekStart, now)) throw new Error(`Future-dated pharmacy observation: ${week.weekStart}`);
-    return week;
+  return [...byWeek.values()].filter((week) => isClosedDutyWeek(week.weekStart, now)).flatMap((week) => {
+    if (!resolveDutyWeekHistory(week, week.weekStart, now)) throw new Error(`Invalid pharmacy duty history: ${week.weekStart}`);
+    return [week];
   }).sort((a, b) => a.weekStart.localeCompare(b.weekStart));
 }
 

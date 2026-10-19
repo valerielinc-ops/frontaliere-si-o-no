@@ -6,6 +6,7 @@ import path from 'node:path';
 import recovery from '../data/pharmacy-duty-week-recovery.json';
 import { pharmacyPageDescriptors, buildPharmacyDirectoryPage, pharmacyDirectoryPagesPlugin } from '../build-plugins/pharmacyDirectoryPagesPlugin';
 import { buildPharmacyPath } from '../services/pharmacies/paths';
+import { readDutyWeekHistoryArchive } from '../scripts/lib/pharmacy-duty-week-history';
 
 // Immutable recovered source editions, not fixtures for current freshness.
 const WEEKS = ['2026-09-14', '2026-09-28'];
@@ -32,6 +33,38 @@ describe('historical pharmacy weekly URLs', () => {
       // The native HTML minifier deliberately removes optional attribute quotes.
       expect([...page.html.matchAll(/data-duty-id=/g)]).toHaveLength(12);
     }
+  });
+
+  it('omits observations newer than the build clock without dropping earlier archived weeks', () => {
+    const descriptors = pharmacyPageDescriptors(AFTER_RECOVERY);
+    expect(descriptors.some((row) => row.kind === 'duty-week' && row.weekStart === '2026-10-05')).toBe(false);
+    for (const weekStart of WEEKS) {
+      expect(descriptors.some((row) => row.kind === 'duty-week' && row.weekStart === weekStart)).toBe(true);
+    }
+  });
+
+  it('filters future observations before deduplicating identical archived entries', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pharmacy-week-future-duplicate-'));
+    roots.push(root);
+    const sourceWeek = recovery.weeks[0];
+    const pastObservation = {
+      ...structuredClone(sourceWeek.observations[0]),
+      entries: [structuredClone(sourceWeek.observations[0].entries[0])],
+    };
+    const futureObservation = {
+      ...structuredClone(pastObservation),
+      fetchedAt: '2026-10-19T03:19:00.000Z',
+      catalogueFetchedAt: '2026-10-19T03:19:00.000Z',
+    };
+    const recoveryPath = path.join(root, 'recovery.json');
+    fs.writeFileSync(recoveryPath, JSON.stringify({
+      version: 1,
+      weeks: [{ ...sourceWeek, observations: [futureObservation, pastObservation] }],
+    }));
+
+    const archives = readDutyWeekHistoryArchive(path.join(root, 'weeks'), recoveryPath, AFTER_RECOVERY);
+    expect(archives).toHaveLength(1);
+    expect(archives[0].observations).toEqual([pastObservation]);
   });
 
   it('writes the history JSON for client navigation and excludes archived pages from the sitemap', async () => {
