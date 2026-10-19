@@ -1076,8 +1076,26 @@ const documentContextRe = (terms) => new RegExp(
 );
 const CV_DOCUMENT_CONTEXT_RE = documentContextRe('cv|resume|résumé|lebenslauf|curriculum(?:\\s+vitae)?');
 const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe('cover\\s+letter|motivation(?:s|al)?\\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\\s+de\\s+motivation|lettera\\s+di\\s+(?:motivazione|presentazione)');
-const SUCCESS_FACTORS_UPLOAD_MARKER_RE = /(?:cv|resume|lebenslauf|curriculum|upload)/i;
-const SUCCESS_FACTORS_COVER_MARKER_RE = /(?:cover|motivation|anschreiben|lettre|presentazione|upload)/i;
+const SUCCESS_FACTORS_UPLOAD_MARKER_RE = /(?:upload|hochladen|carica(?:re)?|charger|télécharger|joindre|importer)/i;
+
+const successFactorsButtonAssociation = (button) => [
+  button.domId,
+  button.id,
+  button.name,
+  button.label,
+  button.title,
+  button.ariaLabel,
+  button.dataAutomationId,
+  button.section,
+  button.context,
+  button.fileContext,
+].filter(Boolean).join(' ');
+
+const successFactorsDocumentPattern = (kind) => kind === 'cv'
+  ? CV_DOCUMENT_CONTEXT_RE
+  : kind === 'cover_letter'
+    ? COVER_LETTER_DOCUMENT_CONTEXT_RE
+    : null;
 
 /**
  * Find a document upload control without guessing from an unlabelled icon.
@@ -1101,11 +1119,12 @@ export function uploadButtonFor(snapshot, kind) {
 }
 
 function successFactorsIconButtonFor(snapshot, kind) {
-  const markerPattern = kind === 'cv' ? SUCCESS_FACTORS_UPLOAD_MARKER_RE : SUCCESS_FACTORS_COVER_MARKER_RE;
+  const documentPattern = successFactorsDocumentPattern(kind);
+  if (!documentPattern) return null;
   const candidates = (snapshot?.buttons || []).filter((button) => {
     if (button.disabled || button.chrome || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return false;
-    const marker = `${button.domId || ''} ${button.id || ''} ${button.name || ''} ${button.label || ''} ${button.title || ''} ${button.ariaLabel || ''} ${button.dataAutomationId || ''}`;
-    return markerPattern.test(marker);
+    const association = successFactorsButtonAssociation(button);
+    return SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association) && documentPattern.test(association);
   });
   return candidates.length === 1 ? candidates[0] : null;
 }
@@ -1123,9 +1142,13 @@ function iconUploadAllowedForPage(page, button, kind = 'cv', snapshot = null) {
   const contextPattern = kind === 'cover_letter' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : CV_DOCUMENT_CONTEXT_RE;
   const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
   if (contextPattern.test(context)) return true;
-  const marker = `${button.domId || ''} ${button.id || ''} ${button.name || ''} ${button.label || ''} ${button.title || ''} ${button.ariaLabel || ''} ${button.dataAutomationId || ''}`;
-  const markerPattern = kind === 'cover_letter' ? SUCCESS_FACTORS_COVER_MARKER_RE : SUCCESS_FACTORS_UPLOAD_MARKER_RE;
-  return isSuccessFactorsPage(page) && ownAccountForm(snapshot || {}) && markerPattern.test(marker);
+  const documentPattern = successFactorsDocumentPattern(kind);
+  const association = successFactorsButtonAssociation(button);
+  return isSuccessFactorsPage(page)
+    && ownAccountForm(snapshot || {})
+    && documentPattern
+    && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
+    && documentPattern.test(association);
 }
 
 // Tries per page and action in one run: a click a portal drops is tried again

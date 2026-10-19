@@ -232,6 +232,62 @@ describe('legacy portal sections', () => {
     expect(result.snapshot.fields.some((field: any) => field.kind === 'file')).toBe(true);
   });
 
+  it('matches separate generic SuccessFactors upload icons to their document association', async () => {
+    const clicked: string[] = [];
+    const base = {
+      url: 'https://career5.successfactors.eu/careers',
+      title: 'Career Opportunities',
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'email', form: 0, label: 'Email Address: *', required: true },
+        { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *', required: true },
+        { id: 'password-repeat', kind: 'text', inputType: 'password', form: 0, label: 'Retype Password: *', required: true },
+        { id: 'permit', kind: 'combobox', form: 0, label: 'Do you hold a valid work permit for Switzerland?', required: true },
+      ],
+      buttons: [
+        { id: 'f5', name: 'cv upload', dataAutomationId: 'action', text: '\uE1EF', disabled: false, ariaLabel: 'Upload' },
+        { id: 'f6', name: 'cover letter upload', dataAutomationId: 'action', text: '\uE1EF', disabled: false, ariaLabel: 'Upload' },
+        { id: 'f7', text: 'Apply', disabled: false },
+      ],
+      captcha: false,
+      passwordVisible: true,
+      errors: [],
+      text: '',
+    };
+    const frame = {
+      url: () => base.url,
+      evaluate: vi.fn(async () => base),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({
+          click: vi.fn(async () => {
+            const id = /data-aa-id="([^"]+)"/.exec(selector)?.[1];
+            if (id) clicked.push(id);
+          }),
+        }),
+      })),
+    };
+    const fileInput = {
+      waitFor: vi.fn(async () => {}),
+      setInputFiles: vi.fn(async () => {}),
+    };
+    const page = {
+      url: () => base.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      locator: vi.fn((selector: string) => selector === '.group_head'
+        ? { count: vi.fn(async () => 0) }
+        : { first: () => fileInput }),
+      waitForLoadState: vi.fn(async () => {}),
+    };
+
+    const result = await openFormSections(page as any, base as any, {
+      files: { cv: '/tmp/candidate-cv.pdf', cover_letter: '/tmp/candidate-letter.pdf' },
+    });
+
+    expect(result.cv).toBe('uploaded');
+    expect(result.coverLetter).toBe('uploaded');
+    expect(clicked).toEqual(['f5', 'f6']);
+  });
+
   it('does not use a SuccessFactors upload marker on an account page without an application form', async () => {
     let clicked = false;
     const base = {
