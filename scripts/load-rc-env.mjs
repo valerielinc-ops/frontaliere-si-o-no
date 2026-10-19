@@ -560,6 +560,7 @@ export function shouldMaskRcValue(value, rcKey) {
 const QUOTA_RC_FETCH_REASONS = new Set([
   'rateLimitExceeded',
   'userRateLimitExceeded',
+  'dailyLimitExceeded',
   'dailyLimitExceededUnreg',
   'quotaExceeded',
   'RESOURCE_EXHAUSTED',

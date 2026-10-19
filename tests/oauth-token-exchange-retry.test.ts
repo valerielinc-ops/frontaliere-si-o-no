@@ -220,6 +220,7 @@ describe('load-rc-env: il salto a valle ha lo stesso budget del salto a monte', 
     for (const reason of [
       'rateLimitExceeded',
       'userRateLimitExceeded',
+      'dailyLimitExceeded',
       'dailyLimitExceededUnreg',
       'quotaExceeded',
       'RESOURCE_EXHAUSTED',
