@@ -13,10 +13,8 @@ import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs'
  *   /de/jobs-im-tessin/pflegepersonal/
  *   /fr/trouver-emploi-tessin/infirmiers/
  *
- * The three sectors map to the highest-opportunity GSC clusters (Apr 2026):
- *   - Infermieri  (nurses)
- *   - Case anziani (elderly care homes)
- *   - Educatori   (educators / socio-pedagogical)
+ * The curated taxonomy spans healthcare, technology, finance, trades,
+ * logistics, education and other job families.
  */
 
 import type { JobBoardLocale } from './jobBoardSeoPure';
@@ -47,6 +45,7 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     ingegneri: 'Ingegneri',
     autisti: 'Autisti',
     sviluppatori: 'Sviluppatori Software',
+    informatica: 'Informatica',
     ristorazione: 'Ristorazione',
     oss: 'Operatori Socio-Sanitari',
     logistica: 'Logistica',
@@ -98,6 +97,7 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     ingegneri: 'Engineers',
     autisti: 'Drivers',
     sviluppatori: 'Software Developers',
+    informatica: 'IT',
     ristorazione: 'Restaurants',
     oss: 'Healthcare Assistants',
     logistica: 'Logistics',
@@ -149,6 +149,7 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     ingegneri: 'Ingenieure',
     autisti: 'Fahrer',
     sviluppatori: 'Softwareentwickler',
+    informatica: 'Informatik',
     ristorazione: 'Gastronomie',
     oss: 'Pflegeassistenten',
     logistica: 'Logistik',
@@ -200,6 +201,7 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     ingegneri: 'Ingénieurs',
     autisti: 'Chauffeurs',
     sviluppatori: 'Développeurs Logiciel',
+    informatica: 'Informatique',
     ristorazione: 'Restauration',
     oss: 'Aides-Soignants',
     logistica: 'Logistique',
@@ -447,6 +449,10 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     /\bautist[aie]\b|\bautotrasport|\bcamionist|\bdriver\b|\btrucker\b|\bchauffeur\b|\bfahrer\b|\bberufsfahrer\b|\bconducteur[ -]?routier\b|\bcdl[ -]driver\b|\bdelivery[ -]driver\b|\blkw[- ]?fahrer\b|\bbus[- ]?fahrer\b/i,
   sviluppatori:
     /sviluppator|sviluppatore|programmator|programmatore|developer|software[ -]engineer|full[ -]?stack|front[ -]?end|back[ -]?end|devops|softwareentwickl|d[eé]veloppeur|programmeur/i,
+  // Require role context for IT acronyms because some sources label unrelated
+  // postings with the bare category "it".
+  informatica:
+    /\binformatic|\binformatik|\binformatique|\b(?:IT|ICT|TIC)[ /-]+(?:support|business|card|category|project|service|system|administrator|admin|analyst|engineer|architect|manager|specialist|operations|operation|infrastructure|network|security|software|data|application|database|cloud)\b|software|developer|programmat|devops|full[ -]?stack|front[ -]?end|back[ -]?end|database|cloud|network[ -](?:engineer|ingegnere|administrator|admin|architect|architetto|specialist)|cybersecurity|cyber[ -]security|information[ -]security|data[ -](?:engineer|scientist|analyst|platform)|system[ -](?:engineer|ingegnere|administrator|admin)|business[ -](?:system|analyst)|enterprise[ -]application|\bsap\b|\berp\b/i,
   ristorazione:
     /ristora|ristoratore|ristorant|cuoc[ho]|cameri[eè]r|chef|sous[ -]chef|gastronom|hospitality|food[ -]service|restaurant|kellner|koch|k[oö]chin|service[ -]de[ -]table|cuisinier|serveur|waiter|waitress|bistro|pizzeri/i,
   // The `operatore[ -]socio[ -]sanitar` literals required a single space (or
@@ -651,6 +657,7 @@ const SECTOR_DESCRIPTION_SCOPE: Record<SectorHubKey, boolean> = {
   ingegneri: false,
   autisti: false,
   sviluppatori: false,
+  informatica: false,
   ristorazione: false,
   oss: false,
   logistica: false,
@@ -812,6 +819,7 @@ export function countSectorJobsByLocale(
     ingegneri: 0,
     autisti: 0,
     sviluppatori: 0,
+    informatica: 0,
     ristorazione: 0,
     oss: 0,
     logistica: 0,
@@ -931,6 +939,40 @@ export function buildSectorHubSeo(
   void SECTOR_HUB_DISPLAY;
   void SECTOR_HUB_FIRE_THRESHOLD;
   const yearStr = String(year);
+
+  if (locale === 'it' && sector === 'informatica') {
+    const titleBase = formatSeoTitle({
+      keyword: 'Lavoro informatico',
+      location: 'Ticino',
+      year: yearStr,
+      count: safeCount > 0 ? safeCount : undefined,
+    });
+    const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
+    const desc = safeCount > 0
+      ? 'Lavoro informatico in Ticino: ' + safeCount + ' offerte attive tra software, cloud, sistemi, dati e supporto IT. Annunci aggiornati ogni giorno.'
+      : 'Offerte di lavoro informatico in Ticino tra software, cloud, sistemi, dati e supporto IT. Annunci aggiornati ogni giorno.';
+    const h1 = safeCount > 0
+      ? 'Offerte di lavoro nel settore informatico in Ticino (' + safeCount + ' posizioni)'
+      : 'Offerte di lavoro nel settore informatico in Ticino';
+    const intro = 'Questa pagina raccoglie annunci attivi nel settore informatico in Ticino: sviluppo software, cloud e infrastrutture, sistemi e database, dati, sicurezza informatica e supporto applicativo. Le offerte possono provenire da aziende tecnologiche, banche, industria e datori con team IT interni. Ogni scheda riporta le informazioni disponibili su sede, datore e requisiti. Gli annunci sono leggibili senza accesso; per aprire la candidatura ufficiale è richiesto un accesso gratuito a Frontaliere Ticino.';
+    const faq = [
+      {
+        question: 'Quante offerte di lavoro informatico ci sono in Ticino?',
+        answer: safeCount > 0
+          ? 'La pagina raccoglie ' + safeCount + ' offerte attive nel settore informatico in Ticino. La lista viene aggiornata più volte al giorno.'
+          : 'La lista viene aggiornata più volte al giorno; torna a consultarla per le nuove offerte informatiche in Ticino.',
+      },
+      {
+        question: 'Posso candidarmi come frontaliere?',
+        answer: 'La possibilità di candidarsi dipende dai requisiti del datore e dal singolo annuncio. Controlla le condizioni indicate, incluse eventuali autorizzazioni di lavoro.',
+      },
+      {
+        question: 'Come avviene la candidatura?',
+        answer: 'La descrizione è leggibile senza accesso. Per aprire la candidatura sul sito ufficiale del datore di lavoro è richiesto un accesso gratuito a Frontaliere Ticino; il datore può richiedere una propria iscrizione.',
+      },
+    ];
+    return { title, desc, ogT: titleBase, ogD: desc, h1, intro, faq };
+  }
 
   switch (locale) {
     case 'it': {

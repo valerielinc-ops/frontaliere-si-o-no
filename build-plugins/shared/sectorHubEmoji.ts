@@ -23,6 +23,7 @@ export const SECTOR_HUB_EMOJI: Record<SectorHubKey, string> = {
   ingegneri: '⚙️',
   autisti: '🚚',
   sviluppatori: '💻',
+  informatica: '🖥️',
   ristorazione: '🍽️',
   oss: '🧑‍⚕️',
   logistica: '📦',

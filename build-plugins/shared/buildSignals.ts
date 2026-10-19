@@ -179,11 +179,11 @@ export function getActiveJobSitemapLocs(): ReadonlySet<string> | null {
 
 /**
  * Resolves when {@link jobSectorPagesPlugin} has written every sector-hub
- * landing (49 sectors × 4 locales). Consumed by {@link sectorHubLinksPlugin},
+ * landing (each configured sector × 4 locales). Consumed by {@link sectorHubLinksPlugin},
  * which patches the 4 job-board hub pages with an `<aside>` listing the
  * highest-demand sector hubs so BFS from `/` reaches them (today the root hub
- * links the sector INDEX once but none of the 49 sector-hub canonicals → ~37
- * are orphaned with ~0 internal links). Awaiting this barrier guarantees the
+ * links the sector INDEX once but none of the sector-hub canonicals, leaving
+ * many with ~0 internal links). Awaiting this barrier guarantees the
  * link targets exist on disk before we inject anchors to them, mirroring the
  * salaryHubFlushed → salaryHubIndexLinkPlugin contract.
  */

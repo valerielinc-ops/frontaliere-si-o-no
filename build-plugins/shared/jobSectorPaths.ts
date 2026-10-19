@@ -30,6 +30,7 @@ export type SectorHubKey =
   | 'ingegneri'
   | 'autisti'
   | 'sviluppatori'
+  | 'informatica'
   | 'ristorazione'
   | 'oss'
   | 'logistica'
@@ -81,6 +82,7 @@ export const SECTOR_HUB_KEYS: readonly SectorHubKey[] = [
   'ingegneri',
   'autisti',
   'sviluppatori',
+  'informatica',
   'ristorazione',
   'oss',
   'logistica',
@@ -155,7 +157,7 @@ export function buildSectorHubPath(locale: JobBoardLocale, sector: SectorHubKey)
   return `${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
 }
 
-/** Return all 12 hub paths (3 sectors × 4 locales). */
+/** Return all configured hub paths (each sector × 4 locales). */
 export function allSectorHubPaths(): SectorHubPath[] {
   const out: SectorHubPath[] = [];
   for (const locale of ['it', 'en', 'de', 'fr'] as JobBoardLocale[]) {

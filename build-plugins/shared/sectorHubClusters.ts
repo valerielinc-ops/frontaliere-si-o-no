@@ -1,11 +1,11 @@
 /**
  * Sector-hub cross-linking topology — single source of truth for the two
- * internal-link improvements that wire the 49 sector hubs into the BFS graph:
+ * internal-link improvements that wire configured sector hubs into the BFS graph:
  *
  *  1. {@link TOP_DEMAND_SECTORS} — the highest-demand sector hubs that get an
  *     anchor on the 4 job-board root hubs (`sectorHubLinksPlugin`). Today the
- *     root hub links the sector INDEX once but none of the 49 sector-hub
- *     canonicals, so ~37 of them are orphaned (live HTTP 200 but ~0 internal
+ *     root hub links the sector INDEX once but none of the sector-hub
+ *     canonicals, so many are orphaned (live HTTP 200 but ~0 internal
  *     links → no GSC impressions). This list surfaces the strongest clusters
  *     directly on the hub.
  *
@@ -23,11 +23,10 @@
  *    autisti/fahrer/chauffeurs, ingegneri, logistica, architetti,
  *    fisioterapisti, medici (IT/DE/FR/EN).
  *
- * Both structures are keyed on {@link SectorHubKey}, so every entry is a real
- * hub that {@link buildSectorHubPath} can resolve to a trailing-slash URL in
- * any of the 4 locales — labels come from SECTOR_HUB_DISPLAY. No new pages are
- * created: this only adds internal links to pages that already exist in
- * `sitemap-sector.xml`.
+ * Both structures are keyed on {@link SectorHubKey}, so every entry resolves
+ * through {@link buildSectorHubPath} to a trailing-slash URL in any of the 4
+ * locales — labels come from SECTOR_HUB_DISPLAY and routes appear in
+ * `sitemap-sector.xml` as part of the registered hub set.
  */
 
 import type { SectorHubKey } from '../jobSectorLanding';
@@ -77,10 +76,11 @@ export const SECTOR_HUB_SIBLINGS: Partial<Record<SectorHubKey, readonly SectorHu
   scuola: ['educatori', 'oss'],
 
   // ── Engineering / tech cluster ───────────────────────────────────────
-  ingegneri: ['sviluppatori', 'architetti', 'tecnici', 'data-scientist'],
-  sviluppatori: ['ingegneri', 'data-scientist', 'cybersecurity', 'project-manager'],
-  'data-scientist': ['sviluppatori', 'ingegneri', 'cybersecurity'],
-  cybersecurity: ['sviluppatori', 'data-scientist', 'ingegneri'],
+  ingegneri: ['sviluppatori', 'informatica', 'architetti', 'tecnici', 'data-scientist'],
+  sviluppatori: ['informatica', 'ingegneri', 'data-scientist', 'cybersecurity', 'project-manager'],
+  informatica: ['sviluppatori', 'data-scientist', 'cybersecurity', 'ingegneri'],
+  'data-scientist': ['sviluppatori', 'informatica', 'ingegneri', 'cybersecurity'],
+  cybersecurity: ['sviluppatori', 'informatica', 'data-scientist', 'ingegneri'],
   'project-manager': ['sviluppatori', 'ingegneri', 'consulenza'],
   tecnici: ['ingegneri', 'meccanici', 'elettricisti'],
   architetti: ['ingegneri', 'edilizia', 'designer'],

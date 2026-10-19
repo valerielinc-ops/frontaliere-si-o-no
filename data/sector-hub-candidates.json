@@ -1,0 +1,1079 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-19T21:15:47.242Z",
+  "week": "2026-W43",
+  "window": {
+    "startDate": "2026-09-20",
+    "endDate": "2026-10-17"
+  },
+  "publicationMode": "proposal-only",
+  "promotionRules": {
+    "minActiveJobs": 15,
+    "minDistinctEmployers": 4,
+    "minConsecutiveWeeks": 3,
+    "requiresTrafficEvidence": true,
+    "trafficEvidenceRule": "At least one listed traffic source must cross its threshold.",
+    "trafficSources": [
+      "active-ad views",
+      "GA4 job-page sessions",
+      "GSC impressions and clicks"
+    ]
+  },
+  "scoring": {
+    "weights": {
+      "inventory": 0.25,
+      "employers": 0.15,
+      "adViews": 0.2,
+      "ga4Sessions": 0.1,
+      "seoDemand": 0.3
+    },
+    "scales": {
+      "jobs": 20,
+      "employers": 5,
+      "adViewsPerDay": 3,
+      "ga4Sessions28d": 20,
+      "gscClicks": 10,
+      "gscPageImpressionsPerUnit": 100,
+      "gscQueryImpressions": 1000
+    }
+  },
+  "sourceCoverage": {
+    "jobs": {
+      "status": "complete",
+      "datasetRecords": 32623,
+      "activeTicinoJobs": 946,
+      "activeJobsOutsideCuratedHubs": 199,
+      "unclassifiedActiveJobs": 94
+    },
+    "popularity": {
+      "status": "complete",
+      "scannedAt": "2026-10-19T10:39:18.186Z",
+      "entries": 94222,
+      "timeBasis": "cumulative views on currently active ads; per-day rate uses first-seen/posting dates and falls back to 30 days when unknown"
+    },
+    "ga4": {
+      "status": "complete",
+      "returnedPages": 127946,
+      "minSessionsPerPage": 1,
+      "coverage": {
+        "complete": true,
+        "returnedRows": 127946,
+        "reportedRows": 127946
+      },
+      "error": null
+    },
+    "gsc": {
+      "status": "partial",
+      "returnedQueries": 14524,
+      "returnedPages": 47315,
+      "queryAggregationComplete": true,
+      "queryLandingPagesComplete": false,
+      "pageImpressionsComplete": true,
+      "error": "pass2 (query+page): pagination incomplete: reached 250000 row safety cap"
+    }
+  },
+  "existingHubPerformance": [
+    {
+      "key": "infermieri",
+      "label": "Infermieri",
+      "activeJobCount": 42,
+      "employerCount": 4,
+      "activeJobsWithViews": 42,
+      "activeJobViews": 8412,
+      "viewsPerLiveDay": 82.38,
+      "ga4Sessions28d": 1070,
+      "ga4Pageviews28d": 4848,
+      "gscPageImpressions28d": 4300
+    },
+    {
+      "key": "case-anziani",
+      "label": "Case Anziani",
+      "activeJobCount": 26,
+      "employerCount": 9,
+      "activeJobsWithViews": 26,
+      "activeJobViews": 6574,
+      "viewsPerLiveDay": 53.62,
+      "ga4Sessions28d": 534,
+      "ga4Pageviews28d": 1600,
+      "gscPageImpressions28d": 2293
+    },
+    {
+      "key": "educatori",
+      "label": "Educatori",
+      "activeJobCount": 4,
+      "employerCount": 3,
+      "activeJobsWithViews": 4,
+      "activeJobViews": 3036,
+      "viewsPerLiveDay": 17.75,
+      "ga4Sessions28d": 126,
+      "ga4Pageviews28d": 432,
+      "gscPageImpressions28d": 480
+    },
+    {
+      "key": "ingegneri",
+      "label": "Ingegneri",
+      "activeJobCount": 94,
+      "employerCount": 31,
+      "activeJobsWithViews": 85,
+      "activeJobViews": 1469,
+      "viewsPerLiveDay": 35.61,
+      "ga4Sessions28d": 102,
+      "ga4Pageviews28d": 390,
+      "gscPageImpressions28d": 699
+    },
+    {
+      "key": "autisti",
+      "label": "Autisti",
+      "activeJobCount": 6,
+      "employerCount": 4,
+      "activeJobsWithViews": 6,
+      "activeJobViews": 1218,
+      "viewsPerLiveDay": 14.13,
+      "ga4Sessions28d": 99,
+      "ga4Pageviews28d": 381,
+      "gscPageImpressions28d": 613
+    },
+    {
+      "key": "sviluppatori",
+      "label": "Sviluppatori Software",
+      "activeJobCount": 36,
+      "employerCount": 17,
+      "activeJobsWithViews": 36,
+      "activeJobViews": 614,
+      "viewsPerLiveDay": 14,
+      "ga4Sessions28d": 43,
+      "ga4Pageviews28d": 121,
+      "gscPageImpressions28d": 293
+    },
+    {
+      "key": "informatica",
+      "label": "Informatica",
+      "activeJobCount": 59,
+      "employerCount": 24,
+      "activeJobsWithViews": 57,
+      "activeJobViews": 1152,
+      "viewsPerLiveDay": 22.93,
+      "ga4Sessions28d": 0,
+      "ga4Pageviews28d": 0,
+      "gscPageImpressions28d": 0
+    },
+    {
+      "key": "ristorazione",
+      "label": "Ristorazione",
+      "activeJobCount": 16,
+      "employerCount": 5,
+      "activeJobsWithViews": 16,
+      "activeJobViews": 2368,
+      "viewsPerLiveDay": 20.34,
+      "ga4Sessions28d": 146,
+      "ga4Pageviews28d": 494,
+      "gscPageImpressions28d": 620
+    },
+    {
+      "key": "oss",
+      "label": "Operatori Socio-Sanitari",
+      "activeJobCount": 13,
+      "employerCount": 5,
+      "activeJobsWithViews": 13,
+      "activeJobViews": 1598,
+      "viewsPerLiveDay": 17.77,
+      "ga4Sessions28d": 111,
+      "ga4Pageviews28d": 443,
+      "gscPageImpressions28d": 642
+    },
+    {
+      "key": "logistica",
+      "label": "Logistica",
+      "activeJobCount": 26,
+      "employerCount": 11,
+      "activeJobsWithViews": 20,
+      "activeJobViews": 1041,
+      "viewsPerLiveDay": 19.02,
+      "ga4Sessions28d": 107,
+      "ga4Pageviews28d": 372,
+      "gscPageImpressions28d": 488
+    },
+    {
+      "key": "apprendistato",
+      "label": "Apprendistato",
+      "activeJobCount": 62,
+      "employerCount": 25,
+      "activeJobsWithViews": 62,
+      "activeJobViews": 1017,
+      "viewsPerLiveDay": 33.7,
+      "ga4Sessions28d": 16,
+      "ga4Pageviews28d": 53,
+      "gscPageImpressions28d": 13
+    },
+    {
+      "key": "medici",
+      "label": "Medici",
+      "activeJobCount": 103,
+      "employerCount": 9,
+      "activeJobsWithViews": 98,
+      "activeJobViews": 3754,
+      "viewsPerLiveDay": 38.75,
+      "ga4Sessions28d": 19,
+      "ga4Pageviews28d": 28,
+      "gscPageImpressions28d": 4
+    },
+    {
+      "key": "fisioterapisti",
+      "label": "Fisioterapisti",
+      "activeJobCount": 9,
+      "employerCount": 2,
+      "activeJobsWithViews": 7,
+      "activeJobViews": 804,
+      "viewsPerLiveDay": 5.55,
+      "ga4Sessions28d": 62,
+      "ga4Pageviews28d": 245,
+      "gscPageImpressions28d": 404
+    },
+    {
+      "key": "farmacisti",
+      "label": "Farmacisti",
+      "activeJobCount": 13,
+      "employerCount": 3,
+      "activeJobsWithViews": 13,
+      "activeJobViews": 915,
+      "viewsPerLiveDay": 10.36,
+      "ga4Sessions28d": 131,
+      "ga4Pageviews28d": 524,
+      "gscPageImpressions28d": 719
+    },
+    {
+      "key": "data-scientist",
+      "label": "Data scientist",
+      "activeJobCount": 4,
+      "employerCount": 3,
+      "activeJobsWithViews": 4,
+      "activeJobViews": 79,
+      "viewsPerLiveDay": 1.48,
+      "ga4Sessions28d": 15,
+      "ga4Pageviews28d": 42,
+      "gscPageImpressions28d": 44
+    },
+    {
+      "key": "cybersecurity",
+      "label": "Cybersecurity",
+      "activeJobCount": 2,
+      "employerCount": 2,
+      "activeJobsWithViews": 2,
+      "activeJobViews": 21,
+      "viewsPerLiveDay": 0.19,
+      "ga4Sessions28d": 12,
+      "ga4Pageviews28d": 13,
+      "gscPageImpressions28d": 24
+    },
+    {
+      "key": "project-manager",
+      "label": "Project manager",
+      "activeJobCount": 14,
+      "employerCount": 11,
+      "activeJobsWithViews": 13,
+      "activeJobViews": 205,
+      "viewsPerLiveDay": 3.33,
+      "ga4Sessions28d": 16,
+      "ga4Pageviews28d": 26,
+      "gscPageImpressions28d": 3
+    },
+    {
+      "key": "contabili",
+      "label": "Contabili",
+      "activeJobCount": 6,
+      "employerCount": 6,
+      "activeJobsWithViews": 6,
+      "activeJobViews": 301,
+      "viewsPerLiveDay": 8.22,
+      "ga4Sessions28d": 19,
+      "ga4Pageviews28d": 62,
+      "gscPageImpressions28d": 0
+    },
+    {
+      "key": "banca",
+      "label": "Banca e finanza",
+      "activeJobCount": 19,
+      "employerCount": 15,
+      "activeJobsWithViews": 19,
+      "activeJobViews": 650,
+      "viewsPerLiveDay": 25.09,
+      "ga4Sessions28d": 86,
+      "ga4Pageviews28d": 292,
+      "gscPageImpressions28d": 520
+    },
+    {
+      "key": "assicurazioni",
+      "label": "Assicurazioni",
+      "activeJobCount": 11,
+      "employerCount": 4,
+      "activeJobsWithViews": 11,
+      "activeJobViews": 185,
+      "viewsPerLiveDay": 5.62,
+      "ga4Sessions28d": 7,
+      "ga4Pageviews28d": 25,
+      "gscPageImpressions28d": 1
+    },
+    {
+      "key": "consulenza",
+      "label": "Consulenza",
+      "activeJobCount": 83,
+      "employerCount": 21,
+      "activeJobsWithViews": 75,
+      "activeJobViews": 1487,
+      "viewsPerLiveDay": 102.6,
+      "ga4Sessions28d": 10,
+      "ga4Pageviews28d": 29,
+      "gscPageImpressions28d": 0
+    },
+    {
+      "key": "avvocati",
+      "label": "Avvocati e legale",
+      "activeJobCount": 3,
+      "employerCount": 3,
+      "activeJobsWithViews": 3,
+      "activeJobViews": 56,
+      "viewsPerLiveDay": 1.07,
+      "ga4Sessions28d": 19,
+      "ga4Pageviews28d": 44,
+      "gscPageImpressions28d": 100
+    },
+    {
+      "key": "risorse-umane",
+      "label": "Risorse umane",
+      "activeJobCount": 7,
+      "employerCount": 4,
+      "activeJobsWithViews": 7,
+      "activeJobViews": 115,
+      "viewsPerLiveDay": 4.57,
+      "ga4Sessions28d": 13,
+      "ga4Pageviews28d": 28,
+      "gscPageImpressions28d": 19
+    },
+    {
+      "key": "marketing",
+      "label": "Marketing",
+      "activeJobCount": 21,
+      "employerCount": 6,
+      "activeJobsWithViews": 21,
+      "activeJobViews": 332,
+      "viewsPerLiveDay": 10.96,
+      "ga4Sessions28d": 23,
+      "ga4Pageviews28d": 48,
+      "gscPageImpressions28d": 41
+    },
+    {
+      "key": "vendite",
+      "label": "Vendite",
+      "activeJobCount": 114,
+      "employerCount": 26,
+      "activeJobsWithViews": 104,
+      "activeJobViews": 2123,
+      "viewsPerLiveDay": 112.94,
+      "ga4Sessions28d": 8,
+      "ga4Pageviews28d": 27,
+      "gscPageImpressions28d": 1
+    },
+    {
+      "key": "commercio",
+      "label": "Commercio al dettaglio",
+      "activeJobCount": 54,
+      "employerCount": 11,
+      "activeJobsWithViews": 53,
+      "activeJobViews": 1156,
+      "viewsPerLiveDay": 20.74,
+      "ga4Sessions28d": 34,
+      "ga4Pageviews28d": 116,
+      "gscPageImpressions28d": 209
+    },
+    {
+      "key": "trasporti",
+      "label": "Trasporti",
+      "activeJobCount": 5,
+      "employerCount": 4,
+      "activeJobsWithViews": 5,
+      "activeJobViews": 341,
+      "viewsPerLiveDay": 2.2,
+      "ga4Sessions28d": 10,
+      "ga4Pageviews28d": 42,
+      "gscPageImpressions28d": 13
+    },
+    {
+      "key": "magazzino",
+      "label": "Magazzinieri",
+      "activeJobCount": 7,
+      "employerCount": 6,
+      "activeJobsWithViews": 7,
+      "activeJobViews": 580,
+      "viewsPerLiveDay": 13.3,
+      "ga4Sessions28d": 108,
+      "ga4Pageviews28d": 427,
+      "gscPageImpressions28d": 742
+    },
+    {
+      "key": "meccanici",
+      "label": "Meccanici",
+      "activeJobCount": 14,
+      "employerCount": 8,
+      "activeJobsWithViews": 8,
+      "activeJobViews": 115,
+      "viewsPerLiveDay": 7.02,
+      "ga4Sessions28d": 11,
+      "ga4Pageviews28d": 35,
+      "gscPageImpressions28d": 0
+    },
+    {
+      "key": "elettricisti",
+      "label": "Elettricisti",
+      "activeJobCount": 10,
+      "employerCount": 4,
+      "activeJobsWithViews": 10,
+      "activeJobViews": 201,
+      "viewsPerLiveDay": 6.29,
+      "ga4Sessions28d": 11,
+      "ga4Pageviews28d": 50,
+      "gscPageImpressions28d": 9
+    },
+    {
+      "key": "idraulici",
+      "label": "Idraulici",
+      "activeJobCount": 22,
+      "employerCount": 2,
+      "activeJobsWithViews": 15,
+      "activeJobViews": 76,
+      "viewsPerLiveDay": 2.86,
+      "ga4Sessions28d": 10,
+      "ga4Pageviews28d": 19,
+      "gscPageImpressions28d": 0
+    },
+    {
+      "key": "edilizia",
+      "label": "Edilizia",
+      "activeJobCount": 38,
+      "employerCount": 6,
+      "activeJobsWithViews": 32,
+      "activeJobViews": 366,
+      "viewsPerLiveDay": 36.53,
+      "ga4Sessions28d": 176,
+      "ga4Pageviews28d": 658,
+      "gscPageImpressions28d": 1365
+    },
+    {
+      "key": "falegnami",
+      "label": "Falegnami",
+      "activeJobCount": 9,
+      "employerCount": 3,
+      "activeJobsWithViews": 5,
+      "activeJobViews": 43,
+      "viewsPerLiveDay": 3.7,
+      "ga4Sessions28d": 6,
+      "ga4Pageviews28d": 7,
+      "gscPageImpressions28d": 1
+    },
+    {
+      "key": "industria",
+      "label": "Industria e produzione",
+      "activeJobCount": 22,
+      "employerCount": 14,
+      "activeJobsWithViews": 19,
+      "activeJobViews": 819,
+      "viewsPerLiveDay": 59.68,
+      "ga4Sessions28d": 15,
+      "ga4Pageviews28d": 48,
+      "gscPageImpressions28d": 0
+    },
+    {
+      "key": "orologeria",
+      "label": "Orologeria",
+      "activeJobCount": 2,
+      "employerCount": 2,
+      "activeJobsWithViews": 2,
+      "activeJobViews": 15,
+      "viewsPerLiveDay": 1.43,
+      "ga4Sessions28d": 9,
+      "ga4Pageviews28d": 16,
+      "gscPageImpressions28d": 7
+    },
+    {
+      "key": "farmaceutica",
+      "label": "Farmaceutica",
+      "activeJobCount": 1,
+      "employerCount": 1,
+      "activeJobsWithViews": 1,
+      "activeJobViews": 102,
+      "viewsPerLiveDay": 6,
+      "ga4Sessions28d": 28,
+      "ga4Pageviews28d": 83,
+      "gscPageImpressions28d": 170
+    },
+    {
+      "key": "chimica",
+      "label": "Chimica",
+      "activeJobCount": 2,
+      "employerCount": 2,
+      "activeJobsWithViews": 2,
+      "activeJobViews": 37,
+      "viewsPerLiveDay": 0.56,
+      "ga4Sessions28d": 15,
+      "ga4Pageviews28d": 51,
+      "gscPageImpressions28d": 27
+    },
+    {
+      "key": "food",
+      "label": "Food & beverage",
+      "activeJobCount": 1,
+      "employerCount": 1,
+      "activeJobsWithViews": 1,
+      "activeJobViews": 12,
+      "viewsPerLiveDay": 0.26,
+      "ga4Sessions28d": 13,
+      "ga4Pageviews28d": 35,
+      "gscPageImpressions28d": 19
+    },
+    {
+      "key": "cuochi",
+      "label": "Cuochi",
+      "activeJobCount": 4,
+      "employerCount": 3,
+      "activeJobsWithViews": 4,
+      "activeJobViews": 266,
+      "viewsPerLiveDay": 3.07,
+      "ga4Sessions28d": 50,
+      "ga4Pageviews28d": 130,
+      "gscPageImpressions28d": 381
+    },
+    {
+      "key": "camerieri",
+      "label": "Camerieri",
+      "activeJobCount": 3,
+      "employerCount": 1,
+      "activeJobsWithViews": 3,
+      "activeJobViews": 1341,
+      "viewsPerLiveDay": 8.95,
+      "ga4Sessions28d": 16,
+      "ga4Pageviews28d": 45,
+      "gscPageImpressions28d": 23
+    },
+    {
+      "key": "hotel",
+      "label": "Hotel e turismo",
+      "activeJobCount": 5,
+      "employerCount": 3,
+      "activeJobsWithViews": 5,
+      "activeJobViews": 244,
+      "viewsPerLiveDay": 5.27,
+      "ga4Sessions28d": 15,
+      "ga4Pageviews28d": 58,
+      "gscPageImpressions28d": 17
+    },
+    {
+      "key": "pulizie",
+      "label": "Pulizie",
+      "activeJobCount": 3,
+      "employerCount": 2,
+      "activeJobsWithViews": 3,
+      "activeJobViews": 798,
+      "viewsPerLiveDay": 16.69,
+      "ga4Sessions28d": 65,
+      "ga4Pageviews28d": 206,
+      "gscPageImpressions28d": 402
+    },
+    {
+      "key": "sicurezza",
+      "label": "Sicurezza",
+      "activeJobCount": 1,
+      "employerCount": 1,
+      "activeJobsWithViews": 1,
+      "activeJobViews": 17,
+      "viewsPerLiveDay": 0.21,
+      "ga4Sessions28d": 5,
+      "ga4Pageviews28d": 3,
+      "gscPageImpressions28d": 0
+    },
+    {
+      "key": "scuola",
+      "label": "Scuola e formazione",
+      "activeJobCount": 5,
+      "employerCount": 3,
+      "activeJobsWithViews": 5,
+      "activeJobViews": 982,
+      "viewsPerLiveDay": 6.61,
+      "ga4Sessions28d": 32,
+      "ga4Pageviews28d": 80,
+      "gscPageImpressions28d": 183
+    },
+    {
+      "key": "designer",
+      "label": "Designer e creativi",
+      "activeJobCount": 9,
+      "employerCount": 5,
+      "activeJobsWithViews": 9,
+      "activeJobViews": 236,
+      "viewsPerLiveDay": 3.06,
+      "ga4Sessions28d": 17,
+      "ga4Pageviews28d": 40,
+      "gscPageImpressions28d": 3
+    },
+    {
+      "key": "architetti",
+      "label": "Architetti",
+      "activeJobCount": 2,
+      "employerCount": 2,
+      "activeJobsWithViews": 2,
+      "activeJobViews": 56,
+      "viewsPerLiveDay": 0.3,
+      "ga4Sessions28d": 30,
+      "ga4Pageviews28d": 70,
+      "gscPageImpressions28d": 123
+    },
+    {
+      "key": "agricoltura",
+      "label": "Agricoltura",
+      "activeJobCount": 10,
+      "employerCount": 3,
+      "activeJobsWithViews": 8,
+      "activeJobViews": 295,
+      "viewsPerLiveDay": 3.83,
+      "ga4Sessions28d": 25,
+      "ga4Pageviews28d": 66,
+      "gscPageImpressions28d": 52
+    },
+    {
+      "key": "energia",
+      "label": "Energia e utility",
+      "activeJobCount": 11,
+      "employerCount": 4,
+      "activeJobsWithViews": 11,
+      "activeJobViews": 399,
+      "viewsPerLiveDay": 14.63,
+      "ga4Sessions28d": 9,
+      "ga4Pageviews28d": 17,
+      "gscPageImpressions28d": 16
+    },
+    {
+      "key": "media",
+      "label": "Media e comunicazione",
+      "activeJobCount": 8,
+      "employerCount": 5,
+      "activeJobsWithViews": 8,
+      "activeJobViews": 151,
+      "viewsPerLiveDay": 9.88,
+      "ga4Sessions28d": 68,
+      "ga4Pageviews28d": 165,
+      "gscPageImpressions28d": 239
+    },
+    {
+      "key": "tecnici",
+      "label": "Tecnici",
+      "activeJobCount": 50,
+      "employerCount": 27,
+      "activeJobsWithViews": 47,
+      "activeJobViews": 1838,
+      "viewsPerLiveDay": 63.51,
+      "ga4Sessions28d": 8,
+      "ga4Pageviews28d": 17,
+      "gscPageImpressions28d": 0
+    }
+  ],
+  "candidates": [
+    {
+      "label": "finance",
+      "suggestedSlug": "finance",
+      "sourceFields": [
+        "category"
+      ],
+      "alternateLabels": [],
+      "activeJobCount": 26,
+      "employerCount": 9,
+      "activeJobsWithViews": 26,
+      "activeJobViews": 662,
+      "viewsPerLiveDay": 21.39,
+      "ga4Sessions28d": 383,
+      "ga4Pageviews28d": 702,
+      "gscJobPageImpressions28d": 2751,
+      "gscQueryImpressions28d": 77,
+      "gscQueryClicks28d": 13,
+      "score": 1,
+      "consecutiveWeeks": 1,
+      "observedWeeks": [
+        "2026-W43"
+      ],
+      "firstSeenAt": "2026-10-19T20:55:09.404Z",
+      "lastSeenAt": "2026-10-19T21:15:47.242Z",
+      "status": "promising",
+      "requiresCuratedTaxonomy": true,
+      "slugConflict": false
+    },
+    {
+      "label": "admin",
+      "suggestedSlug": "admin",
+      "sourceFields": [
+        "category"
+      ],
+      "alternateLabels": [],
+      "activeJobCount": 25,
+      "employerCount": 8,
+      "activeJobsWithViews": 25,
+      "activeJobViews": 2072,
+      "viewsPerLiveDay": 25.74,
+      "ga4Sessions28d": 541,
+      "ga4Pageviews28d": 1052,
+      "gscJobPageImpressions28d": 6547,
+      "gscQueryImpressions28d": 17,
+      "gscQueryClicks28d": 0,
+      "score": 1,
+      "consecutiveWeeks": 1,
+      "observedWeeks": [
+        "2026-W43"
+      ],
+      "firstSeenAt": "2026-10-19T20:55:09.404Z",
+      "lastSeenAt": "2026-10-19T21:15:47.242Z",
+      "status": "promising",
+      "requiresCuratedTaxonomy": true,
+      "slugConflict": false
+    },
+    {
+      "label": "Sanità / Ospedali",
+      "suggestedSlug": "sanita-ospedali",
+      "sourceFields": [
+        "category",
+        "sector"
+      ],
+      "alternateLabels": [],
+      "activeJobCount": 5,
+      "employerCount": 4,
+      "activeJobsWithViews": 5,
+      "activeJobViews": 247,
+      "viewsPerLiveDay": 4.55,
+      "ga4Sessions28d": 141,
+      "ga4Pageviews28d": 242,
+      "gscJobPageImpressions28d": 1189,
+      "gscQueryImpressions28d": 15,
+      "gscQueryClicks28d": 0,
+      "score": 0.783,
+      "consecutiveWeeks": 1,
+      "observedWeeks": [
+        "2026-W43"
+      ],
+      "firstSeenAt": "2026-10-19T20:55:09.404Z",
+      "lastSeenAt": "2026-10-19T21:15:47.242Z",
+      "status": "watch",
+      "requiresCuratedTaxonomy": true,
+      "slugConflict": false
+    },
+    {
+      "label": "public-admin",
+      "suggestedSlug": "public-admin",
+      "sourceFields": [
+        "category"
+      ],
+      "alternateLabels": [],
+      "activeJobCount": 4,
+      "employerCount": 2,
+      "activeJobsWithViews": 4,
+      "activeJobViews": 162,
+      "viewsPerLiveDay": 7.4,
+      "ga4Sessions28d": 128,
+      "ga4Pageviews28d": 229,
+      "gscJobPageImpressions28d": 696,
+      "gscQueryImpressions28d": 57,
+      "gscQueryClicks28d": 4,
+      "score": 0.71,
+      "consecutiveWeeks": 1,
+      "observedWeeks": [
+        "2026-W43"
+      ],
+      "firstSeenAt": "2026-10-19T20:55:09.404Z",
+      "lastSeenAt": "2026-10-19T21:15:47.242Z",
+      "status": "watch",
+      "requiresCuratedTaxonomy": true,
+      "slugConflict": false
+    },
+    {
+      "label": "Istruzione e ricerca",
+      "suggestedSlug": "istruzione-e-ricerca",
+      "sourceFields": [
+        "sector"
+      ],
+      "alternateLabels": [],
+      "activeJobCount": 4,
+      "employerCount": 1,
+      "activeJobsWithViews": 4,
+      "activeJobViews": 156,
+      "viewsPerLiveDay": 0.89,
+      "ga4Sessions28d": 21,
+      "ga4Pageviews28d": 38,
+      "gscJobPageImpressions28d": 1109,
+      "gscQueryImpressions28d": 76,
+      "gscQueryClicks28d": 10,
+      "score": 0.571,
+      "consecutiveWeeks": 1,
+      "observedWeeks": [
+        "2026-W43"
+      ],
+      "firstSeenAt": "2026-10-19T20:55:09.404Z",
+      "lastSeenAt": "2026-10-19T21:15:47.242Z",
+      "status": "watch",
+      "requiresCuratedTaxonomy": true,
+      "slugConflict": false
+    },
+    {
+      "label": "metallo",
+      "suggestedSlug": "metallo",
+      "sourceFields": [
+        "category"
+      ],
+      "alternateLabels": [],
+      "activeJobCount": 8,
+      "employerCount": 1,
+      "activeJobsWithViews": 6,
+      "activeJobViews": 61,
+      "viewsPerLiveDay": 3.62,
+      "ga4Sessions28d": 33,
+      "ga4Pageviews28d": 84,
+      "gscJobPageImpressions28d": 115,
+      "gscQueryImpressions28d": 0,
+      "gscQueryClicks28d": 0,
+      "score": 0.526,
+      "consecutiveWeeks": 1,
+      "observedWeeks": [
+        "2026-W43"
+      ],
+      "firstSeenAt": "2026-10-19T20:55:09.404Z",
+      "lastSeenAt": "2026-10-19T21:15:47.242Z",
+      "status": "watch",
+      "requiresCuratedTaxonomy": true,
+      "slugConflict": false
+    },
+    {
+      "label": "staff",
+      "suggestedSlug": "staff",
+      "sourceFields": [
+        "category"
+      ],
+      "alternateLabels": [],
+      "activeJobCount": 3,
+      "employerCount": 1,
+      "activeJobsWithViews": 3,
+      "activeJobViews": 140,
+      "viewsPerLiveDay": 0.74,
+      "ga4Sessions28d": 11,
+      "ga4Pageviews28d": 24,
+      "gscJobPageImpressions28d": 631,
+      "gscQueryImpressions28d": 22,
+      "gscQueryClicks28d": 0,
+      "score": 0.478,
+      "consecutiveWeeks": 1,
+      "observedWeeks": [
+        "2026-W43"
+      ],
+      "firstSeenAt": "2026-10-19T20:55:09.404Z",
+      "lastSeenAt": "2026-10-19T21:15:47.242Z",
+      "status": "watch",
+      "requiresCuratedTaxonomy": true,
+      "slugConflict": false
+    },
+    {
+      "label": "Metalli preziosi",
+      "suggestedSlug": "metalli-preziosi",
+      "sourceFields": [
+        "sector"
+      ],
+      "alternateLabels": [],
+      "activeJobCount": 4,
+      "employerCount": 1,
+      "activeJobsWithViews": 4,
+      "activeJobViews": 76,
+      "viewsPerLiveDay": 1.66,
+      "ga4Sessions28d": 45,
+      "ga4Pageviews28d": 100,
+      "gscJobPageImpressions28d": 220,
+      "gscQueryImpressions28d": 0,
+      "gscQueryClicks28d": 0,
+      "score": 0.467,
+      "consecutiveWeeks": 1,
+      "observedWeeks": [
+        "2026-W43"
+      ],
+      "firstSeenAt": "2026-10-19T20:55:09.404Z",
+      "lastSeenAt": "2026-10-19T21:15:47.242Z",
+      "status": "watch",
+      "requiresCuratedTaxonomy": true,
+      "slugConflict": false
+    },
+    {
+      "label": "Fintech / Blockchain",
+      "suggestedSlug": "fintech-blockchain",
+      "sourceFields": [
+        "sector"
+      ],
+      "alternateLabels": [],
+      "activeJobCount": 6,
+      "employerCount": 1,
+      "activeJobsWithViews": 5,
+      "activeJobViews": 16,
+      "viewsPerLiveDay": 0.86,
+      "ga4Sessions28d": 25,
+      "ga4Pageviews28d": 48,
+      "gscJobPageImpressions28d": 42,
+      "gscQueryImpressions28d": 0,
+      "gscQueryClicks28d": 0,
+      "score": 0.339,
+      "consecutiveWeeks": 1,
+      "observedWeeks": [
+        "2026-W43"
+      ],
+      "firstSeenAt": "2026-10-19T20:55:09.404Z",
+      "lastSeenAt": "2026-10-19T21:15:47.242Z",
+      "status": "watch",
+      "requiresCuratedTaxonomy": true,
+      "slugConflict": false
+    },
+    {
+      "label": "Tecnica",
+      "suggestedSlug": "tecnica",
+      "sourceFields": [
+        "category"
+      ],
+      "alternateLabels": [],
+      "activeJobCount": 5,
+      "employerCount": 4,
+      "activeJobsWithViews": 3,
+      "activeJobViews": 18,
+      "viewsPerLiveDay": 0.36,
+      "ga4Sessions28d": 6,
+      "ga4Pageviews28d": 11,
+      "gscJobPageImpressions28d": 4,
+      "gscQueryImpressions28d": 6,
+      "gscQueryClicks28d": 0,
+      "score": 0.295,
+      "consecutiveWeeks": 1,
+      "observedWeeks": [
+        "2026-W43"
+      ],
+      "firstSeenAt": "2026-10-19T20:55:09.404Z",
+      "lastSeenAt": "2026-10-19T21:15:47.242Z",
+      "status": "watch",
+      "requiresCuratedTaxonomy": true,
+      "slugConflict": false
+    },
+    {
+      "label": "analysis",
+      "suggestedSlug": "analysis",
+      "sourceFields": [
+        "category"
+      ],
+      "alternateLabels": [],
+      "activeJobCount": 3,
+      "employerCount": 1,
+      "activeJobsWithViews": 3,
+      "activeJobViews": 41,
+      "viewsPerLiveDay": 0.22,
+      "ga4Sessions28d": 2,
+      "ga4Pageviews28d": 10,
+      "gscJobPageImpressions28d": 188,
+      "gscQueryImpressions28d": 0,
+      "gscQueryClicks28d": 0,
+      "score": 0.264,
+      "consecutiveWeeks": 1,
+      "observedWeeks": [
+        "2026-W43"
+      ],
+      "firstSeenAt": "2026-10-19T20:55:09.404Z",
+      "lastSeenAt": "2026-10-19T21:15:47.242Z",
+      "status": "watch",
+      "requiresCuratedTaxonomy": true,
+      "slugConflict": false
+    },
+    {
+      "label": "Lusso & Gioielleria",
+      "suggestedSlug": "lusso-e-gioielleria",
+      "sourceFields": [
+        "sector"
+      ],
+      "alternateLabels": [],
+      "activeJobCount": 0,
+      "employerCount": 0,
+      "activeJobsWithViews": 0,
+      "activeJobViews": 0,
+      "viewsPerLiveDay": 0,
+      "ga4Sessions28d": 0,
+      "ga4Pageviews28d": 0,
+      "gscJobPageImpressions28d": 0,
+      "gscQueryImpressions28d": 0,
+      "gscQueryClicks28d": 0,
+      "score": 0,
+      "consecutiveWeeks": 1,
+      "observedWeeks": [
+        "2026-W43"
+      ],
+      "firstSeenAt": "2026-10-19T20:55:09.404Z",
+      "lastSeenAt": "2026-10-19T20:55:09.404Z",
+      "status": "dormant",
+      "requiresCuratedTaxonomy": true,
+      "slugConflict": false
+    },
+    {
+      "label": "tech",
+      "suggestedSlug": "tech",
+      "sourceFields": [
+        "category"
+      ],
+      "alternateLabels": [],
+      "activeJobCount": 0,
+      "employerCount": 0,
+      "activeJobsWithViews": 0,
+      "activeJobViews": 0,
+      "viewsPerLiveDay": 0,
+      "ga4Sessions28d": 0,
+      "ga4Pageviews28d": 0,
+      "gscJobPageImpressions28d": 0,
+      "gscQueryImpressions28d": 0,
+      "gscQueryClicks28d": 0,
+      "score": 0,
+      "consecutiveWeeks": 1,
+      "observedWeeks": [
+        "2026-W43"
+      ],
+      "firstSeenAt": "2026-10-19T20:55:09.404Z",
+      "lastSeenAt": "2026-10-19T20:55:09.404Z",
+      "status": "dormant",
+      "requiresCuratedTaxonomy": true,
+      "slugConflict": false
+    },
+    {
+      "label": "Tecnologia & IT",
+      "suggestedSlug": "tecnologia-e-it",
+      "sourceFields": [
+        "sector"
+      ],
+      "alternateLabels": [],
+      "activeJobCount": 0,
+      "employerCount": 0,
+      "activeJobsWithViews": 0,
+      "activeJobViews": 0,
+      "viewsPerLiveDay": 0,
+      "ga4Sessions28d": 0,
+      "ga4Pageviews28d": 0,
+      "gscJobPageImpressions28d": 0,
+      "gscQueryImpressions28d": 0,
+      "gscQueryClicks28d": 0,
+      "score": 0,
+      "consecutiveWeeks": 1,
+      "observedWeeks": [
+        "2026-W43"
+      ],
+      "firstSeenAt": "2026-10-19T20:55:09.404Z",
+      "lastSeenAt": "2026-10-19T21:15:20.378Z",
+      "status": "dormant",
+      "requiresCuratedTaxonomy": true,
+      "slugConflict": false
+    }
+  ],
+  "notes": [
+    "Candidates are grouped only from active Ticino ads whose title/category does not match any of the 50 curated hubs.",
+    "The popularity export is cumulative; only views attached to active ads are counted and the score uses views per live day from the best available posting date.",
+    "Eligible candidates require 15 active ads, 4 distinct employers, traffic evidence and 3 consecutive weekly observations.",
+    "Eligibility means ready for editorial review. New indexed routes still require localized labels, a matcher, unique SEO copy, canonical/hreflang and thin-content checks.",
+    "A missing or partial GA4/GSC source is reported as such; its absent rows are not interpreted as measured zero demand."
+  ]
+}
