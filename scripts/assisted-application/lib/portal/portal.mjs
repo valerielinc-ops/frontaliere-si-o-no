@@ -1044,6 +1044,30 @@ export async function acceptPrivacyStatement(page, snapshot) {
 export const EXPAND_ALL_RE = /^(alle abschnitte einblenden|alle einblenden|expand all( sections)?|show all( sections)?|mostra tutte le sezioni|espandi tutt[eo]( le sezioni)?|afficher toutes les sections|tout afficher|développer tout)$/i;
 export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
 export const COVER_LETTER_UPLOAD_RE = /((cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione))\s+(hochladen|upload(en)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione)))/i;
+const ICON_ONLY_BUTTON_RE = /^[^\p{L}\p{N}]{1,12}$/u;
+const CV_DOCUMENT_CONTEXT_RE = /\b(?:cv|resume|résumé|lebenslauf|curriculum(?:\s+vitae)?)\b/i;
+const COVER_LETTER_DOCUMENT_CONTEXT_RE = /\b(?:cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione))\b/i;
+
+/**
+ * Find a document upload control without guessing from an unlabelled icon.
+ * SuccessFactors uses a private-use glyph ("") for the CV button on some
+ * account/application pages, so the document name must still be present in
+ * the control's DOM context and the candidate must be unique.
+ */
+export function uploadButtonFor(snapshot, kind) {
+  const pattern = kind === 'cv' ? CV_UPLOAD_RE : kind === 'cover_letter' ? COVER_LETTER_UPLOAD_RE : null;
+  const contextPattern = kind === 'cv' ? CV_DOCUMENT_CONTEXT_RE : kind === 'cover_letter' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : null;
+  if (!pattern || !contextPattern) return null;
+  const buttons = snapshot?.buttons || [];
+  const named = findButton(buttons, pattern);
+  if (named) return named;
+  const candidates = buttons.filter((button) => {
+    if (button.disabled || button.chrome || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return false;
+    const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
+    return contextPattern.test(context);
+  });
+  return candidates.length === 1 ? candidates[0] : null;
+}
 
 // Tries per page and action in one run: a click a portal drops is tried again
 // at once, a page that never opens does not hold the run (review of #11022).
@@ -1126,8 +1150,9 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const cvKey = `cv|${where}`;
   let cv;
   while (cvFile && !done.has(cvKey) && !current.fields.some((field) => field.kind === 'file')) {
-    const trigger = page.getByRole('button', { name: CV_UPLOAD_RE }).first();
-    if (!await trigger.isVisible().catch(() => false) || !attempt(cvKey)) break;
+    const triggerButton = uploadButtonFor(current, 'cv');
+    const trigger = triggerButton ? locatorFor(page, triggerButton) : null;
+    if (!trigger || !await trigger.isVisible().catch(() => false) || !attempt(cvKey)) break;
     cv = await uploadThroughDialog(page, trigger, cvFile);
     current = await extractFields(page);
     // A file that went in, confirmed or not, never goes in twice.
@@ -1137,8 +1162,9 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const coverLetterKey = `cover-letter|${where}`;
   let coverLetter;
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
-    const trigger = page.getByRole('button', { name: COVER_LETTER_UPLOAD_RE }).first();
-    if (!await trigger.isVisible().catch(() => false)) break;
+    const triggerButton = uploadButtonFor(current, 'cover_letter');
+    const trigger = triggerButton ? locatorFor(page, triggerButton) : null;
+    if (!trigger || !await trigger.isVisible().catch(() => false)) break;
     coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile);
     current = await extractFields(page);
     if (coverLetter !== 'unavailable') done.add(coverLetterKey);

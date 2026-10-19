@@ -302,6 +302,29 @@ describe('portal field extraction', () => {
     expect(page.buttons).toMatchObject([{ text: 'Submit', href: '' }]);
   });
 
+  it('keeps the document context of a SuccessFactors icon-only CV trigger', () => {
+    const page = extract(`
+      <form>
+        <label for="email">Email Address: *</label><input id="email" required>
+        <label for="password">Choose Password: *</label><input id="password" type="password" required>
+        <section aria-label="Application documents">
+          <label for="resume-upload">Resume / CV (PDF preferred):</label>
+          <button id="resume-upload" type="button" aria-haspopup="dialog"></button>
+        </section>
+        <button type="button">Read and accept the data privacy statement.</button>
+        <button type="submit">Apply</button>
+      </form>`);
+    expect(page.buttons.map((button: any) => button.text)).toEqual([
+      '',
+      'Read and accept the data privacy statement.',
+      'Apply',
+    ]);
+    expect(page.buttons[0]).toMatchObject({
+      text: '',
+      context: expect.stringMatching(/Resume \/ CV \(PDF preferred\)/),
+    });
+  });
+
   // Review of #12255: aria-hidden is a flag of the accessibility tree, not a sign that nothing is drawn.
   it('keeps a drawn button that is only aria-hidden, and leaves out what lies under an open modal dialog', () => {
     // A submit some portal marks aria-hidden with no overlay next to it is still the one to press: alone, out

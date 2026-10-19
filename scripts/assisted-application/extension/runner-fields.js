@@ -466,6 +466,10 @@
       ...dialogMeta(element),
       text: buttonName(element),
       section: headingBefore(element),
+      // SuccessFactors can render the CV trigger as an icon-only button. Keep
+      // the nearby label/section text so the runner can select it only when
+      // the document context is explicit.
+      context: clean([...new Set([sectionContext(element), zoneText(element)].filter(Boolean))].join(' · ')),
       fileContext: fileContext(element),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
