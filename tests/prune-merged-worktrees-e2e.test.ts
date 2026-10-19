@@ -33,6 +33,10 @@ const sha: Record<string, string> = {};
 let dryRun = '';
 let applyRun = '';
 let scopedRun = '';
+let selectorPreview = '';
+let exactSelectorRun = '';
+let invalidOnlyErrors: string[] = [];
+let invalidOnlyPreservedTarget = false;
 
 function git(cwd: string, ...args: string[]): string {
   return execFileSync('git', args, { cwd, env, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
@@ -69,6 +73,16 @@ function ageTree(dir: string): void {
 
 function runScript(args: string[]): string {
   return runIsolatedPruner(SCRIPT, args, root, clone, env);
+}
+
+function captureFailure(args: string[]): string {
+  try {
+    runScript(args);
+    return '';
+  } catch (error) {
+    const failure = error as { message?: string; stderr?: Buffer | string };
+    return `${failure.stderr?.toString() ?? ''}\n${failure.message ?? String(error)}`;
+  }
 }
 
 beforeAll(() => {
@@ -209,6 +223,17 @@ exit 0
   scopedRun = runScript(['--apply', '--only', 'no-fixture-matches-this']);
   // --only must not fall through to unrelated cleanup before the real apply.
   expect(fs.existsSync(wt('feat-merged'))).toBe(true);
+  invalidOnlyErrors = [
+    captureFailure(['--apply', '--only']),
+    captureFailure(['--apply', '--only', '--apply']),
+    captureFailure(['--apply', '--only=']),
+    captureFailure(['--apply', '--only', 'feat-merged', '--only', 'feat-merged-dirty']),
+  ];
+  invalidOnlyPreservedTarget = fs.existsSync(wt('feat-merged'));
+  selectorPreview = runScript(['--only=feat-merged']);
+  exactSelectorRun = runScript(['--apply', '--only', 'feat-merged']);
+  expect(fs.existsSync(wt('feat-merged'))).toBe(false);
+  expect(fs.existsSync(wt('feat-merged-dirty'))).toBe(true);
   applyRun = runScript(['--apply']);
 }, 120000);
 
@@ -219,6 +244,20 @@ afterAll(() => {
 describe('prune-merged-worktrees.mjs su un clone di prova', () => {
   it('--only does not run unrelated global sweeps', () => {
     expect(scopedRun).not.toMatch(/device cache\/session cleanup|workspace artifact cleanup|directory stale rimosse/);
+  });
+  it('rejects missing, empty, or duplicate --only selectors before applying', () => {
+    expect(invalidOnlyErrors[0]).toContain('--only richiede un nome');
+    expect(invalidOnlyErrors[1]).toContain('--only richiede un nome');
+    expect(invalidOnlyErrors[2]).toContain('--only richiede un nome');
+    expect(invalidOnlyErrors[3]).toContain('--only può essere specificato una sola volta');
+    expect(invalidOnlyPreservedTarget).toBe(true);
+  });
+  it('--only matches an exact identifier, not sibling names containing it', () => {
+    expect(selectorPreview).toContain(wt('feat-merged'));
+    expect(selectorPreview).not.toContain(wt('feat-merged-dirty'));
+    expect(exactSelectorRun).toContain(`removed worktree ${wt('feat-merged')}`);
+    expect(exactSelectorRun).not.toContain(wt('feat-merged-dirty'));
+    expect(fs.existsSync(wt('feat-merged-dirty'))).toBe(true);
   });
   it('il dry-run non tocca niente', () => {
     expect(dryRun).toContain('dry-run: niente rimosso');
