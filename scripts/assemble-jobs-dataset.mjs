@@ -5006,6 +5006,20 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
         } catch (err) {
           console.warn(`  ⚠️ Slug reconciliation skipped: ${err.message}`);
         }
+
+        // Ghost/orphan reconciliation runs after the first active write and
+        // can append a bridge from an archive or GSC snapshot. Re-apply the
+        // fleet ownership ratchet after every such writer so a stale snapshot
+        // cannot reintroduce a hash-tailed alias on the wrong current job.
+        const ownership = decontaminateJobs(assembled);
+        if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
+          console.log(
+            `  🧭 Final previous-slug ownership: redirected ${ownership.moved} route(s), `
+            + `pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s)`,
+          );
+          writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+          writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
+        }
       } else {
         writeJson(DATA_EXPIRED, repairedExpiredJobs, { streamArray: true });
         fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
