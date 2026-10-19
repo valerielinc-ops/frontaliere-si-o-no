@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-la-tour",
-  "assembledAt": "2026-10-19T09:57:37.973Z",
+  "assembledAt": "2026-10-19T21:31:36.319Z",
   "jobs": [
     {
       "id": "hopital-la-tour-882b6ff457f2",
@@ -33,7 +33,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/ergotherapeute-a-80-cdi-1514",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:57:32.482Z",
+      "crawledAt": "2026-10-19T21:31:29.423Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistant-e-medical-e-en-pediatrie-cdi-80-1541",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:57:32.481Z",
+      "crawledAt": "2026-10-19T21:31:29.422Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdi-80-1540",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:57:32.480Z",
+      "crawledAt": "2026-10-19T21:31:29.421Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -207,6 +207,79 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:24.956Z",
+      "salaryMin": 69200,
+      "salaryMax": 96400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69200,
+          "maxValue": 96400,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hopital-la-tour-81ab730d13f0",
+      "slug": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
+        "en": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
+        "de": "diatetiker-in-cdi-80-hopital-de-la-tour-meyrin",
+        "fr": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Diététicien(-ne) en CDI 80%",
+      "titleByLocale": {
+        "it": "Dietician in CDI 80%",
+        "en": "Dietician in CDI 80%",
+        "de": "Diätetiker in CDI 80%",
+        "fr": "Diététicien(-ne) en CDI 80%"
+      },
+      "description": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nAfin de compléter nos équipes, nous recrutons un(-e)\n\nDiététicien(-ne) en CDI 80% (ref : 2009)\n\nVotre mission :\n\nVous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires.\n\nA ce titre vous êtes en charge de :\n\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n\n• CAS de Praticien(ne) Formateur(-trice), un atout\n\n• Communication fluide en anglais\n\nEnvie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie.\n\nNous vous proposons:\n\nContrat : CDI à 80%\n Date d'entrée en fonction: Idéalement 1er octobre 2026, ou à convenir.",
+      "descriptionByLocale": {
+        "it": "L'ospedale La Tour è una struttura acuta di alto livello, privata, indipendente e su scala umana. Ancorato nella sua missione di ripristinare la migliore qualità di vita possibile per i suoi pazienti, La Tour Hospital ha posto il miglioramento continuo e lo sviluppo di eccellenza medica al centro delle sue priorità.\n\nPer completare le nostre squadre, reclutamo un\n\nDieticiano in CDI 80% (rif: 2009)\n\nLa vostra missione:\n\nDovrai aiutare a mantenere o riabilitare lo stato di salute dei nostri pazienti accompagnandoli nell'attuazione di buone pratiche alimentari.\n\nIn questa capacità siete responsabili di:\n\n• Collaborare con i medici sui progetti in corso e necessari presso l'Istituto\n\n• Fornire consultazioni ambulatoriale per i pazienti con obesità (trattamento chirurgico, farmacologico o conservatore), disturbi metabolici e pediatrico.\n\n• Prevenzione e/o laboratori informativi del paziente nella ricerca per l'educazione terapeutica per migliorare la loro qualità di vita\n\n• Fornisci la valutazione nutrizionale e consultazioni di follow-up con i pazienti ospedalizzati in terapia intensiva, chirurgia, medicina.\n\n• Partecipa allo sviluppo della nostra piattaforma digitale Engage per i pazienti, finalizzata all'educazione terapeutica\n\n• Promuovere una comunicazione di successo con i vari attori del Centro e dell'Istituzione in generale\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Riconoscimento Dietician HES o CRS (per diplomi stranieri)\n\n• Una prima esperienza precedente, idealmente nel campo ospedaliero\n\n• Praticato in Obesità (Chirurgia Bariatrica) e Pediatria\n\n• Caso di Practitioner Trainer, un bene\n\n• Comunicazione fluida in inglese\n\nVuoi unire ricchezza e flessibilità professionale? Il nostro ospedale privato vi offre una posizione dietizia part-time in un team stimolante multidisciplinare. Scopri un'ampia varietà di specialità mentre ti godi un ritmo di lavoro adattato al tuo equilibrio di vita.\n\nVi offriamo:\n\nContratto: 80% CDI\nData di inizio: Idealmente 1 ottobre 2026, o da concordare.",
+        "en": "La Tour Hospital is a high-level, private, independent and human-scale acute care facility. Anchored in its mission to restore the best possible quality of life for its patients, La Tour Hospital has placed continuous improvement and the development of medical excellence at the heart of its priorities.\n\nIn order to complete our teams, we recruit a\n\nDietician in CDI 80% (ref: 2009)\n\nYour mission:\n\nYou will need to help maintain or rehabilitate the health status of our patients by accompanying them in the implementation of good food practices.\n\nIn this capacity you are in charge of:\n\n• Collaborate with physicians on ongoing and necessary projects at the Institution\n\n• Provide outpatient consultations for patients with obesity (surgical, pharmacological or conservative treatment), metabolic disorders and paediatrics.\n\n• Conduct prevention and/or patient information workshops in research for therapeutic education to improve their quality of life\n\n• Provide nutritional assessment and follow-up consultations with patients hospitalized in intensive care, surgery, medicine.\n\n• Participate in the development of our digital platform Engage for patients, aimed at therapeutic education\n\n• Promoting successful communication with the various actors of the Centre and the Institution in general\n\nWe are looking for a profile that meets the following criteria:\n\n• Dietician HES or CRS recognition (for foreign diplomas)\n\n• A first prior experience, ideally in the hospital field\n\n• Practiced in Obesity (Bariatric Surgery) and Pediatrics\n\n• Case of Practitioner Trainer, an asset\n\n• Fluid communication in English\n\nWant to combine professional wealth and flexibility? Our private hospital offers you a part-time dietitian position in a stimulating multidisciplinary team. Discover a wide variety of specialties while enjoying a working rhythm adapted to your life balance.\n\nWe offer you:\n\nContract: 80% CDI\nStart date: Ideally October 1, 2026, or to be agreed.",
+        "de": "La Tour Hospital ist eine hochrangige, private, unabhängige und menschliche Akutversorgungseinrichtung. In seiner Mission verankert, die bestmögliche Lebensqualität für seine Patienten wiederherzustellen, hat das La Tour Hospital die kontinuierliche Verbesserung und die Entwicklung medizinischer Exzellenz in den Mittelpunkt seiner Prioritäten gestellt.\n\nUm unsere Teams zu vervollständigen, rekrutieren wir eine\n\nDiätassistent in CDI 80% (ref: 2009)\n\nIhre Mission:\n\nSie müssen dazu beitragen, den Gesundheitszustand unserer Patienten zu erhalten oder zu rehabilitieren, indem Sie sie bei der Umsetzung guter Ernährungspraktiken begleiten.\n\nIn dieser Funktion sind Sie verantwortlich für:\n\n• Zusammenarbeit mit Ärzten bei laufenden und notwendigen Projekten an der Institution\n\n• Ambulante Konsultationen für Patienten mit Fettleibigkeit (chirurgische, pharmakologische oder konservative Behandlung), Stoffwechselstörungen und Kinderheilkunde.\n\n• Durchführung von Präventions- und/oder Patienteninformationsworkshops in der Forschung zur therapeutischen Ausbildung zur Verbesserung ihrer Lebensqualität\n\n• Geben Sie Ernährungsbewertung und Follow-up-Konsultationen mit Patienten ins Krankenhaus auf der Intensivstation, Chirurgie, Medizin.\n\n• Beteiligen Sie sich an der Entwicklung unserer digitalen Plattform Engage für Patienten, die auf die therapeutische Ausbildung ausgerichtet ist\n\n• Förderung einer erfolgreichen Kommunikation mit den verschiedenen Akteuren des Zentrums und der Institution im Allgemeinen\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Dietician HES oder CRS Anerkennung (für ausländische Diplome)\n\n• Eine erste Vorerfahrung, idealerweise im Krankenhausbereich\n\n• Geübt in Adipositas (Bariatric Surgery) und Pädiatrie\n\n• Fall von Practitioner Trainer, ein Asset\n\n• Fluide Kommunikation auf Englisch\n\nMöchten Sie beruflichen Reichtum und Flexibilität kombinieren? Unser privates Krankenhaus bietet Ihnen eine Teilzeit-Diätetiker-Position in einem anregenden multidisziplinären Team. Entdecken Sie eine Vielzahl von Spezialitäten, während Sie einen Arbeitsrhythmus genießen, der an Ihre Lebensbalance angepasst ist.\n\nWir bieten Ihnen:\n\nVertrag: 80% CDI\nStartdatum: Idealerweise 1. Oktober 2026, oder vereinbart werden.",
+        "fr": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nAfin de compléter nos équipes, nous recrutons un(-e)\n\nDiététicien(-ne) en CDI 80% (ref : 2009)\n\nVotre mission :\n\nVous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires.\n\nA ce titre vous êtes en charge de :\n\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n\n• CAS de Praticien(ne) Formateur(-trice), un atout\n\n• Communication fluide en anglais\n\nEnvie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie.\n\nNous vous proposons:\n\nContrat : CDI à 80%\nDate d'entrée en fonction: Idéalement 1er octobre 2026, ou à convenir."
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/dieteticien-ne-en-cdi-80-1543",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-19T21:31:29.420Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/dieteticien-ne-en-cdi-80-1543",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-09-09T23:13:01.832Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
@@ -253,7 +326,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/neuropsychologue-a-100-cdi-centre-de-la-memoire-1542",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:57:32.479Z",
+      "crawledAt": "2026-10-19T21:31:29.419Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -296,79 +369,6 @@
       }
     },
     {
-      "id": "hopital-la-tour-81ab730d13f0",
-      "slug": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
-        "en": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
-        "de": "diatetiker-in-cdi-80-hopital-de-la-tour-meyrin",
-        "fr": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Diététicien(-ne) en CDI 80%",
-      "titleByLocale": {
-        "it": "Dietician in CDI 80%",
-        "en": "Dietician in CDI 80%",
-        "de": "Diätetiker in CDI 80%",
-        "fr": "Diététicien(-ne) en CDI 80%"
-      },
-      "description": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nAfin de compléter nos équipes, nous recrutons un(-e)\n\nDiététicien(-ne) en CDI 80% (ref : 2009)\n\nVotre mission :\n\nVous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires.\n\nA ce titre vous êtes en charge de :\n\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n\n• CAS de Praticien(ne) Formateur(-trice), un atout\n\n• Communication fluide en anglais\n\nEnvie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie.\n\nNous vous proposons:\n\nContrat : CDI à 80%\n Date d'entrée en fonction: Idéalement 1er octobre 2026, ou à convenir.",
-      "descriptionByLocale": {
-        "it": "L'ospedale La Tour è una struttura acuta di alto livello, privata, indipendente e su scala umana. Ancorato nella sua missione di ripristinare la migliore qualità di vita possibile per i suoi pazienti, La Tour Hospital ha posto il miglioramento continuo e lo sviluppo di eccellenza medica al centro delle sue priorità.\n\nPer completare le nostre squadre, reclutamo un\n\nDieticiano in CDI 80% (rif: 2009)\n\nLa vostra missione:\n\nDovrai aiutare a mantenere o riabilitare lo stato di salute dei nostri pazienti accompagnandoli nell'attuazione di buone pratiche alimentari.\n\nIn questa capacità siete responsabili di:\n\n• Collaborare con i medici sui progetti in corso e necessari presso l'Istituto\n\n• Fornire consultazioni ambulatoriale per i pazienti con obesità (trattamento chirurgico, farmacologico o conservatore), disturbi metabolici e pediatrico.\n\n• Prevenzione e/o laboratori informativi del paziente nella ricerca per l'educazione terapeutica per migliorare la loro qualità di vita\n\n• Fornisci la valutazione nutrizionale e consultazioni di follow-up con i pazienti ospedalizzati in terapia intensiva, chirurgia, medicina.\n\n• Partecipa allo sviluppo della nostra piattaforma digitale Engage per i pazienti, finalizzata all'educazione terapeutica\n\n• Promuovere una comunicazione di successo con i vari attori del Centro e dell'Istituzione in generale\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Riconoscimento Dietician HES o CRS (per diplomi stranieri)\n\n• Una prima esperienza precedente, idealmente nel campo ospedaliero\n\n• Praticato in Obesità (Chirurgia Bariatrica) e Pediatria\n\n• Caso di Practitioner Trainer, un bene\n\n• Comunicazione fluida in inglese\n\nVuoi unire ricchezza e flessibilità professionale? Il nostro ospedale privato vi offre una posizione dietizia part-time in un team stimolante multidisciplinare. Scopri un'ampia varietà di specialità mentre ti godi un ritmo di lavoro adattato al tuo equilibrio di vita.\n\nVi offriamo:\n\nContratto: 80% CDI\nData di inizio: Idealmente 1 ottobre 2026, o da concordare.",
-        "en": "La Tour Hospital is a high-level, private, independent and human-scale acute care facility. Anchored in its mission to restore the best possible quality of life for its patients, La Tour Hospital has placed continuous improvement and the development of medical excellence at the heart of its priorities.\n\nIn order to complete our teams, we recruit a\n\nDietician in CDI 80% (ref: 2009)\n\nYour mission:\n\nYou will need to help maintain or rehabilitate the health status of our patients by accompanying them in the implementation of good food practices.\n\nIn this capacity you are in charge of:\n\n• Collaborate with physicians on ongoing and necessary projects at the Institution\n\n• Provide outpatient consultations for patients with obesity (surgical, pharmacological or conservative treatment), metabolic disorders and paediatrics.\n\n• Conduct prevention and/or patient information workshops in research for therapeutic education to improve their quality of life\n\n• Provide nutritional assessment and follow-up consultations with patients hospitalized in intensive care, surgery, medicine.\n\n• Participate in the development of our digital platform Engage for patients, aimed at therapeutic education\n\n• Promoting successful communication with the various actors of the Centre and the Institution in general\n\nWe are looking for a profile that meets the following criteria:\n\n• Dietician HES or CRS recognition (for foreign diplomas)\n\n• A first prior experience, ideally in the hospital field\n\n• Practiced in Obesity (Bariatric Surgery) and Pediatrics\n\n• Case of Practitioner Trainer, an asset\n\n• Fluid communication in English\n\nWant to combine professional wealth and flexibility? Our private hospital offers you a part-time dietitian position in a stimulating multidisciplinary team. Discover a wide variety of specialties while enjoying a working rhythm adapted to your life balance.\n\nWe offer you:\n\nContract: 80% CDI\nStart date: Ideally October 1, 2026, or to be agreed.",
-        "de": "La Tour Hospital ist eine hochrangige, private, unabhängige und menschliche Akutversorgungseinrichtung. In seiner Mission verankert, die bestmögliche Lebensqualität für seine Patienten wiederherzustellen, hat das La Tour Hospital die kontinuierliche Verbesserung und die Entwicklung medizinischer Exzellenz in den Mittelpunkt seiner Prioritäten gestellt.\n\nUm unsere Teams zu vervollständigen, rekrutieren wir eine\n\nDiätassistent in CDI 80% (ref: 2009)\n\nIhre Mission:\n\nSie müssen dazu beitragen, den Gesundheitszustand unserer Patienten zu erhalten oder zu rehabilitieren, indem Sie sie bei der Umsetzung guter Ernährungspraktiken begleiten.\n\nIn dieser Funktion sind Sie verantwortlich für:\n\n• Zusammenarbeit mit Ärzten bei laufenden und notwendigen Projekten an der Institution\n\n• Ambulante Konsultationen für Patienten mit Fettleibigkeit (chirurgische, pharmakologische oder konservative Behandlung), Stoffwechselstörungen und Kinderheilkunde.\n\n• Durchführung von Präventions- und/oder Patienteninformationsworkshops in der Forschung zur therapeutischen Ausbildung zur Verbesserung ihrer Lebensqualität\n\n• Geben Sie Ernährungsbewertung und Follow-up-Konsultationen mit Patienten ins Krankenhaus auf der Intensivstation, Chirurgie, Medizin.\n\n• Beteiligen Sie sich an der Entwicklung unserer digitalen Plattform Engage für Patienten, die auf die therapeutische Ausbildung ausgerichtet ist\n\n• Förderung einer erfolgreichen Kommunikation mit den verschiedenen Akteuren des Zentrums und der Institution im Allgemeinen\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Dietician HES oder CRS Anerkennung (für ausländische Diplome)\n\n• Eine erste Vorerfahrung, idealerweise im Krankenhausbereich\n\n• Geübt in Adipositas (Bariatric Surgery) und Pädiatrie\n\n• Fall von Practitioner Trainer, ein Asset\n\n• Fluide Kommunikation auf Englisch\n\nMöchten Sie beruflichen Reichtum und Flexibilität kombinieren? Unser privates Krankenhaus bietet Ihnen eine Teilzeit-Diätetiker-Position in einem anregenden multidisziplinären Team. Entdecken Sie eine Vielzahl von Spezialitäten, während Sie einen Arbeitsrhythmus genießen, der an Ihre Lebensbalance angepasst ist.\n\nWir bieten Ihnen:\n\nVertrag: 80% CDI\nStartdatum: Idealerweise 1. Oktober 2026, oder vereinbart werden.",
-        "fr": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nAfin de compléter nos équipes, nous recrutons un(-e)\n\nDiététicien(-ne) en CDI 80% (ref : 2009)\n\nVotre mission :\n\nVous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires.\n\nA ce titre vous êtes en charge de :\n\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n\n• CAS de Praticien(ne) Formateur(-trice), un atout\n\n• Communication fluide en anglais\n\nEnvie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie.\n\nNous vous proposons:\n\nContrat : CDI à 80%\nDate d'entrée en fonction: Idéalement 1er octobre 2026, ou à convenir."
-      },
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/dieteticien-ne-en-cdi-80-1543",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:57:32.479Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/dieteticien-ne-en-cdi-80-1543",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-09-09T23:13:01.832Z",
-      "salaryMin": 69200,
-      "salaryMax": 96400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69200,
-          "maxValue": 96400,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "hopital-la-tour-2c25b5aa8ec1",
       "slug": "fisioterapia-cardio-respiratorio-90-cdmax-10-mesi-possibilita-cdi-hopital-de-la-tour-meyrin",
       "slugByLocale": {
@@ -400,7 +400,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/physiotherapeute-cardio-respiratoire-a-90-cdmax-10-mois-possibilite-cdi-1544",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:57:32.478Z",
+      "crawledAt": "2026-10-19T21:31:29.418Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -428,79 +428,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:51.036Z",
-      "salaryMin": 77900,
-      "salaryMax": 108500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77900,
-          "maxValue": 108500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hopital-la-tour-27d334811186",
-      "slug": "infermiera-di-notte-a-ucp-cdi-90-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "infermiera-di-notte-a-ucp-cdi-90-hopital-de-la-tour-meyrin",
-        "en": "nurse-at-night-at-ucp-cdi-90-hopital-de-la-tour-meyrin",
-        "de": "krankenschwester-in-der-nacht-bei-ucp-cdi-90-hopital-de-la-tour-meyrin",
-        "fr": "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Infirmier(-ère) de nuit à l'UCP - CDI 90%",
-      "titleByLocale": {
-        "it": "Infermiera di notte a UCP - CDI 90%",
-        "en": "Nurse at night at UCP - CDI 90%",
-        "de": "Krankenschwester in der Nacht bei UCP - CDI 90%",
-        "fr": "Infirmier(-ère) de nuit à l'UCP - CDI 90%"
-      },
-      "description": "L'unité de soins cardio-pulmonaire et les soins intermédiaires ont pour mission de prendre en charge des patients qui présentent des affections médicales ou chirurgicales et ayant besoin d'une surveillance rapprochée et spécifique.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nInfirmier(-ère) de nuit à l'UCP - CDI 90% (ref : 2019)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies complexes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé\n\n• Assiste aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Accueillir, accompagner les étudiants et des nouveaux collaborateurs\n\n• Savoir s’adapter face aux situations d’urgences.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge\n\n• 2-3 années d'expériences\n\n• Expérience en cardiologie, pneumologie et soins critiques souhaitée\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\n Pourcentage : 90%\n Type d'horaires : Horaires de nuit\n Date d'entrée en fonction: 16 novembre 2026",
-      "descriptionByLocale": {
-        "it": "Le unità di assistenza cardiopolmonare e intermedia sono responsabili del trattamento dei pazienti che hanno condizioni mediche o chirurgiche e richiedono un monitoraggio stretto e specifico.\n\nPer completare il nostro servizio ne stiamo reclutando uno:\n\nInfermiera di notte a UCP - CDI 90% (ref: 2019)\n\nLa vostra missione:\n\nIn una struttura all'avanguardia si ha una posizione varia in un team multidisciplinare di infermieri, operatori sanitari, medici.\n\nDovrai accogliere pazienti con patologie complesse come parte di una gestione completa della fase acuta.\n\nCome tale siete responsabili di;\n\n• Installare il paziente e presentare le informazioni amministrative e di cura\n\n• Raccogliere e trasmettere dati medici e amministrativi e completare il file di assistenza informatizzata\n\n• Fornire e organizzare la pianificazione della cura secondo le priorità e l'urgenza\n\n• Eseguire l'assistenza su prescrizione medica e secondo le procedure unitarie e istituzionali\n\n• Mantenere il record paziente informatizzato\n\n• Valutare costantemente la condizione clinica del paziente e la sua evoluzione in condizioni acute\n\n• Assicurare il coordinamento interservizi per la gestione del movimento dei pazienti\n\n• Coordinare ingressi e uscite: mutazioni interne, trasferimenti esterni di pazienti in collaborazione con il quadro sanitario\n\n• Partecipa alla formazione necessaria per mantenere e sviluppare le competenze previste per la sua posizione\n\n• Accoglienti, accompagnatori e nuovi collaboratori\n\n• Adattarsi alle situazioni di emergenza.\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Diploma di infermiera\n\n• In possesso del riconoscimento Croce Rossa\n\n• 2-3 anni di esperienza\n\n• Esperienza in Cardiologia, Pneumologia e Cura Critica\n\n• Significato del contatto e del servizio in uno stabilimento privato\n\n• Autogoverno, benevolenza, versatilità, adattabilità, organizzazione e messa a fuoco sono qualità essenziali\n\n• atteggiamento positivo all'interno di un team e sono in grado di generare un clima di fiducia\n\nVi offriamo:\n\nTipo di contratto: Contratto con Durata indeterminata\nPercentuale: 90%\nTipo di programma: Ore notturne\nData effettiva: 16 novembre 2026",
-        "en": "The cardiopulmonary and intermediate care units are responsible for treating patients who have medical or surgical conditions and require close and specific monitoring.\n\nIn order to complete our service we are recruiting one:\n\nNurse at night at UCP - CDI 90% (ref: 2019)\n\nYour mission:\n\nIn a state-of-the-art facility you hold a varied position in a multidisciplinary team of nurses, health care workers, doctors.\n\nYou will need to accommodate patients with complex pathologies as part of a comprehensive acute phase management.\n\nAs such you are in charge of;\n\n• Install the patient and present the administrative and care information\n\n• Collect and transmit medical and administrative data and complete the computerized care file\n\n• Provide and organize care planning according to priorities and urgency\n\n• Perform care on medical prescription and in accordance with unit and institutional procedures\n\n• Maintaining the Informatized Patient Record\n\n• Continuously assess the patient's clinical condition and its evolution in acute conditions\n\n• Ensure inter-service coordination for patient movement management\n\n• Coordinate inputs and outputs: internal mutations, external patient transfers in collaboration with the health framework\n\n• Attends the necessary training to maintain and develop the skills expected for his position\n\n• Welcoming, accompanying students and new collaborators\n\n• Adapting to emergency situations.\n\nWe are looking for a profile that meets the following criteria:\n\n• Diploma of Nurse\n\n• In possession of Red Cross Recognition\n\n• 2-3 years of experience\n\n• Experience in Cardiology, Pneumology and Critical Care\n\n• Meaning of contact and service in a private establishment\n\n• Self-governing, benevolence, versatility, adaptability, organization and focus are essential qualities\n\n• Positive attitude within a team and are able to generate a climate of confidence\n\nWe offer you:\n\nType of contract: Contract with Indeterminate Duration\nPercentage: 90%\nSchedule type : Night hours\nEffective date: 16 November 2026",
-        "de": "Die kardiopulmonalen und Zwischenstationen sind für die Behandlung von Patienten mit medizinischen oder chirurgischen Bedingungen verantwortlich und erfordern eine genaue und spezifische Überwachung.\n\nUm unseren Service zu vervollständigen, rekrutieren wir einen:\n\nKrankenschwester bei Nacht bei UCP - CDI 90% (ref: 2019)\n\nIhre Mission:\n\nIn einer hochmodernen Einrichtung haben Sie eine abwechslungsreiche Position in einem multidisziplinären Team von Krankenschwestern, Gesundheitspersonal, Ärzten.\n\nSie müssen Patienten mit komplexen Pathologien als Teil eines umfassenden Akutphasenmanagements aufnehmen.\n\nAls solche sind Sie verantwortlich für;\n\n• Installieren Sie den Patienten und präsentieren Sie die Verwaltungs- und Pflegeinformationen\n\n• Sammlung und Übermittlung medizinischer und administrativer Daten und Vervollständigung der elektronischen Pflegeakte\n\n• Bereitstellung und Organisation der Pflegeplanung nach Prioritäten und Dringlichkeit\n\n• Pflege auf ärztliche Verschreibung und in Übereinstimmung mit den abteilungs- und institutionellen Verfahren\n\n• Pflege der informatisierten Patientenakte\n\n• Kontinuierliche Beurteilung des klinischen Zustands des Patienten und seiner Entwicklung unter akuten Bedingungen\n\n• Gewährleistung der dienstübergreifenden Koordination für das Bewegungsmanagement von Patienten\n\n• Koordinieren Sie Inputs und Outputs: interne Mutationen, externe Patiententransfers in Zusammenarbeit mit dem Gesundheitsrahmen\n\n• Besucht die notwendige Ausbildung, um die für seine Position erwarteten Fähigkeiten zu erhalten und zu entwickeln\n\n• Begrüßung, Begleitung von Studierenden und neuen Mitarbeitern\n\n• Anpassung an Notsituationen.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Diplom der Krankenschwester\n\n• Im Besitz der Anerkennung des Roten Kreuzes\n\n• 2-3 Jahre Erfahrung\n\n• Erfahrung in Kardiologie, Pneumologie und Critical Care\n\n• Bedeutung von Kontakt und Service in einer privaten Einrichtung\n\n• Selbstregierung, Wohlwollen, Vielseitigkeit, Anpassungsfähigkeit, Organisation und Fokus sind wesentliche Eigenschaften\n\n• Positive Einstellung innerhalb eines Teams und sind in der Lage, ein Klima des Vertrauens zu erzeugen\n\nWir bieten Ihnen:\n\nArt des Vertrags: Vertrag mit unbestimmter Laufzeit\nProzentsatz: 90 %\nZeitplan: Nachtstunden\nDatum des Inkrafttretens: 16. November 2026",
-        "fr": "L'unité de soins cardio-pulmonaire et les soins intermédiaires ont pour mission de prendre en charge des patients qui présentent des affections médicales ou chirurgicales et ayant besoin d'une surveillance rapprochée et spécifique.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nInfirmier(-ère) de nuit à l'UCP - CDI 90% (ref : 2019)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies complexes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé\n\n• Assiste aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Accueillir, accompagner les étudiants et des nouveaux collaborateurs\n\n• Savoir s’adapter face aux situations d’urgences.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge\n\n• 2-3 années d'expériences\n\n• Expérience en cardiologie, pneumologie et soins critiques souhaitée\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\nPourcentage : 90%\nType d'horaires : Horaires de nuit\nDate d'entrée en fonction: 16 novembre 2026"
-      },
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:57:32.477Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-10-06T21:29:59.619Z",
       "salaryMin": 77900,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -547,7 +474,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/sage-femme-en-cdm-7-mois-a-80-1545",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:57:32.477Z",
+      "crawledAt": "2026-10-19T21:31:29.417Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -590,6 +517,79 @@
       }
     },
     {
+      "id": "hopital-la-tour-27d334811186",
+      "slug": "infermiera-di-notte-a-ucp-cdi-90-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "infermiera-di-notte-a-ucp-cdi-90-hopital-de-la-tour-meyrin",
+        "en": "nurse-at-night-at-ucp-cdi-90-hopital-de-la-tour-meyrin",
+        "de": "krankenschwester-in-der-nacht-bei-ucp-cdi-90-hopital-de-la-tour-meyrin",
+        "fr": "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Infirmier(-ère) de nuit à l'UCP - CDI 90%",
+      "titleByLocale": {
+        "it": "Infermiera di notte a UCP - CDI 90%",
+        "en": "Nurse at night at UCP - CDI 90%",
+        "de": "Krankenschwester in der Nacht bei UCP - CDI 90%",
+        "fr": "Infirmier(-ère) de nuit à l'UCP - CDI 90%"
+      },
+      "description": "L'unité de soins cardio-pulmonaire et les soins intermédiaires ont pour mission de prendre en charge des patients qui présentent des affections médicales ou chirurgicales et ayant besoin d'une surveillance rapprochée et spécifique.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nInfirmier(-ère) de nuit à l'UCP - CDI 90% (ref : 2019)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies complexes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé\n\n• Assiste aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Accueillir, accompagner les étudiants et des nouveaux collaborateurs\n\n• Savoir s’adapter face aux situations d’urgences.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge\n\n• 2-3 années d'expériences\n\n• Expérience en cardiologie, pneumologie et soins critiques souhaitée\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\n Pourcentage : 90%\n Type d'horaires : Horaires de nuit\n Date d'entrée en fonction: 16 novembre 2026",
+      "descriptionByLocale": {
+        "it": "Le unità di assistenza cardiopolmonare e intermedia sono responsabili del trattamento dei pazienti che hanno condizioni mediche o chirurgiche e richiedono un monitoraggio stretto e specifico.\n\nPer completare il nostro servizio ne stiamo reclutando uno:\n\nInfermiera di notte a UCP - CDI 90% (ref: 2019)\n\nLa vostra missione:\n\nIn una struttura all'avanguardia si ha una posizione varia in un team multidisciplinare di infermieri, operatori sanitari, medici.\n\nDovrai accogliere pazienti con patologie complesse come parte di una gestione completa della fase acuta.\n\nCome tale siete responsabili di;\n\n• Installare il paziente e presentare le informazioni amministrative e di cura\n\n• Raccogliere e trasmettere dati medici e amministrativi e completare il file di assistenza informatizzata\n\n• Fornire e organizzare la pianificazione della cura secondo le priorità e l'urgenza\n\n• Eseguire l'assistenza su prescrizione medica e secondo le procedure unitarie e istituzionali\n\n• Mantenere il record paziente informatizzato\n\n• Valutare costantemente la condizione clinica del paziente e la sua evoluzione in condizioni acute\n\n• Assicurare il coordinamento interservizi per la gestione del movimento dei pazienti\n\n• Coordinare ingressi e uscite: mutazioni interne, trasferimenti esterni di pazienti in collaborazione con il quadro sanitario\n\n• Partecipa alla formazione necessaria per mantenere e sviluppare le competenze previste per la sua posizione\n\n• Accoglienti, accompagnatori e nuovi collaboratori\n\n• Adattarsi alle situazioni di emergenza.\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Diploma di infermiera\n\n• In possesso del riconoscimento Croce Rossa\n\n• 2-3 anni di esperienza\n\n• Esperienza in Cardiologia, Pneumologia e Cura Critica\n\n• Significato del contatto e del servizio in uno stabilimento privato\n\n• Autogoverno, benevolenza, versatilità, adattabilità, organizzazione e messa a fuoco sono qualità essenziali\n\n• atteggiamento positivo all'interno di un team e sono in grado di generare un clima di fiducia\n\nVi offriamo:\n\nTipo di contratto: Contratto con Durata indeterminata\nPercentuale: 90%\nTipo di programma: Ore notturne\nData effettiva: 16 novembre 2026",
+        "en": "The cardiopulmonary and intermediate care units are responsible for treating patients who have medical or surgical conditions and require close and specific monitoring.\n\nIn order to complete our service we are recruiting one:\n\nNurse at night at UCP - CDI 90% (ref: 2019)\n\nYour mission:\n\nIn a state-of-the-art facility you hold a varied position in a multidisciplinary team of nurses, health care workers, doctors.\n\nYou will need to accommodate patients with complex pathologies as part of a comprehensive acute phase management.\n\nAs such you are in charge of;\n\n• Install the patient and present the administrative and care information\n\n• Collect and transmit medical and administrative data and complete the computerized care file\n\n• Provide and organize care planning according to priorities and urgency\n\n• Perform care on medical prescription and in accordance with unit and institutional procedures\n\n• Maintaining the Informatized Patient Record\n\n• Continuously assess the patient's clinical condition and its evolution in acute conditions\n\n• Ensure inter-service coordination for patient movement management\n\n• Coordinate inputs and outputs: internal mutations, external patient transfers in collaboration with the health framework\n\n• Attends the necessary training to maintain and develop the skills expected for his position\n\n• Welcoming, accompanying students and new collaborators\n\n• Adapting to emergency situations.\n\nWe are looking for a profile that meets the following criteria:\n\n• Diploma of Nurse\n\n• In possession of Red Cross Recognition\n\n• 2-3 years of experience\n\n• Experience in Cardiology, Pneumology and Critical Care\n\n• Meaning of contact and service in a private establishment\n\n• Self-governing, benevolence, versatility, adaptability, organization and focus are essential qualities\n\n• Positive attitude within a team and are able to generate a climate of confidence\n\nWe offer you:\n\nType of contract: Contract with Indeterminate Duration\nPercentage: 90%\nSchedule type : Night hours\nEffective date: 16 November 2026",
+        "de": "Die kardiopulmonalen und Zwischenstationen sind für die Behandlung von Patienten mit medizinischen oder chirurgischen Bedingungen verantwortlich und erfordern eine genaue und spezifische Überwachung.\n\nUm unseren Service zu vervollständigen, rekrutieren wir einen:\n\nKrankenschwester bei Nacht bei UCP - CDI 90% (ref: 2019)\n\nIhre Mission:\n\nIn einer hochmodernen Einrichtung haben Sie eine abwechslungsreiche Position in einem multidisziplinären Team von Krankenschwestern, Gesundheitspersonal, Ärzten.\n\nSie müssen Patienten mit komplexen Pathologien als Teil eines umfassenden Akutphasenmanagements aufnehmen.\n\nAls solche sind Sie verantwortlich für;\n\n• Installieren Sie den Patienten und präsentieren Sie die Verwaltungs- und Pflegeinformationen\n\n• Sammlung und Übermittlung medizinischer und administrativer Daten und Vervollständigung der elektronischen Pflegeakte\n\n• Bereitstellung und Organisation der Pflegeplanung nach Prioritäten und Dringlichkeit\n\n• Pflege auf ärztliche Verschreibung und in Übereinstimmung mit den abteilungs- und institutionellen Verfahren\n\n• Pflege der informatisierten Patientenakte\n\n• Kontinuierliche Beurteilung des klinischen Zustands des Patienten und seiner Entwicklung unter akuten Bedingungen\n\n• Gewährleistung der dienstübergreifenden Koordination für das Bewegungsmanagement von Patienten\n\n• Koordinieren Sie Inputs und Outputs: interne Mutationen, externe Patiententransfers in Zusammenarbeit mit dem Gesundheitsrahmen\n\n• Besucht die notwendige Ausbildung, um die für seine Position erwarteten Fähigkeiten zu erhalten und zu entwickeln\n\n• Begrüßung, Begleitung von Studierenden und neuen Mitarbeitern\n\n• Anpassung an Notsituationen.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Diplom der Krankenschwester\n\n• Im Besitz der Anerkennung des Roten Kreuzes\n\n• 2-3 Jahre Erfahrung\n\n• Erfahrung in Kardiologie, Pneumologie und Critical Care\n\n• Bedeutung von Kontakt und Service in einer privaten Einrichtung\n\n• Selbstregierung, Wohlwollen, Vielseitigkeit, Anpassungsfähigkeit, Organisation und Fokus sind wesentliche Eigenschaften\n\n• Positive Einstellung innerhalb eines Teams und sind in der Lage, ein Klima des Vertrauens zu erzeugen\n\nWir bieten Ihnen:\n\nArt des Vertrags: Vertrag mit unbestimmter Laufzeit\nProzentsatz: 90 %\nZeitplan: Nachtstunden\nDatum des Inkrafttretens: 16. November 2026",
+        "fr": "L'unité de soins cardio-pulmonaire et les soins intermédiaires ont pour mission de prendre en charge des patients qui présentent des affections médicales ou chirurgicales et ayant besoin d'une surveillance rapprochée et spécifique.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nInfirmier(-ère) de nuit à l'UCP - CDI 90% (ref : 2019)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies complexes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé\n\n• Assiste aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Accueillir, accompagner les étudiants et des nouveaux collaborateurs\n\n• Savoir s’adapter face aux situations d’urgences.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge\n\n• 2-3 années d'expériences\n\n• Expérience en cardiologie, pneumologie et soins critiques souhaitée\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\nPourcentage : 90%\nType d'horaires : Horaires de nuit\nDate d'entrée en fonction: 16 novembre 2026"
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-19T21:31:29.416Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-10-06T21:29:59.619Z",
+      "salaryMin": 77900,
+      "salaryMax": 108500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77900,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "hopital-la-tour-92e650f38526",
       "slug": "assistente-tecnico-specializzato-in-sala-operatoria-atsso-100-hopital-de-la-tour-meyrin",
       "slugByLocale": {
@@ -620,7 +620,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-technique-specialisee-en-salle-doperation-atsso-a-100-1556",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:57:32.476Z",
+      "crawledAt": "2026-10-19T21:31:29.415Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -696,7 +696,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/business-intelligence-manager-a-100-1555",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:57:32.475Z",
+      "crawledAt": "2026-10-19T21:31:29.413Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -762,7 +762,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-service-des-urgences-cdm-12-mois-a-85-1558",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:57:32.474Z",
+      "crawledAt": "2026-10-19T21:31:29.412Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -842,7 +842,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-iere-aux-urgences-a-70-cdm-6-mois-1557",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:57:32.473Z",
+      "crawledAt": "2026-10-19T21:31:29.410Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -922,7 +922,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-a-lunite-de-chirurgie-orthopedique-cdm-4-mois-a-80-1559",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:57:32.471Z",
+      "crawledAt": "2026-10-19T21:31:29.406Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1043,7 +1043,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

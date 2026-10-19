@@ -3,10 +3,19 @@ import { JSDOM } from 'jsdom';
 import { LIST_PROMPT_RE, extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { openFormSections, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
-function extract(html: string) {
-  const { window } = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, { url: 'https://jobs.example/apply' });
+function extract(html: string, url = 'https://jobs.example/apply') {
+  const { window } = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, { url });
+  // JSDOM does not implement the browser's rendered-text `innerText`; the
+  // extractor uses it to keep an icon glyph separate from its aria label.
+  Object.defineProperty(window.HTMLElement.prototype, 'innerText', {
+    configurable: true,
+    get() {
+      return this.textContent || '';
+    },
+  });
   window.Element.prototype.getBoundingClientRect = function rect(this: Element) {
     const size = Number(this.getAttribute('data-size') || 20);
     return { width: size, height: size, top: 0, left: 0, right: size, bottom: size, x: 0, y: 0, toJSON: () => ({}) } as DOMRect;
@@ -23,6 +32,53 @@ afterEach(() => {
 });
 
 describe('portal field extraction', () => {
+  it('uses the extracted SuccessFactors marker when a private-use upload button has only a generated snapshot id', async () => {
+    let uploaded = false;
+    const snapshot = extract(`
+      <form>
+        <label>Email address<input type="email" required></label>
+        <label>Choose password<input type="password" required></label>
+        <label>Repeat password<input type="password" required></label>
+        <label>Do you hold a valid work permit for Switzerland?<input required></label>
+        <button type="button" id="cv-upload-control" data-automation-id="action"></button>
+        <button type="submit">Submit application</button>
+      </form>`, 'https://career5.successfactors.eu/careers') as any;
+    const icon = snapshot.buttons.find((button: any) => button.text === '');
+    expect(icon).toMatchObject({ domId: 'cv-upload-control', dataAutomationId: 'action' });
+    expect(icon.id).toMatch(/^f\d+$/);
+    expect(snapshot.passwordVisible).toBe(true);
+
+    const frame = {
+      url: () => snapshot.url,
+      evaluate: vi.fn(async () => uploaded
+        ? { ...snapshot, fields: [...snapshot.fields, { id: 'f99', kind: 'file', label: 'CV' }] }
+        : snapshot),
+      locator: vi.fn((selector: string) => {
+        expect(selector).toBe(`[data-aa-id="${icon.id}"]`);
+        return { first: () => ({ click: vi.fn(async () => { uploaded = true; }) }) };
+      }),
+    };
+    const fileInput = {
+      waitFor: vi.fn(async () => {}),
+      setInputFiles: vi.fn(async () => {}),
+    };
+    const page = {
+      url: () => snapshot.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      locator: vi.fn((selector: string) => selector === '.group_head'
+        ? { count: vi.fn(async () => 0) }
+        : { first: () => fileInput }),
+      waitForLoadState: vi.fn(async () => {}),
+    };
+
+    const result = await openFormSections(page as any, snapshot, { files: { cv: '/tmp/candidate-cv.pdf' } });
+
+    expect(result.cv).toBe('uploaded');
+    expect(uploaded).toBe(true);
+    expect(result.snapshot.fields.some((field: any) => field.kind === 'file')).toBe(true);
+  });
+
   it.each([
     ['https://www.google.com/recaptcha/api2/anchor?size=normal', 'g-recaptcha-response'],
     ['https://newassets.hcaptcha.com/captcha/v1/test?frame=checkbox', 'h-captcha-response'],
@@ -330,6 +386,18 @@ describe('portal field extraction', () => {
     expect(page.buttons).toContainEqual(expect.objectContaining({
       context: expect.stringContaining('Upload CV'),
     }));
+  });
+
+  it('resolves every aria-labelledby reference for an icon-only CV trigger', () => {
+    const page = extract(`
+      <span id="upload-label">Upload</span><span id="cv-label">CV</span>
+      <button type="button" aria-label="Upload" aria-labelledby="upload-label cv-label"></button>`);
+    const icon = page.buttons.find((button: any) => button.text === '');
+    expect(icon).toMatchObject({
+      label: 'Upload CV',
+      context: expect.stringContaining('Upload CV'),
+    });
+    expect(uploadButtonFor(page, 'cv')).toEqual(icon);
   });
 
   // Review of #12255: aria-hidden is a flag of the accessibility tree, not a sign that nothing is drawn.

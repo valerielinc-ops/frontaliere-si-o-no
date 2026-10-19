@@ -205,6 +205,73 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(ownAccountForm(page('Submit final application', { fields: [fields[0], { ...fields[1], form: 1 }] }))).toBe(false);
   });
 
+  it('recognizes the mixed SuccessFactors account/application page before its CV dialog opens', () => {
+    const successFactors = {
+      url: 'https://career5.successfactors.eu/careers',
+      passwordVisible: true,
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'email', form: 0, label: 'Email Address: *' },
+        { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *' },
+        { id: 'password-repeat', kind: 'text', inputType: 'password', form: 0, label: 'Retype Password: *' },
+        { id: 'permit', kind: 'combobox', form: 0, label: 'Do you hold a valid work permit for Switzerland?', required: true },
+        { id: 'salary', kind: 'textarea', form: 0, label: 'What is your salary expectation?', required: true },
+        { id: 'start', kind: 'textarea', form: 0, label: 'When would be your next possible starting date?', required: true },
+      ],
+      buttons: [{ id: 'cv-upload', text: '\uE1EF', disabled: false }, { id: 'apply', text: 'Apply', disabled: false }],
+    };
+    expect(sendsApplication(successFactors)).toBe(true);
+    expect(ownAccountForm(successFactors)).toBe(true);
+
+    // A separate cover-letter input must not count as the CV already being
+    // present: the CV can still be behind the SuccessFactors upload dialog.
+    expect(ownAccountForm({
+      ...successFactors,
+      fields: [...successFactors.fields, {
+        id: 'cover-letter',
+        kind: 'file',
+        inputType: 'file',
+        form: 1,
+        label: 'Cover letter',
+      }],
+    })).toBe(true);
+  });
+
+  it('recognizes a mixed form whose only application document field is a cover letter', () => {
+    const snapshot = {
+      url: 'https://career5.successfactors.eu/careers',
+      passwordVisible: true,
+      fields: [
+        { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *' },
+        { id: 'cover-letter', kind: 'file', inputType: 'file', form: 1, label: 'Cover letter' },
+      ],
+      buttons: [{ id: 'apply', text: 'Submit final application', disabled: false }],
+    };
+
+    expect(ownAccountForm(snapshot)).toBe(true);
+  });
+
+  it('does not treat another portal with generic CV application labels as a SuccessFactors account form', () => {
+    const snapshot = {
+      url: 'https://apply.example.org/careers',
+      passwordVisible: true,
+      fields: [{ label: 'CV' }],
+      buttons: [{ text: 'Submit application' }],
+    };
+
+    expect(ownAccountForm(snapshot)).toBe(false);
+  });
+
+  it('does not treat a lookalike SuccessFactors hostname as a SuccessFactors account form', () => {
+    const snapshot = {
+      url: 'https://successfactors.attacker.example/careers',
+      passwordVisible: true,
+      fields: [{ label: 'CV' }],
+      buttons: [{ text: 'Submit application' }],
+    };
+
+    expect(ownAccountForm(snapshot)).toBe(false);
+  });
+
   it('finds SuccessFactors privacy review without selecting the optional job alert', () => {
     const controls = privacyConsentControls({
       buttons: [

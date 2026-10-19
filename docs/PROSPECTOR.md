@@ -77,12 +77,39 @@ vedi `docs/CRAWLERS.md#aggregator-sourced-crawlers--the-data-can-be-genuine-and-
 Il monitor di salute esistente conta le righe tornate. Un parser che restituisce
 dodici righe di menu gira benissimo e pubblica dodici offerte finte.
 `prospect-validate.mjs` scarica la pagina di **dettaglio** che il datore serve e
-misura quattro cose indipendenti:
+misura sei cose indipendenti:
 
 - `reachable` — l'URL che pubblicheremmo risolve;
 - `titleMatch` — il titolo è davvero quello della pagina;
 - `contentful` — la pagina ha prosa vera, non uno scheletro renderizzato lato client;
-- `distinct` — i titoli del listing differiscono fra loro.
+- `distinct` — i titoli del listing differiscono fra loro;
+- `sourceBackedLocation` — la località pubblicata è provata dalla fonte;
+- `jobLike` — la prosa legge come un annuncio di lavoro.
+
+Per le spec generate, VALIDATE passa dalla stessa trasformazione in memoria del
+runtime pubblicato: enumera la listing, arricchisce i dettagli, sceglie il titolo
+finale, applica descrizione/geografia/date source-backed e registra ogni drop.
+Il report separa il numero esatto di candidati listing, le righe trasformate in
+annunci pubblicabili e l'output accettato dal runtime; una snapshot oltre soglia
+mostra quindi `0/N` output accettati pur conservando il conteggio parziale per
+ragione di drop. Una listing che annuncia `rel=next` senza una regola di
+paginazione viene trattata come incompleta e non come un campione completo. Una
+snapshot oltre la tolleranza dei drop resta non buona e rimette il candidato in
+retry. La tolleranza di pubblicazione non rende buona una misura: una listing
+non vuota senza output per drop inattesi azzera la stabilità anche se il parser
+mantiene la propria tolleranza sui piccoli inventari. I filtri dichiarati e
+verificabili, come le sedi estere allowlistate, restano separati dai drop
+inattesi; il report espone anche il denominatore effettivo usato dalla soglia di
+incompletezza. `jobLike` usa la descrizione pubblicata e il titolo viene
+confrontato solo con la sua fonte registrata (listing o dettaglio strutturato).
+
+Le pagine giudicate sono un campione, non il conteggio totale: l'algoritmo
+`utc-cyclic-strata-v1` registra giorno, identità, indice e strato, ripete la
+stessa selezione nello stesso giorno e ruota il punto di partenza ogni giorno
+UTC. Gli inventari piccoli vengono censiti per intero. Il budget conserva una
+quota per i candidati con una sola giornata buona, così possono ottenere la
+seconda osservazione distinta mentre nuovi candidati continuano a entrare nel
+giro.
 
 Su un lotto di 44 crawler generati: **34 promossi, 7 deboli, 1 respinto**. I due
 difetti trovati — titoli non corrispondenti, e titoli tutti uguali — sono
