@@ -12,7 +12,12 @@ import {
   isExplicitlyForeign,
   resolveSourceBackedSwissGeography,
 } from './prospector/location-evidence.mjs';
-import { inferAnyCanton, isCantonOnlyLabel, normalizeSwissTargetLocationText } from './target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  isCantonOnlyLabel,
+  isKnownSwissCity,
+  normalizeSwissTargetLocationText,
+} from './target-swiss-locations.mjs';
 import { SWISS_CANTONS } from './crawler-location-config.mjs';
 import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 import { cantonNamedByLocation, preferLocationEncodedCanton } from './job-location-display.mjs';
@@ -992,10 +997,19 @@ function pageWorkplaceEvidence(job, page) {
   const listingLocality = normalizeSpace(job?.addressLocality || '');
   const sameAsListing = Boolean(listingLocality)
     && normalizeSwissTargetLocationText(listingLocality) === normalizeSwissTargetLocationText(workplace);
+  const encodedCanton = inferAnyCanton(workplace);
+  // The shared resolver now accepts official Swiss Post localities when a
+  // structured canton accompanies them. That is valid for a page label only
+  // when the listing corroborates the label (or the label carries its own
+  // canton); otherwise a non-municipality branch name such as Heerbrugg would
+  // become evidence merely because the listing has an unrelated canton.
+  const canUseListingCanton = isKnownSwissCity(workplace, listingCanton)
+    || sameAsListing
+    || Boolean(encodedCanton && encodedCanton === listingCanton);
   const candidate = {
     location: workplace,
     addressLocality: workplace,
-    addressRegion: listingCanton,
+    addressRegion: canUseListingCanton ? listingCanton : '',
     addressCountry: 'CH',
     postalCode: sameAsListing ? normalizeSpace(job?.postalCode || '') : '',
     streetAddress: sameAsListing ? normalizeSpace(job?.streetAddress || '') : '',
@@ -1004,7 +1018,6 @@ function pageWorkplaceEvidence(job, page) {
     || resolveCoopJsonLdGeography({ ...candidate, addressRegion: '' });
   if (geography) return { candidate, geography };
   if (!isSwissCantonCode(listingCanton)) return null;
-  const encodedCanton = inferAnyCanton(workplace);
   if (!sameAsListing && encodedCanton !== listingCanton) return null;
   if (encodedCanton && encodedCanton !== listingCanton) return null;
   return {
