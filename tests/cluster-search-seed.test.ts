@@ -218,7 +218,7 @@ describe('cluster search seed — wiring', () => {
   it('seeds from the same job list the page prints', () => {
     // A different source here would publish a set the visible list contradicts.
     expect(PLUGIN).toContain('buildClusterSearchSeed(urlPath, seedQuery, ctx.matchingJobs');
-    expect(PLUGIN).toContain('const jobLinksHtml = ctx.matchingJobs');
+    expect(PLUGIN).toContain('ctx.matchingJobs.map((job) =>');
   });
 
   it('keys the seed memo on the pathname, not on the route slug', () => {
