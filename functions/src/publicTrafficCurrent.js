@@ -29,6 +29,17 @@ export const PUBLIC_TRAFFIC_FIELDS = Object.freeze([
 // the pre-rendered values.
 export const PUBLIC_TRAFFIC_PAGE_SIZE = 200;
 export const PUBLIC_TRAFFIC_MAX_DOCUMENTS = 2000;
+export const PUBLIC_TRAFFIC_CURRENT_CACHE_MS = 60 * 1000;
+
+let cachedSnapshot = null;
+let cachedAtMs = 0;
+let pendingSnapshot = null;
+
+export function resetPublicTrafficCurrentCache() {
+  cachedSnapshot = null;
+  cachedAtMs = 0;
+  pendingSnapshot = null;
+}
 
 /** Convert one allowlisted Firestore value to the REST response shape. */
 export function encodeFirestoreValue(value) {
@@ -106,11 +117,24 @@ export async function readPublicTrafficDocuments(collectionRef) {
 }
 
 /** Read the latest public snapshot with Admin SDK and no client credential. */
-export async function getPublicTrafficCurrent() {
-  const { getAdminDb } = await import('./newsletterResendWebhookCore.js');
-  const documents = await readPublicTrafficDocuments(getAdminDb().collection('trafficCurrent'));
+export async function getPublicTrafficCurrent({ db: injectedDb, nowMs = Date.now() } = {}) {
+  if (!injectedDb && cachedSnapshot && nowMs >= cachedAtMs && nowMs - cachedAtMs < PUBLIC_TRAFFIC_CURRENT_CACHE_MS) {
+    return cachedSnapshot;
+  }
+  if (!injectedDb && pendingSnapshot) return pendingSnapshot;
 
-  return {
-    documents: documents.map(buildPublicTrafficDocument),
+  const load = async () => {
+    const db = injectedDb || (await import('./newsletterResendWebhookCore.js')).getAdminDb();
+    const documents = await readPublicTrafficDocuments(db.collection('trafficCurrent'));
+    const result = { documents: documents.map(buildPublicTrafficDocument) };
+    if (!injectedDb) {
+      cachedSnapshot = result;
+      cachedAtMs = nowMs;
+    }
+    return result;
   };
+
+  if (injectedDb) return load();
+  pendingSnapshot = load().finally(() => { pendingSnapshot = null; });
+  return pendingSnapshot;
 }

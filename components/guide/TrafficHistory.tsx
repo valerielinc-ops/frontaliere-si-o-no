@@ -3,6 +3,8 @@ import { useTranslation } from '@/services/i18n';
 import { Clock, MapPin, AlertTriangle, TrendingUp, TrendingDown, Minus, Info, Database, Cpu, Loader2 } from 'lucide-react';
 import { borderCrossings } from '@/data/borderCrossings';
 import { reportCaughtError } from '@/services/errorReporter';
+import { PUBLIC_TRAFFIC_HISTORY_URL } from '@/services/publicTrafficEndpoints';
+import { PUBLIC_TRAFFIC_HISTORY_TARGETS } from '../../functions/src/publicTrafficHistoryData.js';
 
 /* ─── Types ─── */
 
@@ -12,19 +14,23 @@ interface TrafficPattern {
  dayMultiplier: Record<number, number>; // 0=Sun..6=Sat
 }
 
-/** Aggregated Firestore data: day (0-6) → hour (0-23) → average minutes */
+/** Aggregated observed data: day (0-6) → hour (0-23) → average minutes */
 type AggregatedTraffic = Record<number, Record<number, number>>;
 
-/* ─── Crossing name → Firestore slug mapping ─── */
-
-const CROSSING_SLUG_MAP: Record<string, string> = {
- 'Chiasso - Strada': 'chiasso-strada',
- 'Chiasso - Brogeda': 'chiasso-brogeda',
- 'Gaggiolo': 'gaggiolo',
- 'Ponte Tresa': 'ponte-tresa',
- 'Stabio': 'san-pietro',
- 'Ponte Chiasso': 'chiasso-centro',
-};
+function isAggregatedTraffic(value: unknown): value is AggregatedTraffic {
+ if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+ let hasReading = false;
+ for (const [day, hours] of Object.entries(value)) {
+  const dayNumber = Number(day);
+  if (!Number.isInteger(dayNumber) || dayNumber < 0 || dayNumber > 6 || !hours || typeof hours !== 'object' || Array.isArray(hours)) return false;
+  for (const [hour, minutes] of Object.entries(hours)) {
+   const hourNumber = Number(hour);
+   if (!Number.isInteger(hourNumber) || hourNumber < 0 || hourNumber > 23 || typeof minutes !== 'number' || !Number.isFinite(minutes)) return false;
+   hasReading = true;
+  }
+ }
+ return hasReading;
+}
 
 /* ─── Fallback: static traffic pattern model ─── */
 
@@ -61,7 +67,7 @@ const CROSSING_PATTERNS: Record<string, TrafficPattern> = {
  },
 };
 
-const CROSSING_NAMES = Object.keys(CROSSING_PATTERNS);
+const CROSSING_NAMES = PUBLIC_TRAFFIC_HISTORY_TARGETS.map(target => target.name);
 const DAY_NAMES_IT = ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'];
 const HOURS = Array.from({ length: 24 }, (_, i) => i);
 const PEAK_HOURS = new Set([5, 6, 7, 8, 9, 17, 18, 19, 20, 21]);
@@ -91,75 +97,32 @@ function setHistoryCache(data: Record<string, AggregatedTraffic>): void {
  } catch { /* ignore */ }
 }
 
-/* ─── Firestore fetch + aggregation ─── */
+/* ─── Public read-model fetch ─── */
 
-const MIN_SNAPSHOTS_FOR_REAL_DATA = 20;
-
-/**
- * Fetches recent snapshots from trafficHistory/{slug}/snapshots/ and
- * aggregates them into average wait minutes per (dayOfWeek, hour).
- */
+/** Fetches the server-side aggregate without exposing Firestore to the browser. */
 async function fetchAndAggregate(crossingNames: string[]): Promise<Record<string, AggregatedTraffic>> {
- // 1. Fresh localStorage cache — skip Firestore on repeat page loads within TTL
+ // 1. Fresh localStorage cache — skip the endpoint on repeat page loads within TTL
  const cached = getHistoryCache();
  if (cached) return cached;
 
- const { getApp } = await import('@/services/firebase');
- const { getFirestore, collection, getDocs, query, orderBy, limit } = await import('firebase/firestore');
+ const response = await fetch(PUBLIC_TRAFFIC_HISTORY_URL, { credentials: 'omit', mode: 'cors' });
+ if (!response.ok) throw new Error(`trafficHistory HTTP ${response.status}`);
+ const payload = await response.json() as { history?: unknown };
+ if (!payload || typeof payload.history !== 'object' || payload.history === null || Array.isArray(payload.history)) {
+  throw new Error('invalid trafficHistory response');
+ }
 
- const app = await getApp();
- const db = getFirestore(app);
+ const allowedNames = new Set(crossingNames);
  const result: Record<string, AggregatedTraffic> = {};
-
- await Promise.all(crossingNames.map(async (name) => {
- const slug = CROSSING_SLUG_MAP[name];
- if (!slug) return;
-
- try {
- const snapshotsRef = collection(db, 'trafficHistory', slug, 'snapshots');
- const q = query(snapshotsRef, orderBy('lastUpdate', 'desc'), limit(500));
- const snapshot = await getDocs(q);
-
- if (snapshot.size < MIN_SNAPSHOTS_FOR_REAL_DATA) return;
-
- // Accumulator: day → hour → { sum, count }
- const acc: Record<number, Record<number, { sum: number; count: number }>> = {};
-
- snapshot.forEach(doc => {
- const d = doc.data();
- const day: number = d.dayOfWeek;
- const hour: number = d.hour;
- const minutes = d.totalCrossingMinutes ?? d.waitTimeMinutes;
- if (day == null || hour == null || typeof minutes !== 'number' || !Number.isFinite(minutes)) return;
-
- if (!acc[day]) acc[day] = {};
- if (!acc[day][hour]) acc[day][hour] = { sum: 0, count: 0 };
- acc[day][hour].sum += minutes;
- acc[day][hour].count += 1;
- });
-
- // Convert to averages
- const aggregated: AggregatedTraffic = {};
- for (const day of Object.keys(acc)) {
- const d = Number(day);
- aggregated[d] = {};
- for (const hour of Object.keys(acc[d])) {
- const h = Number(hour);
- aggregated[d][h] = Math.round(acc[d][h].sum / acc[d][h].count);
+ for (const [name, value] of Object.entries(payload.history)) {
+  if (!allowedNames.has(name) || !isAggregatedTraffic(value)) continue;
+  result[name] = value;
  }
- }
- if (Object.keys(aggregated).length > 0) result[name] = aggregated;
- } catch (err) {
- console.warn(`[TrafficHistory] Failed to fetch history for ${name}:`, err);
- reportCaughtError(err, `TrafficHistory.fetch.${slug}`);
- }
- }));
-
  if (Object.keys(result).length > 0) setHistoryCache(result);
  return result;
 }
 
-/* ─── Wait-time lookup with Firestore-first fallback ─── */
+/* ─── Wait-time lookup with observed-data fallback ─── */
 
 function getWaitMinutes(
  crossing: string,
@@ -178,7 +141,7 @@ function getWaitMinutes(
  return Math.round(pattern.baseWaitMinutes * hMult * dMult);
 }
 
-/** Returns the number of crossings that have real Firestore data loaded */
+/** Returns the number of crossings that have real observed data loaded */
 export function countRealCrossings(realData: Record<string, AggregatedTraffic>): number {
  return Object.keys(realData).length;
 }
@@ -204,14 +167,14 @@ export default function TrafficHistory() {
  const [realData, setRealData] = useState<Record<string, AggregatedTraffic>>({});
  const [loading, setLoading] = useState(true);
 
- /* Fetch Firestore data on mount */
+ /* Fetch the public traffic-history read model on mount */
  const loadData = useCallback(async () => {
  setLoading(true);
  try {
  const data = await fetchAndAggregate(CROSSING_NAMES);
  setRealData(data);
  } catch (err) {
- console.warn('[TrafficHistory] Firestore fetch failed, using fallback model', err);
+ console.warn('[TrafficHistory] Public history fetch failed, using fallback model', err);
  reportCaughtError(err, 'TrafficHistory.loadData');
  } finally {
  setLoading(false);

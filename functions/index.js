@@ -58,6 +58,7 @@ import { handleEmployerInsights } from './src/employerInsights.js';
 import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
 import { getPublicConfigValues } from './src/publicConfig.js';
 import { getPublicTrafficCurrent } from './src/publicTrafficCurrent.js';
+import { getPublicTrafficHistory } from './src/publicTrafficHistory.js';
 import { handleGeminiGenerate } from './src/geminiGenerate.js';
 import { handleGetExchangeRate } from './src/exchangeRate.js';
 import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
@@ -506,6 +507,32 @@ export const getTrafficCurrent = onRequest(
  // A non-2xx response is essential: the client then keeps the pre-rendered
  // values instead of treating an empty 200 snapshot as authoritative.
  res.status(503).json({ documents: [], error: 'traffic_snapshot_unavailable' });
+ }
+ },
+);
+
+// Public traffic history aggregate. The browser must not issue six 500-row
+// Firestore queries per visit; the function keeps the same sample and serves
+// the derived day/hour averages from a warm six-hour cache.
+export const getTrafficHistory = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ if (req.method !== 'GET') {
+  res.status(405).json({ error: 'method_not_allowed' });
+  return;
+ }
+ try {
+  const snapshot = await getPublicTrafficHistory();
+  res.set('Cache-Control', 'public, max-age=21600, s-maxage=21600');
+  res.status(200).json(snapshot);
+ } catch (error) {
+  console.error('[getTrafficHistory]', error instanceof Error ? error.message : String(error));
+  res.status(503).json({ history: {}, error: 'traffic_history_unavailable' });
  }
  },
 );
