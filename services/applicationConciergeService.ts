@@ -51,6 +51,12 @@ export interface ApplicationConciergeService {
   cvStorageKey?: string | null;
 }
 
+export function getCandidateVisibleApplicationConciergeProposals(
+  proposals: readonly ApplicationConciergeProposal[],
+): ApplicationConciergeProposal[] {
+  return proposals.filter((proposal) => proposal.status !== 'retracted');
+}
+
 function errorCode(value: unknown): string {
   if (typeof value === 'string' && /^[a-z][a-z0-9_.:/-]{0,63}$/.test(value)) return value;
   return 'application_concierge_request_failed';

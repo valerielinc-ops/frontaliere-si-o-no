@@ -13,6 +13,7 @@ import {
   declineApplicationConciergeProposal,
   recordApplicationConciergeConsent,
   fetchApplicationConciergeService,
+  getCandidateVisibleApplicationConciergeProposals,
   saveApplicationConciergeProfile,
   type ApplicationConciergeProposal,
   type ApplicationConciergeService,
@@ -519,6 +520,7 @@ export default function ApplicationConciergePortal({
 
   const pending = isPending(service);
   const expired = service.serviceStatus === 'expired' || (service.expiresAt ? new Date(service.expiresAt).getTime() <= Date.now() : false);
+  const visibleProposals = getCandidateVisibleApplicationConciergeProposals(service.proposals);
 
   const matchingStatus = String(service.matchingStatus || '');
   const matchingActive = MATCHING_STATES.has(matchingStatus);
@@ -593,8 +595,8 @@ export default function ApplicationConciergePortal({
                 {matchingNeedsReview && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.matchingNeedsReview')} /></div>}
                 {matchingFailed && <div className="mt-5"><Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.matchingFailed')} /></div>}
                 <div className="mt-5 space-y-3">
-                  {service.proposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
-                  {service.proposals.map((proposal) => <ProposalCard key={proposal.proposalId} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} t={t} />)}
+                  {visibleProposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
+                  {visibleProposals.map((proposal) => <ProposalCard key={proposal.proposalId} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} t={t} />)}
                 </div>
               </section>
             </div>
