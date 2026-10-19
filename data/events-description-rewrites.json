@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-19T10:20:40.866Z",
+  "generatedAt": "2026-10-19T11:20:42.899Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -59477,6 +59477,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T13:02:33.161Z"
+    },
+    "myswitzerland:2cfc41abec614583b6e9467fc8b703c0::b2facc40905f5e9b0245638946eff8b6af80d37f02bc9220d8d6629590521bdc": {
+      "id": "myswitzerland:2cfc41abec614583b6e9467fc8b703c0",
+      "sourceDescriptionHash": "b2facc40905f5e9b0245638946eff8b6af80d37f02bc9220d8d6629590521bdc",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Wetzikon; comune: Wetzikon (ZH); cantone: ZH; categoria: Event; data: 2027-06-03; ora: 16:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Wetzikon; comune: Wetzikon (ZH); cantone: ZH; categoria: Event; data: 2027-06-03; ora: 16:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Wetzikon; municipality: Wetzikon (ZH); canton: ZH; category: Event; date: 2027-06-03; time: 16:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Wetzikon; gemeinde: Wetzikon (ZH); kanton: ZH; kategorie: Event; datum: 2027-06-03; uhrzeit: 16:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Wetzikon; commune: Wetzikon (ZH); canton: ZH; catégorie: Event; date: 2027-06-03; heure: 16:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-19T11:16:34.357Z"
     },
     "myswitzerland:2d01dbbd10cd45c799ab45fdd5fb6018::a1edf93f494d623c8d3501ce682bb297adcb9627e8cf4923d43ffcf3e81e129b": {
       "id": "myswitzerland:2d01dbbd10cd45c799ab45fdd5fb6018",
@@ -159541,15 +159555,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-09T14:28:42.035Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:2cfc41abec614583b6e9467fc8b703c0::b2facc40905f5e9b0245638946eff8b6af80d37f02bc9220d8d6629590521bdc": {
-      "id": "myswitzerland:2cfc41abec614583b6e9467fc8b703c0",
-      "sourceDescriptionHash": "b2facc40905f5e9b0245638946eff8b6af80d37f02bc9220d8d6629590521bdc",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T21:48:43.773Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

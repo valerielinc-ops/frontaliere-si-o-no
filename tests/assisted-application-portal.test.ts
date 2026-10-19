@@ -3,7 +3,7 @@ import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateA
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -14,6 +14,23 @@ const fields = [
   { id: 'f4', kind: 'select', label: 'Country', required: true, options: [{ label: 'Switzerland' }, { label: 'Italy' }] },
   { id: 'f5', kind: 'file', label: 'Resume/CV', required: true },
 ];
+
+describe('application-surface detection', () => {
+  it('does not treat employer-site chrome as an application form', () => {
+    expect(hasApplicationSurface({
+      fields: [],
+      buttons: [{ text: 'Menu', chrome: true }, { text: 'Finden', chrome: true }],
+    })).toBe(false);
+    expect(hasApplicationSurface({
+      fields: [],
+      buttons: [{ text: 'Weiter', chrome: false }],
+    })).toBe(true);
+    expect(hasApplicationSurface({
+      fields: [{ id: 'f1', kind: 'text' }],
+      buttons: [{ text: 'Menu', chrome: true }],
+    })).toBe(true);
+  });
+});
 
 describe('assisted application profile history and file replacement', () => {
   it('matches an icon-only removal control through its nearby uploaded-file context', () => {
