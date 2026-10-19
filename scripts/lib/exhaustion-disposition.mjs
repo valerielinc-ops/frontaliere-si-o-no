@@ -187,33 +187,33 @@ export function inputCapVetoSummary(err) {
 }
 
 /**
- * ── «NESSUN ARTICOLO ⇒ NON VERDE», E L'UNICA ECCEZIONE ──────────────────────
+ * ── «NESSUN ARTICOLO ⇒ NON VERDE», SALVO ESITI DICHIARATI ──────────────────
  *
- * Exit code dedicato: «questa run non ha prodotto un articolo, E LA RAGIONE E'
- * DICHIARATA E LEGITTIMA». E' l'UNICO codice che lo step «Generate the article»
- * assorbe quando `article=false`; qualunque altro esito senza articolo — exit 0
- * compreso — e' rosso.
+ * Exit code dedicato a una ragione dichiarata circoscritta alla sezione: se
+ * questa sezione non ha un articolo valido, il workflow puo' ancora provare la
+ * gemella. L'indisponibilita' condivisa del pool AI/verifier usa il codice 5,
+ * che ferma invece i retry immediati. Qualunque altro esito senza articolo —
+ * exit 0 compreso — e' rosso.
  *
  * L'inversione e' il punto. Fino a qui la regola era «assorbi tutto tranne un
  * caso nominato» (prima nessuno, poi il solo exit 3 di #357), e la sua forma
  * lascia passare per costruzione ogni difetto non ancora nominato: la miscela
  * di errori che ha prodotto il verde del 2026-08-14 non era il caso nominato, e
- * infatti e' passata. Ora la regola e' «fallisci tutto tranne i casi nominati»,
- * e i casi nominati sono SEI, elencati nel catch di primo livello di
- * `create-article.mjs` e nei tre `finalizeRunReport('skipped')` del ramo
- * evergreen:
- *
- *   1. pool evergreen saturo al pre-flight
- *   2. nessuna keyword evergreen disponibile al retry
- *   3. tentativi evergreen esauriti
- *   4. duplicato rilevato
- *   5. rigetto qualita' (slop non pubblicato)
- *   6. quota giornaliera davvero esaurita — vedi isLegitimateQuotaDeferral()
+ * infatti e' passata. Ora la regola e' «fallisci tutto tranne gli esiti
+ * nominati»: codice 4 per le ragioni locali alla sezione; codice 5 per la
+ * temporanea indisponibilita' del pool condiviso.
  *
  * 4 e non 1/2/3: `node` usa 1 per un'eccezione non gestita e 2 per un uso
  * errato della CLI, e 3 e' gia' EXIT_ROSTER_CANNOT_SERVE_PROMPT.
  */
 export const EXIT_NO_ARTICLE_DECLARED = 4;
+
+/**
+ * Esito dichiarato ma condiviso fra le sezioni: il pool AI/verifier non e'
+ * disponibile. Il workflow deve cedere al prossimo cron, senza ripetere la
+ * stessa cascata sulla sezione gemella o dispatchare un altro anello.
+ */
+export const EXIT_AI_PROVIDER_ROSTER_UNAVAILABLE = 5;
 
 /**
  * La frazione di cascata che deve essere transitoria perche' «differisci» sia
@@ -259,7 +259,7 @@ export const QUOTA_DEFERRAL_MIN_TRANSIENT_SHARE = 0.5;
  * giu', modelli rimossi).
  *
  * @param {unknown} err l'errore risalito fino al catch di primo livello
- * @returns {boolean} true → differire e' onesto, exit EXIT_NO_ARTICLE_DECLARED
+ * @returns {boolean} true → differire e' onesto, exit EXIT_AI_PROVIDER_ROSTER_UNAVAILABLE
  */
 /**
  * ── GLI ECHI DI UN GUASTO NON SONO UN CAMPIONE (issue #805) ────────────────
@@ -283,7 +283,7 @@ export const QUOTA_DEFERRAL_MIN_TRANSIENT_SHARE = 0.5;
  * notte misurata con l'host GitHub giu' — transient 51, persistent 55, total
  * 106, di cui 11 skip da cooldown — lo share passa da 51/106 = 0,481 (rosso,
  * Workflow-Failure su una condizione che si cura a mezzanotte) a 51/95 = 0,537
- * (differimento dichiarato, EXIT_NO_ARTICLE_DECLARED).
+ * (differimento dichiarato, EXIT_AI_PROVIDER_ROSTER_UNAVAILABLE).
  *
  * RETRO-COMPATIBILE PER COSTRUZIONE. `providerCooldownSkips` arriva da
  * `classifyExhaustionCause` (ai-models.mjs); un errore serializzato prima di
@@ -923,7 +923,7 @@ export function isBudgetBelowScaffoldFloor(budget) {
 }
 
 /**
- * ── L'ASSORBENTE, E PERCHE' NON E' UNA DELLE SEI RAGIONI LEGITTIME ──────────
+ * ── L'ASSORBENTE, E PERCHE' NON E' UN DIFFERIMENTO DICHIARATO ───────────────
  *
  * MISURATO (issue #452, finestra 2026-08-13 → 18, 926 run di
  * `generate-article.yml`): una run `failure` dura 2510s mediani contro i 254s
@@ -945,10 +945,10 @@ export function isBudgetBelowScaffoldFloor(budget) {
  * `[prompt-budget] … unsat=1` lo dichiarava a ogni giro e nessuno lo leggeva:
  * l'unica azione era un `console.warn`.
  *
- * PERCHE' L'USCITA NON E' `EXIT_NO_ARTICLE_DECLARED` (4). Le sei ragioni
- * legittime hanno tutte la stessa proprieta': il giro successivo puo' andare
- * diversamente da solo (un altro headline, un'altra finestra di quota). Questa
- * no. E' la stessa classe di `isInputCapDeferralVeto`: un roster i cui cap non
+ * PERCHE' L'USCITA NON E' UN ESITO DICHIARATO (4 o 5). I differimenti legittimi
+ * hanno tutti la stessa proprieta': un giro successivo puo' andare diversamente
+ * da solo (un altro headline o una nuova finestra del provider). Questa no.
+ * E' la stessa classe di `isInputCapDeferralVeto`: un roster i cui cap non
  * arrivano al peso dell'impalcatura non si cura a mezzanotte, e dichiararla
  * «legittima» rimetterebbe in piedi il verde silenzioso di #313 — con in piu'
  * il `declared=true` che fa CHAINARE il successore contro lo stesso muro.
