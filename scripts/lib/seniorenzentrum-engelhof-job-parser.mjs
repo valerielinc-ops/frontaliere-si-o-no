@@ -19,6 +19,7 @@ import {
   freeTextPostalCandidates,
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
+  variablePostalGeography,
 } from './prospector/location-evidence.mjs';
 import {
   detectHealthcareEmploymentType,
@@ -32,6 +33,10 @@ export const SENIORENZENTRUM_ENGELHOF_COMPANY_DOMAIN = 'seniorenzentrum-engelhof
 const CAREER_URL = 'https://seniorenzentrum-engelhof.ch/arbeiten-im-engelhof/freie-stellen';
 const EMPLOYER_BOARD_HOST = 'seniorenzentrum-engelhof.employerboard.ch';
 const EXPECTED_CANTON = 'SZ';
+const SENIORENZENTRUM_ENGELHOF_EMPLOYER_POSTAL_LOCATIONS = Object.freeze([
+  '8852 Altendorf',
+]);
+const SENIORENZENTRUM_ENGELHOF_POSTAL_LOCATION_RX = /(?:^|\D)(?:CH[\s-]?)?(\d{4})\s+(\p{Lu}[\p{L}'’.-]*(?:[ -][\p{L}][\p{L}'’.-]*){0,3})/gu;
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -83,6 +88,44 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
+function explicitWorkplacePostalCandidates(detail = {}) {
+  const values = [detail.location, ...(Array.isArray(detail.workplaceLabels) ? detail.workplaceLabels : [])]
+    .filter(Boolean);
+  const candidates = [];
+  const seen = new Set();
+  for (const value of values) {
+    for (const match of String(value).matchAll(SENIORENZENTRUM_ENGELHOF_POSTAL_LOCATION_RX)) {
+      const postalCode = match[1];
+      const addressLocality = match[2]
+        .replace(/[.,;:!?]+$/u, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+      const location = `${postalCode} ${addressLocality}`;
+      const key = location.toLowerCase();
+      if (!addressLocality || seen.has(key)) continue;
+      seen.add(key);
+      candidates.push({ location, addressLocality, postalCode });
+    }
+  }
+  return candidates;
+}
+
+function rejectUnverifiedEngelhofLocation(detail = {}) {
+  return {
+    ...detail,
+    location: '',
+    canton: '',
+    addressLocality: '',
+    addressRegion: '',
+    addressCountry: '',
+    country: '',
+    postalCode: '',
+    streetAddress: '',
+    locationCandidates: [],
+    locationGateRejected: true,
+  };
+}
+
 /**
  * EmployerBoard currently renders the vacancy-specific address only in the
  * `wwj-text[data-cy="job-detail"]` body. It no longer exposes a JobPosting
@@ -104,20 +147,25 @@ export function extractSeniorenzentrumEngelhofDetailFields(html = '', pageUrl = 
   const dom = new JSDOM(source);
   try {
     const vacancyBody = dom.window.document.querySelector('[data-cy="job-detail"]');
-    if (!vacancyBody) return detail;
+    if (!vacancyBody) return rejectUnverifiedEngelhofLocation(detail);
 
-    const candidates = freeTextPostalCandidates(bodyTextOf(vacancyBody.innerHTML));
-    for (const candidate of candidates) {
-      const geography = resolveSourceBackedSwissGeography(candidate);
-      if (!geography || geography.canton !== EXPECTED_CANTON) continue;
-      const fields = sourceBackedSwissGeographyFields(candidate, geography);
+    const candidates = [
+      ...freeTextPostalCandidates(bodyTextOf(vacancyBody.innerHTML)),
+      ...explicitWorkplacePostalCandidates(detail),
+    ];
+    const decision = variablePostalGeography(
+      candidates,
+      SENIORENZENTRUM_ENGELHOF_EMPLOYER_POSTAL_LOCATIONS,
+    );
+    if (decision.geography?.canton === EXPECTED_CANTON) {
+      const fields = sourceBackedSwissGeographyFields(decision.candidate, decision.geography);
       return {
         ...detail,
         ...fields,
         locationCandidates: [fields],
       };
     }
-    return detail;
+    return rejectUnverifiedEngelhofLocation(detail);
   } finally {
     dom.window.close();
   }

@@ -51,6 +51,7 @@ const detailHtml = `
         <div class="wwj-text" data-cy="job-detail">
           <p>Wir wünschen uns eine aufgestellte und motivierte Persönlichkeit.</p>
           <p>Seniorenzentrum Engelhof, Engelhofstrasse 1, 8852 Altendorf.</p>
+          <p>Arbeitsort: 8853 Lachen.</p>
         </div>
       </div>
     </body>
@@ -111,12 +112,27 @@ describe('Seniorenzentrum Engelhof crawler parser', () => {
       detailHtml,
       sourceListing.url,
     )).toMatchObject({
-      location: '8852 Altendorf',
+      location: '8853 Lachen',
       canton: 'SZ',
-      addressLocality: 'Altendorf',
+      addressLocality: 'Lachen',
       addressRegion: 'SZ',
-      postalCode: '8852',
+      postalCode: '8853',
     });
+    expect(extractSeniorenzentrumEngelhofDetailFields(
+      detailHtml,
+      sourceListing.url,
+    ).location).not.toBe('8852 Altendorf');
+  });
+
+  it('rejects the employer seat when no variable workplace is present', () => {
+    const detail = extractSeniorenzentrumEngelhofDetailFields(
+      '<div data-cy="job-detail"><p>Arbeitsort: 8852 Altendorf.</p></div>',
+      sourceListing.url,
+    );
+
+    expect(detail.location).toBe('');
+    expect(detail.locationCandidates).toEqual([]);
+    expect(detail.locationGateRejected).toBe(true);
   });
 
   describe('fetchAllSeniorenzentrumEngelhofJobs', () => {
