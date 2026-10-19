@@ -1,7 +1,7 @@
 {
   "key": "crr-suva-sion",
   "label": "Clinique romande de réadaptation (CRR Suva)",
-  "generatedAt": "2026-10-18T09:26:07.136Z",
+  "generatedAt": "2026-10-19T09:24:06.812Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4083,
-  "avgDurationMs": 4083,
+  "durationMs": 4863,
+  "avgDurationMs": 4863,
   "durationHistory": [
-    4083
+    4863
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:25:54.622Z",
+      "crawledAt": "2026-10-19T09:23:53.523Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/senior-security-engineer-2434.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:25:54.192Z",
+      "crawledAt": "2026-10-19T09:23:53.048Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:25:53.722Z",
+      "crawledAt": "2026-10-19T09:23:52.570Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -151,5 +151,5 @@
       }
     }
   ],
-  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
+  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
 }
