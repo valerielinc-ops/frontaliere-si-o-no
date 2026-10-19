@@ -61,37 +61,35 @@ describe('UserProfile helpers', () => {
       expect(profile.familyMembers).toBe('4');
     });
 
-    it('migrates the legacy profile into the anonymous cache on first load', () => {
+    it('keeps the ownerless legacy profile hidden until explicit recovery', () => {
       localStorage.setItem('frontaliere_user_profile', JSON.stringify({ familySituation: 'married' }));
 
       const profile = loadUserProfile();
 
-      expect(profile.familySituation).toBe('married');
-      expect(JSON.parse(localStorage.getItem('frontaliere_user_profile:anonymous') || '{}'))
-        .toMatchObject({ familySituation: 'married' });
-      expect(localStorage.getItem('frontaliere_user_profile')).toBeNull();
+      expect(profile.familySituation).toBe('');
+      expect(localStorage.getItem('frontaliere_user_profile')).not.toBeNull();
+      expect(localStorage.getItem('frontaliere_user_profile:anonymous')).toBeNull();
     });
 
-    it('migrates the legacy profile without exposing it to a signed-in account', () => {
+    it('does not expose an ownerless legacy profile to a signed-in account', () => {
       localStorage.setItem('frontaliere_user_profile', JSON.stringify({ familySituation: 'married' }));
 
       const profile = loadUserProfile('account-123');
 
       expect(profile.familySituation).toBe('');
-      expect(JSON.parse(localStorage.getItem('frontaliere_user_profile:anonymous') || '{}'))
-        .toMatchObject({ familySituation: 'married' });
+      expect(localStorage.getItem('frontaliere_user_profile')).not.toBeNull();
+      expect(localStorage.getItem('frontaliere_user_profile:anonymous')).toBeNull();
       expect(localStorage.getItem('frontaliere_user_profile:account-123')).toBeNull();
     });
 
-    it('keeps an existing anonymous profile and retains a different legacy copy', () => {
+    it('keeps the anonymous scoped profile and the ownerless legacy copy separate', () => {
       localStorage.setItem('frontaliere_user_profile', JSON.stringify({ familySituation: 'married' }));
       localStorage.setItem('frontaliere_user_profile:anonymous', JSON.stringify({ familySituation: 'single' }));
 
       const profile = loadUserProfile();
 
       expect(profile.familySituation).toBe('single');
-      expect(JSON.parse(localStorage.getItem('frontaliere_user_profile') || '{}'))
-        .toMatchObject({ familySituation: 'married' });
+      expect(localStorage.getItem('frontaliere_user_profile')).not.toBeNull();
     });
 
     it('handles corrupted localStorage gracefully', () => {

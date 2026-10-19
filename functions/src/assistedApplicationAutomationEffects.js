@@ -46,15 +46,21 @@ async function reviewUrlFor(order, orderId, round, locale, deps) {
   return buildReviewPageUrl(order, mintReviewToken({ secret, orderId, round }), locale);
 }
 
-/** Notification key: one message per kind, round and (for reasons) cause. */
+/** Notification key: one message per kind, round and cause; portal retries also key by dispatch. */
 export function automationEmailKey(effect, flow) {
   const round = Number(flow?.round) || 1;
   if (effect.kind === 'owner_review') return `auto_owner_review_r${round}${effect.held ? '_held' : ''}`;
   if (effect.kind === 'owner_takeover') {
     // A known code names the message; a raw runner error only its step.
     const reason = String(effect.reason || 'x');
-    const code = /^[a-z_]{1,40}$/.test(reason) ? reason : `${effect.stage || 'run'}_error`;
-    return `auto_owner_takeover_${code}_r${round}`;
+    const retryablePortalStop = reason === 'portal:portal_needs_candidate';
+    const code = retryablePortalStop
+      ? 'portal_needs_candidate'
+      : (/^[a-z_]{1,40}$/.test(reason) ? reason : `${effect.stage || 'run'}_error`);
+    // This portal stop may recur after an automatic or owner-requested retry.
+    // Key that notice to the dispatch so later stops are not hidden by deduplication.
+    const dispatchAt = retryablePortalStop ? Number(flow?.dispatch?.requestedAt) || 0 : 0;
+    return `auto_owner_takeover_${code}_r${round}${retryablePortalStop ? `_d${dispatchAt}` : ''}`;
   }
   if (effect.kind === 'candidate_action_needed') return `auto_candidate_action_${(flow?.history || []).length}`;
   // One per wait for the candidate's answers (a wait may come back in the same round, at the portal).
@@ -102,6 +108,8 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
         reason: effect.reason,
         stage: effect.stage,
         attempts: effect.attempts,
+        portalAutoRetryAt: flow.portalAutoRetryAt,
+        portalAutoRetryCount: flow.portalAutoRetryCount,
         verdict: VERDICT_LABELS[draft.verdict] || draft.verdict,
         summary: draft.summaryIt,
         channel: draft.channel?.label,

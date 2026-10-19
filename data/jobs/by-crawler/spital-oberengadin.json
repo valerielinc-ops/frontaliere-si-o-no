@@ -573,12 +573,12 @@
     },
     {
       "id": "spital-oberengadin-b9ee3df31762",
-      "slug": "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan",
+      "slug": "specialista-specialist-operations-technology-season-spital-oberengadin-samedan",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan",
-        "it": "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan",
-        "en": "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan",
-        "fr": "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan"
+        "it": "specialista-specialist-operations-technology-season-spital-oberengadin-samedan",
+        "en": "specialist-specialist-operations-technology-season-spital-oberengadin-samedan",
+        "fr": "specialiste-specialiste-operations-technologie-saison-spital-oberengadin-samedan"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -639,7 +639,21 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan"
+        ],
+        "en": [
+          "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan"
+        ],
+        "fr": [
+          "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan"
+      ]
     },
     {
       "id": "spital-oberengadin-59cd7edd12c0",

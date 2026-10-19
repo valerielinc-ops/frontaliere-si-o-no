@@ -381,9 +381,9 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
     // unsuffixed FR transit-fee URL bridged by #8730 (Bing closed loop) + 12
     // upstream-aborted article URLs from the 2026-10-07 corpus sync.
     expect({ total: actualKeys.length, gone: gone.length, moved: moved.length }).toEqual({
-      total: 98,
+      total: 99,
       gone: 36,
-      moved: 62,
+      moved: 63,
     });
   });
 });

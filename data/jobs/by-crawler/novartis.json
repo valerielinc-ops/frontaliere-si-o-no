@@ -1145,7 +1145,7 @@
         "it": "avvocato-legale-global-procurement-dd-it-novartis-basel-city",
         "en": "legal-counsel-global-procurement-dd-it-novartis-ch",
         "de": "rechtsberater-globale-beschaffung-dd-it-novartis-basel-city",
-        "fr": "legal-counsel-global-procurement-dd-it-novartis-basel-city"
+        "fr": "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1188,14 +1188,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-counsel-global-procurement-dd-it-novartis-ch",
-        "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city"
+        "legal-counsel-global-procurement-dd-it-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-global-procurement-dd-it-novartis-ch"
         ],
         "fr": [
-          "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city"
+          "legal-counsel-global-procurement-dd-it-novartis-basel-city"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:12.102Z",
@@ -1369,7 +1369,7 @@
         "it": "executive-clinical-program-leader-oncologia-clinica-traduzionale-novartis-basel-city",
         "en": "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch",
         "de": "executive-clinical-program-leader-translationale-klinische-onkologie-novartis-basel-city",
-        "fr": "executive-clinical-program-leader-translational-clinical-oncology-novartis-basel-city"
+        "fr": "chef-de-programme-clinique-executif-oncologie-clinique-translationnelle-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1412,14 +1412,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch",
-        "chef-de-programme-clinique-executif-oncologie-clinique-translationnelle-novartis-basel-city"
+        "executive-clinical-program-leader-translational-clinical-oncology-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch"
         ],
         "fr": [
-          "chef-de-programme-clinique-executif-oncologie-clinique-translationnelle-novartis-basel-city"
+          "executive-clinical-program-leader-translational-clinical-oncology-novartis-basel-city"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:03.000Z",
@@ -2272,12 +2272,12 @@
     },
     {
       "id": "novartis-2e62edc936f3",
-      "slug": "phad-pdu-oral-drug-product-project-leader-novartis-ch",
+      "slug": "leader-del-progetto-phad-pdu-per-prodotti-di-droga-orale-novartis-basel-city",
       "slugByLocale": {
         "en": "phad-pdu-oral-drug-product-project-leader-novartis-ch",
-        "it": "phad-pdu-oral-drug-product-project-leader-novartis-ch",
+        "it": "leader-del-progetto-phad-pdu-per-prodotti-di-droga-orale-novartis-basel-city",
         "de": "phad-pdu-oral-drug-product-project-leader-novartis-ch",
-        "fr": "phad-pdu-oral-drug-product-project-leader-novartis-ch"
+        "fr": "phad-pdu-chef-de-projet-des-produits-pharmaceutiques-oraux-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2335,15 +2335,26 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-19T09:25:09.737Z"
+      "firstSeenAt": "2026-10-19T09:25:09.737Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phad-pdu-oral-drug-product-project-leader-novartis-ch"
+        ],
+        "fr": [
+          "phad-pdu-oral-drug-product-project-leader-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phad-pdu-oral-drug-product-project-leader-novartis-ch"
+      ]
     },
     {
       "id": "novartis-411994ec3e55",
-      "slug": "expert-science-technology-novartis-ch",
+      "slug": "scienza-e-tecnologia-degli-esperti-novartis-basel-city",
       "slugByLocale": {
         "en": "expert-science-technology-novartis-ch",
-        "it": "expert-science-technology-novartis-ch",
-        "de": "expert-science-technology-novartis-ch",
+        "it": "scienza-e-tecnologia-degli-esperti-novartis-basel-city",
+        "de": "experte-fur-wissenschaft-und-technologie-novartis-basel-city",
         "fr": "expert-science-technology-novartis-ch"
       },
       "company": "Novartis",
@@ -2402,7 +2413,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-19T09:25:08.836Z"
+      "firstSeenAt": "2026-10-19T09:25:08.836Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-science-technology-novartis-ch"
+        ],
+        "de": [
+          "expert-science-technology-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "expert-science-technology-novartis-ch"
+      ]
     },
     {
       "id": "novartis-49df36644a43",

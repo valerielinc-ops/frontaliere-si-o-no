@@ -131,6 +131,20 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
+      # Fast-publish may check out an inputs.sha older than this workflow. Do
+      # not render or upload from a tree whose single-file image writer does
+      # not enforce the shared R2 namespace lease protocol.
+      - name: Require image namespace lease protocol v1
+        run: |
+          protocol_version="$(bash scripts/lib/upload-cdn-file.sh --image-lease-protocol-version)" || {
+            echo "::error::checked-out source does not provide the R2 image lease protocol marker"
+            exit 1
+          }
+          if [ "$protocol_version" != "1" ]; then
+            echo "::error::unsupported R2 image lease protocol version: $protocol_version"
+            exit 1
+          fi
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:

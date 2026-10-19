@@ -482,12 +482,12 @@
     },
     {
       "id": "psgn-b70664a8ed3c",
-      "slug": "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers",
+      "slug": "specialista-psicologo-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "fachpsychologin-fachpsychologe-psgn-pfafers",
-        "it": "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers",
-        "en": "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers",
-        "fr": "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers"
+        "it": "specialista-psicologo-psychiatrie-st-gallen-pfafers",
+        "en": "specialist-psychologist-psychiatrie-st-gallen-pfafers",
+        "fr": "psychologue-specialise-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -534,11 +534,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachpsychologin-fachpsychologe-psgn-pfafers"
+          "fachpsychologin-fachpsychologe-psgn-pfafers",
+          "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers"
+        ],
+        "en": [
+          "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
+          "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
-        "fachpsychologin-fachpsychologe-psgn-pfafers"
+        "fachpsychologin-fachpsychologe-psgn-pfafers",
+        "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -557,12 +565,12 @@
     },
     {
       "id": "psgn-af9f82398578",
-      "slug": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
+      "slug": "assistente-psicologo-psicologo-assistito-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
-        "it": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
-        "en": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
-        "fr": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
+        "it": "assistente-psicologo-psicologo-assistito-psychiatrie-st-gallen-pfafers",
+        "en": "assistant-psychologist-assistant-psychologist-psychiatrie-st-gallen-pfafers-e61ff8",
+        "fr": "assistant-psychologue-assistant-psychologue-psychiatrie-st-gallen-pfafers-e61ff8"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -609,11 +617,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "assistenzpsychologin-assistenzpsychologe-psgn-pfafers"
+          "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
+        ],
+        "en": [
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
-        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers"
+        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -632,12 +648,12 @@
     },
     {
       "id": "psgn-9cfb1edb6889",
-      "slug": "oberarztin-oberarzt-mbf-psgn-pfafers",
+      "slug": "medico-senior-mbf-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-mbf-psgn-pfafers",
-        "it": "oberarztin-oberarzt-mbf-psgn-pfafers",
-        "en": "oberarztin-oberarzt-mbf-psgn-pfafers",
-        "fr": "oberarztin-oberarzt-mbf-psgn-pfafers"
+        "it": "medico-senior-mbf-psychiatrie-st-gallen-pfafers",
+        "en": "senior-physician-mbf-psychiatrie-st-gallen-pfafers",
+        "fr": "medecin-principal-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -695,16 +711,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T21:16:20.308Z"
+      "firstSeenAt": "2026-10-08T21:16:20.308Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-mbf-psgn-pfafers"
+        ],
+        "en": [
+          "oberarztin-oberarzt-mbf-psgn-pfafers"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-mbf-psgn-pfafers"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-mbf-psgn-pfafers"
+      ]
     },
     {
       "id": "psgn-c2a5ca74c004",
-      "slug": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
+      "slug": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "ergotherapeutin-ergotherapeut-psgn-pfafers",
-        "it": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
-        "en": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
-        "fr": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
+        "it": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
+        "en": "occupational-therapist-psychiatrie-st-gallen-pfafers",
+        "fr": "ergotherapeute-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -751,11 +781,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-psgn-pfafers"
+          "ergotherapeutin-ergotherapeut-psgn-pfafers",
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
+        ],
+        "en": [
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
-        "ergotherapeutin-ergotherapeut-psgn-pfafers"
+        "ergotherapeutin-ergotherapeut-psgn-pfafers",
+        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

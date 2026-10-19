@@ -27,39 +27,47 @@ function parseStoredProfile(raw: string | null): Record<string, unknown> | null 
   }
 }
 
-/** Move the unscoped legacy profile into the anonymous cache before retiring its key. */
-function migrateLegacyProfileToAnonymousCache(): void {
+/** The ownerless legacy profile is offered for explicit recovery after sign-in. */
+export function hasLegacyStoredUserProfile(): boolean {
   try {
-    const legacyRaw = localStorage.getItem(LEGACY_PROFILE_STORAGE_KEY);
-    const legacyProfile = parseStoredProfile(legacyRaw);
-    if (!legacyRaw || !legacyProfile) return;
-
-    const anonymousKey = userProfileStorageKey(null);
-    const anonymousProfile = parseStoredProfile(localStorage.getItem(anonymousKey));
-    // Keep a populated scoped cache authoritative, and retain the legacy copy
-    // when the two differ rather than discarding data we cannot safely merge.
-    if (anonymousProfile) return;
-    localStorage.setItem(anonymousKey, JSON.stringify(legacyProfile));
-    localStorage.removeItem(LEGACY_PROFILE_STORAGE_KEY);
+    return parseStoredProfile(localStorage.getItem(LEGACY_PROFILE_STORAGE_KEY)) !== null;
   } catch {
-    // Keep the old key when storage is unavailable; migration is best effort.
+    return false;
+  }
+}
+
+export function loadLegacyStoredUserProfileForImport(): Record<string, unknown> | null {
+  try {
+    return parseStoredProfile(localStorage.getItem(LEGACY_PROFILE_STORAGE_KEY));
+  } catch {
+    return null;
+  }
+}
+
+export function removeLegacyStoredUserProfileAfterImport(): boolean {
+  try {
+    localStorage.removeItem(LEGACY_PROFILE_STORAGE_KEY);
+    return localStorage.getItem(LEGACY_PROFILE_STORAGE_KEY) === null;
+  } catch {
+    return false;
   }
 }
 
 /** Read one account's local profile without falling back across account boundaries. */
 export function loadStoredUserProfile(uid?: string | null): Record<string, unknown> | null {
   try {
-    migrateLegacyProfileToAnonymousCache();
     return parseStoredProfile(localStorage.getItem(userProfileStorageKey(uid)));
   } catch {
     return null;
   }
 }
 
-export function saveStoredUserProfile(uid: string | null | undefined, profile: Record<string, unknown>): void {
+export function saveStoredUserProfile(uid: string | null | undefined, profile: Record<string, unknown>): boolean {
   try {
     localStorage.setItem(userProfileStorageKey(uid), JSON.stringify(profile));
+    return true;
   } catch {
     // Local storage is a cache; Firestore remains the signed-in source of truth.
+    return false;
   }
 }

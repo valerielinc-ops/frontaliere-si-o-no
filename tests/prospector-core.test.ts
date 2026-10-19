@@ -270,6 +270,24 @@ describe('vacancy extraction', () => {
     expect(detail.description).toContain('Wir bieten Entwicklungsmöglichkeiten.');
   });
 
+  it('uses the listing title when a detail JobPosting title is generic chrome', () => {
+    const recordTitle = 'Dipl. Physiotherapeut/-in (40-100%)';
+    const pageUrl = 'https://physioswiss.ch/stelleninserate/157790/dipl-physiotherapeut-in-40-100/';
+    const html = `<h1>${recordTitle}</h1><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Header',
+      description: 'Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen.',
+      url: pageUrl,
+    })}</script>`;
+
+    const detail = extractRuntimeDetailFields({}, html, pageUrl, {
+      recordUrl: pageUrl,
+      recordTitle,
+    });
+
+    expect(detail.title).toBe(recordTitle);
+  });
+
   // jobs.admin.ch/agroscope (#7711). Il luogo di lavoro vero sta solo in un
   // campo etichettato renderizzato, che nessun record strutturato porta: senza
   // estrarne il VALORE la pagina non corrobora nulla e l'audit legge un
@@ -447,6 +465,36 @@ describe('vacancy extraction', () => {
       location: '1219 Le Lignon', addressLocality: 'Le Lignon', postalCode: '1219',
     })).toMatchObject({ location: '1219 Le Lignon', canton: 'GE' });
     expect(resolveSourceBackedSwissGeography('Le Lignon')).toBeNull();
+  });
+
+  it('accepts an official locality when structured canton evidence disambiguates it', () => {
+    for (const [locality, canton] of [['Alt St. Johann', 'SG'], ['Niederuzwil', 'SG']]) {
+      const evidence = {
+        location: locality,
+        addressLocality: locality,
+        addressRegion: canton,
+        addressCountry: 'CH',
+      };
+      expect(resolveSourceBackedSwissGeography(evidence), locality).toMatchObject({
+        location: locality,
+        canton,
+        addressCountry: 'CH',
+      });
+      expect(resolveDetailOrListingSwissGeography({ locationCandidates: [evidence] }, {}).geography)
+        .toMatchObject({ location: locality, canton });
+    }
+    expect(resolveSourceBackedSwissGeography('Alt St. Johann')).toBeNull();
+    expect(resolveSourceBackedSwissGeography({
+      location: 'Alt St. Johann', addressLocality: 'Alt St. Johann', addressCountry: 'CH',
+    })).toBeNull();
+    const mismatchedLocality = {
+      location: 'Niederuzwil',
+      addressLocality: 'Alt St. Johann',
+      addressRegion: 'SG',
+      addressCountry: 'CH',
+    };
+    expect(resolveSourceBackedSwissGeography(mismatchedLocality)).toBeNull();
+    expect(evaluateSourceBackedSwissGeography([mismatchedLocality]).geography).toBeNull();
   });
 
   // Regressione arsante.ch/gmo (#6372). Il markup microdata reale mette la

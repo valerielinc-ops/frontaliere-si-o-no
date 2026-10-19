@@ -326,6 +326,54 @@ describe('prospector location and identity contract', () => {
     });
   });
 
+  it('keeps the listing title when a detail JobPosting exposes generic header text', async () => {
+    const seed = 'https://physioswiss.ch/stelleninserate/';
+    const detailUrl = 'https://physioswiss.ch/stelleninserate/157790/dipl-physiotherapeut-in-40-100/';
+    const title = 'Dipl. Physiotherapeut/-in (40-100%)';
+    const detailHtml = `<main><h1>${title}</h1>`
+      + '<div class="job-location">9000 St. Gallen</div>'
+      + '<div class="vacancy-description"><p>Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen für das Team.</p></div>'
+      + `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Header',
+        description: 'Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen für das Team.',
+        url: detailUrl,
+      })}</script></main>`;
+    politeFetch.mockImplementation(async (url: string) => ({
+      ok: true,
+      status: 200,
+      body: url === seed
+        ? `<script type="application/ld+json">${JSON.stringify({
+          '@type': 'JobPosting',
+          title,
+          url: detailUrl,
+          jobLocation: { address: { addressLocality: 'St. Gallen', addressRegion: 'SG', addressCountry: 'CH' } },
+        })}</script><a href="${detailUrl}">${title}</a>`
+        : detailHtml,
+      url,
+      host: new URL(url).hostname,
+    }));
+
+    const rows = await runSpecInProduction({
+      companyKey: 'physioswiss',
+      companyName: 'Physio swiss',
+      companyHost: 'physioswiss.ch',
+      mode: 'template',
+      seedUrls: [seed],
+      detailTemplate: '/stelleninserate/*/*/',
+      sourceLang: 'de',
+    } as any, {
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title,
+      location: 'St. Gallen, SG',
+      canton: 'SG',
+    })]);
+  });
+
   it('drops unverifiable geography with an explicit inventory signal', async () => {
     fetchHtml.mockImplementation(async (url: string) => isAccorSeed(url)
       ? LISTING_HTML

@@ -406,8 +406,8 @@
       "id": "equans-4f51f2c8ce64",
       "slug": "sovrintendente-equans-switzerland-raron",
       "slugByLocale": {
-        "it": "sovrintendente-equans-switzerland-raron",
-        "en": "superintendent-fitter-equans-switzerland-raron",
+        "it": "responsabile-della-costruzione-in-equans-switzerland-raron",
+        "en": "manager-of-construction-in-equans-switzerland-raron",
         "de": "bauleitender-monteur-in-equans-raron",
         "fr": "directeur-de-la-construction-in-equans-switzerland-raron"
       },
@@ -456,16 +456,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauleitender-monteur-in-equans-raron",
-        "responsabile-della-costruzione-in-equans-switzerland-raron",
-        "manager-of-construction-in-equans-switzerland-raron"
+        "superintendent-fitter-equans-switzerland-raron"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleitender-monteur-in-equans-raron",
-          "responsabile-della-costruzione-in-equans-switzerland-raron"
+          "bauleitender-monteur-in-equans-raron"
         ],
         "en": [
-          "manager-of-construction-in-equans-switzerland-raron"
+          "superintendent-fitter-equans-switzerland-raron"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.267Z",
@@ -4551,7 +4549,7 @@
         "it": "tecnica-r-housekeeper-in-equans-switzerland-chur",
         "en": "technical-r-housekeeper-in-equans-switzerland-chur",
         "de": "technische-r-hauswart-in-equans-chur",
-        "fr": "technicien-de-maintenance-des-batiments-equans-switzerland-chur"
+        "fr": "technique-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -4598,14 +4596,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technische-r-hauswart-in-equans-chur",
-        "technique-equans-switzerland-chur"
+        "technicien-de-maintenance-des-batiments-equans-switzerland-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technische-r-hauswart-in-equans-chur"
         ],
         "fr": [
-          "technique-equans-switzerland-chur"
+          "technicien-de-maintenance-des-batiments-equans-switzerland-chur"
         ]
       },
       "firstSeenAt": "2026-09-25T14:43:28.881Z",
@@ -6920,9 +6918,9 @@
     },
     {
       "id": "equans-6d4a1701f6ad",
-      "slug": "sanitarinstallateur-in-equans-switzerland-bern",
+      "slug": "installatore-trice-di-sanitari-equans-switzerland-bern",
       "slugByLocale": {
-        "it": "sanitarinstallateur-in-equans-switzerland-bern",
+        "it": "installatore-trice-di-sanitari-equans-switzerland-bern",
         "en": "plumbing-engineer-equans-switzerland-bern",
         "de": "sanitarinstallateur-in-equans-bern",
         "fr": "installateur-trice-sanitaire-cfc-equans-switzerland-bern"
@@ -6971,12 +6969,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sanitarinstallateur-in-equans-bern",
-        "installatore-trice-di-sanitari-equans-switzerland-bern"
+        "sanitarinstallateur-in-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sanitarinstallateur-in-equans-bern",
-          "installatore-trice-di-sanitari-equans-switzerland-bern"
+          "sanitarinstallateur-in-equans-switzerland-bern"
         ]
       },
       "firstSeenAt": "2026-10-03T09:11:24.028Z",
@@ -9240,9 +9238,9 @@
     },
     {
       "id": "equans-c28be42cd27c",
-      "slug": "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-switzerland-geneve",
+      "slug": "pulitore-categoria-e3-1-equans-switzerland-geneve",
       "slugByLocale": {
-        "it": "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-switzerland-geneve",
+        "it": "pulitore-categoria-e3-1-equans-switzerland-geneve",
         "en": "cleaner-category-e3-1-equans-switzerland-geneve",
         "de": "reiniger-kategorie-e3-1-equans-switzerland-geneve",
         "fr": "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-geneve"
@@ -9291,12 +9289,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-geneve",
-        "pulitore-categoria-e3-1-equans-switzerland-geneve"
+        "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-switzerland-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-geneve",
-          "pulitore-categoria-e3-1-equans-switzerland-geneve"
+          "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-switzerland-geneve"
         ],
         "en": [
           "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-geneve"
@@ -10564,8 +10562,8 @@
       "slugByLocale": {
         "de": "servicetechniker-in-elektro-equans-brig-glis",
         "it": "tecnico-a-di-servizio-elektro-equans-switzerland-brig-glis",
-        "en": "servicetechniker-in-elektro-equans-brig-glis",
-        "fr": "servicetechniker-in-elektro-equans-brig-glis"
+        "en": "service-technician-elektro-equans-switzerland-brig-glis",
+        "fr": "technicien-ne-de-service-en-electricite-equans-switzerland-brig-glis"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10614,6 +10612,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-elektro-equans-brig-glis"
+        ],
+        "en": [
+          "servicetechniker-in-elektro-equans-brig-glis"
+        ],
+        "fr": [
           "servicetechniker-in-elektro-equans-brig-glis"
         ]
       },
@@ -10715,7 +10719,7 @@
       "id": "equans-37730553cdb7",
       "slug": "responsabile-della-costruzione-r-monteur-elektro-equans-switzerland-olten-a39ed95a01",
       "slugByLocale": {
-        "it": "responsabile-della-costruzione-r-monteur-elektro-equans-switzerland-olten-a39ed95a01",
+        "it": "responsabile-della-costruzione-r-monteur-elektro-equans-switzerland-olten",
         "en": "construction-manager-r-monteur-elektro-equans-switzerland-olten",
         "de": "bauleitende-r-monteur-in-elektro-equans-olten",
         "fr": "directeur-de-la-construction-r-monteur-elektro-equans-switzerland-olten"
@@ -10768,8 +10772,7 @@
         "construction-manager-r-installer-in-electric-equans-switzerland-olten",
         "gestionnaire-de-construction-r-installateur-in-electric-equans-switzerland-olten",
         "bauleitende-r-monteur-in-elektro-equans-olten-7ny8og",
-        "bauleitende-r-monteur-in-elektro-equans-olten",
-        "responsabile-della-costruzione-r-monteur-elektro-equans-switzerland-olten"
+        "bauleitende-r-monteur-in-elektro-equans-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10777,8 +10780,7 @@
           "construction-manager-r-installer-in-electric-equans-switzerland-olten",
           "gestionnaire-de-construction-r-installateur-in-electric-equans-switzerland-olten",
           "bauleitende-r-monteur-in-elektro-equans-olten-7ny8og",
-          "bauleitende-r-monteur-in-elektro-equans-olten",
-          "responsabile-della-costruzione-r-monteur-elektro-equans-switzerland-olten"
+          "bauleitende-r-monteur-in-elektro-equans-olten"
         ],
         "en": [
           "construction-manager-r-installer-in-electric-equans-switzerland-olten"
@@ -10984,7 +10986,7 @@
       "id": "equans-9021924e82f7",
       "slug": "responsabile-servizio-idraulica-equans-switzerland-luzern-bb555200c1",
       "slugByLocale": {
-        "it": "responsabile-servizio-idraulica-equans-switzerland-luzern-bb555200c1",
+        "it": "service-manager-in-sanitario-equans-switzerland-luzern",
         "en": "service-manager-in-sanitary-equans-switzerland-luzern",
         "de": "serviceleiter-in-sanitar-equans-luzern",
         "fr": "gestionnaire-de-services-en-sanitaire-equans-switzerland-luzern"
@@ -11034,13 +11036,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "serviceleiter-in-sanitar-equans-luzern",
-        "service-manager-in-sanitario-equans-switzerland-luzern",
         "responsabile-servizio-idraulica-equans-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "serviceleiter-in-sanitar-equans-luzern",
-          "service-manager-in-sanitario-equans-switzerland-luzern",
           "responsabile-servizio-idraulica-equans-switzerland-luzern"
         ]
       },

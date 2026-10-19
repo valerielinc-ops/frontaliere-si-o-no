@@ -546,7 +546,6 @@
           "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:53:57.705Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -560,8 +559,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "sfs-group-e53ccccd56ba",
@@ -672,9 +670,9 @@
     },
     {
       "id": "sfs-group-a21052f2e503",
-      "slug": "pim-data-governance-manager-m-f-d-80-sfs-group-heerbrugg",
+      "slug": "responsabile-pim-e-governance-dei-dati-m-f-d-80-sfs-group-heerbrugg",
       "slugByLocale": {
-        "it": "pim-data-governance-manager-m-f-d-80-sfs-group-heerbrugg",
+        "it": "responsabile-pim-e-governance-dei-dati-m-f-d-80-sfs-group-heerbrugg",
         "en": "pim-data-governance-manager-m-f-d-80-sfs-group-heerbrugg",
         "de": "pim-data-governance-manager-m-f-d-80-sfs-group-heerbrugg",
         "fr": "pim-responsable-de-la-gouvernance-des-donnees-h-f-d-80-sfs-group-heerbrugg"
@@ -735,7 +733,15 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pim-data-governance-manager-m-f-d-80-sfs-group-heerbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "pim-data-governance-manager-m-f-d-80-sfs-group-heerbrugg"
+      ]
     },
     {
       "id": "sfs-group-106532f039ac",

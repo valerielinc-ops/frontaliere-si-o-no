@@ -310,12 +310,12 @@
     },
     {
       "id": "hermes-6a5a5af20aa5",
-      "slug": "cdi-department-manager-lugano-f-h-hermes-ch",
+      "slug": "cdi-responsabile-dipartimento-lugano-m-f-hermes-lugano-ticino-switzerland",
       "slugByLocale": {
         "en": "cdi-department-manager-lugano-f-h-hermes-ch",
-        "it": "cdi-department-manager-lugano-f-h-hermes-ch",
-        "de": "cdi-department-manager-lugano-f-h-hermes-ch",
-        "fr": "cdi-department-manager-lugano-f-h-hermes-ch"
+        "it": "cdi-responsabile-dipartimento-lugano-m-f-hermes-lugano-ticino-switzerland",
+        "de": "cdi-abteilungsleiter-lugano-m-w-hermes-lugano-ticino-switzerland",
+        "fr": "cdi-directeur-de-departement-lugano-h-f-hermes-lugano-ticino-switzerland"
       },
       "company": "Hermès",
       "companyKey": "hermes",
@@ -373,7 +373,21 @@
         }
       },
       "postalCode": "6900",
-      "firstSeenAt": "2026-10-19T09:16:36.377Z"
+      "firstSeenAt": "2026-10-19T09:16:36.377Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cdi-department-manager-lugano-f-h-hermes-ch"
+        ],
+        "de": [
+          "cdi-department-manager-lugano-f-h-hermes-ch"
+        ],
+        "fr": [
+          "cdi-department-manager-lugano-f-h-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cdi-department-manager-lugano-f-h-hermes-ch"
+      ]
     },
     {
       "id": "hermes-bfa10b4da950",

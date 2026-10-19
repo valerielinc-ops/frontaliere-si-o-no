@@ -422,15 +422,18 @@ const RUNNER_HINTS = {
 /**
  * Why the flow stopped, for Valerie: the step, the cause in words, how many
  * runs were tried; the runner's own message only as a technical detail.
- * @param {{reason?:string, stage?:string, attempts?:number}} vars
+ * @param {{reason?:string, stage?:string, attempts?:number, portalAutoRetryAt?:number}} vars
  * @returns {{reason:string, hint:string, detail:string}}
  */
-export function describeTakeover({ reason, stage, attempts }) {
+export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt }) {
   const raw = String(reason || '').trim();
   if (TAKEOVER_REASONS[raw]) return { reason: TAKEOVER_REASONS[raw], hint: '', detail: '' };
   if (raw.startsWith('portal:')) {
     const code = raw.slice('portal:'.length);
-    return { reason: `l’invio sul portale si è fermato: ${PORTAL_STOPS[code] || PORTAL_STOPS.portal_needs_candidate}`, hint: PORTAL_STOP_HINTS[code] || PORTAL_HINT, detail: '' };
+    const hint = code === 'portal_needs_candidate' && Number(portalAutoRetryAt) > 0
+      ? `Il candidato non deve fare nulla. Riproveremo automaticamente ${formatDeadline(portalAutoRetryAt, 'it')}. Sono previsti al massimo due tentativi automatici; se il portale si ferma ancora, ti chiederemo di completare l’invio dalla coda.`
+      : PORTAL_STOP_HINTS[code] || PORTAL_HINT;
+    return { reason: `l’invio sul portale si è fermato: ${PORTAL_STOPS[code] || PORTAL_STOPS.portal_needs_candidate}`, hint, detail: '' };
   }
   const step = STAGE_LABELS[stage] || 'il flusso automatico si è fermato';
   const known = RUNNER_ERRORS.find(([pattern]) => pattern.test(raw));
@@ -535,7 +538,8 @@ export function buildCandidateAutomationEmail(kind, vars) {
 /**
  * @param {'owner_review'|'owner_takeover'|'owner_candidate_silent'|'owner_posting_expired'} kind
  * @param {{job:string, company:string, orderId:string, deadlineAt?:number, flags?:string[], reason?:string,
- *   verdict?:string, summary?:string, channel?:string, candidateEmail?:string, days?:number, nudges?:number}} vars
+ *   verdict?:string, summary?:string, channel?:string, candidateEmail?:string, days?:number, nudges?:number,
+ *   portalAutoRetryAt?:number}} vars
  */
 export function buildOwnerAutomationEmail(kind, vars) {
   const job = clean(vars.job, 200) || '—';
@@ -562,8 +566,11 @@ export function buildOwnerAutomationEmail(kind, vars) {
     html.push(brandInfoCard('Sintesi', esc(vars.summary || '—')), brandParagraph(esc(facts.join(' · '))));
     text.push(`Sintesi: ${vars.summary || '—'}`, facts.join(' · '));
   } else if (kind === 'owner_takeover') {
-    subject = `[Candidatura] Presa in carico necessaria: ${job} — ${company}`;
-    hero = 'Il flusso automatico si è fermato';
+    const retryPending = String(vars.reason || '') === 'portal:portal_needs_candidate' && Number(vars.portalAutoRetryAt) > 0;
+    subject = retryPending
+      ? `[Candidatura] Nuovo tentativo automatico previsto: ${job} — ${company}`
+      : `[Candidatura] Presa in carico necessaria: ${job} — ${company}`;
+    hero = retryPending ? 'Nuovo tentativo automatico pianificato' : 'Il flusso automatico si è fermato';
     const { reason, hint, detail } = describeTakeover(vars);
     html.push(brandParagraph(esc(`Motivo: ${reason}.`)));
     text.push(`Motivo: ${reason}.`);

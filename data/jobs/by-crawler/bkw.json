@@ -664,8 +664,8 @@
       "slug": "preventivo-e-coordinatore-post-vendita-bkw-marly",
       "slugByLocale": {
         "it": "preventivo-e-coordinatore-post-vendita-bkw-marly",
-        "en": "assistant-to-the-quantity-quote-manager-bkw-marly",
-        "de": "assistent-du-responsable-chiffrage-bkw-marly",
+        "en": "estimator-after-sales-coordinator-bkw-marly",
+        "de": "kalkulator-und-after-sales-koordinator-bkw-marly",
         "fr": "assistant-du-responsable-chiffrage-bkw-marly"
       },
       "company": "BKW",
@@ -712,8 +712,8 @@
       "previousSlugs": [
         "assistant-du-responsable-chiffrage-bkw-marly",
         "assistant-du-responsable-chiffrage-bkw-ch",
-        "estimator-after-sales-coordinator-bkw-marly",
-        "kalkulator-und-after-sales-koordinator-bkw-marly"
+        "assistant-to-the-quantity-quote-manager-bkw-marly",
+        "assistent-du-responsable-chiffrage-bkw-marly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -721,10 +721,10 @@
         ],
         "en": [
           "assistant-du-responsable-chiffrage-bkw-marly",
-          "estimator-after-sales-coordinator-bkw-marly"
+          "assistant-to-the-quantity-quote-manager-bkw-marly"
         ],
         "de": [
-          "kalkulator-und-after-sales-koordinator-bkw-marly"
+          "assistent-du-responsable-chiffrage-bkw-marly"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:36.190Z",
@@ -10811,7 +10811,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -10860,7 +10860,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10868,7 +10868,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -18905,8 +18905,8 @@
       "slugByLocale": {
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-urdorf-fe717a4a46",
-        "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
+        "en": "apprenticeship-as-an-electrical-installer-efz-all-genders-bkw-urdorf",
+        "fr": "place-d-apprentissage-d-installateur-rice-electricien-ne-cfc-tous-bkw-urdorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -18956,6 +18956,12 @@
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
           "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-urdorf"
+        ],
+        "en": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
@@ -19059,8 +19065,8 @@
       "slugByLocale": {
         "de": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
         "it": "apprendistato-montage-elektriker-in-cfc-alle-bkw-winterthur-591ce5577a",
-        "en": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
-        "fr": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
+        "en": "apprenticeship-as-an-assembly-electrician-efz-all-genders-bkw-winterthur",
+        "fr": "place-d-apprentissage-d-electricien-ne-de-montage-cfc-tous-bkw-winterthur"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -19110,6 +19116,12 @@
         "it": [
           "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
           "apprendistato-montage-elektriker-in-cfc-alle-bkw-winterthur"
+        ],
+        "en": [
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
@@ -19215,8 +19227,8 @@
       "slugByLocale": {
         "de": "lehrstelle-solarinstallateur-in-efz-alle-bkw-ch",
         "it": "apprendistato-solarinstallateur-in-cfc-alle-bkw-solothurn",
-        "en": "lehrstelle-solarinstallateur-in-efz-alle-bkw-ch",
-        "fr": "lehrstelle-solarinstallateur-in-efz-alle-bkw-ch"
+        "en": "apprenticeship-solar-installer-efz-all-bkw-solothurn",
+        "fr": "place-d-apprentissage-d-installateur-rice-solaire-cfc-tous-bkw-solothurn"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -19265,6 +19277,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-solarinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "en": [
+          "lehrstelle-solarinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
           "lehrstelle-solarinstallateur-in-efz-alle-bkw-ch"
         ]
       },
@@ -19532,8 +19550,8 @@
       "slugByLocale": {
         "de": "lehrstelle-montage-elektriker-in-efz-alle-swisspro-ag-baar-bkw-ch",
         "it": "apprendistato-montage-elektriker-in-cfc-alle-swisspro-ag-baar-bkw-baar",
-        "en": "lehrstelle-montage-elektriker-in-efz-alle-swisspro-ag-baar-bkw-ch",
-        "fr": "lehrstelle-montage-elektriker-in-efz-alle-swisspro-ag-baar-bkw-ch"
+        "en": "apprenticeship-assembly-electrician-efz-all-swisspro-ag-baar-bkw-baar",
+        "fr": "place-d-apprentissage-d-electricien-ne-de-montage-cfc-tous-swisspro-ag-baar-bkw-baar"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -19581,6 +19599,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-montage-elektriker-in-efz-alle-swisspro-ag-baar-bkw-ch"
+        ],
+        "en": [
+          "lehrstelle-montage-elektriker-in-efz-alle-swisspro-ag-baar-bkw-ch"
+        ],
+        "fr": [
           "lehrstelle-montage-elektriker-in-efz-alle-swisspro-ag-baar-bkw-ch"
         ]
       },
@@ -19684,7 +19708,7 @@
       "slugByLocale": {
         "de": "lernelehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "lernelehrstelle-installatore-trice-elettrico-a-in-cfc-alle-bkw-baar",
-        "en": "lernelehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
+        "en": "learnapprenticeship-position-electrical-installer-efz-all-bkw-baar",
         "fr": "lernelehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
       },
       "company": "BKW",
@@ -19734,6 +19758,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lernelehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "en": [
           "lernelehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
         ]
       },
@@ -27217,7 +27244,7 @@
         "de": "senior-it-controller-alle-bkw-ch",
         "it": "senior-it-controller-alle-bkw-ch",
         "en": "senior-it-controller-alle-bkw-ch",
-        "fr": "senior-it-controller-alle-bkw-ch"
+        "fr": "controleur-informatique-principal-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -27284,8 +27311,8 @@
       "slugByLocale": {
         "de": "servicenow-consultant-alle-bkw-ch",
         "it": "servicenow-consultant-alle-bkw-ch",
-        "en": "servicenow-consultant-alle-bkw-ch",
-        "fr": "servicenow-consultant-alle-bkw-ch"
+        "en": "servicenow-consultants-all-bkw-bern",
+        "fr": "consultants-servicenow-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -27352,8 +27379,8 @@
       "slugByLocale": {
         "de": "lehrstelle-automatik-monteur-in-efz-alle-ws-automation-bkw-ch",
         "it": "apprendistato-automatik-monteur-in-cfc-alle-ws-automation-bkw-sursee",
-        "en": "lehrstelle-automatik-monteur-in-efz-alle-ws-automation-bkw-ch",
-        "fr": "lehrstelle-automatik-monteur-in-efz-alle-ws-automation-bkw-ch"
+        "en": "automation-assembler-apprenticeship-efz-all-ws-automation-bkw-sursee",
+        "fr": "place-d-apprentissage-de-monteur-euse-automaticien-ne-cfc-tous-ws-automation-bkw-sursee"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -27402,6 +27429,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-automatik-monteur-in-efz-alle-ws-automation-bkw-ch"
+        ],
+        "en": [
+          "lehrstelle-automatik-monteur-in-efz-alle-ws-automation-bkw-ch"
+        ],
+        "fr": [
+          "lehrstelle-automatik-monteur-in-efz-alle-ws-automation-bkw-ch"
         ]
       },
       "previousSlugs": [
@@ -27428,8 +27461,8 @@
       "slugByLocale": {
         "de": "lehrstelle-automatiker-in-efz-alle-ws-automation-bkw-ch",
         "it": "apprendistato-automatiker-in-cfc-alle-ws-automation-bkw-sursee",
-        "en": "lehrstelle-automatiker-in-efz-alle-ws-automation-bkw-ch",
-        "fr": "lehrstelle-automatiker-in-efz-alle-ws-automation-bkw-ch"
+        "en": "automation-technician-apprenticeship-efz-all-ws-automation-bkw-sursee",
+        "fr": "place-d-apprentissage-d-automaticien-ne-cfc-tous-ws-automation-bkw-sursee"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -27477,6 +27510,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-automatiker-in-efz-alle-ws-automation-bkw-ch"
+        ],
+        "en": [
+          "lehrstelle-automatiker-in-efz-alle-ws-automation-bkw-ch"
+        ],
+        "fr": [
           "lehrstelle-automatiker-in-efz-alle-ws-automation-bkw-ch"
         ]
       },
@@ -27590,7 +27629,7 @@
         "de": "senior-manager-transfer-pricing-international-tax-alle-bkw-ch",
         "it": "senior-manager-transfer-pricing-international-tax-alle-bkw-ch",
         "en": "senior-manager-transfer-pricing-international-tax-alle-bkw-ch",
-        "fr": "senior-manager-transfer-pricing-international-tax-alle-bkw-ch"
+        "fr": "gestionnaire-principal-prix-de-transfert-taxe-internationale-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",

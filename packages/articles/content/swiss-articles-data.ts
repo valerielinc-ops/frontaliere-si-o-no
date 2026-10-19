@@ -28508,6 +28508,26 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'campagna-fisco-coppie-sposate',
+    category: 'fiscale',
+    date: '2026-10-19T09:57:56.171Z',
+    image: '/images/blog/article-campagna-fisco-coppie-sposate.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'impatto-glp1-industria-alimentare',
+    category: 'novita',
+    date: '2026-10-19T11:07:20.538Z',
+    image: '/images/blog/article-impatto-glp1-industria-alimentare.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

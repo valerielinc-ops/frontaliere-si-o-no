@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "rh-expert-ch-01943f816aae",
-      "slug": "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81",
+      "slug": "cucina-aiuto-immersioni-rh-expert-geneve-01943f81",
       "slugByLocale": {
         "fr": "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81",
-        "it": "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81",
-        "en": "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81",
-        "de": "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
+        "it": "cucina-aiuto-immersioni-rh-expert-geneve-01943f81",
+        "en": "kitchen-help-diving-rh-expert-geneve-01943f81",
+        "de": "kuchenhilfe-tauchen-rh-expert-geneve-01943f81"
       },
       "slugDisambiguator": "01943f81",
       "company": "RH-Expert",
@@ -18,16 +18,16 @@
       "title": "Aide de cuisine / Plongeur",
       "titleByLocale": {
         "fr": "Aide de cuisine / Plongeur",
-        "it": "Aide de cuisine / Plongeur",
-        "en": "Aide de cuisine / Plongeur",
-        "de": "Aide de cuisine / Plongeur"
+        "it": "Cucina Aiuto / Immersioni",
+        "en": "Kitchen Help / Diving",
+        "de": "Küchenhilfe / Tauchen"
       },
       "description": "Nettoyage de la vaisselle\n• Nettoyage du matériel de cuisine\n• Mise en place (épluchages, taillage...)\n• Expérience au même poste de 2 années minimum.\n• Excellente gestion du stress.\n• Très bons sens de l’organisation.\n• Rapide, polyvalent et ponctuel.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en fonction de vos capacités.\n• Horaires : Continus.\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
       "descriptionByLocale": {
         "fr": "Nettoyage de la vaisselle\n• Nettoyage du matériel de cuisine\n• Mise en place (épluchages, taillage...)\n• Expérience au même poste de 2 années minimum.\n• Excellente gestion du stress.\n• Très bons sens de l’organisation.\n• Rapide, polyvalent et ponctuel.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en fonction de vos capacités.\n• Horaires : Continus.\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
-        "it": "Nettoyage de la vaisselle\n• Nettoyage du matériel de cuisine\n• Mise en place (épluchages, taillage...)\n• Expérience au même poste de 2 années minimum.\n• Excellente gestion du stress.\n• Très bons sens de l’organisation.\n• Rapide, polyvalent et ponctuel.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en fonction de vos capacités.\n• Horaires : Continus.\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
-        "en": "Nettoyage de la vaisselle\n• Nettoyage du matériel de cuisine\n• Mise en place (épluchages, taillage...)\n• Expérience au même poste de 2 années minimum.\n• Excellente gestion du stress.\n• Très bons sens de l’organisation.\n• Rapide, polyvalent et ponctuel.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en fonction de vos capacités.\n• Horaires : Continus.\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
-        "de": "Nettoyage de la vaisselle\n• Nettoyage du matériel de cuisine\n• Mise en place (épluchages, taillage...)\n• Expérience au même poste de 2 années minimum.\n• Excellente gestion du stress.\n• Très bons sens de l’organisation.\n• Rapide, polyvalent et ponctuel.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en fonction de vos capacités.\n• Horaires : Continus.\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir."
+        "it": "Pulizia dei piatti\n• Pulizia di attrezzature da cucina\n• Impostazione (aratura, taglio...)\n• Esperienza nella stessa posizione minima di 2 anni.\n• Ottima gestione dello stress.\n• Molto buon senso di organizzazione.\n• Veloce, versatile e puntuale.\n• Vi offriamo:\n• Lavoro a lungo termine con uno stipendio basato sulle tue capacità.\n• Orario: continuo.\n• Tipo di contratto: Temporaneo.\n• Inizio: Immediatamente o da concordare.",
+        "en": "Cleaning of dishes\n• Cleaning of kitchen equipment\n• Setting up (plowning, cutting...)\n• Experience in the same 2 year minimum position.\n• Excellent stress management.\n• Very good sense of organization.\n• Fast, versatile and punctual.\n• We offer you:\n• Long-term work with a salary based on your abilities.\n• Hours : Continuous.\n• Type of contract: Temporary.\n• Start: Immediately or to be agreed.",
+        "de": "Reinigung von Geschirr\n• Reinigung von Küchengeräten\n• Einrichtung (Pflanzen, Schneiden...)\n• Erfahrung in der gleichen 2-jährigen Mindestposition.\n• Ausgezeichnetes Stressmanagement.\n• Sehr guter Organisationssinn.\n• Schnell, vielseitig und pünktlich.\n• Wir bieten Ihnen:\n• Langfristige Arbeit mit einem Gehalt, das auf Ihren Fähigkeiten basiert.\n• Stunden: Kontinuierlich.\n• Art des Vertrags: Befristet.\n• Start: Sofort oder noch zu vereinbaren."
       },
       "location": "Genève",
       "canton": "GE",
@@ -52,7 +52,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -68,14 +67,28 @@
       },
       "postalCode": "1201",
       "addressLocality": "Genève",
-      "firstSeenAt": "2026-10-19T09:28:20.836Z"
+      "firstSeenAt": "2026-10-19T09:28:20.836Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
+        ],
+        "en": [
+          "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
+        ],
+        "de": [
+          "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
+        ]
+      },
+      "previousSlugs": [
+        "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
+      ]
     },
     {
       "id": "rh-expert-ch-da98a8bcd394",
-      "slug": "lingere-geneve-rh-expert-ch-da98a8bc",
+      "slug": "lingerie-rh-expert-geneve-da98a8bc",
       "slugByLocale": {
         "fr": "lingere-geneve-rh-expert-ch-da98a8bc",
-        "it": "lingere-geneve-rh-expert-ch-da98a8bc",
+        "it": "lingerie-rh-expert-geneve-da98a8bc",
         "en": "lingere-geneve-rh-expert-ch-da98a8bc",
         "de": "lingere-geneve-rh-expert-ch-da98a8bc"
       },
@@ -86,16 +99,16 @@
       "title": "Lingère",
       "titleByLocale": {
         "fr": "Lingère",
-        "it": "Lingère",
-        "en": "Lingère",
-        "de": "Lingère"
+        "it": "Lingerie",
+        "en": "Lingerie",
+        "de": "Lingerie"
       },
       "description": "• Sens du détail et de l’organisation.\n• Rapidité, efficacité\n• Lavage, repassage de vêtements et de linge de table\n• Suivre le protocole de nettoyage de l'établissement\n• Travail soigné et rapide\n• Expérience en tant que lingère de minimum 2 ans\n• Parfaite maitrise du français\n• Etre disponible et motivé\n• Nous vous proposons :\n• Type de contrat : Temporaire longue durée\n• Entrée en fonction : A convenir",
       "descriptionByLocale": {
         "fr": "• Sens du détail et de l’organisation.\n• Rapidité, efficacité\n• Lavage, repassage de vêtements et de linge de table\n• Suivre le protocole de nettoyage de l'établissement\n• Travail soigné et rapide\n• Expérience en tant que lingère de minimum 2 ans\n• Parfaite maitrise du français\n• Etre disponible et motivé\n• Nous vous proposons :\n• Type de contrat : Temporaire longue durée\n• Entrée en fonction : A convenir",
-        "it": "• Sens du détail et de l’organisation.\n• Rapidité, efficacité\n• Lavage, repassage de vêtements et de linge de table\n• Suivre le protocole de nettoyage de l'établissement\n• Travail soigné et rapide\n• Expérience en tant que lingère de minimum 2 ans\n• Parfaite maitrise du français\n• Etre disponible et motivé\n• Nous vous proposons :\n• Type de contrat : Temporaire longue durée\n• Entrée en fonction : A convenir",
-        "en": "• Sens du détail et de l’organisation.\n• Rapidité, efficacité\n• Lavage, repassage de vêtements et de linge de table\n• Suivre le protocole de nettoyage de l'établissement\n• Travail soigné et rapide\n• Expérience en tant que lingère de minimum 2 ans\n• Parfaite maitrise du français\n• Etre disponible et motivé\n• Nous vous proposons :\n• Type de contrat : Temporaire longue durée\n• Entrée en fonction : A convenir",
-        "de": "• Sens du détail et de l’organisation.\n• Rapidité, efficacité\n• Lavage, repassage de vêtements et de linge de table\n• Suivre le protocole de nettoyage de l'établissement\n• Travail soigné et rapide\n• Expérience en tant que lingère de minimum 2 ans\n• Parfaite maitrise du français\n• Etre disponible et motivé\n• Nous vous proposons :\n• Type de contrat : Temporaire longue durée\n• Entrée en fonction : A convenir"
+        "it": "• Senso di dettaglio e organizzazione.\n• Velocità, efficacia\n• Lavatrice, stiratura di vestiti e biancheria da tavola\n• Seguire il protocollo di pulizia della struttura\n• Lavoro attento e rapido\n• Esperienza come minimo 2 anni\n• perfetta padronanza del francese\n• Essere disponibili e motivati\n• Vi offriamo:\n• Tipo di contratto: Temporaneo lungo termine\n• Entrata in ufficio: Da concordare",
+        "en": "• Sense of detail and organization.\n• Speed, effectiveness\n• Washing, ironing of clothes and table linen\n• Follow the cleaning protocol of the establishment\n• Careful and rapid work\n• Experience as a minimum of 2 years\n• Perfect mastery of French\n• Being available and motivated\n• We offer you:\n• Type of contract: Temporary long term\n• Entry into office: To be agreed",
+        "de": "• Sinn für Detail und Organisation.\n• Geschwindigkeit, Wirksamkeit\n• Waschen, Bügeln von Kleidung und Tischwäsche\n• Befolgen Sie das Reinigungsprotokoll der Einrichtung\n• Sorgfältige und schnelle Arbeit\n• Erfahrung als mindestens 2 Jahre\n• Perfekte Beherrschung von Französisch\n• Zur Verfügung stehen und motiviert sein\n• Wir bieten Ihnen:\n• Art des Vertrags: Befristet langfristig\n• Amtsantritt: noch zu vereinbaren"
       },
       "location": "Genève",
       "canton": "GE",
@@ -120,7 +133,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -136,16 +148,24 @@
       },
       "postalCode": "1201",
       "addressLocality": "Genève",
-      "firstSeenAt": "2026-10-19T09:28:20.836Z"
+      "firstSeenAt": "2026-10-19T09:28:20.836Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lingere-geneve-rh-expert-ch-da98a8bc"
+        ]
+      },
+      "previousSlugs": [
+        "lingere-geneve-rh-expert-ch-da98a8bc"
+      ]
     },
     {
       "id": "rh-expert-ch-b2e914707ce6",
-      "slug": "garcon-d-office-geneve-rh-expert-ch-b2e91470",
+      "slug": "ragazzo-ex-officio-rh-expert-geneve-b2e91470",
       "slugByLocale": {
         "fr": "garcon-d-office-geneve-rh-expert-ch-b2e91470",
-        "it": "garcon-d-office-geneve-rh-expert-ch-b2e91470",
-        "en": "garcon-d-office-geneve-rh-expert-ch-b2e91470",
-        "de": "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+        "it": "ragazzo-ex-officio-rh-expert-geneve-b2e91470",
+        "en": "boy-ex-officio-rh-expert-geneve-b2e91470",
+        "de": "junge-ex-officio-rh-expert-geneve-b2e91470"
       },
       "slugDisambiguator": "b2e91470",
       "company": "RH-Expert",
@@ -154,16 +174,16 @@
       "title": "Garçon d'office",
       "titleByLocale": {
         "fr": "Garçon d'office",
-        "it": "Garçon d'office",
-        "en": "Garçon d'office",
-        "de": "Garçon d'office"
+        "it": "Ragazzo ex officio",
+        "en": "Boy ex officio",
+        "de": "Junge ex officio"
       },
       "description": "Maintien propre de l'office\n• Nettoyage de la verrerie et entretien du petit matériel\n• Aide sur les differents preparatifs d'office ( beurrier, sucrier, pain etc ... )\n• Respect des normes d'hygiene HACCP\n• Expérience confirmée en restauration ou hôtellerie au poste similaire est un atout.\n• Esprit d'equipe, rigueur, dynamisme, autonomie et organisation.\n• Flexibilité et disponibilité.\n• Excellente présentation, souriant et avenant.\n• Nous vous proposons :\n• Un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
       "descriptionByLocale": {
         "fr": "Maintien propre de l'office\n• Nettoyage de la verrerie et entretien du petit matériel\n• Aide sur les differents preparatifs d'office ( beurrier, sucrier, pain etc ... )\n• Respect des normes d'hygiene HACCP\n• Expérience confirmée en restauration ou hôtellerie au poste similaire est un atout.\n• Esprit d'equipe, rigueur, dynamisme, autonomie et organisation.\n• Flexibilité et disponibilité.\n• Excellente présentation, souriant et avenant.\n• Nous vous proposons :\n• Un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
-        "it": "Maintien propre de l'office\n• Nettoyage de la verrerie et entretien du petit matériel\n• Aide sur les differents preparatifs d'office ( beurrier, sucrier, pain etc ... )\n• Respect des normes d'hygiene HACCP\n• Expérience confirmée en restauration ou hôtellerie au poste similaire est un atout.\n• Esprit d'equipe, rigueur, dynamisme, autonomie et organisation.\n• Flexibilité et disponibilité.\n• Excellente présentation, souriant et avenant.\n• Nous vous proposons :\n• Un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
-        "en": "Maintien propre de l'office\n• Nettoyage de la verrerie et entretien du petit matériel\n• Aide sur les differents preparatifs d'office ( beurrier, sucrier, pain etc ... )\n• Respect des normes d'hygiene HACCP\n• Expérience confirmée en restauration ou hôtellerie au poste similaire est un atout.\n• Esprit d'equipe, rigueur, dynamisme, autonomie et organisation.\n• Flexibilité et disponibilité.\n• Excellente présentation, souriant et avenant.\n• Nous vous proposons :\n• Un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
-        "de": "Maintien propre de l'office\n• Nettoyage de la verrerie et entretien du petit matériel\n• Aide sur les differents preparatifs d'office ( beurrier, sucrier, pain etc ... )\n• Respect des normes d'hygiene HACCP\n• Expérience confirmée en restauration ou hôtellerie au poste similaire est un atout.\n• Esprit d'equipe, rigueur, dynamisme, autonomie et organisation.\n• Flexibilité et disponibilité.\n• Excellente présentation, souriant et avenant.\n• Nous vous proposons :\n• Un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir."
+        "it": "Manutenzione propria dell'Ufficio\n• Pulizia di vetreria e manutenzione di piccole attrezzature\n• Aiuto alla preparazione diversa ex officio (burro, zucchero, pane, ecc.)\n• Rispetto degli standard di igiene HACCP\n• L'esperienza confermata nella ristorazione o nella sistemazione al posto simile è un bene.\n• Spirito di squadra, rigore, dinamismo, autonomia e organizzazione.\n• Flessibilità e disponibilità.\n• Ottima presentazione, sorridente e amichevole.\n• Vi offriamo:\n• Uno stipendio in linea con la legislazione vigente (CCNT).\n• Tipo di contratto: Temporaneo.\n• Inizio: Immediatamente o da concordare.",
+        "en": "Own maintenance of the Office\n• Cleaning of glassware and maintenance of small equipment\n• Aid on the different preparation ex officio (butter, sugar, bread etc. )\n• Compliance with HACCP hygiene standards\n• Experience confirmed in catering or hoteling at the similar post is an asset.\n• Team spirit, rigor, dynamism, autonomy and organization.\n• Flexibility and availability.\n• Excellent presentation, smiling and friendly.\n• We offer you:\n• A salary in line with current legislation (CCNT).\n• Type of contract: Temporary.\n• Start: Immediately or to be agreed.",
+        "de": "Eigene Instandhaltung des Amtes\n• Reinigung von Glaswaren und Wartung von Kleingeräten\n• Beihilfen für die verschiedenen Zubereitungen von Amts wegen (Butter, Zucker, Brot usw.)\n• Einhaltung der HACCP-Hygienenormen\n• Erfahrung bestätigt in Catering oder Hoteling an der ähnlichen Stelle ist ein Vermögenswert.\n• Teamgeist, Strenge, Dynamik, Autonomie und Organisation.\n• Flexibilität und Verfügbarkeit.\n• Hervorragende Präsentation, lächelnd und freundlich.\n• Wir bieten Ihnen:\n• Ein Gehalt im Einklang mit der geltenden Gesetzgebung (CCNT).\n• Art des Vertrags: Befristet.\n• Start: Sofort oder noch zu vereinbaren."
       },
       "location": "Genève",
       "canton": "GE",
@@ -188,7 +208,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -204,16 +223,30 @@
       },
       "postalCode": "1201",
       "addressLocality": "Genève",
-      "firstSeenAt": "2026-10-19T09:28:20.834Z"
+      "firstSeenAt": "2026-10-19T09:28:20.834Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+        ],
+        "en": [
+          "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+        ],
+        "de": [
+          "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+        ]
+      },
+      "previousSlugs": [
+        "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+      ]
     },
     {
       "id": "rh-expert-ch-bc1e4359ee64",
-      "slug": "receptionniste-geneve-rh-expert-ch-bc1e4359",
+      "slug": "ricevitore-rh-expert-geneve-bc1e4359",
       "slugByLocale": {
         "fr": "receptionniste-geneve-rh-expert-ch-bc1e4359",
-        "it": "receptionniste-geneve-rh-expert-ch-bc1e4359",
-        "en": "receptionniste-geneve-rh-expert-ch-bc1e4359",
-        "de": "receptionniste-geneve-rh-expert-ch-bc1e4359"
+        "it": "ricevitore-rh-expert-geneve-bc1e4359",
+        "en": "receptionist-rh-expert-geneve-bc1e4359",
+        "de": "rezeptionist-rh-expert-geneve-bc1e4359"
       },
       "slugDisambiguator": "bc1e4359",
       "company": "RH-Expert",
@@ -222,16 +255,16 @@
       "title": "Réceptionniste",
       "titleByLocale": {
         "fr": "Réceptionniste",
-        "it": "Réceptionniste",
-        "en": "Réceptionniste",
-        "de": "Réceptionniste"
+        "it": "Ricevitore",
+        "en": "Receptionist",
+        "de": "Rezeptionist"
       },
       "description": "• Accueil téléphonique et prise en charge de clients\n• Prendre et saisir les réservations\n• Controle des fonds de caisse\n• Saisi des données clients\n• Check-in / Check-out\n• Etablir les facturations\n• Formation hôtelière et/ou expérience confirmée en service et accueil haut de gamme\n• Excellente présentation, souriant, courtois et avenant\n• Gestion des priorités et organisé\n• Flexible et dynamique\n• Langues : Français, anglais obligatoire, une autre langue sera bien appréciée\n• Connaissance et maîtrise de logiciel de reservation\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en correspondance avec la législation en vigueur (CCNT)\n• Horaires : Horaires continus (matin, après-midi), pas de nuit\n• Type de contrat : Temporaire pour une durée indéterminée\n• Entrée en fonction : De suite ou à convenir",
       "descriptionByLocale": {
         "fr": "• Accueil téléphonique et prise en charge de clients\n• Prendre et saisir les réservations\n• Controle des fonds de caisse\n• Saisi des données clients\n• Check-in / Check-out\n• Etablir les facturations\n• Formation hôtelière et/ou expérience confirmée en service et accueil haut de gamme\n• Excellente présentation, souriant, courtois et avenant\n• Gestion des priorités et organisé\n• Flexible et dynamique\n• Langues : Français, anglais obligatoire, une autre langue sera bien appréciée\n• Connaissance et maîtrise de logiciel de reservation\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en correspondance avec la législation en vigueur (CCNT)\n• Horaires : Horaires continus (matin, après-midi), pas de nuit\n• Type de contrat : Temporaire pour une durée indéterminée\n• Entrée en fonction : De suite ou à convenir",
-        "it": "• Accueil téléphonique et prise en charge de clients\n• Prendre et saisir les réservations\n• Controle des fonds de caisse\n• Saisi des données clients\n• Check-in / Check-out\n• Etablir les facturations\n• Formation hôtelière et/ou expérience confirmée en service et accueil haut de gamme\n• Excellente présentation, souriant, courtois et avenant\n• Gestion des priorités et organisé\n• Flexible et dynamique\n• Langues : Français, anglais obligatoire, une autre langue sera bien appréciée\n• Connaissance et maîtrise de logiciel de reservation\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en correspondance avec la législation en vigueur (CCNT)\n• Horaires : Horaires continus (matin, après-midi), pas de nuit\n• Type de contrat : Temporaire pour une durée indéterminée\n• Entrée en fonction : De suite ou à convenir",
-        "en": "• Accueil téléphonique et prise en charge de clients\n• Prendre et saisir les réservations\n• Controle des fonds de caisse\n• Saisi des données clients\n• Check-in / Check-out\n• Etablir les facturations\n• Formation hôtelière et/ou expérience confirmée en service et accueil haut de gamme\n• Excellente présentation, souriant, courtois et avenant\n• Gestion des priorités et organisé\n• Flexible et dynamique\n• Langues : Français, anglais obligatoire, une autre langue sera bien appréciée\n• Connaissance et maîtrise de logiciel de reservation\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en correspondance avec la législation en vigueur (CCNT)\n• Horaires : Horaires continus (matin, après-midi), pas de nuit\n• Type de contrat : Temporaire pour une durée indéterminée\n• Entrée en fonction : De suite ou à convenir",
-        "de": "• Accueil téléphonique et prise en charge de clients\n• Prendre et saisir les réservations\n• Controle des fonds de caisse\n• Saisi des données clients\n• Check-in / Check-out\n• Etablir les facturations\n• Formation hôtelière et/ou expérience confirmée en service et accueil haut de gamme\n• Excellente présentation, souriant, courtois et avenant\n• Gestion des priorités et organisé\n• Flexible et dynamique\n• Langues : Français, anglais obligatoire, une autre langue sera bien appréciée\n• Connaissance et maîtrise de logiciel de reservation\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en correspondance avec la législation en vigueur (CCNT)\n• Horaires : Horaires continus (matin, après-midi), pas de nuit\n• Type de contrat : Temporaire pour une durée indéterminée\n• Entrée en fonction : De suite ou à convenir"
+        "it": "• Ricevimento telefonico e assistenza clienti\n• Prendere e inserire le prenotazioni\n• Controllo dei fondi in denaro\n• Inserimento dei dati dei clienti\n• Check in / Check out\n• Stabilire fatture\n• Formazione alberghiera e/o esperienza confermata in servizio e reception di fascia alta\n• Ottima presentazione, sorridente, cortese e amichevole\n• Gestione delle priorità e dell'organizzazione\n• Flessibile e dinamico\n• Lingue: Francese, Inglese richiesto, un'altra lingua sarà apprezzata\n• Conoscenza e Masterità del Software di Prenotazione\n• Vi offriamo:\n• Lavoro a lungo termine con stipendio in linea con la legislazione vigente (CCNT)\n• Ore: Ore continue (mattina, pomeriggio), nessuna notte\n• Tipo di contratto: Temporaneo per un periodo indefinito\n• Entrata in ufficio: Immediatamente o da concordare",
+        "en": "• Telephone reception and customer support\n• Take and enter reservations\n• Control of cash funds\n• Entering customer data\n• Check in / Check out\n• Establish billings\n• Hotel training and/or experience confirmed in service and high-end reception\n• Excellent presentation, smiling, courteous and friendly\n• Management of priorities and organization\n• Flexible and dynamic\n• Languages: French, English required, another language will be appreciated\n• Knowledge and Mastery of Reservation Software\n• We offer you:\n• Long-term work with salary in line with current legislation (CCNT)\n• Hours : Continuous hours (morning, afternoon), no night\n• Type of contract: Temporary for an indefinite period\n• Entry into office: Immediately or to be agreed",
+        "de": "• Telefonempfang und Kundensupport\n• Nehmen und Betreten von Reservierungen\n• Kontrolle von Barmitteln\n• Eingabe von Kundendaten\n• Check In / Check Out\n• Abrechnungen erstellen\n• Hotelschulung und / oder Erfahrung bestätigt in Service und High-End-Rezeption\n• Ausgezeichnete Präsentation, lächelnd, höflich und freundlich\n• Prioritätenmanagement und Organisation\n• Flexibel und dynamisch\n• Sprachen: Französisch, Englisch erforderlich, eine andere Sprache wird geschätzt\n• Kenntnisse und Beherrschung von Reservierungssoftware\n• Wir bieten Ihnen:\n• Langzeitarbeit mit Gehalt im Einklang mit der geltenden Gesetzgebung (CCNT)\n• Stunden: Kontinuierliche Stunden (morgens, nachmittags), keine Nacht\n• Art des Vertrags: Befristet auf unbestimmte Zeit\n• Amtsantritt: Sofort oder noch zu vereinbaren"
       },
       "location": "Genève",
       "canton": "GE",
@@ -256,7 +289,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -272,16 +304,30 @@
       },
       "postalCode": "1201",
       "addressLocality": "Genève",
-      "firstSeenAt": "2026-10-19T09:28:20.833Z"
+      "firstSeenAt": "2026-10-19T09:28:20.833Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "receptionniste-geneve-rh-expert-ch-bc1e4359"
+        ],
+        "en": [
+          "receptionniste-geneve-rh-expert-ch-bc1e4359"
+        ],
+        "de": [
+          "receptionniste-geneve-rh-expert-ch-bc1e4359"
+        ]
+      },
+      "previousSlugs": [
+        "receptionniste-geneve-rh-expert-ch-bc1e4359"
+      ]
     },
     {
       "id": "rh-expert-ch-135e09c40cc1",
-      "slug": "chefs-de-rang-h-f-geneve-rh-expert-ch-135e09c4",
+      "slug": "testi-del-grado-m-f-rh-expert-geneve-135e09c4",
       "slugByLocale": {
         "fr": "chefs-de-rang-h-f-geneve-rh-expert-ch-135e09c4",
-        "it": "chefs-de-rang-h-f-geneve-rh-expert-ch-135e09c4",
-        "en": "chefs-de-rang-h-f-geneve-rh-expert-ch-135e09c4",
-        "de": "chefs-de-rang-h-f-geneve-rh-expert-ch-135e09c4"
+        "it": "testi-del-grado-m-f-rh-expert-geneve-135e09c4",
+        "en": "heads-of-rank-m-f-rh-expert-geneve-135e09c4",
+        "de": "reihenleiter-m-w-rh-expert-geneve-135e09c4"
       },
       "slugDisambiguator": "135e09c4",
       "company": "RH-Expert",
@@ -290,16 +336,16 @@
       "title": "Chefs de rang (H/F)",
       "titleByLocale": {
         "fr": "Chefs de rang (H/F)",
-        "it": "Chefs de rang (H/F)",
-        "en": "Chefs de rang (H/F)",
-        "de": "Chefs de rang (H/F)"
+        "it": "Testi del grado (M/F)",
+        "en": "Heads of rank (M/F)",
+        "de": "Reihenleiter (M/W)"
       },
       "description": "• Service cocktail, à table et bar.\n• Formation hôtelière ou expérience confirmée en restauration minimum 3 ans.\n• Rigoureux, ponctuel et motivé.\n• Excellente présentation, souriant et avenant.\n• Flexible et dynamique.\n• Nous vous proposons :\n• Un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
       "descriptionByLocale": {
         "fr": "• Service cocktail, à table et bar.\n• Formation hôtelière ou expérience confirmée en restauration minimum 3 ans.\n• Rigoureux, ponctuel et motivé.\n• Excellente présentation, souriant et avenant.\n• Flexible et dynamique.\n• Nous vous proposons :\n• Un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
-        "it": "• Service cocktail, à table et bar.\n• Formation hôtelière ou expérience confirmée en restauration minimum 3 ans.\n• Rigoureux, ponctuel et motivé.\n• Excellente présentation, souriant et avenant.\n• Flexible et dynamique.\n• Nous vous proposons :\n• Un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
-        "en": "• Service cocktail, à table et bar.\n• Formation hôtelière ou expérience confirmée en restauration minimum 3 ans.\n• Rigoureux, ponctuel et motivé.\n• Excellente présentation, souriant et avenant.\n• Flexible et dynamique.\n• Nous vous proposons :\n• Un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
-        "de": "• Service cocktail, à table et bar.\n• Formation hôtelière ou expérience confirmée en restauration minimum 3 ans.\n• Rigoureux, ponctuel et motivé.\n• Excellente présentation, souriant et avenant.\n• Flexible et dynamique.\n• Nous vous proposons :\n• Un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir."
+        "it": "• Servizio cocktail, tavolo e bar.\n• Hotel formazione o esperienza confermata nella ristorazione minimo 3 anni.\n• Rigoroso, puntuale e motivato.\n• Ottima presentazione, sorridente e amichevole.\n• Flessibile e dinamico.\n• Vi offriamo:\n• Uno stipendio in linea con la legislazione vigente (CCNT).\n• Tipo di contratto: Temporaneo.\n• Inizio: Immediatamente o da concordare.",
+        "en": "• Cocktail service, table and bar.\n• Hotel training or experience confirmed in catering minimum 3 years.\n• Rigourous, punctual and motivated.\n• Excellent presentation, smiling and friendly.\n• Flexible and dynamic.\n• We offer you:\n• A salary in line with current legislation (CCNT).\n• Type of contract: Temporary.\n• Start: Immediately or to be agreed.",
+        "de": "• Cocktailservice, Tisch und Bar.\n• Hotelausbildung oder Erfahrung bestätigt in Catering mindestens 3 Jahre.\n• Streng, pünktlich und motiviert.\n• Hervorragende Präsentation, lächelnd und freundlich.\n• Flexibel und dynamisch.\n• Wir bieten Ihnen:\n• Ein Gehalt im Einklang mit der geltenden Gesetzgebung (CCNT).\n• Art des Vertrags: Befristet.\n• Start: Sofort oder noch zu vereinbaren."
       },
       "location": "Genève",
       "canton": "GE",
@@ -324,7 +370,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -340,16 +385,30 @@
       },
       "postalCode": "1201",
       "addressLocality": "Genève",
-      "firstSeenAt": "2026-10-19T09:28:20.833Z"
+      "firstSeenAt": "2026-10-19T09:28:20.833Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chefs-de-rang-h-f-geneve-rh-expert-ch-135e09c4"
+        ],
+        "en": [
+          "chefs-de-rang-h-f-geneve-rh-expert-ch-135e09c4"
+        ],
+        "de": [
+          "chefs-de-rang-h-f-geneve-rh-expert-ch-135e09c4"
+        ]
+      },
+      "previousSlugs": [
+        "chefs-de-rang-h-f-geneve-rh-expert-ch-135e09c4"
+      ]
     },
     {
       "id": "rh-expert-ch-d2b0f2fcec23",
-      "slug": "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc",
+      "slug": "hunter-bagger-varier-rh-expert-geneve-d2b0f2fc",
       "slugByLocale": {
         "fr": "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc",
-        "it": "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc",
+        "it": "hunter-bagger-varier-rh-expert-geneve-d2b0f2fc",
         "en": "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc",
-        "de": "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc"
+        "de": "jager-bagger-variator-rh-expert-geneve-d2b0f2fc"
       },
       "slugDisambiguator": "d2b0f2fc",
       "company": "RH-Expert",
@@ -358,16 +417,16 @@
       "title": "Chasseur/Bagagiste/Voiturier",
       "titleByLocale": {
         "fr": "Chasseur/Bagagiste/Voiturier",
-        "de": "Chasseur/Bagagiste/Voiturier",
-        "it": "Chasseur/Bagagiste/Voiturier",
-        "en": "Chasseur/Bagagiste/Voiturier"
+        "de": "Jäger/Bagger/Variator",
+        "it": "Hunter/Bagger/Varier",
+        "en": "Hunter/Bagger/Varier"
       },
       "description": "• Bonne maitrise du français et de l'anglais\n• Sens du détail et de l’organisation\n• Rapidité, efficacité\n• Assurer l'accueil des clients dès leur arrivée\n• Decharcher les bagages, les monter en chambre\n• Garer la voiture des clients dans le parking de l'hôtel\n• Effectuer les courses des clients sous la responsabilité du Concierge\n• Respect des standards de qualité de l'hôtel\n• Travail soigné et rapide\n• Expérience de minimum 2 ans dans un hôtel de minimum 4 étoiles\n• Etre disponible et motivé\n• posseder le permis de conduire\n• Connaissances imperatives de l'anglais\n• Nous vous proposons :\n• Type de contrat : Temporaire moyen et long terme\n• Entrée en fonction : de suite ou à convenir",
       "descriptionByLocale": {
         "fr": "• Bonne maitrise du français et de l'anglais\n• Sens du détail et de l’organisation\n• Rapidité, efficacité\n• Assurer l'accueil des clients dès leur arrivée\n• Decharcher les bagages, les monter en chambre\n• Garer la voiture des clients dans le parking de l'hôtel\n• Effectuer les courses des clients sous la responsabilité du Concierge\n• Respect des standards de qualité de l'hôtel\n• Travail soigné et rapide\n• Expérience de minimum 2 ans dans un hôtel de minimum 4 étoiles\n• Etre disponible et motivé\n• posseder le permis de conduire\n• Connaissances imperatives de l'anglais\n• Nous vous proposons :\n• Type de contrat : Temporaire moyen et long terme\n• Entrée en fonction : de suite ou à convenir",
-        "it": "• Bonne maitrise du français et de l'anglais\n• Sens du détail et de l’organisation\n• Rapidité, efficacité\n• Assurer l'accueil des clients dès leur arrivée\n• Decharcher les bagages, les monter en chambre\n• Garer la voiture des clients dans le parking de l'hôtel\n• Effectuer les courses des clients sous la responsabilité du Concierge\n• Respect des standards de qualité de l'hôtel\n• Travail soigné et rapide\n• Expérience de minimum 2 ans dans un hôtel de minimum 4 étoiles\n• Etre disponible et motivé\n• posseder le permis de conduire\n• Connaissances imperatives de l'anglais\n• Nous vous proposons :\n• Type de contrat : Temporaire moyen et long terme\n• Entrée en fonction : de suite ou à convenir",
-        "en": "• Bonne maitrise du français et de l'anglais\n• Sens du détail et de l’organisation\n• Rapidité, efficacité\n• Assurer l'accueil des clients dès leur arrivée\n• Decharcher les bagages, les monter en chambre\n• Garer la voiture des clients dans le parking de l'hôtel\n• Effectuer les courses des clients sous la responsabilité du Concierge\n• Respect des standards de qualité de l'hôtel\n• Travail soigné et rapide\n• Expérience de minimum 2 ans dans un hôtel de minimum 4 étoiles\n• Etre disponible et motivé\n• posseder le permis de conduire\n• Connaissances imperatives de l'anglais\n• Nous vous proposons :\n• Type de contrat : Temporaire moyen et long terme\n• Entrée en fonction : de suite ou à convenir",
-        "de": "• Bonne maitrise du français et de l'anglais\n• Sens du détail et de l’organisation\n• Rapidité, efficacité\n• Assurer l'accueil des clients dès leur arrivée\n• Decharcher les bagages, les monter en chambre\n• Garer la voiture des clients dans le parking de l'hôtel\n• Effectuer les courses des clients sous la responsabilité du Concierge\n• Respect des standards de qualité de l'hôtel\n• Travail soigné et rapide\n• Expérience de minimum 2 ans dans un hôtel de minimum 4 étoiles\n• Etre disponible et motivé\n• posseder le permis de conduire\n• Connaissances imperatives de l'anglais\n• Nous vous proposons :\n• Type de contrat : Temporaire moyen et long terme\n• Entrée en fonction : de suite ou à convenir"
+        "it": "• Buona padronanza di inglese e francese\n• Senso di dettaglio e organizzazione\n• Velocità, efficacia\n• Assicurare la ricezione del cliente all'arrivo\n• Spoglia i bagagli, portali in camera\n• Parcheggiare l'auto degli ospiti nel parcheggio dell'hotel\n• Eseguire le gare dei clienti sotto la responsabilità del Concierge\n• Rispetto degli standard di qualità dell'hotel\n• Lavoro attento e rapido\n• Esperienza minima 2 anni in un hotel minimo 4 stelle\n• Essere disponibili e motivati\n• possedere la patente di guida\n• Conoscenza essenziale dell'inglese\n• Vi offriamo:\n• Tipo di contratto: medio e lungo termine\n• Entrata in ufficio: immediatamente o da concordare",
+        "en": "• Good mastery of English and French\n• Sense of detail and organization\n• Speed, effectiveness\n• Ensure customer reception upon arrival\n• Undress the luggage, get them into the room\n• Park the guests' car in the hotel parking lot\n• Carrying out the customer races under the responsibility of the Concierge\n• Compliance with hotel quality standards\n• Careful and rapid work\n• Minimum experience 2 years in a 4 star minimum hotel\n• Being available and motivated\n• possess the driving licence\n• Essential knowledge of English\n• We offer you:\n• Contract Type: Medium and Long Term Temporary\n• Entry into office: immediately or to be agreed",
+        "de": "• Gute Beherrschung von Englisch und Französisch\n• Sinn für Detail und Organisation\n• Geschwindigkeit, Wirksamkeit\n• Sicherstellen des Kundenempfangs bei der Ankunft\n• Ziehen Sie das Gepäck aus, bringen Sie es in den Raum\n• Parken Sie das Auto der Gäste auf dem Hotelparkplatz\n• Durchführung der Kundenrennen unter der Verantwortung des Concierge\n• Einhaltung der Hotelqualitätsstandards\n• Sorgfältige und schnelle Arbeit\n• Mindesterfahrung 2 Jahre in einem 4-Sterne-Minimumhotel\n• Zur Verfügung stehen und motiviert sein\n• im Besitz des Führerscheins\n• Grundlegende Englischkenntnisse\n• Wir bieten Ihnen:\n• Art des Vertrags: mittel- und langfristig befristet\n• Amtsantritt: sofort oder noch zu vereinbaren"
       },
       "location": "Genève",
       "canton": "GE",
@@ -392,7 +451,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -408,16 +466,27 @@
       },
       "postalCode": "1201",
       "addressLocality": "Genève",
-      "firstSeenAt": "2026-10-19T09:28:20.832Z"
+      "firstSeenAt": "2026-10-19T09:28:20.832Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc"
+        ],
+        "de": [
+          "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc"
+        ]
+      },
+      "previousSlugs": [
+        "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc"
+      ]
     },
     {
       "id": "rh-expert-ch-9b3fcbb8d5ce",
-      "slug": "portiers-geneve-rh-expert-ch-9b3fcbb8",
+      "slug": "porte-rh-expert-geneve-9b3fcbb8",
       "slugByLocale": {
         "fr": "portiers-geneve-rh-expert-ch-9b3fcbb8",
-        "it": "portiers-geneve-rh-expert-ch-9b3fcbb8",
-        "en": "portiers-geneve-rh-expert-ch-9b3fcbb8",
-        "de": "portiers-geneve-rh-expert-ch-9b3fcbb8"
+        "it": "porte-rh-expert-geneve-9b3fcbb8",
+        "en": "doors-rh-expert-geneve-9b3fcbb8",
+        "de": "turen-rh-expert-geneve-9b3fcbb8"
       },
       "slugDisambiguator": "9b3fcbb8",
       "company": "RH-Expert",
@@ -426,16 +495,16 @@
       "title": "Portiers",
       "titleByLocale": {
         "fr": "Portiers",
-        "it": "Portiers",
-        "en": "Portiers",
-        "de": "Portiers"
+        "it": "Porte",
+        "en": "Doors",
+        "de": "Türen"
       },
       "description": "• Réapprovisionnement et rangement du linge.\n• Assister les femmes de chambre.\n• Nettoyage des parties communes.\n• Respect des standards de qualité de l'hôtel.\n• Expérience confirmée dans des hôtels 4 et 5*.\n• Dynamique, flexible et souriant..\n• Excellente présentation, ponctuel et rigoureux.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en fonction de vos capacités.\n• Horaires : Continus de jour ou de soir.\n• Type de contrat : Temporaire longue durée.\n• Entrée en fonction : A convenir.",
       "descriptionByLocale": {
         "fr": "• Réapprovisionnement et rangement du linge.\n• Assister les femmes de chambre.\n• Nettoyage des parties communes.\n• Respect des standards de qualité de l'hôtel.\n• Expérience confirmée dans des hôtels 4 et 5*.\n• Dynamique, flexible et souriant..\n• Excellente présentation, ponctuel et rigoureux.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en fonction de vos capacités.\n• Horaires : Continus de jour ou de soir.\n• Type de contrat : Temporaire longue durée.\n• Entrée en fonction : A convenir.",
-        "it": "• Réapprovisionnement et rangement du linge.\n• Assister les femmes de chambre.\n• Nettoyage des parties communes.\n• Respect des standards de qualité de l'hôtel.\n• Expérience confirmée dans des hôtels 4 et 5*.\n• Dynamique, flexible et souriant..\n• Excellente présentation, ponctuel et rigoureux.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en fonction de vos capacités.\n• Horaires : Continus de jour ou de soir.\n• Type de contrat : Temporaire longue durée.\n• Entrée en fonction : A convenir.",
-        "en": "• Réapprovisionnement et rangement du linge.\n• Assister les femmes de chambre.\n• Nettoyage des parties communes.\n• Respect des standards de qualité de l'hôtel.\n• Expérience confirmée dans des hôtels 4 et 5*.\n• Dynamique, flexible et souriant..\n• Excellente présentation, ponctuel et rigoureux.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en fonction de vos capacités.\n• Horaires : Continus de jour ou de soir.\n• Type de contrat : Temporaire longue durée.\n• Entrée en fonction : A convenir.",
-        "de": "• Réapprovisionnement et rangement du linge.\n• Assister les femmes de chambre.\n• Nettoyage des parties communes.\n• Respect des standards de qualité de l'hôtel.\n• Expérience confirmée dans des hôtels 4 et 5*.\n• Dynamique, flexible et souriant..\n• Excellente présentation, ponctuel et rigoureux.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en fonction de vos capacités.\n• Horaires : Continus de jour ou de soir.\n• Type de contrat : Temporaire longue durée.\n• Entrée en fonction : A convenir."
+        "it": "• Fornitura e stoccaggio di lavanderia.\n• Per aiutare le cameriere.\n• Pulizia delle aree comuni.\n• Rispetto agli standard di qualità dell'hotel.\n• Esperienza confermata in hotel 4 e 5*.\n• Dinamica, flessibile e sorridente..\n• Ottima presentazione, puntuale e rigoroso.\n• Vi offriamo:\n• Lavoro a lungo termine con uno stipendio basato sulle tue capacità.\n• Orario: Giorno o sera continua.\n• Tipo di contratto: Temporaneo a lungo termine.\n• Entrata in ufficio: Da concordare.",
+        "en": "• Resupply and storage of laundry.\n• To assist the maids.\n• Cleaning of common areas.\n• Compliance with hotel quality standards.\n• Experience confirmed in hotels 4 and 5*.\n• Dynamic, flexible and smiling..\n• Excellent presentation, punctual and rigorous.\n• We offer you:\n• Long-term work with a salary based on your abilities.\n• Hours : Continuous day or evening.\n• Type of contract: Temporary long term.\n• Entry into office: To be agreed.",
+        "de": "• Lieferung und Lagerung von Wäsche.\n• Um den Dienstmädchen zu helfen.\n• Reinigung von Gemeinschaftsräumen.\n• Einhaltung der Hotelqualitätsstandards.\n• Erfahrung bestätigt in den Hotels 4 und 5*.\n• Dynamisch, flexibel und lächelnd.\n• Ausgezeichnete Präsentation, pünktlich und streng.\n• Wir bieten Ihnen:\n• Langfristige Arbeit mit einem Gehalt, das auf Ihren Fähigkeiten basiert.\n• Stunden: Kontinuierlicher Tag oder Abend.\n• Art des Vertrags: Befristet langfristig.\n• Amtsantritt: noch zu vereinbaren."
       },
       "location": "Genève",
       "canton": "GE",
@@ -460,7 +529,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -476,16 +544,30 @@
       },
       "postalCode": "1201",
       "addressLocality": "Genève",
-      "firstSeenAt": "2026-10-19T09:28:20.831Z"
+      "firstSeenAt": "2026-10-19T09:28:20.831Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "portiers-geneve-rh-expert-ch-9b3fcbb8"
+        ],
+        "en": [
+          "portiers-geneve-rh-expert-ch-9b3fcbb8"
+        ],
+        "de": [
+          "portiers-geneve-rh-expert-ch-9b3fcbb8"
+        ]
+      },
+      "previousSlugs": [
+        "portiers-geneve-rh-expert-ch-9b3fcbb8"
+      ]
     },
     {
       "id": "rh-expert-ch-5eb41985c071",
-      "slug": "femme-de-chambre-geneve-rh-expert-ch-5eb41985",
+      "slug": "casalinga-rh-expert-geneve-5eb41985",
       "slugByLocale": {
         "fr": "femme-de-chambre-geneve-rh-expert-ch-5eb41985",
-        "it": "femme-de-chambre-geneve-rh-expert-ch-5eb41985",
-        "en": "femme-de-chambre-geneve-rh-expert-ch-5eb41985",
-        "de": "femme-de-chambre-geneve-rh-expert-ch-5eb41985"
+        "it": "casalinga-rh-expert-geneve-5eb41985",
+        "en": "housewife-rh-expert-geneve-5eb41985",
+        "de": "hausfrau-rh-expert-geneve-5eb41985"
       },
       "slugDisambiguator": "5eb41985",
       "company": "RH-Expert",
@@ -494,16 +576,16 @@
       "title": "Femme de chambre",
       "titleByLocale": {
         "fr": "Femme de chambre",
-        "de": "Femme de chambre",
-        "it": "Femme de chambre",
-        "en": "Femme de chambre"
+        "de": "Hausfrau",
+        "it": "Casalinga",
+        "en": "Housewife"
       },
       "description": "• Très bonne maitrise du français, notions anglais.\n• Sens du détail et de l’organisation.\n• Rapidité, efficacité\n• Entretien des chambres\n• Suivre le protocole de nettoyage de l'établissement\n• Travail soigné et rapide\n• Expérience de minimum 2 ans\n• Parfaite maitrise du français\n• Etre disponible et motivé\n• Nous vous proposons :\n• Type de contrat : CDD. CDI et/ou Temporaire\n• Entrée en fonction : A convenir",
       "descriptionByLocale": {
         "fr": "• Très bonne maitrise du français, notions anglais.\n• Sens du détail et de l’organisation.\n• Rapidité, efficacité\n• Entretien des chambres\n• Suivre le protocole de nettoyage de l'établissement\n• Travail soigné et rapide\n• Expérience de minimum 2 ans\n• Parfaite maitrise du français\n• Etre disponible et motivé\n• Nous vous proposons :\n• Type de contrat : CDD. CDI et/ou Temporaire\n• Entrée en fonction : A convenir",
-        "it": "• Très bonne maitrise du français, notions anglais.\n• Sens du détail et de l’organisation.\n• Rapidité, efficacité\n• Entretien des chambres\n• Suivre le protocole de nettoyage de l'établissement\n• Travail soigné et rapide\n• Expérience de minimum 2 ans\n• Parfaite maitrise du français\n• Etre disponible et motivé\n• Nous vous proposons :\n• Type de contrat : CDD. CDI et/ou Temporaire\n• Entrée en fonction : A convenir",
-        "en": "• Très bonne maitrise du français, notions anglais.\n• Sens du détail et de l’organisation.\n• Rapidité, efficacité\n• Entretien des chambres\n• Suivre le protocole de nettoyage de l'établissement\n• Travail soigné et rapide\n• Expérience de minimum 2 ans\n• Parfaite maitrise du français\n• Etre disponible et motivé\n• Nous vous proposons :\n• Type de contrat : CDD. CDI et/ou Temporaire\n• Entrée en fonction : A convenir",
-        "de": "• Très bonne maitrise du français, notions anglais.\n• Sens du détail et de l’organisation.\n• Rapidité, efficacité\n• Entretien des chambres\n• Suivre le protocole de nettoyage de l'établissement\n• Travail soigné et rapide\n• Expérience de minimum 2 ans\n• Parfaite maitrise du français\n• Etre disponible et motivé\n• Nous vous proposons :\n• Type de contrat : CDD. CDI et/ou Temporaire\n• Entrée en fonction : A convenir"
+        "it": "• Molto buona padronanza dei concetti francesi, inglesi.\n• Senso di dettaglio e organizzazione.\n• Velocità, efficacia\n• Manutenzione delle Camere\n• Seguire il protocollo di pulizia della struttura\n• Lavoro attento e rapido\n• Esperienza minima 2 anni\n• perfetta padronanza del francese\n• Essere disponibili e motivati\n• Vi offriamo:\n• Tipo di contratto: CDD. CDI e/o Temporary\n• Entrata in ufficio: Da concordare",
+        "en": "• Very good mastery of French, English concepts.\n• Sense of detail and organization.\n• Speed, effectiveness\n• Maintenance of Chambers\n• Follow the cleaning protocol of the establishment\n• Careful and rapid work\n• Minimum experience 2 years\n• Perfect mastery of French\n• Being available and motivated\n• We offer you:\n• Type of contract: CDD. CDI and/or Temporary\n• Entry into office: To be agreed",
+        "de": "• Sehr gute Beherrschung der französischen, englischen Konzepte.\n• Sinn für Detail und Organisation.\n• Geschwindigkeit, Wirksamkeit\n• Instandhaltung von Kammern\n• Befolgen Sie das Reinigungsprotokoll der Einrichtung\n• Sorgfältige und schnelle Arbeit\n• Mindesterfahrung 2 Jahre\n• Perfekte Beherrschung von Französisch\n• Zur Verfügung stehen und motiviert sein\n• Wir bieten Ihnen:\n• Art des Vertrags: CDD, CDI und/oder Befristet\n• Amtsantritt: noch zu vereinbaren"
       },
       "location": "Genève",
       "canton": "GE",
@@ -528,7 +610,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -544,16 +625,30 @@
       },
       "postalCode": "1201",
       "addressLocality": "Genève",
-      "firstSeenAt": "2026-10-19T09:28:20.829Z"
+      "firstSeenAt": "2026-10-19T09:28:20.829Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "femme-de-chambre-geneve-rh-expert-ch-5eb41985"
+        ],
+        "en": [
+          "femme-de-chambre-geneve-rh-expert-ch-5eb41985"
+        ],
+        "de": [
+          "femme-de-chambre-geneve-rh-expert-ch-5eb41985"
+        ]
+      },
+      "previousSlugs": [
+        "femme-de-chambre-geneve-rh-expert-ch-5eb41985"
+      ]
     },
     {
       "id": "rh-expert-ch-fb2c49846c06",
-      "slug": "maitres-d-hotel-geneve-rh-expert-ch-fb2c4984",
+      "slug": "hotel-manager-rh-expert-geneve-fb2c4984",
       "slugByLocale": {
         "fr": "maitres-d-hotel-geneve-rh-expert-ch-fb2c4984",
-        "it": "maitres-d-hotel-geneve-rh-expert-ch-fb2c4984",
-        "en": "maitres-d-hotel-geneve-rh-expert-ch-fb2c4984",
-        "de": "maitres-d-hotel-geneve-rh-expert-ch-fb2c4984"
+        "it": "hotel-manager-rh-expert-geneve-fb2c4984",
+        "en": "hotel-managers-rh-expert-geneve-fb2c4984",
+        "de": "hotelmanager-rh-expert-geneve-fb2c4984"
       },
       "slugDisambiguator": "fb2c4984",
       "company": "RH-Expert",
@@ -562,16 +657,16 @@
       "title": "Maîtres d'hôtel",
       "titleByLocale": {
         "fr": "Maîtres d'hôtel",
-        "it": "Maîtres d'hôtel",
-        "en": "Maîtres d'hôtel",
-        "de": "Maîtres d'hôtel"
+        "it": "Hotel manager",
+        "en": "Hotel managers",
+        "de": "Hotelmanager"
       },
       "description": "• Coordonner la mise en place des salles.\n• Vérifier, suivre et participer au bon déroulement du service.\n• S’assurer continuellement à ce que les clients reçoivent un service correspondant aux standards fixés.\n• Être exigeant et critique en ce qui concerne la qualité du service.\n• Formation hôtelière ou expérience confirmée en restauration.\n• Rigoureux, ponctuel et motivé.\n• Excellente présentation, souriant et avenant.\n• Flexible et dynamique\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Fixe et/ou Temporaire\n• Entrée en fonction : A convenir",
       "descriptionByLocale": {
         "fr": "• Coordonner la mise en place des salles.\n• Vérifier, suivre et participer au bon déroulement du service.\n• S’assurer continuellement à ce que les clients reçoivent un service correspondant aux standards fixés.\n• Être exigeant et critique en ce qui concerne la qualité du service.\n• Formation hôtelière ou expérience confirmée en restauration.\n• Rigoureux, ponctuel et motivé.\n• Excellente présentation, souriant et avenant.\n• Flexible et dynamique\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Fixe et/ou Temporaire\n• Entrée en fonction : A convenir",
-        "it": "• Coordonner la mise en place des salles.\n• Vérifier, suivre et participer au bon déroulement du service.\n• S’assurer continuellement à ce que les clients reçoivent un service correspondant aux standards fixés.\n• Être exigeant et critique en ce qui concerne la qualité du service.\n• Formation hôtelière ou expérience confirmée en restauration.\n• Rigoureux, ponctuel et motivé.\n• Excellente présentation, souriant et avenant.\n• Flexible et dynamique\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Fixe et/ou Temporaire\n• Entrée en fonction : A convenir",
-        "en": "• Coordonner la mise en place des salles.\n• Vérifier, suivre et participer au bon déroulement du service.\n• S’assurer continuellement à ce que les clients reçoivent un service correspondant aux standards fixés.\n• Être exigeant et critique en ce qui concerne la qualité du service.\n• Formation hôtelière ou expérience confirmée en restauration.\n• Rigoureux, ponctuel et motivé.\n• Excellente présentation, souriant et avenant.\n• Flexible et dynamique\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Fixe et/ou Temporaire\n• Entrée en fonction : A convenir",
-        "de": "• Coordonner la mise en place des salles.\n• Vérifier, suivre et participer au bon déroulement du service.\n• S’assurer continuellement à ce que les clients reçoivent un service correspondant aux standards fixés.\n• Être exigeant et critique en ce qui concerne la qualité du service.\n• Formation hôtelière ou expérience confirmée en restauration.\n• Rigoureux, ponctuel et motivé.\n• Excellente présentation, souriant et avenant.\n• Flexible et dynamique\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Fixe et/ou Temporaire\n• Entrée en fonction : A convenir"
+        "it": "• Coordinate la creazione delle camere.\n• Verificare, monitorare e partecipare al regolare funzionamento del servizio.\n• Garantire costantemente che i clienti ricevano un servizio corrispondente agli standard stabiliti.\n• Essere esigente e critico per la qualità del servizio.\n• Formazione alberghiera o esperienza confermata nella ristorazione.\n• Rigoroso, puntuale e motivato.\n• Ottima presentazione, sorridente e amichevole.\n• Flessibile e dinamico\n• Vi offriamo:\n• Lavoro a lungo termine con stipendio in linea con la legislazione attuale (CCNT).\n• Tipo di contratto: fisso e/o temporaneo\n• Entrata in ufficio: Da concordare",
+        "en": "• Coordinate the setting up of the rooms.\n• Verify, monitor and participate in the smooth running of the service.\n• Continuously ensure that customers receive a service corresponding to the established standards.\n• Be demanding and critical of the quality of service.\n• Hotel training or experience confirmed in catering.\n• Rigourous, punctual and motivated.\n• Excellent presentation, smiling and friendly.\n• Flexible and dynamic\n• We offer you:\n• Long-term work with salary in line with current legislation (CCNT).\n• Type of contract: Fixed and/or Temporary\n• Entry into office: To be agreed",
+        "de": "• Koordinieren Sie die Einrichtung der Räume.\n• Überprüfen, überwachen und am reibungslosen Ablauf des Dienstes teilnehmen.\n• Stellen Sie kontinuierlich sicher, dass die Kunden einen Service erhalten, der den festgelegten Standards entspricht.\n• Seien Sie anspruchsvoll und kritisch gegenüber der Servicequalität.\n• Hotelschulung oder Erfahrung im Catering bestätigt.\n• Streng, pünktlich und motiviert.\n• Hervorragende Präsentation, lächelnd und freundlich.\n• Flexibel und dynamisch\n• Wir bieten Ihnen:\n• Langfristige Arbeit mit Gehalt im Einklang mit der geltenden Gesetzgebung (CCNT).\n• Art des Vertrags: befristet und/oder befristet\n• Amtsantritt: noch zu vereinbaren"
       },
       "location": "Genève",
       "canton": "GE",
@@ -596,7 +691,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -612,7 +706,21 @@
       },
       "postalCode": "1201",
       "addressLocality": "Genève",
-      "firstSeenAt": "2026-10-19T09:28:20.827Z"
+      "firstSeenAt": "2026-10-19T09:28:20.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maitres-d-hotel-geneve-rh-expert-ch-fb2c4984"
+        ],
+        "en": [
+          "maitres-d-hotel-geneve-rh-expert-ch-fb2c4984"
+        ],
+        "de": [
+          "maitres-d-hotel-geneve-rh-expert-ch-fb2c4984"
+        ]
+      },
+      "previousSlugs": [
+        "maitres-d-hotel-geneve-rh-expert-ch-fb2c4984"
+      ]
     }
   ]
 }

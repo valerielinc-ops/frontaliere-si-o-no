@@ -74,6 +74,7 @@ set -uo pipefail
 # push-section-shard.sh / push-locale-shard.sh, used by the CDN assets push
 # below instead of a second copy of the retry loop (AGENTS.md #6).
 source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/r2-image-lease-process.sh"
 
 RUNNER_TEMP="${RUNNER_TEMP:-/tmp}"
 
@@ -251,6 +252,45 @@ _publish_cdn_r2() {
   _t_purge="$(_r2_timeout_s R2_TIMEOUT_PURGE_S 300)"
   local bkt=":s3:$R2_BUCKET" ok=1
   echo "CDN→R2 (rclone --checksum): payload $(du -sh "$stage" | cut -f1) → $bkt"
+  _r2_release_owned_image_namespace_lease() {
+    [ "${_image_lease_owned:-0}" = 1 ] || return 0
+    # Do not retry a release from EXIT if this request itself is interrupted.
+    _image_lease_owned=0
+    if ! node "$_lease_cli" release --context "$_image_lease_context"; then
+      echo "::error::[r2] image namespace lease release failed; refusing to mark the R2 payload complete"
+      return 1
+    fi
+    return 0
+  }
+  _r2_restore_image_lease_context() {
+    if [ "$_prior_context_set" = x ]; then
+      export FRONTALIERE_R2_IMAGE_LEASE_CONTEXT="$_prior_context"
+    else
+      unset FRONTALIERE_R2_IMAGE_LEASE_CONTEXT
+    fi
+  }
+  _r2_image_namespace_lease_exit_cleanup() {
+    local exit_status=$?
+    trap '' EXIT INT TERM
+    if [ "${_IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED:-1}" = 1 ] && ! _r2_image_lease_stop_timeout; then
+      _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
+    fi
+    if [ "${_IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED:-1}" = 1 ]; then
+      _r2_release_owned_image_namespace_lease || {
+        [ "$exit_status" = 0 ] && exit_status=1
+      }
+    fi
+    _r2_restore_image_lease_context
+    exit "$exit_status"
+  }
+  _r2_image_namespace_lease_signal() {
+    local exit_status="$1"
+    trap '' INT TERM
+    if ! _r2_image_lease_stop_timeout; then
+      _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
+    fi
+    exit "$exit_status"
+  }
   _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] — COPY (additive, no delete)
     [ -d "$2" ] || return 0
     local sync_status=0
@@ -259,7 +299,7 @@ _publish_cdn_r2() {
       # those at the edge (see the assets/ call below). --log-file swallows
       # rclone's stderr, so the log is echoed back to the deploy output after
       # the run — a sync error must stay visible in the job log.
-      if ! timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0 \
+      if ! _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0 \
         -v --use-json-log --log-file="$5"; then
         ok=0
         sync_status=1
@@ -268,7 +308,7 @@ _publish_cdn_r2() {
       # case) is normal and must not alter the sync result returned below.
       if [ -s "$5" ]; then cat "$5"; fi
     else
-      if ! timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0; then
+      if ! _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0; then
         ok=0
         sync_status=1
       fi
@@ -277,6 +317,67 @@ _publish_cdn_r2() {
       echo "::warning::[r2] sync of $3/ failed or exceeded its ${1}s limit"
     fi
     return "$sync_status"
+  }
+  _r2_with_image_namespace_leases() { # <namespace-list> <command> <argv...> — run the image batch under all present namespace leases
+    local _image_lease_namespaces="$1"
+    shift
+    local _image_lease_context _image_lease_owned=0 _command_status=0 _release_status=0
+    local _image_lease_namespace
+    local -a _image_lease_namespace_list=()
+    local _prior_context_set="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT+x}"
+    local _prior_context="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT-}"
+    local _lease_cli="scripts/lib/r2-image-namespace-lock.mjs"
+    local _R2_IMAGE_LEASE_ACTIVE=1 _R2_IMAGE_LEASE_TIMEOUT_PID=
+    local _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=1
+    local _R2_IMAGE_LEASE_SIGNAL_HANDLER=_r2_image_namespace_lease_signal
+    local _prior_exit_trap _prior_int_trap _prior_term_trap
+
+    if [ -n "$_prior_context" ]; then
+      _image_lease_context="$_prior_context"
+      IFS=',' read -r -a _image_lease_namespace_list <<< "$_image_lease_namespaces"
+      for _image_lease_namespace in "${_image_lease_namespace_list[@]}"; do
+        if ! node "$_lease_cli" verify --namespace "$_image_lease_namespace" --context "$_image_lease_context"; then
+          echo "::error::[r2] existing image lease does not cover the requested namespaces or is no longer valid; skipping images/ sync"
+          return 1
+        fi
+      done
+    else
+      if ! _image_lease_context="$(node "$_lease_cli" acquire --namespace "$_image_lease_namespaces")" || [ -z "$_image_lease_context" ]; then
+        echo "::error::[r2] could not acquire the image namespace lease; skipping images/ sync"
+        return 1
+      fi
+      _image_lease_owned=1
+    fi
+
+    _prior_exit_trap="$(trap -p EXIT)"
+    _prior_int_trap="$(trap -p INT)"
+    _prior_term_trap="$(trap -p TERM)"
+    trap '_r2_image_namespace_lease_exit_cleanup' EXIT
+    trap '_r2_image_namespace_lease_signal 130' INT
+    trap '_r2_image_namespace_lease_signal 143' TERM
+
+    export FRONTALIERE_R2_IMAGE_LEASE_CONTEXT="$_image_lease_context"
+    if "$@"; then
+      _command_status=0
+    else
+      _command_status=$?
+    fi
+
+    if ! _r2_image_lease_stop_timeout; then
+      _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
+      _release_status=1
+    fi
+    if [ "$_IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED" = 1 ] \
+      && ! _r2_release_owned_image_namespace_lease; then
+      _release_status=1
+    fi
+    _r2_restore_image_lease_context
+    trap - EXIT INT TERM
+    [ -n "$_prior_exit_trap" ] && eval "$_prior_exit_trap"
+    [ -n "$_prior_int_trap" ] && eval "$_prior_int_trap"
+    [ -n "$_prior_term_trap" ] && eval "$_prior_term_trap"
+    [ "$_command_status" = 0 ] || return "$_command_status"
+    return "$_release_status"
   }
   # Publish-window handshake for the runtime watchdog. Stable asset names are
   # overwritten one by one, so cdn-build-id.txt deliberately stays on the last
@@ -413,7 +514,26 @@ _publish_cdn_r2() {
     assets_sync_ok=1
   fi
   _r2_sync 300 "$stage/og"        og        "public,max-age=86400"
-  _r2_sync 120 "$stage/images"    images    "public,max-age=86400"
+  local _image_namespaces=''
+  if [ -d "$stage/images/blog" ]; then
+    _image_namespaces=blog
+  fi
+  if [ -d "$stage/images/places" ]; then
+    if [ -n "$_image_namespaces" ]; then
+      _image_namespaces="${_image_namespaces},places"
+    else
+      _image_namespaces=places
+    fi
+  fi
+  if [ -n "$_image_namespaces" ]; then
+    if ! _r2_with_image_namespace_leases "$_image_namespaces" _r2_sync 120 "$stage/images" images "public,max-age=86400"; then
+      # An unleased or partially published image generation must not receive a
+      # completion marker. Keep the other R2 prefixes additive and retryable.
+      ok=0
+    fi
+  else
+    _r2_sync 120 "$stage/images" images "public,max-age=86400"
+  fi
   _r2_sync 1800 "$stage/data"     data      "public,max-age=600"
   _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
   timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \

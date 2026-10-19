@@ -9,7 +9,7 @@
         "it": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
         "en": "system-development-troubleshooter-roche-ch",
         "de": "systementwicklung-troubleshooter-roche-rotkreuz",
-        "fr": "system-development-troubleshooter-roche-rotkreuz"
+        "fr": "developpement-du-systeme-depanneur-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -52,14 +52,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-development-troubleshooter-roche-ch",
-        "developpement-du-systeme-depanneur-roche-rotkreuz"
+        "system-development-troubleshooter-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-development-troubleshooter-roche-ch"
         ],
         "fr": [
-          "developpement-du-systeme-depanneur-roche-rotkreuz"
+          "system-development-troubleshooter-roche-rotkreuz"
         ]
       },
       "salaryMin": 74500,
@@ -3490,7 +3490,7 @@
         "it": "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
         "en": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "de": "leitender-rechtsberater-rechtliche-geschaftsentwicklung-gesellschaftsrecht-roche-basel",
-        "fr": "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+        "fr": "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -3533,7 +3533,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-legal-counsel-legal-business-development-corporate-roche-ch",
-        "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+        "senior-legal-counsel-legal-business-development-corporate-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3543,7 +3543,7 @@
           "senior-legal-counsel-legal-business-development-corporate-roche-ch"
         ],
         "fr": [
-          "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+          "senior-legal-counsel-legal-business-development-corporate-roche-basel"
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:04.141Z",
@@ -3888,7 +3888,7 @@
       "slugByLocale": {
         "it": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "en": "site-data-operations-lead-roche-ch",
-        "de": "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst",
+        "de": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "fr": "exploitation-des-donnees-du-site-responsable-roche-kaiseraugst"
       },
       "company": "Roche",
@@ -3932,12 +3932,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "site-data-operations-lead-roche-ch",
-        "site-data-operations-lead-roche-kaiseraugst"
+        "site-data-operations-lead-roche-kaiseraugst",
+        "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "site-data-operations-lead-roche-ch",
           "site-data-operations-lead-roche-kaiseraugst"
+        ],
+        "de": [
+          "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -6743,7 +6747,7 @@
         "it": "gestione-globale-dei-contratti-e-dei-partner-roche-basel",
         "en": "global-expert-contracting-partner-management-roche-ch",
         "de": "globales-experten-contracting-partner-management-roche-basel",
-        "fr": "global-expert-contracting-partner-management-roche-basel"
+        "fr": "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -6786,7 +6790,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "global-expert-contracting-partner-management-roche-ch",
-        "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
+        "global-expert-contracting-partner-management-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6797,7 +6801,7 @@
         ],
         "fr": [
           "global-expert-contracting-partner-management-roche-ch",
-          "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
+          "global-expert-contracting-partner-management-roche-basel"
         ]
       },
       "firstSeenAt": "2026-10-15T21:14:39.547Z",
@@ -7056,7 +7060,7 @@
       "slug": "esperto-di-produzione-temporaneo-a-18-mesi-kaiseraugst-roche-kaiseraugst",
       "slugByLocale": {
         "it": "esperto-di-produzione-temporaneo-a-18-mesi-kaiseraugst-roche-kaiseraugst",
-        "en": "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst",
+        "en": "production-expert-temporary-to-18-months-kaiseraugst-roche-kaiseraugst",
         "de": "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
         "fr": "expert-en-production-temporaire-a-18-mois-kaiseraugst-roche-kaiseraugst"
       },
@@ -7101,8 +7105,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
-        "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst",
-        "production-expert-temporary-to-18-months-kaiseraugst-roche-kaiseraugst"
+        "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7111,7 +7114,7 @@
         ],
         "en": [
           "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
-          "production-expert-temporary-to-18-months-kaiseraugst-roche-kaiseraugst"
+          "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst"
         ],
         "fr": [
           "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch"
@@ -7291,12 +7294,12 @@
     },
     {
       "id": "roche-80f872ea0965",
-      "slug": "lab-scientist-microscopy-roche-ch",
+      "slug": "scienziato-di-laboratorio-microscopia-roche-basel",
       "slugByLocale": {
         "en": "lab-scientist-microscopy-roche-ch",
-        "it": "lab-scientist-microscopy-roche-ch",
-        "de": "lab-scientist-microscopy-roche-ch",
-        "fr": "lab-scientist-microscopy-roche-ch"
+        "it": "scienziato-di-laboratorio-microscopia-roche-basel",
+        "de": "laborwissenschaftler-mikroskopie-roche-basel",
+        "fr": "scientifique-de-laboratoire-microscopie-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7354,7 +7357,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-19T09:13:30.258Z"
+      "firstSeenAt": "2026-10-19T09:13:30.258Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lab-scientist-microscopy-roche-ch"
+        ],
+        "de": [
+          "lab-scientist-microscopy-roche-ch"
+        ],
+        "fr": [
+          "lab-scientist-microscopy-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lab-scientist-microscopy-roche-ch"
+      ]
     },
     {
       "id": "roche-a92ba3c43ca0",

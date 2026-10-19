@@ -775,7 +775,7 @@ export function gatePreservedFollowupMatches(commentsJson, bucketNumber, prNumbe
 }
 
 /**
- * Prove one persisted daily bucket contains a live item sourced by this PR,
+ * Prove one persisted follow-up container contains a live item sourced by this PR,
  * or that the mint gate preserved it AFTER the current marker
  * (`markerCreatedAt`, vedi `gatePreservedFollowupMatches`).
  */
@@ -783,10 +783,23 @@ export function persistedBucketIssueMatches(issue, prNumber, prComments = '', ma
   const info = dailyBucketInfo(issue?.title || '');
   const body = String(issue?.body || '');
   const pr = String(Number(prNumber));
+  // A daily bucket owns its source bullet through the preceding stable item
+  // heading. A decomposed parent is not titled like a daily bucket; its source
+  // ledger keeps the item id and Sources: PR #N on the same bullet. Keeping the
+  // two grammars separate prevents an ordinary issue's unrelated Sources bullet
+  // from being mistaken for persisted follow-up evidence.
+  const directEvidence = info
+    ? new RegExp(
+      `^\\s*###\\s+FU-\\d{4}-\\d{2}-\\d{2}-\\d{3}\\b[^\\n]*$(?:(?!^\\s*#{2,3}\\s+)[\\s\\S])*?^\\s*-\\s+Sources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b`,
+      'im',
+    ).test(body)
+    : new RegExp(
+      `^\\s*-\\s+FU-\\d{4}-\\d{2}-\\d{2}-\\d{3}\\b[^\\n]*\\bSources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b`,
+      'im',
+    ).test(body);
+  if (directEvidence) return true;
   if (!info) return false;
-  const directEvidence = /^###\s+FU-\d{4}-\d{2}-\d{2}-\d{3}\b/m.test(body)
-    && new RegExp(`^\\s*-\\s+Sources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b`, 'im').test(body);
-  return directEvidence || gatePreservedFollowupMatches(prComments, issue.number, prNumber, markerCreatedAt);
+  return gatePreservedFollowupMatches(prComments, issue.number, prNumber, markerCreatedAt);
 }
 
 /**
@@ -817,7 +830,7 @@ export function ghBucketRead(args, token = '', exec = execFileSync) {
 }
 
 /**
- * Read EVERY daily-bucket candidate numbered `bucket` across the repositories
+ * Read EVERY follow-up persistence candidate numbered `bucket` across the repositories
  * that can hold it. I due repository numerano le issue in modo INDIPENDENTE:
  * la scansione non si ferma al primo JSON valido, e il chiamante applica il
  * predicato bucket/PR a ogni candidato. `unreadable` dice se almeno una
@@ -845,7 +858,10 @@ export function readBucketIssue(bucket, run = ghBucketRead, repos = BUCKET_REPOS
     try { issue = JSON.parse(raw); } catch { unreadable = true; continue; }
     if (issue && typeof issue === 'object' && !Array.isArray(issue)
       && Number(issue.number) === Number(bucket)
-      && dailyBucketInfo(issue.title || '')) candidates.push({ ...issue, repo });
+      && (dailyBucketInfo(issue.title || '')
+        || /\bFU-\d{4}-\d{2}-\d{2}-\d{3}\b/.test(String(issue.body || '')))) {
+      candidates.push({ ...issue, repo });
+    }
   }
   return { candidates, unreadable };
 }

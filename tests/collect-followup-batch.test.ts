@@ -373,6 +373,28 @@ describe('marker idempotency requires durable bucket/item evidence', () => {
     expect(persistedBucketIssueMatches(persisted, 8101)).toBe(true);
   });
 
+  it('does not treat an ordinary issue source bullet as persisted follow-up evidence', () => {
+    const ordinary = {
+      title: 'ordinary issue',
+      body: 'mentions FU-2026-10-19-001\n- Sources: PR #14038',
+    };
+    expect(persistedBucketIssueMatches(ordinary, 14038)).toBe(false);
+  });
+
+  it('keeps a daily source bullet tied to its own stable item heading', () => {
+    const unrelatedHeading = {
+      title: 'follow-up(daily:2026-09-09): 2 items — owner/repo',
+      body: [
+        '### FU-2026-09-09-001 — another item',
+        '- Sources: PR #8102',
+        '',
+        '### FU-2026-09-09-002 — item for this PR',
+        '- State: open',
+      ].join('\n'),
+    };
+    expect(persistedBucketIssueMatches(unrelatedHeading, 8101)).toBe(false);
+  });
+
   it('recognizes Markdown bullet markers as persistence claims', () => {
     expect(triageMarkerPersistenceExpectation(
       '## Post-merge follow-up triage\n- Created: daily bucket #42 con 1 item',
@@ -396,6 +418,40 @@ describe('marker idempotency requires durable bucket/item evidence', () => {
     expect(triageMarkerPersistenceExpectation(
       '## Post-merge follow-up triage\nCreated/updated: parent PR #13825 with 1 item',
     )).toEqual({ buckets: [], requiresBucket: true });
+  });
+
+  it('proves persistence in a decomposed parent tracker with inline source bullets', () => {
+    const marker = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: parent #13803 (follow-up window 2026-10-17) with 6 existing items; no child issue created:',
+      '- FU-2026-10-17-004 — baseline reale dell’estimator webcam; source PR #13825 recorded on the parent',
+    ].join('\n');
+    const parent = {
+      number: 13803,
+      title: 'Residual 2026-10-17 follow-up: 8 unresolved units',
+      body: [
+        '## Residuo',
+        '- FU-2026-10-17-004 — baseline reale dell’estimator webcam — `functions/src/trafficProviderMesh.js`.',
+        '',
+        '## Additional sources from PR #13825',
+        '- FU-2026-10-17-004 — Sources: PR #13825',
+      ].join('\n'),
+    };
+    const SITE = 'valerielinc-ops/frontaliere-si-o-no';
+    const CORPUS = 'nanakokyobashi-rgb/frontaliere-articles';
+    const run = (args: string[]) => (args[args.indexOf('--repo') + 1] === CORPUS
+      ? false
+      : JSON.stringify(parent));
+    const read = readBucketIssue(13803, run as never, [SITE, CORPUS]);
+    const comments = JSON.stringify({ comments: [{
+      createdAt: '2026-10-19T04:41:58Z',
+      body: marker,
+    }] });
+
+    expect(read).toEqual({ candidates: [{ ...parent, repo: SITE }], unreadable: false });
+    expect(persistedBucketIssueMatches(parent, 13825)).toBe(true);
+    expect(verifyTriageMarkerPersistence(marker, 13825, () => read, comments)).toBe(true);
   });
 
   it('ignores historical bucket references in a positive marker', () => {

@@ -209,8 +209,8 @@
       "slug": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
       "slugByLocale": {
         "it": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
-        "en": "watchmaking-operator-apprenticeship-afp-omega-sa-biel-bienne",
-        "de": "ausbildung-als-uhrenarbeiter-in-eba-omega-sa-biel-bienne",
+        "en": "operational-learning-omega-sa-biel-bienne",
+        "de": "betriebliches-lernen-omega-sa-biel-bienne",
         "fr": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
       },
       "company": "OMEGA SA",
@@ -277,18 +277,18 @@
       },
       "previousSlugs": [
         "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-        "operational-learning-omega-sa-biel-bienne",
-        "betriebliches-lernen-omega-sa-biel-bienne"
+        "watchmaking-operator-apprenticeship-afp-omega-sa-biel-bienne",
+        "ausbildung-als-uhrenarbeiter-in-eba-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
         ],
         "en": [
-          "operational-learning-omega-sa-biel-bienne"
+          "watchmaking-operator-apprenticeship-afp-omega-sa-biel-bienne"
         ],
         "de": [
-          "betriebliches-lernen-omega-sa-biel-bienne"
+          "ausbildung-als-uhrenarbeiter-in-eba-omega-sa-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:27.421Z",
@@ -758,7 +758,6 @@
           "sales-representative-m-w-80-omega-boutique-bern-omega-berne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:17:22.823Z",
       "salaryMin": 62000,
       "salaryMax": 94800,
@@ -772,8 +771,7 @@
           "maxValue": 94800,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "omega-33527",
@@ -782,7 +780,7 @@
         "fr": "spare-parts-purchaser-h-f-omega-biel-bienne",
         "it": "spare-parts-purchaser-h-f-omega-biel-bienne",
         "en": "spare-parts-purchaser-h-f-omega-biel-bienne",
-        "de": "spare-parts-purchaser-h-f-omega-biel-bienne"
+        "de": "spare-teilkaufer-m-w-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -955,7 +953,7 @@
       "slug": "sales-trainer-m-f-omega-sa",
       "slugByLocale": {
         "it": "sales-trainer-m-f-omega-sa",
-        "en": "international-sales-trainer-m-w-omega-biel-bienne",
+        "en": "international-sales-trainer-m-w-omega-biel-bienne-7uc0ud",
         "de": "internationaler-verkaufstrainer-m-w-omega-sa-biel-bienne",
         "fr": "trainer-international-de-ventes-h-f-omega-sa"
       },
@@ -1026,8 +1024,7 @@
         ]
       },
       "previousSlugs": [
-        "international-sales-trainer-m-w-omega-biel-bienne",
-        "international-sales-trainer-m-w-omega-biel-bienne-7uc0ud"
+        "international-sales-trainer-m-w-omega-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1037,7 +1034,7 @@
           "international-sales-trainer-m-w-omega-biel-bienne"
         ],
         "en": [
-          "international-sales-trainer-m-w-omega-biel-bienne-7uc0ud"
+          "international-sales-trainer-m-w-omega-biel-bienne"
         ]
       },
       "salaryMin": 77500,

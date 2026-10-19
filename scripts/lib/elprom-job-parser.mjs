@@ -2,7 +2,7 @@
 /**
  * elprom job parser — Fetcher and job builder.
  *
- * Source: https://elprom.ch/job/elektroplaner-3d-bim-m-w-d-80-100-wallisellen/
+ * Source: https://elprom.ch/jobs-karriere/
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllElpromJobs()  — Fetch and parse all jobs
@@ -25,7 +25,7 @@ export const ELPROM_KEY = 'elprom';
 export const ELPROM_COMPANY_NAME = 'elprom';
 export const ELPROM_COMPANY_DOMAIN = 'elprom.ch';
 
-const CAREER_URL = 'https://elprom.ch/job/elektroplaner-3d-bim-m-w-d-80-100-wallisellen/';
+const CAREER_URL = 'https://elprom.ch/jobs-karriere/';
 
 /** Return canonical CH geography only when the source carries country evidence. */
 export function resolveElpromGeography(listing = {}) {

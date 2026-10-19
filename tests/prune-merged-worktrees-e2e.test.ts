@@ -21,6 +21,7 @@ import { runIsolatedPruner } from './helpers/runIsolatedPruner';
 //   • directory orfana fatta solo di .DS_Store                       → via
 //   • directory orfana con un file vero, o modificata di recente     → resta
 //   • hooks-main e worktree locked                                    → restano
+//   • opzioni sconosciute, invalide o incompatibili                   → errore prima di ogni side effect
 
 const SCRIPT = path.join(process.cwd(), 'scripts', 'prune-merged-worktrees.mjs');
 const OLD = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);
@@ -40,6 +41,9 @@ let exactSelectorRun = '';
 let exactEqualsSelectorRun = '';
 let invalidOnlyErrors: string[] = [];
 let invalidOnlyPreservedTarget = false;
+let invalidArguments: string[] = [];
+let invalidArgumentsPreservedTarget = false;
+let invalidArgumentMaintenanceCalls: string[] = [];
 type GlobalPruneProbe = { packPath: string; worktreePath: string };
 type GlobalPruneState = { packExists: boolean; worktreeEntryExists: boolean };
 let dryRunProbe: GlobalPruneProbe;
@@ -141,9 +145,9 @@ function containsFetchPrune(calls: string[]): boolean {
   return calls.some((call) => call.startsWith('fetch ') && call.split(/\s+/).includes('--prune'));
 }
 
-function captureFailure(args: string[]): string {
+function captureFailure(args: string[], overrides: NodeJS.ProcessEnv = {}): string {
   try {
-    runScript(args);
+    runScript(args, overrides);
     return '';
   } catch (error) {
     const failure = error as { message?: string; stderr?: Buffer | string };
@@ -289,6 +293,15 @@ exit 0
   const maintenanceLog = installGitMaintenanceRecorder();
   dryRunProbe = createGlobalPruneProbe('dry-run');
   let callsBefore = gitMaintenanceCalls(maintenanceLog).length;
+  invalidArguments = [
+    captureFailure(['--apply', '--onlyy', 'feat-merged']),
+    captureFailure(['--apply', '--expiry-days=not-a-number']),
+    captureFailure(['--apply'], { PRUNE_WORKTREE_EXPIRY_DAYS: 'not-a-number' }),
+    captureFailure(['--apply', '--only', 'feat-merged', '--orphans-only']),
+  ];
+  invalidArgumentsPreservedTarget = fs.existsSync(wt('feat-merged'));
+  invalidArgumentMaintenanceCalls = gitMaintenanceCalls(maintenanceLog).slice(callsBefore);
+  callsBefore = gitMaintenanceCalls(maintenanceLog).length;
   dryRun = runScript([]);
   dryRunProbeState = readGlobalPruneState(dryRunProbe);
   dryRunMaintenanceCalls = gitMaintenanceCalls(maintenanceLog).slice(callsBefore);
@@ -361,6 +374,14 @@ describe('prune-merged-worktrees.mjs su un clone di prova', () => {
     expect(invalidOnlyErrors[2]).toContain('--only richiede un nome');
     expect(invalidOnlyErrors[3]).toContain('--only può essere specificato una sola volta');
     expect(invalidOnlyPreservedTarget).toBe(true);
+  });
+  it('rejects unknown or conflicting options before any prune side effect', () => {
+    expect(invalidArguments[0]).toContain('non riconosciuto: --onlyy');
+    expect(invalidArguments[1]).toContain('--expiry-days richiede un numero');
+    expect(invalidArguments[2]).toContain('PRUNE_WORKTREE_EXPIRY_DAYS / PRUNE_EXPIRY_DAYS deve essere un numero');
+    expect(invalidArguments[3]).toContain('--only e --orphans-only');
+    expect(invalidArgumentsPreservedTarget).toBe(true);
+    expect(invalidArgumentMaintenanceCalls).toEqual([]);
   });
   it('--only matches an exact identifier, not sibling names containing it', () => {
     expect(selectorPreview).toContain(wt('feat-merged'));

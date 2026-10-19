@@ -5750,12 +5750,12 @@
     },
     {
       "id": "ehc-vd-f761e6336c62",
-      "slug": "benevoles-pour-le-refuge-ehc-vd-aubonne",
+      "slug": "volontari-per-il-rifugio-ensemble-hospitalier-de-la-cote-ehc-aubonne",
       "slugByLocale": {
         "fr": "benevoles-pour-le-refuge-ehc-vd-aubonne",
-        "it": "benevoles-pour-le-refuge-ehc-vd-aubonne",
-        "en": "benevoles-pour-le-refuge-ehc-vd-aubonne",
-        "de": "benevoles-pour-le-refuge-ehc-vd-aubonne"
+        "it": "volontari-per-il-rifugio-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "en": "volunteers-for-the-refuge-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "de": "freiwillige-fur-die-zuflucht-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -5813,7 +5813,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:18:06.627Z"
+      "firstSeenAt": "2026-10-19T09:18:06.627Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "benevoles-pour-le-refuge-ehc-vd-aubonne"
+        ],
+        "en": [
+          "benevoles-pour-le-refuge-ehc-vd-aubonne"
+        ],
+        "de": [
+          "benevoles-pour-le-refuge-ehc-vd-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "benevoles-pour-le-refuge-ehc-vd-aubonne"
+      ]
     }
   ]
 }

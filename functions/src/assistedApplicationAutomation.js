@@ -131,7 +131,12 @@ export function automationEligibility(order, orderId) {
 
 /** Next moment the sweep must look at this flow (clock, reminder or watchdog). */
 export function computeDueAt(flow) {
-  if (!flow || TERMINAL_STATES.has(flow.state)) return null;
+  if (!flow) return null;
+  if (flow.state === 'owner_takeover') {
+    const retryAt = Number(flow.portalAutoRetryAt) || 0;
+    return (flow.heldBy || []).includes('portal:portal_needs_candidate') && retryAt > 0 ? retryAt : null;
+  }
+  if (TERMINAL_STATES.has(flow.state)) return null;
   if (['drafting', 'regenerating', 'submitting'].includes(flow.state)) {
     const requestedAt = Number(flow.dispatch?.requestedAt) || 0;
     return requestedAt ? requestedAt + RUN_WATCHDOG_MS : null;
@@ -434,7 +439,7 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
     .where('automationDueAt', '<=', nowMs)
     .limit(SWEEP_BATCH)
     .get();
-  const summary = { ticks: 0, redispatched: 0, timedOut: 0, ignored: 0, failed: 0, refunds: 0 };
+  const summary = { ticks: 0, redispatched: 0, portalRetries: 0, timedOut: 0, ignored: 0, failed: 0, refunds: 0 };
   // Automatic refunds that failed (closed ad): retried until they go through
   // or the effect gives up and alerts the owner.
   const refunds = await db.collection(ASSISTED_APPLICATIONS_COLLECTION)
@@ -463,6 +468,24 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
       if (!flow) {
         await orderRefFor(db, doc.id).set({ automationDueAt: null }, { merge: true });
         summary.ignored += 1;
+        continue;
+      }
+      if (flow.state === 'owner_takeover') {
+        const result = await applyAutomationEvent({
+          db,
+          orderId: doc.id,
+          event: { type: 'portal_auto_retry' },
+          actor: 'portal-recovery',
+          runEffect,
+          nowMs,
+        });
+        if (result.ok) summary.portalRetries += 1;
+        else {
+          summary.ignored += 1;
+          const latest = await flowRefFor(db, doc.id).get();
+          const dueAt = computeDueAt(latest.data() || null);
+          await orderRefFor(db, doc.id).set({ automationDueAt: dueAt && dueAt > nowMs ? dueAt : null }, { merge: true });
+        }
         continue;
       }
       if (['drafting', 'regenerating', 'submitting'].includes(flow.state)) {

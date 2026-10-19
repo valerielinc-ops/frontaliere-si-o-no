@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "avviso-legale-buhler-group-uzwil",
         "en": "legal-counsel-buehler-uzwil",
-        "de": "rechtsberater-buhler-group-uzwil",
+        "de": "rechtsberatung-buhler-group-uzwil",
         "fr": "conseiller-juridique-buhler-group-uzwil"
       },
       "company": "Bühler Group",
@@ -56,14 +56,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-counsel-buehler-uzwil",
-        "rechtsberatung-buhler-group-uzwil"
+        "rechtsberater-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-buehler-uzwil"
         ],
         "de": [
-          "rechtsberatung-buhler-group-uzwil"
+          "rechtsberater-buhler-group-uzwil"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.078Z",
@@ -1360,12 +1360,12 @@
     },
     {
       "id": "buehler-ef83c5ae87df",
-      "slug": "internship-marketing-amp-events-die-casting-buehler-uzwil",
+      "slug": "tirocinio-marketing-ed-eventi-die-casting-buhler-group-uzwil",
       "slugByLocale": {
         "de": "internship-marketing-amp-events-die-casting-buehler-uzwil",
-        "it": "internship-marketing-amp-events-die-casting-buehler-uzwil",
+        "it": "tirocinio-marketing-ed-eventi-die-casting-buhler-group-uzwil",
         "en": "internship-marketing-events-die-casting-buhler-group-uzwil",
-        "fr": "internship-marketing-amp-events-die-casting-buehler-uzwil"
+        "fr": "marketing-de-stages-et-evenements-la-casting-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1425,7 +1425,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:23:40.556Z"
+      "firstSeenAt": "2026-10-19T09:23:40.556Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-marketing-amp-events-die-casting-buehler-uzwil"
+        ],
+        "fr": [
+          "internship-marketing-amp-events-die-casting-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "internship-marketing-amp-events-die-casting-buehler-uzwil"
+      ]
     },
     {
       "id": "buehler-996b27cca86e",

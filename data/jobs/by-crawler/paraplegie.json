@@ -1209,7 +1209,7 @@
         "it": "assistente-esecutivo-schweizer-paraplegiker-gruppe-nottwil",
         "en": "executive-assistant-schweizer-paraplegiker-gruppe-nottwil",
         "de": "direktionsassistent-in-paraplegie-nottwil",
-        "fr": "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil"
+        "fr": "assistant-e-de-direction-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -1255,8 +1255,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "direktionsassistent-in-paraplegie-nottwil",
-        "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil",
-        "assistant-e-de-direction-schweizer-paraplegiker-gruppe-nottwil"
+        "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1267,7 +1266,7 @@
           "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil"
         ],
         "fr": [
-          "assistant-e-de-direction-schweizer-paraplegiker-gruppe-nottwil"
+          "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "firstSeenAt": "2026-10-05T09:17:07.858Z",
@@ -1914,12 +1913,12 @@
     },
     {
       "id": "paraplegie-b5855db6806b",
-      "slug": "collaboratore-trice-in-hotelservice-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "addetto-a-al-servizio-alberghiero-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "de": "mitarbeiter-in-hotelservice-paraplegie-nottwil",
-        "it": "collaboratore-trice-in-hotelservice-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "mitarbeiter-in-hotelservice-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "mitarbeiter-in-hotelservice-schweizer-paraplegiker-gruppe-nottwil"
+        "it": "addetto-a-al-servizio-alberghiero-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "hotel-service-employee-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "collaborateur-collaboratrice-service-hotelier-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -1967,11 +1966,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-hotelservice-paraplegie-nottwil"
+          "mitarbeiter-in-hotelservice-paraplegie-nottwil",
+          "collaboratore-trice-in-hotelservice-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
+          "mitarbeiter-in-hotelservice-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "fr": [
+          "mitarbeiter-in-hotelservice-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hotelservice-paraplegie-nottwil"
+        "mitarbeiter-in-hotelservice-paraplegie-nottwil",
+        "collaboratore-trice-in-hotelservice-schweizer-paraplegiker-gruppe-nottwil",
+        "mitarbeiter-in-hotelservice-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

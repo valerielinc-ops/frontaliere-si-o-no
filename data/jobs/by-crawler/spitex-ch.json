@@ -654,12 +654,12 @@
     },
     {
       "id": "spitex-ch-244cdc777569",
-      "slug": "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck",
+      "slug": "operatore-trice-sociosanitario-a-afc-50-70-spitex-am-alten-rhein-rheineck",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck",
-        "it": "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck",
-        "en": "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck",
-        "fr": "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck"
+        "it": "operatore-trice-sociosanitario-a-afc-50-70-spitex-am-alten-rhein-rheineck",
+        "en": "health-professional-efz-50-70-spitex-am-alten-rhein-rheineck",
+        "fr": "professionnels-de-la-sante-efz-50-70-spitex-am-alten-rhein-rheineck"
       },
       "company": "Spitex Am Alten Rhein",
       "companyKey": "spitex-ch",
@@ -720,23 +720,23 @@
       },
       "firstSeenAt": "2026-10-08T21:23:03.773Z",
       "previousSlugs": [
-        "operatore-trice-sociosanitario-a-afc-50-70-spitex-am-alten-rhein-rheineck",
         "health-professional-efz-50-70-spitex-am-alten-rhein-rheineck",
         "professionnels-de-la-sante-efz-50-70-spitex-am-alten-rhein-rheineck",
-        "fachperson-gesundheit-cfc-50-70-spitex-am-alten-rhein-rheineck"
+        "fachperson-gesundheit-cfc-50-70-spitex-am-alten-rhein-rheineck",
+        "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operatore-trice-sociosanitario-a-afc-50-70-spitex-am-alten-rhein-rheineck",
           "health-professional-efz-50-70-spitex-am-alten-rhein-rheineck",
           "professionnels-de-la-sante-efz-50-70-spitex-am-alten-rhein-rheineck",
-          "fachperson-gesundheit-cfc-50-70-spitex-am-alten-rhein-rheineck"
+          "fachperson-gesundheit-cfc-50-70-spitex-am-alten-rhein-rheineck",
+          "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck"
         ],
         "en": [
-          "health-professional-efz-50-70-spitex-am-alten-rhein-rheineck"
+          "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck"
         ],
         "fr": [
-          "professionnels-de-la-sante-efz-50-70-spitex-am-alten-rhein-rheineck"
+          "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck"
         ]
       }
     },
@@ -818,12 +818,12 @@
     },
     {
       "id": "spitex-ch-178adb050b65",
-      "slug": "ausbildungsverantwortung-60-optional-bis-100-erganzung-in-pflege-spitex-ch-sarnen",
+      "slug": "responsabilita-di-formazione-60-opzionale-fino-al-100-supplemento-nella-cura-spitex-obwalden-sarnen",
       "slugByLocale": {
         "de": "ausbildungsverantwortung-60-optional-bis-100-erganzung-in-pflege-spitex-ch-sarnen",
-        "it": "ausbildungsverantwortung-60-optional-bis-100-erganzung-in-pflege-spitex-ch-sarnen",
-        "en": "ausbildungsverantwortung-60-optional-bis-100-erganzung-in-pflege-spitex-ch-sarnen",
-        "fr": "ausbildungsverantwortung-60-optional-bis-100-erganzung-in-pflege-spitex-ch-sarnen"
+        "it": "responsabilita-di-formazione-60-opzionale-fino-al-100-supplemento-nella-cura-spitex-obwalden-sarnen",
+        "en": "training-responsibility-60-optional-up-to-100-supplement-in-care-spitex-obwalden-sarnen",
+        "fr": "responsabilite-de-la-formation-60-facultatif-jusqu-a-100-supplement-en-soins-spitex-obwalden-sarnen"
       },
       "company": "Spitex Obwalden",
       "companyKey": "spitex-ch",
@@ -881,16 +881,30 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildungsverantwortung-60-optional-bis-100-erganzung-in-pflege-spitex-ch-sarnen"
+        ],
+        "en": [
+          "ausbildungsverantwortung-60-optional-bis-100-erganzung-in-pflege-spitex-ch-sarnen"
+        ],
+        "fr": [
+          "ausbildungsverantwortung-60-optional-bis-100-erganzung-in-pflege-spitex-ch-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildungsverantwortung-60-optional-bis-100-erganzung-in-pflege-spitex-ch-sarnen"
+      ]
     },
     {
       "id": "spitex-ch-3305f3d57e13",
-      "slug": "pflegefachperson-hf-50-100-in-sarnen-o-engelberg-spitex-obwalden-sarnen",
+      "slug": "infermiere-a-professionale-hf-50-100-a-sarnen-o-engelberg-spitex-obwalden-sarnen",
       "slugByLocale": {
         "de": "pflegefachperson-hf-50-100-in-sarnen-oder-engelberg-spitex-ch-sarnen",
-        "it": "pflegefachperson-hf-50-100-in-sarnen-o-engelberg-spitex-obwalden-sarnen",
-        "en": "pflegefachperson-hf-50-100-in-sarnen-oder-engelberg-spitex-ch-sarnen",
-        "fr": "pflegefachperson-hf-50-100-in-sarnen-oder-engelberg-spitex-ch-sarnen"
+        "it": "infermiere-a-professionale-hf-50-100-a-sarnen-o-engelberg-spitex-obwalden-sarnen",
+        "en": "nurse-hf-50-100-in-sarnen-or-engelberg-spitex-obwalden-sarnen",
+        "fr": "infirmiere-hf-50-100-a-sarnen-ou-engelberg-spitex-obwalden-sarnen"
       },
       "company": "Spitex Obwalden",
       "companyKey": "spitex-ch",
@@ -938,11 +952,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-hf-50-100-in-sarnen-oder-engelberg-spitex-ch-sarnen",
+          "pflegefachperson-hf-50-100-in-sarnen-o-engelberg-spitex-obwalden-sarnen"
+        ],
+        "en": [
+          "pflegefachperson-hf-50-100-in-sarnen-oder-engelberg-spitex-ch-sarnen"
+        ],
+        "fr": [
           "pflegefachperson-hf-50-100-in-sarnen-oder-engelberg-spitex-ch-sarnen"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-50-100-in-sarnen-oder-engelberg-spitex-ch-sarnen"
+        "pflegefachperson-hf-50-100-in-sarnen-oder-engelberg-spitex-ch-sarnen",
+        "pflegefachperson-hf-50-100-in-sarnen-o-engelberg-spitex-obwalden-sarnen"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

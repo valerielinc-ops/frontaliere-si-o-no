@@ -563,12 +563,12 @@
     },
     {
       "id": "pictet-42d36c8c5659",
-      "slug": "legal-adviser-investment-team-pictet-geneva",
+      "slug": "consigliere-legale-squadra-investimenti-pictet-group-geneva",
       "slugByLocale": {
         "en": "legal-adviser-investment-team-pictet-geneva",
-        "it": "legal-adviser-investment-team-pictet-geneva",
-        "de": "legal-adviser-investment-team-pictet-geneva",
-        "fr": "legal-adviser-investment-team-pictet-geneva"
+        "it": "consigliere-legale-squadra-investimenti-pictet-group-geneva",
+        "de": "rechtsberater-investment-team-pictet-group-geneva",
+        "fr": "conseiller-juridique-equipe-d-investissement-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -627,7 +627,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-19T09:20:38.189Z"
+      "firstSeenAt": "2026-10-19T09:20:38.189Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-adviser-investment-team-pictet-geneva"
+        ],
+        "de": [
+          "legal-adviser-investment-team-pictet-geneva"
+        ],
+        "fr": [
+          "legal-adviser-investment-team-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "legal-adviser-investment-team-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-403ea060ae05",

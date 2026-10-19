@@ -170,6 +170,7 @@ const NOISE_SELECTORS = [
 const NOSCRIPT_METADATA_TAGS = new Set(['base', 'link', 'meta', 'script', 'style', 'title']);
 const NOSCRIPT_TRACKING_TAGS = new Set(['embed', 'iframe', 'img', 'object', 'source', 'track']);
 const NOSCRIPT_NON_CONTENT_MARKER = /\b(?:ad(?:s|vert(?:isement)?s?)?|analytics?|beacon|consent|gtm|metadata|nosnippet|pixel|tag[-_ ]?manager|track(?:ing)?(?:[-_ ]?pixel)?)\b/i;
+const NOSCRIPT_EDITORIAL_TRACK_ID = /^story(?:[-_]\w+)?$/i;
 
 function removeNoiseNodes(root, { includeNoscript = false } = {}) {
   const selectors = includeNoscript ? [...NOISE_SELECTORS, 'noscript'] : NOISE_SELECTORS;
@@ -439,14 +440,20 @@ function hasNoscriptNonContentMarker(element, { allowTrackIdValueOnly = false } 
   }
   return [...element.attributes]
     .some(({ name, value }) => {
-      // Instrumentation IDs such as data-track-id="story-1" are valid only on
-      // the editorial candidate itself. On wrappers/ancestors the attribute
-      // name remains a tracking marker even when its value is just a number.
+      // Instrumentation IDs such as data-track-id="story-1" identify an
+      // editorial candidate (or its wrapper). On unrelated wrappers the
+      // attribute name remains a tracking marker even when its value is just a
+      // number.
       const markerSource = allowTrackIdValueOnly && /^data-track-id$/i.test(name)
         ? value
         : `${name} ${value}`;
       return NOSCRIPT_NON_CONTENT_MARKER.test(markerSource);
     });
+}
+
+function isEditorialTrackIdCandidate(element) {
+  const value = element.getAttribute('data-track-id');
+  return typeof value === 'string' && NOSCRIPT_EDITORIAL_TRACK_ID.test(value.trim());
 }
 
 function hasNoscriptNonContentAncestor(
@@ -457,7 +464,8 @@ function hasNoscriptNonContentAncestor(
   for (let current = node; current; current = current.parentElement) {
     const tag = current.tagName.toLowerCase();
     const candidateTagIsAllowed = allowCandidateMetadataTag && current === node;
-    const candidateTrackIdIsAllowed = allowCandidateTrackIdValueOnly && current === node;
+    const candidateTrackIdIsAllowed = allowCandidateTrackIdValueOnly
+      && isEditorialTrackIdCandidate(current);
     if ((!candidateTagIsAllowed && NOSCRIPT_METADATA_TAGS.has(tag))
       || (!candidateTagIsAllowed && NOSCRIPT_TRACKING_TAGS.has(tag))
       || hasNoscriptNonContentMarker(current, {
@@ -487,7 +495,9 @@ function extractNoscriptLegacyText(root) {
     const tag = element.tagName.toLowerCase();
     if (NOSCRIPT_METADATA_TAGS.has(tag)
       || NOSCRIPT_TRACKING_TAGS.has(tag)
-      || hasNoscriptNonContentMarker(element)) {
+      || hasNoscriptNonContentAncestor(element, clone, {
+        allowCandidateTrackIdValueOnly: true,
+      })) {
       element.remove();
     }
   }
