@@ -408,8 +408,13 @@ push_head() {
       --timeout-seconds "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" \
       --push \
       2>"$PUSH_STDERR_FILE" || status=$?
+    # A candidate that is no longer a descendant of the refreshed local
+    # origin/main is a normal stale-base race: old_history_guard_main has
+    # already checked that this is not the retired-history rewrite, so the
+    # retry loop must fetch/rebase instead of treating the race as a
+    # destructive candidate. Keep actual integrity/proof failures fatal.
     if [ "$status" -ne 0 ] && grep -qiE \
-      'candidate tree collapse|not a descendant|cannot resolve commit|cannot inspect tree|cannot prove ancestry' \
+      'candidate tree collapse|cannot resolve commit|cannot inspect tree|cannot prove ancestry' \
       "$PUSH_STDERR_FILE"; then
       PUSH_GUARD_FAILED=1
     fi

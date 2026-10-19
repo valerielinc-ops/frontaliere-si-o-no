@@ -151,7 +151,7 @@ function pushMainCandidate(baseSha, worktree, gitFn) {
     });
   } catch (error) {
     const detail = safeError(error);
-    if (/candidate tree collapse|not a descendant|cannot resolve commit|cannot inspect tree|cannot prove ancestry/iu.test(detail)) {
+    if (/candidate tree collapse|cannot resolve commit|cannot inspect tree|cannot prove ancestry/iu.test(detail)) {
       throw mainPushGuardError(error);
     }
     throw error;
