@@ -235,6 +235,19 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     })).toBe(true);
   });
 
+  it('recognizes a mixed form whose only application document field is a cover letter', () => {
+    const snapshot = {
+      passwordVisible: true,
+      fields: [
+        { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *' },
+        { id: 'cover-letter', kind: 'file', inputType: 'file', form: 1, label: 'Cover letter' },
+      ],
+      buttons: [{ id: 'apply', text: 'Submit final application', disabled: false }],
+    };
+
+    expect(ownAccountForm(snapshot)).toBe(true);
+  });
+
   it('finds SuccessFactors privacy review without selecting the optional job alert', () => {
     const controls = privacyConsentControls({
       buttons: [

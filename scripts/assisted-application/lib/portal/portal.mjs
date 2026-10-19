@@ -767,7 +767,15 @@ const NAMES_APPLICATION_RE = /(appl|bewerb|candid|postul)/i;
 // that a SuccessFactors CV input is still in its upload dialog. Keep this
 // narrower than the complete document vocabulary used by the requirements
 // planner: only a CV/resume label counts as the CV being present.
-const CV_FILE_FIELD_RE = /(?<![\p{L}\p{N}])(?:cv|resume|résumé|lebenslauf|curriculum(?:\s+vitae)?)(?![\p{L}\p{N}])/iu;
+const CV_DOCUMENT_TERMS = 'cv|resume|résumé|lebenslauf|curriculum(?:\\s+vitae)?';
+const COVER_LETTER_DOCUMENT_TERMS = 'cover\\s+letter|motivation(?:s|al)?\\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\\s+de\\s+motivation|lettera\\s+di\\s+(?:motivazione|presentazione)';
+const documentContextRe = (terms) => new RegExp(
+  `(?<![\\p{L}\\p{N}\\p{M}])(?:${terms})(?![\\p{L}\\p{N}\\p{M}])`,
+  'iu',
+);
+const CV_DOCUMENT_CONTEXT_RE = documentContextRe(CV_DOCUMENT_TERMS);
+const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe(COVER_LETTER_DOCUMENT_TERMS);
+const CV_FILE_FIELD_RE = CV_DOCUMENT_CONTEXT_RE;
 
 const isFileField = (field) => field?.kind === 'file' || field?.inputType === 'file';
 const isCvFileField = (field) => isFileField(field)
@@ -777,7 +785,10 @@ const isCvFileField = (field) => isFileField(field)
 // control is pressed. The visible page still has application questions (and
 // «Apply») alongside the account password fields, so the CV is not the only
 // reliable marker of an application-owned account form.
-const APPLICATION_ACCOUNT_FIELD_RE = /(work\s+permit|permit\s+for|salary|workload|starting\s+date|notice\s+period|criminal\s+record|proficiency\s+level|how\s+did\s+you\s+hear|region\s+of\s+residence|resume|r[eé]sum[eé]|curriculum|lebenslauf|cv\b|candidatur|bewerbung)/i;
+const APPLICATION_ACCOUNT_FIELD_RE = new RegExp(
+  `(?<![\\p{L}\\p{N}\\p{M}])(?:work\\s+permit|permit\\s+for|salary|workload|starting\\s+date|notice\\s+period|criminal\\s+record|proficiency\\s+level|how\\s+did\\s+you\\s+hear|region\\s+of\\s+residence|${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}|candidatur|bewerbung)(?![\\p{L}\\p{N}\\p{M}])`,
+  'iu',
+);
 
 /**
  * The application form asks for its account's password itself (account.mjs)
@@ -1070,12 +1081,6 @@ const ICON_ONLY_BUTTON_RE = /^[^\p{L}\p{N}]{1,12}$/u;
 // JavaScript's `\b` is ASCII-only and treats `_` as a word character. Document
 // labels can contain accents and filenames commonly use underscores, so only
 // Unicode letters, numbers and combining marks are token characters here.
-const documentContextRe = (terms) => new RegExp(
-  `(?<![\\p{L}\\p{N}\\p{M}])(?:${terms})(?![\\p{L}\\p{N}\\p{M}])`,
-  'iu',
-);
-const CV_DOCUMENT_CONTEXT_RE = documentContextRe('cv|resume|résumé|lebenslauf|curriculum(?:\\s+vitae)?');
-const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe('cover\\s+letter|motivation(?:s|al)?\\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\\s+de\\s+motivation|lettera\\s+di\\s+(?:motivazione|presentazione)');
 const SUCCESS_FACTORS_UPLOAD_MARKER_RE = /(?:upload|hochladen|carica(?:re)?|charger|télécharger|joindre|importer)/i;
 
 const successFactorsButtonAssociation = (button) => [
@@ -1096,6 +1101,12 @@ const successFactorsDocumentPattern = (kind) => kind === 'cv'
   : kind === 'cover_letter'
     ? COVER_LETTER_DOCUMENT_CONTEXT_RE
     : null;
+const successFactorsDocumentAssociationMatches = (association, kind) => {
+  const documentPattern = successFactorsDocumentPattern(kind);
+  const otherPattern = kind === 'cv' ? COVER_LETTER_DOCUMENT_CONTEXT_RE
+    : kind === 'cover_letter' ? CV_DOCUMENT_CONTEXT_RE : null;
+  return Boolean(documentPattern && otherPattern && documentPattern.test(association) && !otherPattern.test(association));
+};
 
 /**
  * Find a document upload control without guessing from an unlabelled icon.
@@ -1124,7 +1135,8 @@ function successFactorsIconButtonFor(snapshot, kind) {
   const candidates = (snapshot?.buttons || []).filter((button) => {
     if (button.disabled || button.chrome || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return false;
     const association = successFactorsButtonAssociation(button);
-    return SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association) && documentPattern.test(association);
+    return SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
+      && successFactorsDocumentAssociationMatches(association, kind);
   });
   return candidates.length === 1 ? candidates[0] : null;
 }
@@ -1142,13 +1154,11 @@ function iconUploadAllowedForPage(page, button, kind = 'cv', snapshot = null) {
   const contextPattern = kind === 'cover_letter' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : CV_DOCUMENT_CONTEXT_RE;
   const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
   if (contextPattern.test(context)) return true;
-  const documentPattern = successFactorsDocumentPattern(kind);
   const association = successFactorsButtonAssociation(button);
   return isSuccessFactorsPage(page)
     && ownAccountForm(snapshot || {})
-    && documentPattern
     && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
-    && documentPattern.test(association);
+    && successFactorsDocumentAssociationMatches(association, kind);
 }
 
 // Tries per page and action in one run: a click a portal drops is tried again
