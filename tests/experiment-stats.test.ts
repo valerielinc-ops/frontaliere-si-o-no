@@ -530,6 +530,13 @@ describe('readout: finestra vincolata alla data effettiva di jobgate-v5', () => 
     })).toEqual({ since: '2026-10-20', until: '2026-10-28' });
   });
 
+  it('keeps --baseline --days independent from the experiment launch floor', () => {
+    expect(resolveJobGateReadoutWindow({ days: '14', baseline: true }, {
+      defaultSince: '2026-10-20',
+      now: new Date('2026-11-20T12:00:00Z'),
+    })).toEqual({ since: '2026-11-05', until: '2026-11-18' });
+  });
+
   it('con una finestra valida arriva al controllo delle credenziali (nessuna rete)', () => {
     const res = spawnSync(process.execPath, [script, '--until', '2026-10-13', '--include-bots'], { encoding: 'utf8', env });
     expect(res.status).toBe(2);

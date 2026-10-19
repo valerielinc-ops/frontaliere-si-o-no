@@ -7,16 +7,15 @@ import { getServiceAccountToken, runGa4Report } from '../lib/ga4-service-account
 import { ANALYTICS_PROCESSING_LAG_DAYS, settledWindow } from '../lib/analytics-settled-window.mjs';
 import {
   GA4_EXCLUDED_TRAFFIC,
-  ga4And,
-  ga4Exact,
   ga4ExcludeTraffic,
+  ga4InList,
 } from '../lib/experiment-stats.mjs';
 import {
   ASSISTED_APPLICATION_COPY_EXPERIMENT_ID,
-  ASSISTED_APPLICATION_COPY_GA4_DIMENSIONS,
   ASSISTED_APPLICATION_COPY_PRIMARY_EVENTS,
-  ASSISTED_APPLICATION_COPY_USER_PROPERTIES,
   ASSISTED_APPLICATION_COPY_SECONDARY_EVENTS,
+  ASSISTED_APPLICATION_COPY_TRACKED_EVENT_NAMES,
+  parseAssistedApplicationCopyEventName,
 } from '../../services/assistedApplicationCopyAnalyticsContract.mjs';
 
 function parseCli(argv) {
@@ -56,9 +55,11 @@ function resolveWindow(args, now = new Date()) {
 export function summarizeCopyReport(response) {
   const byVariant = {};
   for (const row of response?.rows || []) {
-    const [eventName, experiment, variant] = (row.dimensionValues || []).map((value) => value?.value ?? '');
+    const [encodedEventName] = (row.dimensionValues || []).map((value) => value?.value ?? '');
     const [eventCount, totalUsers] = (row.metricValues || []).map((value) => Number(value?.value) || 0);
-    if (experiment !== ASSISTED_APPLICATION_COPY_EXPERIMENT_ID || !variant || !eventName) continue;
+    const parsed = parseAssistedApplicationCopyEventName(encodedEventName);
+    if (!parsed) continue;
+    const { eventName, variant } = parsed;
     byVariant[variant] ||= {};
     byVariant[variant][eventName] = { eventCount, users: totalUsers };
   }
@@ -83,7 +84,7 @@ export async function runCopyReadout(argv = process.argv.slice(2), {
 } = {}) {
   const args = parseCli(argv);
   if (args.help) {
-    console.log('Read-only. Requires GA4_PROPERTY_ID, credentials, and registered USER dimensions aa_copy_experiment + aa_copy_variant.');
+    console.log('Read-only. Requires GA4_PROPERTY_ID and service-account credentials; copy arms are encoded in eventName.');
     return { exitCode: 0 };
   }
   const rawProperty = String(propertyId || '').trim();
@@ -92,27 +93,22 @@ export async function runCopyReadout(argv = process.argv.slice(2), {
   const window = resolveWindow(args, now);
   const token = await getToken(['https://www.googleapis.com/auth/analytics.readonly']);
   if (!token) throw new Error('GA4 read-only authentication failed.');
-  const dimensionNames = [
-    'eventName',
-    `customUser:${ASSISTED_APPLICATION_COPY_USER_PROPERTIES.experiment}`,
-    `customUser:${ASSISTED_APPLICATION_COPY_USER_PROPERTIES.variant}`,
-  ];
   const report = await runReport({
     token,
     propertyId: property,
     body: {
       dateRanges: [{ startDate: window.since, endDate: window.until }],
-      dimensions: dimensionNames.map((name) => ({ name })),
+      dimensions: [{ name: 'eventName' }],
       metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
       dimensionFilter: ga4ExcludeTraffic(
-        ga4And(ga4Exact(`customUser:${ASSISTED_APPLICATION_COPY_USER_PROPERTIES.experiment}`, ASSISTED_APPLICATION_COPY_EXPERIMENT_ID)),
+        ga4InList('eventName', ASSISTED_APPLICATION_COPY_TRACKED_EVENT_NAMES),
         GA4_EXCLUDED_TRAFFIC,
       ),
       limit: 10_000,
     },
   });
   const summary = summarizeCopyReport(report);
-  const result = { window, dimensions: ASSISTED_APPLICATION_COPY_GA4_DIMENSIONS.map((d) => d.parameterName), ...summary };
+  const result = { window, dimensions: ['eventName (copy variant encoded)'], ...summary };
   console.log(`Candidatura assistita · ${window.since} → ${window.until} · ${result.experimentId}`);
   console.log('Escluso il traffico automatico secondo la regola condivisa con gli altri readout.');
   for (const [variant, arm] of Object.entries(result.arms)) {

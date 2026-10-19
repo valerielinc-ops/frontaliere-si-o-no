@@ -5,13 +5,11 @@ import { describe, expect, it, beforeEach, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => ({
   trackExperimentEvent: vi.fn(),
-  setAssistedApplicationCopyAssignment: vi.fn(),
 }));
 
 vi.mock('../services/analytics', () => ({
   Analytics: {
     trackExperimentEvent: mocks.trackExperimentEvent,
-    setAssistedApplicationCopyAssignment: mocks.setAssistedApplicationCopyAssignment,
   },
 }));
 
@@ -192,7 +190,6 @@ describe('assisted application funnel events', () => {
       company_id: 'company-acme',
       price_eur_cents: 99,
     }));
-    expect(mocks.setAssistedApplicationCopyAssignment).toHaveBeenCalledWith(null);
   });
 
   it('joins copy-test events to the copy experiment without replacing the funnel arm', () => {
@@ -208,24 +205,21 @@ describe('assisted application funnel events', () => {
       copy_experiment_id: ASSISTED_APPLICATION_COPY_EXPERIMENT_ID,
       copy_variant: 'time_saved',
     }));
-    expect(mocks.setAssistedApplicationCopyAssignment).toHaveBeenCalledWith('time_saved');
-    expect(mocks.setAssistedApplicationCopyAssignment).toHaveBeenLastCalledWith(null);
-    expect(mocks.setAssistedApplicationCopyAssignment.mock.invocationCallOrder[0])
-      .toBeLessThan(mocks.trackExperimentEvent.mock.invocationCallOrder[0]);
-    expect(mocks.setAssistedApplicationCopyAssignment.mock.invocationCallOrder[1])
-      .toBeGreaterThan(mocks.trackExperimentEvent.mock.invocationCallOrder[0]);
+    expect(mocks.trackExperimentEvent).toHaveBeenCalledWith('aa_copy_started_time_saved', {
+      experiment_id: ASSISTED_APPLICATION_COPY_EXPERIMENT_ID,
+      variant: 'time_saved',
+    });
+    expect(mocks.trackExperimentEvent).toHaveBeenCalledTimes(2);
   });
 
-  it('clears the USER-scoped copy assignment before an event without a copy arm', () => {
+  it('keeps administrator-only events outside the copy experiment', () => {
     trackAssistedApplicationEvent('refund_issued', {
       variant: 'assisted_application',
       jobId: 'job-42',
       companyId: 'company-acme',
     });
 
-    expect(mocks.setAssistedApplicationCopyAssignment).toHaveBeenCalledWith(null);
-    expect(mocks.setAssistedApplicationCopyAssignment.mock.invocationCallOrder[0])
-      .toBeLessThan(mocks.trackExperimentEvent.mock.invocationCallOrder[0]);
+    expect(mocks.trackExperimentEvent).toHaveBeenCalledTimes(1);
     expect(mocks.trackExperimentEvent).toHaveBeenCalledWith('refund_issued', expect.not.objectContaining({ copy_variant: expect.anything() }));
   });
 });

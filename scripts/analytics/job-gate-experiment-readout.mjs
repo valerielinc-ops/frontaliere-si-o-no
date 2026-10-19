@@ -128,7 +128,9 @@ function resolveWindow(experimentStart = null) {
   try {
     return resolveJobGateReadoutWindow(args, {
       experimentStart,
-      defaultSince: args.experiment === JOBGATE_PLAN.experimentId ? JOBGATE_PLAN.analysisStart : null,
+      defaultSince: !args.baseline && args.experiment === JOBGATE_PLAN.experimentId
+        ? JOBGATE_PLAN.analysisStart
+        : null,
     });
   } catch (error) {
     fail(error?.message || String(error));
