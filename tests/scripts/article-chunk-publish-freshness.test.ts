@@ -36,6 +36,7 @@ const LOCAL_IMPORT_RE =
   /(?:import|export)\s[^'"`;]*?from\s*['"](\.{1,2}\/[^'"]+)['"]|import\s*['"](\.{1,2}\/[^'"]+)['"]|import\(\s*['"](\.{1,2}\/[^'"]+)['"]\s*\)/g;
 const SOURCED_SHELL_FILE_RE = /^[ \t]*(?:source|\.)[ \t]+(?:"([^"]+)"|'([^']+)'|([^\s;]+))/gm;
 const SCRIPT_DIR_PATH_ASSIGNMENT_RE = /^[ \t]*([A-Za-z_][A-Za-z0-9_]*)=["']?\$script_dir\/([^"'\s;]+)["']?[ \t]*$/gm;
+const NODE_SHELL_SCRIPT_RE = /\bnode[ \t]+["']?\$([A-Za-z_][A-Za-z0-9_]*)["']?(?=[ \t]|$)/g;
 
 // Code the replay reaches without it deciding a single written byte. The walk
 // below stops at each entry, has to reach every one of them, and each carries
@@ -87,6 +88,17 @@ function reachedFrom(relativePath: string): string[] {
     const scriptDirPaths = new Map<string, string>();
     for (const match of code.matchAll(SCRIPT_DIR_PATH_ASSIGNMENT_RE)) {
       scriptDirPaths.set(match[1], match[2]);
+    }
+    for (const match of code.matchAll(NODE_SHELL_SCRIPT_RE)) {
+      const scriptRelativePath = scriptDirPaths.get(match[1]);
+      expect(
+        scriptRelativePath,
+        `${relativePath} invokes an untracked Node script variable: ${match[1]}`,
+      ).toBeTruthy();
+      reached.add(path.relative(
+        ROOT_DIR,
+        path.resolve(ROOT_DIR, path.dirname(relativePath), scriptRelativePath as string),
+      ).split(path.sep).join('/'));
     }
     for (const match of code.matchAll(SOURCED_SHELL_FILE_RE)) {
       const source = match[1] ?? match[2] ?? match[3];

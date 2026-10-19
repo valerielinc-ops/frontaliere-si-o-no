@@ -48,6 +48,8 @@ export const ARTICLE_PUBLISHER_CODE_PATHS = Object.freeze([
   'scripts/lib/upload-cdn-file.sh',
   'scripts/lib/r2-image-lease-process.sh',
   'scripts/lib/r2-image-namespace-lock.mjs',
+  'scripts/lib/r2-section-lock.mjs',
+  'scripts/lib/is-invoked-directly.mjs',
   'infra/cloudflare-worker/locale-router.js',
   'scripts/lib/pharmacySections.mjs',
   'infra/cloudflare-worker/ticino-tree-bucket.js',
