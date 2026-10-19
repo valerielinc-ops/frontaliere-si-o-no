@@ -99,6 +99,19 @@ jobs:
         run: node scripts/load-rc-env.mjs
         continue-on-error: true
 
+      - name: Discover sector-hub expansion candidates
+        # Rebuild the candidate queue from the same assembled ads snapshot as
+        # the weekly employer report. GA4/GSC are read-only; the evidence copy
+        # stays in RUNNER_TEMP so a push-rebase can reuse it without another
+        # Analytics API sweep or committing raw search queries.
+        run: |
+          if [ ! -s data/jobs.json ]; then
+            echo "::warning::Skipping sector-hub discovery: assembled data/jobs.json is missing."
+            exit 0
+          fi
+          npx tsx scripts/discover-sector-hub-candidates.ts \
+            --traffic-output "$RUNNER_TEMP/sector-hub-traffic.json"
+
       # ── OmniRoute (ON by default, RC kill-switch ENABLE_OMNIROUTE_FALLBACK='0')
       # Self-hosted local AI gateway, offered in ai-models.mjs's DEFAULT_CHAIN
       # as AI_MODELS.OMNIROUTE_AUTO. See
@@ -153,7 +166,7 @@ jobs:
             echo "No changes to snapshot — nothing to commit."
             exit 0
           fi
-          git commit -m "chore(seo): refresh weekly-employers snapshot + related-search clusters
+          git commit -m "chore(seo): refresh weekly snapshots, related-search clusters and sector-hub candidates
 
           Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
 
@@ -161,7 +174,7 @@ jobs:
           # other scheduled workflows. On rebase conflict, regenerate the
           # snapshot + delta + footer pairs + cluster data on top of the new base.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; node scripts/audit-related-search-candidates.mjs || true; node scripts/ingest-gsc-orphans-into-candidates.mjs || true; bash scripts/lib/stage-weekly-snapshot-files.sh"
+            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; node scripts/audit-related-search-candidates.mjs || true; node scripts/ingest-gsc-orphans-into-candidates.mjs || true; if [ -s data/jobs.json ]; then npx tsx scripts/discover-sector-hub-candidates.ts --traffic-input '$RUNNER_TEMP/sector-hub-traffic.json'; fi; bash scripts/lib/stage-weekly-snapshot-files.sh"
 
       - name: Cleanup Codex auth broker
         if: always()

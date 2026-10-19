@@ -619,7 +619,7 @@ function wordCount(s: string | undefined | null): number {
   return String(s).trim().split(/\s+/).filter(Boolean).length;
 }
 
-function jobIsActive(job: SectorCountableJob, locale: JobBoardLocale): boolean {
+export function isSectorHubJobActive(job: SectorCountableJob, locale: JobBoardLocale): boolean {
   if (!job || typeof job !== 'object') return false;
   if (job.expired) return false;
   const nr = job.needsRetranslation;
@@ -870,13 +870,13 @@ export function countSectorJobsByLocale(
       // per locale; only a miss falls through to the per-locale delta.
       const canonicalMatch = jobMatchesSectorCanonical(job, sector);
       for (const locale of ['it', 'en', 'de', 'fr'] as JobBoardLocale[]) {
-        // Match check (cheap: title-length regex) BEFORE jobIsActive (expensive:
+        // Match check (cheap: title-length regex) BEFORE isSectorHubJobActive (expensive:
         // wordCount() over the full description) — mirrors the original
-        // locale-agnostic loop's `continue`-before-jobIsActive short-circuit, so
+        // locale-agnostic loop's `continue`-before-isSectorHubJobActive short-circuit, so
         // the per-locale scoping fix (#4715) doesn't turn into an O(jobs × sectors
         // × locales) wordCount() sweep on the full CH dataset.
         if (!canonicalMatch && !jobMatchesSector(job, sector, locale)) continue;
-        if (jobIsActive(job, locale)) counts[locale][sector]++;
+        if (isSectorHubJobActive(job, locale)) counts[locale][sector]++;
       }
     }
   }
@@ -893,7 +893,7 @@ export function filterSectorJobs(
   if (!Array.isArray(jobs)) return [];
   const matches: SectorCountableJob[] = [];
   for (const job of jobs) {
-    if (!jobIsActive(job, locale)) continue;
+    if (!isSectorHubJobActive(job, locale)) continue;
     if (jobMatchesSector(job, sector, locale)) matches.push(job);
   }
   matches.sort((a, b) => {

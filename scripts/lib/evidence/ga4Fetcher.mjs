@@ -89,12 +89,13 @@ async function loadPublishedDates() {
 }
 
 /**
- * Fetch per-page sessions + engagement, last `startDate..endDate` window.
+ * Fetch per-page sessions, views and engagement, last `startDate..endDate` window.
  * Excludes newsletter-sourced sessions; direct, paid and referral traffic remain included.
  * @param {object} options
  * @param {string} options.propertyId - GA4 property id (with or without `properties/` prefix)
  * @param {string} options.startDate - YYYY-MM-DD
  * @param {string} options.endDate - YYYY-MM-DD
+ * @param {number} [options.minSessions=GA4_MIN_SESSIONS] - Minimum sessions retained per page.
  * @param {Function} [options.fetchImpl=fetch]
  * @param {Function} [options.getTokenImpl=getServiceAccountToken]
  * @returns {Promise<{pages: object, error?: string}>}
@@ -103,6 +104,7 @@ export async function fetchGa4Pages({
   propertyId,
   startDate,
   endDate,
+  minSessions = GA4_MIN_SESSIONS,
   fetchImpl = fetch,
   getTokenImpl = () => getServiceAccountToken([GA4_READONLY_SCOPE]),
 } = {}) {
@@ -167,8 +169,9 @@ export async function fetchGa4Pages({
       const path = r.dimensionValues?.[0]?.value || '';
       if (!path) continue;
       const sessions = Number(r.metricValues?.[0]?.value || 0);
-      if (sessions < GA4_MIN_SESSIONS) continue;
+      if (sessions < minSessions) continue;
       const engageDur = Number(r.metricValues?.[1]?.value || 0);
+      const pageviews = Number(r.metricValues?.[2]?.value || 0);
       const engageTime = sessions > 0 ? Number((engageDur / sessions).toFixed(2)) : 0;
       const cluster = attachClusterFromPath(path, blogMetaIt);
       const slugMatch = path.match(/\/articoli-frontaliere\/([^/?#]+)/);
@@ -176,6 +179,7 @@ export async function fetchGa4Pages({
       const publishedAt = slug && publishedDates.has(slug) ? publishedDates.get(slug) : null;
       pages[path] = {
         sessions,
+        pageviews,
         engageTime,
         publishedAt,
         cluster,

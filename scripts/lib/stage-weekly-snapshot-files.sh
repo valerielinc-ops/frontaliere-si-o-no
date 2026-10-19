@@ -24,7 +24,7 @@
 set -uo pipefail
 
 # Core weekly-snapshot files — never gated on related-search file size.
-git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json 2>/dev/null || true
+git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json data/sector-hub-candidates.json 2>/dev/null || true
 
 # Related-search corpus files — gated on their OWN push-safety ceiling
 # (#1576/#1658), checked one file at a time so one oversize file never blocks
