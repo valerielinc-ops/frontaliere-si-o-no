@@ -469,6 +469,22 @@ function getCantonProseBlock(
   entityName: string | null,
 ): string {
   const entityKey = entityName ? entityName.trim() : '';
+  // Company/city pages carry a per-page entity in their fourth FAQ and intro.
+  // Do not retain those large, entity-specific blocks for the whole build:
+  // the number of company×city combinations is data-driven and therefore not
+  // a safe memoization cardinality. The low-cardinality no-entity variants
+  // remain cached below.
+  if (entityKey) {
+    return renderCantonSeoProse({
+      locale,
+      cantonDisplay,
+      slot,
+      entityName: entityKey,
+      countHint: null,
+      ctaHref: null,
+      ctaLabel: null,
+    });
+  }
   const key = `${locale}::${cantonDisplay}::${slot}::${entityKey}`;
   const cached = cantonProseCache.get(key);
   if (cached !== undefined) return cached;
@@ -498,27 +514,19 @@ function getCantonProseBlock(
  * the same HTML. It uses semantic colour tokens from index.css so the prose
  * works in light + dark mode without `dark:` class prefixes (CLAUDE.md rule).
  */
-// Memo cache keyed by the full opts tuple. The output is a deterministic
-// function of opts (no module-level mutable state, no Date.now() calls),
-// so caching the full HTML is safe.
-//
-// Cardinality grew after the May 9 baseline (memory:
-// project_cluster_render_optimization_may9 → ~560 unique outputs) because
-// `cantonEntityName` was added for company-landing rows: it carries
-// "${companyName} — ${cityDisplay}" → ~500 companies × ~50 cities × 4
-// locales ≈ 100k upper-bound combinations. Realistic build hits ~20-30k
-// distinct keys (most company × city pairs don't exist).
-//
-// maxSize = 30000 keeps the cap as a fail-loud guardrail (a per-slug
-// parameter still surfaces as a build error, not a silent leak) but gives
-// headroom for the legitimate company × city × locale fan-out. At ~1-2 KB
-// per cached HTML the peak heap cost is ~30-60 MB — fine for the 7 GB
-// CI heap. If this cap is hit again, the next steps are: (a) split into
-// two caches (low-cardinality opts vs. company-landing opts), or (b)
-// strip cantonEntityName from the key and re-render the entity-name line
-// per call (cheap — single string concat).
+// Memo cache for the low-cardinality opts tuple. Entity-aware company/city
+// contexts are deliberately rendered per call: their canton prose contains
+// the page's entity name, so retaining one full multi-KB HTML string per
+// data-driven page would make the cache cardinality grow with the corpus.
+// The hard cap remains a fail-loud guardrail for the genuinely bounded
+// shared variants.
 const COMMUTER_CONTEXT_CACHE = new Map<string, string>();
 const COMMUTER_CONTEXT_CACHE_MAX = 30000;
+
+function isEntitySpecificCantonContext(opts: JobBoardCommuterContextOpts): boolean {
+  const entityAwareSlot = opts.cantonSlot === 'company-landing' || opts.cantonSlot === 'city-landing';
+  return Boolean(opts.cantonEntityName?.trim() && entityAwareSlot);
+}
 
 function commuterContextCacheKey(opts: JobBoardCommuterContextOpts): string {
   // Stable concatenation in field order — cheaper than JSON.stringify on a
@@ -529,24 +537,26 @@ function commuterContextCacheKey(opts: JobBoardCommuterContextOpts): string {
     (opts.sectorOrType ?? '') + '\x00' +
     (opts.omitCommute ? '1' : '0') + '\x00' +
     (opts.cantonDisplay ?? '') + '\x00' +
-    (opts.cantonSlot ?? '') + '\x00' +
-    (opts.cantonEntityName ?? '')
+    (opts.cantonSlot ?? '')
   );
 }
 
 export function renderJobBoardCommuterContext(
   opts: JobBoardCommuterContextOpts,
 ): string {
+  const entitySpecific = isEntitySpecificCantonContext(opts);
   const cacheKey = commuterContextCacheKey(opts);
-  const cached = COMMUTER_CONTEXT_CACHE.get(cacheKey);
-  if (cached !== undefined) return cached;
-  if (COMMUTER_CONTEXT_CACHE.size >= COMMUTER_CONTEXT_CACHE_MAX) {
-    throw new Error(
-      `renderJobBoardCommuterContext memo cache exceeded maxSize=${COMMUTER_CONTEXT_CACHE_MAX}. ` +
-      `Last key: ${JSON.stringify(opts)}. ` +
-      `Either raise the cap (if cardinality is genuinely bounded) or remove the offending ` +
-      `per-page parameter from opts so the cache key space stays bounded.`,
-    );
+  if (!entitySpecific) {
+    const cached = COMMUTER_CONTEXT_CACHE.get(cacheKey);
+    if (cached !== undefined) return cached;
+    if (COMMUTER_CONTEXT_CACHE.size >= COMMUTER_CONTEXT_CACHE_MAX) {
+      throw new Error(
+        `renderJobBoardCommuterContext memo cache exceeded maxSize=${COMMUTER_CONTEXT_CACHE_MAX}. ` +
+        `Last key: ${JSON.stringify(opts)}. ` +
+        `Either raise the cap (if cardinality is genuinely bounded) or remove the offending ` +
+        `per-page parameter from opts so the cache key space stays bounded.`,
+      );
+    }
   }
 
   const {
@@ -595,17 +605,20 @@ export function renderJobBoardCommuterContext(
     )
     .join('');
 
-  // Optional canton-aware prose appended ONLY for non-TI canton editorial
-  // pages. Adds ~5 KB of canton-specific intro/methodology/permit/FAQ/links
-  // so the heavy host page (~95-145 KB) clears the 10 % Semrush text/HTML
-  // gate that the legacy block alone could not reach for non-TI cantons.
-  // TI keeps its byte-identical output (HARD INVARIANT per CLAUDE.md
-  // non-negotiables #1, #5, #6).
+  // Optional canton-aware prose appended for non-TI editorial pages and for
+  // entity-aware company/city pages. It adds ~5 KB of canton-specific
+  // intro/methodology/permit/FAQ/links so heavy non-TI host pages clear the
+  // 10 % Semrush text/HTML gate. TI keeps byte-identical output for the
+  // legacy no-entity path.
   let cantonBlock = '';
   if (cantonDisplay && cantonDisplay.trim()) {
     const displayLower = cantonDisplay.trim().toLowerCase();
     const isTicino = displayLower === 'ticino' || displayLower === 'tessin';
-    if (!isTicino) {
+    // Keep the legacy Ticino output unchanged unless the caller supplies an
+    // entity-aware context. Those pages need the entity-specific prose too,
+    // otherwise their names are absent and the context cannot be safely
+    // shared with another company/city page.
+    if (!isTicino || entitySpecific) {
       const slot: CantonSeoSlot = cantonSlot || 'canton-hub';
       cantonBlock = getCantonProseBlock(
         locale,
@@ -630,7 +643,7 @@ export function renderJobBoardCommuterContext(
   <p class="s-clIDbe">${crossLinks}</p>
 ${cantonBlock}
 </section>`;
-  COMMUTER_CONTEXT_CACHE.set(cacheKey, html);
+  if (!entitySpecific) COMMUTER_CONTEXT_CACHE.set(cacheKey, html);
   return html;
 }
 
