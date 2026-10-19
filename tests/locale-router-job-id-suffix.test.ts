@@ -47,6 +47,14 @@ describe.each(['GET', 'HEAD'])('registry-confirmed vacancy aliases with a source
     expect(response.headers.get('Location')).toBe('/cerca-lavoro-appenzello/known-job/');
   });
 
+  it('also preserves method parity for a registry-confirmed canton migration without a numeric suffix', async () => {
+    mockFetch('/de/jobs-im-luzern');
+    const response = await worker.fetch(new Request(`${APEX}/de/jobs-in-nidwalden/known-job/?utm_source=gsc`, { method }), {}, ctx);
+    expect(response.status).toBe(301);
+    expect(response.headers.get('Location')).toBe('/de/jobs-im-luzern/known-job/?utm_source=gsc');
+    expect(await response.text()).toBe('');
+  });
+
   it.each([404, 410, 429, 503])('distinguishes a missing vacancy from unavailable target verification (%s)', async (targetStatus) => {
     mockFetch('/cerca-lavoro-zurigo', { targetStatus });
     const response = await worker.fetch(new Request(`${APEX}/cerca-lavoro-zurigo/known-job/5162`, { method }), {}, ctx);
