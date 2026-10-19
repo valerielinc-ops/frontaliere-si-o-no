@@ -1251,6 +1251,17 @@ describe('careers trail', () => {
     });
   });
 
+  it('keeps overlay link text bounded by a case-insensitive closing tag', () => {
+    const links = extractLinks(
+      '<A href="/jobs">Jobs</A><a href="/other">Other</a>',
+      'https://acme.ch/',
+    );
+    expect(links.map(({ url, text }) => ({ url, text }))).toEqual([
+      { url: 'https://acme.ch/jobs', text: 'Jobs' },
+      { url: 'https://acme.ch/other', text: 'Other' },
+    ]);
+  });
+
   it('only accepts unlabelled third-party links in relaxed mode', () => {
     const links = [{ url: 'https://acme.ats.example/', text: '', host: 'acme.ats.example' }];
     expect(externalAtsLinks(links, 'acme.ch')).toEqual([]);

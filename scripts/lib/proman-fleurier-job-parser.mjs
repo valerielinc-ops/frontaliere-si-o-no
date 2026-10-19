@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang, appendSlugDisambiguator } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
@@ -68,10 +69,14 @@ const PROMAN_SOURCE_LOCATION_LOCALITIES = new Map([
 function classContainer(html = '', className = '') {
   const escaped = String(className || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const match = new RegExp(
-    `<([a-z][\\w:-]*)\\b[^>]*\\bclass\\s*=\\s*["'][^"']*\\b${escaped}\\b[^"']*["'][^>]*>([\\s\\S]*?)<\\/\\1>`,
+    `<([a-z][\\w:-]*)\\b[^>]*\\bclass\\s*=\\s*["'][^"']*\\b${escaped}\\b[^"']*["'][^>]*>`,
     'i',
   ).exec(String(html || ''));
-  return match?.[2] || '';
+  if (!match) return '';
+  return extractBalancedTagBlock(
+    String(html || '').slice(match.index + match[0].length),
+    match[1],
+  );
 }
 
 /**
@@ -166,10 +171,12 @@ export function extractPromanFleurierDetailFields(html = '', pageUrl = '') {
       ? { addressLocality: PROMAN_SOURCE_LOCATION_LOCALITIES.get(locationKey(sourceDetail.location)) }
       : {}),
   };
+  const cantonOnly = locationKey(sourceDetail.location) === 'canton de neuchatel';
   const fields = sourceBackedSwissGeographyFields(evidenceCandidate, decision.geography);
   return {
     ...sourceDetail,
     ...fields,
+    ...(cantonOnly ? { addressLocality: '' } : {}),
     locationCandidates: [{ ...evidenceCandidate, ...fields }],
   };
 }
@@ -235,7 +242,9 @@ export async function fetchAllPromanFleurierJobs(runtime = {}) {
       source: 'PROMAN Official Dedicated Parser',
       sourceLang,
       crawledAt: new Date().toISOString(),
-      addressLocality: listing.addressLocality || geography.location,
+      addressLocality: locationKey(listing.location) === 'canton de neuchatel'
+        ? ''
+        : (listing.addressLocality || geography.location),
       addressRegion: geography.canton,
       ...(listing.addressCountry ? { addressCountry: listing.addressCountry } : {}),
       ...(listing.postalCode ? { postalCode: listing.postalCode } : {}),

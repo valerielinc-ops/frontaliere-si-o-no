@@ -28,7 +28,7 @@ const currentRenderedFixture = `
       </ul>
       <p class="u-intro"></p>
       <ul class="u-specs">
-        <p>Votre profil</p><div>Formation technique achevée et expérience confirmée dans l'automation industrielle.</div>
+        <p>Votre profil</p><div><ul><li>Formation technique achevée</li><li>Expérience confirmée dans l'automation industrielle.</li></ul></div>
         <p>Vos tâches</p><div>Réaliser le montage, le câblage et la mise en service des équipements.</div>
       </ul>
     </article>
@@ -61,8 +61,9 @@ describe('PROMAN Fleurier source-backed crawler', () => {
     expect(detail.title).toBe('Automaticien de production');
     expect(detail.location).toBe('Canton de Neuchâtel');
     expect(detail.canton).toBe('NE');
-    expect(detail.addressLocality).toBe('Neuchâtel');
+    expect(detail.addressLocality).toBe('');
     expect(detail.description).toContain('montage');
+    expect(detail.description).toContain('Expérience confirmée');
     expect(detail.description).not.toContain('Personne de contact');
   });
 

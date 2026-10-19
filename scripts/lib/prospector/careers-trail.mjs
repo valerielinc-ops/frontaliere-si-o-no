@@ -155,7 +155,8 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
     if (!href) continue;
     if (/^(#|mailto:|tel:|javascript:|data:)/i.test(href.trim())) continue;
     // Anchor text = the markup up to the next </a>, tags stripped.
-    const anchorClose = html.indexOf('</a>', rx.lastIndex);
+    const closeOffset = html.slice(rx.lastIndex).search(/<\/a>/i);
+    const anchorClose = closeOffset >= 0 ? rx.lastIndex + closeOffset : -1;
     const rest = html.slice(rx.lastIndex, anchorClose >= 0 ? anchorClose : rx.lastIndex + 400);
     const text = rest.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
     const aria = readAttr(attrs, ['aria-label', 'title']);
