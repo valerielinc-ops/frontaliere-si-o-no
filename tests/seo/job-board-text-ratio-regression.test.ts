@@ -115,4 +115,24 @@ describe('renderJobBoardCommuterContext — text-to-HTML ratio', () => {
     const b = renderJobBoardCommuterContext({ locale: 'it', location: 'Lugano' });
     expect(a).toBe(b);
   });
+
+  it('does not retain entity-specific contexts past the shared cache cap', () => {
+    let first = '';
+    let last = '';
+    for (let i = 0; i <= 30_000; i += 1) {
+      const html = renderJobBoardCommuterContext({
+        locale: 'de',
+        location: 'Zug',
+        omitCommute: true,
+        cantonDisplay: 'Zug',
+        cantonSlot: 'company-landing',
+        cantonEntityName: `Azienda ${i} — Zug`,
+      });
+      if (i === 0) first = html;
+      if (i === 30_000) last = html;
+    }
+    expect(first).toContain('Azienda 0 — Zug');
+    expect(last).toContain('Azienda 30000 — Zug');
+    expect(last).not.toBe(first);
+  });
 });
