@@ -201,6 +201,24 @@ describe('extractArticleText', () => {
     expect(result.text).toBe('');
   });
 
+  it('recognizes a real noscript boundary after ordinary JavaScript division', () => {
+    const outerParagraph = 'Outer source prose after a single division slash remains available to extraction.';
+    const html = '<main><noscript><script>const ratio = 4 / 2;'
+      + `</noscript><p>${outerParagraph}</p></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(outerParagraph);
+  });
+
+  it('ignores raw-text-looking openers inside HTML comments', () => {
+    const outerParagraph = 'Editorial prose after a commented script opener remains available to extraction.';
+    const html = '<main><noscript><!-- <script> -->'
+      + `<p>${outerParagraph}</p></noscript></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(outerParagraph);
+  });
+
   it('fails closed on a minified JavaScript comparison before a paragraph-shaped tail', () => {
     const html = '<main><noscript><script>const comparison=a<p>b; '
       + '<p>COMPARISON_PAYLOAD</p></main>';
@@ -436,6 +454,19 @@ describe('extractArticleText', () => {
     expect(result.text).toContain('Editorial fallback paragraph one');
     expect(result.text).toContain('Editorial fallback paragraph two');
     expect(result.text).not.toContain('Tracking payload paragraph');
+  });
+
+  it('filters numeric data-track-id wrappers while preserving the candidate paragraph', () => {
+    const editorial = 'Editorial fallback paragraph with a normal tracking identifier remains eligible for extraction.';
+    const tracking = 'Numeric tracking wrapper payload must never enter the extracted article text.';
+    const html = '<article><noscript>'
+      + `<p data-track-id="story-1">${editorial}</p>`
+      + `<div data-track-id="123"><p>${tracking}</p></div>`
+      + '</noscript></article>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(editorial);
+    expect(result.text).not.toContain(tracking);
   });
 
   it('caps very long noscript paragraphs before the final source join', () => {

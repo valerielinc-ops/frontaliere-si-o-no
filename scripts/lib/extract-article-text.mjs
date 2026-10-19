@@ -187,14 +187,23 @@ function collectParagraphTexts(root, include = () => true, maxChars = Number.POS
     .filter(Boolean);
 }
 
-const NOSCRIPT_RAW_TEXT_OPEN_RE = /<(script|style|textarea|title|xmp|iframe|noembed|noframes|plaintext)\b[^>]*>/gi;
+const NOSCRIPT_RAW_TEXT_TOKEN_RE = /<!--[\s\S]*?(?:-->|$)|<(script|style|textarea|title|xmp|iframe|noembed|noframes|plaintext)\b[^>]*>/gi;
 const NOSCRIPT_RECOVERABLE_TAIL_RE = /^<(p|h2|h3|h4|li|blockquote)\b[^>]*>/i;
 const NOSCRIPT_END_TAG_RE = /^<\/noscript\s*>/i;
+const NOSCRIPT_REGEX_PREFIX_KEYWORDS = new Set([
+  'await', 'case', 'delete', 'do', 'else', 'extends', 'in', 'instanceof',
+  'new', 'of', 'return', 'throw', 'typeof', 'void', 'yield',
+]);
+const JS_IDENTIFIER_START_RE = /[A-Za-z_$]/;
+const JS_IDENTIFIER_PART_RE = /[A-Za-z0-9_$]/;
 
 function findUnclosedNoscriptRawTextElement(markup) {
-  const rawTextOpening = new RegExp(NOSCRIPT_RAW_TEXT_OPEN_RE.source, 'gi');
+  const rawTextOpening = new RegExp(NOSCRIPT_RAW_TEXT_TOKEN_RE.source, 'gi');
   let opening;
   while ((opening = rawTextOpening.exec(markup))) {
+    // A raw-text-looking opener inside an HTML comment is not an element and
+    // must not poison the rest of the noscript fallback.
+    if (!opening[1]) continue;
     const tag = opening[1].toLowerCase();
     if (tag === 'plaintext') {
       return { contentStart: rawTextOpening.lastIndex, tag };
@@ -215,6 +224,10 @@ function hasClosedNoscriptRawTextElements(markup) {
 
 function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
   let state = 'code';
+  // A slash starts a regexp only where JavaScript expects an expression. A
+  // plain division such as `4 / 2` must leave the scanner in code so that the
+  // real `</noscript>` boundary remains visible.
+  let canStartRegex = true;
   for (let index = contentStart; index < markup.length; index += 1) {
     const char = markup[index];
     const next = markup[index + 1];
@@ -231,6 +244,7 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
       } else if ((state === 'single-quote' && char === "'")
         || (state === 'double-quote' && char === '"')) {
         state = 'code';
+        canStartRegex = false;
       }
       continue;
     }
@@ -257,6 +271,7 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
         state = 'regex-literal';
       } else if (state === 'regex-literal' && char === '/') {
         state = 'code';
+        canStartRegex = false;
       }
       continue;
     }
@@ -264,6 +279,7 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
     if (state === 'html-comment') {
       if (markup.startsWith('-->', index)) {
         state = 'code';
+        canStartRegex = true;
         index += 2;
       }
       continue;
@@ -289,10 +305,38 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
       state = 'block-comment';
       index += 1;
     } else if (char === '/') {
-      state = 'regex-literal';
+      if (canStartRegex) {
+        state = 'regex-literal';
+      } else {
+        // Division consumes an operator position and the next token is an
+        // expression, which may itself be a regexp literal.
+        canStartRegex = true;
+      }
     } else if (markup.startsWith('<!--', index)) {
       state = 'html-comment';
       index += 3;
+      canStartRegex = true;
+    } else if (/\s/u.test(char)) {
+      continue;
+    } else if (JS_IDENTIFIER_START_RE.test(char)) {
+      let end = index + 1;
+      while (end < markup.length && JS_IDENTIFIER_PART_RE.test(markup[end])) end += 1;
+      const word = markup.slice(index, end);
+      canStartRegex = NOSCRIPT_REGEX_PREFIX_KEYWORDS.has(word);
+      index = end - 1;
+    } else if (/[0-9]/u.test(char)) {
+      canStartRegex = false;
+    } else if ('([{'.includes(char)) {
+      canStartRegex = true;
+    } else if (')]}'.includes(char)) {
+      canStartRegex = false;
+    } else if ((char === '+' || char === '-') && next === char) {
+      // Both prefix and postfix ++/-- produce a value before a following
+      // slash, so treating the pair as an expression keeps division safe.
+      canStartRegex = false;
+      index += 1;
+    } else if (',;:?=!.~*%&|^<>'.includes(char)) {
+      canStartRegex = true;
     }
   }
   return -1;
@@ -370,7 +414,7 @@ function parseNoscriptFallback(noscript, sourceMarkup) {
   return normalized;
 }
 
-function hasNoscriptNonContentMarker(element) {
+function hasNoscriptNonContentMarker(element, { allowTrackIdValueOnly = false } = {}) {
   if (element.hasAttribute('data-nosnippet')
     || element.hasAttribute('hidden')
     || element.getAttribute('aria-hidden') === 'true') {
@@ -378,21 +422,30 @@ function hasNoscriptNonContentMarker(element) {
   }
   return [...element.attributes]
     .some(({ name, value }) => {
-      // Instrumentation IDs such as data-track-id="story-1" are valid on
-      // editorial fallback paragraphs. Only that exact attribute is classified
-      // from its value; marker names such as data-track-pixel stay visible.
-      const markerSource = /^data-track-id$/i.test(name) ? value : `${name} ${value}`;
+      // Instrumentation IDs such as data-track-id="story-1" are valid only on
+      // the editorial candidate itself. On wrappers/ancestors the attribute
+      // name remains a tracking marker even when its value is just a number.
+      const markerSource = allowTrackIdValueOnly && /^data-track-id$/i.test(name)
+        ? value
+        : `${name} ${value}`;
       return NOSCRIPT_NON_CONTENT_MARKER.test(markerSource);
     });
 }
 
-function hasNoscriptNonContentAncestor(node, root, { allowCandidateMetadataTag = false } = {}) {
+function hasNoscriptNonContentAncestor(
+  node,
+  root,
+  { allowCandidateMetadataTag = false, allowCandidateTrackIdValueOnly = false } = {},
+) {
   for (let current = node; current; current = current.parentElement) {
     const tag = current.tagName.toLowerCase();
     const candidateTagIsAllowed = allowCandidateMetadataTag && current === node;
+    const candidateTrackIdIsAllowed = allowCandidateTrackIdValueOnly && current === node;
     if ((!candidateTagIsAllowed && NOSCRIPT_METADATA_TAGS.has(tag))
       || (!candidateTagIsAllowed && NOSCRIPT_TRACKING_TAGS.has(tag))
-      || hasNoscriptNonContentMarker(current)) {
+      || hasNoscriptNonContentMarker(current, {
+        allowTrackIdValueOnly: candidateTrackIdIsAllowed,
+      })) {
       return true;
     }
     if (current === root) break;
@@ -401,7 +454,10 @@ function hasNoscriptNonContentAncestor(node, root, { allowCandidateMetadataTag =
 }
 
 function noscriptJsonLdIsEditorial(script, root) {
-  return !hasNoscriptNonContentAncestor(script, root, { allowCandidateMetadataTag: true });
+  return !hasNoscriptNonContentAncestor(script, root, {
+    allowCandidateMetadataTag: true,
+    allowCandidateTrackIdValueOnly: true,
+  });
 }
 
 function emptyNoscriptFallback() {
@@ -433,7 +489,9 @@ function inspectNoscriptFallback(noscript, maxChars, sourceMarkup) {
   return {
     paragraphs: collectParagraphTexts(
       root,
-      node => !hasNoscriptNonContentAncestor(node, root),
+      node => !hasNoscriptNonContentAncestor(node, root, {
+        allowCandidateTrackIdValueOnly: true,
+      }),
       maxChars,
     ),
     jsonLdBody: extractFromJsonLd(root, script => noscriptJsonLdIsEditorial(script, root)),
