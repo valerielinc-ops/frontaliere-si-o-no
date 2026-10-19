@@ -20520,6 +20520,41 @@
         "sourceGeneratedAt": "2026-09-04T10:50:00.683Z",
         "reportedMunicipalPath": "/eventi/argovia/beinwil-freiamt/"
       }
+    },
+    {
+      "id": "ge-agenda:tournee-estivale-communes-samedis-velo-11-juillet",
+      "title": "Tournée estivale des Communes - Samedis du Vélo 11 juillet",
+      "startDate": "2026-07-04",
+      "endDate": "2026-07-11",
+      "category": "Animation",
+      "region": "Genève",
+      "venue": "Place de Pont Rouge sous le gigantesque totem à horloge rouge",
+      "url": "https://www.pro-velo-geneve.ch/tourn_e_samedi_du_v_lo_lancy_en_juillet",
+      "sourceKey": "ge-agenda",
+      "sourceName": "PRO VELO Genève",
+      "comune": "Lancy",
+      "canton": "GE",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "tournee-estivale-des-communes-samedis-du-velo-11-juillet-2027-07-04"
+        }
+      ],
+      "recoveryEvidence": {
+        "sourceSnapshot": "ffa8339eddb6910fa5dfdab3598bbd3ec7b51d7b",
+        "sourceGeneratedAt": "2026-07-07T09:25:23.155Z",
+        "reportedRoute": "/fr/evenements/geneve/geneve/tournee-estivale-des-communes-samedis-du-velo-11-juillet-2027-07-04/",
+        "primaryUrl": "https://www.pro-velo-geneve.ch/tourn_e_samedi_du_v_lo_lancy_en_juillet",
+        "supportingUrl": "https://www.geneve-communes.ch/agenda?date_type=this_weekend&f%5B0%5D=dates_range%3A%28min%3A1783756800%2Cmax%3A1783756800%29",
+        "programUrl": "https://www.pro-velo-geneve.ch/samedis_du_velo_geneve",
+        "locationUrl": "https://www.lancy.ch/annuaire/place-de-pont-rouge",
+        "checkedAt": "2026-10-19",
+        "matchingFields": ["endDate", "venue", "eventProgram"],
+        "supportingMatchingFields": ["title", "startDate", "recurrenceDates"],
+        "supersededParsedStartDate": "2027-07-04",
+        "supersededParsedComune": "Genève"
+      }
     }
   ]
 }

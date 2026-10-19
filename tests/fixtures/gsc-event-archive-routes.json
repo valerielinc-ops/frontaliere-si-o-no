@@ -683,7 +683,8 @@
     ["/eventi/ticino/altri-eventi/kino-tschlin-lunch-box-2026-07-08/","myswitzerland:e5dcede3eac14165a6227a7e969d6fb0"],
     ["/en/events/ticino/other-events/grande-mercato-delle-pulci-e-delle-rarita-2025-2026-04-25/","myswitzerland:ab3fbd34057740f5b1dfa46f9a554c7f"],
     ["/eventi/ticino/locarno/cantiere-aperto-n-3-2026-07-25/","tio-agenda:60792"],
-    ["/de/veranstaltungen/genf/geneve/la-bankize-summer-jam-2026-09-11/","ge-agenda:bankize-summer"]
+    ["/de/veranstaltungen/genf/geneve/la-bankize-summer-jam-2026-09-11/","ge-agenda:bankize-summer"],
+    ["/fr/evenements/geneve/geneve/tournee-estivale-des-communes-samedis-du-velo-11-juillet-2027-07-04/","ge-agenda:tournee-estivale-communes-samedis-velo-11-juillet"]
   ],
   "freshExport": {
     "source": "GSC CAMYDSAC 2026-10-18",
@@ -2536,6 +2537,12 @@
         "id": "ge-agenda:bankize-summer",
         "commit": "d55c41295375ef268a90ec3d2e90b1546fad677f",
         "evidenceKind": "assigned-canonical"
+      },
+      {
+        "path": "/fr/evenements/geneve/geneve/tournee-estivale-des-communes-samedis-du-velo-11-juillet-2027-07-04/",
+        "id": "ge-agenda:tournee-estivale-communes-samedis-velo-11-juillet",
+        "commit": "ffa8339eddb6910fa5dfdab3598bbd3ec7b51d7b",
+        "evidenceKind": "primary-occurrence-attestation"
       }
     ]
   }
