@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-10-18T08:55:18.278Z",
+  "lastRunAt": "2026-10-19T09:59:32.241Z",
   "findings": {
-    "canonical-mismatch|https://frontaliereticino.ch/de/jobs-in-schweiz/suche-niveau-lausanne/": {
-      "code": "canonical-mismatch",
-      "url": "https://frontaliereticino.ch/de/jobs-in-schweiz/suche-niveau-lausanne/",
+    "sitemap-fetch-error|https://frontaliereticino.ch/sitemap-articles-canton-ne.xml": {
+      "code": "sitemap-fetch-error",
+      "url": "https://frontaliereticino.ch/sitemap-articles-canton-ne.xml",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-10-18T08:55:18.278Z",
-      "lastSeenAt": "2026-10-18T08:55:18.278Z",
-      "detail": "https://frontaliereticino.ch/de/jobs-in-schweiz/"
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-schweiz/suche-niveau-lausanne/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/de/jobs-in-schweiz/suche-niveau-lausanne/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-10-18T08:55:18.278Z",
-      "lastSeenAt": "2026-10-18T08:55:18.278Z",
+      "firstSeenAt": "2026-10-19T09:59:32.241Z",
+      "lastSeenAt": "2026-10-19T09:59:32.241Z",
       "detail": null
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch:2087/login/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch:2087/login/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-19T09:59:32.241Z",
+      "lastSeenAt": "2026-10-19T09:59:32.241Z",
+      "detail": "edge=503 count=1 live=503 surface=other"
     }
   },
   "cleanRuns": 0,
