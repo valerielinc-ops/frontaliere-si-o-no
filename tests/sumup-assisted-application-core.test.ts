@@ -59,6 +59,17 @@ describe('SumUp assisted-application payment client', () => {
     expect(await getAssistedApplicationPaymentProvider()).toBe('stripe');
   });
 
+  it('keeps Stripe as the fallback while the SumUp Remote Config contract is incomplete', async () => {
+    remoteConfig.mockImplementation(async (key: string) => ({
+      ASSISTED_APPLICATION_PAYMENT_PROVIDER: 'sumup',
+      SUMUP_API_KEY: 'sup_sk_test',
+      SUMUP_MERCHANT_CODE: 'MC_TEST',
+      SUMUP_ASSISTED_APPLICATION_WEBHOOK_URL: '',
+    }[key] || ''));
+
+    await expect(getAssistedApplicationPaymentProvider()).resolves.toBe('stripe');
+  });
+
   it('creates a 1.99 EUR widget checkout with a server-side status callback', async () => {
     fetchMock.mockResolvedValue({
       ok: true,
