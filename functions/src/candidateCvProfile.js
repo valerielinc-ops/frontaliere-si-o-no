@@ -87,7 +87,22 @@ function likelyHeadline(lines, name) {
 function languageValues(lines) {
   const languageText = sectionLines(lines, /^(?:lingue|languages|langues|sprachen)\s*:?$/i).join(' ');
   const found = [];
-  for (const value of ['italiano', 'italian', 'inglese', 'english', 'tedesco', 'german', 'francese', 'french', 'spagnolo', 'spanish', 'portoghese', 'portuguese']) {
+  for (const [pattern, language] of [
+    [/\bdeutschkenntnis(?:se|sen)?\b/i, 'deutsch'],
+    [/\benglischkenntnis(?:se|sen)?\b/i, 'englisch'],
+    [/\bfranzösischkenntnis(?:se|sen)?\b/i, 'französisch'],
+    [/\bitalienischkenntnis(?:se|sen)?\b/i, 'italienisch'],
+  ]) {
+    if (pattern.test(languageText)) found.push(language);
+  }
+  for (const value of [
+    'italiano', 'italian', 'italien', 'italienisch',
+    'inglese', 'english', 'englisch', 'anglais',
+    'tedesco', 'german', 'deutsch', 'allemand',
+    'francese', 'french', 'français', 'französisch',
+    'spagnolo', 'spanish', 'español', 'spanisch', 'espagnol',
+    'portoghese', 'portuguese', 'português', 'portugiesisch',
+  ]) {
     if (new RegExp(`\\b${value}\\b`, 'i').test(languageText)) found.push(value);
   }
   return unique(found, 12);

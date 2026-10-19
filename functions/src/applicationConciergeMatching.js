@@ -21,7 +21,7 @@ const DEFAULT_JOB_INDEX_URL = 'https://cdn.frontaliereticino.ch/data/jobs-it-ind
 const FETCH_TIMEOUT_MS = 90_000;
 const MAX_PROPOSALS_PER_RUN = 10;
 const MIN_MATCH_SCORE = 28;
-export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v2';
+export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v3';
 const STOP_WORDS = new Set([
   'and', 'con', 'per', 'the', 'with', 'del', 'della', 'delle', 'dei', 'degli', 'di', 'in', 'a', 'da', 'su', 'il', 'lo', 'la', 'le', 'un', 'una', 'uno',
   'job', 'lavoro', 'stellen', 'emploi', 'arbeit', 'switzerland', 'svizzera', 'suisse', 'schweiz', 'full', 'time', 'part', 'tempo', 'pieno',
@@ -41,6 +41,33 @@ const ROLE_SIGNAL_LABELS = Object.freeze({
   application_management: 'gestione applicazioni',
   technology_strategy: 'strategia IT',
 });
+const LANGUAGE_ALIASES = Object.freeze({
+  italiano: /\b(?:italian|italiano|italiana|italien|italienisch(?:e|en|kenntnis(?:se|sen)?)?)\b/,
+  tedesco: /\b(?:german|tedesco|tedesca|deutsch(?:e|en|kenntnis(?:se|sen)?)?|allemand|allemande)\b/,
+  francese: /\b(?:french|francese|francais|franzosisch(?:e|en|kenntnis(?:se|sen)?)?)\b/,
+  inglese: /\b(?:english|inglese|englisch(?:e|en|kenntnis(?:se|sen)?)?|anglais)\b/,
+  spagnolo: /\b(?:spanish|spagnolo|spagnola|espanol|spanisch|espagnol)\b/,
+  portoghese: /\b(?:portuguese|portoghese|portugues|portugiesisch)\b/,
+  olandese: /\b(?:dutch|olandese|neerlandese|nederlands|neerlandais)\b/,
+});
+const LANGUAGE_PROFICIENCY_CONTEXT = /\b(?:fluent|fluency|proficient|proficiency|knowledge|command|written|spoken|speaking|mother tongue|native speaker|conoscenza|conoscenze|madrelingua|fluente|padronanza|livello|excellent|good|fliessend(?:e|er|es|em|en)?|verhandlungssicher(?:e|er|es|em|en)?|muttersprache|maitrise|courant|niveau|maternelle|kenntnisse|a[1-2]|b[1-2]|c[1-2])\b/;
+const LANGUAGE_SECTION_HEADING = /^(?:languages?|lingue?|langues?|sprachen?)\b/;
+const LANGUAGE_SKILL_CONTEXT_BEFORE = new RegExp(`${LANGUAGE_PROFICIENCY_CONTEXT.source}(?:\\s+\\w+){0,6}\\s*$`);
+const LANGUAGE_REQUIREMENT_CONTEXT_BEFORE = /\b(?:required|requirement|requirements|must|mandatory|preferred|desirable|necessary|essential|richiest[oaie]|preferibilmente|erforderlich|requise|exige)\s*$/;
+const NEGATED_LANGUAGE_CONTEXT_BEFORE = /\b(?:no|not|never|without|non|nicht|kein(?:e|en)?|pas|sans)\b(?:\s+\w+){0,3}\s+(?:requirement|requirements|proficiency|skill|skills|knowledge|fluency|command)\s+(?:for|in|of)\s*$/;
+const NEGATED_LANGUAGE_CONTEXT_AFTER = /\b(?:not|never|no|without|non|nicht|kein(?:e|en)?|pas|sans)\b(?:\s+\w+){0,3}\s*\b(?:required|requirement|requirements|proficiency|skills?|must|mandatory|preferred|desirable|necessary|essential|needed|asset|advantage|richiest[oaie]|preferibilmente|erforderlich|requise|exige)\b/;
+const LANGUAGE_SKILL_CONTEXT_AFTER = /^(?:language|languages|skills?|proficiency|fluency|fluent|speaking|spoken|written|knowledge|kenntnisse|conoscenza|courant|fliessend|verhandlungssicher|muttersprache|madrelingua|niveau|maternelle)\b/;
+const LANGUAGE_REQUIREMENT_CONTEXT_AFTER = /^(?:(?:is|are|a|an|at|level)\s+){0,2}(?:required|requirement|requirements|must|mandatory|preferred|desirable|necessary|essential|optional|advantage|asset|plus|richiest[oaie]|preferibilmente|erforderlich|requise|exige|a[1-2]|b[1-2]|c[1-2])\b/;
+const LANGUAGE_CONTEXT_CONTINUATION = /^(?:and|or|e|et|und|language|languages|skills?|proficiency|fluency|fluent|speaking|spoken|written|knowledge|kenntnisse|conoscenza|courant|fliessend|verhandlungssicher|muttersprache|madrelingua|niveau|maternelle|level|at|is|are|required|requirement|requirements|must|mandatory|preferred|desirable|necessary|essential|optional|advantage|asset|plus|richiest[oaie]|preferibilmente|erforderlich|requise|exige|a[1-2]|b[1-2]|c[1-2])\b/;
+const LANGUAGE_LABELS = Object.freeze({
+  italiano: 'italiano',
+  tedesco: 'tedesco',
+  francese: 'francese',
+  inglese: 'inglese',
+  spagnolo: 'spagnolo',
+  portoghese: 'portoghese',
+  olandese: 'olandese',
+});
 const SPECIALTY_MISMATCHES = [
   /\b(?:sales|key account|account executive|business development|vendite|vente|vertrieb)\b/,
   /\b(?:auditor|auditing|internal audit|audit manager)\b/,
@@ -51,7 +78,11 @@ const SPECIALTY_MISMATCHES = [
 ];
 
 function normalize(value) {
-  return String(value || '').toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9+#.]+/g, ' ').trim();
+  const lower = String(value || '').toLocaleLowerCase()
+    .replace(/\bcan['’]t\b/g, 'can not')
+    .replace(/\bwon['’]t\b/g, 'will not')
+    .replace(/\b(is|are|was|were|do|does|did|has|have|had|would|should|could|must|might|need)n['’]t\b/g, '$1 not');
+  return lower.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9+#.]+/g, ' ').trim();
 }
 export function tokenize(value) {
   return new Set(normalize(value).split(/\s+/)
@@ -116,6 +147,89 @@ function overlap(left, right) {
   return [...left].filter((value) => right.has(value));
 }
 
+function firstLanguageMention(value) {
+  let first = null;
+  for (const [language, pattern] of Object.entries(LANGUAGE_ALIASES)) {
+    const match = new RegExp(pattern.source).exec(value);
+    if (match && (!first || match.index < first.match.index)) first = { language, match };
+  }
+  return first;
+}
+
+function nextLanguageOffset(value) {
+  return firstLanguageMention(value)?.match.index ?? value.length;
+}
+
+function nextLanguageHasRequirementContext(clause, afterStart, afterFull) {
+  const next = firstLanguageMention(afterFull);
+  if (!next) return false;
+
+  const untrimmedAfter = clause.slice(afterStart);
+  const leadingWhitespace = untrimmedAfter.length - untrimmedAfter.trimStart().length;
+  const position = afterStart + leadingWhitespace + next.match.index;
+  const before = clause.slice(Math.max(0, position - 80), position);
+  const followingText = clause.slice(position + next.match[0].length).trim();
+  const after = followingText.slice(0, nextLanguageOffset(followingText)).trim();
+  if (/\b(?:not|never|no|without|non|nicht|kein(?:e|en)?|pas|sans)\s*$/.test(before)
+    || NEGATED_LANGUAGE_CONTEXT_BEFORE.test(before)
+    || NEGATED_LANGUAGE_CONTEXT_AFTER.test(after)) return false;
+
+  return /kenntnisse/.test(next.match[0])
+    || LANGUAGE_REQUIREMENT_CONTEXT_AFTER.test(after)
+    || ((LANGUAGE_SKILL_CONTEXT_AFTER.test(after) || hasLanguageContextBefore(before))
+      && (!after || LANGUAGE_CONTEXT_CONTINUATION.test(after)));
+}
+
+function hasLanguageContextBefore(value) {
+  return LANGUAGE_SKILL_CONTEXT_BEFORE.test(value) || LANGUAGE_REQUIREMENT_CONTEXT_BEFORE.test(value);
+}
+
+function isLanguageRequirement(clause, match) {
+  const before = clause.slice(Math.max(0, match.index - 80), match.index);
+  const afterStart = match.index + match[0].length;
+  const afterFull = clause.slice(afterStart).trim();
+  const after = afterFull.slice(0, nextLanguageOffset(afterFull)).trim();
+  const negatedBefore = /\b(?:not|never|no|without|non|nicht|kein(?:e|en)?|pas|sans)\s*$/.test(before)
+    || NEGATED_LANGUAGE_CONTEXT_BEFORE.test(before);
+  const negatedAfter = NEGATED_LANGUAGE_CONTEXT_AFTER.test(after);
+  if (negatedBefore || negatedAfter) return false;
+  const hasLanguageHeading = LANGUAGE_SECTION_HEADING.test(clause);
+  if (/kenntnisse/.test(match[0])) return true;
+  if (hasLanguageHeading && !NEGATED_LANGUAGE_CONTEXT_AFTER.test(afterFull)) return true;
+
+  const hasSkillContextBefore = hasLanguageContextBefore(before);
+  const afterIsSkillCue = LANGUAGE_SKILL_CONTEXT_AFTER.test(after);
+  const afterIsRequirement = LANGUAGE_REQUIREMENT_CONTEXT_AFTER.test(after);
+  const afterIsCompatible = !after || LANGUAGE_CONTEXT_CONTINUATION.test(after);
+  const continuesLanguageList = /^(?:and|or|e|et|und)\b/.test(after) || (!after && Boolean(afterFull));
+
+  return afterIsRequirement
+    || (afterIsSkillCue && afterIsCompatible)
+    || (hasSkillContextBefore && afterIsCompatible)
+    || (continuesLanguageList && nextLanguageHasRequirementContext(clause, afterStart, afterFull));
+}
+
+function languageSignals(value, { requireContext = false } = {}) {
+  const signals = new Set();
+  const values = Array.isArray(value) ? value : [value];
+  const clauses = values.flatMap((entry) => requireContext
+    ? String(entry || '').split(/[\n.;!?•|]+/).map(normalize).filter(Boolean)
+    : [normalize(entry)]);
+  for (const clause of clauses) {
+    for (const [language, pattern] of Object.entries(LANGUAGE_ALIASES)) {
+      if (!requireContext) {
+        if (pattern.test(clause)) signals.add(language);
+        continue;
+      }
+      const matcher = new RegExp(pattern.source, 'g');
+      for (const match of clause.matchAll(matcher)) {
+        if (isLanguageRequirement(clause, match)) signals.add(language);
+      }
+    }
+  }
+  return signals;
+}
+
 /** Pure scorer exported for tests and future ranking improvements. */
 export function scoreJobForProfile(job, profile) {
   const candidate = profileEvidence(profile);
@@ -126,6 +240,19 @@ export function scoreJobForProfile(job, profile) {
   const candidateRoles = roleSignals(candidate.roleText);
   const jobRoles = roleSignals(job?.title || '');
   const roleMatches = overlap(candidateRoles, jobRoles);
+  const candidateLanguages = new Set((profile?.languages || [])
+    .flatMap((value) => [...languageSignals(value)]));
+  // Count languages only when the listing states a language requirement or
+  // proficiency. A passing mention of a country or language is not evidence.
+  const jobLanguageText = [job?.title, job?.description, job?.requirements].filter(Boolean);
+  const explicitJobLanguages = Array.isArray(job?.languages)
+    ? job.languages
+    : typeof job?.languages === 'string' ? [job.languages] : [];
+  const jobLanguages = new Set([
+    ...languageSignals(jobLanguageText, { requireContext: true }),
+    ...languageSignals(explicitJobLanguages),
+  ]);
+  const languageMatches = overlap(candidateLanguages, jobLanguages);
   // Composite role signals already account for their anchor terms; do not
   // award the same IT/application words twice as plain title overlap.
   const roleCoveredTokens = new Set([
@@ -137,16 +264,21 @@ export function scoreJobForProfile(job, profile) {
     .filter((token) => !candidate.skillTokens.has(token) && !roleCoveredTokens.has(token));
   const titleInBody = [...candidate.titleTokens]
     .filter((token) => !candidate.skillTokens.has(token) && !roleCoveredTokens.has(token) && !titleTokens.has(token) && allJobTokens.has(token));
-  const experienceMatches = [...candidate.experienceTokens]
+  const rawExperienceMatches = overlap(candidate.experienceTokens, allJobTokens);
+  const experienceMatches = rawExperienceMatches
     .filter((token) => !candidate.skillTokens.has(token) && !candidate.titleTokens.has(token) && allJobTokens.has(token));
+  // A matching title can rank relevant evidence, but it cannot replace proof
+  // from a CV skill or experience entry on its own.
+  if (!skillMatches.length && !rawExperienceMatches.length) return { score: 0, reasons: [] };
   const experienceInTitle = experienceMatches.filter((token) => titleTokens.has(token));
   const experienceInBody = experienceMatches.filter((token) => !titleTokens.has(token));
   const skillPoints = skillMatches.reduce((sum, token) => sum + (titleTokens.has(token) ? 16 : 9), 0);
   const titlePoints = titleMatches.length * 12 + titleInBody.length * 4;
   const experiencePoints = experienceInTitle.length * 7 + experienceInBody.length * 2;
   const rolePoints = roleMatches.reduce((sum, role) => sum + ROLE_SIGNAL_POINTS[role], 0);
+  const languagePoints = Math.min(8, languageMatches.length * 4);
   const score = Math.max(0, Math.min(99,
-    Math.min(48, skillPoints) + Math.min(36, titlePoints) + Math.min(12, experiencePoints) + Math.min(58, rolePoints)
+    Math.min(48, skillPoints) + Math.min(36, titlePoints) + Math.min(12, experiencePoints) + Math.min(58, rolePoints) + languagePoints
       - specialtyPenalty(jobTitle, candidate.profileText, candidateRoles, jobRoles),
   ));
   if (score < MIN_MATCH_SCORE) return { score: 0, reasons: [] };
@@ -154,6 +286,7 @@ export function scoreJobForProfile(job, profile) {
   const reasons = [];
   if (roleMatches.length) reasons.push('Ruolo compatibile: ' + roleMatches.map((role) => ROLE_SIGNAL_LABELS[role]).join(', '));
   if (skillMatches.length) reasons.push('Competenze nel CV: ' + skillMatches.slice(0, 4).join(', '));
+  if (languageMatches.length) reasons.push('Lingue richieste: ' + languageMatches.map((language) => LANGUAGE_LABELS[language]).join(', '));
   const titleEvidence = [...titleMatches, ...titleInBody]
     .filter((token) => token !== 'it' && !(token === 'application' && roleMatches.includes('enterprise_applications')));
   if (titleEvidence.length) reasons.push('Ambiti presenti nel CV: ' + titleEvidence.slice(0, 4).join(', '));
@@ -161,7 +294,7 @@ export function scoreJobForProfile(job, profile) {
   return {
     score,
     reasons: reasons.slice(0, 3),
-    evidenceStrength: skillMatches.length * 3 + roleMatches.length * 2 + titleMatches.length + experienceMatches.length,
+    evidenceStrength: skillMatches.length * 3 + roleMatches.length * 2 + titleMatches.length + experienceMatches.length + languageMatches.length,
   };
 }
 

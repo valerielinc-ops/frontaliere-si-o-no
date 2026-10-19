@@ -130,6 +130,16 @@ describe('candidate CV profile projection', () => {
     expect(french.skills).toEqual(['SAP', 'ServiceNow']);
   });
 
+  it('recognizes language names written in German, French and other common CV languages', () => {
+    const profile = parseCandidateCvText([
+      'Candidate Example',
+      'Languages',
+      'Deutschkenntnissen B2, Français C1, English C2',
+    ].join('\n'));
+
+    expect(profile.languages).toEqual(expect.arrayContaining(['deutsch', 'français', 'english']));
+  });
+
   it('keeps representative experience details as matching evidence when no skills section exists', () => {
     const profile = parseCandidateCvText([
       'Candidate Example',
@@ -260,11 +270,12 @@ describe('application concierge matching', () => {
     const profile = {
       workPosition: 'Senior IT Manager Group Application at Swatch Group',
       headline: 'Senior IT Manager Group Application at Swatch Group',
-      skills: [],
+      skills: ['governance'],
       experienceSummary: [],
     };
     const job = {
       title: 'Senior IT Manager IT Strategy and Operating Model',
+      description: 'Governance responsibilities',
       company: 'Swatch Group',
       location: 'Zurigo',
     };
@@ -272,12 +283,138 @@ describe('application concierge matching', () => {
     const result = scoreJobForProfile(job, profile);
     const withoutLocation = scoreJobForProfile({ ...job, location: undefined }, profile);
 
-    expect(result.score).toBe(28);
+    expect(result.score).toBe(37);
     expect(result.score).toBe(withoutLocation.score);
     expect(result.reasons).toContain('Ruolo compatibile: gestione IT');
     expect(result.reasons.join(' ').toLowerCase()).not.toMatch(/senior|manager|swatch|zurigo/);
-    expect(scoreJobForProfile({ title: 'ICT Application Manager' }, profile).score).toBe(58);
-    expect(scoreJobForProfile({ title: 'Application Manager' }, profile).score).toBe(28);
+    expect(scoreJobForProfile({ title: 'ICT Application Manager', description: 'Governance responsibilities' }, profile).score).toBe(67);
+    expect(scoreJobForProfile({ title: 'Application Manager', description: 'Governance responsibilities' }, profile).score).toBe(37);
+    expect(scoreJobForProfile({ title: 'IT Manager' }, {
+      workPosition: 'IT Manager',
+      headline: 'IT Manager',
+      skills: [],
+      experienceSummary: [],
+    })).toEqual({ score: 0, reasons: [] });
+    expect(scoreJobForProfile({ title: 'IT Manager' }, {
+      workPosition: 'IT Manager',
+      headline: 'IT Manager',
+      skills: [],
+      experienceSummary: ['2018 - 2024 IT Manager'],
+    }).score).toBe(28);
+  });
+
+  it('gives a small bonus for CV languages explicitly required by a relevant role', () => {
+    const profile = {
+      workPosition: 'Senior IT Manager',
+      headline: 'Senior IT Manager',
+      skills: ['governance'],
+      experienceSummary: [],
+      languages: ['tedesco', 'inglese', 'francese'],
+    };
+    const scoreWithEvidence = (job: Record<string, unknown>) => scoreJobForProfile({
+      ...job,
+      description: [job.description, 'Governance'].filter(Boolean).join(' '),
+    }, profile);
+    const result = scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Buona conoscenza del tedesco e dell’inglese richiesta.',
+    });
+
+    expect(result.score).toBe(45);
+    expect(result.reasons).toContain('Lingue richieste: tedesco, inglese');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Gute Deutschkenntnisse.',
+    }).reasons).toContain('Lingue richieste: tedesco');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Mit guten Deutschkenntnissen auf B2-Niveau.',
+    }).reasons).toContain('Lingue richieste: tedesco');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Verhandlungssicheres Deutsch und fliessendes Englisch.',
+    }).reasons).toContain('Lingue richieste: tedesco, inglese');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Mit fliessendem Deutsch und verhandlungssicherem Englisch.',
+    }).reasons).toContain('Lingue richieste: tedesco, inglese');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Languages: German, English',
+    }).reasons).toContain('Lingue richieste: tedesco, inglese');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'German and English are required.',
+    }).reasons).toContain('Lingue richieste: tedesco, inglese');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Français courant exigé.',
+    }).reasons).toContain('Lingue richieste: francese');
+  });
+
+  it('does not score passing language mentions or let a language requirement rescue an unrelated role', () => {
+    const profile = {
+      workPosition: 'Senior IT Manager',
+      headline: 'Senior IT Manager',
+      skills: ['governance'],
+      experienceSummary: [],
+      languages: ['tedesco', 'inglese', 'francese'],
+    };
+    const scoreWithEvidence = (job: Record<string, unknown>) => scoreJobForProfile({
+      ...job,
+      description: [job.description, 'Governance'].filter(Boolean).join(' '),
+    }, profile);
+
+    const passingMention = scoreWithEvidence({
+      title: 'Senior IT Manager',
+      description: 'IT management experience is required. German and English customers are in the portfolio.',
+    });
+    expect(passingMention.score).toBe(37);
+    expect(passingMention.reasons).not.toContain('Lingue richieste: tedesco, inglese');
+    const unrelatedRequirement = scoreWithEvidence({
+      title: 'Senior IT Manager',
+      description: 'Our German and English customers are a large part of the portfolio, and a degree is required.',
+    });
+    expect(unrelatedRequirement.score).toBe(37);
+    expect(unrelatedRequirement.reasons).not.toContain('Lingue richieste: tedesco, inglese');
+    const cuisineMention = scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Excellent knowledge of French cuisine is required.',
+    });
+    expect(cuisineMention.score).toBe(37);
+    expect(cuisineMention.reasons).not.toContain('Lingue richieste: francese');
+    const waivedLanguage = scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'German proficiency is not required.',
+    });
+    expect(waivedLanguage.score).toBe(37);
+    expect(waivedLanguage.reasons).not.toContain('Lingue richieste: tedesco');
+    expect(scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'Languages: German and French are not required.',
+    }).score).toBe(37);
+    for (const requirements of ['No requirement for German.', 'No proficiency in German required.']) {
+      const noLanguageRequirement = scoreWithEvidence({ title: 'Senior IT Manager', requirements });
+      expect(noLanguageRequirement.score).toBe(37);
+      expect(noLanguageRequirement.reasons).not.toContain('Lingue richieste: tedesco');
+    }
+    const contractedNoLanguageRequirement = scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: "German proficiency isn't required.",
+    });
+    expect(contractedNoLanguageRequirement.score).toBe(37);
+    expect(contractedNoLanguageRequirement.reasons).not.toContain('Lingue richieste: tedesco');
+    const mixedLanguageRequirement = scoreWithEvidence({
+      title: 'Senior IT Manager',
+      requirements: 'German is required, but French is not required.',
+    });
+    expect(mixedLanguageRequirement.score).toBe(41);
+    expect(mixedLanguageRequirement.reasons).toContain('Lingue richieste: tedesco');
+    expect(mixedLanguageRequirement.reasons).not.toContain('Lingue richieste: tedesco, francese');
+    expect(scoreJobForProfile({
+      title: 'Senior Project Manager Engineering',
+      requirements: 'German and English are required.',
+    }, profile)).toEqual({ score: 0, reasons: [] });
   });
 
   it('rejects generic manager overlap and penalizes a different job specialization', () => {
@@ -326,7 +463,7 @@ describe('application concierge matching', () => {
       searchText: 'Senior IT Manager Group Application',
       workPosition: 'Senior IT Manager Group Application at Swatch Group',
       headline: 'Senior IT Manager Group Application at Swatch Group',
-      skills: [],
+      skills: ['governance'],
       experienceSummary: [],
     };
     const { db, documents } = createMatchingDb({
@@ -361,7 +498,7 @@ describe('application concierge matching', () => {
       },
     });
     const jobs = [
-      { id: 'job-it-manager', url: 'https://jobs.example.test/it-manager', title: 'Senior IT Manager IT Strategy and Operating Model' },
+      { id: 'job-it-manager', url: 'https://jobs.example.test/it-manager', title: 'Senior IT Manager IT Strategy and Operating Model', description: 'Governance responsibilities' },
       { id: 'job-project-manager', url: 'https://jobs.example.test/project-manager', title: 'Senior Project Manager Engineering' },
       { id: 'job-project-manager', url: 'https://jobs.example.test/accepted', title: 'Senior Project Manager Engineering' },
     ];
@@ -380,7 +517,7 @@ describe('application concierge matching', () => {
       expect(result).toEqual({ status: 'complete', proposals: 1, retracted: 1 });
       expect(relevant).toEqual(expect.objectContaining({
         status: 'proposed',
-        matchingVersion: 'cv-relevance-v2',
+        matchingVersion: 'cv-relevance-v3',
         matchScore: expect.any(Number),
       }));
       expect((relevant?.matchScore as number)).toBeLessThan(99);
