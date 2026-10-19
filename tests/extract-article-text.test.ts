@@ -478,6 +478,20 @@ describe('extractArticleText', () => {
     expect(result.text).not.toContain(tracking);
   });
 
+  it('preserves a non-paragraph data-track-id candidate while filtering marked ancestors', () => {
+    const editorial = 'Editorial non-paragraph fallback candidate contains enough substantive source context for generation.';
+    const tracking = 'Tracking child inside a marked ancestor must never become legacy article source text.';
+    const html = '<main><noscript>'
+      + `<div data-track-id="story-1">${editorial}</div>`
+      + `<div data-track-id="tracking-wrapper"><span>${tracking}</span></div>`
+      + '</noscript></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('naive-fallback');
+    expect(result.text).toContain(editorial);
+    expect(result.text).not.toContain(tracking);
+  });
+
   it('caps very long noscript paragraphs before the final source join', () => {
     const oversized = 'Editorial fallback source '.repeat(500);
     const trailing = 'Trailing paragraph that must not be collected after the source cap is exhausted.';

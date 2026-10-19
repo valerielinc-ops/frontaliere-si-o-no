@@ -487,7 +487,9 @@ function extractNoscriptLegacyText(root) {
     const tag = element.tagName.toLowerCase();
     if (NOSCRIPT_METADATA_TAGS.has(tag)
       || NOSCRIPT_TRACKING_TAGS.has(tag)
-      || hasNoscriptNonContentMarker(element)) {
+      || hasNoscriptNonContentAncestor(element, clone, {
+        allowCandidateTrackIdValueOnly: true,
+      })) {
       element.remove();
     }
   }
