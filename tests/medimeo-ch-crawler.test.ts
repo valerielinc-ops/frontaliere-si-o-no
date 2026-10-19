@@ -3,6 +3,8 @@ import {
   MEDIMEO_CH_KEY,
   MEDIMEO_CH_COMPANY_NAME,
   isMedimeoChJob,
+  isMedimeoChExpectedDetailFilter,
+  resolveMedimeoChGeography,
   isTrustedDomain,
 } from '../scripts/lib/medimeo-ch-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -61,6 +63,75 @@ describe('Medimeo AG crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('isMedimeoChExpectedDetailFilter', () => {
+    it('classifies mixed Swiss/Liechtenstein geography as an expected filter', () => {
+      expect(isMedimeoChExpectedDetailFilter({
+        reason: 'geography',
+        decision: { explicitlyForeign: true, geography: null },
+      })).toBe(true);
+    });
+
+    it('keeps missing geography evidence in the completeness denominator', () => {
+      expect(isMedimeoChExpectedDetailFilter({
+        reason: 'geography',
+        decision: { explicitlyForeign: false, geography: null },
+      })).toBe(false);
+    });
+
+    it('does not classify transport or tenant failures as expected filters', () => {
+      expect(isMedimeoChExpectedDetailFilter({
+        reason: 'detail',
+        decision: { explicitlyForeign: true, geography: null },
+      })).toBe(false);
+    });
+  });
+
+  describe('resolveMedimeoChGeography', () => {
+    it('keeps a broad source region when structured locality repeats the display label', () => {
+      expect(resolveMedimeoChGeography({
+        location: 'Region Basel',
+        addressLocality: 'Region Basel',
+        addressRegion: 'BS',
+        addressCountry: 'CH',
+      })).toMatchObject({ location: 'Region Basel', canton: 'BS', addressCountry: 'CH' });
+    });
+
+    it('resolves broad Swiss regions without inventing a municipality', () => {
+      expect(resolveMedimeoChGeography({
+        location: 'Region Zürich',
+        addressLocality: 'Region Zürich',
+        addressRegion: 'ZH',
+        addressCountry: 'CH',
+      })).toMatchObject({ location: 'Region Zürich', canton: 'ZH', addressCountry: 'CH' });
+    });
+
+    it('does not bypass a foreign structured-region conflict through the fallback', () => {
+      expect(resolveMedimeoChGeography({
+        location: 'Region Basel',
+        addressLocality: 'Region Basel',
+        addressRegion: 'Lombardy',
+        addressCountry: 'CH',
+      })).toBeNull();
+    });
+
+    it('rejects contradictory country fields before preferring addressCountry', () => {
+      expect(resolveMedimeoChGeography({
+        location: 'Lugano',
+        addressCountry: 'CH',
+        country: 'Italy',
+        addressRegion: 'ZH',
+      })).toBeNull();
+    });
+
+    it('rejects a structured canton that conflicts with the source locality', () => {
+      expect(resolveMedimeoChGeography({
+        location: 'Lugano',
+        addressCountry: 'CH',
+        addressRegion: 'ZH',
+      })).toBeNull();
     });
   });
 

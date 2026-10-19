@@ -1,17 +1,17 @@
 {
   "key": "eta-sa-swatch-group",
   "label": "eta-sa-swatch-group",
-  "generatedAt": "2026-10-18T09:17:42.269Z",
+  "generatedAt": "2026-10-19T09:22:07.595Z",
   "total": 11,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 335960,
-  "avgDurationMs": 335960,
+  "durationMs": 350274,
+  "avgDurationMs": 350274,
   "durationHistory": [
-    335960
+    350274
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -123,7 +123,6 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "2540",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -198,7 +197,6 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "2540",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -349,7 +347,6 @@
       "postalCode": "2540",
       "addressLocality": "2540 Grenchen",
       "addressRegion": "SO",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -434,5 +431,5 @@
       }
     }
   ],
-  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
+  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
 }

@@ -1,7 +1,7 @@
 name: jobgate-experiment-monitor
 
-# Monitor giornaliero del test A/B del job gate (round in corso: `jobgate-v4`,
-# id in scripts/experiments/jobgate-plan.mjs; v3 era #9725), con
+# Monitor giornaliero del test A/B del job gate (round in corso: `jobgate-v5`,
+# id in scripts/experiments/jobgate-plan.mjs), con
 # promozione del braccio vincente solo dopo approvazione manuale.
 #
 # Ogni giro (scripts/experiments/jobgate-monitor.mjs):
@@ -17,7 +17,7 @@ name: jobgate-experiment-monitor
 #   - propone la promozione SOLO se tutte le condizioni del piano sono vere;
 #     il cron non scrive su Remote Config e solo workflow_dispatch con apply=true approva
 #     (scripts/experiments/jobgate-plan.mjs, pinnate da
-#     tests/experiment-monitor.test.ts): pubblica JOBGATE_EXPERIMENT_FORCE
+#     tests/experiment-monitor.test.ts): pubblica JOBGATE_V5_EXPERIMENT_FORCE
 #     con scripts/experiments/jobgate-rc.mjs (etag, niente force). Il giro
 #     dopo FORCE è impostato e il monitor non ripubblica.
 #

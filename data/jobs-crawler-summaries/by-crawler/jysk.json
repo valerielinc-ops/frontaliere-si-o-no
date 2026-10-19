@@ -1,16 +1,16 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-10-18T09:23:51.969Z",
-  "total": 65,
+  "generatedAt": "2026-10-19T09:22:20.153Z",
+  "total": 64,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 60,
-  "durationMs": 78317,
-  "avgDurationMs": 78317,
+  "removedCount": 1,
+  "unchangedCount": 59,
+  "durationMs": 82715,
+  "avgDurationMs": 82715,
   "durationHistory": [
-    78317
+    82715
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -201,7 +201,45 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "company-whx8p7",
+      "slug": "gestione-del-ramo-aggiunto-a-80-nella-filiale-schattdorf-jysk-schattdorf",
+      "company": "JYSK",
+      "title": "Stellvertretende Filialleitung (a) 80% in der Filiale Schattdorf",
+      "location": "Schattdorf",
+      "canton": "UR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/stellvertretende-filialleitung-80-der-filiale-schattdorf",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-08-19T21:50:47.774Z",
+      "firstSeenAt": "2026-08-19T21:50:47.774Z",
+      "sourceLang": "de",
+      "salaryMin": 55600,
+      "salaryMax": 84800,
+      "employmentType": "FULL_TIME",
+      "addressLocality": "Schattdorf",
+      "addressRegion": "UR",
+      "salarySource": "estimated",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/stellvertretende-filialleitung-80-der-filiale-schattdorf",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "postalCode": "6467",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "id": "company-w76zez",
@@ -1314,5 +1352,5 @@
       }
     }
   ],
-  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
+  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
 }

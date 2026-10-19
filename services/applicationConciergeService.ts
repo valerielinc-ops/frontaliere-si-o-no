@@ -34,6 +34,7 @@ export interface ApplicationConciergeService {
   applicantName?: string | null;
   applicantEmail?: string | null;
   applicantPhone?: string | null;
+  applicantLocation?: string | null;
   hasConsent: boolean;
   hasCv: boolean;
   consentedAt?: string | null;
@@ -49,6 +50,12 @@ export interface ApplicationConciergeService {
   userId?: string | null;
   consentVersion?: string | null;
   cvStorageKey?: string | null;
+}
+
+export function getCandidateVisibleApplicationConciergeProposals(
+  proposals: readonly ApplicationConciergeProposal[],
+): ApplicationConciergeProposal[] {
+  return proposals.filter((proposal) => proposal.status !== 'retracted');
 }
 
 function errorCode(value: unknown): string {
@@ -96,6 +103,7 @@ export async function saveApplicationConciergeProfile(
     applicantName: string;
     applicantEmail: string;
     applicantPhone?: string;
+    applicantLocation?: string;
     consent?: boolean;
     cvStorageKey?: string;
     cvFileName?: string;
@@ -108,7 +116,7 @@ export async function saveApplicationConciergeProfile(
 export async function recordApplicationConciergeConsent(
   user: any,
   serviceId: string,
-  input: { applicantName: string; applicantEmail: string; applicantPhone?: string },
+  input: { applicantName: string; applicantEmail: string; applicantPhone?: string; applicantLocation?: string },
 ): Promise<ApplicationConciergeService> {
   const data = await callApplicationConcierge(user, 'POST', serviceId, { action: 'recordConsent', consent: true, ...input });
   return data.service as ApplicationConciergeService;

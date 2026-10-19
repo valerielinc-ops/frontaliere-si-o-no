@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3991.title': "Passendere Stellen in deiner Nähe",
+ 'whatsNew.v3991.conciergeProximity.title': "Die Entfernung beeinflusst die Reihenfolge der Vorschläge",
+ 'whatsNew.v3991.conciergeProximity.desc': "Gib in deinem Profil deinen Wohnort oder deine Postleitzahl an, damit wir passende Stellen in deiner Nähe bevorzugen können. Die Übereinstimmung mit deinem Lebenslauf bleibt entscheidend; eine vollständige Adresse ist nicht nötig.",
  'whatsNew.v3990.title': "Einfachere Zahlung für die begleitete Bewerbung",
  'whatsNew.v3990.conciergeCheckout.title': "Bezahlen, ohne die Website zu verlassen",
  'whatsNew.v3990.conciergeCheckout.desc': "Die Zahlung für den 30-Tage-Service erfolgt in einem eingebetteten Formular. Wenn du das Popup schließt oder die Seite neu lädst, kannst du denselben Zahlungsversuch fortsetzen; der Service wird erst nach bestätigter Zahlung aktiviert.",
@@ -913,6 +916,8 @@ const deCore: Record<string, string> = {
  'jobBoard.concierge.name': 'Vor- und Nachname',
  'jobBoard.concierge.email': 'E-Mail',
  'jobBoard.concierge.phone': 'Telefon (optional)',
+ 'jobBoard.concierge.location': 'Wohnort oder Postleitzahl',
+ 'jobBoard.concierge.locationHint': 'Dein Wohnort aus dem Profil wird, wenn vorhanden, vorausgefüllt. Du kannst ihn mit Wohnort oder Postleitzahl ändern; die vollständige Adresse ist nicht nötig.',
  'jobBoard.concierge.consent': 'Ich ermächtige Frontaliereticino.ch, meinen Lebenslauf und die angegebenen Daten zu verarbeiten, um Bewerbungen für die von mir angenommenen Stellen vorzubereiten und zu senden, gemäß Nutzungsbedingungen und Datenschutzerklärung.',
  'jobBoard.concierge.saveData': 'Daten speichern',
  'jobBoard.concierge.saveProfile': 'Daten speichern',

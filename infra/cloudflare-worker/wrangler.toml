@@ -217,6 +217,10 @@ routes = [
   # the underlying application-intent signal. Wildcard preserves uid/email/
   # token query parameters for GET and one-click POST requests.
   { pattern = "frontaliereticino.ch/disiscrivi-promemoria-candidature*", zone_name = "frontaliereticino.ch" },
+  # Apple Pay domain verification. The Worker checks the repository/Pages
+  # origin first and uses its R2 copy only when the repository file is absent.
+  # Wildcard keeps query-string probes on the same deterministic path.
+  { pattern = "frontaliereticino.ch/.well-known/apple-developer-merchantid-domain-association*", zone_name = "frontaliereticino.ch" },
   # Pushable-origin edge file, rollout step 1 of N (issue #4881 Fase 3, see
   # locale-router.js EDGE_PUSHED_FILES). Adding the next pushed path is a
   # one-line addition here + one object-literal entry in EDGE_PUSHED_FILES, no

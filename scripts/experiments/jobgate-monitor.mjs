@@ -6,7 +6,8 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  * (workflow .github/workflows/jobgate-experiment-monitor.yml).
  *
  * Ogni giro:
- *  1. legge da Remote Config (sola lettura) ENABLED / ARMS / FORCE;
+ *  1. legge da Remote Config (sola lettura) ENABLED / ARMS / FORCE e il
+ *     marker server-only di lancio;
  *  2. lancia il readout (scripts/analytics/job-gate-experiment-readout.mjs,
  *     robot esclusi) sull'ultima finestra assestata e, dalla durata minima in
  *     poi, anche sull'ultima finestra di settimane intere, che è quella su cui
@@ -16,7 +17,7 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  *  4. aggiorna UNA issue di stato a titolo stabile; apre (dedup) o chiude le
  *     issue di allarme quando un allarme compare o rientra;
  *  5. se TUTTE le condizioni sono vere e la promozione ha `--apply` e
- *     `--approve-promotion`, scrive `JOBGATE_EXPERIMENT_FORCE=<vincente>` con
+ *     `--approve-promotion`, scrive `JOBGATE_V5_EXPERIMENT_FORCE=<vincente>` con
  *     scripts/experiments/jobgate-rc.mjs (etag, niente force) e apre la
  *     issue «promosso». Al giro dopo FORCE è impostato: fase `forced`, nessuna
  *     nuova pubblicazione (idempotente).
@@ -28,8 +29,9 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  *     --status-json status.json [--decision-json decision.json]    # fixture, niente rete
  * Opzioni del piano (default in jobgate-plan.mjs): --mde, --baseline-rate,
  * --daily-persons, --min-days-floor, --max-days, --checkpoint-days,
- * --min-attribution, --since YYYY-MM-DD (solo diagnostica: sposta l'inizio
- * dell'analisi). Altre: --until YYYY-MM-DD, --out <dir> (monitor.md/json).
+ * --min-attribution, --since/--until YYYY-MM-DD (solo diagnostica; le finestre
+ * manuali non sono compatibili con la pubblicazione di una promozione).
+ * Altre: --out <dir>.
  */
 
 import { execFileSync } from 'node:child_process';
@@ -42,6 +44,7 @@ import { parseArgs } from 'node:util';
 
 import {
   JOBGATE_RC_KEYS,
+  JOBGATE_STARTED_AT_KEY,
   normalizeJobGateArm,
   parseJobGateEnabled,
   validateJobGateWeights,
@@ -122,8 +125,24 @@ export function mayPublishPromotion({
     && (!eventName || eventName === 'workflow_dispatch');
 }
 
+export function assertSafePromotionInputs(args) {
+  if (!args.apply || !args['approve-promotion']) return;
+  if (args.since || args.until) {
+    throw new Error('--since/--until sono solo diagnostici e non possono essere usati insieme a --apply --approve-promotion.');
+  }
+  if (args['rc-json'] || args['status-json'] || args['decision-json']) {
+    throw new Error('--rc-json/--status-json/--decision-json sono fixture e non possono autorizzare una promozione Remote Config.');
+  }
+}
+
+function isDateOnly(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const ms = Date.parse(`${value}T00:00:00.000Z`);
+  return Number.isFinite(ms) && new Date(ms).toISOString().slice(0, 10) === value;
+}
+
 /** Piano con le sostituzioni da CLI (numeri validati). */
-export function resolvePlan(args, base = JOBGATE_PLAN) {
+export function resolvePlan(args, base = JOBGATE_PLAN, startedAt = null) {
   const num = (flag, key, { integer = false, min = 0, max = Infinity } = {}) => {
     if (args[flag] == null) return base[key];
     const v = Number(args[flag]);
@@ -133,9 +152,14 @@ export function resolvePlan(args, base = JOBGATE_PLAN) {
     return v;
   };
   if (args.since != null && !/^\d{4}-\d{2}-\d{2}$/.test(args.since)) throw new Error(`--since non valido: ${args.since}`);
+  const launchDate = String(startedAt ?? '').trim();
+  if (launchDate && !isDateOnly(launchDate)) {
+    throw new Error(`${JOBGATE_STARTED_AT_KEY} non valido: ${launchDate}`);
+  }
   return {
     ...base,
-    analysisStart: args.since ?? base.analysisStart,
+    launchedAt: launchDate || base.launchedAt,
+    analysisStart: args.since ?? (launchDate ? addDaysIso(launchDate, 1) : base.analysisStart),
     relativeMde: num('mde', 'relativeMde', { max: 5 }),
     baselineRate: num('baseline-rate', 'baselineRate', { max: 0.99 }),
     dailyGatePersons: num('daily-persons', 'dailyGatePersons'),
@@ -148,7 +172,7 @@ export function resolvePlan(args, base = JOBGATE_PLAN) {
   };
 }
 
-/** Stato RC dai tre valori grezzi (stessa lettura del browser). */
+/** Stato RC dai valori grezzi (la data di avvio resta metadato server-side). */
 export function rcStateFromValues(values) {
   const armsRaw = String(values?.[JOBGATE_RC_KEYS.arms] ?? '');
   const weights = validateJobGateWeights(armsRaw);
@@ -165,7 +189,7 @@ async function readRcValues() {
   const { getRemoteConfig, fetchRcTemplate } = await import('../lib/remote-config-admin.mjs');
   const template = await fetchRcTemplate(await getRemoteConfig()); // sola lettura
   const out = {};
-  for (const key of Object.values(JOBGATE_RC_KEYS)) {
+  for (const key of [...Object.values(JOBGATE_RC_KEYS), JOBGATE_STARTED_AT_KEY]) {
     out[key] = template.parameters?.[key]?.defaultValue?.value ?? '';
   }
   return out;
@@ -248,7 +272,7 @@ async function syncIssues({ report, state, prevIssue, alarms, decision, applied,
     notes.push('Durata massima raggiunta senza vincente promuovibile: decisione richiesta.');
     await createGithubIssue({
       title: ISSUE_TITLES.askOwner,
-      description: `La finestra di decisione ha raggiunto la durata massima senza che tutte le condizioni di promozione fossero vere. Nessun cambio automatico.\n\n${decision.checks.map((c) => `- ${c.ok ? '✅' : '❌'} ${c.id}: ${c.detail}`).join('\n')}\n\nOpzioni: chiudere il test lasciando \`control\` (\`node scripts/experiments/jobgate-rc.mjs --kill --apply\`), forzare un braccio a mano (\`--force-arm <braccio> --apply\`) o prolungare con \`--max-days\` nel workflow. Stato: ${statusRef}.`,
+      description: `La finestra di decisione ha raggiunto la durata massima senza che tutte le condizioni di promozione fossero vere. Nessun cambio automatico.\n\n${decision.checks.map((c) => `- ${c.ok ? '✅' : '❌'} ${c.id}: ${c.detail}`).join('\n')}\n\nOpzioni: lasciare Spotlight come default (\`node scripts/experiments/jobgate-rc.mjs --kill --apply\`), forzare un braccio a mano (\`--force-arm <braccio> --apply\`) o prolungare con \`--max-days\` nel workflow. Stato: ${statusRef}.`,
       priority: 2,
       labels: OWNER_LABELS,
       workflow,
@@ -259,14 +283,14 @@ async function syncIssues({ report, state, prevIssue, alarms, decision, applied,
     await createGithubIssue({
       title: ISSUE_TITLES.promoted,
       description: [
-        `Il monitor ha promosso \`${decision.winner}\`: \`JOBGATE_EXPERIMENT_FORCE=${decision.winner}\` è pubblicato su Remote Config, quindi ogni visitatore vede già quel gate.`,
+        `Il monitor ha promosso \`${decision.winner}\`: \`${JOBGATE_RC_KEYS.force}=${decision.winner}\` è pubblicato su Remote Config, quindi ogni visitatore vede già quel gate.`,
         '',
         ...decision.checks.map((c) => `- ✅ ${c.id}: ${c.detail}`),
         '',
         'Passi per renderlo definitivo nel codice:',
         `1. In \`components/community/JobBoard.tsx\` rendere il comportamento di \`${decision.winner}\` quello di default e togliere i rami degli altri bracci.`,
         '2. Rimuovere `hooks/useJobGateExperiment.ts`, `services/jobGateExperiment.ts` e il tag `variant` nella scrittura dell\'iscritto (lasciare `services/jobGateExperimentCore.mjs` finché lo usano script e readout).',
-        '3. Togliere `JOBGATE_EXPERIMENT_*` da `functions/src/publicConfigKeys.js` e da `REMOTE_CONFIG_DEFAULTS` (`services/firebase.ts`), poi spegnere le chiavi con `node scripts/experiments/jobgate-rc.mjs --kill --apply` DOPO il deploy.',
+        '3. Togliere le chiavi `JOBGATE_V5_EXPERIMENT_*` da `functions/src/publicConfigKeys.js` e da `REMOTE_CONFIG_DEFAULTS` (`services/firebase.ts`), poi spegnere il test con `node scripts/experiments/jobgate-rc.mjs --kill --apply` DOPO il deploy.',
         '4. Disattivare il workflow `jobgate-experiment-monitor.yml` e aggiungere la voce in `WhatsNewModal.tsx`.',
         '',
         `Numeri completi: ${statusRef}.${runUrl ? `\n\nRun: ${runUrl}` : ''}`,
@@ -282,29 +306,44 @@ async function syncIssues({ report, state, prevIssue, alarms, decision, applied,
 
 // ── Main ─────────────────────────────────────────────────────
 
+function publishRemoteConfig(args) {
+  return execFileSync(process.execPath, args, { stdio: ['ignore', 2, 'inherit'] });
+}
+
 export async function runMonitor(argv, {
   now = new Date(),
   eventName = process.env.GITHUB_EVENT_NAME,
-  publishRc = (args) => execFileSync(process.execPath, args, { stdio: ['ignore', 2, 'inherit'] }),
+  publishRc = publishRemoteConfig,
+  // Dependency injection for unit tests; the production CLI never populates it.
+  testInputs = null,
 } = {}) {
   const args = parseCli(argv);
   if (args.help) {
     console.log(fs.readFileSync(new URL(import.meta.url), 'utf8').split('\n').slice(2, 34).join('\n'));
     return { exitCode: 0 };
   }
-  const plan = resolvePlan(args);
-  const rcValues = args['rc-json'] ? JSON.parse(fs.readFileSync(args['rc-json'], 'utf8')) : await readRcValues();
+  assertSafePromotionInputs(args);
+  if (args.apply && args['approve-promotion'] && testInputs && publishRc === publishRemoteConfig) {
+    throw new Error('An approved promotion cannot use injected test inputs with the live Remote Config publisher.');
+  }
+  const rcValues = testInputs?.rcValues
+    ?? (args['rc-json'] ? JSON.parse(fs.readFileSync(args['rc-json'], 'utf8')) : await readRcValues());
+  const startedAt = String(rcValues[JOBGATE_STARTED_AT_KEY] ?? '').trim();
+  if (parseJobGateEnabled(rcValues[JOBGATE_RC_KEYS.enabled]) && !startedAt) {
+    throw new Error(`${JOBGATE_STARTED_AT_KEY} missing while ${JOBGATE_RC_KEYS.enabled}=true; refusing to report against a guessed launch date.`);
+  }
+  const plan = resolvePlan(args, JOBGATE_PLAN, startedAt);
   const rc = rcStateFromValues(rcValues);
   const planned = planExperiment(plan, rc.weights);
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'jobgate-monitor-'));
   try {
-    return await monitorOnce({ args, plan, rc, planned, tmpDir, now, eventName, publishRc });
+    return await monitorOnce({ args, plan, rc, planned, tmpDir, now, eventName, publishRc, testInputs });
   } finally {
     fs.rmSync(tmpDir, { recursive: true, force: true });
   }
 }
 
-async function monitorOnce({ args, plan, rc, planned, tmpDir, now, eventName, publishRc }) {
+async function monitorOnce({ args, plan, rc, planned, tmpDir, now, eventName, publishRc, testInputs = null }) {
 
   const settledEnd = args.until || settledWindow({ days: 1, now, lagDays: ANALYTICS_PROCESSING_LAG_DAYS }).end;
   const available = inclusiveDays(plan.analysisStart, settledEnd);
@@ -316,6 +355,7 @@ async function monitorOnce({ args, plan, rc, planned, tmpDir, now, eventName, pu
   }
   let statusPayload = null;
   if (args['status-json']) statusPayload = JSON.parse(fs.readFileSync(args['status-json'], 'utf8'));
+  else if (testInputs?.statusPayload) statusPayload = testInputs.statusPayload;
   else if (available > 0) statusPayload = runReadout({ plan, weights: rc.weights, until: settledEnd, tmpDir, name: 'status' });
 
   const statusEval = statusPayload ? evaluateWindow(statusPayload, plan, planned) : null;
@@ -326,6 +366,8 @@ async function monitorOnce({ args, plan, rc, planned, tmpDir, now, eventName, pu
       decisionEval = evaluateWindow(JSON.parse(fs.readFileSync(args['decision-json'], 'utf8')), plan, planned);
     } else if (cpDays === statusEval.days) {
       decisionEval = statusEval;
+    } else if (testInputs?.decisionPayload) {
+      decisionEval = evaluateWindow(testInputs.decisionPayload, plan, planned);
     } else {
       const until = addDaysIso(plan.analysisStart, cpDays - 1);
       decisionEval = evaluateWindow(runReadout({ plan, weights: rc.weights, until, tmpDir, name: 'decision' }), plan, planned);

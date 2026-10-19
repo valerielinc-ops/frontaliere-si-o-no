@@ -176,7 +176,7 @@ exec "${realGit}" "$@"
     ], { ...process.env, PATH: `${bin}:${process.env.PATH || ''}` });
 
     expect(result.status).toBe(1);
-    expect(result.output).toContain('main push deadline exceeded during git push');
+    expect(result.output).toMatch(/main push deadline exceeded during (?:inspecting tree|git push)/u);
     expect(git(scenario.writer, ['rev-parse', 'origin/main']).trim()).toBe(scenario.base);
   });
 });

@@ -1,7 +1,7 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-10-18T21:12:16.134Z",
+  "generatedAt": "2026-10-19T09:13:50.657Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 5214,
-  "avgDurationMs": 5214,
+  "unchangedCount": 3,
+  "durationMs": 5116,
+  "avgDurationMs": 5116,
   "durationHistory": [
-    5214
+    5116
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "vaxcyte-6b03024d1766",
       "slug": "senior-bioprocess-ingegnere-ii-msat-proteins-vaxcyte-visp",
@@ -37,7 +35,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-18T21:11:52.409Z",
+      "crawledAt": "2026-10-19T09:13:27.103Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -59,10 +57,9 @@
         "canton": "VS",
         "location": "Visp"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T23:06:18.703Z",
-      "salaryMin": 97500,
-      "salaryMax": 148000,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
       "salarySource": "estimated",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -71,7 +68,10 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "vaxcyte-dfe11ab55bc0",
       "slug": "responsabile-senior-operazioni-di-controllo-della-qualita-analisi-globale-vaxcyte-visp",
@@ -84,7 +84,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-18T21:11:52.386Z",
+      "crawledAt": "2026-10-19T09:13:27.082Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -130,7 +130,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-18T21:11:52.380Z",
+      "crawledAt": "2026-10-19T09:13:27.077Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -177,7 +177,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-18T21:11:52.373Z",
+      "crawledAt": "2026-10-19T09:13:27.071Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -212,5 +212,5 @@
       }
     }
   ],
-  "codeCommit": "b6e494ea5b9a932f8e412d6ccd19c05b9a480ea5"
+  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
 }

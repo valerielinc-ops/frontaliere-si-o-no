@@ -107,6 +107,12 @@ case "$command" in
     if [ "$sub" = view ]; then
       if printf '%s' "$args" | grep -q -- '--json state,headRefOid'; then
         printf '%s %s\\n' "$(get_state PR_STATE)" "\${FAKE_PRE_SHA:-${SHA}}"
+      elif printf '%s' "$args" | grep -q -- '--json labels'; then
+        if printf '%s' "$args" | grep -q -- '--jq'; then
+          printf 'stale-review,agent:autofix\\n'
+        else
+          printf '{"labels":[{"name":"stale-review"},{"name":"agent:autofix"}]}\\n'
+        fi
       else
         if [ "\${FAKE_HEAD_METADATA:-ok}" = partial ]; then
           printf '{"commits":[{"committedDate":"2020-01-01T00:00:00Z"}],"headRepository":{"nameWithOwner":"%s"}}\\n' "\${FAKE_HEAD_REPO:-owner/repo}"

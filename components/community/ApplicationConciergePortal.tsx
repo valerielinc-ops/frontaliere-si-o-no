@@ -5,6 +5,7 @@ import { useLocale, useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analyticsProxy';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { ensureAssistedApplicationAuth } from '@/services/assistedApplicationCheckout';
+import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
 import { createApplicationConciergeCheckout } from '@/services/applicationConciergeCheckout';
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
@@ -13,6 +14,7 @@ import {
   declineApplicationConciergeProposal,
   recordApplicationConciergeConsent,
   fetchApplicationConciergeService,
+  getCandidateVisibleApplicationConciergeProposals,
   saveApplicationConciergeProfile,
   type ApplicationConciergeProposal,
   type ApplicationConciergeService,
@@ -114,6 +116,7 @@ export default function ApplicationConciergePortal({
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [location, setLocation] = useState('');
   const [consent, setConsent] = useState(false);
   const conciergeViewTracked = useRef(false);
 
@@ -153,6 +156,7 @@ export default function ApplicationConciergePortal({
     setName((value) => value || loaded.applicantName || user.displayName || '');
     setEmail((value) => value || loaded.applicantEmail || loaded.customerEmail || user.email || '');
     setPhone((value) => value || loaded.applicantPhone || '');
+    setLocation((value) => value || loaded.applicantLocation || '');
     setConsent(loaded.hasConsent);
     return loaded;
   }, [ensureUser, serviceId]);
@@ -162,13 +166,20 @@ export default function ApplicationConciergePortal({
     let cancelled = false;
     setLoading(true);
     setError(null);
-    void loadService().catch((loadError) => {
+    void (async () => {
+      const loaded = await loadService();
+      if (cancelled || !loaded || loaded.applicantLocation) return;
+      const profileEmail = String(authUser?.email || loaded.applicantEmail || loaded.customerEmail || '').trim();
+      if (!profileEmail) return;
+      const profile = await loadEnrichmentProfileFields(profileEmail);
+      if (!cancelled && profile.municipality) setLocation((value) => value || profile.municipality.trim());
+    })().catch((loadError) => {
       if (!cancelled) setError(errorKey(loadError));
     }).finally(() => {
       if (!cancelled) setLoading(false);
     });
     return () => { cancelled = true; };
-  }, [authLoading, loadService, serviceId]);
+  }, [authLoading, authUser, loadService, serviceId]);
 
   useEffect(() => {
     if (!serviceId || !service || (!isPending(service) && !MATCHING_STATES.has(String(service.matchingStatus || '')))) return undefined;
@@ -272,6 +283,7 @@ export default function ApplicationConciergePortal({
       applicantName: name.trim(),
       applicantEmail: email.trim().toLowerCase(),
       applicantPhone: phone.trim(),
+      applicantLocation: location.trim(),
       ...(options.cvStorageKey ? { cvStorageKey: options.cvStorageKey } : {}),
       ...(options.cvFileName ? { cvFileName: options.cvFileName } : {}),
     });
@@ -295,6 +307,7 @@ export default function ApplicationConciergePortal({
         applicantName: name.trim(),
         applicantEmail: email.trim().toLowerCase(),
         applicantPhone: phone.trim(),
+        applicantLocation: location.trim(),
       });
       setService(updated);
       setConsent(updated.hasConsent);
@@ -519,6 +532,7 @@ export default function ApplicationConciergePortal({
 
   const pending = isPending(service);
   const expired = service.serviceStatus === 'expired' || (service.expiresAt ? new Date(service.expiresAt).getTime() <= Date.now() : false);
+  const visibleProposals = getCandidateVisibleApplicationConciergeProposals(service.proposals);
 
   const matchingStatus = String(service.matchingStatus || '');
   const matchingActive = MATCHING_STATES.has(matchingStatus);
@@ -558,6 +572,8 @@ export default function ApplicationConciergePortal({
                     <label className="text-sm font-medium text-body">{t('jobBoard.concierge.email')}<input value={email} onChange={(event) => setEmail(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" type="email" autoComplete="email" /></label>
                   </div>
                   <label className="block text-sm font-medium text-body">{t('jobBoard.concierge.phone')}<input value={phone} onChange={(event) => setPhone(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" /></label>
+                  <label className="block text-sm font-medium text-body">{t('jobBoard.concierge.location')}<input value={location} onChange={(event) => setLocation(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="address-level2" maxLength={120} /></label>
+                  <p className="-mt-2 text-xs leading-5 text-subtle">{t('jobBoard.concierge.locationHint')}</p>
                   <button type="submit" disabled={busy !== null || expired} className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-edge px-4 py-2 text-sm font-semibold text-body transition-colors hover:border-accent hover:text-accent disabled:opacity-60">{busy === 'profile' && <Loader2 size={15} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.saveData')}</button>
                 </form>
 
@@ -593,8 +609,8 @@ export default function ApplicationConciergePortal({
                 {matchingNeedsReview && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.matchingNeedsReview')} /></div>}
                 {matchingFailed && <div className="mt-5"><Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.matchingFailed')} /></div>}
                 <div className="mt-5 space-y-3">
-                  {service.proposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
-                  {service.proposals.map((proposal) => <ProposalCard key={proposal.proposalId} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} t={t} />)}
+                  {visibleProposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
+                  {visibleProposals.map((proposal) => <ProposalCard key={proposal.proposalId} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} t={t} />)}
                 </div>
               </section>
             </div>

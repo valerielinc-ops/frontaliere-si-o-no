@@ -27,10 +27,18 @@ export const PUBLIC_CONFIG_KEYS = [
   'GITHUB_REPO_NAME',
   'GITHUB_REPO_OWNER',
   'GOOGLE_OAUTH_CLIENT_ID',
-  // jobgate-v3 auth-gate experiment controls (services/jobGateExperiment.ts).
+  // Google-issued public merchant identifier required by the SumUp widget's
+  // Google Pay button; unlike a payment/API secret it must reach the browser.
+  'SUMUP_GOOGLE_PAY_MERCHANT_ID',
+  // Legacy jobgate-v4 controls are retained for cached clients; Remote Config
+  // pins these clients to Spotlight after v5 ships.
   'JOBGATE_EXPERIMENT_ARMS',
   'JOBGATE_EXPERIMENT_ENABLED',
   'JOBGATE_EXPERIMENT_FORCE',
+  // New isolated jobgate-v5 controls. STARTED_AT is server-only metadata.
+  'JOBGATE_V5_EXPERIMENT_ARMS',
+  'JOBGATE_V5_EXPERIMENT_ENABLED',
+  'JOBGATE_V5_EXPERIMENT_FORCE',
   'KILL_ASSISTED_APPLICATION_REWARDED_AD',
   'KILL_FUEL_DAILY_LINKS',
   'KILL_HEALTH_PREMIUMS_LINKS',

@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-10-18T09:21:09.218Z",
+  "generatedAt": "2026-10-19T09:26:03.731Z",
   "total": 13,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 52993,
-  "avgDurationMs": 52993,
+  "unchangedCount": 7,
+  "durationMs": 46983,
+  "avgDurationMs": 46983,
   "durationHistory": [
-    52993
+    46983
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
-      "crawledAt": "2026-10-18T09:20:24.896Z",
+      "crawledAt": "2026-10-19T09:25:21.282Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -64,55 +64,6 @@
       }
     },
     {
-      "title": "Educatori dell'infanzia",
-      "company": "LIS – Lugano Istituti Sociali",
-      "companyKey": "lis-lugano-istituti-sociali",
-      "companyDomain": "lugano-lis.ch",
-      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=40-educatori-dell-infanzia-pregassona&language=it",
-      "slug": "educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona",
-      "location": "Pregassona",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6963",
-      "streetAddress": "Via alla Bozzoreda 15",
-      "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
-      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Sanità",
-      "source": "arca24",
-      "salaryMin": 82372,
-      "salaryMax": 97199,
-      "salaryCurrency": "CHF",
-      "salaryClass": "14",
-      "crawledAt": "2026-10-18T09:20:20.905Z",
-      "sourceLang": "it",
-      "currency": "CHF",
-      "salaryExtraction": {
-        "strategyVersion": "lis_salary_v2",
-        "textHash": "47ac3fd860ffe7cc2059",
-        "source": "lis_regex_text",
-        "confidence": 0.98,
-        "extractedAt": "2026-05-15T22:11:48.111Z"
-      },
-      "id": "lis-lugano-istituti-sociali-a24dc6ee20f4",
-      "addressLocality": "Pregassona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z",
-      "salarySource": "reported",
-      "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=40-educatori-dell-infanzia-pregassona&language=it",
-      "postedDate": "2026-01-25",
-      "postingDateSource": "reported",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "title": "Operatori socioassistenziali (infanza)",
       "company": "LIS – Lugano Istituti Sociali",
       "companyKey": "lis-lugano-istituti-sociali",
@@ -133,7 +84,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-10-18T09:20:19.548Z",
+      "crawledAt": "2026-10-19T09:25:16.543Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -182,7 +133,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-10-18T09:20:18.193Z",
+      "crawledAt": "2026-10-19T09:25:15.366Z",
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
@@ -232,7 +183,7 @@
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
-      "crawledAt": "2026-10-18T09:20:14.236Z",
+      "crawledAt": "2026-10-19T09:25:11.803Z",
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
@@ -281,7 +232,7 @@
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
-      "crawledAt": "2026-10-18T09:20:12.918Z",
+      "crawledAt": "2026-10-19T09:25:10.544Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -331,7 +282,7 @@
       "salaryMax": 109645,
       "salaryCurrency": "CHF",
       "salaryClass": "16",
-      "crawledAt": "2026-10-18T09:20:09.244Z",
+      "crawledAt": "2026-10-19T09:25:06.978Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -384,7 +335,7 @@
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
-      "crawledAt": "2026-10-18T09:20:23.589Z",
+      "crawledAt": "2026-10-19T09:25:20.094Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -433,7 +384,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-10-18T09:20:22.274Z",
+      "crawledAt": "2026-10-19T09:25:18.907Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -451,6 +402,55 @@
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=41-capisquadra-chef-di-cucina-pregassona&language=it",
+      "postedDate": "2026-01-25",
+      "postingDateSource": "reported",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Educatori dell'infanzia",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=40-educatori-dell-infanzia-pregassona&language=it",
+      "slug": "educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "datePosted": "2026-01-25",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Sanità",
+      "source": "arca24",
+      "salaryMin": 82372,
+      "salaryMax": 97199,
+      "salaryCurrency": "CHF",
+      "salaryClass": "14",
+      "crawledAt": "2026-10-19T09:25:17.725Z",
+      "sourceLang": "it",
+      "currency": "CHF",
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "47ac3fd860ffe7cc2059",
+        "source": "lis_regex_text",
+        "confidence": 0.98,
+        "extractedAt": "2026-05-15T22:11:48.111Z"
+      },
+      "id": "lis-lugano-istituti-sociali-a24dc6ee20f4",
+      "addressLocality": "Pregassona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "salarySource": "reported",
+      "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=40-educatori-dell-infanzia-pregassona&language=it",
       "postedDate": "2026-01-25",
       "postingDateSource": "reported",
       "_qualityScore": 95,
@@ -482,7 +482,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-10-18T09:20:16.860Z",
+      "crawledAt": "2026-10-19T09:25:14.175Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -531,7 +531,7 @@
       "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
-      "crawledAt": "2026-10-18T09:20:15.554Z",
+      "crawledAt": "2026-10-19T09:25:13.005Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -582,7 +582,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-10-18T09:20:11.589Z",
+      "crawledAt": "2026-10-19T09:25:09.358Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -631,7 +631,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-10-18T09:20:10.417Z",
+      "crawledAt": "2026-10-19T09:25:08.179Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -660,5 +660,5 @@
       }
     }
   ],
-  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
+  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
 }

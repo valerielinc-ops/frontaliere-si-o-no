@@ -33,6 +33,11 @@ describe('assisted application post-payment upload', () => {
     expect(uploadSource).toContain('disabled={!consentPersisted || Boolean(cvStorageKey)');
   });
 
+  it('does not attribute legacy orders with no stored copy arm to the control arm', () => {
+    expect(uploadSource).toContain('const copyVariant = normalizeAssistedApplicationCopyVariant(order?.copyVariant);');
+    expect(uploadSource).toContain('...(copyVariant ? { copy_variant: copyVariant } : {}),');
+  });
+
   it('allows only the server to create/pay an order and freezes payment identity for clients', () => {
     const block = directRules(matchBlock(firestoreRules, 'match /assisted_applications/{orderId}'));
 

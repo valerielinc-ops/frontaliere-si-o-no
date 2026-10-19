@@ -1,6 +1,9 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ 'whatsNew.v3991.title': "Proposte di lavoro più vicine a te",
+ 'whatsNew.v3991.conciergeProximity.title': "La distanza aiuta a ordinare le posizioni proposte",
+ 'whatsNew.v3991.conciergeProximity.desc': "Indica il comune o il CAP nel profilo per dare priorità alle offerte compatibili nella tua zona. La corrispondenza con il CV resta il criterio principale: non serve l’indirizzo completo.",
  'whatsNew.v3990.title': "Pagamento della candidatura assistita più semplice",
  'whatsNew.v3990.conciergeCheckout.title': "Completa il pagamento senza uscire dal sito",
  'whatsNew.v3990.conciergeCheckout.desc': "Il pagamento del servizio di 30 giorni avviene in un modulo incorporato. Se chiudi il popup o ricarichi la pagina, puoi riprendere lo stesso tentativo; il servizio si attiva solo dopo la conferma del pagamento.",
@@ -949,6 +952,8 @@ const translations: Record<string, string> = {
  'jobBoard.concierge.name': 'Nome e cognome',
  'jobBoard.concierge.email': 'Email',
  'jobBoard.concierge.phone': 'Telefono (facoltativo)',
+ 'jobBoard.concierge.location': 'Comune o CAP di residenza',
+ 'jobBoard.concierge.locationHint': 'Precompiliamo il comune di residenza del tuo profilo, se disponibile. Puoi correggerlo con comune o CAP; non serve l’indirizzo completo.',
  'jobBoard.concierge.consent': 'Autorizzo Frontaliereticino.ch a trattare il mio CV e i dati indicati per preparare e inviare le candidature sulle posizioni che accetto, secondo i Termini del servizio e l’Informativa privacy.',
  'jobBoard.concierge.saveData': 'Salva dati',
  'jobBoard.concierge.saveProfile': 'Salva dati',

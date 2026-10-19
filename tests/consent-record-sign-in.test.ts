@@ -399,10 +399,21 @@ describe('jobgate-v4: a social login from the gate carries the arm, like the ema
     expect(registration().variant).toBeNull();
   });
 
-  it('the LinkedIn round trip gets the arm computed from the parked context', () => {
-    expect(auth.jobGateSubscriberVariantFor(enrolledContext, 'job_gate')).toBe('jobgate-v4:spotlight');
+  it('the LinkedIn round trip preserves v4 attribution and writes the v5 tag', () => {
+    for (const arm of ['control', 'navy_panel', 'spotlight', 'actions_first']) {
+      expect(auth.jobGateSubscriberVariantFor({ ...enrolledContext, variant: arm }, 'job_gate')).toBe(`jobgate-v4:${arm}`);
+    }
+    expect(auth.jobGateSubscriberVariantFor(
+      { ...enrolledContext, experimentId: 'jobgate-v5', variant: 'spotlight_outline' },
+      'job_gate',
+    ))
+      .toBe('jobgate-v5:spotlight_outline');
     expect(auth.jobGateSubscriberVariantFor(enrolledContext, 'newsletter_popup')).toBeNull();
     expect(auth.jobGateSubscriberVariantFor({ ...enrolledContext, variant: 'bogus' }, 'job_gate')).toBeNull();
+    expect(auth.jobGateSubscriberVariantFor(
+      { ...enrolledContext, experimentId: 'jobgate-v5', variant: 'control' },
+      'job_gate',
+    )).toBeNull();
     expect(auth.jobGateSubscriberVariantFor(null, 'job_gate')).toBeNull();
   });
 });

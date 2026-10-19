@@ -825,6 +825,16 @@ const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
 // Worker) and write (that script) sides of the same key family.
 export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
 
+// Apple Pay domain verification is deliberately a fallback-only edge copy.
+// The Pages origin remains authoritative whenever the repository file is
+// deployed; R2 only covers the propagation window (or a missing origin file).
+export const APPLE_PAY_DOMAIN_VERIFICATION_PATH =
+  '/.well-known/apple-developer-merchantid-domain-association';
+export const APPLE_PAY_DOMAIN_VERIFICATION_CDN_KEY =
+  `/edge${APPLE_PAY_DOMAIN_VERIFICATION_PATH}`;
+export const APPLE_PAY_DOMAIN_VERIFICATION_CONTENT_TYPE = 'text/plain; charset=utf-8';
+export const APPLE_PAY_DOMAIN_VERIFICATION_CACHE_TTL = 300;
+
 // GSC also discovers article ids and other languages' slugs under a localized
 // section. Resolve only an exact, unambiguous identity in the publisher's
 // registry, and verify the same-language page before sending a permanent 301.
@@ -1370,6 +1380,64 @@ async function servePushedEdgeFile(pathname) {
   } finally {
     clearTimeout(timer);
   }
+}
+
+// Serve the Apple Pay verification file with repository-first precedence.
+// Unlike the freshness-oriented EDGE_PUSHED_FILES table above, this copy must
+// never shadow a file that has reached GitHub Pages: SumUp/Apple validate the
+// exact bytes published by the repository. R2 is consulted only after the
+// origin explicitly says the file is absent (404/410), or after an origin
+// network failure where the already-uploaded verification copy is the safer
+// answer than an outage.
+async function serveApplePayDomainVerificationFile(request, url) {
+  if (url.pathname !== APPLE_PAY_DOMAIN_VERIFICATION_PATH) return null;
+  if (request.method !== 'GET' && request.method !== 'HEAD') return null;
+
+  let originResponse = null;
+  try {
+    originResponse = await fetchOriginWithRetry(url, request);
+  } catch {
+    // If Pages is temporarily unreachable, try the Cloudflare copy below.
+  }
+
+  if (originResponse && originResponse.status !== 404 && originResponse.status !== 410) {
+    if (originResponse.status !== 200) return originResponse;
+    const body = request.method === 'HEAD' ? null : await originResponse.arrayBuffer();
+    return new Response(body, {
+      status: 200,
+      headers: {
+        'Content-Type': APPLE_PAY_DOMAIN_VERIFICATION_CONTENT_TYPE,
+        'Cache-Control': `public, max-age=${APPLE_PAY_DOMAIN_VERIFICATION_CACHE_TTL}`,
+        'X-Apple-Pay-Source': 'repo',
+      },
+    });
+  }
+
+  try {
+    const cdnUrl = new URL(APPLE_PAY_DOMAIN_VERIFICATION_CDN_KEY, CDN_BASE);
+    const edgeResponse = await fetch(cdnUrl.toString(), {
+      cf: publicOriginCacheOptions(APPLE_PAY_DOMAIN_VERIFICATION_CACHE_TTL),
+    });
+    if (edgeResponse.ok) {
+      const body = request.method === 'HEAD' ? null : await edgeResponse.arrayBuffer();
+      return new Response(body, {
+        status: 200,
+        headers: {
+          'Content-Type': APPLE_PAY_DOMAIN_VERIFICATION_CONTENT_TYPE,
+          'Cache-Control': `public, max-age=${APPLE_PAY_DOMAIN_VERIFICATION_CACHE_TTL}`,
+          'X-Apple-Pay-Source': 'cloudflare-fallback',
+        },
+      });
+    }
+  } catch {
+    // Return the origin's definitive 404/410 below when both copies miss.
+  }
+
+  if (originResponse) return originResponse;
+  return new Response('Apple Pay domain verification unavailable', {
+    status: 503,
+    headers: { 'Retry-After': '30' },
+  });
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -2986,6 +3054,12 @@ const router = {
         });
       }
     }
+
+    // Apple Pay verification — repository-first, Cloudflare fallback. This
+    // path is intentionally outside EDGE_PUSHED_FILES: that table prefers R2
+    // for freshness, while Apple Pay must prefer the committed repository file.
+    const applePayResponse = await serveApplePayDomainVerificationFile(request, url);
+    if (applePayResponse) return applePayResponse;
 
     // Pushable-origin edge files (issue #4881 Fase 3) — exact apex paths, not
     // locale/section prefixed, so (like the unsub proxy above) must be

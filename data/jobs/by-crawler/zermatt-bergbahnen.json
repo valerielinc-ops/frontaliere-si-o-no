@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zermatt-bergbahnen",
-  "assembledAt": "2026-10-18T09:30:37.894Z",
+  "assembledAt": "2026-10-19T09:35:56.893Z",
   "jobs": [
     {
       "id": "zermatt-bergbahnen-4992cc0352fc",
@@ -48,7 +48,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/kuechenchef-kuechenchefin-im-tagesbetrieb_job_5225639",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:30:32.340Z",
+      "crawledAt": "2026-10-19T09:35:49.988Z",
       "previousSlugs": [
         "kuchenchef-kuchenchefin-im-tagesbetrieb-zermatt-zermatt-bergbahnen"
       ],
@@ -119,7 +119,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-metallbauer-in-efz_job_4602024",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:30:31.832Z",
+      "crawledAt": "2026-10-19T09:35:49.383Z",
       "previousSlugs": [
         "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen"
       ],
@@ -189,7 +189,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker-in-efz_job_3706844",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:30:31.342Z",
+      "crawledAt": "2026-10-19T09:35:48.866Z",
       "requirementsByLocale": {
         "en": [
           "Good analytical skills and networked thinking",
@@ -265,7 +265,7 @@
         "it": "apprendistato-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
         "en": "apprenticeship-polymechanic-production-mechanic-zermatt-bergbahnen-zermatt",
         "de": "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
-        "fr": "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt"
+        "fr": "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
       },
       "company": "Zermatt Bergbahnen",
       "companyKey": "zermatt-bergbahnen",
@@ -304,10 +304,11 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-polymechaniker-in-produktionsmechaniker-in_job_3700464",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:30:30.778Z",
+      "crawledAt": "2026-10-19T09:35:48.359Z",
       "previousSlugs": [
         "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
-        "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen"
+        "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
+        "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -317,7 +318,7 @@
           "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
         ],
         "fr": [
-          "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
+          "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt"
         ]
       },
       "salaryMin": 49000,
@@ -331,6 +332,87 @@
           "@type": "QuantitativeValue",
           "minValue": 49000,
           "maxValue": 74500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "zermatt-bergbahnen-71834a9e1e3e",
+      "slug": "verkaufsberater-in-zermatt-bergbahnen-zermatt",
+      "slugByLocale": {
+        "de": "verkaufsberater-in-zermatt-zermatt-bergbahnen",
+        "it": "verkaufsberater-in-zermatt-bergbahnen-zermatt",
+        "en": "verkaufsberater-in-zermatt-bergbahnen-zermatt",
+        "fr": "verkaufsberater-in-zermatt-bergbahnen-zermatt"
+      },
+      "company": "Zermatt Bergbahnen",
+      "companyKey": "zermatt-bergbahnen",
+      "companyDomain": "matterhornparadise.ch",
+      "title": "Verkaufsberater/in",
+      "titleByLocale": {
+        "de": "Verkaufsberater/in",
+        "it": "Verkaufsberater/in",
+        "en": "Verkaufsberater/in",
+        "fr": "Verkaufsberater/in"
+      },
+      "description": "Werde Teil der Zermatt Bergbahnen\n\nDie Zermatt Bergbahnen AG betreibt das ganzjährige, internationale Ausflugs- und Schneesportgebiet von Zermatt und ist ein moderner Arbeitgeber, fest in Zermatt und dem Mattertal verankert. Mit einem engagierten Team von 280 Mitarbeitenden bieten wir Besuchern unvergessliche Bergabenteuer durch wichtige Ticket- und Informationsdienste in unseren Verkaufsstellen in der beeindruckenden Bergwelt von Zermatt.\n\nEine neue berufliche Herausforderung im hochalpinen Ausflugsparadies von Zermatt erwartet dich per 1. Dezember 2026 oder nach Vereinbarung.\n\nBeginn\n\n01.12.2026\n\n10.11.2026\n\nBewerbungsfrist\n\n80 - 100%\n\nsaisonal befristet\n\nTeam\n\nVerkaufsstellen\n\nDas erwartet dich\n\nDein Job\n\n• Kompetente Beratung unserer Gäste und sachkundiger Verkauf der vielfältigen Angebote an den Verkaufsstellen\n\n• Freundliches, aufgestelltes Informieren der Besucher über unsere Anlagen, Erlebnisse und Wetterlagen in mehreren Sprachen\n\n• Sorgfältige Kassaführung mit täglicher Abrechnung\n\n• Professionelle Entgegennahme der Gästefeedbacks mit gekonnter Weiterbearbeitung\n\n• Tatkräftige Unterstützung bei der Umsetzung unserer Unternehmens- und Tarifkultur\n\nDas bringst du mit ins Team\n\nDein Profil\n\n• Abgeschlossene Berufsausbildung, vorzugsweise im Dienstleistungs- oder Tourismusbereich\n\n• Sehr gute Sprachkenntnisse in Deutsch , Englisch und Französisch (weitere Sprachen von Vorteil)\n\n• Leistungsbereitschaft, Teamfähigkeit und Flexibilität für Wochenend- und Feiertagseinsätze\n\n• Begeisterung für Zermatt mit seinen Anlagen\n\n• Gute Zermatt-Kenntnisse von Vorteil\n\nWir bieten\n\n• Interessante und abwechslungsreiche Arbeiten im direkten Kundenkontakt\n\n• Attraktiver Arbeitgeber mit vielen Benefits\n\n• Geregelte Arbeitszeiten im Schichtdienst\n\n• Motiviertes und freundliches Team",
+      "descriptionByLocale": {
+        "de": "Werde Teil der Zermatt Bergbahnen\n\nDie Zermatt Bergbahnen AG betreibt das ganzjährige, internationale Ausflugs- und Schneesportgebiet von Zermatt und ist ein moderner Arbeitgeber, fest in Zermatt und dem Mattertal verankert. Mit einem engagierten Team von 280 Mitarbeitenden bieten wir Besuchern unvergessliche Bergabenteuer durch wichtige Ticket- und Informationsdienste in unseren Verkaufsstellen in der beeindruckenden Bergwelt von Zermatt.\n\nEine neue berufliche Herausforderung im hochalpinen Ausflugsparadies von Zermatt erwartet dich per 1. Dezember 2026 oder nach Vereinbarung.\n\nBeginn\n\n01.12.2026\n\n10.11.2026\n\nBewerbungsfrist\n\n80 - 100%\n\nsaisonal befristet\n\nTeam\n\nVerkaufsstellen\n\nDas erwartet dich\n\nDein Job\n\n• Kompetente Beratung unserer Gäste und sachkundiger Verkauf der vielfältigen Angebote an den Verkaufsstellen\n\n• Freundliches, aufgestelltes Informieren der Besucher über unsere Anlagen, Erlebnisse und Wetterlagen in mehreren Sprachen\n\n• Sorgfältige Kassaführung mit täglicher Abrechnung\n\n• Professionelle Entgegennahme der Gästefeedbacks mit gekonnter Weiterbearbeitung\n\n• Tatkräftige Unterstützung bei der Umsetzung unserer Unternehmens- und Tarifkultur\n\nDas bringst du mit ins Team\n\nDein Profil\n\n• Abgeschlossene Berufsausbildung, vorzugsweise im Dienstleistungs- oder Tourismusbereich\n\n• Sehr gute Sprachkenntnisse in Deutsch , Englisch und Französisch (weitere Sprachen von Vorteil)\n\n• Leistungsbereitschaft, Teamfähigkeit und Flexibilität für Wochenend- und Feiertagseinsätze\n\n• Begeisterung für Zermatt mit seinen Anlagen\n\n• Gute Zermatt-Kenntnisse von Vorteil\n\nWir bieten\n\n• Interessante und abwechslungsreiche Arbeiten im direkten Kundenkontakt\n\n• Attraktiver Arbeitgeber mit vielen Benefits\n\n• Geregelte Arbeitszeiten im Schichtdienst\n\n• Motiviertes und freundliches Team",
+        "it": "Werde Teil der Zermatt Bergbahnen\n\nDie Zermatt Bergbahnen AG betreibt das ganzjährige, internationale Ausflugs- und Schneesportgebiet von Zermatt und ist ein moderner Arbeitgeber, fest in Zermatt und dem Mattertal verankert. Mit einem engagierten Team von 280 Mitarbeitenden bieten wir Besuchern unvergessliche Bergabenteuer durch wichtige Ticket- und Informationsdienste in unseren Verkaufsstellen in der beeindruckenden Bergwelt von Zermatt.\n\nEine neue berufliche Herausforderung im hochalpinen Ausflugsparadies von Zermatt erwartet dich per 1. Dezember 2026 oder nach Vereinbarung.\n\nBeginn\n\n01.12.2026\n\n10.11.2026\n\nBewerbungsfrist\n\n80 - 100%\n\nsaisonal befristet\n\nTeam\n\nVerkaufsstellen\n\nDas erwartet dich\n\nDein Job\n\n• Kompetente Beratung unserer Gäste und sachkundiger Verkauf der vielfältigen Angebote an den Verkaufsstellen\n\n• Freundliches, aufgestelltes Informieren der Besucher über unsere Anlagen, Erlebnisse und Wetterlagen in mehreren Sprachen\n\n• Sorgfältige Kassaführung mit täglicher Abrechnung\n\n• Professionelle Entgegennahme der Gästefeedbacks mit gekonnter Weiterbearbeitung\n\n• Tatkräftige Unterstützung bei der Umsetzung unserer Unternehmens- und Tarifkultur\n\nDas bringst du mit ins Team\n\nDein Profil\n\n• Abgeschlossene Berufsausbildung, vorzugsweise im Dienstleistungs- oder Tourismusbereich\n\n• Sehr gute Sprachkenntnisse in Deutsch , Englisch und Französisch (weitere Sprachen von Vorteil)\n\n• Leistungsbereitschaft, Teamfähigkeit und Flexibilität für Wochenend- und Feiertagseinsätze\n\n• Begeisterung für Zermatt mit seinen Anlagen\n\n• Gute Zermatt-Kenntnisse von Vorteil\n\nWir bieten\n\n• Interessante und abwechslungsreiche Arbeiten im direkten Kundenkontakt\n\n• Attraktiver Arbeitgeber mit vielen Benefits\n\n• Geregelte Arbeitszeiten im Schichtdienst\n\n• Motiviertes und freundliches Team",
+        "en": "Werde Teil der Zermatt Bergbahnen\n\nDie Zermatt Bergbahnen AG betreibt das ganzjährige, internationale Ausflugs- und Schneesportgebiet von Zermatt und ist ein moderner Arbeitgeber, fest in Zermatt und dem Mattertal verankert. Mit einem engagierten Team von 280 Mitarbeitenden bieten wir Besuchern unvergessliche Bergabenteuer durch wichtige Ticket- und Informationsdienste in unseren Verkaufsstellen in der beeindruckenden Bergwelt von Zermatt.\n\nEine neue berufliche Herausforderung im hochalpinen Ausflugsparadies von Zermatt erwartet dich per 1. Dezember 2026 oder nach Vereinbarung.\n\nBeginn\n\n01.12.2026\n\n10.11.2026\n\nBewerbungsfrist\n\n80 - 100%\n\nsaisonal befristet\n\nTeam\n\nVerkaufsstellen\n\nDas erwartet dich\n\nDein Job\n\n• Kompetente Beratung unserer Gäste und sachkundiger Verkauf der vielfältigen Angebote an den Verkaufsstellen\n\n• Freundliches, aufgestelltes Informieren der Besucher über unsere Anlagen, Erlebnisse und Wetterlagen in mehreren Sprachen\n\n• Sorgfältige Kassaführung mit täglicher Abrechnung\n\n• Professionelle Entgegennahme der Gästefeedbacks mit gekonnter Weiterbearbeitung\n\n• Tatkräftige Unterstützung bei der Umsetzung unserer Unternehmens- und Tarifkultur\n\nDas bringst du mit ins Team\n\nDein Profil\n\n• Abgeschlossene Berufsausbildung, vorzugsweise im Dienstleistungs- oder Tourismusbereich\n\n• Sehr gute Sprachkenntnisse in Deutsch , Englisch und Französisch (weitere Sprachen von Vorteil)\n\n• Leistungsbereitschaft, Teamfähigkeit und Flexibilität für Wochenend- und Feiertagseinsätze\n\n• Begeisterung für Zermatt mit seinen Anlagen\n\n• Gute Zermatt-Kenntnisse von Vorteil\n\nWir bieten\n\n• Interessante und abwechslungsreiche Arbeiten im direkten Kundenkontakt\n\n• Attraktiver Arbeitgeber mit vielen Benefits\n\n• Geregelte Arbeitszeiten im Schichtdienst\n\n• Motiviertes und freundliches Team",
+        "fr": "Werde Teil der Zermatt Bergbahnen\n\nDie Zermatt Bergbahnen AG betreibt das ganzjährige, internationale Ausflugs- und Schneesportgebiet von Zermatt und ist ein moderner Arbeitgeber, fest in Zermatt und dem Mattertal verankert. Mit einem engagierten Team von 280 Mitarbeitenden bieten wir Besuchern unvergessliche Bergabenteuer durch wichtige Ticket- und Informationsdienste in unseren Verkaufsstellen in der beeindruckenden Bergwelt von Zermatt.\n\nEine neue berufliche Herausforderung im hochalpinen Ausflugsparadies von Zermatt erwartet dich per 1. Dezember 2026 oder nach Vereinbarung.\n\nBeginn\n\n01.12.2026\n\n10.11.2026\n\nBewerbungsfrist\n\n80 - 100%\n\nsaisonal befristet\n\nTeam\n\nVerkaufsstellen\n\nDas erwartet dich\n\nDein Job\n\n• Kompetente Beratung unserer Gäste und sachkundiger Verkauf der vielfältigen Angebote an den Verkaufsstellen\n\n• Freundliches, aufgestelltes Informieren der Besucher über unsere Anlagen, Erlebnisse und Wetterlagen in mehreren Sprachen\n\n• Sorgfältige Kassaführung mit täglicher Abrechnung\n\n• Professionelle Entgegennahme der Gästefeedbacks mit gekonnter Weiterbearbeitung\n\n• Tatkräftige Unterstützung bei der Umsetzung unserer Unternehmens- und Tarifkultur\n\nDas bringst du mit ins Team\n\nDein Profil\n\n• Abgeschlossene Berufsausbildung, vorzugsweise im Dienstleistungs- oder Tourismusbereich\n\n• Sehr gute Sprachkenntnisse in Deutsch , Englisch und Französisch (weitere Sprachen von Vorteil)\n\n• Leistungsbereitschaft, Teamfähigkeit und Flexibilität für Wochenend- und Feiertagseinsätze\n\n• Begeisterung für Zermatt mit seinen Anlagen\n\n• Gute Zermatt-Kenntnisse von Vorteil\n\nWir bieten\n\n• Interessante und abwechslungsreiche Arbeiten im direkten Kundenkontakt\n\n• Attraktiver Arbeitgeber mit vielen Benefits\n\n• Geregelte Arbeitszeiten im Schichtdienst\n\n• Motiviertes und freundliches Team"
+      },
+      "location": "Zermatt",
+      "canton": "VS",
+      "addressLocality": "Zermatt",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3920",
+      "category": "sales",
+      "sector": "Turismo / Funivie",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/verkaufsberater-in_job_3001262",
+      "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/verkaufsberater-in_job_3001262",
+      "source": "Zermatt Bergbahnen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-19T09:35:47.753Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-zermatt-zermatt-bergbahnen",
+          "consulente-di-vendita-zermatt-bergbahnen-zermatt"
+        ],
+        "en": [
+          "sales-consultant-zermatt-bergbahnen-zermatt"
+        ],
+        "fr": [
+          "conseiller-ere-de-vente-zermatt-bergbahnen-zermatt"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-zermatt-zermatt-bergbahnen",
+        "consulente-di-vendita-zermatt-bergbahnen-zermatt",
+        "sales-consultant-zermatt-bergbahnen-zermatt",
+        "conseiller-ere-de-vente-zermatt-bergbahnen-zermatt"
+      ],
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 111000,
           "unitText": "YEAR"
         }
       }
@@ -381,7 +463,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/mitarbeitende-r-unterhalt-revision-gletscherlifte_job_3001261",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:30:30.056Z",
+      "crawledAt": "2026-10-19T09:35:47.097Z",
       "requirementsByLocale": {
         "it": [
           "Costituisce titolo preferenziale l'esperienza nella costruzione di funivie o impianti",

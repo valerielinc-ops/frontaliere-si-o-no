@@ -18,6 +18,12 @@ vi.mock('@/services/assistedApplicationExperiment', () => ({
   ASSISTED_APPLICATION_PRICE_EUR_CENTS: 199,
 }));
 
+const firebaseMocks = vi.hoisted(() => ({
+  getConfigValue: vi.fn(),
+}));
+
+vi.mock('@/services/firebase', () => firebaseMocks);
+
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 
 const mount = vi.fn(() => ({ unmount: vi.fn() }));
@@ -36,12 +42,14 @@ const renderWidget = (overrides: Partial<ComponentProps<typeof SumUpPaymentWidge
 };
 
 beforeEach(() => {
+  firebaseMocks.getConfigValue.mockResolvedValue('');
   (window as unknown as { SumUpCard: { mount: typeof mount } }).SumUpCard = { mount };
 });
 
 afterEach(() => {
   cleanup();
   vi.clearAllMocks();
+  firebaseMocks.getConfigValue.mockReset();
   delete (window as unknown as { SumUpCard?: unknown }).SumUpCard;
   document.body.style.overflow = '';
 });
@@ -77,6 +85,21 @@ describe('SumUpPaymentWidget', () => {
     await act(async () => {});
 
     expect(mount).toHaveBeenCalledWith(expect.objectContaining({ amount: '39.99' }));
+  });
+
+  it('passes the Google Pay merchant configuration when Remote Config provides it', async () => {
+    firebaseMocks.getConfigValue.mockResolvedValue('merchant-123');
+
+    renderWidget();
+
+    await act(async () => {});
+
+    expect(mount).toHaveBeenCalledWith(expect.objectContaining({
+      googlePay: {
+        merchantId: 'merchant-123',
+        merchantName: 'Frontaliere Ticino',
+      },
+    }));
   });
 
   it('closes from the backdrop but keeps the checkout locked while busy', () => {

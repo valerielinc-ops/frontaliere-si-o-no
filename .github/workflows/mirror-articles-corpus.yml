@@ -246,7 +246,11 @@ jobs:
               echo "mirrored ${GITHUB_SHA:0:8} — the articles repo will republish its data surface"
               exit 0
             fi
-            if printf '%s' "$push_output" | grep -qiE 'candidate tree collapse|not a descendant|cannot resolve commit|cannot inspect tree|cannot prove ancestry'; then
+            # A candidate based on the previous origin/main can become stale
+            # while the mirror is being built. Each retry rebuilds from a
+            # freshly fetched origin/main; let this normal race refresh and
+            # retry, while keeping integrity/proof failures fail-closed.
+            if printf '%s' "$push_output" | grep -qiE 'candidate tree collapse|cannot resolve commit|cannot inspect tree|cannot prove ancestry'; then
               echo "::error::main push guard rejected the mirror candidate; refusing to retry a destructive tree"
               exit 1
             fi

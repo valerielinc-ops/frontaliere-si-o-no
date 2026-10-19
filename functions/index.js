@@ -91,7 +91,10 @@ import {
   expireApplicationConciergeServices,
 } from './src/applicationConciergeCore.js';
 import { enrichCandidateProfileFromCv } from './src/candidateCvProfile.js';
-import { runApplicationConciergeMatching } from './src/applicationConciergeMatching.js';
+import {
+  runApplicationConciergeMatching,
+  shouldRunApplicationConciergeMatchingForServiceUpdate,
+} from './src/applicationConciergeMatching.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
 import {
   handleAssistedApplicationOrderWritten,
@@ -2590,24 +2593,27 @@ export const processApplicationConciergeCv = onDocumentWritten(
     if (!after?.exists) return;
     const before = event.data?.before?.exists ? event.data.before.data() : null;
     const data = after.data() || {};
-    if (!data.cvStorageKey || data.cvStorageKey === before?.cvStorageKey) return;
+    if (!shouldRunApplicationConciergeMatchingForServiceUpdate(before, data)) return;
     try {
       const db = getAdminDb();
-      const result = await enrichCandidateProfileFromCv({
-        db,
-        userId: data.userId,
-        sourceId: event.params.serviceId,
-        sourceType: 'application_concierge',
-        cvStorageKey: data.cvStorageKey,
-        applicantEmail: data.applicantEmail || data.customerEmail || '',
-        uploadedAt: data.cvUploadedAt || null,
-      });
-      if (result.status === 'ready') {
-        const matching = await runApplicationConciergeMatching({ db, serviceId: event.params.serviceId });
-        console.log('[processApplicationConciergeCv]', event.params.serviceId, matching.status, matching.proposals ?? 0);
-      } else {
-        console.log('[processApplicationConciergeCv]', event.params.serviceId, result.status);
+      const cvChanged = data.cvStorageKey !== before?.cvStorageKey;
+      if (cvChanged) {
+        const profile = await enrichCandidateProfileFromCv({
+          db,
+          userId: data.userId,
+          sourceId: event.params.serviceId,
+          sourceType: 'application_concierge',
+          cvStorageKey: data.cvStorageKey,
+          applicantEmail: data.applicantEmail || data.customerEmail || '',
+          uploadedAt: data.cvUploadedAt || null,
+        });
+        if (profile.status !== 'ready') {
+          console.log('[processApplicationConciergeCv]', event.params.serviceId, profile.status);
+          return;
+        }
       }
+      const matching = await runApplicationConciergeMatching({ db, serviceId: event.params.serviceId });
+      console.log('[processApplicationConciergeCv]', event.params.serviceId, matching.status, matching.proposals ?? 0);
     } catch (error) {
       console.error('[processApplicationConciergeCv]', event.params.serviceId, error instanceof Error ? error.message : String(error));
     }

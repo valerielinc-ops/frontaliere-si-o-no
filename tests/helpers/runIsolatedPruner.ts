@@ -30,6 +30,20 @@ export function runIsolatedPruner(
   const fixtureEnv: NodeJS.ProcessEnv = { ...env, FRONTALIERE_WORKSPACE: canonicalRoot };
   delete fixtureEnv.NODE_OPTIONS;
   delete fixtureEnv.FRONTALIERE_SITE_HOOKS_DIR;
+  if (process.platform === 'darwin') {
+    // /bin/ps is setuid on macOS, so Seatbelt blocks it inside this isolated
+    // subprocess. The lock only needs a stable identity per PID in these
+    // fixtures; production still uses the real process table.
+    const testBin = path.join(canonicalRoot, '.pruner-test-bin');
+    fs.mkdirSync(testBin, { recursive: true });
+    fs.writeFileSync(path.join(testBin, 'ps'), [
+      '#!/bin/sh',
+      '[ "$1" = "-p" ] && [ -n "$2" ] || exit 1',
+      'printf "pruner-test-process-%s\\n" "$2"',
+      '',
+    ].join('\n'), { mode: 0o755 });
+    fixtureEnv.PATH = [testBin, fixtureEnv.PATH].filter(Boolean).join(path.delimiter);
+  }
   const nodeArgs = [...isolatedPrunerArgs(root), script, ...args];
   const command = process.platform === 'darwin' ? '/usr/bin/sandbox-exec' : process.execPath;
   // Fail closed on macOS if sandbox-exec is missing/unusable: no fallback.

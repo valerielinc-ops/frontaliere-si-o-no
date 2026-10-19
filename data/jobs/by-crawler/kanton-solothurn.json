@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-solothurn",
-  "assembledAt": "2026-10-18T09:26:15.736Z",
+  "assembledAt": "2026-10-19T09:23:46.423Z",
   "jobs": [
     {
       "id": "kanton-solothurn-1ef770d83a68",
@@ -33,7 +33,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz/065b6048-21b7-4eda-b46e-718abf7d3725",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:26:09.922Z",
+      "crawledAt": "2026-10-19T09:23:37.937Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -108,7 +108,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/f9d698a8-5442-4fd9-8576-c7c9c9b4bd00",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:26:08.928Z",
+      "crawledAt": "2026-10-19T09:23:36.940Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -184,7 +184,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-uhrmacher-in-efz/35eac920-78d1-4fa2-b308-ea4121b54715",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:26:07.938Z",
+      "crawledAt": "2026-10-19T09:23:35.947Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -260,7 +260,7 @@
       "url": "https://job.so.ch/offene-stellen/mitarbeiter-in-reinigung/75ae5924-aaa1-4fb7-bf26-f07f401d1e1f",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:26:06.934Z",
+      "crawledAt": "2026-10-19T09:23:34.955Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -336,7 +336,7 @@
       "url": "https://job.so.ch/offene-stellen/mitarbeiter-in-reinigung/bc3370c7-f052-4a26-a9a8-41448306a4be",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:26:05.423Z",
+      "crawledAt": "2026-10-19T09:23:33.966Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -413,7 +413,7 @@
       "url": "https://job.so.ch/offene-stellen/wissenschaftliche-r-mitarbeiter-in-hydrometrie/74022999-a1b9-4a30-8383-78c071d0ab00",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:26:02.926Z",
+      "crawledAt": "2026-10-19T09:23:33.023Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -460,9 +460,9 @@
     },
     {
       "id": "kanton-solothurn-38b136945c9f",
-      "slug": "giurista-60-kanton-solothurn-solothurn",
+      "slug": "jurist-in-60-kanton-solothurn",
       "slugByLocale": {
-        "it": "giurista-60-kanton-solothurn-solothurn",
+        "it": "jurist-in-60-kanton-solothurn",
         "en": "lawyer-60-kanton-solothurn-solothurn",
         "de": "jurist-in-60-kanton-solothurn-solothurn",
         "fr": "juriste-60-kanton-solothurn-solothurn"
@@ -489,7 +489,7 @@
       "url": "https://job.so.ch/offene-stellen/jurist-in/8529e9e2-e746-44ed-9b18-728cad45b57f",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:26:00.438Z",
+      "crawledAt": "2026-10-19T09:23:31.946Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -511,12 +511,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "jurist-in-60-kanton-solothurn-solothurn",
-        "jurist-in-60-kanton-solothurn"
+        "giurista-60-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "jurist-in-60-kanton-solothurn-solothurn",
-          "jurist-in-60-kanton-solothurn"
+          "giurista-60-kanton-solothurn-solothurn"
         ]
       },
       "firstSeenAt": "2026-09-25T14:53:20.900Z",
@@ -565,7 +565,7 @@
       "url": "https://job.so.ch/offene-stellen/steuerfachmann-steuerfachfrau-privatpersonen/33364d92-f55d-4dec-abac-388f89bb540d",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:57.925Z",
+      "crawledAt": "2026-10-19T09:23:30.938Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -642,7 +642,7 @@
       "url": "https://job.so.ch/offene-stellen/informationssicherheitsverantwortliche-r-und-projektleiter-in/d29b5286-0e5e-4837-b17a-8b5afc60a5fa",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:55.447Z",
+      "crawledAt": "2026-10-19T09:23:29.937Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -719,7 +719,7 @@
       "url": "https://job.so.ch/offene-stellen/fachsekretaer-in-kesb/b14bea88-9dbb-4e01-b5b2-41c0a17414a3",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:52.935Z",
+      "crawledAt": "2026-10-19T09:23:28.933Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -794,7 +794,7 @@
       "url": "https://job.so.ch/offene-stellen/logopaede-logopaedin/6893bb82-e176-4dca-a779-5eef7a0df2c2",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:50.426Z",
+      "crawledAt": "2026-10-19T09:23:27.948Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -869,7 +869,7 @@
       "url": "https://job.so.ch/offene-stellen/gerichtsschreiber-in-des-obergerichts/4b427ac8-630f-4c81-bed9-f94f77f066f0",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:49.569Z",
+      "crawledAt": "2026-10-19T09:23:26.931Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -943,7 +943,7 @@
       "url": "https://job.so.ch/offene-stellen/fachbereichsleiter-in-servicedesk-support-und-ict-service-management/c67546fa-ce42-41ae-891d-aff48c2acffd",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:48.439Z",
+      "crawledAt": "2026-10-19T09:23:25.932Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1019,7 +1019,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-tagungszentrum/d67516fc-c53b-4c72-8fee-a8e20d63e66a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:47.437Z",
+      "crawledAt": "2026-10-19T09:23:24.941Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1096,7 +1096,7 @@
       "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in-grundbuch/ff4f5857-76ad-423e-929d-440823f462a3",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:46.436Z",
+      "crawledAt": "2026-10-19T09:23:23.959Z",
       "addressLocality": "Thal-Gäu",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -1140,82 +1140,6 @@
       }
     },
     {
-      "id": "kanton-solothurn-4f3add0e22eb",
-      "slug": "collaboratore-trice-giuridico-a-servizio-giuridico-80-100-kanton-solothurn-solothurn",
-      "slugByLocale": {
-        "it": "collaboratore-trice-giuridico-a-servizio-giuridico-80-100-kanton-solothurn-solothurn",
-        "en": "legal-service-80-100-kanton-solothurn-solothurn",
-        "de": "juristische-r-mitarbeiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn",
-        "fr": "employe-e-juridique-service-juridique-80-100-kanton-solothurn-solothurn"
-      },
-      "company": "Kanton Solothurn",
-      "companyKey": "kanton-solothurn",
-      "companyDomain": "so.ch",
-      "title": "Juristische/-r Mitarbeiter/-in Rechtsdienst, 80-100%",
-      "titleByLocale": {
-        "it": "Collaboratore/trice giuridico/a Servizio giuridico, 80-100%",
-        "en": "Legal Service, 80-100%",
-        "de": "Juristische/-r Mitarbeiter/-in Rechtsdienst, 80-100%",
-        "fr": "Employé (e) juridique Service juridique, 80-100 %"
-      },
-      "description": "Die Polizei Kanton Solothurn garantiert eine hohe Sicherheit für die Menschen im Kanton Solothurn - kompetent Tag und Nacht. Für den Rechtsdienst suchen wir per sofort oder nach Vereinbarung befristet für sechs Monate am Standort Solothurn eine/-n juristische/-n Mitarbeiter/-in, 80-100%.\n\nIhre Verantwortung\n\n• In juristischen Belangen unterstützen Sie den Rechtsdienst und nehmen Abklärungen im Bereich des Polizeirechts und des Strafprozessrechts vor.\n\n• Sie erlassen Verfügungen, bearbeiten Beschwerden gestützt auf das Gesetz der Kantonspolizei und Waffengesetzgebung und verfassen Stellungnahmen gestützt auf das Verantwortlichkeitsgesetz.\n\n• Korpsangehörigen erteilen Sie juristische Auskünfte und unterstützen sie in Straf- und Zivilverfahren.\n\n• Zu Ihren Aufgaben gehören das Ausarbeiten von Vorlagen im Rahmen der Gesetzgebung, das Bearbeiten parlamentarischer Vorstösse sowie das Verfassen von Vernehmlassungen zuhanden des Departements.\n\nIhr Profil\n\n• Sie verfügen über einen Hochschulabschluss in Rechtswissenschaften (Masterstufe).\n\n• Sachverhaltsabklärungen und die Bearbeitung rechtlicher Fragestellungen bereiten Ihnen Freude.\n\n• Analytische Fähigkeiten, eine selbstständige, zuverlässige und exakte Arbeitsweise sowie ein stilsicherer Ausdruck zeichnen Sie aus.\n\n• Sie arbeiten gerne in einem aufgestellten Team, sind flexibel und belastbar.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSabine Riniker\nStv. Leiterin Rechtsdienst\n032 627 70 21\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-      "descriptionByLocale": {
-        "it": "Il cantone di polizia di Solothurn garantisce un alto livello di sicurezza per le persone nel cantone di Solothurn - competente giorno e notte. Per il servizio legale, stiamo cercando un dipendente legale, 80-100%, per un periodo limitato di sei mesi presso la sede di Solothurn.\n\nLa tua responsabilità\n\n• In materia legale, si sostiene il servizio legale e svolgere indagini nel campo del diritto della polizia e della legge procedura penale.\n\n• Essi emettono ordini, si occupano di reclami basati sulla legge della polizia cantonale e della legislazione sulle armi e si elaborano opinioni basate sulla legge sulla responsabilità.\n\n• I membri del corpo forniscono informazioni legali e li aiutano in procedimenti penali e civili.\n\n• I suoi compiti includono la redazione di proposte legislative, la gestione di proposte parlamentari e la redazione di consultazioni per il dipartimento.\n\nIl tuo profilo\n\n• Hai una laurea in diritto (livello principale).\n\n• Le chiarimenti dei fatti e il trattamento delle domande legali ti danno piacere.\n\n• Competenze analitiche, un metodo di lavoro indipendente, affidabile e preciso e un'espressione elegante ti caratterizzano.\n\n• Godono di lavorare in un team consolidato, sono flessibili e resilienti.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità per il lavoro mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense di fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nSabine Riniker\nStv. Capo del Servizio Legale\n032 627 70 21\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità in attività significative di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
-        "en": "The police canton of Solothurn guarantees a high level of security for the people in the canton of Solothurn - competent day and night. For the legal service, we are looking for a legal employee, 80-100%, for a limited period of six months at the Solothurn location.\n\nYour responsibility\n\n• In legal matters, you support the legal service and carry out investigations in the area of police law and criminal procedure law.\n\n• They issue orders, deal with complaints based on the law of the cantonal police and weapons legislation and draft opinions based on the liability law.\n\n• Corps members provide legal information and assist them in criminal and civil proceedings.\n\n• Its tasks include drafting legislative proposals, handling parliamentary proposals and drafting consultations for the department.\n\nYour profile\n\n• You have a university degree in law (master level).\n\n• Clarifications of the facts and the processing of legal questions give you pleasure.\n\n• Analytical skills, an independent, reliable and exact working method and a stylish expression characterize you.\n\n• They enjoy working in an established team, are flexible and resilient.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity for mobile work\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nSabine Riniker\nStv. Head of Legal Service\n032 627 70 21\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activities of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
-        "de": "Die Polizei Kanton Solothurn garantiert eine hohe Sicherheit für die Menschen im Kanton Solothurn - kompetent Tag und Nacht. Für den Rechtsdienst suchen wir per sofort oder nach Vereinbarung befristet für sechs Monate am Standort Solothurn eine/-n juristische/-n Mitarbeiter/-in, 80-100%.\n\nIhre Verantwortung\n\n• In juristischen Belangen unterstützen Sie den Rechtsdienst und nehmen Abklärungen im Bereich des Polizeirechts und des Strafprozessrechts vor.\n\n• Sie erlassen Verfügungen, bearbeiten Beschwerden gestützt auf das Gesetz der Kantonspolizei und Waffengesetzgebung und verfassen Stellungnahmen gestützt auf das Verantwortlichkeitsgesetz.\n\n• Korpsangehörigen erteilen Sie juristische Auskünfte und unterstützen sie in Straf- und Zivilverfahren.\n\n• Zu Ihren Aufgaben gehören das Ausarbeiten von Vorlagen im Rahmen der Gesetzgebung, das Bearbeiten parlamentarischer Vorstösse sowie das Verfassen von Vernehmlassungen zuhanden des Departements.\n\nIhr Profil\n\n• Sie verfügen über einen Hochschulabschluss in Rechtswissenschaften (Masterstufe).\n\n• Sachverhaltsabklärungen und die Bearbeitung rechtlicher Fragestellungen bereiten Ihnen Freude.\n\n• Analytische Fähigkeiten, eine selbstständige, zuverlässige und exakte Arbeitsweise sowie ein stilsicherer Ausdruck zeichnen Sie aus.\n\n• Sie arbeiten gerne in einem aufgestellten Team, sind flexibel und belastbar.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSabine Riniker\nStv. Leiterin Rechtsdienst\n032 627 70 21\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-        "fr": "Le canton de Soleure garantit un haut niveau de sécurité à la population du canton de Soleure - compétent jour et nuit. Pour le service juridique, nous sommes à la recherche d'un employé juridique, 80-100%, pour une période limitée de six mois à l'emplacement Soleure.\n\nVotre responsabilité\n\n• En matière juridique, vous soutenez le service juridique et effectuez des enquêtes dans le domaine du droit de la police et du droit de la procédure pénale.\n\n• Ils rendent des ordonnances, traitent les plaintes fondées sur la loi de la police cantonale et sur la législation relative aux armes et rédigent des avis fondés sur la loi sur la responsabilité.\n\n• Les membres du corps fournissent des informations juridiques et les aident dans les procédures pénales et civiles.\n\n• Ses tâches comprennent la rédaction de propositions législatives, le traitement des propositions parlementaires et la rédaction de consultations pour le ministère.\n\nVotre profil\n\n• Vous avez un diplôme universitaire en droit (niveau master).\n\n• Des éclaircissements sur les faits et le traitement des questions juridiques vous donnent plaisir.\n\n• Les compétences analytiques, une méthode de travail indépendante, fiable et exacte et une expression élégante vous caractérisent.\n\n• Ils aiment travailler dans une équipe établie, sont flexibles et résistants.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée à l'aide d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travail mobile\n\n• Conditions d'emploi progressives fondées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nSabine Riniker\nChef du service juridique\n032 627 70 21\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'intérêt politique et social et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes de courriel ne peuvent pas être prises en considération."
-      },
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://job.so.ch/offene-stellen/juristische-r-mitarbeiter-in-rechtsdienst/bc019a21-4f68-4ad3-9959-a084db0adae5",
-      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:45.446Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "streetAddress": "",
-      "postalCode": "4500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sicurezza & Giustizia",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-06",
-      "postedDate": "2026-10-06",
-      "postingDateSource": "reported",
-      "applyUrl": "https://job.so.ch/offene-stellen/juristische-r-mitarbeiter-in-rechtsdienst/bc019a21-4f68-4ad3-9959-a084db0adae5",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "juristische-r-collaboratore-trice-in-rechtsdienst-80-100-kanton-solothurn",
-        "juristische-r-mitarbeiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "juristische-r-collaboratore-trice-in-rechtsdienst-80-100-kanton-solothurn",
-          "juristische-r-mitarbeiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn"
-        ]
-      },
-      "firstSeenAt": "2026-10-06T21:39:43.867Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kanton-solothurn-b2d38fca563d",
       "slug": "capo-dipartimento-per-la-costruzione-stradale-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
@@ -1247,7 +1171,7 @@
       "url": "https://job.so.ch/offene-stellen/abteilungsleiter-in-strassenbau/214fba86-db25-4a99-b621-40fa739a0497",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:44.445Z",
+      "crawledAt": "2026-10-19T09:23:22.940Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1322,7 +1246,7 @@
       "url": "https://job.so.ch/offene-stellen/abteilungsleiter-in-verkehrsplanung/040f7b42-e917-451f-aa43-e0c575f53d1a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:43.443Z",
+      "crawledAt": "2026-10-19T09:23:22.234Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1397,7 +1321,7 @@
       "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in-pfaendungen/cff466ab-7e17-4b4e-b0b4-b9cc6fa47783",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:39.920Z",
+      "crawledAt": "2026-10-19T09:23:21.802Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1477,7 +1401,7 @@
       "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in-kesb/82c7847c-d10d-474e-857d-56eb4fdec147",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:36.564Z",
+      "crawledAt": "2026-10-19T09:23:21.465Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1558,7 +1482,7 @@
       "url": "https://job.so.ch/offene-stellen/wissenschaftliche-r-mitarbeiter-in-gesundheitsversorgung/a376905e-f70b-4168-ab91-d8e13f30ea3f",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:32.932Z",
+      "crawledAt": "2026-10-19T09:23:21.126Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1640,7 +1564,7 @@
       "url": "https://job.so.ch/offene-stellen/juristische-r-mitarbeiter-in/a22afa7f-b24e-4bb3-80f9-42627bd15834",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:29.938Z",
+      "crawledAt": "2026-10-19T09:23:20.690Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1723,7 +1647,7 @@
       "url": "https://job.so.ch/offene-stellen/fachmann-fachfrau-sozialarbeit/4aaf9c24-dadb-4ad4-a009-3087d3de4613",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:26.570Z",
+      "crawledAt": "2026-10-19T09:23:20.266Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1804,7 +1728,7 @@
       "url": "https://job.so.ch/offene-stellen/schulische-r-heilpaedagoge-heilpaedagogin/79f58a36-175d-48da-9d58-4936a7b8f091",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:23.434Z",
+      "crawledAt": "2026-10-19T09:23:19.845Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1884,7 +1808,7 @@
       "url": "https://job.so.ch/offene-stellen/polizeiliche-r-sicherheitsassistent-in/35766ab7-54e0-4891-9851-9cc68d65d763",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:20.466Z",
+      "crawledAt": "2026-10-19T09:23:19.413Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1965,7 +1889,7 @@
       "url": "https://job.so.ch/offene-stellen/sozialpaedagoge-sozialpaedagogin/cab5d338-f59b-495b-84eb-f97a6281aa0a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:25:17.941Z",
+      "crawledAt": "2026-10-19T09:23:18.967Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2013,6 +1937,306 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "kanton-solothurn-b4b35a90748c",
+      "slug": "jurist-in-80-100-kanton-solothurn-solothurn",
+      "slugByLocale": {
+        "de": "jurist-in-80-100-kanton-solothurn-solothurn",
+        "it": "jurist-in-80-100-kanton-solothurn-solothurn",
+        "en": "jurist-in-80-100-kanton-solothurn-solothurn",
+        "fr": "jurist-in-80-100-kanton-solothurn-solothurn"
+      },
+      "company": "Kanton Solothurn",
+      "companyKey": "kanton-solothurn",
+      "companyDomain": "so.ch",
+      "title": "Jurist/-in, 80-100%",
+      "titleByLocale": {
+        "de": "Jurist/-in, 80-100%",
+        "it": "Jurist/-in, 80-100%",
+        "en": "Jurist/-in, 80-100%",
+        "fr": "Jurist/-in, 80-100%"
+      },
+      "description": "Das Amt für Raumplanung setzt sich dafür ein, dass der Kanton Solothurn und seine Regionen und Gemeinden auch in Zukunft ein attraktiver Lebensraum bleiben. Für die Abteilung Dienste suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Jurist/-in, 80-100%.\n\nIhre Verantwortung\n\n• Sie unterstützen die Amtsleitung sowie die Fachabteilungen bei planungs- und baurechtlichen Fragestellungen.\n\n• Ein Schwerpunkt liegt in den Bereichen Bauen ausserhalb der Bauzone sowie kantonale Baubehörde.\n\n• Bei Nutzungskonflikten ermitteln Sie die entsprechenden Interessen und wägen sie umsichtig gegeneinander ab.\n\n• Sie gewährleisten die Qualitätssicherung bei ausgewählten Mitberichten, bei der Beantwortung parlamentarischer Vorstösse sowie bei Verfügungen des Departements und Genehmigungsbeschlüssen der Regierung.\n\n• Mit dem Rechtsdienst des Bau- und Justizdepartements pflegen Sie den fachlichen Austausch.\n\nIhr Profil\n\n• Für diese Schlüsselfunktion bringen Sie ein abgeschlossenes juristisches Studium (MLaw/lic.iur.), einige Jahre Berufserfahrung und Interesse an Fragestellungen im Bau- und Planungsrecht mit.\n\n• Ein Anwaltspatent und/oder eine Zusatzausbildung im Planungs- und Baurecht sind von Vorteil.\n\n• Im Arbeitsalltag beweisen Sie Verhandlungsgeschick, Durchsetzungsvermögen und politisches Gespür.\n\n• Sie sind in der Lage, relevante Fragestellungen frühzeitig zu erkennen und bringen Ihre Gedanken in stilsicherem Deutsch auf den Punkt.\n\n• Eine rasche Auffassungsgabe, Belastbarkeit und eine Affinität zu Digitalisierungsprozessen runden Ihr Profil ab.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nStephan Schader\nLeiter Abteilung Dienste\n032 627 25 66\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+      "descriptionByLocale": {
+        "de": "Das Amt für Raumplanung setzt sich dafür ein, dass der Kanton Solothurn und seine Regionen und Gemeinden auch in Zukunft ein attraktiver Lebensraum bleiben. Für die Abteilung Dienste suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Jurist/-in, 80-100%.\n\nIhre Verantwortung\n\n• Sie unterstützen die Amtsleitung sowie die Fachabteilungen bei planungs- und baurechtlichen Fragestellungen.\n\n• Ein Schwerpunkt liegt in den Bereichen Bauen ausserhalb der Bauzone sowie kantonale Baubehörde.\n\n• Bei Nutzungskonflikten ermitteln Sie die entsprechenden Interessen und wägen sie umsichtig gegeneinander ab.\n\n• Sie gewährleisten die Qualitätssicherung bei ausgewählten Mitberichten, bei der Beantwortung parlamentarischer Vorstösse sowie bei Verfügungen des Departements und Genehmigungsbeschlüssen der Regierung.\n\n• Mit dem Rechtsdienst des Bau- und Justizdepartements pflegen Sie den fachlichen Austausch.\n\nIhr Profil\n\n• Für diese Schlüsselfunktion bringen Sie ein abgeschlossenes juristisches Studium (MLaw/lic.iur.), einige Jahre Berufserfahrung und Interesse an Fragestellungen im Bau- und Planungsrecht mit.\n\n• Ein Anwaltspatent und/oder eine Zusatzausbildung im Planungs- und Baurecht sind von Vorteil.\n\n• Im Arbeitsalltag beweisen Sie Verhandlungsgeschick, Durchsetzungsvermögen und politisches Gespür.\n\n• Sie sind in der Lage, relevante Fragestellungen frühzeitig zu erkennen und bringen Ihre Gedanken in stilsicherem Deutsch auf den Punkt.\n\n• Eine rasche Auffassungsgabe, Belastbarkeit und eine Affinität zu Digitalisierungsprozessen runden Ihr Profil ab.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nStephan Schader\nLeiter Abteilung Dienste\n032 627 25 66\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "it": "Das Amt für Raumplanung setzt sich dafür ein, dass der Kanton Solothurn und seine Regionen und Gemeinden auch in Zukunft ein attraktiver Lebensraum bleiben. Für die Abteilung Dienste suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Jurist/-in, 80-100%.\n\nIhre Verantwortung\n\n• Sie unterstützen die Amtsleitung sowie die Fachabteilungen bei planungs- und baurechtlichen Fragestellungen.\n\n• Ein Schwerpunkt liegt in den Bereichen Bauen ausserhalb der Bauzone sowie kantonale Baubehörde.\n\n• Bei Nutzungskonflikten ermitteln Sie die entsprechenden Interessen und wägen sie umsichtig gegeneinander ab.\n\n• Sie gewährleisten die Qualitätssicherung bei ausgewählten Mitberichten, bei der Beantwortung parlamentarischer Vorstösse sowie bei Verfügungen des Departements und Genehmigungsbeschlüssen der Regierung.\n\n• Mit dem Rechtsdienst des Bau- und Justizdepartements pflegen Sie den fachlichen Austausch.\n\nIhr Profil\n\n• Für diese Schlüsselfunktion bringen Sie ein abgeschlossenes juristisches Studium (MLaw/lic.iur.), einige Jahre Berufserfahrung und Interesse an Fragestellungen im Bau- und Planungsrecht mit.\n\n• Ein Anwaltspatent und/oder eine Zusatzausbildung im Planungs- und Baurecht sind von Vorteil.\n\n• Im Arbeitsalltag beweisen Sie Verhandlungsgeschick, Durchsetzungsvermögen und politisches Gespür.\n\n• Sie sind in der Lage, relevante Fragestellungen frühzeitig zu erkennen und bringen Ihre Gedanken in stilsicherem Deutsch auf den Punkt.\n\n• Eine rasche Auffassungsgabe, Belastbarkeit und eine Affinität zu Digitalisierungsprozessen runden Ihr Profil ab.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nStephan Schader\nLeiter Abteilung Dienste\n032 627 25 66\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "en": "Das Amt für Raumplanung setzt sich dafür ein, dass der Kanton Solothurn und seine Regionen und Gemeinden auch in Zukunft ein attraktiver Lebensraum bleiben. Für die Abteilung Dienste suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Jurist/-in, 80-100%.\n\nIhre Verantwortung\n\n• Sie unterstützen die Amtsleitung sowie die Fachabteilungen bei planungs- und baurechtlichen Fragestellungen.\n\n• Ein Schwerpunkt liegt in den Bereichen Bauen ausserhalb der Bauzone sowie kantonale Baubehörde.\n\n• Bei Nutzungskonflikten ermitteln Sie die entsprechenden Interessen und wägen sie umsichtig gegeneinander ab.\n\n• Sie gewährleisten die Qualitätssicherung bei ausgewählten Mitberichten, bei der Beantwortung parlamentarischer Vorstösse sowie bei Verfügungen des Departements und Genehmigungsbeschlüssen der Regierung.\n\n• Mit dem Rechtsdienst des Bau- und Justizdepartements pflegen Sie den fachlichen Austausch.\n\nIhr Profil\n\n• Für diese Schlüsselfunktion bringen Sie ein abgeschlossenes juristisches Studium (MLaw/lic.iur.), einige Jahre Berufserfahrung und Interesse an Fragestellungen im Bau- und Planungsrecht mit.\n\n• Ein Anwaltspatent und/oder eine Zusatzausbildung im Planungs- und Baurecht sind von Vorteil.\n\n• Im Arbeitsalltag beweisen Sie Verhandlungsgeschick, Durchsetzungsvermögen und politisches Gespür.\n\n• Sie sind in der Lage, relevante Fragestellungen frühzeitig zu erkennen und bringen Ihre Gedanken in stilsicherem Deutsch auf den Punkt.\n\n• Eine rasche Auffassungsgabe, Belastbarkeit und eine Affinität zu Digitalisierungsprozessen runden Ihr Profil ab.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nStephan Schader\nLeiter Abteilung Dienste\n032 627 25 66\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "fr": "Das Amt für Raumplanung setzt sich dafür ein, dass der Kanton Solothurn und seine Regionen und Gemeinden auch in Zukunft ein attraktiver Lebensraum bleiben. Für die Abteilung Dienste suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Jurist/-in, 80-100%.\n\nIhre Verantwortung\n\n• Sie unterstützen die Amtsleitung sowie die Fachabteilungen bei planungs- und baurechtlichen Fragestellungen.\n\n• Ein Schwerpunkt liegt in den Bereichen Bauen ausserhalb der Bauzone sowie kantonale Baubehörde.\n\n• Bei Nutzungskonflikten ermitteln Sie die entsprechenden Interessen und wägen sie umsichtig gegeneinander ab.\n\n• Sie gewährleisten die Qualitätssicherung bei ausgewählten Mitberichten, bei der Beantwortung parlamentarischer Vorstösse sowie bei Verfügungen des Departements und Genehmigungsbeschlüssen der Regierung.\n\n• Mit dem Rechtsdienst des Bau- und Justizdepartements pflegen Sie den fachlichen Austausch.\n\nIhr Profil\n\n• Für diese Schlüsselfunktion bringen Sie ein abgeschlossenes juristisches Studium (MLaw/lic.iur.), einige Jahre Berufserfahrung und Interesse an Fragestellungen im Bau- und Planungsrecht mit.\n\n• Ein Anwaltspatent und/oder eine Zusatzausbildung im Planungs- und Baurecht sind von Vorteil.\n\n• Im Arbeitsalltag beweisen Sie Verhandlungsgeschick, Durchsetzungsvermögen und politisches Gespür.\n\n• Sie sind in der Lage, relevante Fragestellungen frühzeitig zu erkennen und bringen Ihre Gedanken in stilsicherem Deutsch auf den Punkt.\n\n• Eine rasche Auffassungsgabe, Belastbarkeit und eine Affinität zu Digitalisierungsprozessen runden Ihr Profil ab.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nStephan Schader\nLeiter Abteilung Dienste\n032 627 25 66\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden."
+      },
+      "needsRetranslation": true,
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://job.so.ch/offene-stellen/jurist-in/3dd6e5c2-d168-4fe1-8bf9-88f579d61c34",
+      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-19T09:23:18.512Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "streetAddress": "",
+      "postalCode": "4500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ambiente & Infrastrutture",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-19",
+      "postedDate": "2026-10-19",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job.so.ch/offene-stellen/jurist-in/3dd6e5c2-d168-4fe1-8bf9-88f579d61c34",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-19T09:23:18.512Z"
+    },
+    {
+      "id": "kanton-solothurn-92c5fc6cb484",
+      "slug": "responsabile-betriebswirtschaftliche-dienste-80-100-kanton-solothurn",
+      "slugByLocale": {
+        "de": "leiter-in-betriebswirtschaftliche-dienste-80-100-kanton-solothurn-solothurn",
+        "it": "responsabile-betriebswirtschaftliche-dienste-80-100-kanton-solothurn",
+        "en": "leiter-in-betriebswirtschaftliche-dienste-80-100-kanton-solothurn-solothurn",
+        "fr": "leiter-in-betriebswirtschaftliche-dienste-80-100-kanton-solothurn-solothurn"
+      },
+      "company": "Kanton Solothurn",
+      "companyKey": "kanton-solothurn",
+      "companyDomain": "so.ch",
+      "title": "Leiter/-in Betriebswirtschaftliche Dienste, 80-100%",
+      "titleByLocale": {
+        "de": "Leiter/-in Betriebswirtschaftliche Dienste, 80-100%",
+        "it": "Responsabile Betriebswirtschaftliche Dienste, 80-100%",
+        "en": "Leiter/-in Betriebswirtschaftliche Dienste, 80-100%",
+        "fr": "Leiter/-in Betriebswirtschaftliche Dienste, 80-100%"
+      },
+      "description": "Die Amtschreibereien des Kantons Solothurn sind die regionalen Anlaufstellen für ein breites Spektrum an öffentlichen Dienstleistungen: Sie vereinigen die Funktionen eines Notariats, des Grundbuch-, Erbschafts-, Betreibungs- und Konkursamtes sowie des Handelsregisteramtes und stehen damit Privatpersonen, Unternehmen und Behörden als kompetente Ansprechpartner zur Verfügung. Für die Abteilung Betriebswirtschaftliche Dienste suchen wir per 01.04.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Leiter/-in Betriebswirtschaftliche Dienste, 80-100%.\n\nIhre Verantwortung\n\n• In dieser Funktion übernehmen Sie mit Unterstützung eines kleinen Teams das Führen des Finanz- und Rechnungswesens der Amtschreibereien.\n\n• Sie erstellen nach den Grundsätzen der wirkungsorientierten Verwaltungsführung die verschiedenen Unterlagen für die Planung, das Reporting und das Controlling.\n\n• Für die Amtschreibereien betreiben Sie das Managementinformationssystem und unterstützen die Fachbereiche in betriebswirtschaftlichen Fragen.\n\n• Sie arbeiten in Informatik- und Organisationsprojekten mit.\n\nIhr Profil\n\n• Sie sind eine verantwortungsbewusste und unternehmerisch denkende Persönlichkeit, welche über eine höhere Fachausbildung im Bereich Rechnungswesen/Controlling verfügt (Fachmann/Fachfrau im Finanz- und Rechnungswesen mit eidg. FA oder gleichwertige Ausbildung).\n\n• Sie haben Projektmanagementerfahrung sowie gute Informatikkenntnisse und sind bereit, in unterschiedlichen Projekten mitzuarbeiten oder diese auch zu leiten.\n\n• Idealerweise verfügen Sie bereits über Führungserfahrung.\n\n• Mit Ihrer ausgeprägten Sozialkompetenz gelingt es Ihnen, das Vertrauen der Mitarbeitenden schnell zu gewinnen.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nChristian Hirschi\nLeiter Amtschreibereien\n032 627 75 13\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nE-Mail-Bewerbungen können nicht berücksichtigt werden.",
+      "descriptionByLocale": {
+        "de": "Die Amtschreibereien des Kantons Solothurn sind die regionalen Anlaufstellen für ein breites Spektrum an öffentlichen Dienstleistungen: Sie vereinigen die Funktionen eines Notariats, des Grundbuch-, Erbschafts-, Betreibungs- und Konkursamtes sowie des Handelsregisteramtes und stehen damit Privatpersonen, Unternehmen und Behörden als kompetente Ansprechpartner zur Verfügung. Für die Abteilung Betriebswirtschaftliche Dienste suchen wir per 01.04.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Leiter/-in Betriebswirtschaftliche Dienste, 80-100%.\n\nIhre Verantwortung\n\n• In dieser Funktion übernehmen Sie mit Unterstützung eines kleinen Teams das Führen des Finanz- und Rechnungswesens der Amtschreibereien.\n\n• Sie erstellen nach den Grundsätzen der wirkungsorientierten Verwaltungsführung die verschiedenen Unterlagen für die Planung, das Reporting und das Controlling.\n\n• Für die Amtschreibereien betreiben Sie das Managementinformationssystem und unterstützen die Fachbereiche in betriebswirtschaftlichen Fragen.\n\n• Sie arbeiten in Informatik- und Organisationsprojekten mit.\n\nIhr Profil\n\n• Sie sind eine verantwortungsbewusste und unternehmerisch denkende Persönlichkeit, welche über eine höhere Fachausbildung im Bereich Rechnungswesen/Controlling verfügt (Fachmann/Fachfrau im Finanz- und Rechnungswesen mit eidg. FA oder gleichwertige Ausbildung).\n\n• Sie haben Projektmanagementerfahrung sowie gute Informatikkenntnisse und sind bereit, in unterschiedlichen Projekten mitzuarbeiten oder diese auch zu leiten.\n\n• Idealerweise verfügen Sie bereits über Führungserfahrung.\n\n• Mit Ihrer ausgeprägten Sozialkompetenz gelingt es Ihnen, das Vertrauen der Mitarbeitenden schnell zu gewinnen.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nChristian Hirschi\nLeiter Amtschreibereien\n032 627 75 13\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nE-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "it": "Die Amtschreibereien des Kantons Solothurn sind die regionalen Anlaufstellen für ein breites Spektrum an öffentlichen Dienstleistungen: Sie vereinigen die Funktionen eines Notariats, des Grundbuch-, Erbschafts-, Betreibungs- und Konkursamtes sowie des Handelsregisteramtes und stehen damit Privatpersonen, Unternehmen und Behörden als kompetente Ansprechpartner zur Verfügung. Für die Abteilung Betriebswirtschaftliche Dienste suchen wir per 01.04.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Leiter/-in Betriebswirtschaftliche Dienste, 80-100%.\n\nIhre Verantwortung\n\n• In dieser Funktion übernehmen Sie mit Unterstützung eines kleinen Teams das Führen des Finanz- und Rechnungswesens der Amtschreibereien.\n\n• Sie erstellen nach den Grundsätzen der wirkungsorientierten Verwaltungsführung die verschiedenen Unterlagen für die Planung, das Reporting und das Controlling.\n\n• Für die Amtschreibereien betreiben Sie das Managementinformationssystem und unterstützen die Fachbereiche in betriebswirtschaftlichen Fragen.\n\n• Sie arbeiten in Informatik- und Organisationsprojekten mit.\n\nIhr Profil\n\n• Sie sind eine verantwortungsbewusste und unternehmerisch denkende Persönlichkeit, welche über eine höhere Fachausbildung im Bereich Rechnungswesen/Controlling verfügt (Fachmann/Fachfrau im Finanz- und Rechnungswesen mit eidg. FA oder gleichwertige Ausbildung).\n\n• Sie haben Projektmanagementerfahrung sowie gute Informatikkenntnisse und sind bereit, in unterschiedlichen Projekten mitzuarbeiten oder diese auch zu leiten.\n\n• Idealerweise verfügen Sie bereits über Führungserfahrung.\n\n• Mit Ihrer ausgeprägten Sozialkompetenz gelingt es Ihnen, das Vertrauen der Mitarbeitenden schnell zu gewinnen.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nChristian Hirschi\nLeiter Amtschreibereien\n032 627 75 13\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nE-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "en": "Die Amtschreibereien des Kantons Solothurn sind die regionalen Anlaufstellen für ein breites Spektrum an öffentlichen Dienstleistungen: Sie vereinigen die Funktionen eines Notariats, des Grundbuch-, Erbschafts-, Betreibungs- und Konkursamtes sowie des Handelsregisteramtes und stehen damit Privatpersonen, Unternehmen und Behörden als kompetente Ansprechpartner zur Verfügung. Für die Abteilung Betriebswirtschaftliche Dienste suchen wir per 01.04.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Leiter/-in Betriebswirtschaftliche Dienste, 80-100%.\n\nIhre Verantwortung\n\n• In dieser Funktion übernehmen Sie mit Unterstützung eines kleinen Teams das Führen des Finanz- und Rechnungswesens der Amtschreibereien.\n\n• Sie erstellen nach den Grundsätzen der wirkungsorientierten Verwaltungsführung die verschiedenen Unterlagen für die Planung, das Reporting und das Controlling.\n\n• Für die Amtschreibereien betreiben Sie das Managementinformationssystem und unterstützen die Fachbereiche in betriebswirtschaftlichen Fragen.\n\n• Sie arbeiten in Informatik- und Organisationsprojekten mit.\n\nIhr Profil\n\n• Sie sind eine verantwortungsbewusste und unternehmerisch denkende Persönlichkeit, welche über eine höhere Fachausbildung im Bereich Rechnungswesen/Controlling verfügt (Fachmann/Fachfrau im Finanz- und Rechnungswesen mit eidg. FA oder gleichwertige Ausbildung).\n\n• Sie haben Projektmanagementerfahrung sowie gute Informatikkenntnisse und sind bereit, in unterschiedlichen Projekten mitzuarbeiten oder diese auch zu leiten.\n\n• Idealerweise verfügen Sie bereits über Führungserfahrung.\n\n• Mit Ihrer ausgeprägten Sozialkompetenz gelingt es Ihnen, das Vertrauen der Mitarbeitenden schnell zu gewinnen.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nChristian Hirschi\nLeiter Amtschreibereien\n032 627 75 13\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nE-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "fr": "Die Amtschreibereien des Kantons Solothurn sind die regionalen Anlaufstellen für ein breites Spektrum an öffentlichen Dienstleistungen: Sie vereinigen die Funktionen eines Notariats, des Grundbuch-, Erbschafts-, Betreibungs- und Konkursamtes sowie des Handelsregisteramtes und stehen damit Privatpersonen, Unternehmen und Behörden als kompetente Ansprechpartner zur Verfügung. Für die Abteilung Betriebswirtschaftliche Dienste suchen wir per 01.04.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Leiter/-in Betriebswirtschaftliche Dienste, 80-100%.\n\nIhre Verantwortung\n\n• In dieser Funktion übernehmen Sie mit Unterstützung eines kleinen Teams das Führen des Finanz- und Rechnungswesens der Amtschreibereien.\n\n• Sie erstellen nach den Grundsätzen der wirkungsorientierten Verwaltungsführung die verschiedenen Unterlagen für die Planung, das Reporting und das Controlling.\n\n• Für die Amtschreibereien betreiben Sie das Managementinformationssystem und unterstützen die Fachbereiche in betriebswirtschaftlichen Fragen.\n\n• Sie arbeiten in Informatik- und Organisationsprojekten mit.\n\nIhr Profil\n\n• Sie sind eine verantwortungsbewusste und unternehmerisch denkende Persönlichkeit, welche über eine höhere Fachausbildung im Bereich Rechnungswesen/Controlling verfügt (Fachmann/Fachfrau im Finanz- und Rechnungswesen mit eidg. FA oder gleichwertige Ausbildung).\n\n• Sie haben Projektmanagementerfahrung sowie gute Informatikkenntnisse und sind bereit, in unterschiedlichen Projekten mitzuarbeiten oder diese auch zu leiten.\n\n• Idealerweise verfügen Sie bereits über Führungserfahrung.\n\n• Mit Ihrer ausgeprägten Sozialkompetenz gelingt es Ihnen, das Vertrauen der Mitarbeitenden schnell zu gewinnen.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nChristian Hirschi\nLeiter Amtschreibereien\n032 627 75 13\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nE-Mail-Bewerbungen können nicht berücksichtigt werden."
+      },
+      "needsRetranslation": true,
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://job.so.ch/offene-stellen/leiter-in-betriebswirtschaftliche-dienste/645380d1-b805-4693-be22-33857cd25cff",
+      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-19T09:23:18.073Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "streetAddress": "",
+      "postalCode": "4500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Amministrazione pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-19",
+      "postedDate": "2026-10-19",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job.so.ch/offene-stellen/leiter-in-betriebswirtschaftliche-dienste/645380d1-b805-4693-be22-33857cd25cff",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-betriebswirtschaftliche-dienste-80-100-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-betriebswirtschaftliche-dienste-80-100-kanton-solothurn-solothurn"
+      ],
+      "salaryMin": 175000,
+      "salaryMax": 307500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 175000,
+          "maxValue": 307500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-19T09:23:18.073Z"
+    },
+    {
+      "id": "kanton-solothurn-2ac14dbacd99",
+      "slug": "stv-dienstchef-in-polizeiliche-lage-e-fachverantwortliche-r-integriertes-lagebild-80-100-kanton-solothurn",
+      "slugByLocale": {
+        "de": "stv-dienstchef-in-polizeiliche-lage-und-fachverantwortliche-r-integriertes-lagebild-80-100",
+        "it": "stv-dienstchef-in-polizeiliche-lage-e-fachverantwortliche-r-integriertes-lagebild-80-100-kanton-solothurn",
+        "en": "stv-dienstchef-in-polizeiliche-lage-und-fachverantwortliche-r-integriertes-lagebild-80-100",
+        "fr": "stv-dienstchef-in-polizeiliche-lage-und-fachverantwortliche-r-integriertes-lagebild-80-100"
+      },
+      "company": "Kanton Solothurn",
+      "companyKey": "kanton-solothurn",
+      "companyDomain": "so.ch",
+      "title": "Stv. Dienstchef/-in Polizeiliche Lage und Fachverantwortliche/-r Integriertes Lagebild, 80-100%",
+      "titleByLocale": {
+        "de": "Stv. Dienstchef/-in Polizeiliche Lage und Fachverantwortliche/-r Integriertes Lagebild, 80-100%",
+        "it": "Stv. Dienstchef/-in Polizeiliche Lage e Fachverantwortliche/-r Integriertes Lagebild, 80-100%",
+        "en": "Stv. Dienstchef/-in Polizeiliche Lage und Fachverantwortliche/-r Integriertes Lagebild, 80-100%",
+        "fr": "Stv. Dienstchef/-in Polizeiliche Lage und Fachverantwortliche/-r Integriertes Lagebild, 80-100%"
+      },
+      "description": "Die Polizei Kanton Solothurn garantiert eine hohe Sicherheit für die Menschen im Kanton Solothurn - kompetent Tag und Nacht. Für die Kommandoabteilung suchen wir per 01.02.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Stv. Dienstchef/-in Polizeiliche Lage und Fachverantwortliche/-r Integriertes Lagebild, 80-100%.\n\nIhre Verantwortung\n\n• Als stellvertretende/-r Dienstchef/-in Polizeiliche Lage und Fachverantwortliche/-r für das Integrierte Lagebild (ILB) übernehmen Sie bei Abwesenheit des Dienstchefs die personelle, organisatorische, qualitative, finanzielle und leistungsbezogene Führungsverantwortung für den Dienst.\n\n• Sie leiten selbstständig Projekte oder Teilprojekte im Themengebiet Lage, insbesondere in Bezug auf die Fachapplikation ILB.\n\n• Die Leitung kantonaler Arbeits- und Fachgruppen zur Erarbeitung lagespezifischer Produkte sowie die Mitarbeit in diesen Gremien gehören ebenso zu Ihren Aufgaben wie die Mitbestimmung, Bewirtschaftung und Qualitätssicherung dieser Produkte.\n\n• Sie führen den Fachbereich ILB fachlich und tragen die Verantwortung für Betrieb, Inhalt, Aktualität und Qualität der Daten sowie für die Anwenderschulung der Applikation.\n\n• Bei Bedarf unterstützen Sie die Führung und erstellen Berichte für Vorgesetzte und weitere relevante Stellen. Sie integrieren sicherheitsrelevante Informationen abteilungsübergreifend und bereiten diese als Grundlage für fundierte Analysen und Handlungsempfehlungen auf.\n\nIhr Profil\n\n• Für diese Funktion bringen Sie eine abgeschlossene Polizeischule oder eine gleichwertige Ausbildung mit und verfügen zwingend über Fachkenntnisse in den Themengebieten Polizeiliche Lage und ILB.\n\n• Vorzugsweise haben Sie mehrjährige Berufs- und Führungserfahrung im Polizeiumfeld, sind Generalist/-in mit polizeitaktischen und technischen Fachkenntnissen und verfügen über gute Kenntnisse der einschlägigen Gesetze und Verordnungen sowie über IT-Affinität. Eine Weiterbildung im Bereich Projektführung ist von Vorteil.\n\n• Mit Ihrer Führungs-, Sozial- und Kommunikationskompetenz, Ihrer Organisationsfähigkeit und Ihrem ausgeprägten Beurteilungsvermögen sowie Verhandlungsgeschick, Selbstständigkeit und Flexibilität überzeugen Sie im Arbeitsalltag.\n\n• Sie haben Freude am Aufbereiten und Analysieren von Daten und können sicherheitsrelevante Sachthemen bearbeiten und überzeugend präsentieren.\n\n• Sehr gute Deutschkenntnisse sowie die Bereitschaft für ausserordentliche Einsätze und Pikettdienste runden Ihr Profil ab. Sie sind im Besitz des Führerausweises Kategorie B.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nMatthias Lindner\nDienstchef Polizeiliche Lage\n032 627 72 94\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+      "descriptionByLocale": {
+        "de": "Die Polizei Kanton Solothurn garantiert eine hohe Sicherheit für die Menschen im Kanton Solothurn - kompetent Tag und Nacht. Für die Kommandoabteilung suchen wir per 01.02.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Stv. Dienstchef/-in Polizeiliche Lage und Fachverantwortliche/-r Integriertes Lagebild, 80-100%.\n\nIhre Verantwortung\n\n• Als stellvertretende/-r Dienstchef/-in Polizeiliche Lage und Fachverantwortliche/-r für das Integrierte Lagebild (ILB) übernehmen Sie bei Abwesenheit des Dienstchefs die personelle, organisatorische, qualitative, finanzielle und leistungsbezogene Führungsverantwortung für den Dienst.\n\n• Sie leiten selbstständig Projekte oder Teilprojekte im Themengebiet Lage, insbesondere in Bezug auf die Fachapplikation ILB.\n\n• Die Leitung kantonaler Arbeits- und Fachgruppen zur Erarbeitung lagespezifischer Produkte sowie die Mitarbeit in diesen Gremien gehören ebenso zu Ihren Aufgaben wie die Mitbestimmung, Bewirtschaftung und Qualitätssicherung dieser Produkte.\n\n• Sie führen den Fachbereich ILB fachlich und tragen die Verantwortung für Betrieb, Inhalt, Aktualität und Qualität der Daten sowie für die Anwenderschulung der Applikation.\n\n• Bei Bedarf unterstützen Sie die Führung und erstellen Berichte für Vorgesetzte und weitere relevante Stellen. Sie integrieren sicherheitsrelevante Informationen abteilungsübergreifend und bereiten diese als Grundlage für fundierte Analysen und Handlungsempfehlungen auf.\n\nIhr Profil\n\n• Für diese Funktion bringen Sie eine abgeschlossene Polizeischule oder eine gleichwertige Ausbildung mit und verfügen zwingend über Fachkenntnisse in den Themengebieten Polizeiliche Lage und ILB.\n\n• Vorzugsweise haben Sie mehrjährige Berufs- und Führungserfahrung im Polizeiumfeld, sind Generalist/-in mit polizeitaktischen und technischen Fachkenntnissen und verfügen über gute Kenntnisse der einschlägigen Gesetze und Verordnungen sowie über IT-Affinität. Eine Weiterbildung im Bereich Projektführung ist von Vorteil.\n\n• Mit Ihrer Führungs-, Sozial- und Kommunikationskompetenz, Ihrer Organisationsfähigkeit und Ihrem ausgeprägten Beurteilungsvermögen sowie Verhandlungsgeschick, Selbstständigkeit und Flexibilität überzeugen Sie im Arbeitsalltag.\n\n• Sie haben Freude am Aufbereiten und Analysieren von Daten und können sicherheitsrelevante Sachthemen bearbeiten und überzeugend präsentieren.\n\n• Sehr gute Deutschkenntnisse sowie die Bereitschaft für ausserordentliche Einsätze und Pikettdienste runden Ihr Profil ab. Sie sind im Besitz des Führerausweises Kategorie B.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nMatthias Lindner\nDienstchef Polizeiliche Lage\n032 627 72 94\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "it": "Die Polizei Kanton Solothurn garantiert eine hohe Sicherheit für die Menschen im Kanton Solothurn - kompetent Tag und Nacht. Für die Kommandoabteilung suchen wir per 01.02.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Stv. Dienstchef/-in Polizeiliche Lage und Fachverantwortliche/-r Integriertes Lagebild, 80-100%.\n\nIhre Verantwortung\n\n• Als stellvertretende/-r Dienstchef/-in Polizeiliche Lage und Fachverantwortliche/-r für das Integrierte Lagebild (ILB) übernehmen Sie bei Abwesenheit des Dienstchefs die personelle, organisatorische, qualitative, finanzielle und leistungsbezogene Führungsverantwortung für den Dienst.\n\n• Sie leiten selbstständig Projekte oder Teilprojekte im Themengebiet Lage, insbesondere in Bezug auf die Fachapplikation ILB.\n\n• Die Leitung kantonaler Arbeits- und Fachgruppen zur Erarbeitung lagespezifischer Produkte sowie die Mitarbeit in diesen Gremien gehören ebenso zu Ihren Aufgaben wie die Mitbestimmung, Bewirtschaftung und Qualitätssicherung dieser Produkte.\n\n• Sie führen den Fachbereich ILB fachlich und tragen die Verantwortung für Betrieb, Inhalt, Aktualität und Qualität der Daten sowie für die Anwenderschulung der Applikation.\n\n• Bei Bedarf unterstützen Sie die Führung und erstellen Berichte für Vorgesetzte und weitere relevante Stellen. Sie integrieren sicherheitsrelevante Informationen abteilungsübergreifend und bereiten diese als Grundlage für fundierte Analysen und Handlungsempfehlungen auf.\n\nIhr Profil\n\n• Für diese Funktion bringen Sie eine abgeschlossene Polizeischule oder eine gleichwertige Ausbildung mit und verfügen zwingend über Fachkenntnisse in den Themengebieten Polizeiliche Lage und ILB.\n\n• Vorzugsweise haben Sie mehrjährige Berufs- und Führungserfahrung im Polizeiumfeld, sind Generalist/-in mit polizeitaktischen und technischen Fachkenntnissen und verfügen über gute Kenntnisse der einschlägigen Gesetze und Verordnungen sowie über IT-Affinität. Eine Weiterbildung im Bereich Projektführung ist von Vorteil.\n\n• Mit Ihrer Führungs-, Sozial- und Kommunikationskompetenz, Ihrer Organisationsfähigkeit und Ihrem ausgeprägten Beurteilungsvermögen sowie Verhandlungsgeschick, Selbstständigkeit und Flexibilität überzeugen Sie im Arbeitsalltag.\n\n• Sie haben Freude am Aufbereiten und Analysieren von Daten und können sicherheitsrelevante Sachthemen bearbeiten und überzeugend präsentieren.\n\n• Sehr gute Deutschkenntnisse sowie die Bereitschaft für ausserordentliche Einsätze und Pikettdienste runden Ihr Profil ab. Sie sind im Besitz des Führerausweises Kategorie B.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nMatthias Lindner\nDienstchef Polizeiliche Lage\n032 627 72 94\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "en": "Die Polizei Kanton Solothurn garantiert eine hohe Sicherheit für die Menschen im Kanton Solothurn - kompetent Tag und Nacht. Für die Kommandoabteilung suchen wir per 01.02.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Stv. Dienstchef/-in Polizeiliche Lage und Fachverantwortliche/-r Integriertes Lagebild, 80-100%.\n\nIhre Verantwortung\n\n• Als stellvertretende/-r Dienstchef/-in Polizeiliche Lage und Fachverantwortliche/-r für das Integrierte Lagebild (ILB) übernehmen Sie bei Abwesenheit des Dienstchefs die personelle, organisatorische, qualitative, finanzielle und leistungsbezogene Führungsverantwortung für den Dienst.\n\n• Sie leiten selbstständig Projekte oder Teilprojekte im Themengebiet Lage, insbesondere in Bezug auf die Fachapplikation ILB.\n\n• Die Leitung kantonaler Arbeits- und Fachgruppen zur Erarbeitung lagespezifischer Produkte sowie die Mitarbeit in diesen Gremien gehören ebenso zu Ihren Aufgaben wie die Mitbestimmung, Bewirtschaftung und Qualitätssicherung dieser Produkte.\n\n• Sie führen den Fachbereich ILB fachlich und tragen die Verantwortung für Betrieb, Inhalt, Aktualität und Qualität der Daten sowie für die Anwenderschulung der Applikation.\n\n• Bei Bedarf unterstützen Sie die Führung und erstellen Berichte für Vorgesetzte und weitere relevante Stellen. Sie integrieren sicherheitsrelevante Informationen abteilungsübergreifend und bereiten diese als Grundlage für fundierte Analysen und Handlungsempfehlungen auf.\n\nIhr Profil\n\n• Für diese Funktion bringen Sie eine abgeschlossene Polizeischule oder eine gleichwertige Ausbildung mit und verfügen zwingend über Fachkenntnisse in den Themengebieten Polizeiliche Lage und ILB.\n\n• Vorzugsweise haben Sie mehrjährige Berufs- und Führungserfahrung im Polizeiumfeld, sind Generalist/-in mit polizeitaktischen und technischen Fachkenntnissen und verfügen über gute Kenntnisse der einschlägigen Gesetze und Verordnungen sowie über IT-Affinität. Eine Weiterbildung im Bereich Projektführung ist von Vorteil.\n\n• Mit Ihrer Führungs-, Sozial- und Kommunikationskompetenz, Ihrer Organisationsfähigkeit und Ihrem ausgeprägten Beurteilungsvermögen sowie Verhandlungsgeschick, Selbstständigkeit und Flexibilität überzeugen Sie im Arbeitsalltag.\n\n• Sie haben Freude am Aufbereiten und Analysieren von Daten und können sicherheitsrelevante Sachthemen bearbeiten und überzeugend präsentieren.\n\n• Sehr gute Deutschkenntnisse sowie die Bereitschaft für ausserordentliche Einsätze und Pikettdienste runden Ihr Profil ab. Sie sind im Besitz des Führerausweises Kategorie B.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nMatthias Lindner\nDienstchef Polizeiliche Lage\n032 627 72 94\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "fr": "Die Polizei Kanton Solothurn garantiert eine hohe Sicherheit für die Menschen im Kanton Solothurn - kompetent Tag und Nacht. Für die Kommandoabteilung suchen wir per 01.02.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Stv. Dienstchef/-in Polizeiliche Lage und Fachverantwortliche/-r Integriertes Lagebild, 80-100%.\n\nIhre Verantwortung\n\n• Als stellvertretende/-r Dienstchef/-in Polizeiliche Lage und Fachverantwortliche/-r für das Integrierte Lagebild (ILB) übernehmen Sie bei Abwesenheit des Dienstchefs die personelle, organisatorische, qualitative, finanzielle und leistungsbezogene Führungsverantwortung für den Dienst.\n\n• Sie leiten selbstständig Projekte oder Teilprojekte im Themengebiet Lage, insbesondere in Bezug auf die Fachapplikation ILB.\n\n• Die Leitung kantonaler Arbeits- und Fachgruppen zur Erarbeitung lagespezifischer Produkte sowie die Mitarbeit in diesen Gremien gehören ebenso zu Ihren Aufgaben wie die Mitbestimmung, Bewirtschaftung und Qualitätssicherung dieser Produkte.\n\n• Sie führen den Fachbereich ILB fachlich und tragen die Verantwortung für Betrieb, Inhalt, Aktualität und Qualität der Daten sowie für die Anwenderschulung der Applikation.\n\n• Bei Bedarf unterstützen Sie die Führung und erstellen Berichte für Vorgesetzte und weitere relevante Stellen. Sie integrieren sicherheitsrelevante Informationen abteilungsübergreifend und bereiten diese als Grundlage für fundierte Analysen und Handlungsempfehlungen auf.\n\nIhr Profil\n\n• Für diese Funktion bringen Sie eine abgeschlossene Polizeischule oder eine gleichwertige Ausbildung mit und verfügen zwingend über Fachkenntnisse in den Themengebieten Polizeiliche Lage und ILB.\n\n• Vorzugsweise haben Sie mehrjährige Berufs- und Führungserfahrung im Polizeiumfeld, sind Generalist/-in mit polizeitaktischen und technischen Fachkenntnissen und verfügen über gute Kenntnisse der einschlägigen Gesetze und Verordnungen sowie über IT-Affinität. Eine Weiterbildung im Bereich Projektführung ist von Vorteil.\n\n• Mit Ihrer Führungs-, Sozial- und Kommunikationskompetenz, Ihrer Organisationsfähigkeit und Ihrem ausgeprägten Beurteilungsvermögen sowie Verhandlungsgeschick, Selbstständigkeit und Flexibilität überzeugen Sie im Arbeitsalltag.\n\n• Sie haben Freude am Aufbereiten und Analysieren von Daten und können sicherheitsrelevante Sachthemen bearbeiten und überzeugend präsentieren.\n\n• Sehr gute Deutschkenntnisse sowie die Bereitschaft für ausserordentliche Einsätze und Pikettdienste runden Ihr Profil ab. Sie sind im Besitz des Führerausweises Kategorie B.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nMatthias Lindner\nDienstchef Polizeiliche Lage\n032 627 72 94\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden."
+      },
+      "needsRetranslation": true,
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://job.so.ch/offene-stellen/stv-dienstchef-in-polizeiliche-lage-und-fachverantwortliche-r-integriertes-lagebild/90bad929-9af3-4eb9-84f8-bee5f711144d",
+      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-19T09:23:17.635Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "streetAddress": "",
+      "postalCode": "4500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sicurezza & Giustizia",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-19",
+      "postedDate": "2026-10-19",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job.so.ch/offene-stellen/stv-dienstchef-in-polizeiliche-lage-und-fachverantwortliche-r-integriertes-lagebild/90bad929-9af3-4eb9-84f8-bee5f711144d",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-dienstchef-in-polizeiliche-lage-und-fachverantwortliche-r-integriertes-lagebild-80-100"
+        ]
+      },
+      "previousSlugs": [
+        "stv-dienstchef-in-polizeiliche-lage-und-fachverantwortliche-r-integriertes-lagebild-80-100"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-19T09:23:17.635Z"
+    },
+    {
+      "id": "kanton-solothurn-4f3add0e22eb",
+      "slug": "collaboratore-trice-giuridico-a-servizio-giuridico-80-100-kanton-solothurn-solothurn",
+      "slugByLocale": {
+        "it": "collaboratore-trice-giuridico-a-servizio-giuridico-80-100-kanton-solothurn-solothurn",
+        "en": "legal-service-80-100-kanton-solothurn-solothurn",
+        "de": "juristische-r-mitarbeiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn",
+        "fr": "employe-e-juridique-service-juridique-80-100-kanton-solothurn-solothurn"
+      },
+      "company": "Kanton Solothurn",
+      "companyKey": "kanton-solothurn",
+      "companyDomain": "so.ch",
+      "title": "Juristische/-r Mitarbeiter/-in Rechtsdienst, 80-100%",
+      "titleByLocale": {
+        "it": "Collaboratore/trice giuridico/a Servizio giuridico, 80-100%",
+        "en": "Legal Service, 80-100%",
+        "de": "Juristische/-r Mitarbeiter/-in Rechtsdienst, 80-100%",
+        "fr": "Employé (e) juridique Service juridique, 80-100 %"
+      },
+      "description": "Die Polizei Kanton Solothurn garantiert eine hohe Sicherheit für die Menschen im Kanton Solothurn - kompetent Tag und Nacht. Für den Rechtsdienst suchen wir per sofort oder nach Vereinbarung befristet für sechs Monate am Standort Solothurn eine/-n juristische/-n Mitarbeiter/-in, 80-100%.\n\nIhre Verantwortung\n\n• In juristischen Belangen unterstützen Sie den Rechtsdienst und nehmen Abklärungen im Bereich des Polizeirechts und des Strafprozessrechts vor.\n\n• Sie erlassen Verfügungen, bearbeiten Beschwerden gestützt auf das Gesetz der Kantonspolizei und Waffengesetzgebung und verfassen Stellungnahmen gestützt auf das Verantwortlichkeitsgesetz.\n\n• Korpsangehörigen erteilen Sie juristische Auskünfte und unterstützen sie in Straf- und Zivilverfahren.\n\n• Zu Ihren Aufgaben gehören das Ausarbeiten von Vorlagen im Rahmen der Gesetzgebung, das Bearbeiten parlamentarischer Vorstösse sowie das Verfassen von Vernehmlassungen zuhanden des Departements.\n\nIhr Profil\n\n• Sie verfügen über einen Hochschulabschluss in Rechtswissenschaften (Masterstufe).\n\n• Sachverhaltsabklärungen und die Bearbeitung rechtlicher Fragestellungen bereiten Ihnen Freude.\n\n• Analytische Fähigkeiten, eine selbstständige, zuverlässige und exakte Arbeitsweise sowie ein stilsicherer Ausdruck zeichnen Sie aus.\n\n• Sie arbeiten gerne in einem aufgestellten Team, sind flexibel und belastbar.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSabine Riniker\nStv. Leiterin Rechtsdienst\n032 627 70 21\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+      "descriptionByLocale": {
+        "it": "Il cantone di polizia di Solothurn garantisce un alto livello di sicurezza per le persone nel cantone di Solothurn - competente giorno e notte. Per il servizio legale, stiamo cercando un dipendente legale, 80-100%, per un periodo limitato di sei mesi presso la sede di Solothurn.\n\nLa tua responsabilità\n\n• In materia legale, si sostiene il servizio legale e svolgere indagini nel campo del diritto della polizia e della legge procedura penale.\n\n• Essi emettono ordini, si occupano di reclami basati sulla legge della polizia cantonale e della legislazione sulle armi e si elaborano opinioni basate sulla legge sulla responsabilità.\n\n• I membri del corpo forniscono informazioni legali e li aiutano in procedimenti penali e civili.\n\n• I suoi compiti includono la redazione di proposte legislative, la gestione di proposte parlamentari e la redazione di consultazioni per il dipartimento.\n\nIl tuo profilo\n\n• Hai una laurea in diritto (livello principale).\n\n• Le chiarimenti dei fatti e il trattamento delle domande legali ti danno piacere.\n\n• Competenze analitiche, un metodo di lavoro indipendente, affidabile e preciso e un'espressione elegante ti caratterizzano.\n\n• Godono di lavorare in un team consolidato, sono flessibili e resilienti.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità per il lavoro mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense di fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nSabine Riniker\nStv. Capo del Servizio Legale\n032 627 70 21\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità in attività significative di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
+        "en": "The police canton of Solothurn guarantees a high level of security for the people in the canton of Solothurn - competent day and night. For the legal service, we are looking for a legal employee, 80-100%, for a limited period of six months at the Solothurn location.\n\nYour responsibility\n\n• In legal matters, you support the legal service and carry out investigations in the area of police law and criminal procedure law.\n\n• They issue orders, deal with complaints based on the law of the cantonal police and weapons legislation and draft opinions based on the liability law.\n\n• Corps members provide legal information and assist them in criminal and civil proceedings.\n\n• Its tasks include drafting legislative proposals, handling parliamentary proposals and drafting consultations for the department.\n\nYour profile\n\n• You have a university degree in law (master level).\n\n• Clarifications of the facts and the processing of legal questions give you pleasure.\n\n• Analytical skills, an independent, reliable and exact working method and a stylish expression characterize you.\n\n• They enjoy working in an established team, are flexible and resilient.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity for mobile work\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nSabine Riniker\nStv. Head of Legal Service\n032 627 70 21\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activities of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
+        "de": "Die Polizei Kanton Solothurn garantiert eine hohe Sicherheit für die Menschen im Kanton Solothurn - kompetent Tag und Nacht. Für den Rechtsdienst suchen wir per sofort oder nach Vereinbarung befristet für sechs Monate am Standort Solothurn eine/-n juristische/-n Mitarbeiter/-in, 80-100%.\n\nIhre Verantwortung\n\n• In juristischen Belangen unterstützen Sie den Rechtsdienst und nehmen Abklärungen im Bereich des Polizeirechts und des Strafprozessrechts vor.\n\n• Sie erlassen Verfügungen, bearbeiten Beschwerden gestützt auf das Gesetz der Kantonspolizei und Waffengesetzgebung und verfassen Stellungnahmen gestützt auf das Verantwortlichkeitsgesetz.\n\n• Korpsangehörigen erteilen Sie juristische Auskünfte und unterstützen sie in Straf- und Zivilverfahren.\n\n• Zu Ihren Aufgaben gehören das Ausarbeiten von Vorlagen im Rahmen der Gesetzgebung, das Bearbeiten parlamentarischer Vorstösse sowie das Verfassen von Vernehmlassungen zuhanden des Departements.\n\nIhr Profil\n\n• Sie verfügen über einen Hochschulabschluss in Rechtswissenschaften (Masterstufe).\n\n• Sachverhaltsabklärungen und die Bearbeitung rechtlicher Fragestellungen bereiten Ihnen Freude.\n\n• Analytische Fähigkeiten, eine selbstständige, zuverlässige und exakte Arbeitsweise sowie ein stilsicherer Ausdruck zeichnen Sie aus.\n\n• Sie arbeiten gerne in einem aufgestellten Team, sind flexibel und belastbar.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSabine Riniker\nStv. Leiterin Rechtsdienst\n032 627 70 21\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "fr": "Le canton de Soleure garantit un haut niveau de sécurité à la population du canton de Soleure - compétent jour et nuit. Pour le service juridique, nous sommes à la recherche d'un employé juridique, 80-100%, pour une période limitée de six mois à l'emplacement Soleure.\n\nVotre responsabilité\n\n• En matière juridique, vous soutenez le service juridique et effectuez des enquêtes dans le domaine du droit de la police et du droit de la procédure pénale.\n\n• Ils rendent des ordonnances, traitent les plaintes fondées sur la loi de la police cantonale et sur la législation relative aux armes et rédigent des avis fondés sur la loi sur la responsabilité.\n\n• Les membres du corps fournissent des informations juridiques et les aident dans les procédures pénales et civiles.\n\n• Ses tâches comprennent la rédaction de propositions législatives, le traitement des propositions parlementaires et la rédaction de consultations pour le ministère.\n\nVotre profil\n\n• Vous avez un diplôme universitaire en droit (niveau master).\n\n• Des éclaircissements sur les faits et le traitement des questions juridiques vous donnent plaisir.\n\n• Les compétences analytiques, une méthode de travail indépendante, fiable et exacte et une expression élégante vous caractérisent.\n\n• Ils aiment travailler dans une équipe établie, sont flexibles et résistants.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée à l'aide d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travail mobile\n\n• Conditions d'emploi progressives fondées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nSabine Riniker\nChef du service juridique\n032 627 70 21\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'intérêt politique et social et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes de courriel ne peuvent pas être prises en considération."
+      },
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://job.so.ch/offene-stellen/juristische-r-mitarbeiter-in-rechtsdienst/bc019a21-4f68-4ad3-9959-a084db0adae5",
+      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-18T09:25:45.446Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "streetAddress": "",
+      "postalCode": "4500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sicurezza & Giustizia",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-06",
+      "postedDate": "2026-10-06",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job.so.ch/offene-stellen/juristische-r-mitarbeiter-in-rechtsdienst/bc019a21-4f68-4ad3-9959-a084db0adae5",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "juristische-r-collaboratore-trice-in-rechtsdienst-80-100-kanton-solothurn",
+        "juristische-r-mitarbeiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "juristische-r-collaboratore-trice-in-rechtsdienst-80-100-kanton-solothurn",
+          "juristische-r-mitarbeiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn"
+        ]
+      },
+      "firstSeenAt": "2026-10-06T21:39:43.867Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

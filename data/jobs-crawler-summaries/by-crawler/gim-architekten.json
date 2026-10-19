@@ -1,30 +1,29 @@
 {
   "key": "gim-architekten",
   "label": "GIM Architekten AG",
-  "generatedAt": "2026-10-18T09:28:48.169Z",
-  "total": 1,
-  "discovered": null,
-  "parsed": 1,
+  "generatedAt": "2026-10-19T09:36:46.932Z",
+  "total": 0,
+  "discovered": 0,
+  "parsed": 0,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
+  "written": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
-  "authoritativeEmptySnapshot": false,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3935,
-  "avgDurationMs": 3935,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 1822,
+  "avgDurationMs": 1822,
   "durationHistory": [
-    3935
+    1822
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "gim-architekten-58546e32c2db",
       "slug": "architetto-a-diplomato-a-gim-gim-architekten-ag-bern",
@@ -68,5 +67,6 @@
       }
     }
   ],
-  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
+  "unchangedJobs": [],
+  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
 }

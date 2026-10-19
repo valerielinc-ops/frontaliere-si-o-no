@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dormakaba",
-  "assembledAt": "2026-10-19T01:41:20.832Z",
+  "assembledAt": "2026-10-19T09:41:03.732Z",
   "jobs": [
     {
       "id": "dormakaba-11900",
@@ -33,7 +33,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11900/?locale=en_US",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T01:41:13.518Z",
+      "crawledAt": "2026-10-19T09:40:57.714Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -116,7 +116,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11716/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T01:41:13.518Z",
+      "crawledAt": "2026-10-19T09:40:57.714Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -171,7 +171,7 @@
       "slugByLocale": {
         "de": "servicetechniker-in-w-m-d-dormakaba-ch",
         "it": "servicetechniker-in-m-w-d-dormakaba-st-gallen",
-        "en": "servicetechniker-in-w-m-d-dormakaba-st-gallen",
+        "en": "service-technician-m-f-d-dormakaba-st-gallen",
         "fr": "servicetechniker-in-w-m-d-dormakaba-st-gallen"
       },
       "company": "dormakaba",
@@ -196,7 +196,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11162/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T01:41:13.518Z",
+      "crawledAt": "2026-10-19T09:40:57.714Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -225,7 +225,7 @@
         "service-technician-in-f-m-d-dormakaba-st-gallen",
         "technicien-in-f-m-d-dormakaba-st-gallen",
         "servicetechniker-in-w-m-d-dormakaba-ch",
-        "service-technician-m-f-d-dormakaba-st-gallen"
+        "servicetechniker-in-w-m-d-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -235,7 +235,7 @@
         ],
         "en": [
           "service-technician-in-f-m-d-dormakaba-st-gallen",
-          "service-technician-m-f-d-dormakaba-st-gallen"
+          "servicetechniker-in-w-m-d-dormakaba-st-gallen"
         ],
         "fr": [
           "technicien-des-services-in-f-m-d-dormakaba-st-gallen",
@@ -289,7 +289,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11917/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T01:41:13.517Z",
+      "crawledAt": "2026-10-19T09:40:57.713Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -390,7 +390,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11893/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T01:41:13.517Z",
+      "crawledAt": "2026-10-19T09:40:57.713Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -484,7 +484,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11909/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T01:41:13.517Z",
+      "crawledAt": "2026-10-19T09:40:57.713Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -529,6 +529,83 @@
       "firstSeenAt": "2026-07-20T12:47:03.270Z"
     },
     {
+      "id": "dormakaba-12323",
+      "slug": "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
+      "slugByLocale": {
+        "fr": "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
+        "it": "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "en": "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "de": "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne"
+      },
+      "company": "dormakaba",
+      "companyKey": "dormakaba",
+      "companyDomain": "dormakaba.com",
+      "title": "Spécialiste en logiciels de contrôle d'accès (f/m/d)",
+      "titleByLocale": {
+        "it": "Specialista software controllo accessi (m/f/d)",
+        "en": "Access Control Software Specialist (m/f/d)",
+        "de": "Spezialist für Zutrittskontrollsoftware (m/w/d)",
+        "fr": "Spécialiste en logiciels de contrôle d'accès (f/m/d)"
+      },
+      "description": "## Aperçu du poste\n\nEn tant que Spécialiste logiciels en systèmes de contrôle d'accès, vous jouez un rôle clé dans le déploiement, la configuration et le support de nos solutions de contrôle d'accès. Vous intervenez auprès de nos clients pour assurer la mise en œuvre des plateformes logicielles, l'intégration des infrastructures associées et l'accompagnement des utilisateurs tout au long du cycle de vie des projets.\n Vous travaillez en étroite collaboration avec les équipes projets, les techniciens terrain, nos partenaires et nos clients afin de garantir des installations fiables, sécurisées et performantes.\n\n## Ce que vous ferez\n\n- Réaliser l'installation, la configuration et la migration de nos logiciels de contrôle d'accès chez nos clients.\n- Assurer le paramétrage, l'intégration et la mise en service des solutions logicielles dans les infrastructures informatiques des clients.\n- Participer à la création, à la configuration et à l'administration des environnements serveurs et réseaux nécessaires au fonctionnement de nos systèmes.\n- Coordonner les activités techniques avec les équipes informatiques des clients, les chefs de projet et les partenaires externes.\n- Assurer le support technique de niveau 1 et 2 pour les solutions logicielles.\n- Accompagner nos techniciens et partenaires lors des phases de déploiement et de mise en service.\n- Réaliser des analyses techniques, des diagnostics et des résolutions d'incidents.\n- Former les utilisateurs et administrateurs clients à l'utilisation de nos solutions.\n\n## Ce que nous demandons\n\n- Formation supérieure en informatique (CFC, ES/ET, HES ou équivalent).\n- Minimum 3 ans d'expérience dans une fonction similaire orientée logiciels, infrastructures ou systèmes.\n- Excellentes connaissances des infrastructures IT et des réseaux informatiques.\n- Expérience confirmée des systèmes d'exploitation Microsoft Windows Server et des environnements virtualisés.\n- Connaissances de base en SQL et expérience avec Microsoft SQL Server.\n- Des compétences additionnelles en implémentation et gestion de solutions de sauvegarde et en déploiement et gestion de solutions de monitoring IT seront fortement appréciées\n- Une expérience dans les systèmes de sécurité électronique, de contrôle d'accès, de vidéosurveillance ou de gestion des identités constitue un avantage important.\n- Excellent sens du service client, autonomie et capacité à gérer plusieurs priorités simultanément.\n- Disponibilité pour des déplacements auprès des clients en Suisse romande.\n- Permis de conduire valide.\n- Bonne maîtrise du français ainsi que de l'anglais et/ou de l'allemand.\n\n## Nous offrons\n\n- Nous offrons des conditions d’emploi attrayantes avec des avantages divers\n- Des possibilités de télétravail partiel\n- Nous agissons dans un environnement technologique passionnant\n- Nous sommes un groupe international avec une atmosphère familiale\n- Nous accordons une grande importance à la promotion du développement personnel et professionnel\n\n## Pourquoi rejoinder dormakaba?\n\nNous sommes au cœur de chaque lieu qui compte.\n Depuis les portes automatiques en passant par le contrôle d'accès basé sur le cloud, nous sommes leader mondial dans les solutions d’accès pour les écoles, les banques, les aéroports, les hôpitaux, les hôtels et bien d’autres secteurs. Nous permettons une circulation fluide au sein de lieux sûrs, sécurisés et durables.\n Forts de plus de 160   ans d’expérience et animés par une culture d’excellence et d’innovation, nous offrons des opportunités passionnantes pour évoluer dans un environnement où vous pouvez avoir un réel impact.\n Chez dormakaba, vous êtes encouragé(e) à prendre des initiatives, à développer vos compétences et à construire votre carrière aux côtés de 16   000   experts dans le monde qui définissent chaque jour les standards du secteur.\n Travaillez dans un environnement où vous ferez la différence – postulez dès maintenant   !\n\ndormakaba est un employeur qui s’engage pour l’inclusion et la diversité. Nous traitons toutes les candidatures de la même manière, indépendemment de l’éthnie, de la couleur de peau, de la religion, du sexe ou de l’orientation sexuelle, de la nationalité, du handicap ou d’autres caractéristiques protégées par la loi, afin de garantir l’égalité des chances.",
+      "descriptionByLocale": {
+        "it": "## Panoramica del lavoro\n\nIn qualità di specialista software per sistemi di controllo degli accessi, svolgi un ruolo chiave nell'implementazione, configurazione e supporto delle nostre soluzioni di controllo degli accessi. Lavori con i nostri clienti per garantire l'implementazione di piattaforme software, l'integrazione delle infrastrutture associate e il supporto agli utenti durante tutto il ciclo di vita del progetto.\nLavori in stretta collaborazione con team di progetto, tecnici sul campo, i nostri partner e i nostri clienti per garantire installazioni affidabili, sicure ed efficienti.\n\n## Cosa farai\n\n- Effettuare l'installazione, la configurazione e la migrazione del nostro software di controllo accessi per i nostri clienti.\n- Garantire la configurazione, l'integrazione e la messa in servizio delle soluzioni software nelle infrastrutture IT dei clienti.\n- Partecipare alla creazione, configurazione e amministrazione degli ambienti server e di rete necessari per il funzionamento dei nostri sistemi.\n- Coordinare le attività tecniche con i team IT del cliente, i project manager e i partner esterni.\n- Fornire supporto tecnico di livello 1 e 2 per soluzioni software.\n- Supporta i nostri tecnici e partner durante le fasi di implementazione e messa in servizio.\n- Effettuare analisi tecniche, diagnostica e risoluzioni degli incidenti.\n- Formare gli utenti e gli amministratori dei clienti all'uso delle nostre soluzioni.\n\n## Cosa chiediamo\n\n- Istruzione superiore in informatica (CFC, ES/ET, HES o equivalente).\n- Minimo 3 anni di esperienza in una funzione simile orientata al software, alle infrastrutture o ai sistemi.\n- Ottima conoscenza delle infrastrutture informatiche e delle reti informatiche.\n- Comprovata esperienza con i sistemi operativi Microsoft Windows Server e ambienti virtualizzati.\n- Conoscenza base di SQL ed esperienza con Microsoft SQL Server.\n- Saranno molto apprezzate ulteriori competenze nell'implementazione e nella gestione di soluzioni di backup e nell'implementazione e gestione di soluzioni di monitoraggio IT.\n- L'esperienza nella sicurezza elettronica, nel controllo degli accessi, nella videosorveglianza o nei sistemi di gestione dell'identità costituisce un vantaggio importante.\n- Ottimo senso del servizio al cliente, autonomia e capacità di gestire più priorità contemporaneamente.\n- Disponibilità a trasferte per clienti della Svizzera romanda.\n- Patente di guida valida.\n- Buona padronanza del francese, dell'inglese e/o del tedesco.\n\n## Offriamo\n\n- Offriamo condizioni di lavoro interessanti con diversi vantaggi\n- Possibilità di telelavoro parziale\n- Operiamo in un ambiente tecnologico entusiasmante\n- Siamo un gruppo internazionale con un'atmosfera familiare\n- Diamo grande importanza alla promozione dello sviluppo personale e professionale\n\n## Perché iscriversi a dormakaba?\n\nSiamo al centro di ogni luogo che conta.\nDalle porte automatiche al controllo degli accessi basato su cloud, siamo leader globali nelle soluzioni di accesso per scuole, banche, aeroporti, ospedali, hotel e molti altri settori. Consentiamo la circolazione dei fluidi in luoghi sicuri, protetti e sostenibili.\nCon oltre 160 anni di esperienza e guidati da una cultura di eccellenza e innovazione, offriamo entusiasmanti opportunità di crescita in un ambiente in cui puoi avere un impatto reale.\nIn dormakaba sei incoraggiato a prendere iniziative, sviluppare le tue capacità e costruire la tua carriera insieme a 16.000 esperti in tutto il mondo che ogni giorno stabiliscono gli standard del settore.\nLavora in un ambiente in cui farai la differenza: candidati ora!\n\ndormakaba è un datore di lavoro impegnato nell'inclusione e nella diversità. Trattiamo tutte le candidature allo stesso modo, indipendentemente dall'etnia, dal colore della pelle, dalla religione, dal genere o dall'orientamento sessuale, dalla nazionalità, dalla disabilità o da altre caratteristiche protette dalla legge, per garantire pari opportunità.",
+        "en": "## Job Overview\n\nAs an Access Control Systems Software Specialist, you play a key role in the deployment, configuration and support of our access control solutions. You work with our clients to ensure the implementation of software platforms, the integration of associated infrastructures and support for users throughout the project life cycle.\nYou work in close collaboration with project teams, field technicians, our partners and our customers to guarantee reliable, secure and efficient installations.\n\n## What you will do\n\n- Carry out the installation, configuration and migration of our access control software for our clients.\n- Ensure the configuration, integration and commissioning of software solutions in clients' IT infrastructures.\n- Participate in the creation, configuration and administration of the server and network environments necessary for the operation of our systems.\n- Coordinate technical activities with client IT teams, project managers and external partners.\n- Provide level 1 and 2 technical support for software solutions.\n- Support our technicians and partners during the deployment and commissioning phases.\n- Carry out technical analyses, diagnostics and incident resolutions.\n- Train users and client administrators in the use of our solutions.\n\n## What we ask\n\n- Higher education in computer science (CFC, ES/ET, HES or equivalent).\n- Minimum 3 years of experience in a similar function oriented towards software, infrastructure or systems.\n- Excellent knowledge of IT infrastructures and computer networks.\n- Proven experience with Microsoft Windows Server operating systems and virtualized environments.\n- Basic knowledge of SQL and experience with Microsoft SQL Server.\n- Additional skills in implementing and managing backup solutions and deploying and managing IT monitoring solutions will be highly appreciated.\n- Experience in electronic security, access control, video surveillance or identity management systems is an important advantage.\n- Excellent sense of customer service, autonomy and ability to manage several priorities simultaneously.\n- Availability for travel to clients in French-speaking Switzerland.\n- Valid driving license.\n- Good command of French as well as English and/or German.\n\n## We offer\n\n- We offer attractive employment conditions with various benefits\n- Possibilities for partial teleworking\n- We operate in an exciting technological environment\n- We are an international group with a family atmosphere\n- We place great importance on promoting personal and professional development\n\n## Why join dormakaba?\n\nWe are at the heart of every place that matters.\nFrom automatic doors to cloud-based access control, we are a global leader in access solutions for schools, banks, airports, hospitals, hotels and many other industries. We enable fluid circulation within safe, secure and sustainable locations.\nWith over 160 years of experience and driven by a culture of excellence and innovation, we offer exciting opportunities to grow in an environment where you can make a real impact.\nAt dormakaba, you are encouraged to take initiative, develop your skills and build your career alongside 16,000 experts around the world who set industry standards every day.\nWork in an environment where you will make a difference – apply now!\n\ndormakaba is an employer committed to inclusion and diversity. We treat all applications equally, regardless of ethnicity, skin color, religion, gender or sexual orientation, nationality, disability or other characteristics protected by law, to ensure equal opportunity.",
+        "de": "## Jobübersicht\n\nAls Softwarespezialist für Zutrittskontrollsysteme spielen Sie eine Schlüsselrolle bei der Bereitstellung, Konfiguration und Unterstützung unserer Zutrittskontrolllösungen. Sie arbeiten mit unseren Kunden zusammen, um die Implementierung von Softwareplattformen, die Integration zugehöriger Infrastrukturen und die Unterstützung der Benutzer während des gesamten Projektlebenszyklus sicherzustellen.\nSie arbeiten eng mit Projektteams, Außendiensttechnikern, unseren Partnern und unseren Kunden zusammen, um zuverlässige, sichere und effiziente Installationen zu gewährleisten.\n\n## Was Sie tun werden\n\n- Führen Sie die Installation, Konfiguration und Migration unserer Zutrittskontrollsoftware für unsere Kunden durch.\n- Sorgen Sie für die Konfiguration, Integration und Inbetriebnahme von Softwarelösungen in den IT-Infrastrukturen der Kunden.\n- Beteiligen Sie sich an der Erstellung, Konfiguration und Verwaltung der Server- und Netzwerkumgebungen, die für den Betrieb unserer Systeme erforderlich sind.\n- Koordinieren Sie technische Aktivitäten mit den IT-Teams des Kunden, Projektmanagern und externen Partnern.\n- Bieten Sie technischen Support der Stufen 1 und 2 für Softwarelösungen.\n- Unterstützen Sie unsere Techniker und Partner während der Bereitstellungs- und Inbetriebnahmephase.\n- Führen Sie technische Analysen, Diagnosen und Behebung von Vorfällen durch.\n- Schulen Sie Benutzer und Kundenadministratoren in der Nutzung unserer Lösungen.\n\n## Was wir fragen\n\n- Hochschulausbildung in Informatik (CFC, ES/ET, HES oder gleichwertig).\n- Mindestens 3 Jahre Erfahrung in einer ähnlichen Funktion mit Schwerpunkt auf Software, Infrastruktur oder Systemen.\n- Ausgezeichnete Kenntnisse von IT-Infrastrukturen und Computernetzwerken.\n- Nachgewiesene Erfahrung mit Microsoft Windows Server-Betriebssystemen und virtualisierten Umgebungen.\n- Grundkenntnisse in SQL und Erfahrung mit Microsoft SQL Server.\n- Zusätzliche Kenntnisse in der Implementierung und Verwaltung von Backup-Lösungen sowie der Bereitstellung und Verwaltung von IT-Überwachungslösungen werden sehr geschätzt.\n- Erfahrung in elektronischen Sicherheits-, Zugangskontroll-, Videoüberwachungs- oder Identitätsmanagementsystemen ist ein wichtiger Vorteil.\n- Ausgezeichnetes Gespür für Kundenservice, Autonomie und Fähigkeit, mehrere Prioritäten gleichzeitig zu verwalten.\n- Verfügbarkeit für Reisen zu Kunden in der Westschweiz.\n- Gültiger Führerschein.\n- Gute Kenntnisse in Französisch sowie Englisch und/oder Deutsch.\n\n## Wir bieten\n\n- Wir bieten attraktive Anstellungsbedingungen mit verschiedenen Benefits\n- Möglichkeiten zur teilweisen Telearbeit\n- Wir agieren in einem spannenden technologischen Umfeld\n- Wir sind eine internationale Gruppe mit familiärer Atmosphäre\n- Wir legen großen Wert auf die Förderung der persönlichen und beruflichen Weiterentwicklung\n\n## Warum dormakaba beitreten?\n\nWir sind das Herzstück jedes wichtigen Ortes.\nVon automatischen Türen bis hin zur cloudbasierten Zutrittskontrolle sind wir ein weltweit führender Anbieter von Zutrittslösungen für Schulen, Banken, Flughäfen, Krankenhäuser, Hotels und viele andere Branchen. Wir ermöglichen die Flüssigkeitszirkulation an sicheren und nachhaltigen Orten.\nMit über 160 Jahren Erfahrung und angetrieben von einer Kultur der Exzellenz und Innovation bieten wir spannende Möglichkeiten, in einem Umfeld zu wachsen, in dem Sie wirklich etwas bewirken können.\nBei dormakaba werden Sie ermutigt, Initiative zu ergreifen, Ihre Fähigkeiten weiterzuentwickeln und Ihre Karriere gemeinsam mit 16.000 Experten auf der ganzen Welt aufzubauen, die jeden Tag Branchenstandards setzen.\nArbeiten Sie in einem Umfeld, in dem Sie etwas bewirken werden – bewerben Sie sich jetzt!\n\ndormakaba ist ein Arbeitgeber, der sich für Inklusion und Vielfalt einsetzt. Wir behandeln alle Bewerbungen gleich, unabhängig von ethnischer Zugehörigkeit, Hautfarbe, Religion, Geschlecht oder sexueller Orientierung, Nationalität, Behinderung oder anderen gesetzlich geschützten Merkmalen, um Chancengleichheit zu gewährleisten.",
+        "fr": "## Aperçu du poste\n\nEn tant que Spécialiste logiciels en systèmes de contrôle d'accès, vous jouez un rôle clé dans le déploiement, la configuration et le support de nos solutions de contrôle d'accès. Vous intervenez auprès de nos clients pour assurer la mise en œuvre des plateformes logicielles, l'intégration des infrastructures associées et l'accompagnement des utilisateurs tout au long du cycle de vie des projets.\nVous travaillez en étroite collaboration avec les équipes projets, les techniciens terrain, nos partenaires et nos clients afin de garantir des installations fiables, sécurisées et performantes.\n\n## Ce que vous ferez\n\n- Réaliser l'installation, la configuration et la migration de nos logiciels de contrôle d'accès chez nos clients.\n- Assurer le paramétrage, l'intégration et la mise en service des solutions logicielles dans les infrastructures informatiques des clients.\n- Participer à la création, à la configuration et à l'administration des environnements serveurs et réseaux nécessaires au fonctionnement de nos systèmes.\n- Coordonner les activités techniques avec les équipes informatiques des clients, les chefs de projet et les partenaires externes.\n- Assurer le support technique de niveau 1 et 2 pour les solutions logicielles.\n- Accompagner nos techniciens et partenaires lors des phases de déploiement et de mise en service.\n- Réaliser des analyses techniques, des diagnostics et des résolutions d'incidents.\n- Former les utilisateurs et administrateurs clients à l'utilisation de nos solutions.\n\n## Ce que nous demandons\n\n- Formation supérieure en informatique (CFC, ES/ET, HES ou équivalent).\n- Minimum 3 ans d'expérience dans une fonction similaire orientée logiciels, infrastructures ou systèmes.\n- Excellentes connaissances des infrastructures IT et des réseaux informatiques.\n- Expérience confirmée des systèmes d'exploitation Microsoft Windows Server et des environnements virtualisés.\n- Connaissances de base en SQL et expérience avec Microsoft SQL Server.\n- Des compétences additionnelles en implémentation et gestion de solutions de sauvegarde et en déploiement et gestion de solutions de monitoring IT seront fortement appréciées\n- Une expérience dans les systèmes de sécurité électronique, de contrôle d'accès, de vidéosurveillance ou de gestion des identités constitue un avantage important.\n- Excellent sens du service client, autonomie et capacité à gérer plusieurs priorités simultanément.\n- Disponibilité pour des déplacements auprès des clients en Suisse romande.\n- Permis de conduire valide.\n- Bonne maîtrise du français ainsi que de l'anglais et/ou de l'allemand.\n\n## Nous offrons\n\n- Nous offrons des conditions d’emploi attrayantes avec des avantages divers\n- Des possibilités de télétravail partiel\n- Nous agissons dans un environnement technologique passionnant\n- Nous sommes un groupe international avec une atmosphère familiale\n- Nous accordons une grande importance à la promotion du développement personnel et professionnel\n\n## Pourquoi rejoinder dormakaba?\n\nNous sommes au cœur de chaque lieu qui compte.\nDepuis les portes automatiques en passant par le contrôle d'accès basé sur le cloud, nous sommes leader mondial dans les solutions d’accès pour les écoles, les banques, les aéroports, les hôpitaux, les hôtels et bien d’autres secteurs. Nous permettons une circulation fluide au sein de lieux sûrs, sécurisés et durables.\nForts de plus de 160 ans d’expérience et animés par une culture d’excellence et d’innovation, nous offrons des opportunités passionnantes pour évoluer dans un environnement où vous pouvez avoir un réel impact.\nChez dormakaba, vous êtes encouragé(e) à prendre des initiatives, à développer vos compétences et à construire votre carrière aux côtés de 16 000 experts dans le monde qui définissent chaque jour les standards du secteur.\nTravaillez dans un environnement où vous ferez la différence – postulez dès maintenant !\n\ndormakaba est un employeur qui s’engage pour l’inclusion et la diversité. Nous traitons toutes les candidatures de la même manière, indépendemment de l’éthnie, de la couleur de peau, de la religion, du sexe ou de l’orientation sexuelle, de la nationalité, du handicap ou d’autres caractéristiques protégées par la loi, afin de garantir l’égalité des chances."
+      },
+      "location": "Le Mont-sur-Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.dormakaba.com/job-invite/12323/?locale=fr_FR",
+      "source": "dormakaba Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-19T09:40:57.711Z",
+      "addressLocality": "Le Mont-sur-Lausanne",
+      "postalCode": "1052",
+      "streetAddress": "Le Mont-sur-Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "department": "Services et Installations",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.dormakaba.com/job-invite/12323/?locale=fr_FR",
+      "legalEntity": "dormakaba Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
+        "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
+          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
+        ]
+      },
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-19T23:11:25.676Z"
+    },
+    {
       "id": "dormakaba-12274",
       "slug": "supporto-di-2-livello-ead-80-100-m-f-d-dormakaba-rumlang",
       "slugByLocale": {
@@ -559,7 +636,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12274/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T01:41:13.514Z",
+      "crawledAt": "2026-10-19T09:40:57.711Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -639,7 +716,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11908/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T01:41:13.514Z",
+      "crawledAt": "2026-10-19T09:40:57.711Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "streetAddress": "Mühlebühlstrasse 23",
@@ -719,7 +796,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12228/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T01:41:13.514Z",
+      "crawledAt": "2026-10-19T09:40:57.711Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "streetAddress": "Mühlebühlstrasse 23",
@@ -766,46 +843,46 @@
       "firstSeenAt": "2026-09-03T13:49:05.369Z"
     },
     {
-      "id": "dormakaba-12323",
-      "slug": "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
+      "id": "dormakaba-12356",
+      "slug": "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
       "slugByLocale": {
-        "fr": "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-        "it": "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "en": "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "de": "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "de": "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
+        "it": "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
+        "en": "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen",
+        "fr": "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
       "companyDomain": "dormakaba.com",
-      "title": "Spécialiste en logiciels de contrôle d'accès (f/m/d)",
+      "title": "Montagetechniker (m/w/d) - Region Zürich",
       "titleByLocale": {
-        "it": "Specialista software controllo accessi (m/f/d)",
-        "en": "Access Control Software Specialist (m/f/d)",
-        "de": "Spezialist für Zutrittskontrollsoftware (m/w/d)",
-        "fr": "Spécialiste en logiciels de contrôle d'accès (f/m/d)"
+        "it": "Tecnico di montaggio (m/f/d) - Regione Zurigo",
+        "en": "Assembly technician (m/f/d) - Zurich region",
+        "de": "Montagetechniker (m/w/d) - Region Zürich",
+        "fr": "Technicien de montage (h/f/d) - Région de Zurich"
       },
-      "description": "## Aperçu du poste\n\nEn tant que Spécialiste logiciels en systèmes de contrôle d'accès, vous jouez un rôle clé dans le déploiement, la configuration et le support de nos solutions de contrôle d'accès. Vous intervenez auprès de nos clients pour assurer la mise en œuvre des plateformes logicielles, l'intégration des infrastructures associées et l'accompagnement des utilisateurs tout au long du cycle de vie des projets.\n Vous travaillez en étroite collaboration avec les équipes projets, les techniciens terrain, nos partenaires et nos clients afin de garantir des installations fiables, sécurisées et performantes.\n\n## Ce que vous ferez\n\n- Réaliser l'installation, la configuration et la migration de nos logiciels de contrôle d'accès chez nos clients.\n- Assurer le paramétrage, l'intégration et la mise en service des solutions logicielles dans les infrastructures informatiques des clients.\n- Participer à la création, à la configuration et à l'administration des environnements serveurs et réseaux nécessaires au fonctionnement de nos systèmes.\n- Coordonner les activités techniques avec les équipes informatiques des clients, les chefs de projet et les partenaires externes.\n- Assurer le support technique de niveau 1 et 2 pour les solutions logicielles.\n- Accompagner nos techniciens et partenaires lors des phases de déploiement et de mise en service.\n- Réaliser des analyses techniques, des diagnostics et des résolutions d'incidents.\n- Former les utilisateurs et administrateurs clients à l'utilisation de nos solutions.\n\n## Ce que nous demandons\n\n- Formation supérieure en informatique (CFC, ES/ET, HES ou équivalent).\n- Minimum 3 ans d'expérience dans une fonction similaire orientée logiciels, infrastructures ou systèmes.\n- Excellentes connaissances des infrastructures IT et des réseaux informatiques.\n- Expérience confirmée des systèmes d'exploitation Microsoft Windows Server et des environnements virtualisés.\n- Connaissances de base en SQL et expérience avec Microsoft SQL Server.\n- Des compétences additionnelles en implémentation et gestion de solutions de sauvegarde et en déploiement et gestion de solutions de monitoring IT seront fortement appréciées\n- Une expérience dans les systèmes de sécurité électronique, de contrôle d'accès, de vidéosurveillance ou de gestion des identités constitue un avantage important.\n- Excellent sens du service client, autonomie et capacité à gérer plusieurs priorités simultanément.\n- Disponibilité pour des déplacements auprès des clients en Suisse romande.\n- Permis de conduire valide.\n- Bonne maîtrise du français ainsi que de l'anglais et/ou de l'allemand.\n\n## Nous offrons\n\n- Nous offrons des conditions d’emploi attrayantes avec des avantages divers\n- Des possibilités de télétravail partiel\n- Nous agissons dans un environnement technologique passionnant\n- Nous sommes un groupe international avec une atmosphère familiale\n- Nous accordons une grande importance à la promotion du développement personnel et professionnel\n\n## Pourquoi rejoinder dormakaba?\n\nNous sommes au cœur de chaque lieu qui compte.\n Depuis les portes automatiques en passant par le contrôle d'accès basé sur le cloud, nous sommes leader mondial dans les solutions d’accès pour les écoles, les banques, les aéroports, les hôpitaux, les hôtels et bien d’autres secteurs. Nous permettons une circulation fluide au sein de lieux sûrs, sécurisés et durables.\n Forts de plus de 160   ans d’expérience et animés par une culture d’excellence et d’innovation, nous offrons des opportunités passionnantes pour évoluer dans un environnement où vous pouvez avoir un réel impact.\n Chez dormakaba, vous êtes encouragé(e) à prendre des initiatives, à développer vos compétences et à construire votre carrière aux côtés de 16   000   experts dans le monde qui définissent chaque jour les standards du secteur.\n Travaillez dans un environnement où vous ferez la différence – postulez dès maintenant   !\n\ndormakaba est un employeur qui s’engage pour l’inclusion et la diversité. Nous traitons toutes les candidatures de la même manière, indépendemment de l’éthnie, de la couleur de peau, de la religion, du sexe ou de l’orientation sexuelle, de la nationalité, du handicap ou d’autres caractéristiques protégées par la loi, afin de garantir l’égalité des chances.",
+      "description": "## Deine Aufgaben\n\n- Montieren und verdrahten von Antriebskomponenten und Sensorik\n- Konfiguration und Inbetriebnahme von automatischen Türen\n- Modernisierung von bestehenden Türanlagen\n- Dokumentieren der erbrachten Leistung (Abnahme und Prüfzeugnisse)\n- Übergeben der Anlagen an die Kunden\n\n## Dein Profil\n\n- Abgeschlossene technische Ausbildung, z.B. als Automatiker, Elektroinstallateur, Anlagen- und Apparatebauer oder Aus-/Weiterbildungen im Bereich Mechatroniker\n- Gute Informatikkenntnisse (MS Office; Umgang mit Parametriersoftware)\n\n## Was wir bieten\n\n- Beste Chancen in einem global agierenden Konzern mit der Kultur eines Familienunternehmens\n- Attraktives Gehaltspaket\n- Transparente und klar definierte Weiterentwicklungsmöglichkeiten\n\n##\n\n## Wer wir sind\n For every place that matters.\n Von automatischen Türen bis hin zu cloudbasiertem Zutrittsmanagement – als ein weltweit führender Anbieter auf dem Markt für Zutrittslösungen für Schulen, Banken, Flughäfen, Krankenhäuser, Hotels und viele weitere ermöglichen wir es, sichere und nachhaltige Orte zu schaffen, an denen sich Menschen nahtlos bewegen können.\n Mit über 160 Jahren Erfahrung und einem klaren Fokus auf Exzellenz und Innovation bieten wir spannende Möglichkeiten zur Weiterentwicklung in einem Umfeld, in dem Sie wirklich etwas bewirken können.\n Bei dormakaba wirst Du ermutigt, Eigeninitiative zu zeigen, Deine Fähigkeiten auszubauen und Deine Karriere gemeinsam mit 16.000 Expertinnen und Experten weltweit zu gestalten, die täglich neue Maßstäbe in der Branche setzen.\n Arbeite an einem Ort, an dem Du zählst – bewirb Dich jetzt!",
       "descriptionByLocale": {
-        "it": "## Panoramica del lavoro\n\nIn qualità di specialista software per sistemi di controllo degli accessi, svolgi un ruolo chiave nell'implementazione, configurazione e supporto delle nostre soluzioni di controllo degli accessi. Lavori con i nostri clienti per garantire l'implementazione di piattaforme software, l'integrazione delle infrastrutture associate e il supporto agli utenti durante tutto il ciclo di vita del progetto.\nLavori in stretta collaborazione con team di progetto, tecnici sul campo, i nostri partner e i nostri clienti per garantire installazioni affidabili, sicure ed efficienti.\n\n## Cosa farai\n\n- Effettuare l'installazione, la configurazione e la migrazione del nostro software di controllo accessi per i nostri clienti.\n- Garantire la configurazione, l'integrazione e la messa in servizio delle soluzioni software nelle infrastrutture IT dei clienti.\n- Partecipare alla creazione, configurazione e amministrazione degli ambienti server e di rete necessari per il funzionamento dei nostri sistemi.\n- Coordinare le attività tecniche con i team IT del cliente, i project manager e i partner esterni.\n- Fornire supporto tecnico di livello 1 e 2 per soluzioni software.\n- Supporta i nostri tecnici e partner durante le fasi di implementazione e messa in servizio.\n- Effettuare analisi tecniche, diagnostica e risoluzioni degli incidenti.\n- Formare gli utenti e gli amministratori dei clienti all'uso delle nostre soluzioni.\n\n## Cosa chiediamo\n\n- Istruzione superiore in informatica (CFC, ES/ET, HES o equivalente).\n- Minimo 3 anni di esperienza in una funzione simile orientata al software, alle infrastrutture o ai sistemi.\n- Ottima conoscenza delle infrastrutture informatiche e delle reti informatiche.\n- Comprovata esperienza con i sistemi operativi Microsoft Windows Server e ambienti virtualizzati.\n- Conoscenza base di SQL ed esperienza con Microsoft SQL Server.\n- Saranno molto apprezzate ulteriori competenze nell'implementazione e nella gestione di soluzioni di backup e nell'implementazione e gestione di soluzioni di monitoraggio IT.\n- L'esperienza nella sicurezza elettronica, nel controllo degli accessi, nella videosorveglianza o nei sistemi di gestione dell'identità costituisce un vantaggio importante.\n- Ottimo senso del servizio al cliente, autonomia e capacità di gestire più priorità contemporaneamente.\n- Disponibilità a trasferte per clienti della Svizzera romanda.\n- Patente di guida valida.\n- Buona padronanza del francese, dell'inglese e/o del tedesco.\n\n## Offriamo\n\n- Offriamo condizioni di lavoro interessanti con diversi vantaggi\n- Possibilità di telelavoro parziale\n- Operiamo in un ambiente tecnologico entusiasmante\n- Siamo un gruppo internazionale con un'atmosfera familiare\n- Diamo grande importanza alla promozione dello sviluppo personale e professionale\n\n## Perché iscriversi a dormakaba?\n\nSiamo al centro di ogni luogo che conta.\nDalle porte automatiche al controllo degli accessi basato su cloud, siamo leader globali nelle soluzioni di accesso per scuole, banche, aeroporti, ospedali, hotel e molti altri settori. Consentiamo la circolazione dei fluidi in luoghi sicuri, protetti e sostenibili.\nCon oltre 160 anni di esperienza e guidati da una cultura di eccellenza e innovazione, offriamo entusiasmanti opportunità di crescita in un ambiente in cui puoi avere un impatto reale.\nIn dormakaba sei incoraggiato a prendere iniziative, sviluppare le tue capacità e costruire la tua carriera insieme a 16.000 esperti in tutto il mondo che ogni giorno stabiliscono gli standard del settore.\nLavora in un ambiente in cui farai la differenza: candidati ora!\n\ndormakaba è un datore di lavoro impegnato nell'inclusione e nella diversità. Trattiamo tutte le candidature allo stesso modo, indipendentemente dall'etnia, dal colore della pelle, dalla religione, dal genere o dall'orientamento sessuale, dalla nazionalità, dalla disabilità o da altre caratteristiche protette dalla legge, per garantire pari opportunità.",
-        "en": "## Job Overview\n\nAs an Access Control Systems Software Specialist, you play a key role in the deployment, configuration and support of our access control solutions. You work with our clients to ensure the implementation of software platforms, the integration of associated infrastructures and support for users throughout the project life cycle.\nYou work in close collaboration with project teams, field technicians, our partners and our customers to guarantee reliable, secure and efficient installations.\n\n## What you will do\n\n- Carry out the installation, configuration and migration of our access control software for our clients.\n- Ensure the configuration, integration and commissioning of software solutions in clients' IT infrastructures.\n- Participate in the creation, configuration and administration of the server and network environments necessary for the operation of our systems.\n- Coordinate technical activities with client IT teams, project managers and external partners.\n- Provide level 1 and 2 technical support for software solutions.\n- Support our technicians and partners during the deployment and commissioning phases.\n- Carry out technical analyses, diagnostics and incident resolutions.\n- Train users and client administrators in the use of our solutions.\n\n## What we ask\n\n- Higher education in computer science (CFC, ES/ET, HES or equivalent).\n- Minimum 3 years of experience in a similar function oriented towards software, infrastructure or systems.\n- Excellent knowledge of IT infrastructures and computer networks.\n- Proven experience with Microsoft Windows Server operating systems and virtualized environments.\n- Basic knowledge of SQL and experience with Microsoft SQL Server.\n- Additional skills in implementing and managing backup solutions and deploying and managing IT monitoring solutions will be highly appreciated.\n- Experience in electronic security, access control, video surveillance or identity management systems is an important advantage.\n- Excellent sense of customer service, autonomy and ability to manage several priorities simultaneously.\n- Availability for travel to clients in French-speaking Switzerland.\n- Valid driving license.\n- Good command of French as well as English and/or German.\n\n## We offer\n\n- We offer attractive employment conditions with various benefits\n- Possibilities for partial teleworking\n- We operate in an exciting technological environment\n- We are an international group with a family atmosphere\n- We place great importance on promoting personal and professional development\n\n## Why join dormakaba?\n\nWe are at the heart of every place that matters.\nFrom automatic doors to cloud-based access control, we are a global leader in access solutions for schools, banks, airports, hospitals, hotels and many other industries. We enable fluid circulation within safe, secure and sustainable locations.\nWith over 160 years of experience and driven by a culture of excellence and innovation, we offer exciting opportunities to grow in an environment where you can make a real impact.\nAt dormakaba, you are encouraged to take initiative, develop your skills and build your career alongside 16,000 experts around the world who set industry standards every day.\nWork in an environment where you will make a difference – apply now!\n\ndormakaba is an employer committed to inclusion and diversity. We treat all applications equally, regardless of ethnicity, skin color, religion, gender or sexual orientation, nationality, disability or other characteristics protected by law, to ensure equal opportunity.",
-        "de": "## Jobübersicht\n\nAls Softwarespezialist für Zutrittskontrollsysteme spielen Sie eine Schlüsselrolle bei der Bereitstellung, Konfiguration und Unterstützung unserer Zutrittskontrolllösungen. Sie arbeiten mit unseren Kunden zusammen, um die Implementierung von Softwareplattformen, die Integration zugehöriger Infrastrukturen und die Unterstützung der Benutzer während des gesamten Projektlebenszyklus sicherzustellen.\nSie arbeiten eng mit Projektteams, Außendiensttechnikern, unseren Partnern und unseren Kunden zusammen, um zuverlässige, sichere und effiziente Installationen zu gewährleisten.\n\n## Was Sie tun werden\n\n- Führen Sie die Installation, Konfiguration und Migration unserer Zutrittskontrollsoftware für unsere Kunden durch.\n- Sorgen Sie für die Konfiguration, Integration und Inbetriebnahme von Softwarelösungen in den IT-Infrastrukturen der Kunden.\n- Beteiligen Sie sich an der Erstellung, Konfiguration und Verwaltung der Server- und Netzwerkumgebungen, die für den Betrieb unserer Systeme erforderlich sind.\n- Koordinieren Sie technische Aktivitäten mit den IT-Teams des Kunden, Projektmanagern und externen Partnern.\n- Bieten Sie technischen Support der Stufen 1 und 2 für Softwarelösungen.\n- Unterstützen Sie unsere Techniker und Partner während der Bereitstellungs- und Inbetriebnahmephase.\n- Führen Sie technische Analysen, Diagnosen und Behebung von Vorfällen durch.\n- Schulen Sie Benutzer und Kundenadministratoren in der Nutzung unserer Lösungen.\n\n## Was wir fragen\n\n- Hochschulausbildung in Informatik (CFC, ES/ET, HES oder gleichwertig).\n- Mindestens 3 Jahre Erfahrung in einer ähnlichen Funktion mit Schwerpunkt auf Software, Infrastruktur oder Systemen.\n- Ausgezeichnete Kenntnisse von IT-Infrastrukturen und Computernetzwerken.\n- Nachgewiesene Erfahrung mit Microsoft Windows Server-Betriebssystemen und virtualisierten Umgebungen.\n- Grundkenntnisse in SQL und Erfahrung mit Microsoft SQL Server.\n- Zusätzliche Kenntnisse in der Implementierung und Verwaltung von Backup-Lösungen sowie der Bereitstellung und Verwaltung von IT-Überwachungslösungen werden sehr geschätzt.\n- Erfahrung in elektronischen Sicherheits-, Zugangskontroll-, Videoüberwachungs- oder Identitätsmanagementsystemen ist ein wichtiger Vorteil.\n- Ausgezeichnetes Gespür für Kundenservice, Autonomie und Fähigkeit, mehrere Prioritäten gleichzeitig zu verwalten.\n- Verfügbarkeit für Reisen zu Kunden in der Westschweiz.\n- Gültiger Führerschein.\n- Gute Kenntnisse in Französisch sowie Englisch und/oder Deutsch.\n\n## Wir bieten\n\n- Wir bieten attraktive Anstellungsbedingungen mit verschiedenen Benefits\n- Möglichkeiten zur teilweisen Telearbeit\n- Wir agieren in einem spannenden technologischen Umfeld\n- Wir sind eine internationale Gruppe mit familiärer Atmosphäre\n- Wir legen großen Wert auf die Förderung der persönlichen und beruflichen Weiterentwicklung\n\n## Warum dormakaba beitreten?\n\nWir sind das Herzstück jedes wichtigen Ortes.\nVon automatischen Türen bis hin zur cloudbasierten Zutrittskontrolle sind wir ein weltweit führender Anbieter von Zutrittslösungen für Schulen, Banken, Flughäfen, Krankenhäuser, Hotels und viele andere Branchen. Wir ermöglichen die Flüssigkeitszirkulation an sicheren und nachhaltigen Orten.\nMit über 160 Jahren Erfahrung und angetrieben von einer Kultur der Exzellenz und Innovation bieten wir spannende Möglichkeiten, in einem Umfeld zu wachsen, in dem Sie wirklich etwas bewirken können.\nBei dormakaba werden Sie ermutigt, Initiative zu ergreifen, Ihre Fähigkeiten weiterzuentwickeln und Ihre Karriere gemeinsam mit 16.000 Experten auf der ganzen Welt aufzubauen, die jeden Tag Branchenstandards setzen.\nArbeiten Sie in einem Umfeld, in dem Sie etwas bewirken werden – bewerben Sie sich jetzt!\n\ndormakaba ist ein Arbeitgeber, der sich für Inklusion und Vielfalt einsetzt. Wir behandeln alle Bewerbungen gleich, unabhängig von ethnischer Zugehörigkeit, Hautfarbe, Religion, Geschlecht oder sexueller Orientierung, Nationalität, Behinderung oder anderen gesetzlich geschützten Merkmalen, um Chancengleichheit zu gewährleisten.",
-        "fr": "## Aperçu du poste\n\nEn tant que Spécialiste logiciels en systèmes de contrôle d'accès, vous jouez un rôle clé dans le déploiement, la configuration et le support de nos solutions de contrôle d'accès. Vous intervenez auprès de nos clients pour assurer la mise en œuvre des plateformes logicielles, l'intégration des infrastructures associées et l'accompagnement des utilisateurs tout au long du cycle de vie des projets.\nVous travaillez en étroite collaboration avec les équipes projets, les techniciens terrain, nos partenaires et nos clients afin de garantir des installations fiables, sécurisées et performantes.\n\n## Ce que vous ferez\n\n- Réaliser l'installation, la configuration et la migration de nos logiciels de contrôle d'accès chez nos clients.\n- Assurer le paramétrage, l'intégration et la mise en service des solutions logicielles dans les infrastructures informatiques des clients.\n- Participer à la création, à la configuration et à l'administration des environnements serveurs et réseaux nécessaires au fonctionnement de nos systèmes.\n- Coordonner les activités techniques avec les équipes informatiques des clients, les chefs de projet et les partenaires externes.\n- Assurer le support technique de niveau 1 et 2 pour les solutions logicielles.\n- Accompagner nos techniciens et partenaires lors des phases de déploiement et de mise en service.\n- Réaliser des analyses techniques, des diagnostics et des résolutions d'incidents.\n- Former les utilisateurs et administrateurs clients à l'utilisation de nos solutions.\n\n## Ce que nous demandons\n\n- Formation supérieure en informatique (CFC, ES/ET, HES ou équivalent).\n- Minimum 3 ans d'expérience dans une fonction similaire orientée logiciels, infrastructures ou systèmes.\n- Excellentes connaissances des infrastructures IT et des réseaux informatiques.\n- Expérience confirmée des systèmes d'exploitation Microsoft Windows Server et des environnements virtualisés.\n- Connaissances de base en SQL et expérience avec Microsoft SQL Server.\n- Des compétences additionnelles en implémentation et gestion de solutions de sauvegarde et en déploiement et gestion de solutions de monitoring IT seront fortement appréciées\n- Une expérience dans les systèmes de sécurité électronique, de contrôle d'accès, de vidéosurveillance ou de gestion des identités constitue un avantage important.\n- Excellent sens du service client, autonomie et capacité à gérer plusieurs priorités simultanément.\n- Disponibilité pour des déplacements auprès des clients en Suisse romande.\n- Permis de conduire valide.\n- Bonne maîtrise du français ainsi que de l'anglais et/ou de l'allemand.\n\n## Nous offrons\n\n- Nous offrons des conditions d’emploi attrayantes avec des avantages divers\n- Des possibilités de télétravail partiel\n- Nous agissons dans un environnement technologique passionnant\n- Nous sommes un groupe international avec une atmosphère familiale\n- Nous accordons une grande importance à la promotion du développement personnel et professionnel\n\n## Pourquoi rejoinder dormakaba?\n\nNous sommes au cœur de chaque lieu qui compte.\nDepuis les portes automatiques en passant par le contrôle d'accès basé sur le cloud, nous sommes leader mondial dans les solutions d’accès pour les écoles, les banques, les aéroports, les hôpitaux, les hôtels et bien d’autres secteurs. Nous permettons une circulation fluide au sein de lieux sûrs, sécurisés et durables.\nForts de plus de 160 ans d’expérience et animés par une culture d’excellence et d’innovation, nous offrons des opportunités passionnantes pour évoluer dans un environnement où vous pouvez avoir un réel impact.\nChez dormakaba, vous êtes encouragé(e) à prendre des initiatives, à développer vos compétences et à construire votre carrière aux côtés de 16 000 experts dans le monde qui définissent chaque jour les standards du secteur.\nTravaillez dans un environnement où vous ferez la différence – postulez dès maintenant !\n\ndormakaba est un employeur qui s’engage pour l’inclusion et la diversité. Nous traitons toutes les candidatures de la même manière, indépendemment de l’éthnie, de la couleur de peau, de la religion, du sexe ou de l’orientation sexuelle, de la nationalité, du handicap ou d’autres caractéristiques protégées par la loi, afin de garantir l’égalité des chances."
+        "it": "## I tuoi compiti\n\n- Assemblaggio e cablaggio di componenti e sensori dell'azionamento\n- Configurazione e messa in servizio di porte automatiche\n- Ammodernamento dei sistemi di porte esistenti\n- Documentare il servizio fornito (certificati di accettazione e collaudo)\n- Consegna dei sistemi ai clienti\n\n## Il tuo profilo\n\n- Formazione tecnica completata, ad es. come ingegnere dell'automazione, installatore elettrico, ingegnere di sistemi e apparecchi o formazione/aggiornamento nel campo dell'ingegnere meccatronico\n- Buone conoscenze informatiche (MS Office; gestione del software di parametrizzazione)\n\n## Cosa offriamo\n\n- Le migliori opportunità in un'azienda globale con la cultura di un'azienda familiare\n- Pacchetto salariale interessante\n- Opportunità di sviluppo trasparenti e chiaramente definite\n\n##\n\n## Chi siamo\nPer ogni luogo che conta.\nDalle porte automatiche alla gestione degli accessi basata su cloud, in qualità di leader globale nelle soluzioni di accesso per scuole, banche, aeroporti, ospedali, hotel e altro ancora, creiamo luoghi sicuri e sostenibili in cui le persone possono muoversi senza problemi.\nCon oltre 160 anni di esperienza e una chiara attenzione all'eccellenza e all'innovazione, offriamo entusiasmanti opportunità di sviluppo in un ambiente in cui puoi fare davvero la differenza.\nIn dormakaba sei incoraggiato a mostrare iniziativa, sviluppare le tue capacità e dare forma alla tua carriera insieme a 16.000 esperti in tutto il mondo che ogni giorno stabiliscono nuovi standard nel settore.\nLavora dove conti: candidati ora!",
+        "en": "## Your tasks\n\n- Assembling and wiring drive components and sensors\n- Configuration and commissioning of automatic doors\n- Modernization of existing door systems\n- Documenting the service provided (acceptance and test certificates)\n- Handing over the systems to the customers\n\n## Your profile\n\n- Completed technical training, e.g. as an automation engineer, electrical installer, system and apparatus engineer or training/further training in the field of mechatronics engineer\n- Good IT knowledge (MS Office; handling parameterization software)\n\n## What we offer\n\n- Best opportunities in a global corporation with the culture of a family business\n- Attractive salary package\n- Transparent and clearly defined development opportunities\n\n##\n\n## Who we are\nFor every place that matters.\nFrom automatic doors to cloud-based access management, as a global leader in access solutions for schools, banks, airports, hospitals, hotels and more, we enable safe and sustainable places where people can move seamlessly.\nWith over 160 years of experience and a clear focus on excellence and innovation, we offer exciting opportunities for development in an environment where you can make a real difference.\nAt dormakaba you are encouraged to show initiative, develop your skills and shape your career together with 16,000 experts worldwide who set new standards in the industry every day.\nWork somewhere where you count – apply now!",
+        "de": "## Deine Aufgaben\n\n- Montieren und verdrahten von Antriebskomponenten und Sensorik\n- Konfiguration und Inbetriebnahme von automatischen Türen\n- Modernisierung von bestehenden Türanlagen\n- Dokumentieren der erbrachten Leistung (Abnahme und Prüfzeugnisse)\n- Übergeben der Anlagen an die Kunden\n\n## Dein Profil\n\n- Abgeschlossene technische Ausbildung, z.B. als Automatiker, Elektroinstallateur, Anlagen- und Apparatebauer oder Aus-/Weiterbildungen im Bereich Mechatroniker\n- Gute Informatikkenntnisse (MS Office; Umgang mit Parametriersoftware)\n\n## Was wir bieten\n\n- Beste Chancen in einem global agierenden Konzern mit der Kultur eines Familienunternehmens\n- Attraktives Gehaltspaket\n- Transparente und klar definierte Weiterentwicklungsmöglichkeiten\n\n##\n\n## Wer wir sind\nFor every place that matters.\nVon automatischen Türen bis hin zu cloudbasiertem Zutrittsmanagement – als ein weltweit führender Anbieter auf dem Markt für Zutrittslösungen für Schulen, Banken, Flughäfen, Krankenhäuser, Hotels und viele weitere ermöglichen wir es, sichere und nachhaltige Orte zu schaffen, an denen sich Menschen nahtlos bewegen können.\nMit über 160 Jahren Erfahrung und einem klaren Fokus auf Exzellenz und Innovation bieten wir spannende Möglichkeiten zur Weiterentwicklung in einem Umfeld, in dem Sie wirklich etwas bewirken können.\nBei dormakaba wirst Du ermutigt, Eigeninitiative zu zeigen, Deine Fähigkeiten auszubauen und Deine Karriere gemeinsam mit 16.000 Expertinnen und Experten weltweit zu gestalten, die täglich neue Maßstäbe in der Branche setzen.\nArbeite an einem Ort, an dem Du zählst – bewirb Dich jetzt!",
+        "fr": "## Vos tâches\n\n- Assemblage et câblage des composants et capteurs d'entraînement\n- Configuration et mise en service des portes automatiques\n- Modernisation des systèmes de portes existants\n- Documentation du service fourni (certificats d'acceptation et de test)\n- Transfert des systèmes aux clients\n\n## Votre profil\n\n- Formation technique, par exemple en tant que technicien en automatisation, électricien, ingénieur d'usine et d'appareils, ou une formation/formation complémentaire dans le domaine du technicien en mécatronique\n- Bonnes compétences en informatique (MS Office ; Gestion des logiciels de paramétrisation)\n\n## Ce que nous proposons\n\n- Les meilleures opportunités dans un groupe actif à l'échelle mondiale, avec la culture d'une entreprise familiale\n- Package salarial attractif\n- Des opportunités de développement futur transparentes et clairement définies\n\n##\n\n## Qui nous sommes\nPour chaque endroit qui compte.\nDes portes automatiques à la gestion d'accès basée sur le cloud, en tant que leader mondial du marché des solutions d'accès pour les écoles, banques, aéroports, hôpitaux, hôtels et bien d'autres domaines, nous rendons possible la création d'espaces sûrs et durables où les gens peuvent se déplacer sans difficulté.\nAvec plus de 160 ans d'expérience et un focus clair sur l'excellence et l'innovation, nous offrons des opportunités passionnantes de développement dans un environnement où vous pouvez faire une réelle différence.\nÀ Dormakaba, vous serez encouragé à faire preuve d'initiative, à développer vos compétences et à façonner votre carrière aux côtés de 16 000 experts à travers le monde qui établissent chaque jour de nouveaux standards dans le secteur.\nTravaillez dans un endroit où vous comptez – postulez dès maintenant !"
       },
-      "location": "Le Mont-sur-Lausanne",
-      "canton": "VD",
-      "url": "https://jobs.dormakaba.com/job-invite/12323/?locale=fr_FR",
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://jobs.dormakaba.com/job-invite/12356/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-19T01:41:13.513Z",
-      "addressLocality": "Le Mont-sur-Lausanne",
-      "postalCode": "1052",
-      "streetAddress": "Le Mont-sur-Lausanne",
-      "addressRegion": "VD",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-19T09:40:57.705Z",
+      "addressLocality": "St. Gallen",
+      "postalCode": "9000",
+      "streetAddress": "St. Gallen",
+      "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Tecnica",
-      "department": "Services et Installations",
-      "employmentType": "OTHER",
+      "department": "Service & Installation",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
       "currency": "CHF",
@@ -813,34 +890,38 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.dormakaba.com/job-invite/12323/?locale=fr_FR",
+      "applyUrl": "https://jobs.dormakaba.com/job-invite/12356/?locale=de_DE",
       "legalEntity": "dormakaba Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
+        "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen",
+        "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen",
+        "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
+          "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen",
+          "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
+        ],
+        "fr": [
+          "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen"
         ]
       },
-      "salaryMin": 71000,
-      "salaryMax": 107500,
+      "salaryMin": 67000,
+      "salaryMax": 102000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
+          "minValue": 67000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:25.676Z"
+      "firstSeenAt": "2026-09-25T15:07:54.710Z"
     },
     {
       "id": "dormakaba-12354",
@@ -873,7 +954,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12354/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T01:41:13.506Z",
+      "crawledAt": "2026-10-19T09:40:57.705Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -948,7 +1029,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12355/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T01:41:13.506Z",
+      "crawledAt": "2026-10-19T09:40:57.705Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -1001,87 +1082,6 @@
       "firstSeenAt": "2026-09-24T14:51:47.178Z"
     },
     {
-      "id": "dormakaba-12356",
-      "slug": "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
-      "slugByLocale": {
-        "de": "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
-        "it": "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
-        "en": "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen",
-        "fr": "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen"
-      },
-      "company": "dormakaba",
-      "companyKey": "dormakaba",
-      "companyDomain": "dormakaba.com",
-      "title": "Montagetechniker (m/w/d) - Region Zürich",
-      "titleByLocale": {
-        "it": "Tecnico di montaggio (m/f/d) - Regione Zurigo",
-        "en": "Assembly technician (m/f/d) - Zurich region",
-        "de": "Montagetechniker (m/w/d) - Region Zürich",
-        "fr": "Technicien de montage (h/f/d) - Région de Zurich"
-      },
-      "description": "## Deine Aufgaben\n\n- Montieren und verdrahten von Antriebskomponenten und Sensorik\n- Konfiguration und Inbetriebnahme von automatischen Türen\n- Modernisierung von bestehenden Türanlagen\n- Dokumentieren der erbrachten Leistung (Abnahme und Prüfzeugnisse)\n- Übergeben der Anlagen an die Kunden\n\n## Dein Profil\n\n- Abgeschlossene technische Ausbildung, z.B. als Automatiker, Elektroinstallateur, Anlagen- und Apparatebauer oder Aus-/Weiterbildungen im Bereich Mechatroniker\n- Gute Informatikkenntnisse (MS Office; Umgang mit Parametriersoftware)\n\n## Was wir bieten\n\n- Beste Chancen in einem global agierenden Konzern mit der Kultur eines Familienunternehmens\n- Attraktives Gehaltspaket\n- Transparente und klar definierte Weiterentwicklungsmöglichkeiten\n\n##\n\n## Wer wir sind\n For every place that matters.\n Von automatischen Türen bis hin zu cloudbasiertem Zutrittsmanagement – als ein weltweit führender Anbieter auf dem Markt für Zutrittslösungen für Schulen, Banken, Flughäfen, Krankenhäuser, Hotels und viele weitere ermöglichen wir es, sichere und nachhaltige Orte zu schaffen, an denen sich Menschen nahtlos bewegen können.\n Mit über 160 Jahren Erfahrung und einem klaren Fokus auf Exzellenz und Innovation bieten wir spannende Möglichkeiten zur Weiterentwicklung in einem Umfeld, in dem Sie wirklich etwas bewirken können.\n Bei dormakaba wirst Du ermutigt, Eigeninitiative zu zeigen, Deine Fähigkeiten auszubauen und Deine Karriere gemeinsam mit 16.000 Expertinnen und Experten weltweit zu gestalten, die täglich neue Maßstäbe in der Branche setzen.\n Arbeite an einem Ort, an dem Du zählst – bewirb Dich jetzt!",
-      "descriptionByLocale": {
-        "it": "## I tuoi compiti\n\n- Assemblaggio e cablaggio di componenti e sensori dell'azionamento\n- Configurazione e messa in servizio di porte automatiche\n- Ammodernamento dei sistemi di porte esistenti\n- Documentare il servizio fornito (certificati di accettazione e collaudo)\n- Consegna dei sistemi ai clienti\n\n## Il tuo profilo\n\n- Formazione tecnica completata, ad es. come ingegnere dell'automazione, installatore elettrico, ingegnere di sistemi e apparecchi o formazione/aggiornamento nel campo dell'ingegnere meccatronico\n- Buone conoscenze informatiche (MS Office; gestione del software di parametrizzazione)\n\n## Cosa offriamo\n\n- Le migliori opportunità in un'azienda globale con la cultura di un'azienda familiare\n- Pacchetto salariale interessante\n- Opportunità di sviluppo trasparenti e chiaramente definite\n\n##\n\n## Chi siamo\nPer ogni luogo che conta.\nDalle porte automatiche alla gestione degli accessi basata su cloud, in qualità di leader globale nelle soluzioni di accesso per scuole, banche, aeroporti, ospedali, hotel e altro ancora, creiamo luoghi sicuri e sostenibili in cui le persone possono muoversi senza problemi.\nCon oltre 160 anni di esperienza e una chiara attenzione all'eccellenza e all'innovazione, offriamo entusiasmanti opportunità di sviluppo in un ambiente in cui puoi fare davvero la differenza.\nIn dormakaba sei incoraggiato a mostrare iniziativa, sviluppare le tue capacità e dare forma alla tua carriera insieme a 16.000 esperti in tutto il mondo che ogni giorno stabiliscono nuovi standard nel settore.\nLavora dove conti: candidati ora!",
-        "en": "## Your tasks\n\n- Assembling and wiring drive components and sensors\n- Configuration and commissioning of automatic doors\n- Modernization of existing door systems\n- Documenting the service provided (acceptance and test certificates)\n- Handing over the systems to the customers\n\n## Your profile\n\n- Completed technical training, e.g. as an automation engineer, electrical installer, system and apparatus engineer or training/further training in the field of mechatronics engineer\n- Good IT knowledge (MS Office; handling parameterization software)\n\n## What we offer\n\n- Best opportunities in a global corporation with the culture of a family business\n- Attractive salary package\n- Transparent and clearly defined development opportunities\n\n##\n\n## Who we are\nFor every place that matters.\nFrom automatic doors to cloud-based access management, as a global leader in access solutions for schools, banks, airports, hospitals, hotels and more, we enable safe and sustainable places where people can move seamlessly.\nWith over 160 years of experience and a clear focus on excellence and innovation, we offer exciting opportunities for development in an environment where you can make a real difference.\nAt dormakaba you are encouraged to show initiative, develop your skills and shape your career together with 16,000 experts worldwide who set new standards in the industry every day.\nWork somewhere where you count – apply now!",
-        "de": "## Deine Aufgaben\n\n- Montieren und verdrahten von Antriebskomponenten und Sensorik\n- Konfiguration und Inbetriebnahme von automatischen Türen\n- Modernisierung von bestehenden Türanlagen\n- Dokumentieren der erbrachten Leistung (Abnahme und Prüfzeugnisse)\n- Übergeben der Anlagen an die Kunden\n\n## Dein Profil\n\n- Abgeschlossene technische Ausbildung, z.B. als Automatiker, Elektroinstallateur, Anlagen- und Apparatebauer oder Aus-/Weiterbildungen im Bereich Mechatroniker\n- Gute Informatikkenntnisse (MS Office; Umgang mit Parametriersoftware)\n\n## Was wir bieten\n\n- Beste Chancen in einem global agierenden Konzern mit der Kultur eines Familienunternehmens\n- Attraktives Gehaltspaket\n- Transparente und klar definierte Weiterentwicklungsmöglichkeiten\n\n##\n\n## Wer wir sind\nFor every place that matters.\nVon automatischen Türen bis hin zu cloudbasiertem Zutrittsmanagement – als ein weltweit führender Anbieter auf dem Markt für Zutrittslösungen für Schulen, Banken, Flughäfen, Krankenhäuser, Hotels und viele weitere ermöglichen wir es, sichere und nachhaltige Orte zu schaffen, an denen sich Menschen nahtlos bewegen können.\nMit über 160 Jahren Erfahrung und einem klaren Fokus auf Exzellenz und Innovation bieten wir spannende Möglichkeiten zur Weiterentwicklung in einem Umfeld, in dem Sie wirklich etwas bewirken können.\nBei dormakaba wirst Du ermutigt, Eigeninitiative zu zeigen, Deine Fähigkeiten auszubauen und Deine Karriere gemeinsam mit 16.000 Expertinnen und Experten weltweit zu gestalten, die täglich neue Maßstäbe in der Branche setzen.\nArbeite an einem Ort, an dem Du zählst – bewirb Dich jetzt!",
-        "fr": "## Vos tâches\n\n- Assemblage et câblage des composants et capteurs d'entraînement\n- Configuration et mise en service des portes automatiques\n- Modernisation des systèmes de portes existants\n- Documentation du service fourni (certificats d'acceptation et de test)\n- Transfert des systèmes aux clients\n\n## Votre profil\n\n- Formation technique, par exemple en tant que technicien en automatisation, électricien, ingénieur d'usine et d'appareils, ou une formation/formation complémentaire dans le domaine du technicien en mécatronique\n- Bonnes compétences en informatique (MS Office ; Gestion des logiciels de paramétrisation)\n\n## Ce que nous proposons\n\n- Les meilleures opportunités dans un groupe actif à l'échelle mondiale, avec la culture d'une entreprise familiale\n- Package salarial attractif\n- Des opportunités de développement futur transparentes et clairement définies\n\n##\n\n## Qui nous sommes\nPour chaque endroit qui compte.\nDes portes automatiques à la gestion d'accès basée sur le cloud, en tant que leader mondial du marché des solutions d'accès pour les écoles, banques, aéroports, hôpitaux, hôtels et bien d'autres domaines, nous rendons possible la création d'espaces sûrs et durables où les gens peuvent se déplacer sans difficulté.\nAvec plus de 160 ans d'expérience et un focus clair sur l'excellence et l'innovation, nous offrons des opportunités passionnantes de développement dans un environnement où vous pouvez faire une réelle différence.\nÀ Dormakaba, vous serez encouragé à faire preuve d'initiative, à développer vos compétences et à façonner votre carrière aux côtés de 16 000 experts à travers le monde qui établissent chaque jour de nouveaux standards dans le secteur.\nTravaillez dans un endroit où vous comptez – postulez dès maintenant !"
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://jobs.dormakaba.com/job-invite/12356/?locale=de_DE",
-      "source": "dormakaba Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-19T01:41:13.505Z",
-      "addressLocality": "St. Gallen",
-      "postalCode": "9000",
-      "streetAddress": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "department": "Service & Installation",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.dormakaba.com/job-invite/12356/?locale=de_DE",
-      "legalEntity": "dormakaba Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen",
-        "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen",
-        "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen",
-          "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
-        ],
-        "fr": [
-          "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen"
-        ]
-      },
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-25T15:07:54.710Z"
-    },
-    {
       "id": "dormakaba-12019",
       "slug": "chiusura-e-sistemi-di-accesso-80-100-m-f-d-dormakaba-rumlang",
       "slugByLocale": {
@@ -1112,7 +1112,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12019/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T01:41:13.504Z",
+      "crawledAt": "2026-10-19T09:40:57.703Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",

@@ -4,6 +4,13 @@ import { getConfigValue } from './firebase';
 import { ASSISTED_APPLICATION_PRICE_EUR_CENTS as SHARED_ASSISTED_APPLICATION_PRICE_EUR_CENTS } from '@/functions/src/assistedApplicationConstants.js';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import { isLikelyBot } from './botPatterns';
+import {
+  ASSISTED_APPLICATION_COPY_EXPERIMENT_ID,
+  ASSISTED_APPLICATION_COPY_VARIANTS as COPY_VARIANTS,
+  assistedApplicationCopyEventName,
+} from './assistedApplicationCopyAnalyticsContract.mjs';
+
+export { ASSISTED_APPLICATION_COPY_EXPERIMENT_ID };
 
 export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = SHARED_ASSISTED_APPLICATION_PRICE_EUR_CENTS;
 
@@ -15,14 +22,13 @@ export const ASSISTED_APPLICATION_EXPERIMENT_RC_KEY = 'ASSISTED_APPLICATION_EXPE
  * arm, price, CTA, steps and legal copy stay unchanged; only the title and
  * description use one of these four message angles.
  */
-export const ASSISTED_APPLICATION_COPY_EXPERIMENT_ID = 'assisted-application-copy-v1';
 export const ASSISTED_APPLICATION_COPY_VARIANT_RC_KEY = 'ASSISTED_APPLICATION_COPY_VARIANT';
-export const ASSISTED_APPLICATION_COPY_VARIANTS = [
+export const ASSISTED_APPLICATION_COPY_VARIANTS = COPY_VARIANTS as readonly [
   'control',
   'time_saved',
   'portal_relief',
   'handled_for_you',
-] as const;
+];
 export type AssistedApplicationCopyVariant = (typeof ASSISTED_APPLICATION_COPY_VARIANTS)[number];
 // v2 (2026-09-30): the mandate names the employer's terms accepted on the candidate's behalf.
 export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v2';
@@ -418,4 +424,17 @@ export function trackAssistedApplicationEvent(
     job_id: String(context.jobId),
     company_id: String(context.companyId),
   });
+  // Keep the existing funnel event intact and emit a second, low-cardinality
+  // event only for copy-test measurement. Its event name carries the copy arm,
+  // so attribution cannot race across asynchronous user-property updates and
+  // needs no GA4 custom dimension.
+  const copyEventName = context.copy_variant
+    ? assistedApplicationCopyEventName(eventName, context.copy_variant)
+    : null;
+  if (copyEventName && context.copy_variant) {
+    Analytics.trackExperimentEvent(copyEventName, {
+      experiment_id: ASSISTED_APPLICATION_COPY_EXPERIMENT_ID,
+      variant: context.copy_variant,
+    });
+  }
 }

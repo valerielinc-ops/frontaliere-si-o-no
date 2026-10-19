@@ -1,6 +1,6 @@
 /**
- * jobgate — multi-arm A/B test on the job-detail auth gate (round 4,
- * `jobgate-v4`: the gate's visual treatment; round history in
+ * jobgate — multi-arm A/B test on the job-detail auth gate (round 5,
+ * `jobgate-v5`: variants of the promoted Spotlight treatment; round history in
  * docs/AUTHGATE-HEADLINE-EXPERIMENT.md).
  *
  * Pure, dependency-free core shared by the SPA (services/jobGateExperiment.ts,
@@ -9,11 +9,12 @@
  * are parsed by exactly the code the browser runs.
  *
  * Contract (shared with the readout, scripts/analytics/job-gate-experiment-readout.mjs):
- *   - experiment_id `jobgate-v4`;
- *   - Remote Config strings JOBGATE_EXPERIMENT_ENABLED / _ARMS / _FORCE;
- *   - ENABLED other than `true` → nobody is enrolled, the page is unchanged;
+ *   - experiment_id `jobgate-v5`;
+ *   - Remote Config strings JOBGATE_V5_EXPERIMENT_ENABLED / _ARMS / _FORCE;
+ *   - ENABLED other than `true` → nobody is enrolled; promoted Spotlight stays
+ *     the visual default;
  *   - ARMS = JSON object of non-negative integer weights over the known arms;
- *     anything invalid falls back to `{"control":100}`;
+ *     anything invalid falls back to `{"spotlight":100}`;
  *   - FORCE = a known arm forces it for every visitor (QA/promotion), only
  *     while ENABLED is `true` (the kill switch always wins);
  *   - the arm is a deterministic function of (stable visitor id, experiment id),
@@ -24,28 +25,33 @@
  * The id salts the visitor hash, so a new round reshuffles every visitor
  * instead of inheriting the previous round's buckets.
  */
-export const JOBGATE_EXPERIMENT_ID = 'jobgate-v4';
+export const JOBGATE_EXPERIMENT_ID = 'jobgate-v5';
 
 export const JOBGATE_RC_KEYS = Object.freeze({
-  enabled: 'JOBGATE_EXPERIMENT_ENABLED',
-  arms: 'JOBGATE_EXPERIMENT_ARMS',
-  force: 'JOBGATE_EXPERIMENT_FORCE',
+  enabled: 'JOBGATE_V5_EXPERIMENT_ENABLED',
+  arms: 'JOBGATE_V5_EXPERIMENT_ARMS',
+  force: 'JOBGATE_V5_EXPERIMENT_FORCE',
 });
+
+/** v4 clients can remain cached after deploy; pin them to the promoted arm. */
+export const JOBGATE_LEGACY_FORCE_KEY = 'JOBGATE_EXPERIMENT_FORCE';
+/** Server-only launch metadata; intentionally not exposed by getPublicConfig. */
+export const JOBGATE_STARTED_AT_KEY = 'JOBGATE_V5_EXPERIMENT_STARTED_AT';
 
 /**
  * Canonical arm order. Bucketing walks the weights in THIS order, never in the
  * JSON key order, so re-ordering keys in Remote Config cannot reshuffle
  * visitors between arms.
  */
-export const JOBGATE_ARMS = Object.freeze(['control', 'navy_panel', 'spotlight', 'actions_first']);
+export const JOBGATE_ARMS = Object.freeze(['spotlight', 'spotlight_quiet', 'spotlight_tinted', 'spotlight_outline']);
 
-export const JOBGATE_DEFAULT_WEIGHTS = Object.freeze({ control: 100 });
-export const JOBGATE_DEFAULT_ARMS_JSON = '{"control":100}';
+export const JOBGATE_DEFAULT_WEIGHTS = Object.freeze({ spotlight: 100 });
+export const JOBGATE_DEFAULT_ARMS_JSON = '{"spotlight":100}';
 
 /** Upper bound per weight: large enough for basis points, small enough to catch typos. */
 const MAX_WEIGHT = 10000;
 
-/** @param {unknown} value @returns {value is 'control'|'navy_panel'|'spotlight'|'actions_first'} */
+/** @param {unknown} value @returns {value is 'spotlight'|'spotlight_quiet'|'spotlight_tinted'|'spotlight_outline'} */
 export function isJobGateArm(value) {
   return typeof value === 'string' && JOBGATE_ARMS.includes(value);
 }
@@ -137,7 +143,7 @@ export function pickJobGateArm(visitorId, weights, experimentId = JOBGATE_EXPERI
     .map((arm) => [arm, Number(weights?.[arm]) || 0])
     .filter(([, weight]) => weight > 0);
   const total = entries.reduce((sum, [, weight]) => sum + weight, 0);
-  if (total <= 0) return 'control';
+  if (total <= 0) return 'spotlight';
   const unit = hashJobGateKey(`${experimentId}:${visitorId}`) / 4294967296;
   let cursor = unit * total;
   for (const [arm, weight] of entries) {
@@ -154,13 +160,13 @@ export function pickJobGateArm(visitorId, weights, experimentId = JOBGATE_EXPERI
  * @returns {{ enrolled: boolean, arm: string, reason: 'disabled' | 'forced' | 'weighted' | 'no_visitor' }}
  */
 export function resolveJobGateAssignment(input) {
-  if (!parseJobGateEnabled(input?.enabled)) return { enrolled: false, arm: 'control', reason: 'disabled' };
+  if (!parseJobGateEnabled(input?.enabled)) return { enrolled: false, arm: 'spotlight', reason: 'disabled' };
   const forced = normalizeJobGateArm(input?.force);
   if (forced) return { enrolled: true, arm: forced, reason: 'forced' };
   const visitorId = String(input?.visitorId ?? '').trim();
   // Without a stable id the arm could change on every page view: keep the
   // visitor out of the experiment rather than polluting an arm.
-  if (!visitorId) return { enrolled: false, arm: 'control', reason: 'no_visitor' };
+  if (!visitorId) return { enrolled: false, arm: 'spotlight', reason: 'no_visitor' };
   return { enrolled: true, arm: pickJobGateArm(visitorId, parseJobGateWeights(input?.arms)), reason: 'weighted' };
 }
 

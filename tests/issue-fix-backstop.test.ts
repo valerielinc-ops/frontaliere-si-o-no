@@ -1,5 +1,5 @@
-import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { existsSync, readFileSync } from 'node:fs';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -27,6 +27,65 @@ function extractInlineRiskScript() {
 }
 
 const inlineRiskScript = extractInlineRiskScript();
+
+function extractBackstopRun() {
+  const stepStart = workflow.indexOf('- name: Emit FIX_OUTCOME telemetry (deterministic backstop)');
+  const runHeader = '\n        run: |\n';
+  const runStart = workflow.indexOf(runHeader, stepStart);
+  const stepEnd = workflow.indexOf('\n      # #9742:', runStart);
+  if (stepStart < 0 || runStart < 0 || stepEnd < 0) throw new Error('backstop deterministico non trovato');
+  return workflow.slice(runStart + runHeader.length, stepEnd)
+    .split('\n')
+    .map((line) => line.startsWith('          ') ? line.slice(10) : line)
+    .join('\n');
+}
+
+const backstopRun = extractBackstopRun();
+
+function runBackstop(
+  comments: Array<{ createdAt: string; body: string }>,
+  dailyItemId: string,
+) {
+  const tempRoot = mkdtempSync(join(tmpdir(), 'issue-fix-backstop-'));
+  const commentsFile = join(tempRoot, 'comments.json');
+  const postedFile = join(tempRoot, 'posted.txt');
+  const baselineFile = join(tempRoot, 'baseline.json');
+  const evidenceFile = join(tempRoot, 'evidence.json');
+  writeFileSync(commentsFile, JSON.stringify({ comments }));
+  writeFileSync(baselineFile, JSON.stringify({ runStartedAt: '2026-10-19T00:00:00.000Z' }));
+  writeFileSync(evidenceFile, JSON.stringify({ status: 'verified-delivery' }));
+  const ghStub = String.raw`gh() {
+  if [ "$1" = "issue" ] && [ "$2" = "view" ]; then
+    cat "$BACKSTOP_COMMENTS_FILE"
+    return 0
+  fi
+  if [ "$1" = "issue" ] && [ "$2" = "comment" ]; then
+    body=''
+    for arg in "$@"; do body="$arg"; done
+    printf '%s' "$body" > "$BACKSTOP_POSTED_FILE"
+    return 0
+  fi
+  return 2
+}`;
+  const result = spawnSync('bash', ['-c', `${ghStub}\n${backstopRun}`], {
+    cwd: repositoryRoot,
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      BACKSTOP_COMMENTS_FILE: commentsFile,
+      BACKSTOP_POSTED_FILE: postedFile,
+      PR_DELIVERY_BASELINE_FILE: baselineFile,
+      PR_DELIVERY_EVIDENCE_FILE: evidenceFile,
+      DAILY_ITEM_ID: dailyItemId,
+      ACTION_OUTCOME: 'success',
+      ISSUE: '123',
+      REPO: 'valerielinc-ops/frontaliere-si-o-no',
+    },
+  });
+  const postedBody = existsSync(postedFile) ? readFileSync(postedFile, 'utf8') : null;
+  rmSync(tempRoot, { recursive: true, force: true });
+  return { ...result, postedBody };
+}
 
 function runInlineRisk(body: string) {
   const tempRoot = mkdtempSync(join(tmpdir(), 'issue-fix-risk-'));
@@ -453,6 +512,44 @@ describe('issue-fix FIX_OUTCOME backstop', () => {
       '--jq \'[.comments[].body | select(test("<!-- FIX_OUTCOME:"))] | length\'',
     );
   });
+
+  it('aggiunge il FOLLOWUP_ITEM mancante in un commento separato', () => {
+    const id = 'FU-2026-10-19-001';
+    const result = runBackstop([
+      { createdAt: '2026-10-19T00:01:00.000Z', body: '<!-- FIX_OUTCOME: pr-created -->' },
+    ], id);
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.postedBody).toBe(`<!-- FOLLOWUP_ITEM: ${id} -->`);
+  });
+
+  it('non aggiunge un commento quando FIX_OUTCOME e FOLLOWUP_ITEM sono già presenti', () => {
+    const id = 'FU-2026-10-19-001';
+    const result = runBackstop([
+      { createdAt: '2026-10-19T00:01:00.000Z', body: '<!-- FIX_OUTCOME: pr-created -->' },
+      { createdAt: '2026-10-19T00:02:00.000Z', body: `<!-- FOLLOWUP_ITEM: ${id} -->` },
+    ], id);
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.postedBody).toBeNull();
+  });
+
+  it('emette entrambi i marker quando il run non ne ha ancora uno', () => {
+    const id = 'FU-2026-10-19-001';
+    const result = runBackstop([], id);
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.postedBody).toContain('<!-- FIX_OUTCOME: pr-created -->');
+    expect(result.postedBody).toContain(`<!-- FOLLOWUP_ITEM: ${id} -->`);
+  });
+
+  it('non emette FOLLOWUP_ITEM per un id selezionato non valido', () => {
+    const result = runBackstop([], 'FU-2026-10-19-invalid');
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.postedBody).toContain('<!-- FIX_OUTCOME: pr-created -->');
+    expect(result.postedBody).not.toContain('FOLLOWUP_ITEM');
+  });
 });
 
 describe('issue-fix PR delivery verification', () => {
@@ -516,5 +613,16 @@ describe('issue-fix PR delivery verification', () => {
     expect(backstop).toContain('verified-delivery');
     expect(backstop).toContain('verified-none');
     expect(backstop).toContain('delivery=$DELIVERY_STATUS: backstop non emesso.');
+  });
+
+  it('attribuisce il FIX_OUTCOME del backstop all’item daily selezionato', () => {
+    const backstopStart = workflow.indexOf('- name: Emit FIX_OUTCOME telemetry (deterministic backstop)');
+    const backstopEnd = workflow.indexOf('\n      # #9742:', backstopStart);
+    const backstop = workflow.slice(backstopStart, backstopEnd);
+    expect(backstop).toContain('DAILY_ITEM_ID: ${{ steps.tier.outputs.selected_item_id }}');
+    expect(backstop).toContain('item_marker=');
+    expect(backstop).toContain('FOLLOWUP_ITEM:');
+    expect(workflow).toContain('In un daily bucket aggiungi nello STESSO commento');
+    expect(workflow).toContain('<!-- FOLLOWUP_ITEM: ${{ steps.tier.outputs.selected_item_id }} -->');
   });
 });
