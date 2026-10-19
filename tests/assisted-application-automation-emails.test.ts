@@ -122,9 +122,9 @@ describe('automation e-mails', () => {
     // Coop's apprenticeships: the application is a WhatsApp chat from the candidate's phone.
     expect(buildCandidateAutomationEmail('candidate_handoff', { ...base, locale: 'it', reason: 'whatsapp' }).text).toContain('la candidatura si fa solo via WhatsApp, dal tuo telefono');
     expect(buildCandidateAutomationEmail('candidate_handoff', { ...base, locale: 'fr', reason: 'whatsapp' }).text).toContain('uniquement par WhatsApp');
-    const closed = buildCandidateAutomationEmail('candidate_posting_closed', { ...base, locale: 'fr', price: '0,99 €' });
+    const closed = buildCandidateAutomationEmail('candidate_posting_closed', { ...base, locale: 'fr', price: '1,99 €' });
     expect(closed.subject).toContain('vous êtes remboursé');
-    expect(closed.text).toContain('0,99 €');
+    expect(closed.text).toContain('1,99 €');
     expect(() => buildCandidateAutomationEmail('nope' as any, { ...base, locale: 'it' })).toThrow('unknown_automation_email');
   });
 

@@ -1,5 +1,5 @@
 /**
- * Email concierge for the one-off assisted-application service (0,99 €).
+ * Email concierge for the one-off assisted-application service (1,99 €).
  *
  * The product is email-first: the moment Stripe confirms the payment, the
  * customer receives a personal email FROM valerie@frontaliereticino.ch that
@@ -241,7 +241,7 @@ export function customerEmailFor(order) {
   return '';
 }
 
-/** The price is in EUR: format it the euro-area way ("0,99 €"), not the Swiss one. */
+/** The price is in EUR: format it the euro-area way ("1,99 €"), not the Swiss one. */
 const INTL_LOCALE = { it: 'it-IT', fr: 'fr-FR', de: 'de-DE', en: 'en-IE' };
 
 function formatPrice(order, locale) {

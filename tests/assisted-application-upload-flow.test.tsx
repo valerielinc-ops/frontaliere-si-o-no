@@ -34,7 +34,7 @@ vi.mock('firebase/storage', () => ({
 }));
 vi.mock('@/services/assistedApplicationExperiment', () => ({
   ASSISTED_APPLICATION_CONSENT_VERSION: 'assisted-application-v2',
-  ASSISTED_APPLICATION_PRICE_EUR_CENTS: 99,
+  ASSISTED_APPLICATION_PRICE_EUR_CENTS: 199,
   normalizeAssistedApplicationCopyVariant: () => 'control',
   trackAssistedApplicationEvent: mocks.trackEvent,
 }));

@@ -17,7 +17,7 @@ export const DOCUMENT_KINDS = Object.freeze([
 export const FOLLOWUP_DOC_ID = 'followup';
 
 /** One-off price in EUR cents, shared by checkout validation and analytics. */
-export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = 99;
+export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = 199;
 
 // `awaiting_upload` is a paid order whose materials have not arrived yet: it
 // must stay visible, because the email-first concierge (see

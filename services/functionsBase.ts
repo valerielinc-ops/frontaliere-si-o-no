@@ -12,7 +12,7 @@ export const SEND_CALCULATOR_REPORT_URL = `${FUNCTIONS_BASE}/sendCalculatorRepor
 /** Stripe Checkout Session creation for /consulenza/ one-time session payments. */
 export const CREATE_CONSULTING_CHECKOUT_URL = `${FUNCTIONS_BASE}/createConsultingCheckout`;
 
-/** Stripe Checkout Session creation for the €0.99 assisted-application flow. */
+/** Stripe Checkout Session creation for the €1.99 assisted-application flow. */
 export const CREATE_ASSISTED_APPLICATION_CHECKOUT_URL = `${FUNCTIONS_BASE}/createAssistedApplicationCheckout`;
 
 /** Stripe/SumUp Checkout for the €39.99, 30-day application concierge. */
