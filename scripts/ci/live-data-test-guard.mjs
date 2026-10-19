@@ -470,6 +470,11 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: "tests/render-article-pages-single-vs-full.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/scripts/lib/scoring/embeddingStoreBinary.test.ts", roots: ["data/article-embeddings-meta.json", "data/article-embeddings.bin"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/scripts/publish-article-chunks.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
+  // Corpus genuinely the subject: ARTICLE_FILES names the five published
+  // source files, and checkFiles() reads them to assert every locale excerpt
+  // plus the SEO/OG/NewsArticle copies.  Keeping this test inventoried sends
+  // it to the live-data monitor without weakening any completeness assertion.
+  { file: "tests/scripts/check-article-excerpt-completeness.test.ts", roots: ["packages/articles/content/"], since: "2026-10-19", evidence: "review", runtime: true },
   { file: "tests/search-console-compat.test.ts", roots: ["data/employer-profiles.json", "data/search-cluster-301-map.json"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/seo-completeness.test.ts", roots: ["data/exchange-rate-snapshot.json", "packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/seo-description-length.test.ts", roots: ["data/exchange-rate-snapshot.json", "packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
