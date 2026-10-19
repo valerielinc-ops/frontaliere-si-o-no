@@ -124,10 +124,11 @@ function apleonaLocationCandidate(location = '') {
  *
  * @param {string} html
  * @param {string} pageUrl
+ * @param {{ recordUrl?: string, recordTitle?: string }} [opts]
  */
-export function extractApleonaDetailFields(html = '', pageUrl = '') {
+export function extractApleonaDetailFields(html = '', pageUrl = '', opts = {}) {
   const source = String(html || '');
-  const base = extractDetailFields(source, pageUrl);
+  const base = extractDetailFields(source, pageUrl, opts);
   if (!source) return base;
 
   const dom = new JSDOM(source);

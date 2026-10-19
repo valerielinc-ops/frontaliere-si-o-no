@@ -102,8 +102,8 @@ export function stableLocationCandidatesKey(candidates = []) {
  * The generic Umantis cascade can mistake the first segment for a location
  * (`38,5h` / `80-100`), so this tenant reads the source's middle segment.
  */
-function extractRecruitingapp2677DetailFields(html = '', pageUrl = '') {
-  const detail = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, pageUrl);
+function extractRecruitingapp2677DetailFields(html = '', pageUrl = '', opts = {}) {
+  const detail = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, pageUrl, opts);
   const introRx = /<(?:div|section)\b[^>]*\bclass\s*=\s*["'][^"']*\bintro\b[^"']*["'][^>]*>[\s\S]*?<\/(?:div|section)>/gi;
   const rawHtml = String(html || '');
   let introLine = '';
@@ -267,8 +267,8 @@ async function fetchJobListings(runtime = {}) {
     return response;
   };
 
-  const observingDetailExtractor = (html, pageUrl) => {
-    const detail = extractRecruitingapp2677DetailFields(html, pageUrl);
+  const observingDetailExtractor = (html, pageUrl, opts = {}) => {
+    const detail = extractRecruitingapp2677DetailFields(html, pageUrl, opts);
     const vacancyId = umantisVacancyIdentity(pageUrl);
     if (vacancyId) {
       const decision = resolveDetailOrListingSwissGeography(detail, {});

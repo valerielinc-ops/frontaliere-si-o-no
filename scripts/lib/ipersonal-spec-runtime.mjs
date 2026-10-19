@@ -259,7 +259,7 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
   // extractor decides — see `extractRuntimeDetailFields`, where a wrapper
   // handed in as `detailExtractor` is the whole verdict.
   const upstreamDetailExtractor = runtime.detailExtractor
-    || ((html, pageUrl) => extractRuntimeDetailFields(spec, html, pageUrl));
+    || ((html, pageUrl, opts = {}) => extractRuntimeDetailFields(spec, html, pageUrl, opts));
   const capturingFetch = async (input, init = {}) => {
     const headers = new Headers(init.headers || {});
     headers.set('Accept-Encoding', 'identity');
@@ -320,8 +320,8 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     }
     return response;
   };
-  const capturingDetailExtractor = (html, pageUrl) => {
-    const base = upstreamDetailExtractor(html, pageUrl);
+  const capturingDetailExtractor = (html, pageUrl, opts = {}) => {
+    const base = upstreamDetailExtractor(html, pageUrl, opts);
     // The Simple Job Board body is the description this runtime publishes (see
     // the `enriched` map below), so it belongs to the verdict this extractor
     // returns, not to a later fill. Returning the generic reading and counting

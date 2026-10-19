@@ -219,11 +219,11 @@ async function fetchJobListings(runtime = {}) {
     return response;
   };
 
-  const observingDetailExtractor = (html, pageUrl) => {
+  const observingDetailExtractor = (html, pageUrl, opts = {}) => {
     // Stessa catena del runtime sintetizzato e del validatore, da un modulo
     // solo: qui la copia locale aveva perso per strada il guard su
     // `locationGateRejected` che il runtime applica.
-    const detail = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, pageUrl);
+    const detail = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, pageUrl, opts);
 
     const vacancyId = umantisVacancyIdentity(pageUrl);
     if (vacancyId) {
