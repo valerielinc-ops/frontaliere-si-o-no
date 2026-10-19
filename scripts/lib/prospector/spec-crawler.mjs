@@ -1703,6 +1703,20 @@ export async function runSpecInProduction(spec, runtime = {}) {
   try {
     const rows = await collectSpecListingRows(spec, runtime, validateUrl);
     const listingOutcome = listingFetchOutcomeState(rows);
+    const configuredEmptyOutcome = spec.rescueOnEmptyListing === true
+      && runtime.disableWafProxy !== true
+      ? configuredEmptyListingOutcome(spec)
+      : null;
+    // A configured empty-listing outcome is transport evidence for the caller
+    // that owns the source-specific rescue (for example, Vereina must still
+    // inspect the employer page for an authoritative zero). Preserve that
+    // typed empty result for production merge while VALIDATE grades it as an
+    // incomplete observation. An unconfigured zero likewise remains a plain
+    // empty result: no outcome is invented. Typed failures emitted directly by
+    // a listing extractor, or attached to a non-empty population, still fail
+    // closed below.
+    const preserveEmptyListingResult = rows.length === 0
+      && (listingOutcome.unverifiedEmpty || Boolean(configuredEmptyOutcome));
     const detailPagesByUrl = runtime.retainDetailPages === true ? new Map() : null;
     const titleEvidenceByUrl = runtime.returnObservation === true || runtime.retainDetailPages === true
       ? new Map()
@@ -1790,7 +1804,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
         ...(detailPagesByUrl ? { observedDetailsByUrl: detailPagesByUrl } : {}),
         ...(titleEvidenceByUrl ? { titleEvidenceByUrl } : {}),
       });
-      if (!snapshotAccepted && runtime.failOnIncomplete !== false) {
+      if (!snapshotAccepted && runtime.failOnIncomplete !== false && !preserveEmptyListingResult) {
         const incompleteReason = listingOutcome.failed
           ? `fetch outcome ${listingOutcome.outcome || 'unknown'} is not successful`
           : listingOutcome.unverifiedEmpty
@@ -1816,10 +1830,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
     // Workers complete out of order; index-addressed writes keep the listing
     // order deterministic so stable downstream sorts do not churn job slices.
     const enriched = new Array(rows.length);
-    const emptyOutcome = spec.rescueOnEmptyListing === true
-      && runtime.disableWafProxy !== true
-      ? configuredEmptyListingOutcome(spec)
-      : null;
+    const emptyOutcome = configuredEmptyOutcome;
     let detailAntiBotFailures = 0;
     let geographyDrops = 0;
     let descriptionDrops = 0;
@@ -2029,9 +2040,9 @@ export async function runSpecInProduction(spec, runtime = {}) {
       detailDrop,
     };
     logRuntimeObservation(spec, observation);
-    const shouldThrow = listingOutcome.failed
-      || listingOutcome.unverifiedEmpty
-      || (!expectedAllDetailAntiBotFailure && !snapshotAccepted);
+    const shouldThrow = (listingOutcome.failed && !preserveEmptyListingResult)
+      || (listingOutcome.unverifiedEmpty && !preserveEmptyListingResult)
+      || (!preserveEmptyListingResult && !expectedAllDetailAntiBotFailure && !snapshotAccepted);
     if (shouldThrow && runtime.failOnIncomplete !== false) {
       const ratio = Math.round((detailDrop.dropped / detailDrop.candidates) * 100);
       const error = new Error(

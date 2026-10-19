@@ -350,7 +350,8 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
   // `vacancy.description` is the already selected output of the runtime's
   // per-row transform. Re-evaluating the detail body here would allow text the
   // crawler does not publish to satisfy the semantic quality gate.
-  const publishableDescription = vacancy.description || '';
+  const publishableDescription = vacancy.description
+    || (fetchOptions.observedDetail ? '' : detail.description || '');
   out.contentful = isSufficientVacancyDescription(publishableDescription);
 
   const publishableDescriptionText = textOf(publishableDescription);
