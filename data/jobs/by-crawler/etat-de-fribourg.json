@@ -2393,7 +2393,6 @@
       "pensumMin": 50,
       "pensumMax": 60,
       "pensum": "50-60%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-2"
@@ -3733,7 +3732,6 @@
       "pensumMin": 50,
       "pensumMax": 55,
       "pensum": "50-55%",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3913,9 +3911,9 @@
       "slug": "professore-di-grado-aperto-sedia-della-salute-e-dell-esposizione-femminile-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "it": "professore-di-grado-aperto-sedia-della-salute-e-dell-esposizione-femminile-etat-de-fribourg-fribourg",
-        "en": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch",
+        "en": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-91sv45",
         "de": "professor-offener-rang-lehrstuhl-fur-frauengesundheit-und-exposome-etat-de-fribourg-fribourg",
-        "fr": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch"
+        "fr": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-91sv45"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -3975,6 +3973,12 @@
           "professeure-de-rang-ouvert-presidente-de-women-s-health-and-exposome-etat-de-fribourg-fribourg"
         ],
         "de": [
+          "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch"
         ]
       },

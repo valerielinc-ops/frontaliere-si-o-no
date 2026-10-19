@@ -1285,7 +1285,7 @@
       "id": "emil-frey-c7add16750b0",
       "slug": "koordinator-in-flotten-emil-frey-zurich",
       "slugByLocale": {
-        "it": "koordinator-in-flotten-emil-frey-zurich",
+        "it": "coordinatore-in-flotte-emil-frey-zurich",
         "en": "coordinator-in-fleets-emil-frey-zurich",
         "de": "koordinator-in-flotten-emil-frey-zurich",
         "fr": "coordinateur-trice-flotte-emil-frey-zurich"
@@ -1333,15 +1333,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "coordinatore-in-flotte-emil-frey-zurich",
         "coordonnateur-dans-les-flottes-emil-frey-zurich"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "coordonnateur-dans-les-flottes-emil-frey-zurich"
-        ],
-        "it": [
-          "coordinatore-in-flotte-emil-frey-zurich"
         ]
       },
       "firstSeenAt": "2026-08-21T21:38:48.025Z",
@@ -2230,7 +2226,7 @@
       "slugByLocale": {
         "it": "pittore-emil-frey-sion",
         "en": "painter-emil-frey-sion",
-        "de": "carrossier-peintre-emil-frey-sion",
+        "de": "maler-emil-frey-sion",
         "fr": "carrossier-peintre-emil-frey-sion"
       },
       "company": "Emil Frey",
@@ -2276,15 +2272,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "carrossier-peintre-emil-frey-sion",
-        "maler-emil-frey-sion"
+        "carrossier-peintre-emil-frey-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "carrossier-peintre-emil-frey-sion"
         ],
         "de": [
-          "maler-emil-frey-sion"
+          "carrossier-peintre-emil-frey-sion"
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:23.648Z",
@@ -3640,7 +3635,7 @@
       "id": "emil-frey-605d50836cc9",
       "slug": "fahrzeugdisponent-in-emil-frey-zurich",
       "slugByLocale": {
-        "it": "fahrzeugdisponent-in-emil-frey-zurich",
+        "it": "organizzatore-trice-del-veicolo-emil-frey-zurich",
         "en": "vehicle-dispatcher-emil-frey-zurich",
         "de": "fahrzeugdisponent-in-emil-frey-zurich",
         "fr": "presentateur-trice-de-vehicules-emil-frey-zurich"
@@ -3688,14 +3683,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-29T21:11:37.614Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "organizzatore-trice-del-veicolo-emil-frey-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "organizzatore-trice-del-veicolo-emil-frey-zurich"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -5742,7 +5729,7 @@
       "slugByLocale": {
         "it": "bodybuilder-pittore-emil-frey-crissier",
         "en": "body-painter-emil-frey-crissier",
-        "de": "carrossier-peintre-emil-frey-crissier",
+        "de": "maler-emil-frey-crissier",
         "fr": "carrossier-peintre-emil-frey-crissier"
       },
       "company": "Emil Frey",
@@ -5788,8 +5775,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "carrossier-peintre-emil-frey-crissier",
-        "maler-emil-frey-crissier"
+        "carrossier-peintre-emil-frey-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5799,7 +5785,7 @@
           "carrossier-peintre-emil-frey-crissier"
         ],
         "de": [
-          "maler-emil-frey-crissier"
+          "carrossier-peintre-emil-frey-crissier"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.356Z",
@@ -5899,7 +5885,7 @@
       "id": "emil-frey-2fcdf8c6d2df",
       "slug": "network-administrator-emil-frey-safenwil-zurich",
       "slugByLocale": {
-        "it": "network-administrator-emil-frey-safenwil-zurich",
+        "it": "amministratore-di-rete-emil-frey-safenwil-zurich",
         "en": "network-security-engineer-emil-frey-safenwil-zurich",
         "de": "network-administrator-emil-frey-safenwil-zurich",
         "fr": "network-security-engineer-emil-frey-safenwil-zurich"
@@ -5947,13 +5933,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "network-security-engineer-emil-frey-safenwil-zurich",
-        "amministratore-di-rete-emil-frey-safenwil-zurich"
+        "network-security-engineer-emil-frey-safenwil-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "network-security-engineer-emil-frey-safenwil-zurich",
-          "amministratore-di-rete-emil-frey-safenwil-zurich"
+          "network-security-engineer-emil-frey-safenwil-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.421Z",
@@ -6856,10 +6840,13 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "carrosseriespengler-in-emil-frey-schaffhausen"
+          "carrosseriespengler-in-emil-frey-schaffhausen",
+          "carrosserie-e-verniciatura-emil-frey-schaffhausen",
+          "karosseriespengler-in-emil-frey-schaffhausen",
+          "atelier-de-carrosserie-et-de-peinture-emil-frey-schaffhausen",
+          "distributeur-distributrice-de-carrosserie-emil-frey-schaffhausen"
         ],
         "fr": [
           "panteau-de-carrosseries-emil-frey-schaffhausen"
@@ -6867,7 +6854,11 @@
       },
       "previousSlugs": [
         "carrosseriespengler-in-emil-frey-schaffhausen",
-        "panteau-de-carrosseries-emil-frey-schaffhausen"
+        "panteau-de-carrosseries-emil-frey-schaffhausen",
+        "carrosserie-e-verniciatura-emil-frey-schaffhausen",
+        "karosseriespengler-in-emil-frey-schaffhausen",
+        "atelier-de-carrosserie-et-de-peinture-emil-frey-schaffhausen",
+        "distributeur-distributrice-de-carrosserie-emil-frey-schaffhausen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
