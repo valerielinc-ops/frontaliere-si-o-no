@@ -190,6 +190,35 @@ afterAll(() => rmSync(SCRATCH, { recursive: true, force: true }));
 /** Executable stubs for rclone and aws, driven by env vars. */
 function writeStubs(bin: string) {
   mkdirSync(bin, { recursive: true });
+  // Route only the image-namespace CLI through a deterministic lease stub;
+  // other Node scripts still execute with the real runtime.
+  writeFileSync(
+    join(bin, 'node'),
+    `#!/usr/bin/env bash
+if [ "\${1:-}" = "scripts/lib/r2-image-namespace-lock.mjs" ]; then
+  shift
+  command="$1"; shift
+  case "$command" in
+    acquire)
+      [ "$1" = "--namespace" ] && [ "$2" = "blog" ] || exit 87
+      printf 'acquire:%s\\n' "$2" >> "$STUB_LEASE_CALLS"
+      [ "\${STUB_LEASE_ACQUIRE_STATUS:-0}" = 0 ] || exit "$STUB_LEASE_ACQUIRE_STATUS"
+      printf '%s' '{"version":1,"leases":[{"namespace":"blog","owner":"test-owner","leaseId":"acquired-blog-lease","expiresAt":1800000000000}]}'
+      exit 0 ;;
+    verify)
+      [ "$1" = "--namespace" ] && [ "$2" = "blog" ] && [ "$3" = "--context" ] || exit 87
+      printf 'verify:%s:%s\\n' "$2" "$4" >> "$STUB_LEASE_CALLS"
+      exit "\${STUB_LEASE_VERIFY_STATUS:-0}" ;;
+    release)
+      [ "$1" = "--context" ] || exit 87
+      printf 'release:%s\\n' "$2" >> "$STUB_LEASE_CALLS"
+      exit "\${STUB_LEASE_RELEASE_STATUS:-0}" ;;
+    *) exit 87 ;;
+  esac
+fi
+exec "$STUB_REAL_NODE" "$@"
+`,
+  );
   // rclone: skip the global --flags, dispatch on the subcommand.
   writeFileSync(
     join(bin, 'rclone'),
@@ -233,6 +262,7 @@ case "\${args[0]}" in
     exit 0 ;;
   copy)
     dst="\${args[2]}"
+    case "$dst" in */images) printf 'copy:images:%s\\n' "\${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT:-<missing>}" >> "$STUB_LEASE_CALLS" ;; esac
     case "$dst" in */assets) [ -n "$logf" ] && printf '%s\\n' "\${STUB_ASSETS_LOG:-}" > "$logf" ;; esac
     case "$dst" in */"\${STUB_FAIL_PREFIX:-none}") exit 1 ;; esac
     exit 0 ;;
@@ -248,6 +278,7 @@ echo "aws $*" >> "$STUB_CALLS"
   );
   chmodSync(join(bin, 'rclone'), 0o755);
   chmodSync(join(bin, 'aws'), 0o755);
+  chmodSync(join(bin, 'node'), 0o755);
   // Portable coreutils-compatible `timeout` for hosts without one (macOS
   // without coreutils). On the runner and wherever it exists, the real one is
   // used: the stub only fills the gap.
@@ -294,8 +325,14 @@ function runPublish(name: string, env: Record<string, string>) {
   writeFileSync(join(stage, 'index.html'), '<!doctype html>');
   mkdirSync(join(stage, 'data'), { recursive: true });
   writeFileSync(join(stage, 'data', 'x.json'), '{}');
+  if (env.STUB_BLOG_IMAGES === '1') {
+    mkdirSync(join(stage, 'images', 'blog'), { recursive: true });
+    writeFileSync(join(stage, 'images', 'blog', 'cover.webp'), 'fixture bytes');
+  }
   const calls = join(dir, 'calls.log');
   writeFileSync(calls, '');
+  const leaseCalls = join(dir, 'lease-calls.log');
+  writeFileSync(leaseCalls, '');
   const started = Date.now();
   let stdout = '';
   let code = 0;
@@ -318,6 +355,8 @@ function runPublish(name: string, env: Record<string, string>) {
         R2_TIMEOUT_OBJECT_S: '2',
         R2_TIMEOUT_PURGE_S: '30',
         STUB_CALLS: calls,
+        STUB_LEASE_CALLS: leaseCalls,
+        STUB_REAL_NODE: process.execPath,
         STUB_DIR: dir,
         ...env,
       },
@@ -333,11 +372,81 @@ function runPublish(name: string, env: Record<string, string>) {
     stdout,
     seconds: (Date.now() - started) / 1000,
     calls: readFileSync(calls, 'utf8').split('\n').filter(Boolean),
+    leaseCalls: readFileSync(leaseCalls, 'utf8').split('\n').filter(Boolean),
     ledger: existsSync(ledgerWritten) ? JSON.parse(readFileSync(ledgerWritten, 'utf8')) : null,
   };
 }
 
 const COPIED_A = JSON.stringify({ level: 'info', msg: 'Copied (replaced existing)', object: 'a.js' });
+
+describe('behaviour: the R2 images batch holds the blog writer lease', () => {
+  const acquiredContext = '{"version":1,"leases":[{"namespace":"blog","owner":"test-owner","leaseId":"acquired-blog-lease","expiresAt":1800000000000}]}';
+
+  it('acquires once, holds the capability through the images copy, then releases that lease', () => {
+    const r = runPublish('blog-lease-held', { STUB_BLOG_IMAGES: '1' });
+    expect(r.code).toBe(0);
+    expect(r.leaseCalls).toEqual([
+      'acquire:blog',
+      `copy:images:${acquiredContext}`,
+      `release:${acquiredContext}`,
+    ]);
+    expect(r.calls.some((call) => /^rclone copy \S+ :s3:bkt\/images /.test(call))).toBe(true);
+  });
+
+  it('an acquire timeout skips the whole images batch and withholds the completion marker', () => {
+    const r = runPublish('blog-lease-timeout', {
+      STUB_BLOG_IMAGES: '1',
+      STUB_LEASE_ACQUIRE_STATUS: '124',
+    });
+    expect(r.code).toBe(0);
+    expect(r.stdout).toMatch(/could not acquire the blog image lease; skipping images\/ sync/);
+    expect(r.leaseCalls).toEqual(['acquire:blog']);
+    expect(r.calls.some((call) => /^rclone copy \S+ :s3:bkt\/images /.test(call))).toBe(false);
+    expect(r.calls.some((call) => /cdn-publish-complete-id\.txt/.test(call))).toBe(false);
+  });
+
+  it('a release error withholds the completion marker after the protected copy', () => {
+    const r = runPublish('blog-lease-release-fails', {
+      STUB_BLOG_IMAGES: '1',
+      STUB_LEASE_RELEASE_STATUS: '1',
+    });
+    expect(r.code).toBe(0);
+    expect(r.leaseCalls).toEqual([
+      'acquire:blog',
+      `copy:images:${acquiredContext}`,
+      `release:${acquiredContext}`,
+    ]);
+    expect(r.stdout).toMatch(/blog image lease release failed; refusing to mark the R2 payload complete/);
+    expect(r.calls.some((call) => /cdn-publish-complete-id\.txt/.test(call))).toBe(false);
+  });
+
+  it('verifies a caller-owned capability and never releases it', () => {
+    const callerContext = '{"version":1,"leases":[{"namespace":"blog","owner":"test-owner","leaseId":"caller-owned","expiresAt":1800000000000}]}';
+    const r = runPublish('blog-lease-inherited', {
+      STUB_BLOG_IMAGES: '1',
+      FRONTALIERE_R2_IMAGE_LEASE_CONTEXT: callerContext,
+    });
+    expect(r.code).toBe(0);
+    expect(r.leaseCalls).toEqual([
+      `verify:blog:${callerContext}`,
+      `copy:images:${callerContext}`,
+    ]);
+  });
+
+  it('an invalid caller-owned capability is fail-closed without acquire, copy, or release', () => {
+    const callerContext = '{"version":1,"leases":[{"namespace":"places","owner":"test-owner","leaseId":"wrong-namespace","expiresAt":1800000000000}]}';
+    const r = runPublish('blog-lease-invalid-inherited', {
+      STUB_BLOG_IMAGES: '1',
+      FRONTALIERE_R2_IMAGE_LEASE_CONTEXT: callerContext,
+      STUB_LEASE_VERIFY_STATUS: '1',
+    });
+    expect(r.code).toBe(0);
+    expect(r.stdout).toMatch(/existing image lease does not cover blog or is no longer valid; skipping images\/ sync/);
+    expect(r.leaseCalls).toEqual([`verify:blog:${callerContext}`]);
+    expect(r.calls.some((call) => /^rclone copy \S+ :s3:bkt\/images /.test(call))).toBe(false);
+    expect(r.calls.some((call) => /cdn-publish-complete-id\.txt/.test(call))).toBe(false);
+  });
+});
 
 describe('behaviour: an R2 call that never answers does not hang the CDN push', () => {
   it('ledger read that never answers → bounded; empty upload log still leaves every stage key dirty', () => {

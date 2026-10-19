@@ -278,6 +278,48 @@ _publish_cdn_r2() {
     fi
     return "$sync_status"
   }
+  _r2_with_blog_image_lease() { # <command> <argv...> — run one R2 image batch under the blog writer lease
+    local _blog_lease_context _blog_lease_owned=0 _command_status=0 _release_status=0
+    local _prior_context_set="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT+x}"
+    local _prior_context="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT-}"
+    local _lease_cli="scripts/lib/r2-image-namespace-lock.mjs"
+
+    if [ -n "$_prior_context" ]; then
+      _blog_lease_context="$_prior_context"
+      if ! node "$_lease_cli" verify --namespace blog --context "$_blog_lease_context"; then
+        echo "::error::[r2] existing image lease does not cover blog or is no longer valid; skipping images/ sync"
+        return 1
+      fi
+    else
+      if ! _blog_lease_context="$(node "$_lease_cli" acquire --namespace blog)" || [ -z "$_blog_lease_context" ]; then
+        echo "::error::[r2] could not acquire the blog image lease; skipping images/ sync"
+        return 1
+      fi
+      _blog_lease_owned=1
+    fi
+
+    export FRONTALIERE_R2_IMAGE_LEASE_CONTEXT="$_blog_lease_context"
+    if "$@"; then
+      _command_status=0
+    else
+      _command_status=$?
+    fi
+
+    # Only release a lease acquired here. A caller-provided capability remains
+    # owned by its caller; the core release command also checks its exact id.
+    if [ "$_blog_lease_owned" = 1 ] \
+      && ! node "$_lease_cli" release --context "$_blog_lease_context"; then
+      echo "::error::[r2] blog image lease release failed; refusing to mark the R2 payload complete"
+      _release_status=1
+    fi
+    if [ "$_prior_context_set" = x ]; then
+      export FRONTALIERE_R2_IMAGE_LEASE_CONTEXT="$_prior_context"
+    else
+      unset FRONTALIERE_R2_IMAGE_LEASE_CONTEXT
+    fi
+    [ "$_command_status" = 0 ] || return "$_command_status"
+    return "$_release_status"
+  }
   # Publish-window handshake for the runtime watchdog. Stable asset names are
   # overwritten one by one, so cdn-build-id.txt deliberately stays on the last
   # complete generation until the payload is whole. Without a separate start
@@ -413,7 +455,15 @@ _publish_cdn_r2() {
     assets_sync_ok=1
   fi
   _r2_sync 300 "$stage/og"        og        "public,max-age=86400"
-  _r2_sync 120 "$stage/images"    images    "public,max-age=86400"
+  if [ -d "$stage/images/blog" ]; then
+    if ! _r2_with_blog_image_lease _r2_sync 120 "$stage/images" images "public,max-age=86400"; then
+      # An unleased or partially published image generation must not receive a
+      # completion marker. Keep the other R2 prefixes additive and retryable.
+      ok=0
+    fi
+  else
+    _r2_sync 120 "$stage/images" images "public,max-age=86400"
+  fi
   _r2_sync 1800 "$stage/data"     data      "public,max-age=600"
   _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
   timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
