@@ -11,6 +11,7 @@ import {
   firestoreDocumentName,
   isRetryableLeaseError,
   leaseDecision,
+  releaseLease,
 } from '../scripts/lib/global-data-pipeline-lease.mjs';
 
 const NOW = Date.parse('2026-09-14T12:00:00.000Z');
@@ -139,6 +140,30 @@ describe('global data pipeline lease', () => {
       expect(message).toContain(`expiresAt=${expiresAt} (90 min left)`);
     });
 
+    it('usa una lettura senza lock mentre il lease resta attivo', async () => {
+      const calls: string[] = [];
+      const expiresAt = new Date(Date.now() + 90 * 60_000).toISOString();
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        calls.push(url);
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        return json(200, {
+          updateTime: '2026-09-14T12:00:00.000Z',
+          fields: {
+            owner: { stringValue: 'other-run' },
+            expiresAt: { timestampValue: expiresAt },
+          },
+        });
+      }));
+
+      const result = await acquireLease({ credentials, owner: 'this-run', waitMs: 0, ttlMs: 60_000 });
+
+      expect(result.busy).toBe(true);
+      expect(calls.some((url) => url.endsWith(':beginTransaction'))).toBe(false);
+      expect(calls.some((url) => url.endsWith(':rollback'))).toBe(false);
+      expect(calls.some((url) => url.includes('?transaction='))).toBe(false);
+      expect(calls.some((url) => url.endsWith('/ci_leases/jobs-data-pipeline'))).toBe(true);
+    });
+
     it('segnala una scadenza malformata invece di una scadenza inventata', () => {
       const message = describeLeaseBusy({
         busy: true,
@@ -163,6 +188,125 @@ describe('global data pipeline lease', () => {
       });
       expect(result.holder).toBeUndefined();
       expect(describeLeaseBusy(result)).toContain('this is not a lease conflict');
+    });
+
+    it('esegue rollback se il lease diventa attivo dopo lo snapshot lock-free', async () => {
+      const requests: Array<{ url: string; body?: string }> = [];
+      const expiresAt = new Date(Date.now() + 90 * 60_000).toISOString();
+      const expiredAt = new Date(Date.now() - 60_000).toISOString();
+      vi.stubGlobal('fetch', vi.fn(async (url: string, init: RequestInit = {}) => {
+        requests.push({ url, body: typeof init.body === 'string' ? init.body : undefined });
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) return json(200, { transaction: 'tx-busy' });
+        if (url.endsWith(':rollback')) return json(200, {});
+        return json(200, {
+          updateTime: '2026-09-14T12:00:00.000Z',
+          fields: {
+            owner: { stringValue: url.includes('?transaction=') ? 'other-run' : 'expired-owner' },
+            expiresAt: { timestampValue: url.includes('?transaction=') ? expiresAt : expiredAt },
+          },
+        });
+      }));
+
+      const result = await acquireLease({ credentials, owner: 'this-run', leaseDoc: 'ci_leases/test', waitMs: 0, ttlMs: 60_000 });
+
+      expect(result.busy).toBe(true);
+      const rollbacks = requests.filter(({ url }) => url.endsWith(':rollback'));
+      expect(rollbacks).toHaveLength(1);
+      expect(JSON.parse(rollbacks[0].body || '{}')).toEqual({ transaction: 'tx-busy' });
+    });
+
+    it('esegue rollback anche quando la lettura transazionale va in timeout', async () => {
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const requests: string[] = [];
+      const expiredAt = new Date(Date.now() - 60_000).toISOString();
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        requests.push(url);
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) return json(200, { transaction: 'tx-error' });
+        if (url.endsWith(':rollback')) return json(200, {});
+        if (!url.includes('?transaction=')) {
+          return json(200, {
+            updateTime: '2026-09-14T12:00:00.000Z',
+            fields: { owner: { stringValue: 'expired-owner' }, expiresAt: { timestampValue: expiredAt } },
+          });
+        }
+        return json(503, { error: { status: 'UNAVAILABLE' } });
+      }));
+
+      const result = await acquireLease({ credentials, owner: 'this-run', leaseDoc: 'ci_leases/test', waitMs: 0, ttlMs: 60_000 });
+
+      expect(result).toMatchObject({ busy: true, transientError: true, reason: 'transient_error' });
+      expect(requests.filter((url) => url.endsWith(':rollback'))).toHaveLength(1);
+    });
+
+    it('ritenta un conflitto con una transazione nuova e rilascia quella abortita', async () => {
+      const calls: string[] = [];
+      const expiredAt = new Date(Date.now() - 60_000).toISOString();
+      let commitAttempts = 0;
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        calls.push(url);
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) return json(200, { transaction: `tx-${calls.filter((item) => item.endsWith(':beginTransaction')).length}` });
+        if (url.endsWith(':rollback')) return json(200, {});
+        if (url.endsWith(':commit')) {
+          commitAttempts += 1;
+          return commitAttempts === 1
+            ? json(409, { error: { status: 'ABORTED' } })
+            : json(200, {});
+        }
+        return json(200, {
+          updateTime: '2026-09-14T12:00:00.000Z',
+          fields: { owner: { stringValue: 'expired-owner' }, expiresAt: { timestampValue: expiredAt } },
+        });
+      }));
+
+      const result = await acquireLease({ credentials, owner: 'this-run', leaseDoc: 'ci_leases/test', waitMs: 0, ttlMs: 60_000 });
+
+      expect(result).toMatchObject({ acquired: true, busy: false });
+      expect(calls.filter((url) => url.endsWith(':beginTransaction'))).toHaveLength(2);
+      expect(calls.filter((url) => url.endsWith(':rollback'))).toHaveLength(1);
+    });
+
+    it('rilascia il lock di release non-owner', async () => {
+      const calls: string[] = [];
+      const expiresAt = new Date(Date.now() + 90 * 60_000).toISOString();
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        calls.push(url);
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) return json(200, { transaction: 'tx-release' });
+        if (url.endsWith(':rollback')) return json(200, {});
+        return json(200, {
+          updateTime: '2026-09-14T12:00:00.000Z',
+          fields: { owner: { stringValue: 'other-run' }, expiresAt: { timestampValue: expiresAt } },
+        });
+      }));
+
+      const result = await releaseLease({ credentials, owner: 'this-run', leaseDoc: 'ci_leases/test', ttlMs: 60_000 });
+
+      expect(result).toMatchObject({ released: false, busy: false, notOwner: true });
+      expect(calls.filter((url) => url.endsWith(':rollback'))).toHaveLength(1);
+    });
+
+    it('conserva l errore di commit se anche il rollback fallisce', async () => {
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const calls: string[] = [];
+      const expiredAt = new Date(Date.now() - 60_000).toISOString();
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        calls.push(url);
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) return json(200, { transaction: 'tx-commit-error' });
+        if (url.endsWith(':rollback')) return json(503, { error: { status: 'UNAVAILABLE' } });
+        if (url.endsWith(':commit')) return json(400, { error: { status: 'INVALID_ARGUMENT' } });
+        return json(200, {
+          updateTime: '2026-09-14T12:00:00.000Z',
+          fields: { owner: { stringValue: 'expired-owner' }, expiresAt: { timestampValue: expiredAt } },
+        });
+      }));
+
+      await expect(acquireLease({ credentials, owner: 'this-run', leaseDoc: 'ci_leases/test', waitMs: 0, ttlMs: 60_000 }))
+        .rejects.toThrow('Firestore REST request failed: 400');
+      expect(calls.filter((url) => url.endsWith(':rollback'))).toHaveLength(1);
     });
   });
 });
