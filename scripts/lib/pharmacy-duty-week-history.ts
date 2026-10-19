@@ -22,9 +22,14 @@ export function readDutyWeekHistoryArchive(directory: string, recoveryFile: stri
       add(week);
     }
   }
-  return [...byWeek.values()].filter((week) => isClosedDutyWeek(week.weekStart, now)).map((week) => {
-    if (!resolveDutyWeekHistory(week, week.weekStart, now)) throw new Error(`Future-dated pharmacy observation: ${week.weekStart}`);
-    return week;
+  return [...byWeek.values()].filter((week) => isClosedDutyWeek(week.weekStart, now)).flatMap((week) => {
+    const observations = week.observations.filter((observation) =>
+      Math.max(Date.parse(observation.fetchedAt), Date.parse(observation.catalogueFetchedAt)) <= now.getTime());
+    if (observations.length === 0) return [];
+
+    const visibleWeek = { ...week, observations };
+    if (!resolveDutyWeekHistory(visibleWeek, week.weekStart, now)) throw new Error(`Invalid pharmacy duty history: ${week.weekStart}`);
+    return [visibleWeek];
   }).sort((a, b) => a.weekStart.localeCompare(b.weekStart));
 }
 

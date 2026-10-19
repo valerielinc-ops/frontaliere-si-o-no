@@ -34,6 +34,14 @@ describe('historical pharmacy weekly URLs', () => {
     }
   });
 
+  it('omits observations newer than the build clock without dropping earlier archived weeks', () => {
+    const descriptors = pharmacyPageDescriptors(AFTER_RECOVERY);
+    expect(descriptors.some((row) => row.kind === 'duty-week' && row.weekStart === '2026-10-05')).toBe(false);
+    for (const weekStart of WEEKS) {
+      expect(descriptors.some((row) => row.kind === 'duty-week' && row.weekStart === weekStart)).toBe(true);
+    }
+  });
+
   it('writes the history JSON for client navigation and excludes archived pages from the sitemap', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pharmacy-week-ssg-'));
     roots.push(root);
