@@ -413,7 +413,7 @@ export function buildSectorHubDiscoveryReport({
     const slug = text(candidate.suggestedSlug);
     if (slug) previousBySlug.set(slug, candidate);
   }
-  const currentSlugs = new Set(candidateAcc.keys());
+  const currentSlugs = new Set<string>();
   const candidateRows = [];
   for (const [slug, acc] of candidateAcc) {
     const entries = [...acc.labels.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
@@ -422,6 +422,7 @@ export function buildSectorHubDiscoveryReport({
     const employers = new Set(jobEntries.map(({ job }) => employerIdentity(job)).filter(Boolean));
     const activeJobCount = jobEntries.length;
     if (activeJobCount < MIN_TRACKED_JOBS) continue;
+    currentSlugs.add(slug);
     let activeJobViews = 0;
     let viewsPerLiveDay = 0;
     let activeJobsWithViews = 0;
@@ -482,6 +483,7 @@ export function buildSectorHubDiscoveryReport({
       gscQueryImpressions28d: Math.round(queryMetrics.impressions),
       gscQueryClicks28d: Math.round(queryMetrics.clicks),
       score,
+      observedWeeks,
       consecutiveWeeks: candidateAgeWeeks,
       firstSeenAt: old?.firstSeenAt || generatedAt,
       lastSeenAt: generatedAt,
