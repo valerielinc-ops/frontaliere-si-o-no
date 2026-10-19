@@ -1,7 +1,7 @@
 // @vitest-environment node
 
 import { describe, expect, it, vi } from 'vitest';
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
@@ -41,6 +41,11 @@ import {
   VISION_SCHEMA,
 } from '../packages/articles/engine/shared/generatedImageVision.mjs';
 import { LICENSED_PHOTO_KIND } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
+
+const ENGINE = readFileSync(
+  new URL('../packages/articles/engine/shared/generatedImageEngine.mjs', import.meta.url),
+  'utf8',
+);
 
 describe('generated image provider contracts', () => {
   it('re-exports the shared pure article-hero vision contract', () => {
