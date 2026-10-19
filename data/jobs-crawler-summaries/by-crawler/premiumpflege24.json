@@ -1,7 +1,7 @@
 {
   "key": "premiumpflege24",
   "label": "PremiumPflege24 GmbH",
-  "generatedAt": "2026-10-19T01:43:43.601Z",
+  "generatedAt": "2026-10-19T09:34:45.475Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 8168,
-  "avgDurationMs": 8168,
+  "durationMs": 7656,
+  "avgDurationMs": 7656,
   "durationHistory": [
-    8168
+    7656
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://premiumpflege24.ch/job-registrierung/",
       "source": "PremiumPflege24 GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T01:43:29.241Z",
+      "crawledAt": "2026-10-19T09:34:32.257Z",
       "addressLocality": "Schweiz",
       "addressRegion": "",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "b6e494ea5b9a932f8e412d6ccd19c05b9a480ea5"
+  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
 }
