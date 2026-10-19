@@ -1008,6 +1008,8 @@ interface ClusterContext {
   candidate: CandidateEntry;
   keyword: string;
   city: string | null;
+  /** Match-result count retained by the context (capped at maxJobs) if rows are dropped. */
+  matchingJobCount: number;
   matchingJobs: RawJob[];
   topCompanies: string[];
   /**
@@ -1036,11 +1038,20 @@ interface ClusterContext {
   legacyCantonGroup: string;
 }
 
+function clusterMatchingJobCount(ctx: ClusterContext): number {
+  const count = ctx.matchingJobCount;
+  return typeof count === 'number' && Number.isFinite(count)
+    ? count
+    : ctx.matchingJobs.length;
+}
+
 export interface ClusterContextBuildOptions {
   /** Maximum jobs to retain for this context. */
   readonly maxJobs?: number;
   /** Stop matching once this many valid jobs are proven. */
   readonly stopWhenAtLeast?: number;
+  /** Keep the matching rows for rendering; false is for metadata-only shard contexts. */
+  readonly retainMatchingJobs?: boolean;
 }
 
 interface RelatedJobFingerprint {
@@ -1723,18 +1734,23 @@ export function buildClusterContext(
   // constant stays the single source of truth — flip it back to ≥1 here
   // by raising MIN_MATCHING_JOBS, not by editing the predicate.
 
-  const __tTop = profileStart();
-  const counts = new Map<string, number>();
-  for (const j of matching) {
-    const c = (j.company || '').trim();
-    if (!c) continue;
-    counts.set(c, (counts.get(c) || 0) + 1);
+  const matchingJobCount = matching.length;
+  const retainMatchingJobs = options.retainMatchingJobs !== false;
+  let topCompanies: string[] = [];
+  if (retainMatchingJobs) {
+    const __tTop = profileStart();
+    const counts = new Map<string, number>();
+    for (const j of matching) {
+      const c = (j.company || '').trim();
+      if (!c) continue;
+      counts.set(c, (counts.get(c) || 0) + 1);
+    }
+    topCompanies = Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 3)
+      .map(([name]) => name);
+    profileRecord('bc:top-companies', __tTop);
   }
-  const topCompanies = Array.from(counts.entries())
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 3)
-    .map(([name]) => name);
-  profileRecord('bc:top-companies', __tTop);
 
   // Canonical URL is now the Switzerland-wide aggregate so the cluster page
   // surfaces cross-canton jobs (the SPA's canton filter is disabled on
@@ -1753,7 +1769,16 @@ export function buildClusterContext(
   const legacyCantonGroup = matching.length > 0 ? resolveJobCanton(matching[0]) : 'TI';
   const cantonGroup = AGGREGATE_KEY;
 
-  return { candidate, keyword: keyword.trim(), city, matchingJobs: matching, topCompanies, cantonGroup, legacyCantonGroup };
+  return {
+    candidate,
+    keyword: keyword.trim(),
+    city,
+    matchingJobCount,
+    matchingJobs: retainMatchingJobs ? matching : [],
+    topCompanies,
+    cantonGroup,
+    legacyCantonGroup,
+  };
 }
 
 // ── Page emission ───────────────────────────────────────────────────────
@@ -1824,7 +1849,7 @@ const BELOW_FLOOR_BRIDGE_COPY: Record<Locale, {
  */
 export function isClusterBelowFloor(ctx: ClusterContext, enriched: EnrichedEntry | undefined): boolean {
   return (hasSalaryIntent(ctx.keyword) || !hasUsableEnrichedIntro(enriched))
-    && ctx.matchingJobs.length < MIN_JOBS_FOR_INDEXABLE_CLUSTER;
+    && clusterMatchingJobCount(ctx) < MIN_JOBS_FOR_INDEXABLE_CLUSTER;
 }
 
 /**
@@ -2884,7 +2909,7 @@ function buildDescription(ctx: ClusterContext, locale: Locale): string {
   return buildClusterDescription({
     keyword: ctx.keyword,
     city: ctx.city,
-    jobCount: ctx.matchingJobs.length,
+    jobCount: clusterMatchingJobCount(ctx),
     topCompanies: ctx.topCompanies,
   }, locale);
 }
@@ -3213,9 +3238,9 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // quotidiano") instead of "0 offerte" — same goal (differ from title)
   // without the negative-signal in serp/static-body H1.
   const regionPart = ctx.city ? '' : ` ${chrome.regionH1Suffix}`;
-  const headlineH1 = ctx.matchingJobs.length === 0
+  const headlineH1 = clusterMatchingJobCount(ctx) === 0
     ? `${headline}${regionPart} — ${copy.alertCta}`
-    : `${headline} — ${ctx.matchingJobs.length} ${copy.jobsHeading.toLowerCase()}${regionPart}`;
+    : `${headline} — ${clusterMatchingJobCount(ctx)} ${copy.jobsHeading.toLowerCase()}${regionPart}`;
 
   // Top companies / cities for the search-query intro paragraph (used by
   // `renderSearchQueryIntro` to vary opening framing per page).
@@ -3245,7 +3270,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
     : renderSearchQueryIntro(
         locale as 'it' | 'en' | 'de' | 'fr',
         ctx.keyword,
-        ctx.matchingJobs.length,
+        clusterMatchingJobCount(ctx),
         ctx.topCompanies,
         topCities,
         // City clusters are TI cities (Lugano, Mendrisio, …) → keep "in Ticino";
@@ -3356,7 +3381,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // are emitted elsewhere by `buildSeoPageHtml` and remain absolute.
   // Trimming `https://frontaliereticino.ch` (28 B) × ~30 jobs/page × 180k
   // pages ≈ ~150 MB on the dist artifact.
-  const jobLinksHtml = ctx.matchingJobs.length > 0
+  const jobLinksHtml = clusterMatchingJobCount(ctx) > 0
     ? `<ul class="cluster-seo-jobs">${ctx.matchingJobs.map((job) => {
         const jobTitle = sanitizeJobTitleForDisplay(String(job.titleByLocale?.[locale] ?? job.title ?? '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
         const company = String(job.company || '').trim();
@@ -3430,7 +3455,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // In the head, not in bodyHtml: that <main> is moved into #root and replaced
   // by React at hydration, and the seed must be readable before that.
   const seedQuery = parseSearchSlugFilter(candidate.slug) ?? '';
-  const seedScript = ctx.matchingJobs.length > 0 && seedQuery
+  const seedScript = clusterMatchingJobCount(ctx) > 0 && seedQuery
     ? `<script>window.${CLUSTER_SEARCH_SEED_GLOBAL}=${inlineScriptJson(
         buildClusterSearchSeed(urlPath, seedQuery, ctx.matchingJobs as unknown as ReadonlyArray<Record<string, unknown>>, locale),
       )};</script>`
@@ -4875,7 +4900,15 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         // the top-scored ones. The probe API stays (covered by
         // tests/related-search-cluster-probe-equivalence.test.ts) for whoever
         // re-measures it against a full shard before wiring it back.
-        const ctx = buildClusterContext(cand, tokenIndex, jobs);
+        // Every locale still needs context metadata for cross-locale links,
+        // path planning, sitemap decisions and the locale hubs. Only this
+        // shard's locale is rendered here, so retain matching RawJob rows and
+        // top-company data only for contexts the shard owns. Keeping those
+        // other locale contexts still support link/sitemap metadata, but
+        // their rows are not rendered by this shard and need not stay live.
+        const ctx = buildClusterContext(cand, tokenIndex, jobs, {
+          retainMatchingJobs: shouldEmitLocale(cand.locale),
+        });
         if (ctx) contexts.push(ctx);
         if (++processedContexts % 10_000 === 0) {
           console.log(`[related-search-clusters] contexts ${processedContexts}/${candidates.length} elapsed_ms=${Date.now() - contextStartedAt} heap_mb=${Math.round(process.memoryUsage().heapUsed / 1048576)}`);
@@ -4949,6 +4982,16 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         'related-search-clusters',
         retirementGuardInputs.normalizedPlannedPaths,
       );
+      const plannedPathCount = plannedPaths.length;
+      // The authoritative registry copied these paths into its Set. Drop the
+      // staging arrays before building cross-locale maps and emitting pages;
+      // the normalized/guard projections duplicate up to a million paths.
+      plannedPaths.length = 0;
+      retirementGuardInputs.normalizedPlannedPaths.length = 0;
+      retirementGuardInputs.guardPlannedPaths.length = 0;
+      // Reclaim the raw path strings before rendering thousands of pages; the
+      // registry owns its own normalized Set and no longer needs these arrays.
+      forceGc();
       // Withdrawals are EMITTED, just never advertised: declaring them keeps
       // the hreflang gate from reading "unplanned" as "written nowhere" and
       // stripping the whole block off every live sibling (issue #7756). All
@@ -4960,7 +5003,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       ]);
       profileRecord('register-landing-plan', __tPlan);
       console.log(
-        `\x1b[36m[related-search-clusters]\x1b[0m registered ${plannedPaths.length} planned keyword-landing path(s) (plan total ${keywordLandingPlanSize()})`,
+        `\x1b[36m[related-search-clusters]\x1b[0m registered ${plannedPathCount} planned keyword-landing path(s) (plan total ${keywordLandingPlanSize()})`,
       );
 
       // Group by (normalized keyword + city) for cross-locale hreflang lookup.
@@ -5365,11 +5408,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         });
         const totalPages = Math.max(1, Math.ceil(items.length / HUB_PAGE_SIZE));
 
-        // Top-N by matchingJobs.length for the Svizzera section-landing
-        // bridge (issue #4400). `list` (not yet cleared) still carries
-        // matchingJobs at this point in the loop.
+        // Top-N by retained match count for the Svizzera section-landing bridge
+        // (issue #4400). Foreign-locale contexts retain this count while
+        // releasing their matching-job rows in locale-sharded builds.
         const svizzeraLinks = [...list]
-          .sort((a, b) => b.matchingJobs.length - a.matchingJobs.length)
+          .sort((a, b) => clusterMatchingJobCount(b) - clusterMatchingJobCount(a))
           .slice(0, SVIZZERA_HUB_BRIDGE_LINK_COUNT)
           .map((ctx) => ({
             label: ctx.city ? `${capitalize(ctx.keyword)} — ${ctx.city}` : capitalize(ctx.keyword),
