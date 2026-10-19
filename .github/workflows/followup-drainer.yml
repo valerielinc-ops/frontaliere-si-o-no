@@ -158,6 +158,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
+        id: load_rc_env
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
@@ -179,7 +180,7 @@ jobs:
       # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
       # GH_TOKEN = GITHUB_TOKEN, NON l'App/PAT. Scatta solo se né App né PAT.
       - name: Alert token-down (dedup, zero-Claude)
-        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
+        if: always() && steps.load_rc_env.outcome != 'skipped' && env.APP_TOKEN == '' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

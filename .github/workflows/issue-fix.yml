@@ -1464,7 +1464,7 @@ jobs:
 
             **Daily bucket:** se il titolo usa il protocollo daily, lavora SOLO l'item selezionato `${{ steps.tier.outputs.selected_item_id }}` (primo `State: open`); mai `Closes`.
 
-            **Follow-up aggregata multi-item — is_aggregate=${{ steps.tier.outputs.is_aggregate }}:** se `is_aggregate=true` questa issue contiene più item distinti e tentarli TUTTI in un run sfora il turn budget → `error_max_turns` → 0 PR, ~2M token persi (osservato #1095/#1101/#1172). **REGOLA FERREA (circuit-breaker):** fixa **ESATTAMENTE UN item** poi FERMATI (per una issue *sweep/batch* "item" = UN singolo target/file: es. "~30 crawlers" → fixa 1 crawler, deferisci gli altri 29). Procedura: (a) capability guard **PER-ITEM** — salta gli item che toccano `.github/workflows/**`/admin/secret (NON abortire l'intera issue), (b) scegli il PRIMO item in-capability a massimo valore funnel, (c) implementa SOLO quello, (d) **appena la PR per quell'unico item è aperta → STOP IMMEDIATO, non iniziare un secondo item** (anche se hai turni residui), (e) elenca tutti gli altri item in `## Non implementato (ancora)`, ognuno con lo STATO LETTERALE del passo 9 (per un item deferito a un ciclo successivo: `blocked: <causa>` se sospeso su una causa esterna, altrimenti `PR concatenata #N` quando il numero esiste). **Due errori di stato che non convergono mai, in direzioni opposte:** un item che hai saltato perché uno stato CHIUDENTE della PR d'origine lo copre va ri-elencato con QUELLO stato (`per scelta` / `by construction` / `blocked: decisione del proprietario`) — riscritto come `blocked: <causa tecnica>` viene riaperto da `followup-has-candidates.mjs` a ogni ciclo, per sempre; e viceversa non dare MAI uno stato chiudente a un item che stai solo rimandando, perché lo toglie dalla coda e il ciclo lo perde. → `post-merge-followup` li ri-accoda come nuova follow-up (re-queue esistente; ogni ciclo chiude ≥1 item → converge). Se `is_aggregate=false`: issue singola, comportamento invariato (capability guard whole-issue come sopra). Razionale: il budget di turni basta per 1 item con margine; 2+ item lo bruciano.
+            **Follow-up aggregata multi-item — is_aggregate=${{ steps.tier.outputs.is_aggregate }}:** con `is_aggregate=true`, contiene più item; tentarli tutti in un run sfora il turn budget → `error_max_turns` → 0 PR, ~2M token persi. **REGOLA FERREA (circuit-breaker):** fixa **ESATTAMENTE UN item** poi FERMATI (in una issue *sweep/batch*, item = un singolo target/file: es. "~30 crawlers" → 1 crawler, deferisci gli altri 29). Procedura: (a) capability guard **PER-ITEM** — salta gli item che toccano `.github/workflows/**`/admin/secret senza abortire l'intera issue; (b) scegli il PRIMO item in-capability a massimo valore funnel; (c) implementa SOLO quello; (d) appena la PR per quell'unico item è aperta → **STOP IMMEDIATO**, non iniziare un secondo item anche con turni residui; (e) elenca TUTTI gli altri item in `## Non implementato (ancora)`, ciascuno con lo STATO LETTERALE del passo 9 (per un item deferito a un ciclo successivo: `blocked: <causa>` se sospeso su una causa esterna, altrimenti `PR concatenata #N` quando il numero esiste). **Stati:** se uno stato CHIUDENTE della PR d'origine copre l'item saltato, ri-elencalo con quello stato (`per scelta` / `by construction` / `blocked: decisione del proprietario`), non come `blocked: <causa tecnica>`: altrimenti `followup-has-candidates.mjs` lo riapre a ogni ciclo; viceversa non usare uno stato chiudente per un rinvio, perché l'item si perde. `post-merge-followup` li ri-accoda come follow-up (re-queue esistente); ogni ciclo chiude ≥1 item. Se `is_aggregate=false`, issue singola e comportamento invariato (capability guard whole-issue). Il budget copre 1 item; 2+ lo bruciano.
 
             **Fix flow (vedi ISSUES.md):**
             1. Branch isolato — **resume-aware** (`resume=${{ steps.resume.outputs.resume }}`): se `resume=false`, `git checkout -b fix/issue-$ISSUE_NUMBER` (fresh, come sempre). Se `resume=true` esiste già un branch `fix/issue-$ISSUE_NUMBER` su origin (lasciato da un run precedente morto per max-turns DOPO il checkpoint WIP, vedi step 4) — fai `git fetch origin fix/issue-$ISSUE_NUMBER && git checkout fix/issue-$ISSUE_NUMBER` invece di ricreare da zero. Ispeziona cosa c'è già (`git log --oneline origin/main..HEAD --stat`): se il diff è pertinente alla issue corrente, CONTINUA da lì (non ridiagnosticare/rifare il lavoro già presente). Se il diff sembra stale/scollegato dal body della issue attuale → `git reset --hard origin/main` e riparti pulito — usa giudizio, non è un automatismo cieco.
@@ -1497,7 +1497,7 @@ jobs:
             - Mai committare path home assoluti o email personali (Privacy).
             - Se la root cause non è determinabile con confidenza → NON forzare un fix; posta su issue "Root cause non determinata: <cosa hai trovato>." con `<!-- FIX_OUTCOME: no-root-cause -->`. Issue non daily: stesso commento `<!-- AUTOMATION_DEFERRED: technical -->`, applica `automation-deferred`, rimuovi il routing `agent:fix*`. Daily bucket: solo per l'item: niente deferral, routing intatto. TERMINA senza PR. Non chiedere una risposta al proprietario: lo sweep automatico deve prima cambiare input, scheda o osservabilità.
             - Se il fix richiede una credenziale, USALA: Remote Config è caricato in questo run (decisione del 2026-08-24). Termina con `blocked-secrets` solo se la variabile che ti serve è davvero vuota in `process.env`, e nominala.
-            - **Telemetria outcome (OBBLIGATORIO):** ogni volta che termini, l'ULTIMO commento che posti sulla issue DEVE iniziare con un marker HTML su riga propria: `<!-- FIX_OUTCOME: <code> -->`. `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Con `already-fixed` provato, nello stesso commento aggiungi `<!-- FIX_EVIDENCE: pr=<N> commit=<sha> run=<id> -->` (pr mergiata e/o commit su main; run verde su main che li contiene). Se apri una PR (passo 9) e non posti altri commenti, aggiungi comunque un commento col solo marker `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega questi marker (ISSUES.md → "Auto-improvement loop"). Commenti sempre con `--body-file` da heredoc `<<'EOF'`: col body inline la shell esegue i backtick.
+            - **Telemetria outcome (OBBLIGATORIO):** l'ULTIMO commento sulla issue deve iniziare su riga propria con `<!-- FIX_OUTCOME: <code> -->`; `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. In un daily bucket aggiungi nello STESSO commento `<!-- FOLLOWUP_ITEM: ${{ steps.tier.outputs.selected_item_id }} -->` per il drainer. Se `already-fixed` è provato, aggiungi nello stesso commento `<!-- FIX_EVIDENCE: pr=<N> commit=<sha> run=<id> -->` (PR mergiata o commit su main con run verde che li contiene). Se apri una PR (passo 9) senza altri commenti, aggiungi `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega i marker. Commenti sempre con `--body-file` da heredoc `<<'EOF'`: il body inline esegue i backtick.
 
       - name: Enforce F1/F7 output diff gate (before checkpoint/push)
         id: diff_gate
@@ -1714,6 +1714,7 @@ jobs:
           REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
           ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
+          DAILY_ITEM_ID: ${{ steps.tier.outputs.selected_item_id }}
         run: |
           set -euo pipefail
           BRANCH="fix/issue-$ISSUE"
@@ -1847,6 +1848,7 @@ jobs:
           REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
           ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
+          DAILY_ITEM_ID: ${{ steps.tier.outputs.selected_item_id }}
         run: |
           set -uo pipefail
           action_outcome="${ACTION_OUTCOME:-}"
@@ -1875,6 +1877,20 @@ jobs:
             exit 0
           fi
           if [ "${HAS:-0}" != "0" ]; then
+            if [[ "${DAILY_ITEM_ID:-}" =~ ^FU-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{3}$ ]]; then
+              if ! ITEM_HAS=$(printf '%s\n' "$COMMENTS" | jq -r --arg started "$RUN_STARTED_AT" --arg item "$DAILY_ITEM_ID" \
+                'if (.comments | type) != "array" then error("comments-shape") else [.comments[] | select((.createdAt // "") >= $started) | select((.body // "") | contains(("<!-- FOLLOWUP_ITEM: " + $item + " -->")))] | length end' \
+                2>/dev/null); then
+                echo "::warning::commenti issue non classificabili: backstop FOLLOWUP_ITEM non emesso."
+                exit 0
+              fi
+              if [ "${ITEM_HAS:-0}" = "0" ]; then
+                echo "FOLLOWUP_ITEM marker missing in this run — adding selected daily item."
+                if ! gh issue comment "$ISSUE" --body "$(printf '<!-- FOLLOWUP_ITEM: %s -->' "$DAILY_ITEM_ID")"; then
+                  echo "::warning::marker FOLLOWUP_ITEM non postato; nessuna garanzia di associazione daily."
+                fi
+              fi
+            fi
             echo "FIX_OUTCOME marker already present in this run — no backstop needed."
             exit 0
           fi
@@ -1888,7 +1904,11 @@ jobs:
               ;;
           esac
           echo "FIX_OUTCOME issue=$ISSUE outcome=$OUT (deterministic backstop)"
-          if ! gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: %s -->\n_Outcome rilevato dal post-step deterministico (telemetria lessons-harvester)._' "$OUT")"; then
+          item_marker=''
+          if [[ "${DAILY_ITEM_ID:-}" =~ ^FU-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{3}$ ]]; then
+            item_marker="$(printf '\n<!-- FOLLOWUP_ITEM: %s -->' "$DAILY_ITEM_ID")"
+          fi
+          if ! gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: %s -->\n_Outcome rilevato dal post-step deterministico (telemetria lessons-harvester)._%s' "$OUT" "$item_marker")"; then
             echo "::warning::marker FIX_OUTCOME non postato; nessuna garanzia di telemetria."
           fi
 
