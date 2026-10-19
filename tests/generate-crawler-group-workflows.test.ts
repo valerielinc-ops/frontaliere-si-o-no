@@ -1645,6 +1645,17 @@ describe('watchdog kill visibility (exit 124 without the in-script reporter)', (
     expect(body).toContain('watchdog_file="$state_dir/$crawler_id.watchdog"');
   });
 
+  it('defaults the watchdog lookup to the slug when its roster id is identical', () => {
+    const body = buildCrawlerAggregateShellBody([{
+      slug: 'sta',
+      runStep: { env: { JOBS_HOUSEKEEPING_SCOPE: 'sta' }, run: 'true' },
+      postSteps: [],
+    }] as any, 15);
+    expect(body).toContain('crawler_id="${2:-$slug}"');
+    expect(body).toContain("aggregate_crawler_member 'sta'");
+    expect(body).not.toContain("aggregate_crawler_member 'sta' 'sta'");
+  });
+
   it('keeps the aggregate green when the issue cannot be filed', () => {
     const { stdout, argv, output } = runAggregate({ status: '124', marker: '91', nodeExit: 1 });
     expect(argv).toHaveLength(1);
