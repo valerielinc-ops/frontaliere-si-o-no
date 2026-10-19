@@ -115,6 +115,7 @@ export default function ApplicationConciergePortal({
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [location, setLocation] = useState('');
   const [consent, setConsent] = useState(false);
   const conciergeViewTracked = useRef(false);
 
@@ -154,6 +155,7 @@ export default function ApplicationConciergePortal({
     setName((value) => value || loaded.applicantName || user.displayName || '');
     setEmail((value) => value || loaded.applicantEmail || loaded.customerEmail || user.email || '');
     setPhone((value) => value || loaded.applicantPhone || '');
+    setLocation((value) => value || loaded.applicantLocation || '');
     setConsent(loaded.hasConsent);
     return loaded;
   }, [ensureUser, serviceId]);
@@ -273,6 +275,7 @@ export default function ApplicationConciergePortal({
       applicantName: name.trim(),
       applicantEmail: email.trim().toLowerCase(),
       applicantPhone: phone.trim(),
+      applicantLocation: location.trim(),
       ...(options.cvStorageKey ? { cvStorageKey: options.cvStorageKey } : {}),
       ...(options.cvFileName ? { cvFileName: options.cvFileName } : {}),
     });
@@ -296,6 +299,7 @@ export default function ApplicationConciergePortal({
         applicantName: name.trim(),
         applicantEmail: email.trim().toLowerCase(),
         applicantPhone: phone.trim(),
+        applicantLocation: location.trim(),
       });
       setService(updated);
       setConsent(updated.hasConsent);
@@ -560,6 +564,8 @@ export default function ApplicationConciergePortal({
                     <label className="text-sm font-medium text-body">{t('jobBoard.concierge.email')}<input value={email} onChange={(event) => setEmail(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" type="email" autoComplete="email" /></label>
                   </div>
                   <label className="block text-sm font-medium text-body">{t('jobBoard.concierge.phone')}<input value={phone} onChange={(event) => setPhone(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" /></label>
+                  <label className="block text-sm font-medium text-body">{t('jobBoard.concierge.location')}<input value={location} onChange={(event) => setLocation(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="address-level2" maxLength={120} /></label>
+                  <p className="-mt-2 text-xs leading-5 text-subtle">{t('jobBoard.concierge.locationHint')}</p>
                   <button type="submit" disabled={busy !== null || expired} className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-edge px-4 py-2 text-sm font-semibold text-body transition-colors hover:border-accent hover:text-accent disabled:opacity-60">{busy === 'profile' && <Loader2 size={15} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.saveData')}</button>
                 </form>
 

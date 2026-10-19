@@ -136,6 +136,8 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
   const data = doc.data ? doc.data() || {} : doc || {};
   const serviceId = doc.id || data.serviceId;
   const expired = serviceIsExpired(data);
+  const proposals = proposalDocs.map(serializeProposal)
+    .sort((left, right) => (Number(right.matchScore) || 0) - (Number(left.matchScore) || 0));
   return {
     serviceId,
     serviceType: 'application_concierge',
@@ -155,6 +157,7 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
     applicantName: optionalString(data.applicantName, 200),
     applicantEmail: optionalString(data.applicantEmail, 320),
     applicantPhone: optionalString(data.applicantPhone, 80),
+    applicantLocation: optionalString(data.applicantLocation, 120),
     hasConsent: data.consentVersion === APPLICATION_CONCIERGE_CONSENT_VERSION && timestampMillis(data.consentedAt) > 0,
     hasCv: Boolean(cvKeyForService(serviceId, data.cvStorageKey)),
     consentedAt: timestampToIso(data.consentedAt),
@@ -166,7 +169,7 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
     matchingStartedAt: timestampToIso(data.matchingStartedAt),
     matchingCompletedAt: timestampToIso(data.matchingCompletedAt),
     matchingError: optionalString(data.matchingError, 80),
-    proposals: proposalDocs.map(serializeProposal),
+    proposals,
     ...(admin ? {
       userId: optionalString(data.userId, 200),
       consentVersion: optionalString(data.consentVersion, 120),
@@ -201,6 +204,21 @@ function assertProfileInput(body) {
   const phone = optionalString(body.applicantPhone, 80);
   if (!name || !EMAIL_RE.test(email)) throw new ApplicationConciergeError('invalid_candidate_details', 400);
   return { name, email, phone };
+}
+
+function applicantLocationPatch(service, serviceId, body) {
+  if (!Object.hasOwn(body, 'applicantLocation')) return {};
+  const value = String(body.applicantLocation ?? '').trim();
+  if (value.length > 120) throw new ApplicationConciergeError('invalid_candidate_details', 400);
+  const applicantLocation = value || null;
+  const changed = value !== String(service.applicantLocation || '').trim();
+  return {
+    applicantLocation,
+    ...(changed && cvKeyForService(serviceId, service.cvStorageKey) ? {
+      matchingStatus: 'queued',
+      matchingError: null,
+    } : {}),
+  };
 }
 
 async function saveCandidateProfile(db, serviceId, uid, body) {
@@ -240,6 +258,7 @@ async function saveCandidateProfile(db, serviceId, uid, body) {
     applicantName: name,
     applicantEmail: email,
     applicantPhone: phone,
+    ...applicantLocationPatch(service, serviceId, body),
     ...consentPatch,
     ...(requestedKey ? {
       cvStorageKey: requestedKey,
@@ -271,6 +290,7 @@ async function recordCandidateConsent(db, serviceId, uid, body) {
     applicantName: name,
     applicantEmail: email,
     applicantPhone: phone,
+    ...applicantLocationPatch(service, serviceId, body),
     ...(alreadyRecorded ? {} : {
       consentVersion: APPLICATION_CONCIERGE_CONSENT_VERSION,
       consentedAt: Timestamp.now(),

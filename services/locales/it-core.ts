@@ -949,6 +949,8 @@ const translations: Record<string, string> = {
  'jobBoard.concierge.name': 'Nome e cognome',
  'jobBoard.concierge.email': 'Email',
  'jobBoard.concierge.phone': 'Telefono (facoltativo)',
+ 'jobBoard.concierge.location': 'Comune o CAP di residenza',
+ 'jobBoard.concierge.locationHint': 'Indica solo comune o CAP: lo usiamo per dare priorità alle offerte più vicine, senza chiederti l’indirizzo completo.',
  'jobBoard.concierge.consent': 'Autorizzo Frontaliereticino.ch a trattare il mio CV e i dati indicati per preparare e inviare le candidature sulle posizioni che accetto, secondo i Termini del servizio e l’Informativa privacy.',
  'jobBoard.concierge.saveData': 'Salva dati',
  'jobBoard.concierge.saveProfile': 'Salva dati',

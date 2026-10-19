@@ -913,6 +913,8 @@ const deCore: Record<string, string> = {
  'jobBoard.concierge.name': 'Vor- und Nachname',
  'jobBoard.concierge.email': 'E-Mail',
  'jobBoard.concierge.phone': 'Telefon (optional)',
+ 'jobBoard.concierge.location': 'Wohnort oder Postleitzahl',
+ 'jobBoard.concierge.locationHint': 'Gib nur deinen Wohnort oder deine Postleitzahl an. Wir priorisieren damit nähere Stellen; eine vollständige Adresse ist nicht nötig.',
  'jobBoard.concierge.consent': 'Ich ermächtige Frontaliereticino.ch, meinen Lebenslauf und die angegebenen Daten zu verarbeiten, um Bewerbungen für die von mir angenommenen Stellen vorzubereiten und zu senden, gemäß Nutzungsbedingungen und Datenschutzerklärung.',
  'jobBoard.concierge.saveData': 'Daten speichern',
  'jobBoard.concierge.saveProfile': 'Daten speichern',

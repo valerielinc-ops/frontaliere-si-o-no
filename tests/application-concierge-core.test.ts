@@ -274,6 +274,7 @@ describe('application concierge candidate API', () => {
         applicantName: 'Candidate Updated',
         applicantEmail: 'updated@example.test',
         applicantPhone: '+41 79 000 00 00',
+        applicantLocation: 'Mendrisio 6850',
       },
       get: () => 'Bearer candidate-token',
     });
@@ -282,8 +283,32 @@ describe('application concierge candidate API', () => {
     expect(mocks.documents.get('application_concierge_services/service-1')).toEqual(expect.objectContaining({
       applicantName: 'Candidate Updated',
       applicantEmail: 'updated@example.test',
+      applicantLocation: 'Mendrisio 6850',
+      matchingStatus: 'queued',
       consentVersion: 'application-concierge-v1',
     }));
+    expect((result.body as any).service.applicantLocation).toBe('Mendrisio 6850');
+  });
+
+  it('orders proposals by their current match score', async () => {
+    mocks.documents.get('application_concierge_services/service-1/proposals/proposal-1')!.matchScore = 42;
+    mocks.documents.set('application_concierge_services/service-1/proposals/proposal-2', {
+      jobId: 'job-2',
+      jobUrl: 'https://jobs.example.test/job-2',
+      companyId: 'company-2',
+      companyName: 'Nearby SA',
+      jobTitle: 'Developer',
+      status: 'proposed',
+      matchScore: 50,
+    });
+
+    const result = await handleApplicationConcierge({
+      method: 'GET',
+      query: { serviceId: 'service-1' },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect((result.body as any).service.proposals.map((proposal: any) => proposal.proposalId)).toEqual(['proposal-2', 'proposal-1']);
   });
 
   it('records concierge consent as a separate idempotent action', async () => {
