@@ -67,8 +67,10 @@ function extractPromanInfoValue(html = '', iconSource = '', label = /^$/) {
 export function extractPromanFleurierListingCandidates(html = '', pageUrl = CAREER_URL) {
   const rows = [];
   const seen = new Set();
+  let recognizedCards = 0;
   for (const opening of scanStartTags(html, 'li')) {
     if (!hasClass(opening.raw, 'u-job-item')) continue;
+    recognizedCards++;
     const card = extractBalancedTagBlock(html.slice(opening.end), 'li');
     const anchor = scanStartTags(card, 'a').find(({ raw }) => hasClass(raw, 'u-link-fit'));
     const title = sourceText(firstTagBlock(card, 'h3'));
@@ -93,7 +95,11 @@ export function extractPromanFleurierListingCandidates(html = '', pageUrl = CARE
       locationCandidates: [fields],
     });
   }
-  return rows;
+  // `null` tells the shared crawler that this page no longer matches the
+  // source-specific markup, so its generic candidate cascade can still run.
+  // An empty array means the markup was recognized and none of its cards is a
+  // publishable vacancy; in that case the generic cascade must stay suppressed.
+  return recognizedCards ? rows : null;
 }
 
 function extractPromanDetailMarkup(html = '') {

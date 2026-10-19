@@ -79,6 +79,22 @@ describe('PROMAN Fleurier source-backed crawler', () => {
     })]);
   });
 
+  it('returns null when PROMAN listing markup is not recognized, but an empty array for recognized non-NE cards', () => {
+    expect(extractPromanFleurierListingCandidates(`
+      <a href="/job/25097/Automaticien-HF">Automaticien de production</a>
+    `, canonicalSeed)).toBeNull();
+
+    expect(extractPromanFleurierListingCandidates(`
+      <li class="u-job-item">
+        <a class="u-link-fit" href="/job/25098/Role-HF" aria-hidden="true"></a>
+        <div class="u-tile">
+          <h3>Role hors canton</h3>
+          <ul class="u-job-infos"><li><u-svg source="24/job/location"></u-svg><span>lieu</span>Biel</li></ul>
+        </div>
+      </li>
+    `, canonicalSeed)).toEqual([]);
+  });
+
   it('classifies a source-backed non-NE detail as an expected canton filter', () => {
     const nonTargetFixture = detailFixture
       .replaceAll('La Chaux-de-Fonds', 'Biel');
@@ -133,6 +149,33 @@ describe('PROMAN Fleurier source-backed crawler', () => {
     })]);
     expect(requestedUrls).toContain(canonicalSeed);
     expect(requestedUrls).not.toContain('https://www.proman-group.ch/Job/SearchJobs/?brancheId=0&regionId=0&typeId=0');
+  });
+
+  it('keeps the generic candidate cascade when PROMAN markup is unrecognized', async () => {
+    const requestedUrls: string[] = [];
+    const fetchImpl = async (url: string) => {
+      requestedUrls.push(url);
+      if (url.endsWith('/robots.txt')) return response(url, 'User-agent: *\nAllow: /');
+      if (url === canonicalSeed) {
+        return response(url, `<a href="${new URL(detailUrl).pathname.replace(/\/$/, '')}">Automaticien de production</a>`);
+      }
+      if (url === detailUrl.replace(/\/$/, '')) return response(url, detailFixture);
+      throw new Error(`unexpected URL ${url}`);
+    };
+    const jobs = await fetchAllPromanFleurierJobs({
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      hostDelayMs: 0,
+      retries: 0,
+    });
+
+    expect(jobs).toEqual([expect.objectContaining({
+      url: detailUrl.replace(/\/$/, ''),
+      canton: 'NE',
+      title: 'Automaticien de production',
+    })]);
+    expect(requestedUrls).toContain(detailUrl.replace(/\/$/, ''));
   });
 
   it('matches only the dedicated company key and official Proman hosts', () => {
