@@ -57,7 +57,7 @@ function requestKeyForUser(userId: string): string {
   const storageKey = `application-concierge-checkout:${userId}`;
   try {
     const stored = window.sessionStorage.getItem(storageKey);
-    if (stored && /^concierge-[A-Za-z0-9_-]{16,128}$/.test(stored)) return stored;
+    if (stored && /^concierge-[A-Za-z0-9_-]{8,128}$/.test(stored)) return stored;
     const created = `concierge-${randomToken()}`;
     window.sessionStorage.setItem(storageKey, created);
     return created;

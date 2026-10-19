@@ -1,6 +1,9 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ 'whatsNew.v3990.title': "Pagamento della candidatura assistita più semplice",
+ 'whatsNew.v3990.conciergeCheckout.title': "Completa il pagamento senza uscire dal sito",
+ 'whatsNew.v3990.conciergeCheckout.desc': "Il pagamento del servizio di 30 giorni avviene in un modulo incorporato. Se chiudi il popup o ricarichi la pagina, puoi riprendere lo stesso tentativo; il servizio si attiva solo dopo la conferma del pagamento.",
  "whatsNew.v3989.title": "Calendari farmacia consultabili nel tempo",
  "whatsNew.v3989.pharmacyArchive.title": "Recuperate due settimane di settembre",
  "whatsNew.v3989.pharmacyArchive.desc": "Le assegnazioni osservate restano consultabili con le date e le fonti originali. L’archivio storico non indica turni o aperture attuali.",

@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ 'whatsNew.v3990.title': "Paiement simplifié pour la candidature assistée",
+ 'whatsNew.v3990.conciergeCheckout.title': "Payez sans quitter le site",
+ 'whatsNew.v3990.conciergeCheckout.desc': "Le paiement du service de 30 jours se fait dans un formulaire intégré. Si vous fermez la fenêtre ou rechargez la page, vous pouvez reprendre la même tentative ; le service n’est activé qu’après confirmation du paiement.",
  "whatsNew.v3989.title": "Des plannings de pharmacie conservés dans le temps",
  "whatsNew.v3989.pharmacyArchive.title": "Deux semaines de septembre récupérées",
  "whatsNew.v3989.pharmacyArchive.desc": "Les affectations relevées restent consultables avec leurs dates de collecte et sources originales. Les archives historiques n’indiquent pas les gardes ou ouvertures actuelles.",
