@@ -1919,6 +1919,8 @@ jobs:
 
       - name: Upload write-collisions analysis
         if: always() && matrix.locale == 'it'
+        # Diagnostic-only: an artifact-service outage must not fail the deploy.
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: write-collisions-analysis-${{ github.run_id }}
