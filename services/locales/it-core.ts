@@ -984,6 +984,7 @@ const translations: Record<string, string> = {
  'jobBoard.concierge.proposalStatus.accepted': 'Accettata',
  'jobBoard.concierge.proposalStatus.declined': 'Rifiutata',
  'jobBoard.concierge.proposalStatus.expired': 'Scaduta',
+ 'jobBoard.concierge.proposalStatus.retracted': 'Rimossa dai suggerimenti',
  'jobBoard.concierge.errors.generic': 'Si è verificato un errore. Riprova tra poco.',
  'jobBoard.concierge.errors.service_not_found': 'Servizio non trovato.',
  'jobBoard.concierge.errors.auth_required': 'Accedi per continuare.',

@@ -3643,12 +3643,12 @@
     },
     {
       "id": "opus-personal-1d270a5d635f",
-      "slug": "landschaftsgartner-in-cfc-afp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+      "slug": "giardiniere-a-paesaggista-efz-eba-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
       "slugByLocale": {
         "de": "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch",
-        "it": "landschaftsgartner-in-cfc-afp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "en": "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch",
-        "fr": "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch"
+        "it": "giardiniere-a-paesaggista-efz-eba-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+        "en": "landscape-gardener-efz-eba-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+        "fr": "horticulteur-trice-paysagiste-cfc-afp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -3694,25 +3694,22 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "giardiniere-a-paesaggista-afc-cfp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "giardiniere-a-paesaggista-efz-eba-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "landscape-gardener-efz-eba-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "horticulteur-trice-paysagiste-cfc-afp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch"
+        "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch",
+        "landschaftsgartner-in-cfc-afp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "giardiniere-a-paesaggista-afc-cfp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-          "giardiniere-a-paesaggista-efz-eba-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-          "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch"
+          "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch",
+          "landschaftsgartner-in-cfc-afp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
         ],
         "en": [
-          "landscape-gardener-efz-eba-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch"
         ],
         "fr": [
-          "horticulteur-trice-paysagiste-cfc-afp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -7949,12 +7946,12 @@
     },
     {
       "id": "opus-personal-f193ba4cd6e6",
-      "slug": "schreiner-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+      "slug": "falegname-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
       "slugByLocale": {
         "de": "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch",
-        "it": "schreiner-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "it": "falegname-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "en": "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch",
-        "fr": "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch"
+        "fr": "menuisier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -8000,25 +7997,25 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "carpenter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "falegname-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "menuisier-ere-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "menuisier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch"
+        "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch",
+        "schreiner-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "falegname-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-          "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch"
+          "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch",
+          "schreiner-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
         ],
         "en": [
           "carpenter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
         ],
         "fr": [
           "menuisier-ere-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-          "menuisier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,

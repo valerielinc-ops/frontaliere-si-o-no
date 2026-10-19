@@ -29,6 +29,7 @@ export const APPLICATION_CONCIERGE_PROPOSAL_STATUSES = Object.freeze([
   'accepted',
   'declined',
   'expired',
+  'retracted',
 ]);
 
 export function timestampMillis(value) {

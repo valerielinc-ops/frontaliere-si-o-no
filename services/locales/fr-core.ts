@@ -948,6 +948,7 @@ const frCore: Record<string, string> = {
  'jobBoard.concierge.proposalStatus.accepted': 'Acceptée',
  'jobBoard.concierge.proposalStatus.declined': 'Refusée',
  'jobBoard.concierge.proposalStatus.expired': 'Expirée',
+ 'jobBoard.concierge.proposalStatus.retracted': 'Retirée des suggestions',
  'jobBoard.concierge.errors.generic': 'Une erreur est survenue. Réessayez dans un instant.',
  'jobBoard.concierge.errors.service_not_found': 'Service introuvable.',
  'jobBoard.concierge.errors.auth_required': 'Connectez-vous pour continuer.',

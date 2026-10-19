@@ -72,6 +72,8 @@ const job = (n: string) => ({
 
 /** Above the floor (3 matching jobs) so `belowFloor` isolates the inert band. */
 function makeCtx(over: Record<string, unknown> = {}): any {
+  const matchingJobs = (over.matchingJobs as ReturnType<typeof job>[] | undefined)
+    ?? [job('a'), job('b'), job('c')];
   return {
     candidate: {
       slug: 'ricerca-single-source',
@@ -82,11 +84,14 @@ function makeCtx(over: Record<string, unknown> = {}): any {
     },
     keyword: 'single source',
     city: null,
-    matchingJobs: [job('a'), job('b'), job('c')],
+    matchingJobs,
     topCompanies: [],
     cantonGroup: '_AGGREGATE_',
     legacyCantonGroup: 'TI',
     ...over,
+    matchingJobCount: typeof over.matchingJobCount === 'number'
+      ? over.matchingJobCount
+      : matchingJobs.length,
   };
 }
 
