@@ -176,9 +176,6 @@ jobs:
           # publishing outright. Preserve it until it is moved into the package
           # here too, at which point the mirror carries it naturally.
           keep=$(mktemp -d)
-          for f in swiss-article-canonical-overrides.json; do
-            [ -f "$work/content/$f" ] && cp "$work/content/$f" "$keep/$f"
-          done
           cd "$work"
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
@@ -192,6 +189,13 @@ jobs:
             run_bounded "fetch articles mirror base (attempt ${attempt}/3)" "$timeout_seconds" \
               git fetch --no-tags origin main
             git reset --hard -q origin/main
+            # Preserve the file from this retry's fresh remote base. Reusing
+            # the initial clone after a lease loss could overwrite a newer
+            # canonical override committed to origin/main in the meantime.
+            for f in swiss-article-canonical-overrides.json; do
+              rm -f "$keep/$f"
+              [ -f "$work/content/$f" ] && cp "$work/content/$f" "$keep/$f"
+            done
             for d in content engine; do
               rm -rf "${work:?}/$d"
             done

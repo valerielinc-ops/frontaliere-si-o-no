@@ -21,8 +21,8 @@
       "collectionGroup": "campaign_deliveries",
       "queryScope": "COLLECTION_GROUP",
       "fields": [
-        { "fieldPath": "clicked_at", "order": "ASCENDING" },
-        { "fieldPath": "campaign_id", "order": "ASCENDING" }
+        { "fieldPath": "campaign_id", "order": "ASCENDING" },
+        { "fieldPath": "clicked_at", "order": "ASCENDING" }
       ]
     },
     {

@@ -10,6 +10,7 @@ import {
   parseActionsJobUrl,
   requiredVitestDecision,
   revalidateNativeAutoMerge,
+  revokeNativeAutoMergeSafely,
   reviewGateEvidenceDecision,
   reviewHasLgtm,
   reviewIsApproved,
@@ -806,6 +807,25 @@ describe('native auto-merge gate (#8512)', () => {
     expect(gateSource).toContain('disablePullRequestAutoMerge');
     expect(gateSource).toContain('revokeExistingAutoMerge');
     expect(gateSource).not.toContain('if (pr.autoMergeRequest !== null) return skip');
+  });
+
+  it('treats a concurrent native auto-merge revocation as already satisfied', () => {
+    const snapshots = [
+      { state: 'OPEN', id: 'pr-node', autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' } },
+      { state: 'OPEN', id: 'pr-node', autoMergeRequest: null },
+    ];
+    let reads = 0;
+    let disableCalls = 0;
+
+    expect(revokeNativeAutoMergeSafely({
+      readPullRequest: () => snapshots[Math.min(reads++, snapshots.length - 1)],
+      disableAutoMerge: () => {
+        disableCalls += 1;
+        throw new Error('GraphQL: auto-merge was already disabled');
+      },
+    })).toBe('already-satisfied');
+    expect(reads).toBe(2);
+    expect(disableCalls).toBe(1);
   });
 
   it('binds the native opt-in to the exact HEAD that passed the gate', () => {

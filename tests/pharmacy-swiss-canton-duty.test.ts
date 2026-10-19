@@ -96,6 +96,25 @@ function snapshot(overrides: Partial<SwissCantonDutySnapshot> = {}): SwissCanton
 }
 
 describe('Swiss canton duty coverage', () => {
+  it('keeps an expired source interval non-operational even in a fresh complete release', () => {
+    const weekStart = currentDutyWeekStart(new Date());
+    const now = new Date(Date.parse(`${weekStart}T12:00:00.000Z`) + 3 * 86400000);
+    const relative = (hours: number) => new Date(now.getTime() + hours * 3600000).toISOString();
+    const base = snapshot();
+    const fetchedAt = relative(-0.5);
+    const coverage = { ...base._coverage, validFrom: weekStart, validTo: relative(72).slice(0, 10), observedCalendarDays: 7 };
+    const makeSnapshot = (status: 'verified' | 'expired'): SwissCantonDutySnapshot => ({
+      ...base, _fetchedAt: fetchedAt, _attemptedAt: fetchedAt, _coverage: coverage,
+      _release: { ...base._release, evaluatedAt: fetchedAt, coverage },
+      duties: base.duties.map(duty => ({ ...duty, startsAt: relative(-3), endsAt: relative(status === 'verified' ? 1 : -1), fetchedAt, verifiedAt: fetchedAt, status })),
+    });
+    for (const status of ['verified', 'expired'] as const) {
+      const result = buildSwissCantonDutyCoverage({ now, weekStart, registry: registry(), includeGeneva: false, snapshots: { JU: makeSnapshot(status) } });
+      expect(result.diagnostics).toEqual(status === 'expired' ? ['JU: no verified duty intersects the selected week'] : []);
+      expect(result.operationalCantons.map(canton => canton.code)).toEqual(status === 'verified' ? ['JU'] : []);
+    }
+  });
+
   it('publishes a complete fresh canton snapshot for the selected week', () => {
     const result = buildSwissCantonDutyCoverage({
       now: NOW,

@@ -58,7 +58,7 @@ describe('crawlerDirectFixBudget', () => {
     expect(queued).toBe(4); // prima erano 4 SFRATTATI, ora 4 in coda
   });
 
-  it('esclude dal secondo passaggio i pin keep-open e agent:no-age-out', () => {
+  it('esclude dal secondo passaggio i pin keep-open, agent:no-age-out e operations-audit-review', () => {
     const labels = (...names: string[]) => names.map((name) => ({ name }));
     const stringLabels = (...names: string[]) => names;
     const issue = (issueLabels: unknown) => ({
@@ -68,6 +68,7 @@ describe('crawlerDirectFixBudget', () => {
     });
     expect(isTriagedButNotRouted(issue(labels('agent:triaged', 'keep-open')))).toBe(false);
     expect(isTriagedButNotRouted(issue(labels('agent:triaged', 'agent:no-age-out')))).toBe(false);
+    expect(isTriagedButNotRouted(issue(labels('agent:triaged', 'operations-audit-review')))).toBe(false);
     expect(isTriagedButNotRouted(issue(labels('agent:triaged')))).toBe(true);
     expect(isTriagedButNotRouted(issue(stringLabels('agent:triaged', 'keep-open')))).toBe(false);
     expect(isTriagedButNotRouted(issue(stringLabels('agent:triaged', 'agent:no-age-out')))).toBe(false);

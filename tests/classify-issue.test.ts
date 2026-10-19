@@ -137,6 +137,13 @@ describe('classifyIssue — pin fuori dal ciclo di fix', () => {
     expect(classifyIssue('[crawler-health] X broken', ['parser-broken', 'agent:no-age-out']).route).toBe('none');
   });
 
+  it('operations-audit-review → esclude il secondo passaggio di triage', () => {
+    const out = classifyIssue('L11 operations audit review', ['operations-audit-review']);
+    expect(isFixerExempt(['operations-audit-review'])).toBe(true);
+    expect(out.autofix).toBe(false);
+    expect(out.route).toBe('none');
+  });
+
   it('le label del veto auto-close che NON pinnano restano instradate', () => {
     // `pinned`/`do-not-close` dicono «non chiudere», non «non riparare»;
     // `tracker` e `revenue` restano instradate come ogni altra categoria.

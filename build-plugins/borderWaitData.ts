@@ -25,6 +25,7 @@ import {
   BORDER_WAIT_SECTION_BY_LOCALE,
   BORDER_WAIT_TODAY_BY_LOCALE,
   BORDER_WAIT_ARCHIVE_CROSSINGS,
+  buildBorderWaitTodayPath,
   isBorderWaitPath as isSharedBorderWaitPath,
 } from '../scripts/lib/borderWaitSections.mjs';
 
@@ -1077,12 +1078,7 @@ function joinPath(parts: string[]): string {
 
 /** Build the canonical path for a per-crossing "today" page. */
 export function buildOggiPath(locale: BorderWaitLocale, crossing: BorderCrossingSlug): string {
-  return joinPath([
-    BORDER_WAIT_LOCALE_PREFIX[locale],
-    BORDER_WAIT_SECTION[locale],
-    crossing,
-    BORDER_WAIT_TODAY_SLUG[locale],
-  ]);
+  return buildBorderWaitTodayPath(locale, crossing);
 }
 
 /** Root hub: /traffico-dogane/ etc. */

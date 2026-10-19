@@ -272,9 +272,22 @@ describe('orphan-pr-custodian — adozione di un 🔴 fuori scope (sito #9221/#9
 describe('orphan-pr-custodian — adozione di un conflitto fuori scope (#10555)', () => {
   const base = { checkRuns: [] as unknown[], reviews: [] as unknown[], comments: [] as unknown[], nowS: NOW_S };
 
-  it('adotta una PR umana in conflitto senza review: nessun hand-off la riapplicherebbe', () => {
-    expect(classifyOrphan({ ...base, pr: pr({ labels: ['has-conflicts', 'stale-review'] }) }).action)
-      .toBe('adopt-conflict');
+  it('ignora una label has-conflicts stale con stato fresco clean o unknown', () => {
+    for (const mergeableState of ['clean', 'unknown']) {
+      const decision = classifyOrphan({
+        ...base,
+        pr: pr({ labels: ['has-conflicts'], mergeableState }),
+      });
+      expect(decision.action).toBe('none');
+      expect(decision.reason).toContain(`mergeable_state=${mergeableState}`);
+    }
+  });
+
+  it('adotta solo con mergeable_state dirty letto ora', () => {
+    expect(classifyOrphan({
+      ...base,
+      pr: pr({ labels: ['has-conflicts', 'stale-review'], mergeableState: 'dirty' }),
+    }).action).toBe('adopt-conflict');
     expect(classifyOrphan({ ...base, pr: pr({ mergeableState: 'dirty' }) }).action).toBe('adopt-conflict');
   });
 
@@ -297,13 +310,14 @@ describe('orphan-pr-custodian — adozione di un conflitto fuori scope (#10555)'
       .toBe('adopt');
   });
 
-  it('applica solo le label di adozione, senza dispatch del 🔴-fixer', () => {
+  it('segnala il conflitto umano senza agent:autofix né hand-off autonomo', () => {
     const source = readFileSync(new URL('../scripts/ci/orphan-pr-custodian.mjs', import.meta.url), 'utf8');
     const branch = source.slice(
       source.indexOf("} else if (decision.action === 'adopt-conflict') {"),
       source.indexOf('    } else {', source.indexOf("} else if (decision.action === 'adopt-conflict') {")),
     );
-    expect(branch).toContain("'--add-label', AUTOFIX_LABEL, '--add-label', ORPHANED_LABEL");
+    expect(branch).toContain("'--add-label', ORPHANED_LABEL");
+    expect(branch).not.toContain('AUTOFIX_LABEL');
     expect(branch).not.toContain('pr-redflag-fixer.yml');
   });
 });

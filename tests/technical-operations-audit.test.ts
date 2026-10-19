@@ -335,6 +335,39 @@ describe('technical operations audit', () => {
     ]));
   });
 
+  it('non accredita una validazione disattivata da set +e se non e\u0300 guardata', () => {
+    const warningsFor = (runLines: string[]) => {
+      const source = [
+        'name: validation-errexit',
+        'on: [workflow_dispatch]',
+        'jobs:',
+        '  persist:',
+        '    runs-on: ubuntu-latest',
+        '    steps:',
+        '      - name: persist',
+        '        run: |',
+        ...runLines.map((line) => `          ${line}`),
+        '          git add data/result.json',
+        '          git commit -m result',
+      ].join('\n');
+      return auditWorkflowText('.github/workflows/validation-errexit.yml', source, { root: '/repo' })
+        .filter((item: any) => item.rule === 'workflow.data-write-without-check');
+    };
+    const validate = 'node scripts/ci/validate-workflow-data.mjs --kind example --file data/result.json';
+
+    expect(warningsFor(['set +e', validate])).toHaveLength(1);
+    expect(warningsFor([
+      'set +e',
+      `if ! ${validate}; then`,
+      '  echo "::error::validation failed"',
+      '  exit 1',
+      'fi',
+    ])).toEqual([]);
+    expect(warningsFor(['set +e', `${validate} || exit 1`])).toEqual([]);
+    expect(warningsFor(['set +e', `${validate} || { echo "validation failed"; exit 1; }`])).toEqual([]);
+    expect(warningsFor(['set -e', validate])).toEqual([]);
+  });
+
   it('non classifica una ricetta stampata come scrittura dati reale', () => {
     const source = [
       'name: recipe',

@@ -420,6 +420,10 @@ push_head() {
     git -c pack.window=0 -c pack.threads=1 push --no-thin --no-verify \
     origin "HEAD:${BRANCH}" 2>"$PUSH_STDERR_FILE" || status=$?
   cat -- "$PUSH_STDERR_FILE" >&2
+  if [ "$status" -ne 0 ] && grep -q 'MAIN_TREE_GUARD_FATAL:' "$PUSH_STDERR_FILE"; then
+    echo '::error::Guarded main push failed on an integrity or permanent remote error; refusing to retry or soft-fail.'
+    exit 1
+  fi
   return "$status"
 }
 until push_head; do

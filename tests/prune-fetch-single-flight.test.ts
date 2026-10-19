@@ -5,6 +5,7 @@ import path from 'node:path';
 
 import {
   withSingleFlightLock,
+  withSingleFlightLockAsync,
   isLockStale,
   isProcessAlive,
   STALE_LOCK_MS,
@@ -56,6 +57,28 @@ describe('withSingleFlightLock', () => {
     const res = withSingleFlightLock(lock, () => 'fatto');
 
     expect(res).toEqual({ acquired: true, value: 'fatto' });
+    expect(fs.existsSync(lock)).toBe(false);
+  });
+
+  it('mantiene il lock async finché il lavoro non si conclude', async () => {
+    const lock = path.join(tmpDir(), 'fetch-async.lock');
+    const work = withSingleFlightLockAsync(lock, async () => {
+      await new Promise((resolve) => setTimeout(resolve, 5));
+      return 'fatto';
+    });
+
+    expect(fs.existsSync(lock)).toBe(true);
+    await expect(withSingleFlightLockAsync(lock, async () => 'duplicato')).resolves.toEqual({ acquired: false });
+    await expect(work).resolves.toEqual({ acquired: true, value: 'fatto' });
+    expect(fs.existsSync(lock)).toBe(false);
+  });
+
+  it('rilascia il lock async anche se il lavoro rigetta', async () => {
+    const lock = path.join(tmpDir(), 'fetch-async-reject.lock');
+
+    await expect(withSingleFlightLockAsync(lock, async () => {
+      throw new Error('fetch async fallito');
+    })).rejects.toThrow('fetch async fallito');
     expect(fs.existsSync(lock)).toBe(false);
   });
 

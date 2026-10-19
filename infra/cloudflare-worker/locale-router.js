@@ -62,7 +62,9 @@
  *   their versioned release key comes from edge/sections/registry.json.
  */
 
+import { PHARMACY_DUTY_CITY_REDIRECTS } from '../../scripts/lib/pharmacySections.mjs';
 import { legacyTicinoTreeBucket, ticinoTreeBucket } from './ticino-tree-bucket.js';
+import { WEATHER_BORDER_LEGACY_REDIRECTS } from '../../scripts/lib/weather-border-links.mjs';
 
 // Named export for the same reason SECTION_ROUTES below carries one: the
 // Workers runtime only ever uses the default export, but scripts/lib/cf-worker-routes.mjs
@@ -1750,6 +1752,8 @@ export const EDGE_LEGACY_REDIRECTS = Object.freeze({
   '/grenzgaenger-artikel/': '/de/grenzgaenger-artikel/',
   '/trouver-emploi-tessin/': '/fr/trouver-emploi-tessin/', // cathedral-allow: legacy SEO redirect
   '/nav:pension/': '/tasse-e-pensione/calcola-previdenza/',
+  // Observed malformed internal marker; NAV_ACTION_ROUTES.health owns this tool.
+  '/nav:health/': '/compara-servizi/confronta-casse-malati/',
   // These two legacy SPA bridges were 200/noindex pages. Keep the same
   // destinations as legacyRedirectsPlugin, but expose the migration as a
   // real HTTP redirect so crawlers do not retain a noindex warning URL.
@@ -1765,8 +1769,8 @@ export const EDGE_LEGACY_REDIRECTS = Object.freeze({
   '/guida-frontaliere/comuni-di-frontiera/': '/vivere-in-ticino/comuni-di-frontiera/',
   '/vivere-in-ticino/vivere-in-svizzera/': '/vivere-in-ticino/',
   '/statistiche/traffico-dogane/': '/traffico-dogane/',
-  // Exact mixed-language URL observed in GSC; same crossing and live-day page.
-  '/en/border-traffic/gaggiolo/oggi/': '/en/border-wait/gaggiolo/today/',
+  // All exact legacy URLs emitted by the weather producer; same crossing/day.
+  ...WEATHER_BORDER_LEGACY_REDIRECTS,
   // Same attested event ID: its former TI fallback is now explicitly GR.
   '/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/': '/eventi/grigioni/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
   '/en/events/ticino/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/': '/en/events/graubunden/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
@@ -1811,7 +1815,9 @@ function lookupLegacyTable(pathname, table) {
  * makes the HTTP contract testable without relying on a live Cloudflare zone.
  */
 export function apexLegacyResponse(url) {
-  const redirect = lookupLegacyTable(url.pathname, EDGE_LEGACY_REDIRECTS);
+  // Domain-owned regional-duty aliases retain their own exact inventory.
+  const redirect = lookupLegacyTable(url.pathname, PHARMACY_DUTY_CITY_REDIRECTS)
+    ?? lookupLegacyTable(url.pathname, EDGE_LEGACY_REDIRECTS);
   if (redirect !== undefined) {
     return new Response(null, {
       status: 301,
@@ -2724,6 +2730,15 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     if (stale) return stale;
   }
 
+  // HEAD must resolve the same catalog-declared query and employer identities
+  // as GET, without reading or caching a response body. Other families stay unchanged.
+  if (request.method === 'HEAD' && (resp.status === 200 || resp.status === 404)) {
+    const queryRedirect = await recoverOrphanQueryAlias(url, origin, resp.status === 200);
+    if (queryRedirect) return queryRedirect;
+    const employerRedirect = await recoverEmployerProfileAlias(url, origin);
+    if (employerRedirect) return employerRedirect;
+  }
+
   // Stamp Cache-Control on successful GETs, and store an APEX-KEYED copy in the
   // colo cache for the over-cap/stale-if-error fail-open path. Body buffered ONCE
   // via arrayBuffer and reused — no clone()/stream tee (the #1791/#1814 deadlock
@@ -3044,7 +3059,7 @@ const router = {
       // cf caching opts: this passthrough must respect the zone's cache rules.
       try {
         const response = await fetchOriginWithRetry(url, request);
-        if (request.method === 'GET' && (response.status === 404 || response.status === 200)) {
+        if ((request.method === 'GET' || request.method === 'HEAD') && (response.status === 404 || response.status === 200)) {
           const redirect = await recoverOrphanQueryAlias(url, url.hostname, response.status === 200);
           if (redirect) return redirect;
           const employerRedirect = await recoverEmployerProfileAlias(url, url.hostname);

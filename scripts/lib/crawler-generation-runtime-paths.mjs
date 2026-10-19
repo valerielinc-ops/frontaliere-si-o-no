@@ -21,6 +21,7 @@ export const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
   'scripts/lib/canonical-json-digest.mjs',
   'scripts/lib/crawler-generation-contract.mjs',
   'scripts/lib/crawler-generation-group-ids.mjs',
+  'scripts/lib/crawler-generation-ledger.mjs',
   'scripts/lib/crawler-generation-receipt.mjs',
   'scripts/lib/crawler-generation-token.mjs',
   'scripts/lib/crawler-grace-policy.mjs',

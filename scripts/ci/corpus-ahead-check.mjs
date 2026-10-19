@@ -49,15 +49,13 @@ import { realpathSync } from 'node:fs';
  *     sovrascriverebbe il generatore che pubblica gli articoli con la nostra
  *     copia piu' vecchia, cioe' cancellerebbe esattamente le guardie che
  *     vogliamo ricevere.
- *  2. **La semantica di copia e' distruttiva.** Sia il mirror dell'engine
- *     (`rm -rf engine && cp -R`) sia `transport-generator-to-nanako.yml`
- *     (`rm -rf generator`, poi ricostruisce dal manifest) ricostruiscono la
- *     cartella da zero. Applicato a `generator/`, questo cancella i file che
- *     esistono SOLO di la': il manifest del corpus ne dichiara 21 come
- *     `corpus-only`, fra cui `generator/scripts/lib/topic-coverage-guard.mjs`
- *     — che e' la guardia di #120. Lo dice gia' in prosa l'intestazione di
- *     `apply-generator-rewire-to-nanako.yml`: «anything that exists ONLY on the
- *     nanako side is destroyed by the next transport».
+ *  2. **La semantica di copia deve rispettare la proprieta'.** Il mirror
+ *     dell'engine (`rm -rf engine && cp -R`) ricostruisce la propria superficie
+ *     perche' quella directory e' interamente site-owned. `generator/`, invece,
+ *     contiene anche file corpus-only: il transport li preserva e sovrappone
+ *     soltanto il manifest site-owned. Altrimenti una nuova side branch basata
+ *     sul default branch del corpus cancellerebbe, per esempio,
+ *     `generator/scripts/lib/topic-coverage-guard.mjs`, la guardia di #120.
  *
  * `engine/` e' copiabile perche' `tests/packages-articles-confinement.test.ts`
  * dimostra via AST che non importa nulla fuori da se'. Per `generator/` non

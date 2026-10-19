@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 634,
+      "5": 639,
       "6": 5054
     },
-    "publishedCovers": 7371,
+    "publishedCovers": 7376,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -199998,6 +199998,171 @@
       "provider": null,
       "currentlyPublished": true,
       "status": "no-credit"
+    },
+    "article-cassano-indagine-schianto": {
+      "cover": "/images/blog/article-cassano-indagine-schianto.webp",
+      "hash": "de353dc389c5edaad431e11a220265dcc776983d2173190d4f19d0037bdab278",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "cassano-indagine-schianto",
+          "category": "novita",
+          "date": "2026-10-18T13:16:46.765Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cassano-indagine-schianto.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-18",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cassano-indagine-schianto",
+        "imageUrl": "/images/blog/article-cassano-indagine-schianto.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-ffs-binari-deformazioni-canicola-2024": {
+      "cover": "/images/blog/article-ffs-binari-deformazioni-canicola-2024.webp",
+      "hash": "5d4cdfce317a6243ca7893a43bf9cba9da7b2c90d2cecd9abf5164fd1427d549",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ffs-binari-deformazioni-canicola-2024",
+          "category": "novita",
+          "date": "2026-10-18T13:36:39.650Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ffs-binari-deformazioni-canicola-2024.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-18",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-ffs-binari-deformazioni-canicola-2024",
+        "imageUrl": "/images/blog/article-ffs-binari-deformazioni-canicola-2024.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-live-arconatese-varese-caronno": {
+      "cover": "/images/blog/article-live-arconatese-varese-caronno.webp",
+      "hash": "262db7fa6f4e8048e01bfd76d4523a18a211d6f8f87441d4d4bfd28bc26535b4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "live-arconatese-varese-caronno",
+          "category": "novita",
+          "date": "2026-10-18T15:47:28.124Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-live-arconatese-varese-caronno.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-18",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-live-arconatese-varese-caronno",
+        "imageUrl": "/images/blog/article-live-arconatese-varese-caronno.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso": {
+      "cover": "/images/blog/article-ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.webp",
+      "hash": "0d847b335e4c7b1da9e391fd58175a73a447d314681bcaa987898954a812865e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso",
+          "category": "novita",
+          "date": "2026-10-18T17:36:19.429Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-18",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso",
+        "imageUrl": "/images/blog/article-ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-riniker-governo-argovia": {
+      "cover": "/images/blog/article-riniker-governo-argovia.webp",
+      "hash": "29a1e53685d8e4e76725759c866940bc23f81279206b14fe3500e073b2a21eff",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "riniker-governo-argovia",
+          "category": "novita",
+          "date": "2026-10-18T16:09:14.829Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-riniker-governo-argovia.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-18",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-riniker-governo-argovia",
+        "imageUrl": "/images/blog/article-riniker-governo-argovia.webp",
+        "evidence": "generated-engine-record"
+      }
     }
   },
   "repair": {

@@ -33,6 +33,7 @@ function fixture() {
     campaign_deliveries: [
       row('job_alert_subscribers/user@example.com/campaign_deliveries/inactive', {
         campaign_id: 'inactive',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-03T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -46,6 +47,7 @@ function fixture() {
       // La finestra REST deve escludere questo documento.
       row('job_alert_subscribers/user@example.com/campaign_deliveries/old', {
         campaign_id: 'inactive',
+        ranking_delivery_id: `jer_job_alert_${'b'.repeat(24)}`,
         sent_at: '2026-09-01T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -53,6 +55,12 @@ function fixture() {
         consent_checked_at: '2026-09-01T08:59:00.000Z',
         outcome_contract_version: 1,
         delivered_at: '2026-09-01T09:01:00.000Z',
+      }),
+      // La collection group contiene anche consegne newsletter, ignorate dal
+      // ledger L4 e quindi escluse direttamente dalla query.
+      row('newsletter_subscribers/l4-fixture/campaign_deliveries/newsletter', {
+        campaign_id: 'weekly_2026-09-03',
+        sent_at: '2026-09-03T09:00:00.000Z',
       }),
     ],
     events: [
@@ -94,8 +102,11 @@ function fakeRestClient(data: ReturnType<typeof fixture>, calls: Array<Record<st
           return Number.isFinite(value) && value >= start;
         })
         : source;
+      const scoped = query.pathPrefix
+        ? inWindow.filter((item) => item.name.split(`${ROOT}/`)[1]?.startsWith(`${query.pathPrefix}/`))
+        : inWindow;
       const selected = new Set(query.fieldPaths || []);
-      return inWindow.map((item) => ({
+      return scoped.map((item) => ({
         ...item,
         data: Object.fromEntries(Object.entries(item.data).filter(([field]) => selected.has(field))),
       }));
@@ -251,13 +262,17 @@ describe('L4: query Firestore', () => {
       expect(byCollection.alerts.where).toBeUndefined();
       expect(byCollection.job_alert_subscribers.where).toBeUndefined();
       expect(byCollection.newsletter_subscribers.where).toBeUndefined();
+      expect(byCollection.campaign_deliveries.pathPrefix).toBe('job_alert_subscribers');
       expect(timestampFilter(byCollection.campaign_deliveries)).toEqual({
         field: 'sent_at',
         value: '2026-09-02T12:00:00.000Z',
       });
+      // The first delivery in the rolling window may carry a consent check
+      // up to 20 minutes earlier. Stop evidence must cover that whole
+      // filter-to-send interval, not start at the delivery boundary.
       expect(timestampFilter(byCollection.events)).toEqual({
         field: 'timestamp',
-        value: '2026-09-02T12:00:00.000Z',
+        value: '2026-09-02T11:40:00.000Z',
       });
       expect(byCollection.events.fieldPaths).toEqual(expect.arrayContaining([
         'event_type', 'eventType', 'message_id', 'messageId', 'timestamp',

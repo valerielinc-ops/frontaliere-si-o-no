@@ -5,6 +5,7 @@ import {
   type BorderCrossingSlug,
   type BorderWaitLocale,
 } from '../borderWaitData';
+import { WEATHER_BORDER_LEGACY_REDIRECTS } from '../../scripts/lib/weather-border-links.mjs';
 
 /**
  * The four legacy guide roots that were actually emitted in the static
@@ -32,7 +33,7 @@ const LEGACY_CROSSING_SLUG_ALIASES: Readonly<Record<string, BorderCrossingSlug>>
 
 /** Observed compatibility URLs outside the four sitemap roots. */
 const OBSERVED_LEGACY_REDIRECTS: Readonly<Record<string, string>> = {
-  '/en/border-traffic/gaggiolo/oggi/': buildOggiPath('en', 'gaggiolo'),
+  ...WEATHER_BORDER_LEGACY_REDIRECTS,
   '/tempi-attesa-confine/chiasso-brogeda/': buildOggiPath('it', 'chiasso-brogeda'),
   '/traffico-dogane/campione-ditalia-bissone/oggi/': buildOggiPath('it', 'campione-d-italia-bissone'),
   '/traffico-dogane/lanzo-dintelvi-arogno/oggi/': buildOggiPath('it', 'lanzo-d-intelvi-arogno'),
@@ -66,11 +67,13 @@ export function buildBorderWaitLegacyRedirects(): Map<string, string> {
 export const BORDER_WAIT_LEGACY_REDIRECTS = buildBorderWaitLegacyRedirects();
 
 const LEGACY_BORDER_WAIT_LINK_RE = /\/(?:guida-frontaliere\/tempi-attesa-dogana|en\/cross-border-guide\/border-waiting-times|de\/grenzgaenger-ratgeber\/wartezeiten-grenze|fr\/guide-frontalier\/temps-attente-douane)(?:\/[^/"'<>?#]+)?\/?/g;
+const WEATHER_BORDER_WAIT_LINK_RE = /\/(?:en\/border-traffic|de\/grenze-verkehr|fr\/trafic-frontalier)\/[^/"'<>?#\s]+\/oggi\/?(?=[?#"'<>\s]|$)/g;
 
 /** Rewrite old border-wait links embedded in generated editorial HTML. */
 export function canonicalizeBorderWaitLinks(value: string): string {
-  return value.replace(LEGACY_BORDER_WAIT_LINK_RE, (match) => {
+  const rewrite = (match: string): string => {
     const normalized = `${match.replace(/\/+$/, '')}/`;
     return BORDER_WAIT_LEGACY_REDIRECTS.get(normalized) ?? match;
-  });
+  };
+  return value.replace(LEGACY_BORDER_WAIT_LINK_RE, rewrite).replace(WEATHER_BORDER_WAIT_LINK_RE, rewrite);
 }

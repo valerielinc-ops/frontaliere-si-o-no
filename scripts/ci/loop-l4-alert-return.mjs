@@ -6,7 +6,12 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { LOOP_STATE_AWAITING_SAMPLE, reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
+import {
+  LOOP_OK_STREAK,
+  LOOP_STATE_AWAITING_SAMPLE,
+  reportLoopIssue,
+  resolveLoopIssue,
+} from '../lib/loop-fleet-issue.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   actionClassForPolicy,
@@ -420,6 +425,8 @@ function writeActions(reportDir, verdict, now, candidatePolicy) {
 function writeResult(reportDir, { verdict, issued, actionsWritten }) {
   if (!reportDir) return null;
   const file = path.join(path.resolve(reportDir), 'l4-result.json');
+  const outcomes = verdict.snapshot?.outcomes || {};
+  const exportEvidence = outcomes.export || {};
   fs.writeFileSync(file, `${JSON.stringify({
     loopId: LOOP_ID,
     ok: verdict.ok,
@@ -428,6 +435,21 @@ function writeResult(reportDir, { verdict, issued, actionsWritten }) {
     warningCount: verdict.warnings.length,
     issued,
     actionsWritten,
+    evidence: {
+      generatedAt: outcomes.generatedAt ?? null,
+      deliveryRows: exportEvidence.deliveryRows ?? null,
+      consentChecked: exportEvidence.consentChecked === true,
+      deduplicationChecked: exportEvidence.deduplicationChecked === true,
+      unattributedDeliveries: exportEvidence.unattributedDeliveries ?? null,
+      consentViolations: outcomes.consentViolations ?? null,
+      duplicateSends: outcomes.duplicateSends ?? null,
+      returnMeasurementStatus: exportEvidence.returnMeasurement?.status ?? null,
+    },
+    closureCriterion: {
+      event: 'schedule',
+      consecutiveOkRuns: LOOP_OK_STREAK,
+      nonScheduleRunsAdvanceStreak: false,
+    },
   }, null, 2)}\n`);
   return file;
 }
