@@ -112199,7 +112199,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-progettista-elettrico-ticino.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Progettista elettrico al lavoro in un ufficio con vista sul Ticino"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-19T12:59:22+00:00",
       "dateModified": "2026-10-19T12:59:22+00:00",

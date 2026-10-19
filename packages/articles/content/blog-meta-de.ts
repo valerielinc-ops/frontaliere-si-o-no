@@ -13511,7 +13511,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riqualifica-aliquote-frontalieri-2026.imageAlt': 'Grenzgänger prüft Unterlagen zur beruflichen Weiterbildung im Tessin.',
     'blog.article.progettista-elettrico-ticino.title': 'Elektroplaner als Grenzgänger: Steuern und Bewilligung G',
     'blog.article.progettista-elettrico-ticino.excerpt': 'Für den Elektroplaner als Grenzgänger im Tessin: Abkommen seit dem 1.',
-    'blog.article.progettista-elettrico-ticino.imageAlt': 'Elektroplaner bei der Arbeit in einem Büro mit Blick auf das Tessin',
+    'blog.article.progettista-elettrico-ticino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.evento-for-matching-varese-2026.title': 'Varese: die Veranstaltung For Matching am 22. Oktober 2026',
     'blog.article.evento-for-matching-varese-2026.excerpt': '22. Oktober 2026: for MATCHING in Varese Von 9.00 bis 12.30 Uhr in den Ville Ponti Neuer Bericht über den Arbeitsmarkt in Varese Daten, Unternehmenskrisen und Runder Tisch',
     'blog.article.evento-for-matching-varese-2026.imageAlt': 'Illustratives Bild zum Thema des Artikels',

@@ -13512,7 +13512,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riqualifica-aliquote-frontalieri-2026.imageAlt': 'Cross-border worker studies professional training documents in Ticino.',
     'blog.article.progettista-elettrico-ticino.title': 'Cross-border electrical designer: taxes and G permit',
     'blog.article.progettista-elettrico-ticino.excerpt': 'For the cross-border electrical designer in Ticino: agreement in force as of January 1, 2024, withholding tax only in Switzerland and different allowances.',
-    'blog.article.progettista-elettrico-ticino.imageAlt': 'Electrical designer working in an office overlooking Ticino',
+    'blog.article.progettista-elettrico-ticino.imageAlt': 'Illustrative image relevant to the article topic',
     'blog.article.evento-for-matching-varese-2026.title': 'Varese: on October 22, 2026, the For Matching event',
     'blog.article.evento-for-matching-varese-2026.excerpt': 'October 22, 2026: for MATCHING at Varese From 9.00 to 12.30 at Ville Ponti New report on the Varese labor market Data, company crises and roundtable',
     'blog.article.evento-for-matching-varese-2026.imageAlt': 'Illustrative image relevant to the article topic',

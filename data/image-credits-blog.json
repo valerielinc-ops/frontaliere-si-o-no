@@ -58897,80 +58897,6 @@
         }
       }
     },
-    "generated:article-evento-for-matching-varese-2026": {
-      "source": "generated-provider",
-      "commons": {
-        "title": "Generated editorial illustration",
-        "pageUrl": "https://openai.com/policies/terms-of-use/",
-        "width": 1200,
-        "height": 675,
-        "revision": "2026-10-19T13:21:05.785Z"
-      },
-      "author": {
-        "text": "frontaliereticino.ch",
-        "name": "frontaliereticino.ch",
-        "url": null,
-        "type": "Organization"
-      },
-      "attribution": null,
-      "licence": {
-        "name": "Generated media — provider terms apply",
-        "family": "other-attribution",
-        "attributionRequired": true,
-        "url": "https://openai.com/policies/terms-of-use/"
-      },
-      "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
-      ],
-      "fetchedAt": "2026-10-19",
-      "generated": {
-        "schema": 1,
-        "assetId": "article-evento-for-matching-varese-2026",
-        "kind": "generated",
-        "provider": "openai-codex",
-        "model": "gpt-image-2.5",
-        "executorModel": "gpt-5.6-luna",
-        "promptVersion": "frontaliereticino.generated-image-policy.v1",
-        "promptHash": "12ea38de53f096a303bbbd2d3e23fdd54f98bb5588e66a3bf5236047896da3f6",
-        "license": "generated-provider",
-        "licenseUrl": "https://openai.com/policies/terms-of-use/",
-        "credit": "frontaliereticino.ch",
-        "sha256": "4b6178abb95684786cf2e919346f860b29048ac6717d8f839aa0347e9563e6f7",
-        "bytes": 106614,
-        "width": 1200,
-        "height": 675,
-        "format": "webp",
-        "generatedAt": "2026-10-19T13:21:05.785Z",
-        "verifiedAt": "2026-10-19T13:21:13.511Z",
-        "restrictions": [
-          "illustrative-only",
-          "no-real-recognizable-foreground-person",
-          "no-public-figure-face",
-          "no-logo-brand-or-text",
-          "no-specific-real-event-photojournalism"
-        ],
-        "scope": "article-hero",
-        "imageUrl": "/images/blog/article-evento-for-matching-varese-2026.webp",
-        "area": "Ticino e pendolarismo transfrontaliero",
-        "season": "all seasons",
-        "variant": "article hero",
-        "vision": {
-          "ok": true,
-          "contains_text": false,
-          "contains_logo": false,
-          "contains_recognizable_face": false,
-          "contains_recognizable_foreground_person": false,
-          "looks_like_specific_real_event": false,
-          "is_photograph": false,
-          "is_topic_relevant": true,
-          "notes": "Generic synthetic, photorealistic conference-room illustration; no people, text, logos, signage, watermark, or identifiable event details."
-        }
-      }
-    },
     "generated:article-impatto-glp1-industria-alimentare": {
       "source": "generated-provider",
       "commons": {
@@ -59116,154 +59042,6 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Original generic synthetic photorealistic alpine roadwork illustration with no readable text, logos, people, or identifiable real event."
-        }
-      }
-    },
-    "generated:article-lenu-referendum-firme-valide": {
-      "source": "generated-provider",
-      "commons": {
-        "title": "Generated editorial illustration",
-        "pageUrl": "https://openai.com/policies/terms-of-use/",
-        "width": 1200,
-        "height": 675,
-        "revision": "2026-10-19T12:13:16.168Z"
-      },
-      "author": {
-        "text": "frontaliereticino.ch",
-        "name": "frontaliereticino.ch",
-        "url": null,
-        "type": "Organization"
-      },
-      "attribution": null,
-      "licence": {
-        "name": "Generated media — provider terms apply",
-        "family": "other-attribution",
-        "attributionRequired": true,
-        "url": "https://openai.com/policies/terms-of-use/"
-      },
-      "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
-      ],
-      "fetchedAt": "2026-10-19",
-      "generated": {
-        "schema": 1,
-        "assetId": "article-lenu-referendum-firme-valide",
-        "kind": "generated",
-        "provider": "openai-codex",
-        "model": "gpt-image-2.5",
-        "executorModel": "gpt-5.6-luna",
-        "promptVersion": "frontaliereticino.generated-image-policy.v1",
-        "promptHash": "40db11247038b6a779e74cb1b6f93387d5b4adf408e9bc04f879ce70a2daf951",
-        "license": "generated-provider",
-        "licenseUrl": "https://openai.com/policies/terms-of-use/",
-        "credit": "frontaliereticino.ch",
-        "sha256": "64e905908db299dca44587fc2a64cf8f233c0da8a9e44cc8e2b379075e800dd6",
-        "bytes": 146874,
-        "width": 1200,
-        "height": 675,
-        "format": "webp",
-        "generatedAt": "2026-10-19T12:13:16.168Z",
-        "verifiedAt": "2026-10-19T12:13:25.568Z",
-        "restrictions": [
-          "illustrative-only",
-          "no-real-recognizable-foreground-person",
-          "no-public-figure-face",
-          "no-logo-brand-or-text",
-          "no-specific-real-event-photojournalism"
-        ],
-        "scope": "article-hero",
-        "imageUrl": "/images/blog/article-lenu-referendum-firme-valide.webp",
-        "area": "Svizzera",
-        "season": "all seasons",
-        "variant": "article hero",
-        "vision": {
-          "ok": true,
-          "contains_text": false,
-          "contains_logo": false,
-          "contains_recognizable_face": false,
-          "contains_recognizable_foreground_person": false,
-          "looks_like_specific_real_event": false,
-          "is_photograph": false,
-          "is_topic_relevant": true,
-          "notes": "Generic synthetic editorial illustration of an administrative building and referendum document folder; no readable text, logos, people, or event-specific cues."
-        }
-      }
-    },
-    "generated:article-progettista-elettrico-ticino": {
-      "source": "generated-provider",
-      "commons": {
-        "title": "Generated editorial illustration",
-        "pageUrl": "https://openai.com/policies/terms-of-use/",
-        "width": 1200,
-        "height": 675,
-        "revision": "2026-10-19T12:59:12.124Z"
-      },
-      "author": {
-        "text": "frontaliereticino.ch",
-        "name": "frontaliereticino.ch",
-        "url": null,
-        "type": "Organization"
-      },
-      "attribution": null,
-      "licence": {
-        "name": "Generated media — provider terms apply",
-        "family": "other-attribution",
-        "attributionRequired": true,
-        "url": "https://openai.com/policies/terms-of-use/"
-      },
-      "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
-      ],
-      "fetchedAt": "2026-10-19",
-      "generated": {
-        "schema": 1,
-        "assetId": "article-progettista-elettrico-ticino",
-        "kind": "generated",
-        "provider": "openai-codex",
-        "model": "gpt-image-2.5",
-        "executorModel": "gpt-5.6-luna",
-        "promptVersion": "frontaliereticino.generated-image-policy.v1",
-        "promptHash": "072a64705d41c082b64f19802ecc2c88dd001012d335a8521f03e9afcd1283e5",
-        "license": "generated-provider",
-        "licenseUrl": "https://openai.com/policies/terms-of-use/",
-        "credit": "frontaliereticino.ch",
-        "sha256": "995df44d2ee7a0273d307556c539858488170cc57f17a0cb2f1e14644aba2e5e",
-        "bytes": 58870,
-        "width": 1200,
-        "height": 675,
-        "format": "webp",
-        "generatedAt": "2026-10-19T12:59:12.124Z",
-        "verifiedAt": "2026-10-19T12:59:21.736Z",
-        "restrictions": [
-          "illustrative-only",
-          "no-real-recognizable-foreground-person",
-          "no-public-figure-face",
-          "no-logo-brand-or-text",
-          "no-specific-real-event-photojournalism"
-        ],
-        "scope": "article-hero",
-        "imageUrl": "/images/blog/article-progettista-elettrico-ticino.webp",
-        "area": "Ticino e pendolarismo transfrontaliero",
-        "season": "all seasons",
-        "variant": "article hero",
-        "vision": {
-          "ok": true,
-          "contains_text": false,
-          "contains_logo": false,
-          "contains_recognizable_face": false,
-          "contains_recognizable_foreground_person": false,
-          "looks_like_specific_real_event": false,
-          "is_photograph": false,
-          "is_topic_relevant": true,
-          "notes": "Generic synthetic editorial illustration; no readable text, logos, or identifiable person. Relevant to an electrical designer in Ticino."
         }
       }
     },
@@ -59415,80 +59193,6 @@
         }
       }
     },
-    "generated:article-status-s-san-gallo-assistenza": {
-      "source": "generated-provider",
-      "commons": {
-        "title": "Generated editorial illustration",
-        "pageUrl": "https://openai.com/policies/terms-of-use/",
-        "width": 1200,
-        "height": 675,
-        "revision": "2026-10-19T12:49:29.429Z"
-      },
-      "author": {
-        "text": "frontaliereticino.ch",
-        "name": "frontaliereticino.ch",
-        "url": null,
-        "type": "Organization"
-      },
-      "attribution": null,
-      "licence": {
-        "name": "Generated media — provider terms apply",
-        "family": "other-attribution",
-        "attributionRequired": true,
-        "url": "https://openai.com/policies/terms-of-use/"
-      },
-      "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
-      ],
-      "fetchedAt": "2026-10-19",
-      "generated": {
-        "schema": 1,
-        "assetId": "article-status-s-san-gallo-assistenza",
-        "kind": "generated",
-        "provider": "openai-codex",
-        "model": "gpt-image-2.5",
-        "executorModel": "gpt-5.6-luna",
-        "promptVersion": "frontaliereticino.generated-image-policy.v1",
-        "promptHash": "a27b45e73c4420ec42a8ab9d4853fd60ea2deff830d89abc6a3e03fa206d67dd",
-        "license": "generated-provider",
-        "licenseUrl": "https://openai.com/policies/terms-of-use/",
-        "credit": "frontaliereticino.ch",
-        "sha256": "6b7ca19a143a2399468bf4616071195ab5ce6fbe9ed1087d5cce3a76ac5dfbe3",
-        "bytes": 157658,
-        "width": 1200,
-        "height": 675,
-        "format": "webp",
-        "generatedAt": "2026-10-19T12:49:29.429Z",
-        "verifiedAt": "2026-10-19T12:49:37.765Z",
-        "restrictions": [
-          "illustrative-only",
-          "no-real-recognizable-foreground-person",
-          "no-public-figure-face",
-          "no-logo-brand-or-text",
-          "no-specific-real-event-photojournalism"
-        ],
-        "scope": "article-hero",
-        "imageUrl": "/images/blog/article-status-s-san-gallo-assistenza.webp",
-        "area": "Swiss border region",
-        "season": "all seasons",
-        "variant": "article hero",
-        "vision": {
-          "ok": true,
-          "contains_text": false,
-          "contains_logo": false,
-          "contains_recognizable_face": false,
-          "contains_recognizable_foreground_person": false,
-          "looks_like_specific_real_event": false,
-          "is_photograph": false,
-          "is_topic_relevant": true,
-          "notes": "Original synthetic architectural illustration of a St. Gallen cantonal parliament building; no people, text, logos, or event depiction."
-        }
-      }
-    },
     "generated:article-ustat-manutenzione-chiusura": {
       "source": "generated-provider",
       "commons": {
@@ -59560,6 +59264,302 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Generic synthetic photorealistic illustration of an administrative office entrance; no text, logos, or people."
+        }
+      }
+    },
+    "generated:article-evento-for-matching-varese-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T13:21:05.785Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-evento-for-matching-varese-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "12ea38de53f096a303bbbd2d3e23fdd54f98bb5588e66a3bf5236047896da3f6",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "4b6178abb95684786cf2e919346f860b29048ac6717d8f839aa0347e9563e6f7",
+        "bytes": 106614,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T13:21:05.785Z",
+        "verifiedAt": "2026-10-19T13:21:13.511Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-evento-for-matching-varese-2026.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic, photorealistic conference-room illustration; no people, text, logos, signage, watermark, or identifiable event details."
+        }
+      }
+    },
+    "generated:article-lenu-referendum-firme-valide": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T12:13:16.168Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-lenu-referendum-firme-valide",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "40db11247038b6a779e74cb1b6f93387d5b4adf408e9bc04f879ce70a2daf951",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "64e905908db299dca44587fc2a64cf8f233c0da8a9e44cc8e2b379075e800dd6",
+        "bytes": 146874,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T12:13:16.168Z",
+        "verifiedAt": "2026-10-19T12:13:25.568Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-lenu-referendum-firme-valide.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of an administrative building and referendum document folder; no readable text, logos, people, or event-specific cues."
+        }
+      }
+    },
+    "generated:article-progettista-elettrico-ticino": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T12:59:12.124Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-progettista-elettrico-ticino",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "072a64705d41c082b64f19802ecc2c88dd001012d335a8521f03e9afcd1283e5",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "995df44d2ee7a0273d307556c539858488170cc57f17a0cb2f1e14644aba2e5e",
+        "bytes": 58870,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T12:59:12.124Z",
+        "verifiedAt": "2026-10-19T12:59:21.736Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-progettista-elettrico-ticino.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration; no readable text, logos, or identifiable person. Relevant to an electrical designer in Ticino."
+        }
+      }
+    },
+    "generated:article-status-s-san-gallo-assistenza": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T12:49:29.429Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-status-s-san-gallo-assistenza",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "a27b45e73c4420ec42a8ab9d4853fd60ea2deff830d89abc6a3e03fa206d67dd",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "6b7ca19a143a2399468bf4616071195ab5ce6fbe9ed1087d5cce3a76ac5dfbe3",
+        "bytes": 157658,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T12:49:29.429Z",
+        "verifiedAt": "2026-10-19T12:49:37.765Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-status-s-san-gallo-assistenza.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original synthetic architectural illustration of a St. Gallen cantonal parliament building; no people, text, logos, or event depiction."
         }
       }
     },
@@ -99233,24 +99233,12 @@
       "file": "generated:article-campagna-fisco-coppie-sposate",
       "modified": "resized"
     },
-    "article-evento-for-matching-varese-2026": {
-      "file": "generated:article-evento-for-matching-varese-2026",
-      "modified": "resized"
-    },
     "article-impatto-glp1-industria-alimentare": {
       "file": "generated:article-impatto-glp1-industria-alimentare",
       "modified": "resized"
     },
     "article-kloentalerstrasse-cantiere-2026": {
       "file": "generated:article-kloentalerstrasse-cantiere-2026",
-      "modified": "resized"
-    },
-    "article-lenu-referendum-firme-valide": {
-      "file": "generated:article-lenu-referendum-firme-valide",
-      "modified": "resized"
-    },
-    "article-progettista-elettrico-ticino": {
-      "file": "generated:article-progettista-elettrico-ticino",
       "modified": "resized"
     },
     "article-pulizie-tunnel-sciaffusa": {
@@ -99261,12 +99249,24 @@
       "file": "generated:article-sondaggio-imprese-st-gallen-2026",
       "modified": "resized"
     },
-    "article-status-s-san-gallo-assistenza": {
-      "file": "generated:article-status-s-san-gallo-assistenza",
-      "modified": "resized"
-    },
     "article-ustat-manutenzione-chiusura": {
       "file": "generated:article-ustat-manutenzione-chiusura",
+      "modified": "resized"
+    },
+    "article-evento-for-matching-varese-2026": {
+      "file": "generated:article-evento-for-matching-varese-2026",
+      "modified": "resized"
+    },
+    "article-lenu-referendum-firme-valide": {
+      "file": "generated:article-lenu-referendum-firme-valide",
+      "modified": "resized"
+    },
+    "article-progettista-elettrico-ticino": {
+      "file": "generated:article-progettista-elettrico-ticino",
+      "modified": "resized"
+    },
+    "article-status-s-san-gallo-assistenza": {
+      "file": "generated:article-status-s-san-gallo-assistenza",
       "modified": "resized"
     },
     "article-voto-bahnhofplatz-wil-2026": {

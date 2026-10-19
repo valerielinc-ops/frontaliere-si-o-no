@@ -13514,7 +13514,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riqualifica-aliquote-frontalieri-2026.imageAlt': 'Un frontalier consulte des documents de formation professionnelle au Tessin.',
     'blog.article.progettista-elettrico-ticino.title': 'Concepteur électrique frontalier : impôts et permis G',
     'blog.article.progettista-elettrico-ticino.excerpt': 'Pour le concepteur électrique frontalier au Tessin : accord en vigueur depuis le 1er janvier 2024, impôt à la source uniquement en Suisse et franchises différentes.',
-    'blog.article.progettista-elettrico-ticino.imageAlt': 'Projeteur électrique au travail dans un bureau donnant sur le Tessin',
+    'blog.article.progettista-elettrico-ticino.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.evento-for-matching-varese-2026.title': 'Varese : le 22 octobre 2026, l’événement For Matching',
     'blog.article.evento-for-matching-varese-2026.excerpt': '22 octobre 2026 : for MATCHING à Varese De 9.00 à 12.30 au Centre des congrès Ville Ponti Nouveau rapport sur le marché du travail de Varese Données, crises d’entreprise et table',
     'blog.article.evento-for-matching-varese-2026.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
