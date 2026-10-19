@@ -569,6 +569,26 @@ describe('submit mode', () => {
     expect(ctx.files.cv).toMatch(/CV_Maria_Luisa_Rossi\.pdf$/);
   });
 
+  it('passes the selected posting URL alongside a SuccessFactors apply URL', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const applyUrl = 'https://jobs.six-group.com/talentcommunity/apply/1448418433/?locale=en_US';
+    const postingUrl = 'https://jobs.six-group.com/job/Zurich-Senior-IT-Manager/1448418433/';
+    const portalDraft = {
+      ...baseDraft,
+      job: { title: 'Senior IT Manager - CIO Office', applyUrl },
+      channel: { type: 'successfactors', applyUrl, host: 'jobs.six-group.com', requiresAccount: false },
+    };
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+    await submitApplication({
+      order: { ...order, jobUrl: postingUrl }, orderId: ORDER_ID, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      flow: { answers: { salary_expectation: 'CHF 80k' } },
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+
+    expect(runner).toHaveBeenCalledWith(expect.objectContaining({ applyUrl, postingUrl }));
+  });
+
   it('resolves a required portal age question from the CV before the submit gate', async () => {
     const bucket = fakeBucket();
     await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));

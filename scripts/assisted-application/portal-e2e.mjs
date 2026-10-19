@@ -20,7 +20,7 @@ import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { launchChromium } from '../lib/ensure-chromium.mjs';
-import { acceptPrivacyStatement, submitViaPortal } from './lib/portal/portal.mjs';
+import { acceptPrivacyStatement, readPortalRequirements, submitViaPortal } from './lib/portal/portal.mjs';
 import { aiSnapshot, runAction } from './lib/portal/agent.mjs';
 import { extractFields } from './lib/portal/fields.mjs';
 import { applyActions } from './lib/portal/fill.mjs';
@@ -38,7 +38,7 @@ const UMANTIS_CLOSED_FORM = '/Vacancies/718/Application/New/2';
 const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:${server.address().port}`;
 
 function fakePortal() {
-  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
+  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
   const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, flaky: false, cookieManager: '' };
   // umantis, 2026-10-03: the application form itself asks for the account's password.
@@ -279,6 +279,25 @@ function fakePortal() {
     const send = (html) => { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); res.end(html); };
     const redirect = (to, headers = {}) => { res.writeHead(303, { location: to, ...headers }); res.end(); };
     const route = `${req.method} ${url.pathname}`;
+    // SIX's SuccessFactors route: a cold direct apply URL falls back to the
+    // generic career page. Visiting the matching posting first sets the site
+    // cookie, and its own Apply link opens the actual application form.
+    if (route === 'GET /job/Zurich-Senior-IT-Manager/1448418433/') {
+      state.sixPostingViews += 1;
+      res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'set-cookie': 'sixPostingSeen=1; Path=/' });
+      return res.end(page('Senior IT Manager - CIO Office | SIX', '<h1>Senior IT Manager - CIO Office</h1><p>SIX Group</p><a href="/talentcommunity/apply/1448418433/?locale=en_US">Apply now »</a>'));
+    }
+    if (route === 'GET /talentcommunity/apply/1448418433/') {
+      if (!/sixPostingSeen=1/.test(req.headers.cookie || '')) return redirect('/careers.html');
+      return send(page('Career Opportunities: Senior IT Manager - CIO Office (8299)', `<h1>Senior IT Manager - CIO Office (8299)</h1><p>SIX Group</p>
+        ${form('/six/submit', '<label for="first">First Name *</label><input id="first" name="first" required><label for="email">Email Address *</label><input id="email" name="email" type="email" required><label for="cv">Resume / CV *</label><input id="cv" name="cv" type="file" required><label for="workload">What is your preferred workload? *</label><input id="workload" name="workload" required><button type="submit">Submit application</button>', true)}`));
+    }
+    if (route === 'GET /careers.html') return send(page('Career Opportunities | SIX', '<h1>Finde deinen Traumjob</h1><label for="search">Suche</label><input id="search" name="search"><button type="button">Finden</button>'));
+    if (route === 'POST /six/submit') {
+      const body = await readBody(req);
+      state.sixApplications.push({ workload: /name="workload"\r\n\r\n80%/.test(body) });
+      return send(page('Application received', '<h1>Thank you for your application</h1>'));
+    }
     if (route === 'GET /job') return send(page('Pflegefachperson', '<h1>Pflegefachperson 80%</h1><a href="/login">Jetzt bewerben</a>'));
     // jobs.coopjobs.ch as seen on 2026-10-02: «Später bewerben» (a bookmark by
     // e-mail) comes first, a Usercentrics banner in a shadow root covers the
@@ -735,6 +754,10 @@ async function fakeCodex({ prompt }) {
     if (/^institution\b/i.test(field.label)) return act('fill', education.institution || '', { source: 'profile' });
     if (/^start date\b/i.test(field.label)) return act('fill', experience.start || education.start || '', { source: 'profile' });
     if (/^end date\b/i.test(field.label)) return act('fill', experience.end || education.end || '', { source: 'profile' });
+    if (/preferred workload/i.test(field.label)) {
+      const answer = candidate?.portalQuestionsAnswered?.find((item) => /preferred workload/i.test(item.question || ''))?.answer || '';
+      return act('fill', answer, { source: 'answers' });
+    }
     if (/e-?mail/i.test(field.label)) return act('fill', ALIAS);
     if (/datenschutz|privacy policy/i.test(field.label)) return act('check', '', { source: 'consent' });
     if (/vermittlungsb/i.test(field.label)) return act('select', 'Ja', { source: 'rule' });
@@ -1004,6 +1027,34 @@ async function main() {
     state.unverifiedLoginStaysOnSignIn = false;
     check('the evidence names the files the form received', first.evidence.uploads?.some((item) => item.document === 'cv'));
     check('the newsletter box is left alone', !state.newsletter);
+    const sixApplyUrl = `${base}/talentcommunity/apply/1448418433/?locale=en_US`;
+    const sixPostingUrl = `${base}/job/Zurich-Senior-IT-Manager/1448418433/`;
+    const sixJob = { title: 'Senior IT Manager - CIO Office', company: 'SIX Group' };
+    const sixDirect = await run({ applyUrl: sixApplyUrl, job: sixJob });
+    check('SIX cold apply redirects to the generic careers page and never sends', sixDirect.event.type === 'submit_handoff' && state.sixApplications.length === 0);
+    const sixRead = await readPortalRequirements({
+      channelType: 'employer_site', applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, language: 'en', candidateLocale: 'it',
+      candidate: { identity: { email: ALIAS } },
+      codex: async (request) => {
+        const result = await fakeCodex(request);
+        const input = JSON.parse(request.prompt.slice(request.prompt.lastIndexOf('{"form"'), request.prompt.lastIndexOf('\n\nReturn exactly')));
+        const workload = input.form.fields.find((field) => /preferred workload/i.test(field.label));
+        return { ...result, missingRequired: workload ? [{ fieldId: workload.id, question: workload.label }] : [] };
+      },
+      launch: () => launchChromium({ headless: true, executablePath }),
+    });
+    check('SIX pre-read follows the posting and captures the required workload question', sixRead.questions.some((item) => /preferred workload/i.test(item.question)) && state.sixPostingViews === 1);
+    const six = await run({
+      applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, job: sixJob,
+      candidate: {
+        identity: { email: ALIAS },
+        profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
+        portalQuestionsAnswered: [{ question: 'What is your preferred workload?', answer: '80%' }],
+      },
+    });
+    check('SIX opens the matching form and submits with the reviewed workload answer', six.event.type === 'submit_succeeded'
+      && state.sixPostingViews === 2 && state.sixApplications.length === 1 && state.sixApplications[0].workload
+      && six.evidence.postingMatch === 'match');
     // The agentic fallback on a custom calendar (Playwright's snapshot refs, a real browser).
     const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
     const asked = unknown.event.questions || [];
