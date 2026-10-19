@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { assembleExpiredJobs } from '../scripts/assemble-jobs-dataset.mjs';
+import { assembleExpiredJobs, persistExpiredArchive } from '../scripts/assemble-jobs-dataset.mjs';
 import { repairExpiredRoutesAgainstActive } from '../scripts/lib/expired-jobs-archive.mjs';
 
 const COLLIDING_ROUTE = 'same-title-company-lugano';
@@ -78,6 +78,7 @@ describe('repairExpiredRoutesAgainstActive', () => {
     try {
       const slicesDir = join(root, 'expired-slices');
       const aggregatePath = join(root, 'expired-jobs.json');
+      const publicPath = join(root, 'public', 'data', 'expired-jobs.json');
       mkdirSync(slicesDir, { recursive: true });
 
       const active = {
@@ -90,11 +91,14 @@ describe('repairExpiredRoutesAgainstActive', () => {
 
       const assembledLegacy = assembleExpiredJobs({ sliceDir: slicesDir, aggregatePath });
       const repair = repairExpiredRoutesAgainstActive(assembledLegacy, [active]);
-      writeFileSync(aggregatePath, JSON.stringify(repair.entries));
+      persistExpiredArchive(repair.entries, { aggregatePath, publicPath });
 
       const persisted = JSON.parse(readFileSync(aggregatePath, 'utf8'));
+      const published = JSON.parse(readFileSync(publicPath, 'utf8'));
       expect(persisted[0].slug).toMatch(/^same-title-company-lugano-[0-9a-f]{8}$/);
       expect(persisted[0].slug).not.toBe(COLLIDING_ROUTE);
+      expect(published).toEqual(persisted);
+      expect(published[0].slug).not.toBe(COLLIDING_ROUTE);
       expect(active.slug).toBe(COLLIDING_ROUTE);
       expect(repair.repairedRoutes).toBe(1);
     } finally {

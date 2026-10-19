@@ -4184,6 +4184,15 @@ export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePa
   return assembled;
 }
 
+export function persistExpiredArchive(entries, {
+  aggregatePath = DATA_EXPIRED,
+  publicPath = PUBLIC_EXPIRED,
+} = {}) {
+  writeJson(aggregatePath, entries, { streamArray: true });
+  fs.mkdirSync(path.dirname(publicPath), { recursive: true });
+  writeJson(publicPath, entries, { streamArray: true });
+}
+
 /* ── Auto slug-history tracking ────────────────────────────────────── */
 
 /**
@@ -4959,9 +4968,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
           writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
           writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
         }
-        writeJson(DATA_EXPIRED, cleanedExpired, { streamArray: true });
-        fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-        writeJson(PUBLIC_EXPIRED, cleanedExpired, { streamArray: true });
+        persistExpiredArchive(cleanedExpired);
         console.log(`✅ data/expired-jobs.json assembled: ${cleanedExpired.length} expired jobs`);
 
         // --- Orphan + Expired slug reconciliation (Jaccard similarity) ---
@@ -5000,8 +5007,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
             console.log(`  🔗 Expired reconciliation: ${expResult.mergedCount} slugs merged into active jobs' previousSlugs`);
             writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
             writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
-            writeJson(DATA_EXPIRED, cleanedExpired, { streamArray: true });
-            writeJson(PUBLIC_EXPIRED, cleanedExpired, { streamArray: true });
+            persistExpiredArchive(cleanedExpired);
           }
         } catch (err) {
           console.warn(`  ⚠️ Slug reconciliation skipped: ${err.message}`);
@@ -5021,9 +5027,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
           writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
         }
       } else {
-        writeJson(DATA_EXPIRED, repairedExpiredJobs, { streamArray: true });
-        fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-        writeJson(PUBLIC_EXPIRED, repairedExpiredJobs, { streamArray: true });
+        persistExpiredArchive(repairedExpiredJobs);
         console.log(`✅ data/expired-jobs.json assembled: ${repairedExpiredJobs.length} expired jobs`);
       }
     }
