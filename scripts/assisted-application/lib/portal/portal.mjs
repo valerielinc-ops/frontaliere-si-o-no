@@ -798,6 +798,23 @@ const APPLICATION_ACCOUNT_FIELD_RE = new RegExp(
   `(?<![\\p{L}\\p{N}\\p{M}])(?:work\\s+permit|permit\\s+for|salary|workload|starting\\s+date|notice\\s+period|criminal\\s+record|proficiency\\s+level|how\\s+did\\s+you\\s+hear|region\\s+of\\s+residence|${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}|candidatur|bewerbung)(?![\\p{L}\\p{N}\\p{M}])`,
   'iu',
 );
+const SUCCESS_FACTORS_HOST_SUFFIXES = [
+  'successfactors.eu',
+  'successfactors.com',
+  'sapsf.eu',
+  'sapsf.com',
+  'successfactors.localhost',
+];
+
+const isSuccessFactorsUrl = (url) => {
+  try {
+    const hostname = new URL(url).hostname.toLowerCase();
+    return hostname === 'jobs.sap.com'
+      || SUCCESS_FACTORS_HOST_SUFFIXES.some((suffix) => hostname === suffix || hostname.endsWith(`.${suffix}`));
+  } catch {
+    return false;
+  }
+};
 
 /**
  * The application form asks for its account's password itself (account.mjs)
@@ -810,7 +827,10 @@ const APPLICATION_ACCOUNT_FIELD_RE = new RegExp(
 export function ownAccountForm(snapshot) {
   const labels = (snapshot.fields || []).map((field) => `${field.label || ''} ${field.context || ''}`).join(' ');
   const hasCvFileField = (snapshot.fields || []).some(isCvFileField);
-  const mixedApplication = !hasCvFileField && sendsApplication(snapshot) && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
+  const mixedApplication = isSuccessFactorsUrl(snapshot.url)
+    && !hasCvFileField
+    && sendsApplication(snapshot)
+    && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
   return Boolean(snapshot.passwordVisible) && sendsApplication(snapshot) && (inlineAccountForm(snapshot) || mixedApplication);
 }
 
@@ -1151,11 +1171,7 @@ function successFactorsIconButtonFor(snapshot, kind) {
 }
 
 function isSuccessFactorsPage(page) {
-  try {
-    return usesOtpAccountCreation(new URL(page.url()).hostname);
-  } catch {
-    return false;
-  }
+  return isSuccessFactorsUrl(page.url());
 }
 
 function iconUploadAllowedForPage(page, button, kind = 'cv', snapshot = null) {

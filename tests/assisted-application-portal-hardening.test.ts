@@ -207,6 +207,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
 
   it('recognizes the mixed SuccessFactors account/application page before its CV dialog opens', () => {
     const successFactors = {
+      url: 'https://career5.successfactors.eu/careers',
       passwordVisible: true,
       fields: [
         { id: 'email', kind: 'text', inputType: 'email', form: 0, label: 'Email Address: *' },
@@ -237,6 +238,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
 
   it('recognizes a mixed form whose only application document field is a cover letter', () => {
     const snapshot = {
+      url: 'https://career5.successfactors.eu/careers',
       passwordVisible: true,
       fields: [
         { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *' },
@@ -246,6 +248,28 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     };
 
     expect(ownAccountForm(snapshot)).toBe(true);
+  });
+
+  it('does not treat another portal with generic CV application labels as a SuccessFactors account form', () => {
+    const snapshot = {
+      url: 'https://apply.example.org/careers',
+      passwordVisible: true,
+      fields: [{ label: 'CV' }],
+      buttons: [{ text: 'Submit application' }],
+    };
+
+    expect(ownAccountForm(snapshot)).toBe(false);
+  });
+
+  it('does not treat a lookalike SuccessFactors hostname as a SuccessFactors account form', () => {
+    const snapshot = {
+      url: 'https://successfactors.attacker.example/careers',
+      passwordVisible: true,
+      fields: [{ label: 'CV' }],
+      buttons: [{ text: 'Submit application' }],
+    };
+
+    expect(ownAccountForm(snapshot)).toBe(false);
   });
 
   it('finds SuccessFactors privacy review without selecting the optional job alert', () => {
