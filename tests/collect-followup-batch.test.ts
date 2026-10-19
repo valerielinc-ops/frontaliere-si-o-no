@@ -398,6 +398,40 @@ describe('marker idempotency requires durable bucket/item evidence', () => {
     )).toEqual({ buckets: [], requiresBucket: true });
   });
 
+  it('proves persistence in a decomposed parent tracker with inline source bullets', () => {
+    const marker = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: parent #13803 (follow-up window 2026-10-17) with 6 existing items; no child issue created:',
+      '- FU-2026-10-17-004 — baseline reale dell’estimator webcam; source PR #13825 recorded on the parent',
+    ].join('\n');
+    const parent = {
+      number: 13803,
+      title: 'Residual 2026-10-17 follow-up: 8 unresolved units',
+      body: [
+        '## Residuo',
+        '- FU-2026-10-17-004 — baseline reale dell’estimator webcam — `functions/src/trafficProviderMesh.js`.',
+        '',
+        '## Additional sources from PR #13825',
+        '- FU-2026-10-17-004 — Sources: PR #13825',
+      ].join('\n'),
+    };
+    const SITE = 'valerielinc-ops/frontaliere-si-o-no';
+    const CORPUS = 'nanakokyobashi-rgb/frontaliere-articles';
+    const run = (args: string[]) => (args[args.indexOf('--repo') + 1] === CORPUS
+      ? false
+      : JSON.stringify(parent));
+    const read = readBucketIssue(13803, run as never, [SITE, CORPUS]);
+    const comments = JSON.stringify({ comments: [{
+      createdAt: '2026-10-19T04:41:58Z',
+      body: marker,
+    }] });
+
+    expect(read).toEqual({ candidates: [{ ...parent, repo: SITE }], unreadable: false });
+    expect(persistedBucketIssueMatches(parent, 13825)).toBe(true);
+    expect(verifyTriageMarkerPersistence(marker, 13825, () => read, comments)).toBe(true);
+  });
+
   it('ignores historical bucket references in a positive marker', () => {
     const markerWithHistory = [
       '## Post-merge follow-up triage',
