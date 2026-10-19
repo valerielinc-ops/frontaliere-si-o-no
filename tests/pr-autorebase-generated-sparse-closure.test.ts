@@ -153,6 +153,7 @@ function runGeneratorWithReadLog(
 }
 
 describe('pr-autorebase — chiusura sparse del generatore di conflitti generati', () => {
+  // Ogni entry del registry materializza e rimuove il proprio worktree sparse.
   it('copre la chiusura statica e tutte le letture reali con il profilo post-review', () => {
     const jobPatterns = postReviewSparsePatterns();
     expect(jobPatterns).toContain('/scripts/');
@@ -180,5 +181,5 @@ describe('pr-autorebase — chiusura sparse del generatore di conflitti generati
         uncoveredReads.map((file) => missingMessage(rule.id, file)).join('\n'),
       ).toEqual([]);
     }
-  });
+  }, 60_000);
 });
