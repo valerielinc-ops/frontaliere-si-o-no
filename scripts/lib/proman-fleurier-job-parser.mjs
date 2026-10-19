@@ -1,11 +1,20 @@
 import { createHash } from 'node:crypto';
 import { detectLang, appendSlugDisambiguator } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractBalancedTagBlock, parseSwissShortDate } from './hospital-custom-html-helpers.mjs';
+import { readAttr, scanStartTags } from './html-attr.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
 import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-import { extractDetailFields } from './prospector/extract.mjs';
+import {
+  bodyTextOf,
+  extractDetailFields,
+  isSufficientVacancyDescription,
+  textOf,
+} from './prospector/extract.mjs';
+import { decodeEntities } from './prospector/entities.mjs';
 import {
   resolveDetailOrListingSwissGeography,
+  resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
 } from './prospector/location-evidence.mjs';
 
@@ -24,6 +33,84 @@ const TARGET_CANTON = 'NE';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function hasClass(opening = '', className = '') {
+  return normalizeSpace(readAttr(opening, 'class')).split(' ').includes(className);
+}
+
+function firstTagBlock(html = '', tag = '', predicate = () => true) {
+  const opening = scanStartTags(html, tag).find(({ raw }) => predicate(raw));
+  if (!opening) return '';
+  return extractBalancedTagBlock(html.slice(opening.end), tag);
+}
+
+function sourceText(html = '') {
+  return normalizeSpace(decodeEntities(textOf(html)));
+}
+
+function extractPromanInfoValue(html = '', iconSource = '', label = /^$/) {
+  const info = firstTagBlock(html, 'ul', (raw) => hasClass(raw, 'u-job-infos'));
+  for (const opening of scanStartTags(info, 'li')) {
+    const block = extractBalancedTagBlock(info.slice(opening.end), 'li');
+    if (!block.includes(iconSource)) continue;
+    return normalizeSpace(sourceText(block).replace(label, ''));
+  }
+  return '';
+}
+
+/**
+ * PROMAN renders each vacancy as an empty overlay anchor followed by the
+ * visible heading. The generic template matcher deliberately rejects empty
+ * anchors, so pair both source-owned fields inside the same balanced card.
+ */
+export function extractPromanFleurierListingCandidates(html = '', pageUrl = CAREER_URL) {
+  const rows = [];
+  const seen = new Set();
+  for (const opening of scanStartTags(html, 'li')) {
+    if (!hasClass(opening.raw, 'u-job-item')) continue;
+    const card = extractBalancedTagBlock(html.slice(opening.end), 'li');
+    const anchor = scanStartTags(card, 'a').find(({ raw }) => hasClass(raw, 'u-link-fit'));
+    const title = sourceText(firstTagBlock(card, 'h3'));
+    const href = anchor ? readAttr(anchor.raw, 'href') : '';
+    const location = extractPromanInfoValue(card, '24/job/location', /^lieu\s*/i);
+    const geography = resolveSourceBackedSwissGeography({ location });
+    const fields = geography ? sourceBackedSwissGeographyFields({ location }, geography) : null;
+    // A broad label such as "Canton de Neuchâtel" identifies the target
+    // region but is not a publishable addressLocality. Re-resolve the projected
+    // fields so only municipality-level evidence reaches the detail pool.
+    const projected = fields ? resolveSourceBackedSwissGeography(fields) : null;
+    if (!href || title.length < 3 || projected?.canton !== TARGET_CANTON) continue;
+    let url;
+    try { url = new URL(href, pageUrl).toString(); } catch { continue; }
+    if (seen.has(url)) continue;
+    seen.add(url);
+    rows.push({
+      title,
+      url,
+      via: 'proman-listing-card',
+      ...fields,
+      locationCandidates: [fields],
+    });
+  }
+  return rows;
+}
+
+function extractPromanDetailMarkup(html = '') {
+  const title = sourceText(firstTagBlock(html, 'h1'));
+  const location = extractPromanInfoValue(html, '24/job/location', /^lieu\s*/i);
+  const employmentType = extractPromanInfoValue(html, '24/job/type', /^Type de poste\s*/i);
+  const descriptionBlock = firstTagBlock(html, 'ul', (raw) => hasClass(raw, 'u-specs'));
+  const description = decodeEntities(bodyTextOf(descriptionBlock));
+  const published = sourceText(firstTagBlock(html, 'p', (raw) => hasClass(raw, 'u-date')))
+    .match(/(\d{1,2}\.\d{1,2}\.\d{4})/)?.[1] || '';
+  return {
+    title,
+    description,
+    location,
+    employmentType,
+    ...sourcePostingDateFields(parseSwissShortDate(published)),
+  };
 }
 
 function emptyDetail(detail, sourceBackedCanton = '') {
@@ -53,7 +140,18 @@ function emptyDetail(detail, sourceBackedCanton = '') {
  * than treating them as failed detail extraction.
  */
 export function extractPromanFleurierDetailFields(html = '', pageUrl = '') {
-  const detail = extractDetailFields(html, pageUrl);
+  const generic = extractDetailFields(html, pageUrl);
+  const source = extractPromanDetailMarkup(html);
+  const detail = {
+    ...generic,
+    title: source.title || generic.title,
+    description: isSufficientVacancyDescription(generic.description)
+      ? generic.description
+      : source.description,
+    location: generic.location || source.location,
+    employmentType: generic.employmentType || source.employmentType,
+    ...mergeSourcePostingDates(generic, source),
+  };
   const decision = resolveDetailOrListingSwissGeography(detail, {});
   if (!decision.geography) return emptyDetail(detail);
 
@@ -90,6 +188,7 @@ export function isTrustedDomain(rawUrl = '') {
 async function fetchJobListings(runtime = {}) {
   return runSpecInProduction(loadSpec(PROMAN_FLEURIER_KEY), {
     ...runtime,
+    listingExtractor: extractPromanFleurierListingCandidates,
     detailExtractor: extractPromanFleurierDetailFields,
     isExpectedDetailFilter: isPromanFleurierExpectedDetailFilter,
   });
