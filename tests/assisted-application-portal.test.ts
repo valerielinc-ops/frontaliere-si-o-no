@@ -191,7 +191,7 @@ describe('legacy portal sections', () => {
         { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *', required: true },
         { id: 'password-repeat', kind: 'text', inputType: 'password', form: 0, label: 'Retype Password: *', required: true },
         { id: 'permit', kind: 'combobox', form: 0, label: 'Do you hold a valid work permit for Switzerland?', required: true },
-        { id: 'cover-letter', kind: 'file', inputType: 'file', form: 0, label: 'Cover letter', required: false },
+        { id: 'cover-letter', name: 'cv-upload', kind: 'file', inputType: 'file', form: 0, label: 'Cover letter', context: 'CV · Cover letter', required: false },
       ],
       buttons: [{ id: 'f5', domId: 'upload-control', dataAutomationId: 'cv-upload', text: '\uE1EF', disabled: false }, { id: 'f6', text: 'Apply', disabled: false }],
       captcha: false,

@@ -778,8 +778,17 @@ const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe(COVER_LETTER_DOCUMENT
 const CV_FILE_FIELD_RE = CV_DOCUMENT_CONTEXT_RE;
 
 const isFileField = (field) => field?.kind === 'file' || field?.inputType === 'file';
-const isCvFileField = (field) => isFileField(field)
-  && CV_FILE_FIELD_RE.test(`${field.label || ''} ${field.context || ''} ${field.name || ''} ${field.id || ''}`);
+const isCvFileField = (field) => {
+  if (!isFileField(field)) return false;
+  const label = String(field.label || '');
+  if (COVER_LETTER_DOCUMENT_CONTEXT_RE.test(label)) return false;
+  if (CV_FILE_FIELD_RE.test(label)) return true;
+  const metadata = `${field.name || ''} ${field.id || ''}`;
+  if (COVER_LETTER_DOCUMENT_CONTEXT_RE.test(metadata)) return false;
+  if (CV_FILE_FIELD_RE.test(metadata)) return true;
+  const context = String(field.context || '');
+  return CV_FILE_FIELD_RE.test(context) && !COVER_LETTER_DOCUMENT_CONTEXT_RE.test(context);
+};
 
 // SuccessFactors can render the CV input only after its icon-only upload
 // control is pressed. The visible page still has application questions (and
