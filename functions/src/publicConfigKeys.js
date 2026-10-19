@@ -27,6 +27,9 @@ export const PUBLIC_CONFIG_KEYS = [
   'GITHUB_REPO_NAME',
   'GITHUB_REPO_OWNER',
   'GOOGLE_OAUTH_CLIENT_ID',
+  // Google-issued public merchant identifier required by the SumUp widget's
+  // Google Pay button; unlike a payment/API secret it must reach the browser.
+  'SUMUP_GOOGLE_PAY_MERCHANT_ID',
   // jobgate-v3 auth-gate experiment controls (services/jobGateExperiment.ts).
   'JOBGATE_EXPERIMENT_ARMS',
   'JOBGATE_EXPERIMENT_ENABLED',

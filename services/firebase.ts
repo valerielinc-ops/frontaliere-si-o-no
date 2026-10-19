@@ -65,6 +65,10 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  GA_MEASUREMENT_ID: '',
  RECAPTCHA_SITE_KEY: '',
  GOOGLE_OAUTH_CLIENT_ID: '',
+ // Public Google Pay merchant identifier used by the SumUp card widget.
+ // Keep it configurable in Remote Config so test and production merchant
+ // registrations never require a source change.
+ SUMUP_GOOGLE_PAY_MERCHANT_ID: '',
  RESEND_API_KEY: '',
  NEWSLETTER_SECRET: '',
  // SEO SERP experiment: enabled by default as safe fallback when
