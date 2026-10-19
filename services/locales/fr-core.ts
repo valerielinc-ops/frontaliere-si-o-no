@@ -917,7 +917,7 @@ const frCore: Record<string, string> = {
  'jobBoard.concierge.email': 'E-mail',
  'jobBoard.concierge.phone': 'Téléphone (facultatif)',
  'jobBoard.concierge.location': 'Commune ou code postal de résidence',
- 'jobBoard.concierge.locationHint': 'Indiquez uniquement votre commune ou code postal. Cela nous aide à privilégier les postes proches ; l’adresse complète n’est pas nécessaire.',
+ 'jobBoard.concierge.locationHint': 'La commune de résidence de votre profil est préremplie si elle est disponible. Vous pouvez la modifier avec une commune ou un code postal ; l’adresse complète n’est pas nécessaire.',
  'jobBoard.concierge.consent': 'J’autorise Frontaliereticino.ch à traiter mon CV et les informations fournies afin de préparer et d’envoyer les candidatures pour les postes que j’accepte, conformément aux Conditions d’utilisation et à la Politique de confidentialité.',
  'jobBoard.concierge.saveData': 'Enregistrer les informations',
  'jobBoard.concierge.saveProfile': 'Enregistrer les informations',

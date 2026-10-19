@@ -5,6 +5,7 @@ import { useLocale, useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analyticsProxy';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { ensureAssistedApplicationAuth } from '@/services/assistedApplicationCheckout';
+import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
 import { createApplicationConciergeCheckout } from '@/services/applicationConciergeCheckout';
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
@@ -165,13 +166,20 @@ export default function ApplicationConciergePortal({
     let cancelled = false;
     setLoading(true);
     setError(null);
-    void loadService().catch((loadError) => {
+    void (async () => {
+      const loaded = await loadService();
+      if (cancelled || !loaded || loaded.applicantLocation) return;
+      const profileEmail = String(authUser?.email || loaded.applicantEmail || loaded.customerEmail || '').trim();
+      if (!profileEmail) return;
+      const profile = await loadEnrichmentProfileFields(profileEmail);
+      if (!cancelled && profile.municipality) setLocation((value) => value || profile.municipality.trim());
+    })().catch((loadError) => {
       if (!cancelled) setError(errorKey(loadError));
     }).finally(() => {
       if (!cancelled) setLoading(false);
     });
     return () => { cancelled = true; };
-  }, [authLoading, loadService, serviceId]);
+  }, [authLoading, authUser, loadService, serviceId]);
 
   useEffect(() => {
     if (!serviceId || !service || (!isPending(service) && !MATCHING_STATES.has(String(service.matchingStatus || '')))) return undefined;

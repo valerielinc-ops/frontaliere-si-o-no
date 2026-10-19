@@ -914,7 +914,7 @@ const enCore: Record<string, string> = {
  'jobBoard.concierge.email': 'Email',
  'jobBoard.concierge.phone': 'Phone (optional)',
  'jobBoard.concierge.location': 'Town or postal code of residence',
- 'jobBoard.concierge.locationHint': 'Enter only your town or postal code. We use it to prioritise nearby positions; a full street address is not needed.',
+ 'jobBoard.concierge.locationHint': 'We prefill your profile’s residence municipality when available. You can change it to a town or postal code; no full street address is needed.',
  'jobBoard.concierge.consent': 'I authorise Frontaliereticino.ch to process my CV and the details provided to prepare and send applications for positions I accept, under the Terms of Service and Privacy Policy.',
  'jobBoard.concierge.saveData': 'Save details',
  'jobBoard.concierge.saveProfile': 'Save details',
