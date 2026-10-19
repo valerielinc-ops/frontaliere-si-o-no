@@ -18,6 +18,9 @@ function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
       async get() {
         return { exists: documents.has(key), data: () => documents.get(key) };
       },
+      data() {
+        return documents.get(key);
+      },
       set(data: Record<string, unknown>, options?: { merge?: boolean }) {
         write(key, data, options?.merge === true);
       },
@@ -57,6 +60,18 @@ function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
           },
         };
       },
+      async runTransaction(callback: (transaction: any) => Promise<unknown>) {
+        const operations: Array<() => void> = [];
+        const transaction = {
+          get: (target: any) => target.get(),
+          set(target: any, data: Record<string, unknown>, options?: { merge?: boolean }) {
+            operations.push(() => target.set(data, options));
+          },
+        };
+        const result = await callback(transaction);
+        operations.forEach((operation) => operation());
+        return result;
+      },
     },
     documents,
   };
@@ -90,6 +105,29 @@ describe('candidate CV profile projection', () => {
     expect(profile.extractedTextAvailable).toBe(false);
     expect(profile.workPosition).toBe('');
     expect(profile.skills).toEqual([]);
+  });
+
+  it('recognizes common technical and competency section headings without crossing into experience', () => {
+    const profile = parseCandidateCvText([
+      'Candidate Example',
+      'Senior IT Manager, Group Application at Swatch Group',
+      'Core Competencies',
+      'SAP S/4HANA, ServiceNow, ITIL',
+      'Professional Experience',
+      '2020 - Present Senior IT Manager',
+    ].join('\n'));
+
+    expect(profile.skills).toEqual(['SAP S/4HANA', 'ServiceNow', 'ITIL']);
+    expect(profile.workPosition).toContain('Senior IT Manager');
+    expect(profile.skills).not.toContain('2020 - Present Senior IT Manager');
+  });
+
+  it('recognizes technical skills headings in English and French', () => {
+    const english = parseCandidateCvText('Candidate Example\nTechnical Skills\nAzure, M365');
+    const french = parseCandidateCvText('Candidate Example\nCompétences techniques\nSAP, ServiceNow');
+
+    expect(english.skills).toEqual(['Azure', 'M365']);
+    expect(french.skills).toEqual(['SAP', 'ServiceNow']);
   });
 });
 describe('application concierge matching', () => {
@@ -140,7 +178,10 @@ describe('application concierge matching', () => {
       const proposalPrefix = 'application_concierge_services/service-1/proposals/';
       const proposals = [...documents.entries()].filter(([path]) => path.startsWith(proposalPrefix));
 
-      expect(results).toEqual([{ status: 'complete', proposals: 2 }, { status: 'complete', proposals: 2 }]);
+      expect(results).toEqual([
+        { status: 'complete', proposals: 2, retracted: 0 },
+        { status: 'complete', proposals: 2, retracted: 0 },
+      ]);
       expect(proposals).toHaveLength(2);
       expect(new Set(proposals.map(([path]) => path)).size).toBe(2);
     } finally {
@@ -166,6 +207,144 @@ describe('application concierge matching', () => {
 
     expect(result.score).toBeGreaterThan(0);
     expect(result.reasons.length).toBeGreaterThan(0);
+  });
+
+  it('matches an IT leadership role without letting seniority, employer or location inflate the score', () => {
+    const profile = {
+      workPosition: 'Senior IT Manager Group Application at Swatch Group',
+      headline: 'Senior IT Manager Group Application at Swatch Group',
+      skills: [],
+      experienceSummary: [],
+    };
+    const job = {
+      title: 'Senior IT Manager IT Strategy and Operating Model',
+      company: 'Swatch Group',
+      location: 'Zurigo',
+    };
+
+    const result = scoreJobForProfile(job, profile);
+    const withoutLocation = scoreJobForProfile({ ...job, location: undefined }, profile);
+
+    expect(result.score).toBe(28);
+    expect(result.score).toBe(withoutLocation.score);
+    expect(result.reasons).toContain('Ruolo compatibile: gestione IT');
+    expect(result.reasons.join(' ').toLowerCase()).not.toMatch(/senior|manager|swatch|zurigo/);
+    expect(scoreJobForProfile({ title: 'ICT Application Manager' }, profile).score).toBe(58);
+    expect(scoreJobForProfile({ title: 'Application Manager' }, profile).score).toBe(28);
+  });
+
+  it('rejects generic manager overlap and penalizes a different job specialization', () => {
+    const profile = {
+      workPosition: 'Senior IT Manager Group Application at Swatch Group',
+      headline: 'Senior IT Manager Group Application at Swatch Group',
+      skills: [],
+      experienceSummary: [],
+    };
+
+    expect(scoreJobForProfile({
+      title: 'Senior Project Manager Engineering',
+      company: 'Swatch Group',
+      location: 'Lugano',
+      description: 'Senior manager for a global group',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+    expect(scoreJobForProfile({
+      title: 'Senior IT Sales Manager Cloud M365 Cybersecurity',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+    expect(scoreJobForProfile({
+      title: 'Senior IT Project Manager',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+    expect(scoreJobForProfile({
+      title: 'ICT System Ingegnere Senior Application Platform',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+    expect(scoreJobForProfile({
+      title: 'Addetto alla ristorazione Responsabile Take it',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+    expect(scoreJobForProfile({
+      title: 'Payroll Specialist (IT/DE)',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+    expect(scoreJobForProfile({
+      title: 'Payroll Manager (IT/DE)',
+    }, profile)).toEqual({ score: 0, reasons: [] });
+  });
+
+  it('does not treat CV date ranges as matching skills', () => {
+    expect(scoreJobForProfile(
+      { title: 'Senior Project Manager', description: 'Position available from 2024 to 2026' },
+      { workPosition: 'Infermiere', skills: [], experienceSummary: ['2024 - 2026'] },
+    )).toEqual({ score: 0, reasons: [] });
+  });
+
+  it('re-scores pending proposals and retracts weak legacy matches without changing decisions', async () => {
+    const matchingProfile = {
+      searchText: 'Senior IT Manager Group Application',
+      workPosition: 'Senior IT Manager Group Application at Swatch Group',
+      headline: 'Senior IT Manager Group Application at Swatch Group',
+      skills: [],
+      experienceSummary: [],
+    };
+    const { db, documents } = createMatchingDb({
+      'application_concierge_services/service-1': {
+        userId: 'candidate-1',
+        paymentStatus: 'paid',
+        serviceStatus: 'active',
+        maxPositions: 10,
+        acceptedPositionsCount: 0,
+        expiresAt: new Date(Date.now() + 60_000),
+      },
+      'user_cv_profiles/candidate-1': { status: 'ready', profile: matchingProfile },
+      'application_concierge_services/service-1/proposals/legacy-relevant': {
+        jobId: 'job-it-manager',
+        jobUrl: 'https://jobs.example.test/it-manager',
+        status: 'proposed',
+        matchScore: 99,
+        matchReasons: ['senior, manager, group'],
+      },
+      'application_concierge_services/service-1/proposals/legacy-weak': {
+        jobId: 'job-project-manager',
+        jobUrl: 'https://jobs.example.test/project-manager',
+        status: 'proposed',
+        matchScore: 99,
+        matchReasons: ['senior, manager'],
+      },
+      'application_concierge_services/service-1/proposals/already-accepted': {
+        jobId: 'job-project-manager',
+        jobUrl: 'https://jobs.example.test/accepted',
+        status: 'accepted',
+        matchScore: 99,
+      },
+    });
+    const jobs = [
+      { id: 'job-it-manager', url: 'https://jobs.example.test/it-manager', title: 'Senior IT Manager IT Strategy and Operating Model' },
+      { id: 'job-project-manager', url: 'https://jobs.example.test/project-manager', title: 'Senior Project Manager Engineering' },
+      { id: 'job-project-manager', url: 'https://jobs.example.test/accepted', title: 'Senior Project Manager Engineering' },
+    ];
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, async json() { return jobs; } })));
+
+    try {
+      const result = await runApplicationConciergeMatching({
+        db: db as never,
+        serviceId: 'service-1',
+        jobIndexUrl: 'https://jobs.example.test/index.json',
+      });
+      const relevant = documents.get('application_concierge_services/service-1/proposals/legacy-relevant');
+      const weak = documents.get('application_concierge_services/service-1/proposals/legacy-weak');
+      const accepted = documents.get('application_concierge_services/service-1/proposals/already-accepted');
+
+      expect(result).toEqual({ status: 'complete', proposals: 1, retracted: 1 });
+      expect(relevant).toEqual(expect.objectContaining({
+        status: 'proposed',
+        matchingVersion: 'cv-relevance-v2',
+        matchScore: expect.any(Number),
+      }));
+      expect((relevant?.matchScore as number)).toBeLessThan(99);
+      expect(weak).toEqual(expect.objectContaining({
+        status: 'retracted',
+        retractionReason: 'match_below_threshold',
+      }));
+      expect(accepted).toEqual(expect.objectContaining({ status: 'accepted', matchScore: 99 }));
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 
   it('rejects a job with no meaningful profile overlap', () => {

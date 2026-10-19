@@ -945,6 +945,7 @@ const enCore: Record<string, string> = {
  'jobBoard.concierge.proposalStatus.accepted': 'Accepted',
  'jobBoard.concierge.proposalStatus.declined': 'Declined',
  'jobBoard.concierge.proposalStatus.expired': 'Expired',
+ 'jobBoard.concierge.proposalStatus.retracted': 'Removed from suggestions',
  'jobBoard.concierge.errors.generic': 'Something went wrong. Please try again shortly.',
  'jobBoard.concierge.errors.service_not_found': 'Service not found.',
  'jobBoard.concierge.errors.auth_required': 'Sign in to continue.',

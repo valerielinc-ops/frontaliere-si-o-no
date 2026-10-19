@@ -941,6 +941,7 @@ const deCore: Record<string, string> = {
  'jobBoard.concierge.proposalStatus.accepted': 'Angenommen',
  'jobBoard.concierge.proposalStatus.declined': 'Abgelehnt',
  'jobBoard.concierge.proposalStatus.expired': 'Abgelaufen',
+ 'jobBoard.concierge.proposalStatus.retracted': 'Aus den Vorschlägen entfernt',
  'jobBoard.concierge.errors.generic': 'Ein Fehler ist aufgetreten. Bitte versuche es gleich erneut.',
  'jobBoard.concierge.errors.service_not_found': 'Dienst nicht gefunden.',
  'jobBoard.concierge.errors.auth_required': 'Melde dich an, um fortzufahren.',

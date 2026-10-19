@@ -19,10 +19,11 @@ const MAX_SKILLS = 40;
 const MAX_EXPERIENCE_LINES = 12;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const SECTION_HEADINGS = /^(?:curriculum vitae|cv|profilo|profile|esperienza|esperienze|experience|work experience|competenze|skills|compétences|kenntnisse|lingue|languages|langues|sprachen|formazione|education|éducation|ausbildung)\s*:?$/i;
+const SKILL_HEADING_RE = /^(?:skills?|core skills?|key skills?|technical skills?|technical competencies|core competencies|key competencies|professional competencies|competencies|skills and expertise|areas of expertise|expertise|competenze(?: tecniche| chiave| professionali)?|compétences?(?: techniques| clés| cles| informatiques)?|competences(?: techniques| cles| informatiques)?|kenntnisse|fachkenntnisse|informatikkenntnisse|fähigkeiten|fahigkeiten|kompetenzen)\s*:?$/i;
+const SECTION_HEADING_RE = /^(?:curriculum vitae|cv|profilo|profile|summary|professional summary|esperienza|esperienze|experience|work experience|professional experience|employment history|work history|competenze|skills|core skills|key skills|technical competencies|core competencies|key competencies|professional competencies|competencies|skills and expertise|areas of expertise|expertise|competenze tecniche|competenze chiave|competenze professionali|compétences|compétences techniques|compétences clés|compétences cles|compétences informatiques|competences techniques|competences cles|competences informatiques|kenntnisse|fachkenntnisse|informatikkenntnisse|fähigkeiten|fahigkeiten|kompetenzen|lingue|languages|langues|sprachen|formazione|education|éducation|ausbildung|istruzione|references|referenze)\s*:?$/i;
 const CONTACT_RE = /(?:@|\+?\d[\d\s()./-]{6,})/;
 const YEAR_RE = /(?:19|20)\d{2}/;
-const STOP_LINE_RE = /^(?:curriculum vitae|cv|profilo|profile|esperienza|esperienze|experience|work experience|competenze|skills|lingue|languages|formazione|education|istruzione|references|referenze)\s*:?[\s]*$/i;
+const STOP_LINE_RE = /^(?:curriculum vitae|cv|profilo|profile|esperienza|esperienze|experience|work experience|employment history|work history|competenze|skills|lingue|languages|langues|sprachen|formazione|education|éducation|ausbildung|istruzione|references|referenze)\s*:?[\s]*$/i;
 
 function clean(value, max = 400) {
   return String(value || '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max);
@@ -52,7 +53,7 @@ function sectionLines(lines, headingPattern) {
   if (start < 0) return [];
   const result = [];
   for (let index = start + 1; index < lines.length; index += 1) {
-    if (STOP_LINE_RE.test(lines[index])) break;
+    if (STOP_LINE_RE.test(lines[index]) || SECTION_HEADING_RE.test(lines[index]) || SKILL_HEADING_RE.test(lines[index])) break;
     result.push(lines[index]);
   }
   return result;
@@ -69,7 +70,7 @@ function phoneFromText(text) {
 
 function likelyName(lines) {
   for (const line of lines.slice(0, 8)) {
-    if (CONTACT_RE.test(line) || STOP_LINE_RE.test(line)) continue;
+    if (CONTACT_RE.test(line) || STOP_LINE_RE.test(line) || SECTION_HEADING_RE.test(line) || SKILL_HEADING_RE.test(line)) continue;
     if (line.length < 3 || line.length > 90 || /\d/.test(line)) continue;
     const words = line.split(/\s+/);
     if (words.length >= 2 && words.length <= 5) return line;
@@ -92,8 +93,8 @@ function languageValues(lines) {
 }
 
 function skillValues(lines) {
-  const skillLines = sectionLines(lines, /^(?:competenze|skills|compétences|kenntnisse)\s*:?$/i);
-  const values = skillLines.flatMap((line) => line.split(/[,;:/]/));
+  const skillLines = sectionLines(lines, SKILL_HEADING_RE);
+  const values = skillLines.flatMap((line) => line.split(/[,;:]\s*|\s+\/\s+/));
   return unique(values.filter((value) => value.length >= 2 && value.length <= 80));
 }
 
