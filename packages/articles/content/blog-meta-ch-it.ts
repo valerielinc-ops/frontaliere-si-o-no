@@ -8521,13 +8521,22 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-donazione-zurigo-regole.imageAlt': 'Imposta di successione e donazione nel Cantone di Zurigo',
     'blog.article.securitas-violazioni-lavoro.title': 'Securitas avrebbe violato migliaia di volte la legge sul lavoro',
     'blog.article.securitas-violazioni-lavoro.excerpt': 'Circa 20\'000 presunte violazioni tra 2023 e 2025 Circa 900 dipendenti coinvolti nella Svizzera centrale Turni troppo lunghi e recuperi troppo brevi Securitas',
-    'blog.article.securitas-violazioni-lavoro.imageAlt': 'Personale di sicurezza Securitas in Svizzera centrale',
+    'blog.article.securitas-violazioni-lavoro.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
     'blog.article.campagna-fisco-coppie-sposate.title': 'Fisco e coppie sposate: i contrari aprono la loro campagna',
     'blog.article.campagna-fisco-coppie-sposate.excerpt': 'Il comitato contrario ha presentato le sue tesi a Berna Il voto federale sull\'iniziativa è previsto il 29 novembre L\'imposizione individuale entrerà in vigore',
     'blog.article.campagna-fisco-coppie-sposate.imageAlt': 'Conferenza stampa a Berna sulla votazione federale e fiscale delle coppie sposate',
     'blog.article.impatto-glp1-industria-alimentare.title': 'Farmaci antiobesità GLP-1: impatto sull\'industria alimentare',
     'blog.article.impatto-glp1-industria-alimentare.excerpt': 'In Svizzera, meno del 2% è in terapia GLP-1 Negli USA il budget alimentare cala fino al 5% Emmi, Danone e Nestlé adattano le gamme Givaudan stima una crescita',
     'blog.article.impatto-glp1-industria-alimentare.imageAlt': 'Reparto di un supermercato svizzero con prodotti alimentari freschi',
+    'blog.article.lenu-referendum-firme-valide.title': 'Legge federale sull’energia nucleare: referendum riuscito',
+    'blog.article.lenu-referendum-firme-valide.excerpt': '19 ottobre 2026: referendum formalmente riuscito 6 ottobre 2026: presentate 79 479 firme 78 922 firme sono state dichiarate valide Modifica LENu datata 19',
+    'blog.article.lenu-referendum-firme-valide.imageAlt': 'Palazzo federale a Berna in una scena editoriale sul referendum LENu',
+    'blog.article.water-summit-zurich-2024.title': 'EurEau Water Summit a Zurigo: 60% acqua senza trattamento',
+    'blog.article.water-summit-zurich-2024.excerpt': 'Siccità e inquinamento minacciano l\'acqua potabile Il summit riunisce esperti e gestori a Zurigo In Svizzera il 60% può avere zero o semplice trattamento L\'80%',
+    'blog.article.water-summit-zurich-2024.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.accordo-commercio-elettronico-omc.title': 'Commercio elettronico: Svizzera avvia consultazione per l\'ACE',
+    'blog.article.accordo-commercio-elettronico-omc.excerpt': 'Consultazione avviata il 14 ottobre 2026 ACE tra 67 membri dell\'OMC Termine fissato al 28 gennaio 2027 Vietati i dazi sulle trasmissioni elettroniche Cosa →',
+    'blog.article.accordo-commercio-elettronico-omc.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

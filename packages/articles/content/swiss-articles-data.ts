@@ -28528,6 +28528,37 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lenu-referendum-firme-valide',
+    category: 'novita',
+    date: '2026-10-19T12:13:25.984Z',
+    image: '/images/blog/article-lenu-referendum-firme-valide.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'water-summit-zurich-2024',
+    category: 'novita',
+    date: '2026-10-19T15:35:51.692Z',
+    image: '/images/blog/article-water-summit-zurich-2024.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    canton: ['ZH'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'accordo-commercio-elettronico-omc',
+    category: 'novita',
+    date: '2026-10-19T18:02:10.306Z',
+    image: '/images/blog/article-accordo-commercio-elettronico-omc.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
