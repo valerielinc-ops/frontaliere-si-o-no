@@ -13,6 +13,7 @@ import {
   serializeImageLeaseContext,
   verifyImageNamespaceLease,
 } from '../../scripts/lib/r2-image-namespace-lock.mjs';
+import { normalizeS3MatchEtag } from '../../scripts/lib/r2-section-lock.mjs';
 
 type StoredLease = { payload: Record<string, unknown>; etag: string };
 type RequestCall = {
@@ -79,6 +80,56 @@ describe('r2-image-namespace-lock', () => {
     expect(imageNamespaceForKey('edge/frontaliere/index.html')).toBeNull();
     expect(() => parseImageNamespaces('')).toThrow('--namespace');
     expect(() => parseImageNamespaces('blog,unknown')).toThrow('unknown namespace');
+  });
+
+  it('normalizes weak S3 ETags used by image namespace leases', () => {
+    expect(normalizeS3MatchEtag('W/"image-etag"')).toBe('"image-etag"');
+  });
+
+  it('retries an image namespace acquisition after an HTTP 409 contention response', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    let conflict = true;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (conflict && input.method === 'PUT') {
+        conflict = false;
+        return response(409);
+      }
+      return baseRequest(input);
+    };
+
+    const leases = await acquireImageNamespaceLeases(['blog'], {
+      request,
+      timeoutMs: 1_000,
+      pollMs: 1,
+      sleep: async () => {},
+    });
+
+    expect(leases[0]).toMatchObject({ namespace: 'blog', etag: 'image-lease-1' });
+    expect(objects.get(imageNamespaceLockKey('blog'))?.payload.owner).toBe(leases[0].owner);
+    await releaseImageNamespaceLeases(leases, { request });
+  });
+
+  it('reconciles a committed image lease when the PUT response is ambiguous', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    let ambiguous = true;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (ambiguous && input.method === 'PUT' && input.headers?.['if-none-match'] === '*') {
+        ambiguous = false;
+        await baseRequest(input);
+        throw new Error('socket timeout after commit');
+      }
+      return baseRequest(input);
+    };
+
+    const leases = await acquireImageNamespaceLeases(['blog'], {
+      request,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    });
+
+    expect(leases[0]).toMatchObject({ namespace: 'blog', etag: 'image-lease-1' });
+    expect(objects.get(imageNamespaceLockKey('blog'))?.payload.owner).toBe(leases[0].owner);
+    await releaseImageNamespaceLeases(leases, { request });
   });
 
   it.each([

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { randomUUID } from 'node:crypto';
 import { isInvokedDirectly } from './is-invoked-directly.mjs';
-import { createR2Request } from './r2-section-lock.mjs';
+import { createR2Request, normalizeS3MatchEtag } from './r2-section-lock.mjs';
 
 export const IMAGE_NAMESPACES = Object.freeze(['blog', 'places']);
 export const IMAGE_LEASE_PROTOCOL_VERSION = 1;
@@ -81,14 +81,22 @@ export function isImageNamespaceLockPayload(value) {
 }
 
 function readHeader(response, name) {
-  return response?.headers?.get?.(name)
-    ?? response?.headers?.[name]
-    ?? response?.headers?.[name.toLowerCase()];
+  return normalizeS3MatchEtag(
+    response?.headers?.get?.(name)
+      ?? response?.headers?.[name]
+      ?? response?.headers?.[name.toLowerCase()],
+  );
 }
 
 async function responseText(response) {
   if (typeof response?.text === 'function') return response.text();
   return '';
+}
+
+function r2ResponseError(message, status) {
+  const error = new Error(message);
+  error.r2Status = status;
+  return error;
 }
 
 function imageLeaseAbortError() {
@@ -222,9 +230,9 @@ async function putLease(request, namespace, payload, condition) {
   if (response.status >= 200 && response.status < 300) {
     return { etag: readHeader(response, 'etag') };
   }
-  if (response.status === 412) return null;
+  if (response.status === 409 || response.status === 412) return null;
   const body = await responseText(response);
-  throw new Error(`[r2-image-namespace-lock] acquire ${namespace} failed (${response.status}): ${body.slice(0, 300)}`);
+  throw r2ResponseError(`[r2-image-namespace-lock] acquire ${namespace} failed (${response.status}): ${body.slice(0, 300)}`, response.status);
 }
 
 function leaseMatches(current, lease) {
@@ -234,6 +242,31 @@ function leaseMatches(current, lease) {
       && current.payload.leaseId === lease.leaseId
       && current.payload.expiresAt === lease.expiresAt,
   );
+}
+
+async function reconcileAmbiguousLeaseWrite(request, namespace, lease, error) {
+  let current;
+  try {
+    current = await readCurrentLease(request, namespace);
+  } catch (reconciliationError) {
+    const originalMessage = error instanceof Error ? error.message : String(error);
+    const reconciliationMessage = reconciliationError instanceof Error
+      ? reconciliationError.message
+      : String(reconciliationError);
+    throw new AggregateError(
+      [error, reconciliationError],
+      `[r2-image-namespace-lock] acquire ${namespace} failed ambiguously; reconciliation also failed: ${originalMessage}; ${reconciliationMessage}`,
+      { cause: error },
+    );
+  }
+  if (leaseMatches(current, lease)) {
+    const recoveredLease = { ...lease, etag: current.etag };
+    if (!current.etag) {
+      throw new Error(`[r2-image-namespace-lock] ${namespace} acquisition could not be confirmed with an ETag`);
+    }
+    return { current, lease: recoveredLease };
+  }
+  return { current, lease: null };
 }
 
 async function confirmAcquiredLease(request, lease) {
@@ -278,7 +311,19 @@ export async function acquireImageNamespaceLock(
       acquiredAt,
       expiresAt: acquiredAt + leaseMs,
     };
-    const created = await putLease(request, namespace, lease, { name: 'if-none-match', value: '*' });
+    let currentAfterWrite;
+    let created;
+    try {
+      created = await putLease(request, namespace, lease, { name: 'if-none-match', value: '*' });
+    } catch (error) {
+      if (error?.r2Status !== undefined) throw error;
+      const reconciled = await reconcileAmbiguousLeaseWrite(request, namespace, lease, error);
+      if (reconciled.lease) {
+        onLeaseWritten(reconciled.lease);
+        return reconciled.lease;
+      }
+      currentAfterWrite = reconciled.current;
+    }
     if (created) {
       const writtenLease = { ...lease, etag: created.etag };
       // Record ownership before the confirmation read can fail: a successful
@@ -288,7 +333,9 @@ export async function acquireImageNamespaceLock(
     }
 
     throwIfAborted(signal);
-    const current = await readCurrentLease(request, namespace);
+    const current = currentAfterWrite === undefined
+      ? await readCurrentLease(request, namespace)
+      : currentAfterWrite;
     throwIfAborted(signal);
     if (!current) {
       await waitForRetry(Math.min(100, Math.max(0, deadline - now())), sleep, signal);
@@ -298,7 +345,17 @@ export async function acquireImageNamespaceLock(
       if (!current.etag) {
         throw new Error(`[r2-image-namespace-lock] lock ${namespace} has no ETag; refusing an unsafe takeover`);
       }
-      const replaced = await putLease(request, namespace, lease, { name: 'if-match', value: current.etag });
+      let replaced;
+      try {
+        replaced = await putLease(request, namespace, lease, { name: 'if-match', value: current.etag });
+      } catch (error) {
+        if (error?.r2Status !== undefined) throw error;
+        const reconciled = await reconcileAmbiguousLeaseWrite(request, namespace, lease, error);
+        if (reconciled.lease) {
+          onLeaseWritten(reconciled.lease);
+          return reconciled.lease;
+        }
+      }
       if (replaced) {
         const writtenLease = { ...lease, etag: replaced.etag };
         onLeaseWritten(writtenLease);
@@ -411,7 +468,7 @@ export async function releaseImageNamespaceLock(
       'if-match': current.etag,
     },
   });
-  if (response.status === 412) return false;
+  if (response.status === 409 || response.status === 412) return false;
   if (response.status < 200 || response.status >= 300) {
     const body = await responseText(response);
     throw new Error(`[r2-image-namespace-lock] release ${normalized.namespace} failed (${response.status}): ${body.slice(0, 300)}`);

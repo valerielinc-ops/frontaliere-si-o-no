@@ -7,6 +7,7 @@ import {
   LOCK_LEASE_MS,
   LOCK_RENEW_INITIAL_DELAY_MS,
   LOCK_RENEW_INTERVAL_MS,
+  normalizeS3MatchEtag,
   parseSections,
   releaseSectionLock,
   renewSectionLock,
@@ -102,6 +103,59 @@ describe('r2-section-lock', () => {
       'x-amz-content-sha256': expect.any(String),
       authorization: expect.stringContaining('AWS4-HMAC-SHA256'),
     });
+  });
+
+  it('normalizes weak S3 ETags before using them as match conditions', () => {
+    expect(normalizeS3MatchEtag(' W/"etag-1" ')).toBe('"etag-1"');
+    expect(normalizeS3MatchEtag('"etag-1"')).toBe('"etag-1"');
+    expect(normalizeS3MatchEtag(undefined)).toBeUndefined();
+  });
+
+  it('retries a conditional acquisition conflict reported as HTTP 409', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    let conflict = true;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (conflict && input.method === 'PUT') {
+        conflict = false;
+        return response(409);
+      }
+      return baseRequest(input);
+    };
+
+    const lock = await acquireSectionLock('frontaliere', {
+      owner: 'owner-409',
+      request,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    });
+
+    expect(lock.owner).toBe('owner-409');
+    expect(objects.get(lockKey('frontaliere'))?.payload.owner).toBe('owner-409');
+    await releaseSectionLock('frontaliere', { owner: lock.owner, request });
+  });
+
+  it('reconciles a committed section lock when the PUT response is ambiguous', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    let ambiguous = true;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (ambiguous && input.method === 'PUT' && input.headers?.['if-none-match'] === '*') {
+        ambiguous = false;
+        await baseRequest(input);
+        throw new Error('socket timeout after commit');
+      }
+      return baseRequest(input);
+    };
+
+    const lock = await acquireSectionLock('frontaliere', {
+      owner: 'owner-ambiguous',
+      request,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    });
+
+    expect(lock).toMatchObject({ owner: 'owner-ambiguous', etag: 'etag-1' });
+    expect(objects.get(lockKey('frontaliere'))?.payload.owner).toBe('owner-ambiguous');
+    await releaseSectionLock('frontaliere', { owner: lock.owner, request });
   });
 
   it('serializes concurrent same-section publishes so both hubs retain their client IDs', async () => {

@@ -166,13 +166,26 @@ function signRequest({ endpoint, bucket, accessKeyId, secretAccessKey, now, meth
   };
 }
 
+export function normalizeS3MatchEtag(value) {
+  if (typeof value !== 'string') return value;
+  return value.trim().replace(/^W\//u, '');
+}
+
 function readHeader(response, name) {
-  return response?.headers?.get?.(name) ?? response?.headers?.[name] ?? response?.headers?.[name.toLowerCase()];
+  return normalizeS3MatchEtag(
+    response?.headers?.get?.(name) ?? response?.headers?.[name] ?? response?.headers?.[name.toLowerCase()],
+  );
 }
 
 async function responseText(response) {
   if (typeof response?.text === 'function') return response.text();
   return '';
+}
+
+function r2ResponseError(message, status) {
+  const error = new Error(message);
+  error.r2Status = status;
+  return error;
 }
 
 function configFromEnv(env) {
@@ -248,9 +261,46 @@ async function putLock(request, section, payload, condition) {
   if (response.status >= 200 && response.status < 300) {
     return { etag: readHeader(response, 'etag') };
   }
-  if (response.status === 412) return null;
+  if (response.status === 409 || response.status === 412) return null;
   const body = await responseText(response);
-  throw new Error(`[r2-section-lock] acquire ${section} failed (${response.status}): ${body.slice(0, 300)}`);
+  throw r2ResponseError(`[r2-section-lock] acquire ${section} failed (${response.status}): ${body.slice(0, 300)}`, response.status);
+}
+
+function lockMatches(current, payload) {
+  return Boolean(
+    current
+      && current.payload.owner === payload.owner
+      && current.payload.section === payload.section
+      && current.payload.acquiredAt === payload.acquiredAt
+      && current.payload.expiresAt === payload.expiresAt,
+  );
+}
+
+async function reconcileAmbiguousLockWrite(request, section, payload, error) {
+  let current;
+  try {
+    current = await readCurrentLock(request, section);
+  } catch (reconciliationError) {
+    const originalMessage = error instanceof Error ? error.message : String(error);
+    const reconciliationMessage = reconciliationError instanceof Error
+      ? reconciliationError.message
+      : String(reconciliationError);
+    throw new AggregateError(
+      [error, reconciliationError],
+      `[r2-section-lock] acquire ${section} failed ambiguously; reconciliation also failed: ${originalMessage}; ${reconciliationMessage}`,
+      { cause: error },
+    );
+  }
+  if (lockMatches(current, payload)) {
+    if (!current.etag) {
+      throw new Error(`[r2-section-lock] ${section} acquisition could not be confirmed with an ETag`);
+    }
+    return {
+      current,
+      lock: { section, owner: payload.owner, key: lockKey(section), etag: current.etag },
+    };
+  }
+  return { current, lock: null };
 }
 
 export async function acquireSectionLock(
@@ -278,12 +328,23 @@ export async function acquireSectionLock(
   };
 
   while (now() <= deadline) {
-    const created = await putLock(request, section, payload, { name: 'if-none-match', value: '*' });
+    let currentAfterWrite;
+    let created;
+    try {
+      created = await putLock(request, section, payload, { name: 'if-none-match', value: '*' });
+    } catch (error) {
+      if (error?.r2Status !== undefined) throw error;
+      const reconciled = await reconcileAmbiguousLockWrite(request, section, payload, error);
+      if (reconciled.lock) return reconciled.lock;
+      currentAfterWrite = reconciled.current;
+    }
     if (created) {
       return { section, owner, key: lockKey(section), etag: created.etag };
     }
 
-    const current = await readCurrentLock(request, section);
+    const current = currentAfterWrite === undefined
+      ? await readCurrentLock(request, section)
+      : currentAfterWrite;
     if (!current) {
       await sleep(100);
       continue;
@@ -292,7 +353,14 @@ export async function acquireSectionLock(
       if (!current.etag) {
         throw new Error(`[r2-section-lock] lock ${section} has no ETag; refusing an unsafe takeover`);
       }
-      const replacement = await putLock(request, section, payload, { name: 'if-match', value: current.etag });
+      let replacement;
+      try {
+        replacement = await putLock(request, section, payload, { name: 'if-match', value: current.etag });
+      } catch (error) {
+        if (error?.r2Status !== undefined) throw error;
+        const reconciled = await reconcileAmbiguousLockWrite(request, section, payload, error);
+        if (reconciled.lock) return reconciled.lock;
+      }
       if (replacement) {
         return { section, owner, key: lockKey(section), etag: replacement.etag };
       }
@@ -447,7 +515,7 @@ export async function releaseSectionLock(section, { owner, request = createR2Req
     key: lockKey(section),
     headers: { 'if-match': current.etag },
   });
-  if (response.status === 404 || response.status === 412) return false;
+  if (response.status === 404 || response.status === 409 || response.status === 412) return false;
   if (response.status < 200 || response.status >= 300) {
     const body = await responseText(response);
     throw new Error(`[r2-section-lock] release ${section} failed (${response.status}): ${body.slice(0, 300)}`);
