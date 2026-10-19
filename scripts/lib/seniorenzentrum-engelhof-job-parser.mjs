@@ -37,6 +37,7 @@ const SENIORENZENTRUM_ENGELHOF_EMPLOYER_POSTAL_LOCATIONS = Object.freeze([
   '8852 Altendorf',
 ]);
 const SENIORENZENTRUM_ENGELHOF_POSTAL_LOCATION_RX = /(?:^|\D)(?:CH[\s-]?)?(\d{4})\s+(\p{Lu}[\p{L}'’.-]*(?:[ -][\p{L}][\p{L}'’.-]*){0,3})/gu;
+const SENIORENZENTRUM_ENGELHOF_WORKPLACE_LABEL_RX = /(?:Arbeitsort|Arbeitsplatz|Einsatzort|Standort)\s*[:\-]\s*([^\n;|]+)/giu;
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -88,12 +89,11 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
-function explicitWorkplacePostalCandidates(detail = {}) {
-  const values = [detail.location, ...(Array.isArray(detail.workplaceLabels) ? detail.workplaceLabels : [])]
-    .filter(Boolean);
+function explicitWorkplacePostalCandidates(text = '') {
   const candidates = [];
   const seen = new Set();
-  for (const value of values) {
+  for (const label of String(text || '').matchAll(SENIORENZENTRUM_ENGELHOF_WORKPLACE_LABEL_RX)) {
+    const value = label[1];
     for (const match of String(value).matchAll(SENIORENZENTRUM_ENGELHOF_POSTAL_LOCATION_RX)) {
       const postalCode = match[1];
       const addressLocality = match[2]
@@ -127,11 +127,12 @@ function rejectUnverifiedEngelhofLocation(detail = {}) {
 }
 
 /**
- * EmployerBoard currently renders the vacancy-specific address only in the
+ * EmployerBoard currently renders any vacancy-specific postal pair only in the
  * `wwj-text[data-cy="job-detail"]` body. It no longer exposes a JobPosting
  * `jobLocation` or a recognised address container, so the generic extractor
- * otherwise drops every detail page even though the page carries the
- * source-backed `8852 Altendorf` address in the vacancy content.
+ * otherwise drops every detail page. The reviewed employer seat
+ * `8852 Altendorf` is boilerplate: only a different postal pair explicitly
+ * labelled as the workplace is accepted.
  *
  * Keep this rescue source-specific and scoped to the vacancy body. In
  * particular, do not scan the whole page or substitute the employer address:
@@ -149,9 +150,10 @@ export function extractSeniorenzentrumEngelhofDetailFields(html = '', pageUrl = 
     const vacancyBody = dom.window.document.querySelector('[data-cy="job-detail"]');
     if (!vacancyBody) return rejectUnverifiedEngelhofLocation(detail);
 
+    const vacancyText = bodyTextOf(vacancyBody.innerHTML);
     const candidates = [
-      ...freeTextPostalCandidates(bodyTextOf(vacancyBody.innerHTML)),
-      ...explicitWorkplacePostalCandidates(detail),
+      ...freeTextPostalCandidates(vacancyText),
+      ...explicitWorkplacePostalCandidates(vacancyText),
     ];
     const decision = variablePostalGeography(
       candidates,
