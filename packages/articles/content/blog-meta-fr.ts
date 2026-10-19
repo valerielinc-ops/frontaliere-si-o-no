@@ -13518,6 +13518,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.evento-for-matching-varese-2026.title': 'Varese : le 22 octobre 2026, l’événement For Matching',
     'blog.article.evento-for-matching-varese-2026.excerpt': '22 octobre 2026 : for MATCHING à Varese De 9.00 à 12.30 au Centre des congrès Ville Ponti Nouveau rapport sur le marché du travail de Varese Données, crises d’entreprise et table',
     'blog.article.evento-for-matching-varese-2026.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.italia-rincari-crescita-2027.title': 'Italie : hausse des prix de l\'énergie et croissance faible, 2027 plus difficile',
+    'blog.article.italia-rincari-crescita-2027.excerpt': 'En septembre 2026, les prix italiens augmentent de 0,7% sur un mois L\'inflation italienne atteint 4,2%, contre 3,3% en août Confindustria estime 1% en 2026',
+    'blog.article.italia-rincari-crescita-2027.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

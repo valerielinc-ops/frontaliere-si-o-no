@@ -45603,6 +45603,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'italia-rincari-crescita-2027',
+ category: 'novita',
+ date: '2026-10-19T14:41:27.050Z',
+ image: '/images/blog/article-autotrasporto-rincari-confine-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

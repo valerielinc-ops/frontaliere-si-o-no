@@ -13517,6 +13517,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.evento-for-matching-varese-2026.title': 'Varese: il 22 ottobre 2026 l\'evento For Matching',
     'blog.article.evento-for-matching-varese-2026.excerpt': '22 ottobre 2026: for MATCHING a Varese Dalle 9.00 alle 12.30 alle Ville Ponti Nuovo report sul mercato del lavoro varesino Dati, crisi aziendali e tavola',
     'blog.article.evento-for-matching-varese-2026.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.italia-rincari-crescita-2027.title': 'Italia: rincari energetici e crescita debole, 2027 più difficile',
+    'blog.article.italia-rincari-crescita-2027.excerpt': 'A settembre 2026 i prezzi italiani salgono dello 0,7% mensile L\'inflazione italiana arriva al 4,2%, dal 3,3% di agosto Confindustria stima l\'1% nel 2026',
+    'blog.article.italia-rincari-crescita-2027.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

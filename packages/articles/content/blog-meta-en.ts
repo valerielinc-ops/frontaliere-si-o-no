@@ -13516,6 +13516,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.evento-for-matching-varese-2026.title': 'Varese: on October 22, 2026, the For Matching event',
     'blog.article.evento-for-matching-varese-2026.excerpt': 'October 22, 2026: for MATCHING at Varese From 9.00 to 12.30 at Ville Ponti New report on the Varese labor market Data, company crises and roundtable',
     'blog.article.evento-for-matching-varese-2026.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.italia-rincari-crescita-2027.title': 'Italy: higher energy costs and weak growth, 2027 more difficult',
+    'blog.article.italia-rincari-crescita-2027.excerpt': 'In September 2026 Italian prices rise by 0,7% monthly Italian inflation reaches 4,2%, from 3,3% in August Confindustria estimates 1% in 2026',
+    'blog.article.italia-rincari-crescita-2027.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 671,
+      "5": 674,
       "6": 5054
     },
-    "publishedCovers": 7408,
+    "publishedCovers": 7411,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -201055,6 +201055,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-gais-alterszentrum-rotewies-rette-aumento": {
+      "cover": "/images/blog/article-gais-alterszentrum-rotewies-rette-aumento.webp",
+      "hash": "13918762c5f2aa380e05db2474046763cbbb664389ef79f9e0534f1a883637f1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "gais-alterszentrum-rotewies-rette-aumento",
+          "category": "pensione",
+          "date": "2026-10-19T14:39:09.729Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-gais-alterszentrum-rotewies-rette-aumento.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-gais-alterszentrum-rotewies-rette-aumento",
+        "imageUrl": "/images/blog/article-gais-alterszentrum-rotewies-rette-aumento.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-lenu-referendum-firme-valide": {
       "cover": "/images/blog/article-lenu-referendum-firme-valide.webp",
       "hash": "64e905908db299dca44587fc2a64cf8f233c0da8a9e44cc8e2b379075e800dd6",
@@ -201085,6 +201118,39 @@
         "provider": "openai-codex",
         "assetId": "article-lenu-referendum-firme-valide",
         "imageUrl": "/images/blog/article-lenu-referendum-firme-valide.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-prioswiss-ricorso-luks": {
+      "cover": "/images/blog/article-prioswiss-ricorso-luks.webp",
+      "hash": "b02998b3e57c63418114a2bfa81f757fee7be318b7c5f39dea742032d45a8bb0",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "prioswiss-ricorso-luks",
+          "category": "novita",
+          "date": "2026-10-19T14:58:13.207Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-prioswiss-ricorso-luks.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-prioswiss-ricorso-luks",
+        "imageUrl": "/images/blog/article-prioswiss-ricorso-luks.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -201151,6 +201217,39 @@
         "provider": "openai-codex",
         "assetId": "article-status-s-san-gallo-assistenza",
         "imageUrl": "/images/blog/article-status-s-san-gallo-assistenza.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-teufen-budget-deficit-2027": {
+      "cover": "/images/blog/article-teufen-budget-deficit-2027.webp",
+      "hash": "28fd4191211efb015ed3a7e128c9c857d7c06dc3097938c8184d363e7d67885f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "teufen-budget-deficit-2027",
+          "category": "fiscale",
+          "date": "2026-10-19T15:18:22.893Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-teufen-budget-deficit-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-teufen-budget-deficit-2027",
+        "imageUrl": "/images/blog/article-teufen-budget-deficit-2027.webp",
         "evidence": "generated-engine-record"
       }
     },
