@@ -493,12 +493,16 @@ export async function fetchAllTechnicEmploisJobs({
         policy,
         runtime: pageRuntime,
         accept: (html, url) => {
-          const detail = extractRuntimeDetailFields(spec, html, url, { recordUrl: listing.url });
+          const detail = extractRuntimeDetailFields(spec, html, url, {
+            recordUrl: listing.url,
+            recordTitle: listing.title,
+          });
           return hasPublishableTechnicDetail(detail, listing);
         },
       });
       const detail = extractRuntimeDetailFields(spec, page.body, page.url || listing.url, {
         recordUrl: listing.url,
+        recordTitle: listing.title,
       });
       return buildTechnicJob(listing, detail);
     });

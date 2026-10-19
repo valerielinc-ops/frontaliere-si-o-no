@@ -270,6 +270,24 @@ describe('vacancy extraction', () => {
     expect(detail.description).toContain('Wir bieten Entwicklungsmöglichkeiten.');
   });
 
+  it('uses the listing title when a detail JobPosting title is generic chrome', () => {
+    const recordTitle = 'Dipl. Physiotherapeut/-in (40-100%)';
+    const pageUrl = 'https://physioswiss.ch/stelleninserate/157790/dipl-physiotherapeut-in-40-100/';
+    const html = `<h1>${recordTitle}</h1><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Header',
+      description: 'Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen.',
+      url: pageUrl,
+    })}</script>`;
+
+    const detail = extractRuntimeDetailFields({}, html, pageUrl, {
+      recordUrl: pageUrl,
+      recordTitle,
+    });
+
+    expect(detail.title).toBe(recordTitle);
+  });
+
   // jobs.admin.ch/agroscope (#7711). Il luogo di lavoro vero sta solo in un
   // campo etichettato renderizzato, che nessun record strutturato porta: senza
   // estrarne il VALORE la pagina non corrobora nulla e l'audit legge un
