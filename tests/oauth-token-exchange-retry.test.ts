@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   exchangeAssertionForToken,
   extractOAuthErrorReason,
@@ -6,7 +7,15 @@ import {
   TOKEN_EXCHANGE_TIMEOUT_MS,
   GOOGLE_TOKEN_URL,
 } from '../scripts/lib/google-service-account-token.mjs';
-import { RC_FETCH_ATTEMPTS, RC_FETCH_TIMEOUT_MS, isRetryableRcFetchStatus, rcFetchBackoffMs } from '../scripts/load-rc-env.mjs';
+import {
+  RC_FETCH_ATTEMPTS,
+  RC_FETCH_TIMEOUT_MS,
+  extractGoogleErrorReason,
+  isRetryableRcFetchStatus,
+  rcFetchBackoffMs,
+} from '../scripts/load-rc-env.mjs';
+
+const RC_SOURCE = readFileSync(new URL('../scripts/load-rc-env.mjs', import.meta.url), 'utf8');
 
 /**
  * Lo scambio OAuth e' il primo anello della catena delle credenziali di
@@ -205,6 +214,39 @@ describe('load-rc-env: il salto a valle ha lo stesso budget del salto a monte', 
     expect(isRetryableRcFetchStatus(503)).toBe(true);
     expect(isRetryableRcFetchStatus(401)).toBe(false);
     expect(isRetryableRcFetchStatus(404)).toBe(false);
+  });
+
+  it('un 403 con reason di quota e\' retryable, uno sconosciuto resta terminale', () => {
+    for (const reason of [
+      'rateLimitExceeded',
+      'userRateLimitExceeded',
+      'dailyLimitExceeded',
+      'dailyLimitExceededUnreg',
+      'quotaExceeded',
+      'RESOURCE_EXHAUSTED',
+    ]) {
+      expect(isRetryableRcFetchStatus(403, reason)).toBe(true);
+    }
+    expect(isRetryableRcFetchStatus(403, 'invalidApiKey')).toBe(false);
+    expect(isRetryableRcFetchStatus(403, 'PERMISSION_DENIED')).toBe(false);
+    expect(isRetryableRcFetchStatus(403, null)).toBe(false);
+  });
+
+  it('estrae la reason quota dalla risposta REST di Remote Config', () => {
+    expect(extractGoogleErrorReason('{"error":{"errors":[{"reason":"quotaExceeded"}]}}')).toBe('quotaExceeded');
+    expect(extractGoogleErrorReason('{"error":{"status":"RESOURCE_EXHAUSTED"}}')).toBe('RESOURCE_EXHAUSTED');
+    expect(extractGoogleErrorReason('not json')).toBeNull();
+  });
+
+  it('il fetch RC ritenta anche un errore di rete nudo e legge il body dei 403', () => {
+    const fnStart = RC_SOURCE.indexOf('async function fetchTemplateViaRest');
+    expect(fnStart).toBeGreaterThanOrEqual(0);
+    const fnBody = RC_SOURCE.slice(fnStart, RC_SOURCE.indexOf('\n// ─── Main', fnStart));
+    expect(fnBody).not.toMatch(/if\s*\(err\?\.name\s*!==\s*'AbortError'\s*&&\s*err\?\.name\s*!==\s*'TimeoutError'\)\s*throw err;/);
+    expect(fnBody).toMatch(/lastErr\s*=\s*err\?\.name\s*===\s*'AbortError'[\s\S]*:\s*err;/);
+    expect(fnBody).toMatch(/const bodyText\s*=\s*await rcRes\.text\(\)\.catch\(\(\)\s*=>\s*''\)/);
+    expect(fnBody).toMatch(/extractGoogleErrorReason\(bodyText\)/);
+    expect(fnBody).toMatch(/isRetryableRcFetchStatus\(rcRes\.status,\s*reason\)/);
   });
 
   it('stesso tetto di clock del salto OAuth: un solo numero, non due', () => {
