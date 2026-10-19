@@ -1343,13 +1343,20 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
  * @param {'create'|'sign_in'} before the page the click was made on
  * @param {string[]} [shown] the messages on the page right before the click
  */
-async function awaitAuthOutcome(page, before, shown = []) {
+const authFieldValidity = (fields) => JSON.stringify((fields || [])
+  .map((field) => [String(field.id), Boolean(field.invalid)])
+  .sort(([left], [right]) => left.localeCompare(right)));
+
+async function awaitAuthOutcome(page, before, shown = [], shownFields = []) {
   await settle(page);
   // A page that is reloading cannot be read yet. Read without opening its listboxes while waiting (the form
   // behind a sign-in has several, and each reading would open and close them all); in full once it is there.
   const read = () => extractFields(page, NAVIGATION).catch(() => null);
   const told = JSON.stringify(shown || []);
-  const unanswered = (after) => !after || (authPageKind(after) === before && JSON.stringify(after.errors || []) === told);
+  const toldFieldValidity = authFieldValidity(shownFields);
+  const unanswered = (after) => !after || (authPageKind(after) === before
+    && JSON.stringify(after.errors || []) === told
+    && authFieldValidity(after.fields) === toldFieldValidity);
   const started = Date.now();
   const deadline = started + AUTH_OUTCOME_TIMEOUT_MS;
   let after = await read();
@@ -1368,7 +1375,7 @@ async function awaitAuthOutcome(page, before, shown = []) {
 }
 
 /** What tells one account page from another, and a page from the same one read a moment later. */
-const authViewSignature = (view) => `${authPageKind(view)}|${view.fields.map((field) => field.label).join('|')}|${(view.errors || []).join('|')}`;
+const authViewSignature = (view) => `${authPageKind(view)}|${view.fields.map((field) => field.label).join('|')}|${(view.errors || []).join('|')}|${authFieldValidity(view.fields)}`;
 
 /**
  * The other account page, once the link to it has drawn it. Such a link changes the page in place: read at
@@ -1444,7 +1451,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
     diagnostics?.beforeClick('account');
     const pressed = await clickFirst(page, form, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE]);
     if (!pressed) return { handoff: 'account' };
-    const after = await awaitAuthOutcome(page, 'sign_in', shown);
+    const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
     diagnostics?.afterClick();
     if (!account.verifiedAt && (VERIFY_PAGE_RE.test(after.text) || codeField(after))) {
       return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
@@ -1511,7 +1518,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
       if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'no_create_button');
       return noted({ handoff: 'account' });
     }
-    const after = await awaitAuthOutcome(page, 'create', filled.errors);
+    const after = await awaitAuthOutcome(page, 'create', filled.errors, filled.fields);
     diagnostics?.afterClick();
     const outcome = registrationOutcome(after);
     if (outcome !== 'refused') {
@@ -1519,7 +1526,8 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
       if (outcome === 'verify') return noted(await verifyAccount({ page, host, sinceMs, ctx, snapshot: after }));
       return noted({ snapshot: after, reopen: !after.passwordVisible });
     }
-    if (JSON.stringify(after.errors || []) === JSON.stringify(filled.errors || [])) {
+    if (JSON.stringify(after.errors || []) === JSON.stringify(filled.errors || [])
+      && authFieldValidity(after.fields) === authFieldValidity(filled.fields)) {
       // Still the form, and no word from the portal: it did not answer in time. The registration may have
       // gone through, so the password stays; the next run signs in with it, and creates the account again
       // only if that sign-in fails.

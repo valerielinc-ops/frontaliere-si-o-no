@@ -38,7 +38,7 @@ const UMANTIS_CLOSED_FORM = '/Vacancies/718/Application/New/2';
 const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:${server.address().port}`;
 
 function fakePortal() {
-  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, registrationValidationOnce: false, registrationNeedsAnswerAfterValidation: false, registrationNeedsAnswer: false, registrationRequests: 0, registeredPermit: '', unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
+  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, registrationValidationOnce: false, registrationInvalidOnlyOnce: false, registrationNeedsAnswerAfterValidation: false, registrationNeedsAnswer: false, registrationRequests: 0, registeredPermit: '', unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
   const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, flaky: false, cookieManager: '' };
   // umantis, 2026-10-03: the application form itself asks for the account's password.
@@ -47,13 +47,13 @@ function fakePortal() {
   const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, uploadFails: false, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
-  const registrationForm = ({ submit = true, error = '', includePermit = state.registrationNeedsAnswer } = {}) => {
+  const registrationForm = ({ submit = true, error = '', includePermit = state.registrationNeedsAnswer, invalidEmail = false } = {}) => {
     const validationError = error ? `<p role="alert">${error}</p>` : '';
     const permitField = includePermit
       ? '<label for="permit">Do you hold a valid work permit?</label><select id="permit" name="permit" required><option value="">Select</option><option>Yes</option><option>No</option></select>'
       : '';
     const submitButton = submit ? '<button type="submit">Konto erstellen</button>' : '';
-    const fields = `<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required><label for="p1">Kennwort</label><input id="p1" type="password" name="p1" required><label for="p2">Kennwort bestätigen</label><input id="p2" type="password" name="p2" required>${permitField}<label><input type="checkbox" name="privacy" required> Ich akzeptiere die Datenschutzerklärung *</label><label><input type="checkbox" name="news"> Newsletter abonnieren</label>${submitButton}`;
+    const fields = `<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required${invalidEmail ? ' aria-invalid="true"' : ''}><label for="p1">Kennwort</label><input id="p1" type="password" name="p1" required><label for="p2">Kennwort bestätigen</label><input id="p2" type="password" name="p2" required>${permitField}<label><input type="checkbox" name="privacy" required> Ich akzeptiere die Datenschutzerklärung *</label><label><input type="checkbox" name="news"> Newsletter abonnieren</label>${submitButton}`;
     return page('Registrieren', `${validationError}${form('/register', fields)}`);
   };
   const loginForm = (error = '') => page('Anmelden', `${error ? `<p role="alert">${error}</p>` : ''}${form('/login', '<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required><label for="p">Kennwort</label><input id="p" type="password" name="password" required><button type="submit">Anmelden</button>')}<a href="/register">Konto erstellen</a>`);
@@ -591,6 +591,10 @@ function fakePortal() {
     if (route === 'POST /register') {
       const body = new URLSearchParams(await readBody(req));
       state.registrationRequests += 1;
+      if (state.registrationInvalidOnlyOnce) {
+        state.registrationInvalidOnlyOnce = false;
+        return send(registrationForm({ invalidEmail: true }));
+      }
       if (state.registrationValidationOnce) {
         state.registrationValidationOnce = false;
         state.registrationNeedsAnswer = state.registrationNeedsAnswerAfterValidation;
@@ -1332,6 +1336,7 @@ async function main() {
         state.pending = null;
         state.registrationNeedsAnswer = false;
         state.registrationNeedsAnswerAfterValidation = false;
+        state.registrationInvalidOnlyOnce = false;
         state.registeredPermit = '';
         saved.clear();
       };
@@ -1350,6 +1355,17 @@ async function main() {
       check('a registration validation response replans a newly required known answer and retries automatically',
         repairedRegistration.event.type === 'submit_succeeded' && state.registrationRequests === registrationsBeforeRepair + 2
         && state.registeredPermit === 'Yes' && state.applications.length === applicationsBeforeRepair + 1
+        && Boolean(saved.get(accountHost)?.verifiedAt));
+
+      resetRegistration();
+      const registrationsBeforeInvalidOnly = state.registrationRequests;
+      const applicationsBeforeInvalidOnly = state.applications.length;
+      state.registrationInvalidOnlyOnce = true;
+      const invalidOnlyRegistration = await run();
+      check('a field marked aria-invalid without an error message is treated as a validation response and retried',
+        invalidOnlyRegistration.event.type === 'submit_succeeded'
+        && state.registrationRequests === registrationsBeforeInvalidOnly + 2
+        && state.applications.length === applicationsBeforeInvalidOnly + 1
         && Boolean(saved.get(accountHost)?.verifiedAt));
 
       resetRegistration();
