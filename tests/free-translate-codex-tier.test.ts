@@ -1301,4 +1301,20 @@ describe('titoli di template nel prompt del tier Codex', () => {
     expect(systemOf(ft.codexTranslatePromptsForTests.single('testo', 'it', 'es'))).not.toContain('Template headings');
     expect(systemOf(ft.codexTranslatePromptsForTests.batch(['a', 'b'], 'it', 'es'))).not.toContain('Template headings');
   });
+
+  it('richiesta singola e a gruppi it→fr/de dichiarano label nav e registro', () => {
+    const prompts = [
+      systemOf(ft.codexTranslatePromptsForTests.single('[AVS](nav:pension)', 'it', 'fr')),
+      systemOf(ft.codexTranslatePromptsForTests.batch(['[AVS](nav:pension)'], 'it', 'fr')),
+    ];
+    for (const prompt of prompts) {
+      expect(prompt).toContain('Translate the visible text of every Markdown link');
+      expect(prompt).toContain('leave the complete link target exactly unchanged');
+      expect(prompt).toContain('French «vous»');
+    }
+    expect(systemOf(ft.codexTranslatePromptsForTests.single('[AVS](nav:pension)', 'it', 'de'))).toContain('German «Sie»');
+    expect(systemOf(ft.codexTranslatePromptsForTests.batch(['[AVS](nav:pension)'], 'it', 'de'))).toContain('German «Sie»');
+    expect(systemOf(ft.codexTranslatePromptsForTests.single('[AVS](nav:pension)', 'it', 'en'))).toContain('neutral English register');
+    expect(systemOf(ft.codexTranslatePromptsForTests.batch(['[AVS](nav:pension)'], 'it', 'en'))).toContain('neutral English register');
+  });
 });
