@@ -8513,7 +8513,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.agenda-federale-voto-2026.title': 'Consiglio federale ha trasmesso il pacchetto Svizzera-UE',
     'blog.article.agenda-federale-voto-2026.excerpt': 'Il pacchetto Svizzera-UE è stato trasmesso il 13 marzo 2026 Il 29 novembre 2026 si vota sul finanziamento supplementare dell\'AVS Guy Parmelin ha annunciato',
     'blog.article.agenda-federale-voto-2026.imageAlt': 'Scena istituzionale svizzera legata a decisioni federali e votazioni popolari',
-    'blog.article.giovani-donne-stipendi-svizzera.title': 'Di più Le giovani svizzere guadagnano meno nonostante siano più istruite',
+    'blog.article.giovani-donne-stipendi-svizzera.title': 'Le giovani svizzere guadagnano meno nonostante siano più istruite',
     'blog.article.giovani-donne-stipendi-svizzera.excerpt': 'Nati nel 1995: divario di reddito del 14% Nati nel 1965: divario di reddito del 55% Nel 2025: istruzione terziaria al 54% contro il 48% Tra i genitori',
     'blog.article.giovani-donne-stipendi-svizzera.imageAlt': 'Giovane donna lavora in un ufficio moderno in Svizzera',
     'blog.article.imposta-successione-donazione-zurigo-regole.title': 'Imposta di successione e donazione nel Cantone di Zurigo',
