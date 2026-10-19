@@ -38,7 +38,7 @@ const UMANTIS_CLOSED_FORM = '/Vacancies/718/Application/New/2';
 const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:${server.address().port}`;
 
 function fakePortal() {
-  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
+  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, registrationValidationOnce: false, registrationNeedsAnswerAfterValidation: false, registrationNeedsAnswer: false, registrationRequests: 0, registeredPermit: '', unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
   const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, flaky: false, cookieManager: '' };
   // umantis, 2026-10-03: the application form itself asks for the account's password.
@@ -47,6 +47,16 @@ function fakePortal() {
   const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, uploadFails: false, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
+  const registrationForm = ({ submit = true, error = '', includePermit = state.registrationNeedsAnswer } = {}) => {
+    const validationError = error ? `<p role="alert">${error}</p>` : '';
+    const permitField = includePermit
+      ? '<label for="permit">Do you hold a valid work permit?</label><select id="permit" name="permit" required><option value="">Select</option><option>Yes</option><option>No</option></select>'
+      : '';
+    const submitButton = submit ? '<button type="submit">Konto erstellen</button>' : '';
+    const fields = `<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required><label for="p1">Kennwort</label><input id="p1" type="password" name="p1" required><label for="p2">Kennwort bestätigen</label><input id="p2" type="password" name="p2" required>${permitField}<label><input type="checkbox" name="privacy" required> Ich akzeptiere die Datenschutzerklärung *</label><label><input type="checkbox" name="news"> Newsletter abonnieren</label>${submitButton}`;
+    return page('Registrieren', `${validationError}${form('/register', fields)}`);
+  };
+  const loginForm = (error = '') => page('Anmelden', `${error ? `<p role="alert">${error}</p>` : ''}${form('/login', '<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required><label for="p">Kennwort</label><input id="p" type="password" name="password" required><button type="submit">Anmelden</button>')}<a href="/register">Konto erstellen</a>`);
   // The form as read on 2026-10-03: one <form>, one password among the applicant's data and the
   // uploads, «Submit final application». The page names the role, never the company.
   const umantisPhoto = '<label for="ph">Photo</label><input id="ph" type="file" name="photo">';
@@ -561,13 +571,13 @@ function fakePortal() {
     }
     if (route === 'GET /login') {
       if (state.sessions.has(sessionOf(req))) return redirect('/apply');
-      return send(page('Anmelden', `${form('/login', '<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required><label for="p">Kennwort</label><input id="p" type="password" name="password" required><button type="submit">Anmelden</button>')}<a href="/register">Konto erstellen</a>`));
+      return send(loginForm());
     }
     if (route === 'POST /login') {
       const body = new URLSearchParams(await readBody(req));
       const email = body.get('email');
-      if (state.accounts.get(email) !== body.get('password')) return send(page('Anmelden', '<p role="alert">Falsches Kennwort</p>'));
-      if (state.unverifiedLoginStaysOnSignIn && !state.verified.has(email)) return send(page('Anmelden', '<p role="alert">Ungültige Anmeldedaten</p>'));
+      if (state.accounts.get(email) !== body.get('password')) return send(loginForm('Falsches Kennwort'));
+      if (state.unverifiedLoginStaysOnSignIn && !state.verified.has(email)) return send(loginForm('Ungültige Anmeldedaten'));
       if (!state.verified.has(email)) return send(page('Bestätigung', '<p>Bitte bestätigen Sie zuerst Ihre E-Mail-Adresse.</p>'));
       const sid = Math.random().toString(36).slice(2);
       state.sessions.add(sid);
@@ -576,15 +586,22 @@ function fakePortal() {
     if (route === 'GET /register') {
       const submit = state.omitNextRegistrationSubmit ? '' : '<button type="submit">Konto erstellen</button>';
       state.omitNextRegistrationSubmit = false;
-      return send(page('Registrieren', form('/register', `<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required><label for="p1">Kennwort</label><input id="p1" type="password" name="p1" required><label for="p2">Kennwort bestätigen</label><input id="p2" type="password" name="p2" required><label><input type="checkbox" name="privacy" required> Ich akzeptiere die Datenschutzerklärung *</label><label><input type="checkbox" name="news"> Newsletter abonnieren</label>${submit}`)));
+      return send(registrationForm({ submit: Boolean(submit) }));
     }
     if (route === 'POST /register') {
       const body = new URLSearchParams(await readBody(req));
+      state.registrationRequests += 1;
+      if (state.registrationValidationOnce) {
+        state.registrationValidationOnce = false;
+        state.registrationNeedsAnswer = state.registrationNeedsAnswerAfterValidation;
+        return send(registrationForm({ error: 'Ungültig' }));
+      }
       if (state.refuseNextRegistration || body.get('p1') !== body.get('p2') || !body.get('privacy') || String(body.get('p1')).length < 12) {
         state.refuseNextRegistration = false;
         return send(page('Registrieren', '<p role="alert">Ungültig</p>'));
       }
       if (body.get('news')) state.newsletter = true;
+      state.registeredPermit = body.get('permit') || '';
       state.accounts.set(body.get('email'), body.get('p1'));
       state.pending = { email: body.get('email'), token: `tok${Math.random().toString(36).slice(2)}` };
       return send(page('E-Mail gesendet', '<p>Wir haben Ihnen eine E-Mail gesendet. Bitte bestätigen Sie Ihre E-Mail-Adresse über den Link.</p>'));
@@ -779,6 +796,10 @@ async function fakeCodex({ prompt }) {
     // A honeypot must never reach the planner (fields.mjs): one that did would be filled.
     if (/website/i.test(field.label)) return act('fill', 'https://example.com');
     if (/how did you hear/i.test(field.label)) return act('select', 'Online job board', { source: 'rule' });
+    if (/valid work permit/i.test(field.label)) {
+      const answer = candidate?.portalQuestionsAnswered?.find((item) => /valid work permit/i.test(item.question || ''))?.answer || 'Yes';
+      return act('select', answer, { source: 'answers' });
+    }
     if (/^title/i.test(field.label)) return act('select', 'Mr', { source: 'answers' });
     if (/data release/i.test(field.label)) return act('select', (field.options || []).find((option) => /deleted/.test(option)) || '', { source: 'consent' });
     if (field.kind === 'file') return act('upload', '', { document: 'cv', source: 'documents' });
@@ -993,10 +1014,11 @@ async function main() {
   const checks = [];
   const check = (name, ok) => { checks.push({ name, ok }); console.log(`${ok ? '✓' : '✗'} ${name}`); };
   const focusWorkday = process.env.AA_PORTAL_E2E_FOCUS === 'workday-assisted';
+  const focusRegistration = process.env.AA_PORTAL_E2E_FOCUS === 'registration-retry';
   try {
     if (focusWorkday) {
       await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check }, true);
-    } else {
+    } else if (!focusRegistration) {
     const dry = await run({ dryRun: true });
     check('a dry run stops before creating the account', dry.event.type === 'dry_run_ready' && dry.event.stage === 'account' && state.accounts.size === 0);
     // The portal refuses the registration once: no account is kept, so the next run creates it again.
@@ -1300,6 +1322,61 @@ async function main() {
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
     await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check });
+    }
+
+    if (!focusWorkday) {
+      const resetRegistration = () => {
+        state.accounts.clear();
+        state.verified.clear();
+        state.sessions.clear();
+        state.pending = null;
+        state.registrationNeedsAnswer = false;
+        state.registrationNeedsAnswerAfterValidation = false;
+        state.registeredPermit = '';
+        saved.clear();
+      };
+      resetRegistration();
+      const registrationsBeforeRepair = state.registrationRequests;
+      const applicationsBeforeRepair = state.applications.length;
+      state.registrationValidationOnce = true;
+      state.registrationNeedsAnswerAfterValidation = true;
+      const candidateWithPermit = {
+        identity: { email: ALIAS },
+        profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
+        answers: { valid_work_permit: 'Yes' },
+        portalQuestionsAnswered: [{ id: 'valid_work_permit', question: 'Do you hold a valid work permit?', answer: 'Yes' }],
+      };
+      const repairedRegistration = await run({ candidate: candidateWithPermit });
+      check('a registration validation response replans a newly required known answer and retries automatically',
+        repairedRegistration.event.type === 'submit_succeeded' && state.registrationRequests === registrationsBeforeRepair + 2
+        && state.registeredPermit === 'Yes' && state.applications.length === applicationsBeforeRepair + 1
+        && Boolean(saved.get(accountHost)?.verifiedAt));
+
+      resetRegistration();
+      const registrationsBeforeQuestion = state.registrationRequests;
+      const applicationsBeforeQuestion = state.applications.length;
+      state.registrationValidationOnce = true;
+      state.registrationNeedsAnswerAfterValidation = true;
+      const registrationQuestion = await run();
+      const permitQuestion = registrationQuestion.event.questions?.find((question) => /valid work permit/i.test(question.question || ''));
+      check('a newly exposed registration fact becomes a candidate question and keeps the credential for resume',
+        registrationQuestion.event.type === 'submit_needs_candidate' && Boolean(permitQuestion)
+        && saved.get(accountHost)?.status === 'unanswered' && Boolean(saved.get(accountHost)?.password)
+        && state.registrationRequests === registrationsBeforeQuestion + 1 && state.accounts.size === 0
+        && state.applications.length === applicationsBeforeQuestion);
+      if (permitQuestion) {
+        const candidate = {
+          identity: { email: ALIAS },
+          profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
+          answers: { [permitQuestion.id]: 'Yes' },
+          portalQuestionsAnswered: [{ id: permitQuestion.id, question: permitQuestion.question, context: permitQuestion.context, answer: 'Yes' }],
+        };
+        const resumedApplication = await run({ candidate });
+        check('an answered registration question resumes account creation and submits the application',
+          resumedApplication.event.type === 'submit_succeeded' && state.registeredPermit === 'Yes'
+          && state.accounts.has(ALIAS) && state.verified.has(ALIAS)
+          && state.applications.length === applicationsBeforeQuestion + 1);
+      }
     }
   } finally {
     server.close();
