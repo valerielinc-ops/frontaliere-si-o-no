@@ -41,6 +41,7 @@ vi.mock('@/services/assistedApplicationExperiment', () => ({
 vi.mock('@/services/i18n', async () => {
   const { default: strings } = await import('@/services/locales/it-core');
   return {
+    getLocale: () => 'it',
     useTranslation: () => ({
       locale: 'it',
       t: (key: string, values?: Record<string, string>) => Object.entries(values || {}).reduce(
