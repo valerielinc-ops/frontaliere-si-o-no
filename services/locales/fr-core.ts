@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ 'whatsNew.v3991.title': "Des offres d’emploi plus proches de chez vous",
+ 'whatsNew.v3991.conciergeProximity.title': "La proximité aide à classer les postes proposés",
+ 'whatsNew.v3991.conciergeProximity.desc': "Indiquez votre commune ou votre code postal dans votre profil pour prioriser les offres compatibles près de chez vous. La correspondance avec votre CV reste le critère principal ; votre adresse complète n’est pas nécessaire.",
  'whatsNew.v3990.title': "Paiement simplifié pour la candidature assistée",
  'whatsNew.v3990.conciergeCheckout.title': "Payez sans quitter le site",
  'whatsNew.v3990.conciergeCheckout.desc': "Le paiement du service de 30 jours se fait dans un formulaire intégré. Si vous fermez la fenêtre ou rechargez la page, vous pouvez reprendre la même tentative ; le service n’est activé qu’après confirmation du paiement.",
@@ -913,6 +916,8 @@ const frCore: Record<string, string> = {
  'jobBoard.concierge.name': 'Nom et prénom',
  'jobBoard.concierge.email': 'E-mail',
  'jobBoard.concierge.phone': 'Téléphone (facultatif)',
+ 'jobBoard.concierge.location': 'Commune ou code postal de résidence',
+ 'jobBoard.concierge.locationHint': 'La commune de résidence de votre profil est préremplie si elle est disponible. Vous pouvez la modifier avec une commune ou un code postal ; l’adresse complète n’est pas nécessaire.',
  'jobBoard.concierge.consent': 'J’autorise Frontaliereticino.ch à traiter mon CV et les informations fournies afin de préparer et d’envoyer les candidatures pour les postes que j’accepte, conformément aux Conditions d’utilisation et à la Politique de confidentialité.',
  'jobBoard.concierge.saveData': 'Enregistrer les informations',
  'jobBoard.concierge.saveProfile': 'Enregistrer les informations',

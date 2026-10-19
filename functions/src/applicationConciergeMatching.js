@@ -21,7 +21,20 @@ const DEFAULT_JOB_INDEX_URL = 'https://cdn.frontaliereticino.ch/data/jobs-it-ind
 const FETCH_TIMEOUT_MS = 90_000;
 const MAX_PROPOSALS_PER_RUN = 10;
 const MIN_MATCH_SCORE = 28;
-export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v3';
+export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v4';
+const LOCATION_MATCH_POINTS = Object.freeze({
+  sameLocality: 8,
+  sameThreeDigitPostcode: 6,
+  sameTwoDigitPostcode: 4,
+  adjacentTwoDigitPostcode: 2,
+});
+const CANTON_CODES = new Set([
+  'ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'ge', 'gl', 'gr', 'ju', 'lu', 'ne', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs', 'zg', 'zh',
+]);
+const NON_LOCALITY_WORDS = new Set([
+  'ch', 'switzerland', 'svizzera', 'schweiz', 'suisse', 'italia', 'italy', 'italien', 'canton', 'cantone', 'kanton',
+  'ticino', 'tessin', 'grigioni', 'graubunden', 'graubuenden', 'grisons',
+]);
 const STOP_WORDS = new Set([
   'and', 'con', 'per', 'the', 'with', 'del', 'della', 'delle', 'dei', 'degli', 'di', 'in', 'a', 'da', 'su', 'il', 'lo', 'la', 'le', 'un', 'una', 'uno',
   'job', 'lavoro', 'stellen', 'emploi', 'arbeit', 'switzerland', 'svizzera', 'suisse', 'schweiz', 'full', 'time', 'part', 'tempo', 'pieno',
@@ -111,6 +124,39 @@ function profileEvidence(profile) {
 
 function jobText(job) {
   return [job?.title, job?.category, job?.sector, job?.description, job?.requirements].filter(Boolean).join(' ');
+}
+
+function postcode(value) {
+  const match = String(value || '').match(/\b(\d{4,5})\b/);
+  return match?.[1] || '';
+}
+
+function localityKey(value) {
+  const parts = String(value || '').replace(/\b\d{4,5}\b/g, ' ').split(/[;,|/]+/);
+  return parts.map((part) => normalize(part).split(/\s+/)
+    .filter((token) => !CANTON_CODES.has(token) && !NON_LOCALITY_WORDS.has(token)).join(' '))
+    .find(Boolean) || '';
+}
+
+/** A small, private ranking hint from a city/CAP only; it is not a route distance. */
+function locationMatchPoints(candidateLocation, job) {
+  if (!candidateLocation) return 0;
+  const jobLocation = [job?.postalCode, job?.addressLocality || job?.location].filter(Boolean).join(' ');
+  if (!jobLocation) return 0;
+  const candidateLocality = localityKey(candidateLocation);
+  const jobLocality = localityKey(jobLocation);
+  if (candidateLocality && candidateLocality === jobLocality) return LOCATION_MATCH_POINTS.sameLocality;
+
+  const candidatePostcode = postcode(candidateLocation);
+  const jobPostcode = postcode(jobLocation);
+  if (!candidatePostcode || !jobPostcode || candidatePostcode.length !== jobPostcode.length) return 0;
+  if (candidatePostcode === jobPostcode) return LOCATION_MATCH_POINTS.sameLocality;
+  if (candidatePostcode.slice(0, 3) === jobPostcode.slice(0, 3)) return LOCATION_MATCH_POINTS.sameThreeDigitPostcode;
+  if (candidatePostcode.slice(0, 2) === jobPostcode.slice(0, 2)) return LOCATION_MATCH_POINTS.sameTwoDigitPostcode;
+  if (Math.abs(Number(candidatePostcode.slice(0, 2)) - Number(jobPostcode.slice(0, 2))) === 1) {
+    return LOCATION_MATCH_POINTS.adjacentTwoDigitPostcode;
+  }
+  return 0;
 }
 
 function roleSignals(value) {
@@ -231,7 +277,7 @@ function languageSignals(value, { requireContext = false } = {}) {
 }
 
 /** Pure scorer exported for tests and future ranking improvements. */
-export function scoreJobForProfile(job, profile) {
+export function scoreJobForProfile(job, profile, candidateLocation = '') {
   const candidate = profileEvidence(profile);
   if (!candidate.allTokens.size && !candidate.roleText) return { score: 0, reasons: [] };
   const jobTitle = [job?.title, job?.category, job?.sector].filter(Boolean).join(' ');
@@ -277,14 +323,18 @@ export function scoreJobForProfile(job, profile) {
   const experiencePoints = experienceInTitle.length * 7 + experienceInBody.length * 2;
   const rolePoints = roleMatches.reduce((sum, role) => sum + ROLE_SIGNAL_POINTS[role], 0);
   const languagePoints = Math.min(8, languageMatches.length * 4);
-  const score = Math.max(0, Math.min(99,
+  const locationPoints = locationMatchPoints(candidateLocation, job);
+  const relevanceScore = Math.max(0, Math.min(99,
     Math.min(48, skillPoints) + Math.min(36, titlePoints) + Math.min(12, experiencePoints) + Math.min(58, rolePoints) + languagePoints
       - specialtyPenalty(jobTitle, candidate.profileText, candidateRoles, jobRoles),
   ));
-  if (score < MIN_MATCH_SCORE) return { score: 0, reasons: [] };
+  if (relevanceScore < MIN_MATCH_SCORE) return { score: 0, reasons: [] };
+  const rankScore = relevanceScore + locationPoints;
+  const score = Math.min(99, rankScore);
 
   const reasons = [];
   if (roleMatches.length) reasons.push('Ruolo compatibile: ' + roleMatches.map((role) => ROLE_SIGNAL_LABELS[role]).join(', '));
+  if (locationPoints) reasons.push('Località vicina alla zona di residenza');
   if (skillMatches.length) reasons.push('Competenze nel CV: ' + skillMatches.slice(0, 4).join(', '));
   if (languageMatches.length) reasons.push('Lingue richieste: ' + languageMatches.map((language) => LANGUAGE_LABELS[language]).join(', '));
   const titleEvidence = [...titleMatches, ...titleInBody]
@@ -293,6 +343,9 @@ export function scoreJobForProfile(job, profile) {
   if (!titleEvidence.length && experienceMatches.length) reasons.push('Esperienza pertinente: ' + experienceMatches.slice(0, 4).join(', '));
   return {
     score,
+    // Keep the uncapped composite for sorting so proximity still matters when
+    // the user-facing percentage reaches 99.
+    rankScore,
     reasons: reasons.slice(0, 3),
     evidenceStrength: skillMatches.length * 3 + roleMatches.length * 2 + titleMatches.length + experienceMatches.length + languageMatches.length,
   };
@@ -333,6 +386,12 @@ function stableJobIdentity(job, url) {
 export function proposalDocumentId(serviceId, job, url = jobUrl(job)) {
   const identity = stableJobIdentity(job, url);
   return `job-${createHash('sha256').update(`${serviceId}|${identity}`).digest('hex').slice(0, 40)}`;
+}
+
+export function shouldRunApplicationConciergeMatchingForServiceUpdate(before, after) {
+  if (!after?.cvStorageKey) return false;
+  return before?.cvStorageKey !== after.cvStorageKey
+    || String(before?.applicantLocation || '').trim() !== String(after.applicantLocation || '').trim();
 }
 
 async function updateExistingProposal(db, ref, update, expectedStatus, nextStatus = null) {
@@ -376,12 +435,14 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       return `${data.jobId || ''}|${data.jobUrl || ''}`;
     }));
     const available = Math.max(0, (Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS) - acceptedPositionsCount(service));
+    const candidateLocation = String(service.applicantLocation || '').trim();
     const candidates = jobs.map((job) => {
       const url = jobUrl(job);
-      const scored = scoreJobForProfile(job, profile);
+      const scored = scoreJobForProfile(job, profile, candidateLocation);
       return { job, url, ...scored };
     }).filter((entry) => entry.score > 0 && validJobUrl(entry.url) && !known.has(`${entry.job.id || ''}|${entry.url}`))
-      .sort((left, right) => right.score - left.score
+      .sort((left, right) => right.rankScore - left.rankScore
+        || right.score - left.score
         || right.evidenceStrength - left.evidenceStrength
         || String(right.job.datePosted || '').localeCompare(String(left.job.datePosted || '')))
       .slice(0, Math.min(available, MAX_PROPOSALS_PER_RUN));
@@ -394,7 +455,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       if (!['proposed', 'retracted'].includes(data.status)) continue;
       const job = jobsByUrl.get(data.jobUrl);
       if (!job) continue;
-      const rescored = scoreJobForProfile(job, profile);
+      const rescored = scoreJobForProfile(job, profile, candidateLocation);
       const proposalRef = doc.ref || doc;
       if (rescored.score >= MIN_MATCH_SCORE) {
         const changed = await updateExistingProposal(
@@ -402,6 +463,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           proposalRef,
           {
             matchScore: rescored.score,
+            matchRankingScore: rescored.rankScore ?? rescored.score,
             matchReasons: rescored.reasons,
             matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
             matchedAt: Timestamp.now(),
@@ -418,6 +480,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           {
             matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
             matchScore: rescored.score,
+            matchRankingScore: rescored.rankScore ?? rescored.score,
             matchReasons: rescored.reasons,
             updatedAt: FieldValue.serverTimestamp(),
           },
@@ -441,6 +504,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         applyMode: candidate.job.applyMode || 'portal',
         status: 'proposed',
         matchScore: candidate.score,
+        matchRankingScore: candidate.rankScore,
         matchReasons: candidate.reasons,
         source: 'cv_match_workflow',
         createdBy: 'cv_match_workflow',

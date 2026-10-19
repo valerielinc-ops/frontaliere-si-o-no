@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const enCore: Record<string, string> = {
+ 'whatsNew.v3991.title': "Job proposals closer to you",
+ 'whatsNew.v3991.conciergeProximity.title': "Distance helps rank proposed jobs",
+ 'whatsNew.v3991.conciergeProximity.desc': "Add your town or postal code to your profile so we can prioritise compatible opportunities in your area. CV relevance remains the main criterion; no full street address is needed.",
  'whatsNew.v3990.title': "Easier payment for assisted applications",
  'whatsNew.v3990.conciergeCheckout.title': "Pay without leaving the site",
  'whatsNew.v3990.conciergeCheckout.desc': "Payment for the 30-day service is completed in an embedded form. If you close the popup or reload the page, you can resume the same attempt; the service activates only after payment is confirmed.",
@@ -910,6 +913,8 @@ const enCore: Record<string, string> = {
  'jobBoard.concierge.name': 'Full name',
  'jobBoard.concierge.email': 'Email',
  'jobBoard.concierge.phone': 'Phone (optional)',
+ 'jobBoard.concierge.location': 'Town or postal code of residence',
+ 'jobBoard.concierge.locationHint': 'We prefill your profile’s residence municipality when available. You can change it to a town or postal code; no full street address is needed.',
  'jobBoard.concierge.consent': 'I authorise Frontaliereticino.ch to process my CV and the details provided to prepare and send applications for positions I accept, under the Terms of Service and Privacy Policy.',
  'jobBoard.concierge.saveData': 'Save details',
  'jobBoard.concierge.saveProfile': 'Save details',
