@@ -194,6 +194,7 @@ const NOSCRIPT_REGEX_PREFIX_KEYWORDS = new Set([
   'await', 'case', 'delete', 'do', 'else', 'extends', 'in', 'instanceof',
   'new', 'of', 'return', 'throw', 'typeof', 'void', 'yield',
 ]);
+const NOSCRIPT_CONTROL_FLOW_KEYWORDS = new Set(['catch', 'for', 'if', 'switch', 'while', 'with']);
 const JS_IDENTIFIER_START_RE = /[A-Za-z_$]/;
 const JS_IDENTIFIER_PART_RE = /[A-Za-z0-9_$]/;
 
@@ -228,6 +229,8 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
   // plain division such as `4 / 2` must leave the scanner in code so that the
   // real `</noscript>` boundary remains visible.
   let canStartRegex = true;
+  let pendingControlFlowParen = false;
+  const parenContexts = [];
   for (let index = contentStart; index < markup.length; index += 1) {
     const char = markup[index];
     const next = markup[index + 1];
@@ -292,8 +295,10 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
 
     if (char === "'") {
       state = 'single-quote';
+      pendingControlFlowParen = false;
     } else if (char === '"') {
       state = 'double-quote';
+      pendingControlFlowParen = false;
     } else if (char === '`') {
       // A template literal may contain nested interpolation/templates; fail
       // closed instead of trying to tokenize only part of JavaScript.
@@ -316,6 +321,7 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
       state = 'html-comment';
       index += 3;
       canStartRegex = true;
+      pendingControlFlowParen = false;
     } else if (/\s/u.test(char)) {
       continue;
     } else if (JS_IDENTIFIER_START_RE.test(char)) {
@@ -323,20 +329,31 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
       while (end < markup.length && JS_IDENTIFIER_PART_RE.test(markup[end])) end += 1;
       const word = markup.slice(index, end);
       canStartRegex = NOSCRIPT_REGEX_PREFIX_KEYWORDS.has(word);
+      pendingControlFlowParen = NOSCRIPT_CONTROL_FLOW_KEYWORDS.has(word);
       index = end - 1;
     } else if (/[0-9]/u.test(char)) {
       canStartRegex = false;
+      pendingControlFlowParen = false;
     } else if ('([{'.includes(char)) {
+      if (char === '(') parenContexts.push(pendingControlFlowParen);
+      pendingControlFlowParen = false;
       canStartRegex = true;
     } else if (')]}'.includes(char)) {
-      canStartRegex = false;
+      if (char === ')' && parenContexts.length > 0) {
+        canStartRegex = parenContexts.pop();
+      } else {
+        canStartRegex = false;
+      }
+      pendingControlFlowParen = false;
     } else if ((char === '+' || char === '-') && next === char) {
       // Both prefix and postfix ++/-- produce a value before a following
       // slash, so treating the pair as an expression keeps division safe.
       canStartRegex = false;
+      pendingControlFlowParen = false;
       index += 1;
     } else if (',;:?=!.~*%&|^<>'.includes(char)) {
       canStartRegex = true;
+      pendingControlFlowParen = false;
     }
   }
   return -1;

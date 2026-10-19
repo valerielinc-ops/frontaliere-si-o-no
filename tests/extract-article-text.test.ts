@@ -210,6 +210,15 @@ describe('extractArticleText', () => {
     expect(result.text).toContain(outerParagraph);
   });
 
+  it('recognizes a real noscript boundary after a regex body on a control-flow branch', () => {
+    const outerParagraph = 'Outer source prose after a control-flow regex remains available to extraction.';
+    const html = '<main><noscript><script>if (x) /</;'
+      + `</noscript><p>${outerParagraph}</p></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(outerParagraph);
+  });
+
   it('ignores raw-text-looking openers inside HTML comments', () => {
     const outerParagraph = 'Editorial prose after a commented script opener remains available to extraction.';
     const html = '<main><noscript><!-- <script> -->'
