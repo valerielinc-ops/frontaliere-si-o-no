@@ -19,6 +19,7 @@ import {
   imageVisionRejectionError,
   imageProviderSequence,
   imageVisionRejected,
+  isVisionProviderUnavailable,
   isCompleteArticleHeroVisionVerdict,
   isPhotoCandidateRelevantToSpec,
   isPhotographicMetadata,
@@ -55,6 +56,29 @@ describe('generated image provider contracts', () => {
     expect(Object.isFrozen(VISION_SCHEMA.properties.ok)).toBe(true);
     expect(() => { VISION_SCHEMA.required.length = 0; }).toThrow(TypeError);
     expect(isCompleteArticleHeroVisionVerdict({})).toBe(false);
+  });
+
+  it('classifies nested vision timeouts while keeping candidate-file errors local', () => {
+    const transportCause = Object.assign(new Error('connection timed out'), {
+      code: 'UND_ERR_CONNECT_TIMEOUT',
+    });
+    const fetchError = Object.assign(new TypeError('fetch failed'), { cause: transportCause });
+    expect(isVisionProviderUnavailable(fetchError)).toBe(true);
+
+    const timeout = new Error('vision request exceeded its deadline');
+    timeout.name = 'TimeoutError';
+    expect(isVisionProviderUnavailable(timeout)).toBe(true);
+
+    const sharedMarker = Object.assign(new Error('shared vision pool is unavailable'), {
+      sharedProviderUnavailable: true,
+    });
+    expect(isVisionProviderUnavailable(new Error('wrapped verifier error', { cause: sharedMarker }))).toBe(true);
+
+    const localFileFailure = Object.assign(new Error('candidate image could not be opened'), {
+      imageCandidateFileFailure: true,
+      cause: transportCause,
+    });
+    expect(isVisionProviderUnavailable(localFileFailure)).toBe(false);
   });
 
   it('requires a complete article-hero vision verdict for both generated and licensed photos', () => {
