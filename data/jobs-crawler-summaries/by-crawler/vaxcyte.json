@@ -1,28 +1,78 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-10-19T09:13:50.657Z",
-  "total": 4,
+  "generatedAt": "2026-10-19T21:15:34.367Z",
+  "total": 5,
   "discovered": null,
-  "parsed": 4,
+  "parsed": 5,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 4,
+  "written": 5,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
-  "updatedCount": 1,
+  "newCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 5116,
-  "avgDurationMs": 5116,
+  "unchangedCount": 4,
+  "durationMs": 4316,
+  "avgDurationMs": 4316,
   "durationHistory": [
-    5116
+    4316
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "id": "vaxcyte-5e9432d3d081",
+      "slug": "associate-director-qc-global-analytics-vaxcyte-ch",
+      "company": "Vaxcyte",
+      "companyKey": "vaxcyte",
+      "companyDomain": "vaxcyte.com",
+      "title": "Associate Director, QC Global Analytics",
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5352094008?gh_jid=5352094008",
+      "source": "Vaxcyte Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-19T21:15:11.762Z",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "3930",
+      "country": "CH",
+      "category": "Qualità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-20T12:25:35-04:00",
+      "postedDate": "2026-07-20T12:25:35-04:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5352094008?gh_jid=5352094008",
+      "department": "Analytical",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Visp"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-19T21:15:11.762Z",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 21,
+        "completeness": 22
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "vaxcyte-6b03024d1766",
       "slug": "senior-bioprocess-ingegnere-ii-msat-proteins-vaxcyte-visp",
@@ -35,7 +85,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T09:13:27.103Z",
+      "crawledAt": "2026-10-19T21:15:11.910Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -68,10 +118,7 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "vaxcyte-dfe11ab55bc0",
       "slug": "responsabile-senior-operazioni-di-controllo-della-qualita-analisi-globale-vaxcyte-visp",
@@ -84,7 +131,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T09:13:27.082Z",
+      "crawledAt": "2026-10-19T21:15:11.901Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -130,7 +177,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T09:13:27.077Z",
+      "crawledAt": "2026-10-19T21:15:11.897Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -177,7 +224,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T09:13:27.071Z",
+      "crawledAt": "2026-10-19T21:15:11.894Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -212,5 +259,5 @@
       }
     }
   ],
-  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }
