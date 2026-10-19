@@ -132,6 +132,10 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
     ? proof.discoveredCount
     : (Number.isInteger(rows?.discoveredCount) ? rows.discoveredCount : null);
   const exactMetadata = Number.isInteger(rows?.discoveredCount) && rows.discoveredCount >= 0;
+  const hasRawDiscoveredCount = Object.prototype.hasOwnProperty.call(rows || {}, 'discoveredCount');
+  const malformedDiscoveredCount = hasRawDiscoveredCount
+    && rows.discoveredCount !== null
+    && (!Number.isInteger(rows.discoveredCount) || rows.discoveredCount < 0);
   const proofComplete = !proof || (
     proof.complete === true
     && Number.isInteger(proof.discoveredCount)
@@ -148,8 +152,10 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
   const acceptedEmptyOutcome = output.length === 0
     && (discoveredCount === null || discoveredCount === 0)
     && (outcome === 'ok' || outcome === 'filtered_empty');
-  const authoritativeEmpty = rows?.authoritativeEmptyState === 'authoritative-source-zero'
-    || acceptedEmptyOutcome;
+  const authoritativeEmpty = output.length === 0
+    && !malformedDiscoveredCount
+    && (discoveredCount === null || discoveredCount === 0)
+    && (rows?.authoritativeEmptyState === 'authoritative-source-zero' || acceptedEmptyOutcome);
   const unverifiedZeroListing = output.length === 0
     && discoveredCount === 0
     && !proof
@@ -219,6 +225,7 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
   const proofFailed = Boolean(proof && !proofComplete) || Boolean(outputMismatch);
   const productionSnapshotAccepted = !fetchFailed
     && !proofFailed
+    && !malformedDiscoveredCount
     && !malformedDetailDrop
     && !detailDropExceeded
     && !unverifiedZeroListing;
@@ -238,6 +245,7 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
   const rowAccountingMismatch = exactListingCount && discoveredCount !== accountedRows;
   const complete = productionSnapshotAccepted
     && exactListingCount
+    && !malformedDiscoveredCount
     && !malformedExpectedFilterCount
     && !malformedExpectedFilters
     && !rowAccountingMismatch
@@ -256,6 +264,7 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
     ...(malformedOutcome ? { source_adapter_malformed_fetch_outcome: 1 } : {}),
     ...(CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome) ? { [`fetch_outcome_${outcome}`]: 1 } : {}),
     ...(unknownOutcome ? { source_adapter_unknown_fetch_outcome: 1 } : {}),
+    ...(malformedDiscoveredCount ? { source_adapter_malformed_listing_count: 1 } : {}),
     ...(proofFailed ? { authoritative_snapshot_proof_incomplete: 1 } : {}),
     ...(unverifiedListingCount ? { source_adapter_listing_count_unverified: 1 } : {}),
     ...(malformedExpectedFilterCount || malformedExpectedFilters
@@ -278,6 +287,7 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
     || (malformedOutcome ? 'fetchOutcome must be a string when present' : '')
     || (CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome) ? `fetchOutcome=${outcome}` : '')
     || (unknownOutcome ? `unrecognized fetchOutcome=${outcome}` : '')
+    || (malformedDiscoveredCount ? 'discoveredCount metadata is malformed' : '')
     || (proofFailed ? 'authoritative snapshot proof incomplete or inconsistent' : '')
     || (unverifiedListingCount ? 'exact listing count is missing' : '')
     || (malformedExpectedFilterCount || malformedExpectedFilters ? 'expected filter metadata is malformed' : '')

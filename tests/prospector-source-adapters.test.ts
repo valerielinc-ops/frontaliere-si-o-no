@@ -206,6 +206,55 @@ describe('prospector source-crawler adapters', () => {
     });
   });
 
+  it('does not accept an authoritative-empty marker on non-empty adapter output', () => {
+    const rows: any[] = [{ url: 'https://example.test/job/1', title: 'Engineer' }];
+    Object.defineProperty(rows, 'authoritativeEmptyState', {
+      value: 'authoritative-source-zero',
+      enumerable: false,
+    });
+
+    expect(sourceAdapterRuntimeObservationFor(rows)).toMatchObject({
+      complete: false,
+      promotionObservationComplete: false,
+      failure: 'exact listing count is missing',
+    });
+  });
+
+  it('does not accept an authoritative-empty marker that contradicts a nonzero count', () => {
+    const rows: any[] = [];
+    Object.defineProperties(rows, {
+      authoritativeEmptyState: { value: 'authoritative-source-zero', enumerable: false },
+      discoveredCount: { value: 1, enumerable: false },
+    });
+
+    expect(sourceAdapterRuntimeObservationFor(rows)).toMatchObject({
+      complete: false,
+      promotionObservationComplete: false,
+      dropCounts: { source_adapter_row_accounting_mismatch: 1 },
+    });
+  });
+
+  it.each([
+    ['NaN', Number.NaN],
+    ['fractional', 0.5],
+    ['string', '0'],
+    ['undefined', undefined],
+  ])('rejects an authoritative-empty marker with a malformed discovered count (%s)', (_label, count) => {
+    const rows: any[] = [];
+    Object.defineProperties(rows, {
+      authoritativeEmptyState: { value: 'authoritative-source-zero', enumerable: false },
+      discoveredCount: { value: count, enumerable: false },
+    });
+
+    expect(sourceAdapterRuntimeObservationFor(rows)).toMatchObject({
+      snapshotAccepted: false,
+      complete: false,
+      promotionObservationComplete: false,
+      dropCounts: { source_adapter_malformed_listing_count: 1 },
+      failure: 'discoveredCount metadata is malformed',
+    });
+  });
+
   it('grades adapter detail pages from the parser observation without a second fetch', async () => {
     const url = 'https://employer.example/jobs/1';
     const vacancy = {
