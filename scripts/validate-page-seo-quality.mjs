@@ -4,6 +4,7 @@ import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
 import { readAllAttr, readAttr, readMetaContent, scanStartTags } from './lib/html-attr.mjs';
 import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker.mjs';
+import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
 import { pathToFileURL } from 'node:url';
 
 /**
@@ -17,7 +18,8 @@ import { pathToFileURL } from 'node:url';
  *  4. Meta viewport: must be present
  *  5. Title tag: must be present and non-empty
  *  6. Meta description: must be present and non-empty
- *  7. Meta robots: must NOT contain "noindex" (except 404.html)
+ *  7. Meta robots: must NOT contain "noindex" (except 404.html, search pages,
+ *     and explicitly marked intentional job-board targets)
  *  8. Meta refresh: must NOT exist (indicates redirect shell, not real content)
  *  9. Best-practice advisory checks: self-canonical, Open Graph, partial
  *     Twitter cards, meta description length, and image alt attributes
@@ -367,6 +369,14 @@ function hasNoindex(html) {
     .includes('noindex');
 }
 
+// jobsSeoPagesPlugin declares intentional job-detail/alias noindex documents
+// with the shared marker. Require the actual noindex directive as well: a
+// copied marker on an indexable page must never grant an exemption.
+function isIntentionalJobBoardNoindexPage(html) {
+  return String(html || '').includes(JOB_BOARD_NOINDEX_TARGET_MARKER)
+    && hasNoindex(html);
+}
+
 // Check for <meta http-equiv="refresh"> (not inside <noscript>)
 function hasMetaRefresh(html) {
   const withoutNoscript = html.replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
@@ -635,7 +645,8 @@ function main() {
 
     // 7. Meta robots noindex (skip 404.html and search/combo landing pages which are intentionally noindex)
     const isSearchPage = /\/(ricerca-|suche-|search-|recherche-)/.test('/' + page.pagePath);
-    if (page.pagePath !== '404.html' && !isSearchPage && hasNoindex(html)) {
+    const isIntentionalJobBoardNoindex = isIntentionalJobBoardNoindexPage(html);
+    if (page.pagePath !== '404.html' && !isSearchPage && !isIntentionalJobBoardNoindex && hasNoindex(html)) {
       errors.hasNoindex.push(page.pagePath || '/');
       errorCount++;
     }
@@ -798,6 +809,7 @@ export {
   hasMetaViewport,
   hasMetaRefresh,
   isIntentionalRedirectPage,
+  isIntentionalJobBoardNoindexPage,
 };
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();
