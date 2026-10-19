@@ -33,6 +33,9 @@ export const JOBGATE_RC_KEYS = Object.freeze({
   force: 'JOBGATE_V5_EXPERIMENT_FORCE',
 });
 
+/** Cached clients may still submit v4 contexts while their bundles age out. */
+export const JOBGATE_LEGACY_EXPERIMENT_ID = 'jobgate-v4';
+export const JOBGATE_LEGACY_ARMS = Object.freeze(['control', 'navy_panel', 'spotlight', 'actions_first']);
 /** v4 clients can remain cached after deploy; pin them to the promoted arm. */
 export const JOBGATE_LEGACY_FORCE_KEY = 'JOBGATE_EXPERIMENT_FORCE';
 /** Server-only launch metadata; intentionally not exposed by getPublicConfig. */
@@ -173,6 +176,19 @@ export function resolveJobGateAssignment(input) {
 /** Value written to `newsletter_subscribers.variant` for a gate signup. */
 export function jobGateSubscriberVariant(arm) {
   return `${JOBGATE_EXPERIMENT_ID}:${arm}`;
+}
+
+/** Preserve the attribution tag for cached v4 clients; new assignments use v5. */
+export function jobGateSubscriberVariantForExperiment(experimentId, rawArm) {
+  if (experimentId === JOBGATE_EXPERIMENT_ID) {
+    const arm = normalizeJobGateArm(rawArm);
+    return arm ? jobGateSubscriberVariant(arm) : null;
+  }
+  if (experimentId === JOBGATE_LEGACY_EXPERIMENT_ID) {
+    const arm = String(rawArm ?? '').trim().toLowerCase();
+    return JOBGATE_LEGACY_ARMS.includes(arm) ? `${JOBGATE_LEGACY_EXPERIMENT_ID}:${arm}` : null;
+  }
+  return null;
 }
 
 /**

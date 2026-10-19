@@ -26,9 +26,7 @@ import {
  consentLocale,
 } from '@/services/consentTexts';
 import {
- JOBGATE_EXPERIMENT_ID,
- jobGateSubscriberVariant,
- normalizeJobGateArm,
+ jobGateSubscriberVariantForExperiment,
 } from '@/services/jobGateExperimentCore.mjs';
 // ─── Lazy Firebase Auth Loading ────────────────────────────────
 
@@ -1263,23 +1261,21 @@ export const ONE_TAP_ATTRIBUTION: Readonly<AuthAttributionContext> = Object.free
 
 /**
  * `newsletter_subscribers.variant` for a login that started from the JobBoard
- * gate of a visitor enrolled in the jobgate experiment — the same `jobgate-v5:<arm>` the
- * gate's email unlock writes (`upsertJobGateSubscriber`), which is the
- * readout's join key. The arm travels in the job context JobBoard parks at the
- * gate (`variant` + `experimentId`, re-parked when the assignment resolves)
- * and, for LinkedIn, through the OAuth round trip. Null for any other login:
- * not enrolled (kill switch, Remote Config timeout, bot bypass — the context
- * then carries the headline experiment's id), a job view outside the
- * experiment (no experiment id), or a One Tap prompt of another page that
+ * gate of an enrolled visitor. Current clients write `jobgate-v5:<arm>`; a
+ * cached v4 client keeps its `jobgate-v4:<arm>` tag. The arm travels in the
+ * job context JobBoard parks at the gate (`variant` + `experimentId`), the
+ * readout's join key, and, for LinkedIn, through the OAuth round trip. Null for
+ * any other login: not enrolled (kill switch, Remote Config timeout, bot
+ * bypass — the context then carries the headline experiment's id), a job view
+ * outside the experiment (no experiment id), or a One Tap prompt of another page that
  * merely found a stale context.
  */
 export function jobGateSubscriberVariantFor(
  context: AuthJobContext | null | undefined,
  consentSurface: string,
 ): string | null {
- if (consentSurface !== 'job_gate' || !context || context.experimentId !== JOBGATE_EXPERIMENT_ID) return null;
- const arm = normalizeJobGateArm(context.variant);
- return arm ? jobGateSubscriberVariant(arm) : null;
+ if (consentSurface !== 'job_gate' || !context) return null;
+ return jobGateSubscriberVariantForExperiment(context.experimentId, context.variant);
 }
 
 /** The surface a One Tap prompt was last shown for (`promptOneTap({ surface })`). */
