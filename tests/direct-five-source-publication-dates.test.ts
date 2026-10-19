@@ -38,9 +38,13 @@ function stubSource(key: string, raw: string | undefined, overrides: Record<stri
         postDateInGMT: raw, modifiedDate: day, team: { teamID: 'teamsAndSubTeams-APPST' } }] } };
       else return new Response('<html></html>', { status: 200 });
     } else if (key === 'bachtelen') {
-      payload = [{ id: 123, title: { rendered: title }, link: 'https://www.bachtelen.ch/job/software-engineer/',
-        content: { rendered: `<p>${description}</p>` }, meta: { _job_location: 'Grenchen', _filled: 0 },
-        date_gmt: raw, modified: day, modified_gmt: day, ...overrides }];
+      const detailUrl = 'https://www.bachtelen.ch/stelle/software-engineer/';
+      if (url === 'https://www.bachtelen.ch/arbeiten-bei-uns/') {
+        return new Response(`<h2>${title}</h2><p>Grenchen</p><a href="${detailUrl}">Weitere Infos</a>`, { status: 200 });
+      }
+      const datePosted = overrides.date ?? raw;
+      const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'JobPosting', datePosted });
+      return new Response(`<script type="application/ld+json">${jsonLd}</script><h1>${title}</h1><p>Grenchen</p><div><p>${description}</p><ul><li>Zusammenarbeit im engagierten Team</li><li>Verantwortung für die tägliche Arbeit</li></ul></div><h2>Unsere Benefits</h2><p>Allgemeine Vorteile.</p>`, { status: 200 });
     } else if (key === 'beekeeper') {
       payload = { items: [{ id: '123', title, url: 'https://jobs.lumapps.com/software-engineer', content_html: `<p>${description}</p>`,
         date_published: raw, date_modified: day, _jobposting: { jobLocation: [{ address: { addressCountry: 'CH', addressLocality: 'Zürich' } }] } }] };
@@ -67,7 +71,7 @@ for (const company of companies) {
     });
   });
 }
-it.each(companies.filter(({ key }) => ['bachtelen', 'apple-retail-switzerland'].includes(key)))('$key uses the explicit GMT field timezone', async ({ key, fetchJobs }) => {
+it.each(companies.filter(({ key }) => key === 'apple-retail-switzerland'))('$key uses the explicit GMT field timezone', async ({ key, fetchJobs }) => {
   stubSource(key, `${day}T12:30:00`);
   const [job] = await fetchJobs();
   expect(job).toMatchObject({ datePosted: `${day}T12:30:00Z`, postedDate: `${day}T12:30:00Z`, postingDateSource: 'reported' });
