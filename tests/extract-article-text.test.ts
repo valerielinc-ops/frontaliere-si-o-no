@@ -482,8 +482,8 @@ describe('extractArticleText', () => {
     const editorial = 'Editorial non-paragraph fallback candidate contains enough substantive source context for generation.';
     const tracking = 'Tracking child inside a marked ancestor must never become legacy article source text.';
     const html = '<main><noscript>'
-      + `<div data-track-id="story-1">${editorial}</div>`
-      + `<div data-track-id="tracking-wrapper"><span>${tracking}</span></div>`
+      + `<div data-track-id="story-1"><p>${editorial}</p></div>`
+      + `<div data-track-id="tracking-wrapper"><p>${tracking}</p></div>`
       + '</noscript></main>';
     const result = extractArticleText(html, { scriptingDisabled: true });
 
