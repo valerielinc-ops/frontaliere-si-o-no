@@ -9,6 +9,7 @@ const specCrawlerMocks = vi.hoisted(() => ({
 vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => specCrawlerMocks);
 
 import {
+  extractSeniorenzentrumEngelhofDetailFields,
   fetchAllSeniorenzentrumEngelhofJobs,
   isSeniorenzentrumEngelhofJob,
   isSeniorenzentrumEngelhofOssJob,
@@ -42,6 +43,20 @@ const sourceListing = {
   url: 'https://seniorenzentrum-engelhof.employerboard.ch/job/pflegehelferin-pflegehelfer-srk/J993250/1526A5DC-5936-45AF-9A3322C77271510E',
 };
 
+const detailHtml = `
+  <html>
+    <head><title>Lernende/-r Assistent/-in Gesundheit &amp; Soziales EBA - Altendorf</title></head>
+    <body>
+      <div class="wwj-content">
+        <div class="wwj-text" data-cy="job-detail">
+          <p>Wir wünschen uns eine aufgestellte und motivierte Persönlichkeit.</p>
+          <p>Seniorenzentrum Engelhof, Engelhofstrasse 1, 8852 Altendorf.</p>
+        </div>
+      </div>
+    </body>
+  </html>
+`;
+
 afterEach(() => {
   specCrawlerMocks.loadSpec.mockReset();
   specCrawlerMocks.runSpecInProduction.mockReset();
@@ -59,7 +74,10 @@ describe('Seniorenzentrum Engelhof crawler parser', () => {
       'utf8',
     ));
 
-    expect(spec).toMatchObject({ rescueOnEmptyListing: true });
+    expect(spec).toMatchObject({
+      rescueOnEmptyListing: true,
+      revalidateRejectedWithSourceAdapter: true,
+    });
   });
 
   describe('source and profession filters', () => {
@@ -85,6 +103,19 @@ describe('Seniorenzentrum Engelhof crawler parser', () => {
       expect(isSeniorenzentrumEngelhofJob({ companyKey: SENIORENZENTRUM_ENGELHOF_KEY })).toBe(true);
       expect(isSeniorenzentrumEngelhofJob({ url: sourceListing.url })).toBe(true);
       expect(isSeniorenzentrumEngelhofJob({ companyKey: 'other', url: 'https://other.example/job/1' })).toBe(false);
+    });
+  });
+
+  it('recovers the source-backed workplace from the EmployerBoard vacancy body', () => {
+    expect(extractSeniorenzentrumEngelhofDetailFields(
+      detailHtml,
+      sourceListing.url,
+    )).toMatchObject({
+      location: '8852 Altendorf',
+      canton: 'SZ',
+      addressLocality: 'Altendorf',
+      addressRegion: 'SZ',
+      postalCode: '8852',
     });
   });
 
