@@ -30,6 +30,7 @@ import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippa
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from './shared/borderWaitLegacyRedirects';
 import { isSafeDistPath } from './shared/distPathSafety';
+import { shouldEmitPath } from './shared/localeEmitFilter';
 
 // These legacy URLs are intercepted by the apex Worker with a real 301. Keep
 // their static fallback free of a second, weaker redirect mechanism: the
@@ -700,6 +701,11 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // `dist/foo/.env.bak.html` flat twin (and a hidden directory beside it).
  if (!isSafeDistPath(from)) { skippedUnsafeDistPaths++; continue; }
 
+ // A foreign locale's missing HTML is expected on a shard, not a vacancy.
+ // Do not create a noindex bridge that the shared sitemap would mistake for
+ // the owning shard's real page. Gate both the directory and flat twin.
+ if (!shouldEmitPath(path.join(distDir, from.slice(1)), distDir)) continue;
+
  // Do not emit a bridge onto a prefix this build cannot ship: the file
  // would be written, deleted by the shard rehydrate, and never served.
  // BEFORE mkdirSync on purpose — emitting nothing must also leave no
@@ -793,6 +799,8 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  for (const compatPathRaw of compatPaths) {
  const from = normalize(String(compatPathRaw || ''));
  if (!isSafeDistPath(from)) { skippedUnsafeDistPaths++; continue; }
+ // Apply the same ownership guard before any target-existence/fallback probe.
+ if (!shouldEmitPath(path.join(distDir, from.slice(1)), distDir)) continue;
  const resolution = resolveSearchConsoleCompatTarget(String(compatPathRaw || ''));
  if (!resolution) continue;
  // Target-existence gap-fill (PR #4252 review): a self-mapped target is not always
