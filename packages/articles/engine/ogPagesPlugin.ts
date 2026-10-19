@@ -8,6 +8,7 @@
  */
 
 import path from 'path';
+import { createHash } from 'node:crypto';
 import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
 import { decodeHtmlText } from './shared/htmlEntities';
 import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
@@ -54,6 +55,27 @@ function isRealArticleAuthor(author: ArticleAuthorIdentity | undefined): boolean
 /** Strip the publisher suffix before title equality/collision checks and HTML output. */
 export function normalizeArticleTitle(raw: string): string {
  return raw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
+}
+
+const ARTICLE_BODY_FIELD_RE = /^body\d+$/;
+
+/** Stable 16-hex SHA-256 marker for the localized article body sections. */
+export function bodyRevisionFingerprint(
+ bodies: Readonly<Record<string, string | undefined>> | undefined,
+): string {
+ const normalizedBody = Object.entries(bodies ?? {})
+  .filter(([key, value]) => ARTICLE_BODY_FIELD_RE.test(key) && typeof value === 'string')
+  .sort(([left], [right]) => {
+   const byNumber = Number(left.slice(4)) - Number(right.slice(4));
+   return byNumber || left.localeCompare(right);
+  })
+  .map(([, value]) => (value as string)
+   .normalize('NFC')
+   .replace(/\r\n?/g, '\n')
+   .replace(/[ \t]+$/gm, ''))
+  .join('\n');
+
+ return createHash('sha256').update(normalizedBody, 'utf8').digest('hex').slice(0, 16);
 }
 
 /** Resolve the visible article title while keeping the social title as fallback. */
@@ -1757,6 +1779,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta name="robots" content="${articleBodyHasPromptPlaceholder ? 'noindex,follow' : ARTICLE_ROBOTS_INDEX_ENHANCED}">${SECTION.kind === 'canton' ? `\n ${CORPUS_ROUTE_OWNER_META_TAG}` : ''}
+ <meta name="frontaliere-body-rev" content="${bodyRevisionFingerprint(localizedBody)}">
  <meta property="fb:app_id" content="891036063797338">
  ${publishedDate ? `<meta property="article:published_time" content="${esc(publishedDate)}">` : ''}
  ${modifiedDate ? `<meta property="article:modified_time" content="${esc(modifiedDate)}">` : ''}
