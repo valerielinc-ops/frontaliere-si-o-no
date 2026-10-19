@@ -17,8 +17,8 @@
  *   {active, previousSlugs, previousSlugsByLocale} for a given job but is
  *   absent from the after version's {active, previousSlugs, previousSlugsByLocale}
  *   AND not explained by the documented per-locale/legacy cap (see
- *   diffJobSlices()'s classifyCapTrim() — routine LRU eviction of the
- *   oldest entries once an array exceeds its cap is not a loss).
+ *   diffJobSlices()'s classifyCapTrim() — routine LRU eviction of an
+ *   unindexed entry is not a loss; current GSC evidence is never exempted).
  *   A historical alias removed from the wrong claimant is reported
  *   separately as safe cross-job decontamination only when its positive
  *   hash-owner is unique and stable across the parent/post snapshots and
@@ -42,6 +42,7 @@ import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
+import { loadGscIndexedSlugEvidence } from './lib/slug-preservation-guard.mjs';
 import { denylistKey, loadRestoreDenylist } from './backfill-prev-slugs-from-loss-events.mjs';
 import { DEFAULT_PREV_SLUG_CAP, LOCALES, stableSlugHash } from './lib/dedicated-crawler-common.mjs';
 import { createCatFileBatch } from './lib/git-cat-file-batch.mjs';
@@ -93,28 +94,38 @@ function jobRouteSlugs(job) {
  * first time each job was re-processed.
  *
  * A loss is cap-explained only when the before-array was already at/over
- * cap AND the number of slugs it lost is no more than the number of slugs
- * newly captured in the same commit (each new capture, once at cap, costs
- * exactly one eviction of the single oldest entry — never more). Losses
- * beyond that count cannot be explained by the cap alone and stay flagged.
+ * cap AND the number of unprotected slugs it lost is covered by the number
+ * of slugs newly captured in the same commit. Current GSC-known slugs stay
+ * flagged even when the ordinary LRU math would otherwise explain removal.
  *
  * @param {string[]} beforeArr
  * @param {string[]} afterArr
  * @param {number} cap
+ * @param {{ slugs: Set<string>, complete: boolean } | null} [gscEvidence]
  * @returns {{ explained: Set<string>, unexplained: string[] }}
  */
-function classifyCapTrim(beforeArr, afterArr, cap) {
+function classifyCapTrim(beforeArr, afterArr, cap, gscEvidence = null) {
   const before = Array.isArray(beforeArr) ? beforeArr : [];
   const afterSet = new Set(Array.isArray(afterArr) ? afterArr : []);
   const beforeSet = new Set(before);
-  const removed = before.filter(s => s && !afterSet.has(s)); // before-order: oldest first
+  const removed = [...new Set(before.filter(s => s && !afterSet.has(s)))]; // before-order: oldest first
   if (removed.length === 0) return { explained: new Set(), unexplained: [] };
-  const added = [...afterSet].filter(s => s && !beforeSet.has(s)).length;
-  const explainedCount = before.length >= cap ? Math.min(removed.length, added) : 0;
-  return {
-    explained: new Set(removed.slice(0, explainedCount)),
-    unexplained: removed.slice(explainedCount),
-  };
+  let explanationBudget = before.length >= cap
+    ? [...afterSet].filter(s => s && !beforeSet.has(s)).length
+    : 0;
+  const explained = new Set();
+  const unexplained = [];
+  for (const slug of removed) {
+    const protectedByGsc = gscEvidence != null
+      && (!gscEvidence.complete || gscEvidence.slugs.has(String(slug).normalize('NFC')));
+    if (protectedByGsc || explanationBudget === 0) {
+      unexplained.push(slug);
+      continue;
+    }
+    explained.add(slug);
+    explanationBudget--;
+  }
+  return { explained, unexplained };
 }
 
 /**
@@ -122,7 +133,9 @@ function classifyCapTrim(beforeArr, afterArr, cap) {
  * present in both, the slugs that were in `prevJobs`' before-state but are
  * absent from `curJobs`' after-state — excluding slugs whose disappearance
  * is fully explained by the documented per-locale/legacy cap (see
- * classifyCapTrim() above). Jobs are matched via resolveJobDiffKey() so
+ * classifyCapTrim() above). Current GSC evidence overrides that exemption:
+ * a route still represented in GSC is never explained by routine LRU trim.
+ * Jobs are matched via resolveJobDiffKey() so
  * id-less jobs fall back to a stable URL/slug key instead of colliding
  * under `undefined`.
  *
@@ -130,7 +143,7 @@ function classifyCapTrim(beforeArr, afterArr, cap) {
  *
  * @param {Array<object>} prevJobs
  * @param {Array<object>} curJobs
- * @param {{ perLocaleCap?: number, locales?: string[] }} [opts]
+ * @param {{ perLocaleCap?: number, locales?: string[], gscEvidence?: { slugs: Set<string>, complete: boolean } }} [opts]
  * @returns {Array<{ jobKey: string, lost: string[] }>}
  */
 export function classifyJobSliceRemovals(prevJobs, curJobs, opts = {}) {
@@ -139,6 +152,7 @@ export function classifyJobSliceRemovals(prevJobs, curJobs, opts = {}) {
   const perLocaleCap = opts.perLocaleCap ?? DEFAULT_PREV_SLUG_CAP;
   const locales = opts.locales ?? LOCALES;
   const legacyCap = perLocaleCap * locales.length;
+  const gscEvidence = opts.gscEvidence ?? null;
 
   const byKey = new Map();
   for (const j of prevJobs) {
@@ -159,16 +173,17 @@ export function classifyJobSliceRemovals(prevJobs, curJobs, opts = {}) {
     const afterPrev = jobHistoricalSlugs(aj);
 
     // Cap-explained slugs, across the flat legacy array and every
-    // per-locale array — any of these disappearing is routine LRU
-    // eviction, not a candidate loss.
+    // per-locale array. GSC-known URLs (or every URL when evidence is
+    // incomplete) stay candidate losses even if the LRU math fits.
     const capExplained = new Set();
-    for (const s of classifyCapTrim(bj.previousSlugs, aj.previousSlugs, legacyCap).explained) capExplained.add(s);
+    for (const s of classifyCapTrim(bj.previousSlugs, aj.previousSlugs, legacyCap, gscEvidence).explained) capExplained.add(s);
     if (bj.previousSlugsByLocale) {
       for (const locale of Object.keys(bj.previousSlugsByLocale)) {
         const { explained } = classifyCapTrim(
           bj.previousSlugsByLocale[locale],
           aj.previousSlugsByLocale?.[locale],
           perLocaleCap,
+          gscEvidence,
         );
         for (const s of explained) capExplained.add(s);
       }
@@ -508,6 +523,10 @@ async function main() {
     [...ownershipHistory.entries()].filter(([file]) => file.startsWith(`${ABS_DIR}${path.sep}`)),
   );
   const catFile = createCatFileBatch(ROOT);
+  const gscEvidence = loadGscIndexedSlugEvidence(ROOT);
+  if (!gscEvidence.complete) {
+    process.stderr.write('Warning: GSC slug evidence is incomplete; cap-trims will not be exempted.\n');
+  }
 
   let fileIdx = 0;
   for (const file of slices) {
@@ -526,7 +545,7 @@ async function main() {
       if (!cur?.jobs) continue;
       if (prev && Array.isArray(prev.jobs)) {
         const fileBase = file.replace(`${ABS_DIR}/`, '');
-        for (const removal of classifyJobSliceRemovals(prev.jobs, cur.jobs)) {
+        for (const removal of classifyJobSliceRemovals(prev.jobs, cur.jobs, { gscEvidence })) {
           candidateEvents.push({ commit, file, fileBase, ...removal });
         }
       }

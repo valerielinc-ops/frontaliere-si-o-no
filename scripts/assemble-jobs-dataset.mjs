@@ -911,6 +911,8 @@ export const ASSEMBLE_AUX_DATA_INPUTS = Object.freeze([
   'data/orphan-enriched-data.json',
   'data/orphan-enriched-data',
   'data/prev-slug-restore-denylist.json',
+  'data/gsc-job-urls.json',
+  'data/gsc-orphan-job-slugs.json',
   'data/canton-url-slugs.json',
   'data/canton-municipalities.json',
   'data/crawler-companies-auto.json',
