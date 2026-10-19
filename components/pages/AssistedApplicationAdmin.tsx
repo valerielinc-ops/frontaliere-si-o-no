@@ -27,7 +27,6 @@ import {
   type AssistedApplicationPdfRendererCheck,
 } from '@/services/assistedApplicationAdminService';
 import {
-  normalizeAssistedApplicationCopyVariant,
   trackAssistedApplicationEvent,
 } from '@/services/assistedApplicationExperiment';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
@@ -213,14 +212,12 @@ function paymentLabel(order: AssistedApplicationAdminOrder): string {
 }
 
 function orderEventContext(order: AssistedApplicationAdminOrder) {
-  const copyVariant = normalizeAssistedApplicationCopyVariant(order.copyVariant) || 'control';
   return {
     variant: order.experimentVariant === 'assisted_application'
       ? 'assisted_application' as const
       : order.experimentVariant === 'offerwall_fallback' ? 'rewarded_ad' as const : 'control' as const,
     jobId: order.jobId || 'unknown',
     companyId: order.companyId || order.companyName || 'unknown',
-    copy_variant: copyVariant,
   };
 }
 

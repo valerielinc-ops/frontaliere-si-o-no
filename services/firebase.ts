@@ -51,11 +51,16 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // Config (the key is allowlisted in functions/src/publicConfigKeys.js).
  ASSISTED_APPLICATION_OFFERWALL_FALLBACK: 'false',
  AUTHGATE_HEADLINE_VARIANT: 'control',
- // jobgate (services/jobGateExperiment.ts): OFF by default, so a failed
- // public-config fetch keeps every visitor on today's gate.
+ // Legacy v4 keys remain available for cached clients, which Remote Config
+ // pins to the promoted Spotlight treatment while they age out.
  JOBGATE_EXPERIMENT_ENABLED: 'false',
  JOBGATE_EXPERIMENT_ARMS: '{"control":100}',
  JOBGATE_EXPERIMENT_FORCE: '',
+ // The promoted Spotlight is the safe visual default even when v5 is disabled
+ // or public config fails. Enrollment stays off until explicitly enabled.
+ JOBGATE_V5_EXPERIMENT_ENABLED: 'false',
+ JOBGATE_V5_EXPERIMENT_ARMS: '{"spotlight":100}',
+ JOBGATE_V5_EXPERIMENT_FORCE: '',
  // The custom anti-adblock overlay is retired in favour of Google's Funding
  // Choices recovery message. Keep the old flag fail-closed for any legacy
  // caller that still imports AdBlockGate directly.

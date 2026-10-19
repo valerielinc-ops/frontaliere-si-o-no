@@ -8,7 +8,9 @@ const mocks = vi.hoisted(() => ({
 }));
 
 vi.mock('../services/analytics', () => ({
-  Analytics: { trackExperimentEvent: mocks.trackExperimentEvent },
+  Analytics: {
+    trackExperimentEvent: mocks.trackExperimentEvent,
+  },
 }));
 
 import { getConfigValue } from '@/services/firebase';
@@ -203,6 +205,22 @@ describe('assisted application funnel events', () => {
       copy_experiment_id: ASSISTED_APPLICATION_COPY_EXPERIMENT_ID,
       copy_variant: 'time_saved',
     }));
+    expect(mocks.trackExperimentEvent).toHaveBeenCalledWith('aa_copy_started_time_saved', {
+      experiment_id: ASSISTED_APPLICATION_COPY_EXPERIMENT_ID,
+      variant: 'time_saved',
+    });
+    expect(mocks.trackExperimentEvent).toHaveBeenCalledTimes(2);
+  });
+
+  it('keeps administrator-only events outside the copy experiment', () => {
+    trackAssistedApplicationEvent('refund_issued', {
+      variant: 'assisted_application',
+      jobId: 'job-42',
+      companyId: 'company-acme',
+    });
+
+    expect(mocks.trackExperimentEvent).toHaveBeenCalledTimes(1);
+    expect(mocks.trackExperimentEvent).toHaveBeenCalledWith('refund_issued', expect.not.objectContaining({ copy_variant: expect.anything() }));
   });
 });
 

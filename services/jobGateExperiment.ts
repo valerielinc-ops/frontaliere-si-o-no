@@ -8,23 +8,20 @@
  * and React hook live in hooks/useJobGateExperiment.ts; the per-arm classes
  * JobBoard renders live in components/community/jobGateSkin.ts.
  *
- * Round 4 (`jobgate-v4`) tests the gate's visual treatment, copy unchanged
- * (round history and hypotheses: docs/AUTHGATE-HEADLINE-EXPERIMENT.md):
- *   control       — today's gate, byte-identical.
- *   navy_panel    — the gate becomes a dark navy panel, so it no longer
- *                   blends with the lavender employer card above it.
- *   spotlight     — white elevated card with an accent ring; the preview
- *                   fades into it; the email CTA is the only saturated
- *                   control and never looks disabled.
- *   actions_first — accent header band with the title, the sign-in buttons
- *                   right under it, explanation and benefits after them.
+ * Round 5 (`jobgate-v5`) compares visual refinements of the promoted
+ * Spotlight gate; copy, order, controls, consent and dimensions stay fixed.
+ * When the experiment is off or cannot assign a visitor, `spotlight` remains
+ * the safe product default (round history:
+ * docs/AUTHGATE-HEADLINE-EXPERIMENT.md).
  */
 
 import {
   JOBGATE_ARMS,
   JOBGATE_DEFAULT_ARMS_JSON,
   JOBGATE_EXPERIMENT_ID,
+  JOBGATE_LEGACY_FORCE_KEY,
   JOBGATE_RC_KEYS,
+  JOBGATE_STARTED_AT_KEY,
   isJobGateNewsletterCta,
   jobGateSubscriberVariant,
   normalizeJobGateArm,
@@ -38,7 +35,9 @@ export {
   JOBGATE_ARMS,
   JOBGATE_DEFAULT_ARMS_JSON,
   JOBGATE_EXPERIMENT_ID,
+  JOBGATE_LEGACY_FORCE_KEY,
   JOBGATE_RC_KEYS,
+  JOBGATE_STARTED_AT_KEY,
   isJobGateNewsletterCta,
   normalizeJobGateArm,
   parseJobGateWeights,
@@ -46,19 +45,19 @@ export {
   validateJobGateWeights,
 };
 
-export type JobGateArm = 'control' | 'navy_panel' | 'spotlight' | 'actions_first';
+export type JobGateArm = 'spotlight' | 'spotlight_quiet' | 'spotlight_tinted' | 'spotlight_outline';
 
 export interface JobGateAssignment {
   /** False until Remote Config answered (or the load timed out). */
   ready: boolean;
   /** True only when the visitor counts for the experiment and events carry its tags. */
   enrolled: boolean;
-  /** Always `control` when not enrolled, so the render falls back to today's gate. */
+  /** Always `spotlight` when not enrolled, the promoted product default. */
   arm: JobGateArm;
 }
 
-export const JOBGATE_PENDING: JobGateAssignment = Object.freeze({ ready: false, enrolled: false, arm: 'control' });
-export const JOBGATE_NOT_ENROLLED: JobGateAssignment = Object.freeze({ ready: true, enrolled: false, arm: 'control' });
+export const JOBGATE_PENDING: JobGateAssignment = Object.freeze({ ready: false, enrolled: false, arm: 'spotlight' });
+export const JOBGATE_NOT_ENROLLED: JobGateAssignment = Object.freeze({ ready: true, enrolled: false, arm: 'spotlight' });
 
 export function resolveJobGateAssignment(input: {
   enabled?: unknown;
@@ -76,15 +75,17 @@ export function resolveJobGateAssignment(input: {
 let activeAssignment: JobGateAssignment | null = null;
 
 export function setActiveJobGateAssignment(assignment: JobGateAssignment | null): void {
-  activeAssignment = assignment && assignment.enrolled ? assignment : null;
+  activeAssignment = assignment;
 }
 
 /** `{ experiment_id, variant }` for the enrolled visitor, or null (not enrolled / not resolved). */
 export function getJobGateTelemetryParams(): { experiment_id: string; variant: JobGateArm } | null {
-  return activeAssignment ? { experiment_id: JOBGATE_EXPERIMENT_ID, variant: activeAssignment.arm } : null;
+  return activeAssignment?.enrolled
+    ? { experiment_id: JOBGATE_EXPERIMENT_ID, variant: activeAssignment.arm }
+    : null;
 }
 
-/** `newsletter_subscribers.variant` for the enrolled visitor (`jobgate-v4:<arm>`), else null. */
+/** `newsletter_subscribers.variant` for the enrolled visitor (`jobgate-v5:<arm>`), else null. */
 export function getJobGateSubscriberVariant(assignment: JobGateAssignment | null = activeAssignment): string | null {
   return assignment && assignment.enrolled ? jobGateSubscriberVariant(assignment.arm) : null;
 }

@@ -21,7 +21,7 @@ function remoteConfig(values: Record<string, string>) {
   getConfigValueMock.mockImplementation(async (key: string) => values[key] ?? '');
 }
 
-const ARMS_4 = '{"control":25,"navy_panel":25,"spotlight":25,"actions_first":25}';
+const ARMS_4 = '{"spotlight":25,"spotlight_quiet":25,"spotlight_tinted":25,"spotlight_outline":25}';
 
 describe('useJobGateExperiment', () => {
   beforeEach(() => {
@@ -33,17 +33,17 @@ describe('useJobGateExperiment', () => {
     vi.useRealTimers();
   });
 
-  it('starts pending (renders control) and stays out of the experiment with the shipped defaults', async () => {
-    remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'false', JOBGATE_EXPERIMENT_ARMS: '{"control":100}' });
+  it('starts on promoted Spotlight and stays out of v5 with the shipped defaults', async () => {
+    remoteConfig({ JOBGATE_V5_EXPERIMENT_ENABLED: 'false', JOBGATE_V5_EXPERIMENT_ARMS: '{"spotlight":100}' });
     const { result } = renderHook(() => useJobGateExperiment());
-    expect(result.current).toEqual({ ready: false, enrolled: false, arm: 'control' });
+    expect(result.current).toEqual({ ready: false, enrolled: false, arm: 'spotlight' });
     await waitFor(() => expect(result.current.ready).toBe(true));
-    expect(result.current).toEqual({ ready: true, enrolled: false, arm: 'control' });
+    expect(result.current).toEqual({ ready: true, enrolled: false, arm: 'spotlight' });
     expect(getJobGateTelemetryParams()).toBeNull();
   });
 
   it('assigns a sticky arm from the visitor id when enabled', async () => {
-    remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: ARMS_4 });
+    remoteConfig({ JOBGATE_V5_EXPERIMENT_ENABLED: 'true', JOBGATE_V5_EXPERIMENT_ARMS: ARMS_4 });
     const first = renderHook(() => useJobGateExperiment());
     await waitFor(() => expect(first.result.current.ready).toBe(true));
     expect(first.result.current.enrolled).toBe(true);
@@ -54,50 +54,50 @@ describe('useJobGateExperiment', () => {
     const second = renderHook(() => useJobGateExperiment());
     await waitFor(() => expect(second.result.current.ready).toBe(true));
     expect(second.result.current.arm).toBe(arm);
-    expect(getJobGateTelemetryParams()).toEqual({ experiment_id: 'jobgate-v4', variant: arm });
+    expect(getJobGateTelemetryParams()).toEqual({ experiment_id: 'jobgate-v5', variant: arm });
   });
 
-  it('honours JOBGATE_EXPERIMENT_FORCE', async () => {
-    remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: ARMS_4, JOBGATE_EXPERIMENT_FORCE: 'spotlight' });
+  it('honours JOBGATE_V5_EXPERIMENT_FORCE', async () => {
+    remoteConfig({ JOBGATE_V5_EXPERIMENT_ENABLED: 'true', JOBGATE_V5_EXPERIMENT_ARMS: ARMS_4, JOBGATE_V5_EXPERIMENT_FORCE: 'spotlight' });
     const { result } = renderHook(() => useJobGateExperiment());
     await waitFor(() => expect(result.current.ready).toBe(true));
     expect(result.current).toEqual({ ready: true, enrolled: true, arm: 'spotlight' });
   });
 
   it('renders the final arm on the first paint when the assignment already settled (no flip)', async () => {
-    remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: ARMS_4, JOBGATE_EXPERIMENT_FORCE: 'actions_first' });
+    remoteConfig({ JOBGATE_V5_EXPERIMENT_ENABLED: 'true', JOBGATE_V5_EXPERIMENT_ARMS: ARMS_4, JOBGATE_V5_EXPERIMENT_FORCE: 'spotlight_outline' });
     await loadJobGateAssignment();
     const { result } = renderHook(() => useJobGateExperiment());
-    expect(result.current).toEqual({ ready: true, enrolled: true, arm: 'actions_first' });
+    expect(result.current).toEqual({ ready: true, enrolled: true, arm: 'spotlight_outline' });
   });
 
   it('a gate rendered while Remote Config is pending still enrols the visitor and reports the arm', async () => {
-    remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: ARMS_4, JOBGATE_EXPERIMENT_FORCE: 'spotlight' });
+    remoteConfig({ JOBGATE_V5_EXPERIMENT_ENABLED: 'true', JOBGATE_V5_EXPERIMENT_ARMS: ARMS_4, JOBGATE_V5_EXPERIMENT_FORCE: 'spotlight' });
     const { result } = renderHook(() => useJobGateExperiment());
-    // First render: pending, drawn as control (same height as every arm).
-    expect(result.current).toEqual({ ready: false, enrolled: false, arm: 'control' });
+    // First render: pending, already drawn as the promoted Spotlight default.
+    expect(result.current).toEqual({ ready: false, enrolled: false, arm: 'spotlight' });
     await waitFor(() => expect(result.current.ready).toBe(true));
     expect(result.current).toEqual({ ready: true, enrolled: true, arm: 'spotlight' });
-    expect(getJobGateTelemetryParams()).toEqual({ experiment_id: 'jobgate-v4', variant: 'spotlight' });
+    expect(getJobGateTelemetryParams()).toEqual({ experiment_id: 'jobgate-v5', variant: 'spotlight' });
     recordJobGateExposure(result.current);
-    expect(trackExperimentEvent).toHaveBeenCalledWith('experiment_assigned', { experiment_id: 'jobgate-v4', variant: 'spotlight' });
+    expect(trackExperimentEvent).toHaveBeenCalledWith('experiment_assigned', { experiment_id: 'jobgate-v5', variant: 'spotlight' });
   });
 
   it('keeps crawlers/bots out without reading Remote Config', async () => {
-    remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_FORCE: 'actions_first' });
+    remoteConfig({ JOBGATE_V5_EXPERIMENT_ENABLED: 'true', JOBGATE_V5_EXPERIMENT_FORCE: 'spotlight_outline' });
     const { result } = renderHook(() => useJobGateExperiment(true));
     await waitFor(() => expect(result.current.ready).toBe(true));
     expect(result.current.enrolled).toBe(false);
     expect(getConfigValueMock).not.toHaveBeenCalled();
     // …and their subscriber write is not tagged either.
-    await expect(currentJobGateAssignment()).resolves.toEqual({ ready: true, enrolled: false, arm: 'control' });
+    await expect(currentJobGateAssignment()).resolves.toEqual({ ready: true, enrolled: false, arm: 'spotlight' });
   });
 
   it('falls back to not-enrolled when Remote Config throws', async () => {
     getConfigValueMock.mockRejectedValue(new Error('offline'));
     const { result } = renderHook(() => useJobGateExperiment());
     await waitFor(() => expect(result.current.ready).toBe(true));
-    expect(result.current).toEqual({ ready: true, enrolled: false, arm: 'control' });
+    expect(result.current).toEqual({ ready: true, enrolled: false, arm: 'spotlight' });
   });
 
   it('falls back to not-enrolled when Remote Config is slower than the timeout', async () => {
@@ -107,7 +107,7 @@ describe('useJobGateExperiment', () => {
     await act(async () => {
       vi.advanceTimersByTime(JOBGATE_LOAD_TIMEOUT_MS + 1);
     });
-    await expect(pending).resolves.toEqual({ ready: true, enrolled: false, arm: 'control' });
+    await expect(pending).resolves.toEqual({ ready: true, enrolled: false, arm: 'spotlight' });
   });
 });
 
@@ -119,23 +119,23 @@ describe('recordJobGateExposure', () => {
   });
 
   it('emits experiment_assigned once per visitor with the contract params', () => {
-    recordJobGateExposure({ ready: true, enrolled: true, arm: 'actions_first' });
-    recordJobGateExposure({ ready: true, enrolled: true, arm: 'actions_first' });
+    recordJobGateExposure({ ready: true, enrolled: true, arm: 'spotlight_outline' });
+    recordJobGateExposure({ ready: true, enrolled: true, arm: 'spotlight_outline' });
     expect(trackExperimentEvent).toHaveBeenCalledTimes(1);
     expect(trackExperimentEvent).toHaveBeenCalledWith('experiment_assigned', {
-      experiment_id: 'jobgate-v4',
-      variant: 'actions_first',
+      experiment_id: 'jobgate-v5',
+      variant: 'spotlight_outline',
     });
-    expect(window.localStorage.getItem(JOBGATE_ASSIGNED_STORAGE_KEY)).toBe('actions_first');
+    expect(window.localStorage.getItem(JOBGATE_ASSIGNED_STORAGE_KEY)).toBe('spotlight_outline');
 
     // Next session (module memo reset) — already recorded for this browser.
     resetJobGateAssignmentForTests();
-    recordJobGateExposure({ ready: true, enrolled: true, arm: 'actions_first' });
+    recordJobGateExposure({ ready: true, enrolled: true, arm: 'spotlight_outline' });
     expect(trackExperimentEvent).toHaveBeenCalledTimes(1);
   });
 
   it('emits nothing for a visitor who is not enrolled', () => {
-    recordJobGateExposure({ ready: true, enrolled: false, arm: 'control' });
+    recordJobGateExposure({ ready: true, enrolled: false, arm: 'spotlight' });
     expect(trackExperimentEvent).not.toHaveBeenCalled();
   });
 });
