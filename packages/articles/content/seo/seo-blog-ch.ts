@@ -107545,7 +107545,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-giovani-donne-stipendi-svizzera': {
-    title: 'Di più Le giovani svizzere guadagnano meno nonostante siano più istruite',
+    title: 'Le giovani svizzere guadagnano meno nonostante siano più istruite',
     description: 'Nati nel 1995: divario di reddito del 14% Nati nel 1965: divario di reddito del 55% Nel 2025: istruzione terziaria al 54% contro il 48% Tra i genitori',
     keywords: 'frontalieri, ticino, svizzera, italia, giovani, svizzere, guadagnano, meno',
     ogTitle: 'Le giovani svizzere guadagnano meno nonostante siano piu istruite',
@@ -107554,7 +107554,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Di più Le giovani svizzere guadagnano meno nonostante siano più istruite",
+      "headline": "Le giovani svizzere guadagnano meno nonostante siano più istruite",
       "description": "Nati nel 1995: divario di reddito del 14% Nati nel 1965: divario di reddito del 55% Nel 2025: istruzione terziaria al 54% contro il 48% Tra i genitori",
       "image": {
         "@type": "ImageObject",
