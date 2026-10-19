@@ -1,20 +1,56 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-10-19T09:16:36.823Z",
-  "total": 16,
+  "generatedAt": "2026-10-19T21:15:45.147Z",
+  "total": 17,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 4668,
-  "avgDurationMs": 4668,
+  "durationMs": 6773,
+  "avgDurationMs": 6773,
   "durationHistory": [
-    4668
+    6773
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Mansioni principali:",
+      "slug": "mansioni-principali-lwp-ledermann-wieting-partners-switzerland",
+      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/production_shift_leader.pdf",
+      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
+      "company": "LWP Ledermann Wieting & Partners",
+      "companyKey": "lwphr",
+      "companyDomain": "lwphr.ch",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Consulenza",
+      "source": "lwphr-dedicated-crawler",
+      "sourceLang": "it",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "id": "lwphr-1e0e2eaa71b7",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-19T21:15:35.245Z",
+      "_qualityScore": 74,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 13
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "​RELATIONSHIP MANAGERS O PRIVATE BANKERS",
@@ -582,5 +618,5 @@
       }
     }
   ],
-  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }
