@@ -180,6 +180,57 @@ describe('legacy portal sections', () => {
     expect(headers.every((header) => header.click.mock.calls.length === 1)).toBe(true);
     expect(result.snapshot.fields.map((field: any) => field.id)).toEqual(['first', 'group_head_personal', 'group_head_language']);
   });
+
+  it('uses a lone SuccessFactors icon as the CV upload trigger on a mixed account/application page', async () => {
+    let uploaded = false;
+    const base = {
+      url: 'https://career5.successfactors.eu/careers',
+      title: 'Career Opportunities',
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'email', form: 0, label: 'Email Address: *', required: true },
+        { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *', required: true },
+        { id: 'password-repeat', kind: 'text', inputType: 'password', form: 0, label: 'Retype Password: *', required: true },
+        { id: 'permit', kind: 'combobox', form: 0, label: 'Do you hold a valid work permit for Switzerland?', required: true },
+      ],
+      buttons: [{ id: 'cv-upload', text: '\uE1EF', disabled: false }, { id: 'apply', text: 'Apply', disabled: false }],
+      captcha: false,
+      passwordVisible: true,
+      errors: [],
+      text: '',
+    };
+    const frame = {
+      url: () => base.url,
+      evaluate: vi.fn(async () => ({
+        ...base,
+        fields: uploaded ? [...base.fields, { id: 'cv', kind: 'file', inputType: 'file', form: 0, label: 'Resume / CV (PDF preferred):', required: true }] : base.fields,
+      })),
+      locator: vi.fn((selector: string) => selector.includes('data-aa-id="cv-upload"')
+        ? { first: () => ({ click: vi.fn(async () => { uploaded = true; }) }) }
+        : { first: () => ({ click: vi.fn() }) }),
+    };
+    const fileInput = {
+      waitFor: vi.fn(async () => {}),
+      setInputFiles: vi.fn(async () => {}),
+    };
+    const page = {
+      url: () => base.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      getByRole: vi.fn(() => ({ first: () => ({ isVisible: vi.fn(async () => false) }) })),
+      locator: vi.fn((selector: string) => selector.includes('input[type="file"]')
+        ? { first: () => fileInput }
+        : { count: vi.fn(async () => 0) }),
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    const result = await openFormSections(page as any, base as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
+
+    expect(result.cv).toBe('uploaded');
+    expect(uploaded).toBe(true);
+    expect(fileInput.setInputFiles).toHaveBeenCalledWith('/tmp/candidate-cv.pdf');
+    expect(result.snapshot.fields.some((field: any) => field.kind === 'file')).toBe(true);
+  });
 });
 
 describe('portal plan guard (career-ops apply rules in code)', () => {

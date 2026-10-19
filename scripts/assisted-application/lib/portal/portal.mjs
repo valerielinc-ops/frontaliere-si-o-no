@@ -763,13 +763,25 @@ export function formPostingMatch(formText, job = {}, { postingMatched = false } 
 // «Bewerbung absenden», «Invia candidatura», «Envoyer ma candidature».
 const NAMES_APPLICATION_RE = /(appl|bewerb|candid|postul)/i;
 
+// SuccessFactors can render the CV input only after its icon-only upload
+// control is pressed. The visible page still has application questions (and
+// «Apply») alongside the account password fields, so the CV is not the only
+// reliable marker of an application-owned account form.
+const APPLICATION_ACCOUNT_FIELD_RE = /(work\s+permit|permit\s+for|salary|workload|starting\s+date|notice\s+period|criminal\s+record|proficiency\s+level|how\s+did\s+you\s+hear|region\s+of\s+residence|resume|r[eé]sum[eé]|curriculum|lebenslauf|cv\b|candidatur|bewerbung)/i;
+
 /**
  * The application form asks for its account's password itself (account.mjs)
- * and its button sends an application: the form, not a login page. A bare
- * «Submit» or «Konto erstellen» under a password stays a registration.
+ * and its button sends an application: the form, not a login page. Some
+ * SuccessFactors tenants keep the CV input in an upload dialog until its
+ * icon is pressed; their other application fields are enough to identify the
+ * same mixed form before that dialog is opened. A bare «Submit» or «Konto
+ * erstellen» under a password stays a registration.
  */
 export function ownAccountForm(snapshot) {
-  return Boolean(snapshot.passwordVisible) && inlineAccountForm(snapshot) && sendsApplication(snapshot);
+  const labels = (snapshot.fields || []).map((field) => `${field.label || ''} ${field.context || ''}`).join(' ');
+  const hasFileField = (snapshot.fields || []).some((field) => field.kind === 'file' || field.inputType === 'file');
+  const mixedApplication = !hasFileField && sendsApplication(snapshot) && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
+  return Boolean(snapshot.passwordVisible) && sendsApplication(snapshot) && (inlineAccountForm(snapshot) || mixedApplication);
 }
 
 /** The page's button sends an application («Submit final application»), whatever else the page asks. */
@@ -1054,6 +1066,8 @@ const documentContextRe = (terms) => new RegExp(
 );
 const CV_DOCUMENT_CONTEXT_RE = documentContextRe('cv|resume|résumé|lebenslauf|curriculum(?:\\s+vitae)?');
 const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe('cover\\s+letter|motivation(?:s|al)?\\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\\s+de\\s+motivation|lettera\\s+di\\s+(?:motivazione|presentazione)');
+const SUCCESS_FACTORS_HOST_RE = /(?:^|\\.)successfactors\\.|(?:^|\\.)sapsf\\./i;
+const SUCCESS_FACTORS_UPLOAD_MARKER_RE = /(?:cv|resume|lebenslauf|curriculum|upload)/i;
 
 /**
  * Find a document upload control without guessing from an unlabelled icon.
@@ -1076,6 +1090,18 @@ export function uploadButtonFor(snapshot, kind) {
   return candidates.length === 1 ? candidates[0] : null;
 }
 
+function iconUploadAllowedForPage(page, button) {
+  if (!button || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return true;
+  let hostname = '';
+  try {
+    hostname = new URL(page.url()).hostname;
+  } catch {
+    return false;
+  }
+  const marker = `${button.id || ''} ${button.name || ''} ${button.label || ''} ${button.title || ''} ${button.ariaLabel || ''}`;
+  return SUCCESS_FACTORS_HOST_RE.test(hostname) && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(marker);
+}
+
 // Tries per page and action in one run: a click a portal drops is tried again
 // at once, a page that never opens does not hold the run (review of #11022).
 const MAX_SECTION_TRIES = 3;
@@ -1083,7 +1109,8 @@ const MAX_SECTION_TRIES = 3;
 /** The CV through the dialog the trigger opens: 'unavailable' when nothing went in. */
 async function uploadThroughDialog(page, trigger, file) {
   try {
-    await trigger.click({ timeout: 6_000 });
+    if (trigger.snapshot) await clickButton(page, trigger.snapshot);
+    else await trigger.click({ timeout: 6_000 });
   } catch {
     return 'unavailable';
   }
@@ -1158,7 +1185,9 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   let cv;
   while (cvFile && !done.has(cvKey) && !current.fields.some((field) => field.kind === 'file')) {
     const triggerButton = uploadButtonFor(current, 'cv');
-    const trigger = triggerButton ? locatorFor(page, triggerButton) : null;
+    const trigger = iconUploadAllowedForPage(page, triggerButton) && triggerButton
+      ? locatorFor(page, triggerButton)
+      : null;
     if (!trigger || !await trigger.isVisible().catch(() => false) || !attempt(cvKey)) break;
     cv = await uploadThroughDialog(page, trigger, cvFile);
     current = await extractFields(page);
@@ -1170,7 +1199,9 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   let coverLetter;
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
     const triggerButton = uploadButtonFor(current, 'cover_letter');
-    const trigger = triggerButton ? locatorFor(page, triggerButton) : null;
+    const trigger = iconUploadAllowedForPage(page, triggerButton) && triggerButton
+      ? locatorFor(page, triggerButton)
+      : null;
     if (!trigger || !await trigger.isVisible().catch(() => false)) break;
     coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile);
     current = await extractFields(page);

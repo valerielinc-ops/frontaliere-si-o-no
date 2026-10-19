@@ -205,6 +205,23 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(ownAccountForm(page('Submit final application', { fields: [fields[0], { ...fields[1], form: 1 }] }))).toBe(false);
   });
 
+  it('recognizes the mixed SuccessFactors account/application page before its CV dialog opens', () => {
+    const successFactors = {
+      passwordVisible: true,
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'email', form: 0, label: 'Email Address: *' },
+        { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *' },
+        { id: 'password-repeat', kind: 'text', inputType: 'password', form: 0, label: 'Retype Password: *' },
+        { id: 'permit', kind: 'combobox', form: 0, label: 'Do you hold a valid work permit for Switzerland?', required: true },
+        { id: 'salary', kind: 'textarea', form: 0, label: 'What is your salary expectation?', required: true },
+        { id: 'start', kind: 'textarea', form: 0, label: 'When would be your next possible starting date?', required: true },
+      ],
+      buttons: [{ id: 'cv-upload', text: '\uE1EF', disabled: false }, { id: 'apply', text: 'Apply', disabled: false }],
+    };
+    expect(sendsApplication(successFactors)).toBe(true);
+    expect(ownAccountForm(successFactors)).toBe(true);
+  });
+
   it('finds SuccessFactors privacy review without selecting the optional job alert', () => {
     const controls = privacyConsentControls({
       buttons: [
