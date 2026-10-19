@@ -130,19 +130,63 @@ export function dailyBucketQueueDecision(issue) {
 
 /**
  * Return the open PR that explicitly claims a daily-bucket item, if any.
- * A PR for another item in the same bucket must not hold this item back; the
- * marker is the item-level mutex required by the daily contract.
+ * The deterministic fixer branch is shared by every FU in the bucket, so a PR
+ * marked for another item still holds this one back while that branch is open.
+ * A legacy PR with no item marker that cites this bucket remains an ambiguous,
+ * fail-closed mutex.
  *
  * @param {string} itemId
- * @param {Array<{number?: number, title?: string, body?: string}>} openPrs
- * @returns {{number?: number, title?: string, body?: string}|null}
+ * @param {Array<{number?: number, title?: string, body?: string, head?: {ref?: string}, headRefName?: string}>} openPrs
+ * @param {number|null} issueNumber
+ * @param {string} repository
+ * @returns {{number?: number, title?: string, body?: string, head?: {ref?: string}, headRefName?: string}|null}
  */
-export function openPrForDailyItem(itemId, openPrs) {
+export function openPrForDailyItem(itemId, openPrs, issueNumber = null, repository = REPO) {
   const wanted = String(itemId || '').toUpperCase();
   if (!/^FU-\d{4}-\d{2}-\d{2}-\d{3}$/.test(wanted)) return null;
-  return (Array.isArray(openPrs) ? openPrs : []).find((pr) =>
-    followupItemMarkers(`${pr?.title || ''}\n${pr?.body || ''}`).includes(wanted),
-  ) || null;
+  const issueRef = Number(issueNumber);
+  const legacyBranch = Number.isInteger(issueRef) && issueRef > 0
+    ? `fix/issue-${issueRef}`
+    : null;
+  return (Array.isArray(openPrs) ? openPrs : []).find((pr) => {
+    const text = `${pr?.title || ''}\n${pr?.body || ''}`;
+    const markers = followupItemMarkers(text);
+    // Un marker esplicito e' evidence per-item da qualunque repository. La
+    // euristica legacy sul branch vale invece solo per il repo corrente: una
+    // fork puo' riusare fix/issue-N. Ownership illeggibile resta bloccante.
+    if (markers.includes(wanted)) return true;
+    const headRefs = [pr?.head?.ref, pr?.headRefName];
+    const legacyBranchMatches = legacyBranch !== null
+      && headRefs.some((ref) => ref === legacyBranch)
+      && isRepositoryOwnedPrHead(pr, repository) !== false;
+    // Marker diversi separano l'evidence, non il branch condiviso.
+    if (legacyBranchMatches) return true;
+    if (!Number.isInteger(issueRef) || issueRef <= 0 || markers.length) return false;
+    return new RegExp(`(^|[^\\d])#${issueRef}(?!\\d)`).test(text);
+  }) || null;
+}
+
+/**
+ * Identita' minima della head di una PR. Null significa che il payload non
+ * prova il repository, quindi i consumer che mutano restano fail-closed.
+ * @param {{head?: {ref?: string, repo?: {full_name?: string}}, headRefName?: string, headRepository?: {nameWithOwner?: string}|string}} pr
+ * @returns {{ref: string, repository: string}|null}
+ */
+export function openPrHeadIdentity(pr) {
+  const ref = pr?.head?.ref ?? pr?.headRefName;
+  const repository = pr?.head?.repo?.full_name
+    ?? (typeof pr?.headRepository === 'string' ? pr.headRepository : pr?.headRepository?.nameWithOwner);
+  if (typeof ref !== 'string' || !ref.trim()) return null;
+  if (typeof repository !== 'string' || !repository.trim()) return null;
+  return { ref: ref.trim(), repository: repository.trim() };
+}
+
+/** True/false when ownership is known, null when the head payload is ambiguous. */
+export function isRepositoryOwnedPrHead(pr, repository = REPO) {
+  const identity = openPrHeadIdentity(pr);
+  const expected = String(repository || '').trim().toLowerCase();
+  if (!identity || !expected) return null;
+  return identity.repository.toLowerCase() === expected;
 }
 
 /**
@@ -160,11 +204,11 @@ export function flattenPaginatedOpenPrs(raw) {
 }
 
 /** Fail-closed decision for the daily item-level PR mutex. */
-export function dailyMutexDecision(itemId, scan) {
+export function dailyMutexDecision(itemId, scan, issueNumber = null, repository = REPO) {
   if (!scan || scan.ok !== true || !Array.isArray(scan.prs)) {
     return { eligible: false, reason: 'open-pr-scan-unavailable', pr: null };
   }
-  const pr = openPrForDailyItem(itemId, scan.prs);
+  const pr = openPrForDailyItem(itemId, scan.prs, issueNumber, repository);
   return pr
     ? { eligible: false, reason: 'item-pr-open', pr }
     : { eligible: true, reason: null, pr: null };
@@ -2561,7 +2605,8 @@ function loadOpenPrsForDailyMutex() {
     ]);
     const prs = flattenPaginatedOpenPrs(raw);
     if (!prs || !prs.every((pr) => Number.isInteger(Number(pr.number)) && Number(pr.number) > 0
-      && typeof pr.title === 'string' && (typeof pr.body === 'string' || pr.body === null))) {
+      && typeof pr.title === 'string' && (typeof pr.body === 'string' || pr.body === null)
+      && openPrHeadIdentity(pr) !== null)) {
       return { ok: false, prs: [] };
     }
     return { ok: true, prs };
@@ -2804,6 +2849,35 @@ export function isCrawlerRescueCandidate(iss) {
   if (has(iss, LBL_QUEUED) || has(iss, LBL_PARKED)
       || has(iss, 'needs-human') || has(iss, LBL_AUTOMATION_DEFERRED)) return false;
   return !isDecomposedParent(iss);
+}
+
+/**
+ * Un pin permanente o un defer tecnico possono essere aggiunti dopo la
+ * promozione diretta a `agent:fix`, lasciando una route corrente `none`.
+ * Questa riconciliazione riguarda solo quel routing stantio: non riattiva una
+ * issue in coda e non tocca claim locali/remoti.
+ * @param {{title?: string, body?: string, labels?: Array<string|{name:string}>}} iss
+ */
+export function isStaleDirectFixRouteCandidate(iss) {
+  if (!has(iss, LBL_FIX) || has(iss, LBL_QUEUED) || hasActiveAgentClaim(iss)) return false;
+  return classifyIssue(String(iss?.title || ''), names(iss), String(iss?.body || '')).route === 'none';
+}
+
+/** Gate pura del dequeue: ogni stato non verificabile lascia la route intatta. */
+export function staleDirectFixRouteDecision(iss, {
+  inFlight = Number.POSITIVE_INFINITY,
+  liveClaimAllowed = false,
+  hasOpenPr = null,
+  settling = true,
+} = {}) {
+  if (!isStaleDirectFixRouteCandidate(iss)) {
+    return { action: 'keep', reason: 'route non diretto o ancora eleggibile' };
+  }
+  if (inFlight !== 0) return { action: 'wait', reason: 'run issue-fix attiva o non leggibile' };
+  if (!liveClaimAllowed) return { action: 'keep', reason: 'claim attivo o non leggibile' };
+  if (hasOpenPr !== false) return { action: 'keep', reason: 'PR aperta o non verificabile' };
+  if (settling) return { action: 'wait', reason: 'promozione nella finestra di assestamento' };
+  return { action: 'dequeue', reason: 'la classificazione corrente restituisce route none' };
 }
 
 /** WF-scope = il fix toccherebbe .github/workflows (capability-guard) → non
@@ -3078,6 +3152,45 @@ export function deferAutomationIssue(number, { add = [], remove = [] } = {}) {
   return editChecked(number, { add: [LBL_AUTOMATION_DEFERRED, ...add], remove });
 }
 
+/** Snapshot live usata esclusivamente dalla riconciliazione dei direct route. */
+function liveIssueForDirectRoute(num) {
+  try {
+    const issue = gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'title,labels,updatedAt']);
+    return issue && typeof issue.title === 'string' && Array.isArray(issue.labels)
+      && typeof issue.updatedAt === 'string'
+      ? issue
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Rilettura claim fail-closed prima della mutazione del direct route. */
+function liveClaimAllowsMutation(num) {
+  if (DRY) return true;
+  try {
+    const issue = gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'labels']);
+    if (!issue || !Array.isArray(issue.labels)) return false;
+    return !hasActiveAgentClaim(issue);
+  } catch {
+    return false;
+  }
+}
+
+function commentIssue(num, body) {
+  if (DRY) {
+    console.log(`[dry] comment #${num}: ${String(body).slice(0, 100)}`);
+    return true;
+  }
+  try {
+    gh(['issue', 'comment', String(num), '--repo', REPO, '--body', body], { json: false });
+    return true;
+  } catch (error) {
+    console.log(`::warning::comment #${num} fallito: ${String(error).slice(0, 120)}`);
+    return false;
+  }
+}
+
 function edit(num, { add = [], remove = [] }) {
   const args = ['issue', 'edit', String(num), '--repo', REPO];
   for (const l of add) args.push('--add-label', l);
@@ -3157,12 +3270,16 @@ function routeToDecompose(num, { remove = [], note }) {
  * contava la PR mergiata come in-flight per sempre → mai rescue né park).
  * Issue aperta + PR chiusa + vecchia = orfana: re-queue; il pre-flight
  * already-resolved di issue-fix protegge dal re-run inutile se è done. */
-function hasFixPR(num) {
+function hasFixPR(num, { failClosed = false } = {}) {
   for (const branch of [`fix/issue-${num}`]) {
     try {
       const prs = gh(['pr', 'list', '--repo', REPO, '--head', branch, '--state', 'open', '--json', 'number', '--limit', '1']);
-      if (Array.isArray(prs) && prs.length) return true;
-    } catch { /* ignore */ }
+      if (!Array.isArray(prs)) return failClosed;
+      if (prs.length) return true;
+    } catch {
+      if (failClosed) return true;
+      /* Il rescue storico resta best-effort; il direct-route gate no. */
+    }
   }
   return false;
 }
@@ -4765,10 +4882,54 @@ export function runDrain() {
   const stuckFix = rescueSafe ? allFix.filter(
     (i) => isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED) && !isDecomposedParent(i)
   ) : [];
+  const staleDirectFixes = rescueSafe ? allFix.filter(isStaleDirectFixRouteCandidate) : [];
   // Il complemento esatto di `stuckFix` dentro `agent:fix`: i crawler
   // (`route='fix'`, unica categoria non queue-managed). Erano l'unica categoria
   // che nessuno strato di recupero guardava — vedi `crawlerFixDecision` (#5514).
   const crawlerFix = rescueSafe ? allFix.filter(isCrawlerRescueCandidate) : [];
+
+  // Una route diretta puo' diventare invalida dopo l'applicazione di un pin o di
+  // un defer tecnico. Rileggo titolo/label/data, claim e PR prima di togliere
+  // solo `agent:fix`: issue e pin restano aperti, e lo stato ambiguo non muta.
+  let staleDirectFixesRemoved = 0;
+  let staleDirectFixesPreviewed = 0;
+  for (const iss of staleDirectFixes) {
+    if (!budget.take(`#${iss.number} (dequeue direct fix pinned)`, ITEM_COST_MS)) break;
+    const live = DRY
+      ? { title: iss.title, labels: iss.labels, updatedAt: iss.updatedAt }
+      : liveIssueForDirectRoute(iss.number);
+    if (!live || !isStaleDirectFixRouteCandidate({ ...iss, title: live.title, labels: live.labels })) {
+      console.log(`PIN-ROUTE-SKIP #${iss.number}: routing live non piu' direct-fix non eleggibile o label illeggibili.`);
+      continue;
+    }
+    const decision = staleDirectFixRouteDecision({ ...iss, title: live.title, labels: live.labels }, {
+      inFlight: inflight,
+      liveClaimAllowed: liveClaimAllowsMutation(iss.number),
+      hasOpenPr: hasFixPR(iss.number, { failClosed: true }),
+      settling: isSettlingPromotion({ outcome: null, ageMin: minutesSince(live.updatedAt), settleMin: SETTLE_MIN }),
+    });
+    if (decision.action !== 'dequeue') {
+      console.log(`PIN-ROUTE-SKIP #${iss.number} (${decision.reason}) — routing lasciato intatto.`);
+      continue;
+    }
+    if (DRY) {
+      staleDirectFixesPreviewed++;
+      console.log(`[dry] PIN-ROUTE-RECONCILE #${iss.number}: rimuoverei agent:fix; issue e pin restano aperti.`);
+      continue;
+    }
+    const note = `📌 **Pre-flight drainer (zero-Claude): routing diretto non piu' valido.** La classificazione corrente restituisce \`route=none\`; rimuovo solo \`agent:fix\`. La issue e i pin restano aperti.\n\n<!-- FIX_OUTCOME: revenue-tracker-manual -->`;
+    if (!commentIssue(iss.number, note)) continue;
+    if (!editChecked(iss.number, { remove: [LBL_FIX] })) continue;
+    staleDirectFixesRemoved++;
+    console.log(`PIN-ROUTE-RECONCILE #${iss.number} (route=none) — "${iss.title?.slice(0, 50)}"`);
+  }
+  if (staleDirectFixes.length > 0) {
+    const outcome = DRY
+      ? `stale_direct_fix_routes_would_remove=${staleDirectFixesPreviewed}/${staleDirectFixes.length}`
+      : `stale_direct_fix_routes_removed=${staleDirectFixesRemoved}/${staleDirectFixes.length}`;
+    console.log(outcome);
+  }
+
   // Promozioni "in assestamento": un agent:fix follow-up giovane e senza PR ha
   // la run viva OPPURE non ancora registrata in `gh run list` (latenza
   // queue→listing di alcuni secondi). In entrambi i casi lo slot issue-fix è
@@ -5582,7 +5743,7 @@ export function runDrain() {
     }
     if (dailyQueue.item) {
       if (dailyOpenPrScan === null) dailyOpenPrScan = loadOpenPrsForDailyMutex();
-      const mutex = dailyMutexDecision(dailyQueue.item.id, dailyOpenPrScan);
+      const mutex = dailyMutexDecision(dailyQueue.item.id, dailyOpenPrScan, cand.number, REPO);
       if (!mutex.eligible) {
         if (mutex.reason === 'item-pr-open') {
           console.log(`SKIP #${cand.number} (${dailyQueue.item.id} già dichiarato nella PR #${mutex.pr?.number}) → item in volo, resta in coda`);

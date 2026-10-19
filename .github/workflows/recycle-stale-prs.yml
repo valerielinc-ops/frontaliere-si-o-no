@@ -97,6 +97,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config (GITHUB_PAT)
+        id: load_rc_env
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
@@ -118,7 +119,7 @@ jobs:
       # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
       # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
       - name: Alert token-down (dedup, zero-Claude)
-        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
+        if: always() && steps.load_rc_env.outcome != 'skipped' && env.APP_TOKEN == '' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -304,12 +305,6 @@ jobs:
               echo "::notice::Deadline: ${ELAPSED}s usati su ${STEP_BUDGET}s, un riciclo ne richiede fino a ${ITEM_BUDGET}s — fermo prima di un'altra close; il prossimo run riprende lo scan."
               break
             fi
-            if [ "$RECYCLE_ATTEMPTS" -ge "$MAX_RECYCLES" ]; then
-              echo "::notice::Cap $MAX_RECYCLES raggiunto: fermo prima di un'altra close."
-              break
-            fi
-            RECYCLE_ATTEMPTS=$((RECYCLE_ATTEMPTS + 1))
-
             # Rilettura immediatamente prima della close: la PR deve essere
             # ancora OPEN e sulla stessa head letta dai gate.
             PRE_CLOSE=$(bounded gh pr view "$N" --repo "$REPO" --json state,headRefOid --jq '.state + " " + .headRefOid' 2>/dev/null || true)
@@ -317,6 +312,35 @@ jobs:
               echo "PR #$N cambiata prima della close (${PRE_CLOSE:-UNKNOWN}, attesa OPEN $HEADSHA) — skip recycle"
               continue
             fi
+
+            # ── Veto riletti dal CONSUMATORE, subito prima della close ───────
+            # `stale-review` e' una fotografia scritta da altri. Fra la lista
+            # iniziale e la close la PR puo' ricevere `needs-human` o
+            # `agent:resolving-conflict`, oppure il segnale stale puo' essere
+            # stato revocato. Il consumer rilegge le label qui e fallisce chiuso
+            # su payload illeggibile; questi tentativi non consumano il cap.
+            if ! LIVE_LABELS=$(bounded gh pr view "$N" --repo "$REPO" --json labels --jq '[.labels[].name] | join(",")' 2>/dev/null) \
+              || [ -z "${LIVE_LABELS//[[:space:]]/}" ]; then
+              echo "::warning::PR #${N}: label non rileggibili prima della close — NON riciclata (fail-closed)."
+              continue
+            fi
+            case ",${LIVE_LABELS}," in
+              *,needs-human,*|*,agent:resolving-conflict,*)
+                echo "PR #${N}: veto presente alla rilettura (${LIVE_LABELS}) — NON riciclata."
+                continue ;;
+            esac
+            case ",${LIVE_LABELS}," in
+              *,stale-review,*) ;;
+              *)
+                echo "PR #${N}: stale-review non presente alla rilettura — segnale revocato, NON riciclata."
+                continue ;;
+            esac
+
+            if [ "$RECYCLE_ATTEMPTS" -ge "$MAX_RECYCLES" ]; then
+              echo "::notice::Cap $MAX_RECYCLES raggiunto: fermo prima di un'altra close."
+              break
+            fi
+            RECYCLE_ATTEMPTS=$((RECYCLE_ATTEMPTS + 1))
 
             # Preflight delle capacita' del token, tutte PRIMA della close e
             # tutte non distruttive:

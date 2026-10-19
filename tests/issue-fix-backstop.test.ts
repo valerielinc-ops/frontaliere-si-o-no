@@ -517,4 +517,15 @@ describe('issue-fix PR delivery verification', () => {
     expect(backstop).toContain('verified-none');
     expect(backstop).toContain('delivery=$DELIVERY_STATUS: backstop non emesso.');
   });
+
+  it('attribuisce il FIX_OUTCOME del backstop all’item daily selezionato', () => {
+    const backstopStart = workflow.indexOf('- name: Emit FIX_OUTCOME telemetry (deterministic backstop)');
+    const classifyStart = workflow.indexOf('- name: Classify outcome (work-done, not CLI exit)', backstopStart);
+    const backstop = workflow.slice(backstopStart, classifyStart);
+    expect(backstop).toContain('DAILY_ITEM_ID: ${{ steps.tier.outputs.selected_item_id }}');
+    expect(backstop).toContain('item_marker=');
+    expect(backstop).toContain('FOLLOWUP_ITEM:');
+    expect(workflow).toContain('In un daily bucket aggiungi nello STESSO commento');
+    expect(workflow).toContain('<!-- FOLLOWUP_ITEM: ${{ steps.tier.outputs.selected_item_id }} -->');
+  });
 });

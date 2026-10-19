@@ -726,6 +726,21 @@ describe('daily drainer item mutex', () => {
     });
   });
 
+  it('treats the shared issue branch as a mutex even when its marker names another item', () => {
+    const id = `FU-${DAY}-001`;
+    const pr = {
+      number: 43,
+      title: 'fix another item',
+      body: `Addresses #9\nFollow-up item: FU-${DAY}-002`,
+      headRefName: 'fix/issue-9',
+      head: {
+        ref: 'fix/issue-9',
+        repo: { full_name: 'valerielinc-ops/frontaliere-si-o-no' },
+      },
+    };
+    expect(openPrForDailyItem(id, [pr], 9, 'valerielinc-ops/frontaliere-si-o-no')).toEqual(pr);
+  });
+
   it('distingue una scansione open-PR fallita da una lista vuota e pagina tutte le risposte', () => {
     const id = `FU-${DAY}-001`;
     expect(dailyMutexDecision(id, { ok: false, prs: [] })).toMatchObject({
