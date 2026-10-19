@@ -312,7 +312,9 @@ function shouldIgnoreWebhook(service, sessionId, paymentProvider) {
     200,
   );
   if (currentId && sessionId && currentId !== sessionId) return true;
-  return ['paid', 'failed', 'refunded'].includes(String(service.paymentStatus || ''));
+  // A hosted checkout can contain multiple attempts. Keep paid/refunded
+  // terminal, but allow a later successful retry to upgrade a failed attempt.
+  return ['paid', 'refunded'].includes(String(service.paymentStatus || ''));
 }
 
 /** Signed Stripe or verified SumUp payment transition for this product. */
@@ -387,6 +389,7 @@ export async function handleApplicationConciergeWebhookEvent(
     updatedAt: ts,
     ...(paymentStatus === 'paid' ? {
       paidAt,
+      paymentFailureReason: null,
       expiresAt: Timestamp.fromMillis(paidAt.toMillis() + APPLICATION_CONCIERGE_DURATION_DAYS * 24 * 60 * 60 * 1000),
     } : {}),
     ...(failureReason ? { paymentFailureReason: failureReason } : {}),
