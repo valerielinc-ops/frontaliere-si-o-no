@@ -132,12 +132,21 @@ function serializeProposal(doc) {
   };
 }
 
+function proposalRankingValue(doc, field) {
+  const data = doc?.data ? doc.data() || {} : doc || {};
+  const value = Number(data[field]);
+  return Number.isFinite(value) ? value : 0;
+}
+
 export function serializeApplicationConciergeService(doc, proposalDocs = [], { admin = false } = {}) {
   const data = doc.data ? doc.data() || {} : doc || {};
   const serviceId = doc.id || data.serviceId;
   const expired = serviceIsExpired(data);
-  const proposals = proposalDocs.map(serializeProposal)
-    .sort((left, right) => (Number(right.matchScore) || 0) - (Number(left.matchScore) || 0));
+  const proposals = [...proposalDocs]
+    .sort((left, right) => (proposalRankingValue(right, 'matchRankingScore') || proposalRankingValue(right, 'matchScore'))
+      - (proposalRankingValue(left, 'matchRankingScore') || proposalRankingValue(left, 'matchScore'))
+      || proposalRankingValue(right, 'matchScore') - proposalRankingValue(left, 'matchScore'))
+    .map(serializeProposal);
   return {
     serviceId,
     serviceType: 'application_concierge',

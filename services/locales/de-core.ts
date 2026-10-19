@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3991.title': "Passendere Stellen in deiner Nähe",
+ 'whatsNew.v3991.conciergeProximity.title': "Die Entfernung beeinflusst die Reihenfolge der Vorschläge",
+ 'whatsNew.v3991.conciergeProximity.desc': "Gib in deinem Profil deinen Wohnort oder deine Postleitzahl an, damit wir passende Stellen in deiner Nähe bevorzugen können. Die Übereinstimmung mit deinem Lebenslauf bleibt entscheidend; eine vollständige Adresse ist nicht nötig.",
  'whatsNew.v3990.title': "Einfachere Zahlung für die begleitete Bewerbung",
  'whatsNew.v3990.conciergeCheckout.title': "Bezahlen, ohne die Website zu verlassen",
  'whatsNew.v3990.conciergeCheckout.desc': "Die Zahlung für den 30-Tage-Service erfolgt in einem eingebetteten Formular. Wenn du das Popup schließt oder die Seite neu lädst, kannst du denselben Zahlungsversuch fortsetzen; der Service wird erst nach bestätigter Zahlung aktiviert.",

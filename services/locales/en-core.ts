@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const enCore: Record<string, string> = {
+ 'whatsNew.v3991.title': "Job proposals closer to you",
+ 'whatsNew.v3991.conciergeProximity.title': "Distance helps rank proposed jobs",
+ 'whatsNew.v3991.conciergeProximity.desc': "Add your town or postal code to your profile so we can prioritise compatible opportunities in your area. CV relevance remains the main criterion; no full street address is needed.",
  'whatsNew.v3990.title': "Easier payment for assisted applications",
  'whatsNew.v3990.conciergeCheckout.title': "Pay without leaving the site",
  'whatsNew.v3990.conciergeCheckout.desc': "Payment for the 30-day service is completed in an embedded form. If you close the popup or reload the page, you can resume the same attempt; the service activates only after payment is confirmed.",

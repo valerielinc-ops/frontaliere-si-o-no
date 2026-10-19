@@ -329,7 +329,8 @@ export function scoreJobForProfile(job, profile, candidateLocation = '') {
       - specialtyPenalty(jobTitle, candidate.profileText, candidateRoles, jobRoles),
   ));
   if (relevanceScore < MIN_MATCH_SCORE) return { score: 0, reasons: [] };
-  const score = Math.min(99, relevanceScore + locationPoints);
+  const rankScore = relevanceScore + locationPoints;
+  const score = Math.min(99, rankScore);
 
   const reasons = [];
   if (roleMatches.length) reasons.push('Ruolo compatibile: ' + roleMatches.map((role) => ROLE_SIGNAL_LABELS[role]).join(', '));
@@ -342,6 +343,9 @@ export function scoreJobForProfile(job, profile, candidateLocation = '') {
   if (!titleEvidence.length && experienceMatches.length) reasons.push('Esperienza pertinente: ' + experienceMatches.slice(0, 4).join(', '));
   return {
     score,
+    // Keep the uncapped composite for sorting so proximity still matters when
+    // the user-facing percentage reaches 99.
+    rankScore,
     reasons: reasons.slice(0, 3),
     evidenceStrength: skillMatches.length * 3 + roleMatches.length * 2 + titleMatches.length + experienceMatches.length + languageMatches.length,
   };
@@ -437,7 +441,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       const scored = scoreJobForProfile(job, profile, candidateLocation);
       return { job, url, ...scored };
     }).filter((entry) => entry.score > 0 && validJobUrl(entry.url) && !known.has(`${entry.job.id || ''}|${entry.url}`))
-      .sort((left, right) => right.score - left.score
+      .sort((left, right) => right.rankScore - left.rankScore
+        || right.score - left.score
         || right.evidenceStrength - left.evidenceStrength
         || String(right.job.datePosted || '').localeCompare(String(left.job.datePosted || '')))
       .slice(0, Math.min(available, MAX_PROPOSALS_PER_RUN));
@@ -458,6 +463,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           proposalRef,
           {
             matchScore: rescored.score,
+            matchRankingScore: rescored.rankScore ?? rescored.score,
             matchReasons: rescored.reasons,
             matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
             matchedAt: Timestamp.now(),
@@ -474,6 +480,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           {
             matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
             matchScore: rescored.score,
+            matchRankingScore: rescored.rankScore ?? rescored.score,
             matchReasons: rescored.reasons,
             updatedAt: FieldValue.serverTimestamp(),
           },
@@ -497,6 +504,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         applyMode: candidate.job.applyMode || 'portal',
         status: 'proposed',
         matchScore: candidate.score,
+        matchRankingScore: candidate.rankScore,
         matchReasons: candidate.reasons,
         source: 'cv_match_workflow',
         createdBy: 'cv_match_workflow',

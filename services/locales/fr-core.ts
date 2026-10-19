@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ 'whatsNew.v3991.title': "Des offres d’emploi plus proches de chez vous",
+ 'whatsNew.v3991.conciergeProximity.title': "La proximité aide à classer les postes proposés",
+ 'whatsNew.v3991.conciergeProximity.desc': "Indiquez votre commune ou votre code postal dans votre profil pour prioriser les offres compatibles près de chez vous. La correspondance avec votre CV reste le critère principal ; votre adresse complète n’est pas nécessaire.",
  'whatsNew.v3990.title': "Paiement simplifié pour la candidature assistée",
  'whatsNew.v3990.conciergeCheckout.title': "Payez sans quitter le site",
  'whatsNew.v3990.conciergeCheckout.desc': "Le paiement du service de 30 jours se fait dans un formulaire intégré. Si vous fermez la fenêtre ou rechargez la page, vous pouvez reprendre la même tentative ; le service n’est activé qu’après confirmation du paiement.",

@@ -207,10 +207,36 @@ describe('application concierge matching', () => {
     const distantPostcode = scoreJobForProfile({ ...job, location: 'Zurigo', postalCode: '8000' }, profile, '6850 Mendrisio');
 
     expect(sameLocality.score).toBe(relevanceOnly.score + 8);
+    expect(sameLocality.rankScore).toBe(relevanceOnly.rankScore + 8);
     expect(sameLocality.reasons).toContain('Località vicina alla zona di residenza');
     expect(nearbyPostcode.score).toBe(relevanceOnly.score + 4);
+    expect(nearbyPostcode.rankScore).toBe(relevanceOnly.rankScore + 4);
     expect(distantPostcode.score).toBe(relevanceOnly.score);
+    expect(distantPostcode.rankScore).toBe(relevanceOnly.rankScore);
     expect(scoreJobForProfile(job, profile).score).toBe(relevanceOnly.score);
+  });
+
+  it('keeps the proximity tie-breaker when the displayed match score is capped', () => {
+    const profile = {
+      workPosition: 'Technology applications management strategy director',
+      headline: 'Information technology applications management strategy',
+      skills: ['architecture', 'governance', 'portfolio', 'cloud', 'security', 'implementation'],
+      experienceSummary: ['technology applications management strategy architecture governance portfolio'],
+      languages: ['English', 'German'],
+    };
+    const job = {
+      title: 'Technology applications management strategy director',
+      requirements: 'architecture governance portfolio cloud security implementation',
+      languages: ['English', 'German'],
+      location: 'Mendrisio',
+      postalCode: '6850',
+    };
+    const remote = scoreJobForProfile({ ...job, location: 'Zurich', postalCode: '8000' }, profile, '6850 Mendrisio');
+    const nearby = scoreJobForProfile(job, profile, '6850 Mendrisio');
+
+    expect(remote.score).toBe(99);
+    expect(nearby.score).toBe(99);
+    expect(nearby.rankScore).toBe(remote.rankScore + 8);
   });
 
   it('re-runs matching when the uploaded CV or the candidate locality changes', () => {
