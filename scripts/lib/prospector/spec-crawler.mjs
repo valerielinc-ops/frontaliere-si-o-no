@@ -527,14 +527,18 @@ function attachListingTenantMarkers(spec, html, effectiveUrl, candidates) {
  * @param {import('./synthesize.mjs').CrawlerSpec} [spec]
  * @returns {{ links: Array<{ url: string, text: string }>, candidates: any[] }}
  */
-function extractListingCandidates(html, effectiveUrl, templateRx, spec) {
+function extractListingCandidates(html, effectiveUrl, templateRx, spec, runtime = {}) {
   const links = extractLinks(html, effectiveUrl);
   const { vacancies } = extractVacancies(html, effectiveUrl, links);
+  const sourceCandidates = typeof runtime.listingExtractor === 'function'
+    ? runtime.listingExtractor(html, effectiveUrl)
+    : null;
   // jsonld/microdata are stronger evidence than any link-shape guess, so
   // only override when the generic cascade fell back to (or below) its own
   // template heuristic and we hold a better one already vetted for this spec.
-  let candidates = vacancies;
-  if (templateRx && vacancies.every((v) => v.via !== 'jsonld' && v.via !== 'microdata')) {
+  let candidates = Array.isArray(sourceCandidates) ? sourceCandidates : vacancies;
+  if (!Array.isArray(sourceCandidates)
+    && templateRx && vacancies.every((v) => v.via !== 'jsonld' && v.via !== 'microdata')) {
     let host = '';
     try { host = normalizeHost(new URL(effectiveUrl).hostname); } catch { /* skip override */ }
     const direct = host ? matchKnownTemplate(links, templateRx, host) : [];
@@ -1272,7 +1276,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         ), bySlug.size);
       }
       const consumeEndpointPage = async ({ endpointUrl, response }) => {
-        const extracted = extractListingCandidates(response.html, endpointUrl, templateRx, spec);
+        const extracted = extractListingCandidates(response.html, endpointUrl, templateRx, spec, runtime);
         const candidates = filterListingCandidates(spec, extracted.candidates);
         const listingEvidence = spec.platform === 'umantis.com'
           ? extractUmantisListingEvidence(response.html, endpointUrl, {
@@ -1312,7 +1316,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         cantonOverrides: spec.umantisListingCantonOverrides,
       })
       : new Map();
-    let { links, candidates } = extractListingCandidates(html, effectiveSeedUrl, templateRx, spec);
+    let { links, candidates } = extractListingCandidates(html, effectiveSeedUrl, templateRx, spec, runtime);
     candidates = filterListingCandidates(spec, candidates);
 
     // Some protected boards answer the direct request with a 200 interstitial
@@ -1337,7 +1341,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         sleepImpl: runtime.jinaSleepImpl,
       });
       if (proxiedBody != null && !looksLikeAntiBotChallenge(proxiedBody)) {
-        const rescuedRaw = extractListingCandidates(proxiedBody, effectiveSeedUrl, templateRx, spec);
+        const rescuedRaw = extractListingCandidates(proxiedBody, effectiveSeedUrl, templateRx, spec, runtime);
         const rescued = {
           ...rescuedRaw,
           candidates: filterListingCandidates(spec, rescuedRaw.candidates),
@@ -1359,7 +1363,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       if (!candidates.length) {
         const browserBody = await tryBrowserRescue(effectiveSeedUrl, runtime);
         if (browserBody) {
-          const rescuedRaw = extractListingCandidates(browserBody, effectiveSeedUrl, templateRx, spec);
+          const rescuedRaw = extractListingCandidates(browserBody, effectiveSeedUrl, templateRx, spec, runtime);
           const rescued = {
             ...rescuedRaw,
             candidates: filterListingCandidates(spec, rescuedRaw.candidates),
@@ -1506,7 +1510,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
             cantonOverrides: spec.umantisListingCantonOverrides,
           })
           : new Map();
-        const extracted = extractListingCandidates(body, pageUrl, templateRx, spec);
+        const extracted = extractListingCandidates(body, pageUrl, templateRx, spec, runtime);
         const nextCandidates = filterListingCandidates(spec, extracted.candidates);
         await addListingCandidates(
           nextCandidates,
