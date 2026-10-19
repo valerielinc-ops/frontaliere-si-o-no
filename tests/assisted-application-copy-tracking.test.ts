@@ -31,12 +31,13 @@ describe('assisted-application copy GA4 contract', () => {
   it('prepares the readout using only the standard eventName dimension and readonly access', async () => {
     const getToken = vi.fn(async () => 'test-token');
     const runReport = vi.fn(async () => ({ rows: [] }));
-    await runCopyReadout(['--days', '7'], {
+    const { result } = await runCopyReadout(['--days', '7'], {
       propertyId: '524485296',
       getToken,
       runReport,
       now: new Date('2026-11-20T12:00:00Z'),
     });
+    expect(result.metricSemantics).toContain('not joined across events');
     expect(getToken).toHaveBeenCalledWith(['https://www.googleapis.com/auth/analytics.readonly']);
     const { body } = runReport.mock.calls[0][0];
     expect(body.dimensions).toEqual([{ name: 'eventName' }]);
@@ -47,7 +48,7 @@ describe('assisted-application copy GA4 contract', () => {
 });
 
 describe('assisted-application copy readout aggregation', () => {
-  it('computes completed-user conversion from exposure users and ignores other experiments', () => {
+  it('summarizes event-scoped user counts without claiming a same-user conversion and ignores other experiments', () => {
     const result = summarizeCopyReport({ rows: [
       {
         dimensionValues: [
@@ -68,7 +69,8 @@ describe('assisted-application copy readout aggregation', () => {
         metricValues: [{ value: '99' }, { value: '99' }],
       },
     ] });
-    expect(result.arms.time_saved).toMatchObject({ exposures: 80, completedUsers: 9, sameWindowCheckoutExposureRatio: 9 / 80 });
+    expect(result.arms.time_saved).toMatchObject({ exposureEventUsers: 80, checkoutEventUsers: 9 });
+    expect(result.arms.time_saved).not.toHaveProperty('sameWindowCheckoutExposureRatio');
     expect(Object.keys(result.arms)).toEqual(['time_saved']);
   });
 });
