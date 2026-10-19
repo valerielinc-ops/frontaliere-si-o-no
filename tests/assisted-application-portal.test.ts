@@ -3,7 +3,7 @@ import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateA
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonFor, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -190,6 +190,37 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(nationalityOptionLabel('italiana', ['Italie', 'Italia'])).toBe('');
     expect(nationalityOptionLabel('italiana', ['Italie', 'italienne'], 'fr')).toBe('italienne');
     expect(residenceCountryOptionLabel('Italia', ['Switzerland', 'Italy'])).toBe('Italy');
+  });
+
+  it('binds a SuccessFactors icon-only CV trigger only to explicit document context', () => {
+    const page = {
+      fields: [
+        { label: 'Email Address: *', kind: 'text', required: true },
+        { label: 'Choose Password: *', kind: 'text', required: true },
+        { label: 'Do you hold a valid work permit for Switzerland?', kind: 'combobox', required: true },
+        { label: 'How did you hear about this position?', kind: 'text', required: true },
+      ],
+      buttons: [
+        { id: 'resume-upload', text: '', section: 'Resume / CV (PDF preferred):', context: 'Resume / CV (PDF preferred):', disabled: false },
+        { id: 'privacy', text: 'Read and accept the data privacy statement.', section: '', context: 'Data privacy', disabled: false },
+        { id: 'apply', text: 'Apply', section: '', context: '', disabled: false },
+      ],
+    };
+    expect(page.fields.map((field) => field.label)).toEqual([
+      'Email Address: *',
+      'Choose Password: *',
+      'Do you hold a valid work permit for Switzerland?',
+      'How did you hear about this position?',
+    ]);
+    expect(uploadButtonFor(page, 'cv')).toMatchObject({ id: 'resume-upload', text: '' });
+    expect(uploadButtonFor({ buttons: [{ id: 'aria-label-upload', text: '', section: '', context: 'Upload CV', disabled: false }] }, 'cv'))
+      .toMatchObject({ id: 'aria-label-upload', text: '' });
+    expect(uploadButtonFor({ buttons: [{ id: 'french-upload', text: '', section: '', context: 'Résumé', disabled: false }] }, 'cv'))
+      .toMatchObject({ id: 'french-upload', text: '' });
+    expect(uploadButtonFor({ buttons: [{ id: 'filename-upload', text: '', section: '', context: 'my_resume.pdf', disabled: false }] }, 'cv'))
+      .toMatchObject({ id: 'filename-upload', text: '' });
+    expect(uploadButtonFor({ buttons: [{ ...page.buttons[0], section: 'Correspondence', context: 'Correspondence' }] }, 'cv')).toBeNull();
+    expect(uploadButtonFor({ buttons: [page.buttons[0], { ...page.buttons[0], id: 'other-icon', context: 'Resume / CV (PDF preferred):' }] }, 'cv')).toBeNull();
   });
 
   it('chooses the canonical French label when a native nationality select has equivalent options', async () => {
