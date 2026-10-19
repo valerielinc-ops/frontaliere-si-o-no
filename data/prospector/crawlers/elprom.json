@@ -3,16 +3,21 @@
   "companyName": "elprom",
   "companyHost": "elprom.ch",
   "platform": "",
-  "mode": "jsonld",
+  "mode": "template",
   "seedUrls": [
-    "https://elprom.ch/job/elektroplaner-3d-bim-m-w-d-80-100-wallisellen/"
+    "https://elprom.ch/jobs-karriere/"
   ],
-  "detailTemplate": "/job/elektroplaner-3d-bim-m-w-d-80-100-wallisellen/",
-  "detailEnrichment": false,
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
   "detailFetchWorkers": 4,
-  "sampleVacancyCount": 1,
+  "sampleVacancyCount": 6,
   "sampleTitles": [
-    "Elektroplaner 3D/BIM m/w/d (80-100%)"
+    "Elektroplaner Netzversorgung m/w/d (80-100%)",
+    "Projektleiter Elektroplanung m/w/d (80-100%)",
+    "Elektroplaner 3D/BIM m/w/d (80-100%)",
+    "Projektleiter Elektroplanung m/w/d (80-100%)",
+    "Elektroplaner 3D/BIM m/w/d (80-100%)",
+    "Lehrstelle Elektroplaner m/w/d 2027 (Wallisellen)"
   ],
   "sourceLang": "de",
   "learnedAt": "2026-09-15T09:58:27.445Z"
