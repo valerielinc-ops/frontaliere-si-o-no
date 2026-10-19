@@ -107,7 +107,24 @@ export function productionRuntimeOptionsFor(spec) {
 export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
   const output = Array.isArray(rows) ? rows : [];
   const errors = Array.isArray(options.errors) ? options.errors.filter(Boolean) : [];
-  const outcome = String(rows?.fetchOutcome || '');
+  const hasFetchOutcome = Object.prototype.hasOwnProperty.call(rows || {}, 'fetchOutcome');
+  const rawOutcome = hasFetchOutcome ? rows.fetchOutcome : undefined;
+  const outcomePresent = hasFetchOutcome && rawOutcome !== null;
+  const malformedOutcome = outcomePresent && typeof rawOutcome !== 'string';
+  const outcome = typeof rawOutcome === 'string' ? rawOutcome : '';
+  const rawOutcomeType = !hasFetchOutcome
+    ? 'absent'
+    : rawOutcome === null
+      ? 'null'
+      : typeof rawOutcome;
+  const outcomeEvidence = rawOutcome === null
+    || typeof rawOutcome === 'string'
+    || typeof rawOutcome === 'number'
+    || typeof rawOutcome === 'boolean'
+    ? rawOutcome
+    : rawOutcome === undefined
+      ? null
+      : `[${Array.isArray(rawOutcome) ? 'array' : typeof rawOutcome}]`;
   const proof = rows?.authoritativeSnapshotProof && typeof rows.authoritativeSnapshotProof === 'object'
     ? rows.authoritativeSnapshotProof
     : null;
@@ -179,8 +196,11 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
       : {}),
   };
 
-  const unknownOutcome = Boolean(outcome) && !CRAWLER_FETCH_OUTCOMES.has(outcome);
+  const unknownOutcome = outcomePresent
+    && typeof rawOutcome === 'string'
+    && !CRAWLER_FETCH_OUTCOMES.has(rawOutcome);
   const fetchFailed = errors.length > 0
+    || malformedOutcome
     || CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome)
     || unknownOutcome;
   const outputMismatch = proof && Number.isInteger(proof.publishedCount)
@@ -233,6 +253,7 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
   const qualityDropDenominator = detailDrop?.candidates ?? sourceBackedLocationDenominator;
   const dropCounts = {
     ...(errors.length ? { source_adapter_fetch_error: errors.length } : {}),
+    ...(malformedOutcome ? { source_adapter_malformed_fetch_outcome: 1 } : {}),
     ...(CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome) ? { [`fetch_outcome_${outcome}`]: 1 } : {}),
     ...(unknownOutcome ? { source_adapter_unknown_fetch_outcome: 1 } : {}),
     ...(proofFailed ? { authoritative_snapshot_proof_incomplete: 1 } : {}),
@@ -254,6 +275,7 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
     } : {}),
   };
   const failure = errors[0]
+    || (malformedOutcome ? 'fetchOutcome must be a string when present' : '')
     || (CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome) ? `fetchOutcome=${outcome}` : '')
     || (unknownOutcome ? `unrecognized fetchOutcome=${outcome}` : '')
     || (proofFailed ? 'authoritative snapshot proof incomplete or inconsistent' : '')
@@ -272,6 +294,10 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
     algorithmVersion: 'source-adapter-output-v2',
     sourceAdapterVersion: options.adapter?.version || null,
     fetchOutcome: outcome || null,
+    fetchOutcomePresent: hasFetchOutcome,
+    fetchOutcomeType: rawOutcomeType,
+    fetchOutcomeValue: outcomeEvidence,
+    malformedFetchOutcome: malformedOutcome,
     listingCount: discoveredCount,
     partialListingCount: exactListingCount ? null : discoveredCount,
     publishableCount: output.length,

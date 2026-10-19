@@ -152,6 +152,60 @@ describe('prospector source-crawler adapters', () => {
     });
   });
 
+  it.each([
+    ['number', 0, 'source_adapter_malformed_fetch_outcome'],
+    ['boolean', false, 'source_adapter_malformed_fetch_outcome'],
+    ['undefined', undefined, 'source_adapter_malformed_fetch_outcome'],
+    ['object', { status: 'ok' }, 'source_adapter_malformed_fetch_outcome'],
+    ['unknown string', 'not-a-real-outcome', 'source_adapter_unknown_fetch_outcome'],
+    ['empty string', '', 'source_adapter_unknown_fetch_outcome'],
+  ])('fails closed when an adapter declares a malformed or unknown %s outcome', (_label, rawOutcome, dropCode) => {
+    const rows: any[] = [{ url: 'https://example.test/job/1', title: 'Engineer' }];
+    Object.defineProperties(rows, {
+      fetchOutcome: { value: rawOutcome, enumerable: false },
+      discoveredCount: { value: 1, enumerable: false },
+      detailDrop: {
+        value: { candidates: 1, gone: 0, rejected: 0, dropped: 0 },
+        enumerable: false,
+      },
+    });
+
+    const observation = sourceAdapterRuntimeObservationFor(rows);
+    expect(observation).toMatchObject({
+      fetchOutcomePresent: true,
+      complete: false,
+      snapshotAccepted: false,
+      dropCounts: { [dropCode]: 1 },
+    });
+    if (typeof rawOutcome !== 'string' && rawOutcome !== null) {
+      expect(observation).toMatchObject({ malformedFetchOutcome: true });
+    }
+    if (typeof rawOutcome === 'number' || typeof rawOutcome === 'boolean') {
+      expect(observation.fetchOutcomeValue).toBe(rawOutcome);
+    }
+  });
+
+  it('preserves null as an absent fetch-outcome sentinel', () => {
+    const rows: any[] = [{ url: 'https://example.test/job/1', title: 'Engineer' }];
+    Object.defineProperties(rows, {
+      fetchOutcome: { value: null, enumerable: false },
+      discoveredCount: { value: 1, enumerable: false },
+      detailDrop: {
+        value: { candidates: 1, gone: 0, rejected: 0, dropped: 0 },
+        enumerable: false,
+      },
+    });
+
+    expect(sourceAdapterRuntimeObservationFor(rows)).toMatchObject({
+      fetchOutcomePresent: true,
+      fetchOutcomeType: 'null',
+      fetchOutcomeValue: null,
+      malformedFetchOutcome: false,
+      complete: true,
+      snapshotAccepted: true,
+    });
+  });
+
   it('grades adapter detail pages from the parser observation without a second fetch', async () => {
     const url = 'https://employer.example/jobs/1';
     const vacancy = {
