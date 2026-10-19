@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, normalizeSwissCantonCode } from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import {
@@ -70,6 +70,54 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
+/**
+ * Medimeo also advertises broad jobs in the Ostschweiz/Liechtenstein area.
+ * The shared Swiss geography gate intentionally rejects that mixed location
+ * because it cannot prove a Swiss canton for the vacancy. That is an expected
+ * source filter, not a failed detail extraction; exclude it from the detail
+ * completeness denominator while retaining the fail-closed behavior for
+ * missing or broken detail pages.
+ */
+export function isMedimeoChExpectedDetailFilter({ reason, decision } = {}) {
+  return reason === 'geography' && decision?.explicitlyForeign === true;
+}
+
+/**
+ * Resolve a Medimeo listing's source-backed geography. The detail extractor
+ * may expose a broad display region (for example `Region Basel`) in
+ * `addressLocality` while the location string itself is a valid canton signal.
+ * Try the complete evidence first, then retry without that broad structured
+ * locality/region pair so it cannot veto the already source-backed location.
+ */
+export function resolveMedimeoChGeography(listing = {}) {
+  const evidence = {
+    location: listing.location || listing.addressLocality,
+    addressLocality: listing.addressLocality,
+    addressRegion: listing.addressRegion,
+    addressCountry: listing.addressCountry,
+    country: listing.country,
+    postalCode: listing.postalCode,
+    streetAddress: listing.streetAddress,
+  };
+  const resolved = resolveSourceBackedSwissGeography(evidence);
+  if (resolved) return resolved;
+
+  // The fallback is only for a Swiss country plus a verified canton marker:
+  // never let it override a foreign country/region conflict by re-inferencing
+  // a canton from a broad display string.
+  const country = String(evidence.addressCountry || evidence.country || '').trim().toLowerCase();
+  const region = String(evidence.addressRegion || '').trim();
+  const swissCountry = new Set(['ch', 'switzerland', 'schweiz', 'suisse', 'svizzera', 'svizra']).has(country);
+  if (!swissCountry || (region && !normalizeSwissCantonCode(region))) return null;
+
+  return resolveSourceBackedSwissGeography({
+    location: evidence.location,
+    addressCountry: evidence.addressCountry || evidence.country,
+    postalCode: evidence.postalCode,
+    streetAddress: evidence.streetAddress,
+  });
+}
+
 /* ── Category Detection ────────────────────────────────────── */
 
 function detectCategory(title = '') {
@@ -110,7 +158,9 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(MEDIMEO_CH_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, {
+    isExpectedDetailFilter: isMedimeoChExpectedDetailFilter,
+  });
 }
 
 /**
@@ -148,7 +198,7 @@ export async function fetchAllMedimeoChJobs() {
       postalCode: listing.postalCode,
       streetAddress: listing.streetAddress,
     };
-    const resolvedGeography = resolveSourceBackedSwissGeography(listing);
+    const resolvedGeography = resolveMedimeoChGeography(listing);
     const geography = resolvedGeography
       && (typeof sourceBackedSwissGeographyFields === 'function'
         ? sourceBackedSwissGeographyFields(sourceGeographyEvidence, resolvedGeography)
