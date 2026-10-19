@@ -42,7 +42,35 @@ const {
 function makeDb(
   order: Record<string, unknown> | null,
   service: Record<string, unknown> | null = null,
+  candidateDocs: {
+    assisted?: Array<{ id: string; data: () => Record<string, unknown> }>;
+    concierge?: Array<{ id: string; data: () => Record<string, unknown> }>;
+  } = {},
 ) {
+  function paginatedQuery(docs: Array<{ id: string; data: () => Record<string, unknown> }>) {
+    let offset = 0;
+    let pageSize = docs.length || 100;
+    const query = {
+      orderBy: () => query,
+      limit: (value: number) => {
+        pageSize = value;
+        return query;
+      },
+      startAfter: (lastDoc: { id: string }) => {
+        offset = docs.findIndex((doc) => doc.id === lastDoc.id) + 1;
+        return query;
+      },
+      get: async () => ({ docs: docs.slice(offset, offset + pageSize) }),
+    };
+    return query;
+  }
+
+  const assistedCandidateDocs = candidateDocs.assisted || (
+    order ? [{ id: 'order-1', data: () => order }] : []
+  );
+  const conciergeCandidateDocs = candidateDocs.concierge || (
+    service ? [{ id: 'service-1', data: () => service }] : []
+  );
   return {
     collection: (name: string) => {
       if (name === 'application_concierge_services') {
@@ -53,6 +81,7 @@ function makeDb(
               data: () => service,
             }),
           }),
+          where: () => paginatedQuery(conciergeCandidateDocs),
         };
       }
       expect(name).toBe('assisted_applications');
@@ -64,11 +93,7 @@ function makeDb(
             data: () => order,
           }),
         }),
-        where: () => ({
-          get: async () => ({
-            docs: order ? [{ id: 'order-1', data: () => order }] : [],
-          }),
-        }),
+        where: () => paginatedQuery(assistedCandidateDocs),
       };
     },
   };
@@ -219,5 +244,92 @@ describe('SumUp assisted-application webhook', () => {
       errors: 0,
     });
     expect(mocks.handleAssistedApplicationWebhookEvent).toHaveBeenCalledTimes(1);
+  });
+
+  it('reconciles a missed concierge callback', async () => {
+    const service = {
+      paymentProvider: 'sumup',
+      sumupCheckoutId: 'sumup_concierge_1',
+      paymentStatus: 'pending',
+      serviceStatus: 'awaiting_payment',
+      createdAt: new Date('2026-10-12T12:21:15.119Z'),
+    };
+    const firestore = makeDb(null, service, {
+      concierge: [{ id: 'service-1', data: () => service }],
+    });
+    mocks.db.mockReturnValue(firestore);
+    mocks.retrieveSumUpCheckout.mockResolvedValue({
+      id: 'sumup_concierge_1',
+      checkout_reference: 'service-1',
+      amount: 39.99,
+      currency: 'EUR',
+      status: 'PAID',
+    });
+
+    await expect(runAssistedApplicationSumUpReconciliation({
+      db: () => firestore,
+      retrieve: mocks.retrieveSumUpCheckout,
+      nowMs: Date.parse('2026-10-19T12:00:00Z'),
+      ts: '__reconciliation_timestamp__',
+    })).resolves.toEqual({
+      candidates: 1,
+      inspected: 1,
+      promoted: 1,
+      skipped: 0,
+      errors: 0,
+    });
+    expect(mocks.handleApplicationConciergeWebhookEvent).toHaveBeenCalledTimes(1);
+  });
+
+  it('paginates beyond the first 100 candidates', async () => {
+    const targetOrder = {
+      paymentProvider: 'sumup',
+      sumupCheckoutId: 'sumup_checkout_101',
+      paymentStatus: 'pending',
+      createdAt: new Date('2026-10-12T12:21:15.119Z'),
+    };
+    const candidateDocs = Array.from({ length: 101 }, (_, index) => {
+      const id = `order-${index + 1}`;
+      const checkoutId = `sumup_checkout_${index + 1}`;
+      const data = index === 100 ? targetOrder : {
+        paymentProvider: 'sumup',
+        sumupCheckoutId: checkoutId,
+        paymentStatus: 'pending',
+        createdAt: new Date('2026-10-12T12:21:15.119Z'),
+      };
+      return { id, data: () => data };
+    });
+    const firestore = makeDb(targetOrder, null, { assisted: candidateDocs });
+    mocks.db.mockReturnValue(firestore);
+    mocks.retrieveSumUpCheckout.mockImplementation(async (checkoutId: string) => (
+      checkoutId === 'sumup_checkout_101'
+        ? {
+          id: checkoutId,
+          checkout_reference: 'order-101',
+          amount: 0.99,
+          currency: 'EUR',
+          status: 'PAID',
+        }
+        : {
+          id: checkoutId,
+          checkout_reference: 'unpaid-order',
+          amount: 0.99,
+          currency: 'EUR',
+          status: 'PENDING',
+        }
+    ));
+
+    await expect(runAssistedApplicationSumUpReconciliation({
+      db: () => firestore,
+      retrieve: mocks.retrieveSumUpCheckout,
+      nowMs: Date.parse('2026-10-19T12:00:00Z'),
+      ts: '__reconciliation_timestamp__',
+    })).resolves.toEqual({
+      candidates: 101,
+      inspected: 101,
+      promoted: 1,
+      skipped: 100,
+      errors: 0,
+    });
   });
 });

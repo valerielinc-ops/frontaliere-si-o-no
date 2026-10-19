@@ -194,7 +194,36 @@ export async function handleAssistedApplicationSumUpWebhook(
 }
 
 const SUMUP_RECONCILIATION_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
-const SUMUP_RECONCILIATION_MAX_ORDERS = 100;
+const SUMUP_RECONCILIATION_PAGE_SIZE = 100;
+
+function isRecentUnpaidSumUpDocument(doc, nowMs, maxAgeMs) {
+  const order = doc.data() || {};
+  if (['paid', 'refunded'].includes(order.paymentStatus)) return false;
+  const createdAt = recordTimestampMillis(order.createdAt);
+  return createdAt === null || nowMs - createdAt <= maxAgeMs;
+}
+
+async function readSumUpReconciliationCandidates(
+  firestore,
+  collectionName,
+  { nowMs, maxAgeMs, pageSize },
+) {
+  const candidates = [];
+  let lastDoc = null;
+  while (true) {
+    let query = firestore.collection(collectionName)
+      .where('paymentProvider', '==', SUMUP_PAYMENT_PROVIDER)
+      .orderBy('__name__')
+      .limit(pageSize);
+    if (lastDoc) query = query.startAfter(lastDoc);
+    const page = await query.get();
+    const docs = Array.isArray(page.docs) ? page.docs : [];
+    candidates.push(...docs.filter((doc) => isRecentUnpaidSumUpDocument(doc, nowMs, maxAgeMs)));
+    if (docs.length < pageSize) break;
+    lastDoc = docs[docs.length - 1];
+  }
+  return candidates;
+}
 
 /**
  * Backstop for a callback that was acknowledged while SumUp was still
@@ -206,21 +235,21 @@ export async function runAssistedApplicationSumUpReconciliation({
   retrieve = retrieveSumUpCheckout,
   nowMs = Date.now(),
   maxAgeMs = SUMUP_RECONCILIATION_MAX_AGE_MS,
-  maxOrders = SUMUP_RECONCILIATION_MAX_ORDERS,
+  pageSize = SUMUP_RECONCILIATION_PAGE_SIZE,
   ts = FieldValue.serverTimestamp(),
 } = {}) {
   const firestore = resolveFirestore(dbFn);
-  const snapshot = await firestore.collection(ASSISTED_APPLICATIONS_COLLECTION)
-    .where('paymentProvider', '==', SUMUP_PAYMENT_PROVIDER)
-    .get();
-  const candidates = (snapshot.docs || [])
-    .filter((doc) => {
-      const order = doc.data() || {};
-      if (['paid', 'refunded'].includes(order.paymentStatus)) return false;
-      const createdAt = recordTimestampMillis(order.createdAt);
-      return createdAt === null || nowMs - createdAt <= maxAgeMs;
-    })
-    .slice(0, maxOrders);
+  const candidates = [];
+  for (const collectionName of [
+    ASSISTED_APPLICATIONS_COLLECTION,
+    APPLICATION_CONCIERGE_SERVICES_COLLECTION,
+  ]) {
+    candidates.push(...await readSumUpReconciliationCandidates(
+      firestore,
+      collectionName,
+      { nowMs, maxAgeMs, pageSize },
+    ));
+  }
   const summary = {
     candidates: candidates.length,
     inspected: 0,
