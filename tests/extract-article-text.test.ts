@@ -170,6 +170,14 @@ describe('extractArticleText', () => {
     expect(result.text).not.toContain(rejected);
   });
 
+  it('does not expose code after a recovered paragraph tail close', () => {
+    const html = '<main><noscript><script><p>ok</p> const leaked = 1;</noscript></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain('leaked');
+    expect(result.text).toBe('');
+  });
+
   it.each([
     ['JavaScript string', payload => `const template = "<p>${payload}</p>";`],
     ['JSON string', payload => `{"html":"<p>${payload}</p>"}`],

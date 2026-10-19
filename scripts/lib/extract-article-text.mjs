@@ -298,9 +298,9 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
   return -1;
 }
 
-function hasReliableNoscriptTailBoundary(markup, tailStart) {
+function findReliableNoscriptTailBoundary(markup, tailStart) {
   const opening = NOSCRIPT_RECOVERABLE_TAIL_RE.exec(markup.slice(tailStart));
-  if (!opening) return false;
+  if (!opening) return null;
 
   const closing = new RegExp(`^</${opening[1]}\\s*>`, 'i');
   const content = markup.slice(tailStart + opening[0].length);
@@ -309,17 +309,30 @@ function hasReliableNoscriptTailBoundary(markup, tailStart) {
     if (char === '<') {
       // Only the close for the immediate opener is a source-level boundary.
       // Any other markup could be a comparison or a lexical payload.
-      return closing.test(content.slice(index));
+      const closingMatch = closing.exec(content.slice(index));
+      return closingMatch
+        ? {
+          start: tailStart,
+          end: tailStart + opening[0].length + index + closingMatch[0].length,
+        }
+        : null;
     }
 
     // Quotes, JSON delimiters, slashes/comments and code punctuation make a
     // closing tag ambiguous: it may belong to JavaScript rather than this
     // plain HTML tail.
     if ('"\'`{}[]();=\\/'.includes(char)) {
-      return false;
+      return null;
     }
   }
-  return false;
+  return null;
+}
+
+function hasSafeNoscriptTailSuffix(markup, tailEnd) {
+  // Document-level closing tags are inert context around a malformed block;
+  // no text, opening tag or code may follow the recovered paragraph.
+  return /^\s*(?:<\/noscript\s*>)?\s*(?:<\/(?:main|body|html)\s*>\s*)*$/i
+    .test(markup.slice(tailEnd));
 }
 
 function findRecoverableNoscriptTail(markup, contentStart, rawTextTag) {
@@ -329,7 +342,10 @@ function findRecoverableNoscriptTail(markup, contentStart, rawTextTag) {
 
   // A code prefix such as `a<p>b` is valid JavaScript comparison syntax. Do
   // not scan past it looking for a later paragraph-shaped token.
-  return hasReliableNoscriptTailBoundary(markup, tailStart) ? tailStart : -1;
+  const boundary = findReliableNoscriptTailBoundary(markup, tailStart);
+  return boundary && hasSafeNoscriptTailSuffix(markup, boundary.end)
+    ? boundary.start
+    : -1;
 }
 
 /**
@@ -534,14 +550,25 @@ function prepareNoscriptSource(html) {
                 rawText.contentStart,
               )
               : -1;
-            if (noscriptEnd >= 0) {
-              rejectedEnd = location.startTag.endOffset + noscriptEnd;
-            } else {
-              const tailOffset = findRecoverableNoscriptTail(
+            const tailBoundary = rawText.tag === 'script'
+              ? findReliableNoscriptTailBoundary(
                 unterminatedMarkup,
-                rawText.contentStart,
-                rawText.tag,
-              );
+                rawText.contentStart
+                  + (unterminatedMarkup.slice(rawText.contentStart).match(/^\s*/u)?.[0].length || 0),
+              )
+              : null;
+            const tailIsSafe = !tailBoundary
+              || hasSafeNoscriptTailSuffix(unterminatedMarkup, tailBoundary.end);
+            if (noscriptEnd >= 0) {
+              rejectedEnd = tailIsSafe ? location.startTag.endOffset + noscriptEnd : html.length;
+            } else {
+              const tailOffset = tailIsSafe
+                ? findRecoverableNoscriptTail(
+                  unterminatedMarkup,
+                  rawText.contentStart,
+                  rawText.tag,
+                )
+                : -1;
               rejectedEnd = tailOffset >= 0
                 ? location.startTag.endOffset + tailOffset
                 : html.length;
