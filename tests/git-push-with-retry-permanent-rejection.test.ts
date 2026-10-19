@@ -133,4 +133,33 @@ describe('git-push-with-retry.sh — a repository-rule decline is not a ref race
       rmSync(scenario.root, { recursive: true, force: true });
     }
   });
+
+  it('rebases when the refreshed local base makes the candidate look stale', () => {
+    const scenario = setupRejectingRemote('unused');
+    try {
+      rmSync(join(scenario.root, 'remote.git', 'hooks', 'pre-receive'));
+      const other = join(scenario.root, 'other');
+      git(scenario.root, ['clone', '-q', join(scenario.root, 'remote.git'), other]);
+      git(other, ['config', 'user.name', 'Other Writer']);
+      git(other, ['config', 'user.email', 'other@example.invalid']);
+      writeFileSync(join(other, 'other.json'), '{}\n');
+      git(other, ['add', 'other.json']);
+      git(other, ['commit', '-q', '-m', 'concurrent writer']);
+      git(other, ['push', '-q', 'origin', 'main']);
+
+      // This is the state observed in the failing workflow: the candidate was
+      // committed from the old tip, then the retry helper refreshed its local
+      // origin/main before invoking the guarded push.
+      git(scenario.local, ['fetch', '-q', 'origin', 'main']);
+
+      const { status, output } = scenario.run(['--max-attempts', '3']);
+      expect(status, output).toBe(0);
+      expect(output).toContain('candidate');
+      expect(output).toMatch(/Push rejected \(attempt 1\/3\)|Rebase/);
+      expect(git(scenario.local, ['ls-remote', 'origin', 'refs/heads/main']).split(/\s+/)[0])
+        .toBe(git(scenario.local, ['rev-parse', 'HEAD']));
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
 });
