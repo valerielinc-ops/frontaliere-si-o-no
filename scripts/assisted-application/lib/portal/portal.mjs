@@ -1076,8 +1076,8 @@ const documentContextRe = (terms) => new RegExp(
 );
 const CV_DOCUMENT_CONTEXT_RE = documentContextRe('cv|resume|résumé|lebenslauf|curriculum(?:\\s+vitae)?');
 const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe('cover\\s+letter|motivation(?:s|al)?\\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\\s+de\\s+motivation|lettera\\s+di\\s+(?:motivazione|presentazione)');
-const SUCCESS_FACTORS_HOST_RE = /(?:^|\\.)successfactors\\.|(?:^|\\.)sapsf\\./i;
 const SUCCESS_FACTORS_UPLOAD_MARKER_RE = /(?:cv|resume|lebenslauf|curriculum|upload)/i;
+const SUCCESS_FACTORS_COVER_MARKER_RE = /(?:cover|motivation|anschreiben|lettre|presentazione|upload)/i;
 
 /**
  * Find a document upload control without guessing from an unlabelled icon.
@@ -1100,16 +1100,29 @@ export function uploadButtonFor(snapshot, kind) {
   return candidates.length === 1 ? candidates[0] : null;
 }
 
-function iconUploadAllowedForPage(page, button) {
-  if (!button || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return true;
-  let hostname = '';
+function successFactorsIconButtonFor(snapshot, kind) {
+  const markerPattern = kind === 'cv' ? SUCCESS_FACTORS_UPLOAD_MARKER_RE : SUCCESS_FACTORS_COVER_MARKER_RE;
+  const candidates = (snapshot?.buttons || []).filter((button) => {
+    if (button.disabled || button.chrome || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return false;
+    const marker = `${button.id || ''} ${button.name || ''} ${button.label || ''} ${button.title || ''} ${button.ariaLabel || ''}`;
+    return markerPattern.test(marker);
+  });
+  return candidates.length === 1 ? candidates[0] : null;
+}
+
+function isSuccessFactorsPage(page) {
   try {
-    hostname = new URL(page.url()).hostname;
+    return usesOtpAccountCreation(new URL(page.url()).hostname);
   } catch {
     return false;
   }
+}
+
+function iconUploadAllowedForPage(page, button, kind = 'cv') {
+  if (!button || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return true;
   const marker = `${button.id || ''} ${button.name || ''} ${button.label || ''} ${button.title || ''} ${button.ariaLabel || ''}`;
-  return SUCCESS_FACTORS_HOST_RE.test(hostname) && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(marker);
+  const markerPattern = kind === 'cover_letter' ? SUCCESS_FACTORS_COVER_MARKER_RE : SUCCESS_FACTORS_UPLOAD_MARKER_RE;
+  return isSuccessFactorsPage(page) && markerPattern.test(marker);
 }
 
 // Tries per page and action in one run: a click a portal drops is tried again
@@ -1194,11 +1207,18 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const cvKey = `cv|${where}`;
   let cv;
   while (cvFile && !done.has(cvKey) && !current.fields.some((field) => field.kind === 'file')) {
-    const triggerButton = uploadButtonFor(current, 'cv');
-    const trigger = iconUploadAllowedForPage(page, triggerButton) && triggerButton
-      ? locatorFor(page, triggerButton)
+    const namedTriggerButton = uploadButtonFor(current, 'cv');
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page)
+      ? successFactorsIconButtonFor(current, 'cv')
       : null;
-    if (!trigger || !await trigger.isVisible().catch(() => false) || !attempt(cvKey)) break;
+    const triggerButton = namedTriggerButton || iconTriggerButton;
+    const trigger = iconTriggerButton && !namedTriggerButton
+      ? { snapshot: triggerButton }
+      : iconUploadAllowedForPage(page, triggerButton, 'cv') && triggerButton
+        ? locatorFor(page, triggerButton)
+        : null;
+    const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
+    if (!trigger || !visible || !attempt(cvKey)) break;
     cv = await uploadThroughDialog(page, trigger, cvFile);
     current = await extractFields(page);
     // A file that went in, confirmed or not, never goes in twice.
@@ -1208,11 +1228,18 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const coverLetterKey = `cover-letter|${where}`;
   let coverLetter;
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
-    const triggerButton = uploadButtonFor(current, 'cover_letter');
-    const trigger = iconUploadAllowedForPage(page, triggerButton) && triggerButton
-      ? locatorFor(page, triggerButton)
+    const namedTriggerButton = uploadButtonFor(current, 'cover_letter');
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page)
+      ? successFactorsIconButtonFor(current, 'cover_letter')
       : null;
-    if (!trigger || !await trigger.isVisible().catch(() => false)) break;
+    const triggerButton = namedTriggerButton || iconTriggerButton;
+    const trigger = iconTriggerButton && !namedTriggerButton
+      ? { snapshot: triggerButton }
+      : iconUploadAllowedForPage(page, triggerButton, 'cover_letter') && triggerButton
+        ? locatorFor(page, triggerButton)
+        : null;
+    const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
+    if (!trigger || !visible) break;
     coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile);
     current = await extractFields(page);
     if (coverLetter !== 'unavailable') done.add(coverLetterKey);
