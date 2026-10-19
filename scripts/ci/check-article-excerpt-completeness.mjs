@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import ts from 'typescript';
 
 export const ARTICLE_KEY = 'blog.article.svizzera-vietnam-relazioni-2026.excerpt';
 export const SEO_RECORD_KEY = 'blog-svizzera-vietnam-relazioni-2026';
@@ -13,30 +14,75 @@ const TRUNCATED_ENDINGS = [
   /(?:Statements|Déclarations|Dichiarazioni)$/u,
 ];
 
-function escapeRegExp(value) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+function propertyName(node) {
+  if (ts.isIdentifier(node) || ts.isStringLiteral(node) || ts.isNumericLiteral(node)) {
+    return node.text;
+  }
+  return null;
 }
 
-function valueFromLine(source, property) {
-  const propertyPattern = `(?:['"]${escapeRegExp(property)}['"]|${escapeRegExp(property)})`;
-  const match = source.match(new RegExp(
-    `^\\s*${propertyPattern}\\s*:\\s*(['"])(.*?)\\1\\s*,?\\s*$`,
-    'mu',
-  ));
-  return match?.[2] ?? null;
+function parseSource(source, fileName) {
+  return ts.createSourceFile(fileName, source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
 }
 
-function valueFromArticleMeta(source) {
-  return valueFromLine(source, ARTICLE_KEY);
+function directPropertyValue(objectLiteral, wantedName) {
+  if (!objectLiteral || !ts.isObjectLiteralExpression(objectLiteral)) return null;
+  for (const member of objectLiteral.properties) {
+    if (!ts.isPropertyAssignment(member) || propertyName(member.name) !== wantedName) continue;
+    const initializer = member.initializer;
+    if (ts.isStringLiteral(initializer) || ts.isNoSubstitutionTemplateLiteral(initializer)) {
+      return initializer.text;
+    }
+    return null;
+  }
+  return null;
 }
 
-function valueFromSeoRecord(source, property) {
-  const recordPattern = new RegExp(
-    `['"]${escapeRegExp(SEO_RECORD_KEY)}['"]\\s*:\\s*\\{([\\s\\S]*?)^  \\},?\\s*$`,
-    'mu',
-  );
-  const record = source.match(recordPattern)?.[1];
-  return record ? valueFromLine(record, property) : null;
+function findPropertyValue(sourceFile, wantedName) {
+  let value = null;
+  function visit(node) {
+    if (value !== null) return;
+    if (ts.isPropertyAssignment(node) && propertyName(node.name) === wantedName) {
+      const initializer = node.initializer;
+      if (ts.isStringLiteral(initializer) || ts.isNoSubstitutionTemplateLiteral(initializer)) {
+        value = initializer.text;
+        return;
+      }
+    }
+    ts.forEachChild(node, visit);
+  }
+  visit(sourceFile);
+  return value;
+}
+
+function valueFromArticleMeta(sourceFile) {
+  return findPropertyValue(sourceFile, ARTICLE_KEY);
+}
+
+function seoRecord(sourceFile) {
+  let record = null;
+  function visit(node) {
+    if (record !== null) return;
+    if (ts.isPropertyAssignment(node) && propertyName(node.name) === SEO_RECORD_KEY) {
+      if (ts.isObjectLiteralExpression(node.initializer)) record = node.initializer;
+      return;
+    }
+    ts.forEachChild(node, visit);
+  }
+  visit(sourceFile);
+  return record;
+}
+
+function valueFromSeoRecord(sourceFile, property) {
+  const record = seoRecord(sourceFile);
+  if (!record) return null;
+  if (property === 'structuredData.description') {
+    const structuredData = record.properties.find(
+      (member) => ts.isPropertyAssignment(member) && propertyName(member.name) === 'structuredData',
+    )?.initializer;
+    return directPropertyValue(structuredData, 'description');
+  }
+  return directPropertyValue(record, property);
 }
 
 function checkSummary(value, label) {
@@ -64,19 +110,20 @@ export function validateArticleExcerptFiles(files) {
 
   for (const file of files) {
     const source = fs.readFileSync(file, 'utf8');
+    const sourceFile = parseSource(source, file);
     if (file.endsWith('seo-blog-ch.ts')) {
       for (const property of ['description', 'ogDescription']) {
-        const value = valueFromSeoRecord(source, property);
+        const value = valueFromSeoRecord(sourceFile, property);
         checked += 1;
         failures.push(...checkSummary(value, `${file}:${property}`));
       }
-      const structuredValue = valueFromSeoRecord(source, '"description"');
+      const structuredValue = valueFromSeoRecord(sourceFile, 'structuredData.description');
       checked += 1;
       failures.push(...checkSummary(structuredValue, `${file}:structuredData.description`));
       continue;
     }
 
-    const value = valueFromArticleMeta(source);
+    const value = valueFromArticleMeta(sourceFile);
     checked += 1;
     failures.push(...checkSummary(value, `${file}:${ARTICLE_KEY}`));
   }

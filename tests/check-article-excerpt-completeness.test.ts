@@ -37,6 +37,19 @@ describe('article excerpt completeness gate', () => {
     }
   });
 
+  it('ignores matching text inside comments and multiline strings', () => {
+    const directory = mkdtempSync(join(tmpdir(), 'article-excerpt-context-'));
+    try {
+      const file = join(directory, 'meta.ts');
+      writeFileSync(file, `const fake = \`\n  '${ARTICLE_KEY}': '${complete}',\n\`;\nconst meta = {\n  // '${ARTICLE_KEY}': '${complete}',\n  '${ARTICLE_KEY}': 'Parmelin am 17.',\n};\n`, 'utf8');
+      const result = validateArticleExcerptFiles([file]);
+      expect(result.checked).toBe(1);
+      expect(result.failures.join('\\n')).toContain('known truncated fragment');
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
   it('keeps the minimum threshold explicit for future callers', () => {
     expect(complete.length).toBeGreaterThan(MIN_SUMMARY_LENGTH);
   });
