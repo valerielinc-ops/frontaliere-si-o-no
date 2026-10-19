@@ -1,7 +1,7 @@
 {
   "key": "holmes-place",
   "label": "Holmes Place",
-  "generatedAt": "2026-10-18T09:27:11.554Z",
+  "generatedAt": "2026-10-19T09:38:53.258Z",
   "total": 5,
   "discovered": 5,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 14278,
-  "avgDurationMs": 14278,
+  "durationMs": 14549,
+  "avgDurationMs": 14549,
   "durationHistory": [
-    14278
+    14549
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-gruppenfitness-instruktor-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:26:56.787Z",
+      "crawledAt": "2026-10-19T09:38:37.235Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -80,7 +80,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-personal-trainer-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:26:56.791Z",
+      "crawledAt": "2026-10-19T09:38:37.245Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -122,7 +122,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-rezeptionist-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:26:56.790Z",
+      "crawledAt": "2026-10-19T09:38:37.241Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -163,7 +163,7 @@
       "url": "https://www.holmesplace.ch/jobs/gen-fitness-manager-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:26:56.780Z",
+      "crawledAt": "2026-10-19T09:38:37.225Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -205,7 +205,7 @@
       "url": "https://www.holmesplace.ch/jobs/see-ernaehrungscoach-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:26:56.777Z",
+      "crawledAt": "2026-10-19T09:38:37.222Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -235,5 +235,5 @@
       }
     }
   ],
-  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
+  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
 }

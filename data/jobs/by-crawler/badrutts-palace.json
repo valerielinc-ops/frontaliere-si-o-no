@@ -1,6 +1,6 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-10-18T09:29:37.702Z",
+  "assembledAt": "2026-10-19T09:38:52.891Z",
   "jobs": [
     {
       "id": "badrutts-palace-7fc4aec52ba7",
@@ -33,7 +33,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/5478672-elektriker-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:29:32.205Z",
+      "crawledAt": "2026-10-19T09:38:45.224Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6185658-hairstylist-m-f-d-peak-season",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-18T09:29:32.203Z",
+      "crawledAt": "2026-10-19T09:38:45.213Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -157,7 +157,7 @@
       "slugByLocale": {
         "it": "capopartita-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "chef-de-partie-m-w-d-badrutts-palace-ch",
-        "de": "kuchenchef-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "de": "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "fr": "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
@@ -182,7 +182,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6412797-chef-de-partie-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-18T09:29:32.200Z",
+      "crawledAt": "2026-10-19T09:38:45.208Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -202,7 +202,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "chef-de-partie-m-f-d-badrutts-palace-ch"
+        "chef-de-partie-m-f-d-badrutts-palace-ch",
+        "kuchenchef-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -210,7 +211,7 @@
           "chef-de-partie-m-f-d-badrutts-palace-ch"
         ],
         "de": [
-          "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "kuchenchef-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-06-24T10:50:10.926Z",
@@ -260,7 +261,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8107575-director-of-brand-marketing-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-18T09:29:32.198Z",
+      "crawledAt": "2026-10-19T09:38:45.201Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -354,7 +355,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8158231-assistant-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-18T09:29:32.194Z",
+      "crawledAt": "2026-10-19T09:38:45.194Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -425,10 +426,10 @@
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
       "companyDomain": "badruttscareers.com",
-      "title": "Pizzaiolo",
+      "title": "Pizzaiolo (m/f/d)",
       "titleByLocale": {
         "it": "Del Pizzaiolo . . . . . . . . .",
-        "en": "Pizzaiolo",
+        "en": "Pizzaiolo (m/f/d)",
         "de": "Herstellen aus Vormaterialien jeder Position, ausgenommen aus Vormaterialien derselben Position wie die hergestellte Ware, ausgenommen aus Vormaterialien derselben Position wie die hergestellte Ware",
         "fr": "Pizzerialo"
       },
@@ -441,10 +442,10 @@
       },
       "location": "St. Moritz",
       "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8454502-pizzaiolo",
+      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8454502-pizzaiolo-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-18T09:29:32.190Z",
+      "crawledAt": "2026-10-19T09:38:45.183Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -459,16 +460,18 @@
       "datePosted": "2026-09-25T11:28:04+02:00",
       "postedDate": "2026-09-25T11:28:04+02:00",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8454502-pizzaiolo",
+      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8454502-pizzaiolo-m-f-d",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "pizzaiolo-badrutt-s-palace-hotel-st-moritz",
-        "pizzaiolo-badrutts-palace-ch"
+        "pizzaiolo-badrutts-palace-ch",
+        "pizzaiolo-m-f-d-badrutts-palace-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pizzaiolo-badrutts-palace-ch"
+          "pizzaiolo-badrutts-palace-ch",
+          "pizzaiolo-m-f-d-badrutts-palace-ch"
         ],
         "en": [
           "pizzaiolo-badrutt-s-palace-hotel-st-moritz"
@@ -522,7 +525,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-18T09:29:32.179Z",
+      "crawledAt": "2026-10-19T09:38:45.151Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",

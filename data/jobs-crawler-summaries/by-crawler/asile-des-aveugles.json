@@ -1,7 +1,7 @@
 {
   "key": "asile-des-aveugles",
   "label": "Fondation Asile des aveugles",
-  "generatedAt": "2026-10-18T09:27:50.369Z",
+  "generatedAt": "2026-10-19T09:39:12.305Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,15 +16,15 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7138,
-  "avgDurationMs": 7138,
+  "durationMs": 6216,
+  "avgDurationMs": 6216,
   "durationHistory": [
-    7138
+    6216
   ],
   "newJobs": [
     {
       "id": "asile-des-aveugles-1919",
-      "slug": "assistant-e-en-soins-et-sante-communautaire-fondation-asile-des-aveugles-lausanne",
+      "slug": "assistente-di-cura-e-salute-comunitaria-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
       "company": "Fondation Asile des aveugles",
       "companyKey": "asile-des-aveugles",
       "companyDomain": "asiledesaveugles.ch",
@@ -37,7 +37,7 @@
       "applyUrl": "https://emploi.ophtalmique.ch/?page=personal_information&rrid=1919",
       "source": "Fondation Asile des aveugles official careers platform (emploi.ophtalmique.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:27:31.591Z",
+      "crawledAt": "2026-10-19T09:38:59.305Z",
       "streetAddress": "Avenue de France 15",
       "postalCode": "1003",
       "addressLocality": "Lausanne",
@@ -58,7 +58,7 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-18T09:27:31.591Z",
+      "firstSeenAt": "2026-10-19T09:38:59.305Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -71,5 +71,5 @@
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
+  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
 }
