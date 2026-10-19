@@ -28,7 +28,7 @@ const DETAIL_HTML = `<html lang="de"><body><main><article class="single_job_list
 
 const REGION_DETAIL_HTML = DETAIL_HTML.replace(
   'Hauptstrasse 32, 4153 Reinach BL',
-  'Baselland',
+  'Baselland, CH',
 );
 const BASEL_DETAIL_HTML = DETAIL_HTML
   .replace('Reinigungsmitarbeiter/-in 20-100%', 'Dachdecker Basel')
@@ -89,7 +89,7 @@ describe('Sympajobs Reinach BL source-backed crawler', () => {
     const basel = extractSympajobsDetailFields(BASEL_DETAIL_HTML, BASEL_DETAIL_URL);
 
     expect(baselland).toMatchObject({
-      location: 'Baselland',
+      location: 'Baselland, CH',
       canton: 'BL',
       addressLocality: '',
       addressRegion: 'BL',
@@ -153,7 +153,7 @@ describe('Sympajobs Reinach BL source-backed crawler', () => {
     expect(rows).toHaveLength(2);
     expect(rows).toEqual(expect.arrayContaining([expect.objectContaining({
       url: DETAIL_URL,
-      location: 'Baselland',
+      location: 'Baselland, CH',
       canton: 'BL',
       postingDateSource: 'reported',
     }), expect.objectContaining({
@@ -167,7 +167,7 @@ describe('Sympajobs Reinach BL source-backed crawler', () => {
       companyKey: SYMPAJOBS_REINACH_BL_KEY,
       title: 'Reinigungsmitarbeiter/-in 20-100%',
       canton: 'BL',
-      location: 'Baselland',
+      location: 'Baselland, CH',
       addressLocality: '',
       description: DESCRIPTION,
       datePosted: '2026-08-11',

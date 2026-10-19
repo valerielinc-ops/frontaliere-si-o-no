@@ -19,11 +19,21 @@ export const SYMPAJOBS_REINACH_BL_CAREER_URL = 'https://sympajobs.ch/jobs/';
 
 const SYMPAJOBS_HOSTS = new Set(['sympajobs.ch', 'www.sympajobs.ch']);
 const BL_LOCATION_RE = /\b(?:BL|Basel[\s-]?Landschaft|Baselland)\b/i;
-const BL_REGION_ONLY_RE = /^(?:BL|Basel[\s-]?Landschaft|Baselland)$/i;
 const SWISS_COUNTRY_RE = /\b(?:CH|Schweiz|Suisse|Svizzera|Switzerland)\b/i;
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function isBlRegionOnlyLocation(value = '') {
+  const normalized = normalizeSpace(value);
+  if (!BL_LOCATION_RE.test(normalized)) return false;
+
+  const remainder = normalized
+    .replace(/\b(?:BL|Basel[\s-]?Landschaft|Baselland)\b/gi, '')
+    .replace(/\b(?:CH|Schweiz|Suisse|Svizzera|Switzerland)\b/gi, '')
+    .replace(/[\s,.;:/()\-–—]+/g, '');
+  return remainder.length === 0;
 }
 
 function documentOf(html = '') {
@@ -119,7 +129,7 @@ function locationFrom(root, base = {}) {
   const localitySource = postalMatch
     ? value.slice((postalMatch.index ?? 0) + postalMatch[0].length)
     : value;
-  const addressLocality = BL_REGION_ONLY_RE.test(value)
+  const addressLocality = isBlRegionOnlyLocation(value)
     ? ''
     : normalizeSpace(
       localitySource
@@ -140,7 +150,7 @@ function locationFrom(root, base = {}) {
   const geography = resolveSourceBackedSwissGeography(evidence);
   if (!geography) return null;
   const fields = sourceBackedSwissGeographyFields(evidence, geography);
-  return fields && BL_REGION_ONLY_RE.test(value)
+  return fields && isBlRegionOnlyLocation(value)
     ? { ...fields, addressLocality: '' }
     : fields;
 }
@@ -256,7 +266,7 @@ export async function fetchAllSympajobsReinachBlJobs(runtime = {}) {
     const title = normalizeSpace(listing.title || '');
     const description = stripHtml(listing.description || '');
     const url = canonicalUrl(listing.url || listing.sourceUrl || '');
-    const regionOnly = BL_REGION_ONLY_RE.test(normalizeSpace(listing.location || ''));
+    const regionOnly = isBlRegionOnlyLocation(listing.location || '');
     const listingEvidence = regionOnly
       ? { ...listing, addressLocality: '' }
       : listing.locationCandidates?.[0] || listing;
