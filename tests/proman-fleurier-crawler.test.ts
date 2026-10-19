@@ -101,7 +101,7 @@ describe('PROMAN Fleurier source-backed crawler', () => {
     expect(jobs).toEqual([expect.objectContaining({
       url: detailUrl.replace(/\/$/, ''),
       canton: 'NE',
-      description: expect.stringContaining('responsabilità e competenze'),
+      description: expect.stringContaining('responsabilités et compétences'),
     })]);
   });
 

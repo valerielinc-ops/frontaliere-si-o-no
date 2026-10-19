@@ -67,7 +67,6 @@ const PROMAN_SOURCE_LOCATION_CANTONS = new Map([
 ]);
 
 const PROMAN_SOURCE_LOCATION_LOCALITIES = new Map([
-  ['canton de neuchatel', 'Neuchâtel'],
   ['couvet', 'Val-de-Travers'],
   ['fleurier', 'Val-de-Travers'],
 ]);
@@ -145,10 +144,13 @@ export function extractPromanFleurierListingCandidates(html = '', pageUrl = CARE
     };
     const fields = geography ? sourceBackedSwissGeographyFields(evidenceCandidate, geography) : null;
     // A broad label such as "Canton de Neuchâtel" identifies the target
-    // region but is not a publishable addressLocality. Re-resolve the projected
-    // fields so only municipality-level evidence reaches the detail pool.
-    const projected = fields ? resolveSourceBackedSwissGeography(fields) : null;
-    if (!href || title.length < 3 || projected?.canton !== TARGET_CANTON) continue;
+    // region but is not a publishable addressLocality. Never reinterpret it
+    // as the city of Neuchâtel when projecting the fields for the detail pool.
+    const cantonWideLabel = locationKey(location) === 'canton de neuchatel';
+    const projected = fields && !cantonWideLabel
+      ? resolveSourceBackedSwissGeography(fields)
+      : null;
+    if (!href || title.length < 3 || cantonWideLabel || projected?.canton !== TARGET_CANTON) continue;
     let url;
     try { url = new URL(href, pageUrl).toString(); } catch { continue; }
     if (seen.has(url)) continue;
