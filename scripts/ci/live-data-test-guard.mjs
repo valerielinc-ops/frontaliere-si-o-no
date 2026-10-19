@@ -360,6 +360,9 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   // building the inventory, so this dependency stays explicit.
   { file: 'tests/evergreen-pool-consumption.test.ts', roots: ['packages/articles/content/'], transitive: true },
   { file: 'tests/corpus-wide-test-partition.test.ts', roots: ['data/jobs/', 'packages/articles/content/'] },
+  // This regression has live article metadata as its subject: a fixture would
+  // validate the parser but would not catch an incomplete published excerpt.
+  { file: 'tests/scripts/check-article-excerpt-completeness.test.ts', roots: ['packages/articles/content/'] },
   // Corpus genuinely the subject: this negative production invariant verifies
   // that the three poisoned learned specs retired by #7001 stay absent from
   // the live prospector registry. A fixture would not catch their resurrection.
