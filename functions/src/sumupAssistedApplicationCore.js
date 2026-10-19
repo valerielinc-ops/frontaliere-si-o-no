@@ -1,5 +1,5 @@
 /**
- * SumUp Checkout for the one-off assisted-application payment.
+ * SumUp Checkout for assisted applications and the application concierge.
  *
  * SumUp is deliberately isolated from the existing Stripe integrations. The
  * assisted-application endpoint selects it only when the owner explicitly
@@ -10,6 +10,7 @@
 
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { ASSISTED_APPLICATION_PRICE_EUR_CENTS } from './assistedApplicationConstants.js';
+import { APPLICATION_CONCIERGE_PRICE_EUR_CENTS } from './applicationConciergeConstants.js';
 
 export const ASSISTED_APPLICATION_PAYMENT_PROVIDER_RC_KEY = 'ASSISTED_APPLICATION_PAYMENT_PROVIDER';
 export const SUMUP_API_KEY_RC_KEY = 'SUMUP_API_KEY';
@@ -160,6 +161,19 @@ export async function createSumUpHostedCheckout(
   read = getRemoteConfigValue,
 ) {
   return createSumUpCheckout({ ...options, hostedCheckout: true }, read);
+}
+
+export async function createSumUpApplicationConciergeCheckout(
+  { serviceId, redirectUrl },
+  read = getRemoteConfigValue,
+) {
+  return createSumUpCheckout({
+    checkoutReference: serviceId,
+    redirectUrl,
+    amountCents: APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
+    description: 'Servizio candidature assistite',
+    hostedCheckout: false,
+  }, read);
 }
 
 export async function createSumUpAssistedApplicationCheckout(

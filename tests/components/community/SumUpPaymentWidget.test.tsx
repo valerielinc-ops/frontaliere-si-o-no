@@ -65,6 +65,21 @@ describe('SumUpPaymentWidget', () => {
     }));
   });
 
+  it('supports a different checkout amount and title for the concierge service', async () => {
+    renderWidget({
+      amountCents: 3999,
+      title: 'Completa il pagamento',
+      priceNote: 'Pagamento unico · nessun rinnovo',
+    });
+
+    expect(screen.getByRole('heading', { name: 'Completa il pagamento' })).toBeInTheDocument();
+    expect(screen.getByText(/39,99/)).toBeInTheDocument();
+
+    await act(async () => {});
+
+    expect(mount).toHaveBeenCalledWith(expect.objectContaining({ amount: '39.99' }));
+  });
+
   it('closes from the backdrop but keeps the checkout locked while busy', () => {
     const onClose = vi.fn();
     renderWidget({ onClose });

@@ -6,6 +6,7 @@ import { Analytics } from '@/services/analyticsProxy';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { ensureAssistedApplicationAuth } from '@/services/assistedApplicationCheckout';
 import { createApplicationConciergeCheckout } from '@/services/applicationConciergeCheckout';
+import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import {
   acceptApplicationConciergeProposal,
@@ -18,6 +19,7 @@ import {
 } from '@/services/applicationConciergeService';
 
 const MAX_CV_BYTES = 5 * 1024 * 1024;
+const APPLICATION_CONCIERGE_PRICE_EUR_CENTS = 3999;
 const POLL_MS = 3500;
 const MATCHING_STATES = new Set(['queued', 'processing', 'running']);
 
@@ -51,6 +53,27 @@ function randomToken(): string {
   return Math.random().toString(36).slice(2, 14);
 }
 
+function requestKeyForUser(userId: string): string {
+  const storageKey = `application-concierge-checkout:${userId}`;
+  try {
+    const stored = window.sessionStorage.getItem(storageKey);
+    if (stored && /^concierge-[A-Za-z0-9_-]{16,128}$/.test(stored)) return stored;
+    const created = `concierge-${randomToken()}`;
+    window.sessionStorage.setItem(storageKey, created);
+    return created;
+  } catch {
+    return `concierge-${randomToken()}`;
+  }
+}
+
+function clearRequestKeyForUser(userId: string): void {
+  try {
+    window.sessionStorage.removeItem(`application-concierge-checkout:${userId}`);
+  } catch {
+    // The request key is only a resume convenience; payment handling is server-side.
+  }
+}
+
 function errorKey(error: unknown): string {
   const value = error instanceof Error ? error.message : '';
   return /^[a-z][a-z0-9_.:/-]{0,63}$/.test(value) ? value : 'generic';
@@ -70,13 +93,22 @@ export default function ApplicationConciergePortal({
   const { t } = useTranslation();
   const [locale] = useLocale();
   const formattedPrice = useMemo(
-    () => new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(39.99),
+    () => new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(APPLICATION_CONCIERGE_PRICE_EUR_CENTS / 100),
     [locale],
   );
   const [service, setService] = useState<ApplicationConciergeService | null>(null);
   const [currentUser, setCurrentUser] = useState<any | null>(authUser);
   const [loading, setLoading] = useState(Boolean(serviceId));
   const [busy, setBusy] = useState<string | null>(null);
+  const [sumUpPayment, setSumUpPayment] = useState<{
+    checkoutId: string;
+    serviceId: string;
+    userId: string;
+    successUrl: string;
+  } | null>(null);
+  const [sumUpPaymentOpen, setSumUpPaymentOpen] = useState(false);
+  const [sumUpPaymentBusy, setSumUpPaymentBusy] = useState(false);
+  const [sumUpPaymentError, setSumUpPaymentError] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [name, setName] = useState('');
@@ -97,6 +129,12 @@ export default function ApplicationConciergePortal({
     setName((value) => value || String(authUser.displayName || ''));
     setEmail((value) => value || String(authUser.email || ''));
   }, [authUser]);
+
+  useEffect(() => {
+    if (service?.paymentStatus === 'paid' && currentUser?.uid) {
+      clearRequestKeyForUser(String(currentUser.uid));
+    }
+  }, [currentUser?.uid, service?.paymentStatus]);
 
   const ensureUser = useCallback(async () => {
     if (currentUser?.getIdToken) return currentUser;
@@ -163,16 +201,64 @@ export default function ApplicationConciergePortal({
     setBusy('checkout');
     setError(null);
     try {
+      const user = await ensureUser();
+      if (!user?.getIdToken) {
+        onRequireAuth?.();
+        throw new Error('auth_required');
+      }
+      if (sumUpPayment?.userId === user.uid) {
+        setSumUpPaymentError(null);
+        setSumUpPaymentOpen(true);
+        return;
+      }
+
       const base = new URL(window.location.href);
       base.searchParams.delete('application_concierge');
       base.searchParams.delete('application_concierge_service_id');
-      const result = await createApplicationConciergeCheckout({ successUrl: base.toString(), cancelUrl: base.toString(), locale }, currentUser);
+      const result = await createApplicationConciergeCheckout({
+        successUrl: base.toString(),
+        cancelUrl: base.toString(),
+        locale,
+        requestKey: requestKeyForUser(String(user.uid)),
+      }, user);
+      if (result.paymentProvider === 'sumup') {
+        const returnUrl = new URL(base.toString());
+        returnUrl.searchParams.set('application_concierge_service_id', result.serviceId);
+        setSumUpPayment({
+          checkoutId: result.checkoutId,
+          serviceId: result.serviceId,
+          userId: String(user.uid),
+          successUrl: returnUrl.toString(),
+        });
+        setSumUpPaymentError(null);
+        setSumUpPaymentOpen(true);
+        return;
+      }
       window.location.assign(result.url);
     } catch (checkoutError) {
       setError(errorKey(checkoutError));
     } finally {
       setBusy(null);
     }
+  };
+
+  const handleSumUpResponse = (type: string) => {
+    if (!sumUpPayment) return;
+    if (type === 'success') {
+      setSumUpPaymentBusy(true);
+      // This callback only signals navigation; the verified webhook activates the service.
+      window.location.assign(sumUpPayment.successUrl);
+      return;
+    }
+    if (type === 'fail' || type === 'error') {
+      setSumUpPaymentBusy(false);
+      setSumUpPaymentError(t('jobBoard.concierge.paymentError'));
+    }
+  };
+
+  const closeSumUpPayment = () => {
+    if (sumUpPaymentBusy) return;
+    setSumUpPaymentOpen(false);
   };
 
   const saveProfile = async (options: { cvStorageKey?: string; cvFileName?: string } = {}) => {
@@ -317,7 +403,7 @@ export default function ApplicationConciergePortal({
                     data-testid="application-concierge-start"
                   >
                     {busy === 'checkout' && <Loader2 size={17} className="animate-spin" aria-hidden="true" />}
-                    {t('jobBoard.concierge.start')}
+                    {t(sumUpPayment ? 'jobBoard.concierge.resumePayment' : 'jobBoard.concierge.start')}
                     <ArrowRight size={17} aria-hidden="true" />
                   </button>
                   <span className="text-sm font-semibold text-body">{formattedPrice} · {t('jobBoard.concierge.priceNote')}</span>
@@ -405,12 +491,26 @@ export default function ApplicationConciergePortal({
                 className="inline-flex min-h-[52px] shrink-0 items-center justify-center gap-2 rounded-xl bg-surface px-5 py-3 text-sm font-bold text-accent transition-colors hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-surface focus-visible:ring-offset-2 focus-visible:ring-offset-accent disabled:cursor-wait disabled:opacity-60"
               >
                 {busy === 'checkout' && <Loader2 size={17} className="animate-spin" aria-hidden="true" />}
-                {t('jobBoard.concierge.start')} · {formattedPrice}
+                {t(sumUpPayment ? 'jobBoard.concierge.resumePayment' : 'jobBoard.concierge.start')} · {formattedPrice}
                 <ArrowRight size={17} aria-hidden="true" />
               </button>
             </div>
           </section>
         </div>
+      {sumUpPayment && sumUpPaymentOpen && (
+        <SumUpPaymentWidget
+          checkoutId={sumUpPayment.checkoutId}
+          locale={locale}
+          amountCents={APPLICATION_CONCIERGE_PRICE_EUR_CENTS}
+          title={t('jobBoard.concierge.paymentTitle')}
+          priceNote={t('jobBoard.concierge.priceNote')}
+          onResponse={handleSumUpResponse}
+          onError={() => setSumUpPaymentError(t('jobBoard.concierge.paymentError'))}
+          onClose={closeSumUpPayment}
+          error={sumUpPaymentError}
+          busy={sumUpPaymentBusy}
+        />
+      )}
       </main>
     );
   }
