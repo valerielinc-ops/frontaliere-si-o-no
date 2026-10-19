@@ -155,5 +155,6 @@ _r2_image_lease_wait_timeout() {
   fi
 
   wait "$timeout_pid" || timeout_status=$?
+  _R2_IMAGE_LEASE_TIMEOUT_PID= _R2_IMAGE_LEASE_TIMEOUT_PGID=
   return "$timeout_status"
 }
