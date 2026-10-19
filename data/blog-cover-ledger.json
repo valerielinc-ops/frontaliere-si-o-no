@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 656,
+      "5": 657,
       "6": 5054
     },
-    "publishedCovers": 7393,
+    "publishedCovers": 7394,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -200524,6 +200524,39 @@
         "provider": "openai-codex",
         "assetId": "article-neuchatel-disoccupazione-maggio-2026",
         "imageUrl": "/images/blog/article-neuchatel-disoccupazione-maggio-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-oss-ticino-stipendio": {
+      "cover": "/images/blog/article-oss-ticino-stipendio.webp",
+      "hash": "6cf1336820f49f0db8ab5c4774cf96c0ca8addc78300c35b7586bbe28bb5d9f5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "oss-ticino-stipendio",
+          "category": "pratico",
+          "date": "2026-10-19T08:49:06.890Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-oss-ticino-stipendio.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-oss-ticino-stipendio",
+        "imageUrl": "/images/blog/article-oss-ticino-stipendio.webp",
         "evidence": "generated-engine-record"
       }
     },

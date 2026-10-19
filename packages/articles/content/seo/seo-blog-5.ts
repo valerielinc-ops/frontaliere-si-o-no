@@ -112099,6 +112099,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-oss-ticino-stipendio': {
+    title: 'OSS frontaliere in Ticino: stipendio e requisiti',
+    description: 'Stipendio, requisiti, permesso G e fiscalità: il quadro per l\'operatore socio sanitario frontaliere in Ticino, con accordo 2024 e contributi svizzeri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendio, requisiti, permesso, accordo',
+    ogTitle: 'OSS frontaliere in Ticino: requisiti e fiscalità',
+    ogDescription: 'Dal 1° gennaio 2024 il Nuovo Accordo Frontalieri distingue vecchi e nuovi lavoratori: esenzione di €7\'500 nel regime transitorio, franchigia di €10\'000, più AVS, LPP, LAMal e imposta alla fonte per i lavoratori del Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/oss-ticino-stipendio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "OSS frontaliere in Ticino: stipendio e requisiti",
+      "description": "Stipendio, requisiti, permesso G e fiscalità: il quadro per l'operatore socio sanitario frontaliere in Ticino, con accordo 2024 e contributi svizzeri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-oss-ticino-stipendio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Operatore socio sanitario in un ambiente di cura del Ticino"
+      },
+      "datePublished": "2026-10-19T08:49:07+00:00",
+      "dateModified": "2026-10-19T08:49:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/oss-ticino-stipendio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

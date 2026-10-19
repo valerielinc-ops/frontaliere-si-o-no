@@ -13505,6 +13505,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.corsi-ticino-famiglia-rendimento.title': 'Formazione frontalieri 2026: corsi, riqualifica e famiglia',
     'blog.article.corsi-ticino-famiglia-rendimento.excerpt': 'Il Nuovo Accordo Frontalieri è in vigore dal 1° gennaio 2024: confronto tra vecchi e nuovi frontalieri, imposta alla fonte e riqualifica per famiglie con figli.',
     'blog.article.corsi-ticino-famiglia-rendimento.imageAlt': 'Aula di formazione professionale con vista sul paesaggio del Mendrisiotto',
+    'blog.article.oss-ticino-stipendio.title': 'OSS frontaliere in Ticino: stipendio e requisiti',
+    'blog.article.oss-ticino-stipendio.excerpt': 'Permesso G, accordo in vigore dal 1° gennaio 2024, franchigie e contributi: il quadro per l\'OSS frontaliere in Ticino.',
+    'blog.article.oss-ticino-stipendio.imageAlt': 'Operatore socio sanitario in un ambiente di cura del Ticino',
 };
 
 export default blogMetaIt;

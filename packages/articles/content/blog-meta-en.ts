@@ -13504,6 +13504,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.corsi-ticino-famiglia-rendimento.title': 'Cross-Border Worker Training 2026: Courses, Reskilling and Family',
     'blog.article.corsi-ticino-famiglia-rendimento.excerpt': 'The New Cross-Border Commuters Agreement has been in force since January 1, 2024: comparison between old and new cross-border commuters, withholding tax, and reclassification for families with children.',
     'blog.article.corsi-ticino-famiglia-rendimento.imageAlt': 'Vocational training classroom overlooking the Mendrisiotto landscape',
+    'blog.article.oss-ticino-stipendio.title': 'Border OSS in Ticino: salary and requirements',
+    'blog.article.oss-ticino-stipendio.excerpt': 'Permit G, agreement in force from 1 January 2024, deductibles and contributions: the framework for the border OSS in Ticino.',
+    'blog.article.oss-ticino-stipendio.imageAlt': 'Healthcare assistant in a care setting in Ticino',
 };
 
 export default blogMetaEn;

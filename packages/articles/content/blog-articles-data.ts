@@ -45562,6 +45562,17 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'oss-ticino-stipendio',
+ category: 'pratico',
+ date: '2026-10-19T08:49:06.890Z',
+ image: '/images/blog/article-oss-ticino-stipendio.webp',
+ hasCalculator: true,
+ articleType: 'evergreen',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

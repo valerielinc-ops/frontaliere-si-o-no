@@ -13503,6 +13503,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.corsi-ticino-famiglia-rendimento.title': 'Weiterbildung für Grenzgänger 2026: Kurse & Familie',
     'blog.article.corsi-ticino-famiglia-rendimento.excerpt': 'Das Neue Grenzgängerabkommen ist seit dem 1.',
     'blog.article.corsi-ticino-famiglia-rendimento.imageAlt': 'Klassenzimmer für Berufsausbildung mit Blick auf die Landschaft des Mendrisiotto',
+    'blog.article.oss-ticino-stipendio.title': 'Grenzüberschreitendes OSS im Tessin: Gehalt und Anforderungen',
+    'blog.article.oss-ticino-stipendio.excerpt': 'Bewilligung G, Vereinbarung in Kraft seit 1.',
+    'blog.article.oss-ticino-stipendio.imageAlt': 'Gesundheitsassistent in einer Pflegeeinrichtung im Tessin',
 };
 
 export default blogMetaDe;
