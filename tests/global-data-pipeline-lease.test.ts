@@ -574,5 +574,26 @@ describe('global data pipeline lease', () => {
       expect(result.transientErrorCount).toBeUndefined();
       expect(server.beginCount).toBe(0);
     });
+
+    it('conserva l errore di commit se anche il rollback fallisce', async () => {
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const calls: string[] = [];
+      const expiredAt = new Date(Date.now() - 60_000).toISOString();
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        calls.push(url);
+        if (url.startsWith('https://oauth2.googleapis.com/')) return firestoreResponse(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) return firestoreResponse(200, { transaction: 'tx-commit-error' });
+        if (url.endsWith(':rollback')) return firestoreResponse(503, { error: { status: 'UNAVAILABLE' } });
+        if (url.endsWith(':commit')) return firestoreResponse(400, { error: { status: 'INVALID_ARGUMENT' } });
+        return firestoreResponse(200, leaseDocument({
+          owner: 'expired-owner',
+          expiresAt: expiredAt,
+        }, '2026-09-14T12:00:00.000Z'));
+      }));
+
+      await expect(acquireLease({ credentials: CREDENTIALS, owner: 'this-run', leaseDoc: 'ci_leases/test', waitMs: 0, ttlMs: 60_000 }))
+        .rejects.toThrow('Firestore REST request failed: 400');
+      expect(calls.filter((url) => url.endsWith(':rollback'))).toHaveLength(1);
+    });
   });
 });
