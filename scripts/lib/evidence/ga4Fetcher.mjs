@@ -1,6 +1,6 @@
 // GA4 fetcher for the evidence layer — runReport on `pagePath`, returns
-// per-page sessions and engagement time. Resilient: never throws, returns
-// `{ pages, error? }`.
+// per-page sessions, views and engagement time. Resilient: never throws,
+// returns `{ pages, coverage?, error? }`.
 //
 // Auth: same Firebase SA as GSC; verifies the SA has GA4 viewer access.
 // On 403 we return a clear actionable error string.
@@ -98,7 +98,11 @@ async function loadPublishedDates() {
  * @param {number} [options.minSessions=GA4_MIN_SESSIONS] - Minimum sessions retained per page.
  * @param {Function} [options.fetchImpl=fetch]
  * @param {Function} [options.getTokenImpl=getServiceAccountToken]
- * @returns {Promise<{pages: object, error?: string}>}
+ * @returns {Promise<{
+ *   pages: Record<string, {sessions: number, pageviews: number, engageTime: number, publishedAt: string|null, cluster: string}>,
+ *   coverage?: {complete: boolean, returnedRows: number, reportedRows: number|null},
+ *   error?: string
+ * }>}
  */
 export async function fetchGa4Pages({
   propertyId,

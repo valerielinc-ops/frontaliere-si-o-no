@@ -82,7 +82,7 @@ export interface TrafficSnapshot {
   };
   ga4: {
     pages: Record<string, { sessions?: number; pageviews?: number }>;
-    coverage?: { complete?: boolean; returnedRows?: number; reportedRows?: number };
+    coverage?: { complete?: boolean; returnedRows?: number; reportedRows?: number | null };
     error?: string;
   };
 }
@@ -92,6 +92,7 @@ export type PreviousSectorHubCandidate = {
   observedWeeks?: string[];
   firstSeenAt?: string;
   lastSeenAt?: string;
+  slugConflict?: boolean;
 };
 
 function text(value: unknown): string {
