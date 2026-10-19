@@ -17,6 +17,23 @@ const detailFixture = readFileSync(
   'utf8',
 );
 const canonicalSeed = 'https://www.proman-group.ch/Job/SearchJobs?brancheId=0&regionId=0&typeId=0';
+const currentRenderedFixture = `
+  <section class="u-section-job-details-header"><div><h1>Automaticien de production</h1></div></section>
+  <section class="u-section-job-details-content"><div class="u-job-details">
+    <article class="u-job-item">
+      <h2>Automaticien de production</h2>
+      <ul class="u-job-infos">
+        <li><u-svg source="24/job/location"></u-svg><span class="sr-only">lieu</span> Canton de Neuchâtel </li>
+        <li><u-svg source="24/job/type"></u-svg><span class="sr-only">Type de poste</span> Poste fixe </li>
+      </ul>
+      <p class="u-intro"></p>
+      <ul class="u-specs">
+        <p>Votre profil</p><div>Formation technique achevée et expérience confirmée dans l'automation industrielle.</div>
+        <p>Vos tâches</p><div>Réaliser le montage, le câblage et la mise en service des équipements.</div>
+      </ul>
+    </article>
+  </div></section>
+`;
 
 function response(url: string, body: string) {
   return {
@@ -37,6 +54,34 @@ describe('PROMAN Fleurier source-backed crawler', () => {
     expect(detail.canton).toBe('NE');
     expect(detail.addressLocality).toBe('Fleurier');
     expect(detail.description.split(/\s+/u).length).toBeGreaterThan(50);
+  });
+
+  it('extracts the current rendered detail fields when structured vacancy data is absent', () => {
+    const detail = extractPromanFleurierDetailFields(currentRenderedFixture, detailUrl);
+    expect(detail.title).toBe('Automaticien de production');
+    expect(detail.location).toBe('Canton de Neuchâtel');
+    expect(detail.canton).toBe('NE');
+    expect(detail.addressLocality).toBe('Neuchâtel');
+    expect(detail.description).toContain('montage');
+    expect(detail.description).not.toContain('Personne de contact');
+  });
+
+  it('uses only reviewed Proman aliases when the card omits the canton', () => {
+    const neuchatelAlias = extractPromanFleurierDetailFields(
+      currentRenderedFixture.replace('Canton de Neuchâtel', 'Couvet'),
+      detailUrl,
+    );
+    expect(neuchatelAlias.location).toBe('Couvet');
+    expect(neuchatelAlias.canton).toBe('NE');
+    expect(neuchatelAlias.addressLocality).toBe('Val-de-Travers');
+
+    const foreignAlias = extractPromanFleurierDetailFields(
+      currentRenderedFixture.replace('Canton de Neuchâtel', 'St-Léonard'),
+      detailUrl,
+    );
+    expect(foreignAlias.location).toBe('');
+    expect(foreignAlias.sourceBackedCanton).toBe('VS');
+    expect(isPromanFleurierExpectedDetailFilter({ reason: 'geography', detail: foreignAlias })).toBe(true);
   });
 
   it('classifies a source-backed non-NE detail as an expected canton filter', () => {
@@ -67,7 +112,7 @@ describe('PROMAN Fleurier source-backed crawler', () => {
       requestedUrls.push(url);
       if (url.endsWith('/robots.txt')) return response(url, 'User-agent: *\nAllow: /');
       if (url === canonicalSeed) {
-        return response(url, `<a href="${new URL(detailUrl).pathname}">Automaticien de production</a>`);
+        return response(url, `<li class="u-job-item"><a class="u-link-fit" href="${new URL(detailUrl).pathname}" aria-hidden="true"></a><div><h3>Automaticien de production</h3></div></li>`);
       }
       if (url === detailUrl) return response(url, detailFixture);
       throw new Error(`unexpected URL ${url}`);

@@ -1242,6 +1242,15 @@ describe('careers trail', () => {
     expect(isCareerLink(link)).toBe(true);
   });
 
+  it('reads a card heading for an aria-hidden overlay link', () => {
+    const html = '<li class="u-job-item"><a class="u-link-fit" href="/job/42/automaticien" aria-hidden="true"></a><div><h3>Automaticien de production</h3></div></li>';
+    const [link] = extractLinks(html, 'https://acme.ch/');
+    expect(link).toMatchObject({
+      url: 'https://acme.ch/job/42/automaticien',
+      text: 'Automaticien de production',
+    });
+  });
+
   it('only accepts unlabelled third-party links in relaxed mode', () => {
     const links = [{ url: 'https://acme.ats.example/', text: '', host: 'acme.ats.example' }];
     expect(externalAtsLinks(links, 'acme.ch')).toEqual([]);

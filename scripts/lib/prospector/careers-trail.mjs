@@ -155,9 +155,30 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
     if (!href) continue;
     if (/^(#|mailto:|tel:|javascript:|data:)/i.test(href.trim())) continue;
     // Anchor text = the markup up to the next </a>, tags stripped.
-    const rest = html.slice(rx.lastIndex, rx.lastIndex + 400);
-    const text = rest.split(/<\/a>/i)[0].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    const anchorClose = html.indexOf('</a>', rx.lastIndex);
+    const rest = html.slice(rx.lastIndex, anchorClose >= 0 ? anchorClose : rx.lastIndex + 400);
+    const text = rest.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
     const aria = readAttr(attrs, ['aria-label', 'title']);
+    // Some card templates use an empty, aria-hidden overlay anchor as the
+    // click target and render the authored title in a sibling heading. Keep
+    // that heading as link evidence when the source explicitly marks the
+    // anchor as hidden; this avoids guessing from arbitrary nearby prose.
+    let overlayHeading = '';
+    if (!text && /^true$/i.test(String(readAttr(attrs, 'aria-hidden') || '').trim())) {
+      const anchorEnd = anchorClose >= 0 ? anchorClose + 4 : rx.lastIndex;
+      const itemStart = html.lastIndexOf('<li', m.index);
+      const itemEnd = html.indexOf('</li>', anchorEnd);
+      const scopeEnd = itemEnd > anchorEnd
+        ? itemEnd
+        : Math.min(html.length, anchorEnd + 2000);
+      if (itemStart >= 0 && scopeEnd > anchorEnd) {
+        const scope = html.slice(anchorEnd, scopeEnd);
+        overlayHeading = scope.match(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/i)?.[1]
+          ?.replace(/<[^>]*>/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim() || '';
+      }
+    }
     let parsed;
     try { parsed = new URL(href, baseUrl); } catch { continue; }
     if (!/^https?:$/i.test(parsed.protocol)) continue;
@@ -166,7 +187,11 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
     const key = abs.split('#')[0];
     if (seen.has(key)) continue;
     seen.add(key);
-    out.push({ url: abs, text: cleanAnchorText(joinAnchorParts(text, aria)), host: normalizeHost(parsed.hostname) });
+    out.push({
+      url: abs,
+      text: cleanAnchorText(joinAnchorParts(text || overlayHeading, aria)),
+      host: normalizeHost(parsed.hostname),
+    });
   }
   return out;
 }

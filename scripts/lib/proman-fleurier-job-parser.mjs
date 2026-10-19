@@ -5,6 +5,7 @@ import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
 import {
+  resolveSourceBackedSwissGeography,
   resolveDetailOrListingSwissGeography,
   sourceBackedSwissGeographyFields,
 } from './prospector/location-evidence.mjs';
@@ -24,6 +25,92 @@ const TARGET_CANTON = 'NE';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function locationKey(value = '') {
+  return normalizeSpace(value)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+// Proman's detail card sometimes uses a source-local label rather than a
+// canton or a current BFS municipality (for example `Couvet`, `St-Imier`, or
+// `Franches Montagnes`). These are exact labels reviewed on the official
+// board, not a free-text geocoder: every fallback candidate still goes through
+// the shared source-backed resolver with the reviewed canton.
+const PROMAN_SOURCE_LOCATION_CANTONS = new Map([
+  ['ayer', 'VS'],
+  ['bramois', 'VS'],
+  ['chermignon d en bas', 'VS'],
+  ['court', 'BE'],
+  ['couvet', 'NE'],
+  ['crans montana', 'VS'],
+  ['fleurier', 'NE'],
+  ['franches montagnes', 'JU'],
+  ['glovelier', 'JU'],
+  ['granges vs', 'VS'],
+  ['st imier', 'BE'],
+  ['st leonard', 'VS'],
+]);
+
+// The runtime re-checks the returned evidence. These reviewed parent/current
+// municipality names corroborate the otherwise ambiguous two-letter region
+// code (`NE`) without changing the source display location.
+const PROMAN_SOURCE_LOCATION_LOCALITIES = new Map([
+  ['canton de neuchatel', 'Neuchâtel'],
+  ['couvet', 'Val-de-Travers'],
+  ['fleurier', 'Val-de-Travers'],
+]);
+
+function classContainer(html = '', className = '') {
+  const escaped = String(className || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = new RegExp(
+    `<([a-z][\\w:-]*)\\b[^>]*\\bclass\\s*=\\s*["'][^"']*\\b${escaped}\\b[^"']*["'][^>]*>([\\s\\S]*?)<\\/\\1>`,
+    'i',
+  ).exec(String(html || ''));
+  return match?.[2] || '';
+}
+
+/**
+ * Proman's current detail template has no JobPosting JSON-LD or microdata.
+ * These are still authored vacancy fields: the location is the item marked by
+ * the official location icon and the body is the rendered `u-specs` block.
+ */
+function extractPromanRenderedDetail(html = '') {
+  const infoBlock = classContainer(html, 'u-job-infos');
+  const locationItem = [...infoBlock.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)]
+    .find((match) => /<u-svg\b[^>]*\bsource\s*=\s*["']24\/job\/location["']/i.test(match[1]));
+  const location = normalizeSpace(
+    stripHtml(locationItem?.[1] || '')
+      .replace(/^\s*lieu\s*/iu, ''),
+  );
+  const bodyHtml = [classContainer(html, 'u-intro'), classContainer(html, 'u-specs')]
+    .filter(Boolean)
+    .join('\n');
+  return {
+    title: normalizeSpace(stripHtml(
+      /<section\b[^>]*\bclass\s*=\s*["'][^"']*u-section-job-details-header[^"']*["'][^>]*>[\s\S]*?<h1\b[^>]*>([\s\S]*?)<\/h1>/i
+        .exec(String(html || ''))?.[1] || '',
+    )),
+    location,
+    description: stripHtml(bodyHtml),
+  };
+}
+
+function resolvePromanDetailGeography(detail = {}) {
+  const decision = resolveDetailOrListingSwissGeography(detail, {});
+  if (decision.geography || decision.explicitlyForeign) return decision;
+  const location = normalizeSpace(detail.location);
+  const canton = PROMAN_SOURCE_LOCATION_CANTONS.get(locationKey(location));
+  if (!location || !canton) return decision;
+  const candidate = { location, addressRegion: canton };
+  const geography = resolveSourceBackedSwissGeography(candidate);
+  return geography
+    ? { geography, explicitlyForeign: false, candidate }
+    : decision;
 }
 
 function emptyDetail(detail, sourceBackedCanton = '') {
@@ -54,18 +141,36 @@ function emptyDetail(detail, sourceBackedCanton = '') {
  */
 export function extractPromanFleurierDetailFields(html = '', pageUrl = '') {
   const detail = extractDetailFields(html, pageUrl);
-  const decision = resolveDetailOrListingSwissGeography(detail, {});
-  if (!decision.geography) return emptyDetail(detail);
+  const rendered = extractPromanRenderedDetail(html);
+  const sourceDetail = {
+    ...detail,
+    ...(rendered.title ? { title: rendered.title } : {}),
+    ...(rendered.description ? { description: rendered.description } : {}),
+    ...(rendered.location
+      ? {
+        location: rendered.location,
+        locationCandidates: [{ location: rendered.location }],
+      }
+      : {}),
+  };
+  const decision = resolvePromanDetailGeography(sourceDetail);
+  if (!decision.geography) return emptyDetail(sourceDetail);
 
   if (decision.geography.canton !== TARGET_CANTON) {
-    return emptyDetail(detail, decision.geography.canton);
+    return emptyDetail(sourceDetail, decision.geography.canton);
   }
 
-  const fields = sourceBackedSwissGeographyFields(decision.candidate, decision.geography);
+  const evidenceCandidate = {
+    ...decision.candidate,
+    ...(PROMAN_SOURCE_LOCATION_LOCALITIES.has(locationKey(sourceDetail.location))
+      ? { addressLocality: PROMAN_SOURCE_LOCATION_LOCALITIES.get(locationKey(sourceDetail.location)) }
+      : {}),
+  };
+  const fields = sourceBackedSwissGeographyFields(evidenceCandidate, decision.geography);
   return {
-    ...detail,
+    ...sourceDetail,
     ...fields,
-    locationCandidates: [{ ...decision.candidate, ...fields }],
+    locationCandidates: [{ ...evidenceCandidate, ...fields }],
   };
 }
 
