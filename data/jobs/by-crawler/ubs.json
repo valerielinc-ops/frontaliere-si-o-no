@@ -7312,7 +7312,7 @@
       "slugByLocale": {
         "it": "responsabile-regionale-vendite-personal-banking-regione-vallese-80-100-ubs-valais",
         "en": "regional-sales-manager-personal-banking-region-valais-80-100-ubs-valais",
-        "de": "regional-sales-manager-personal-banking-region-valais-80-100-ubs-valais",
+        "de": "regionaler-verkaufsleiter-personal-banking-region-wallis-80-100-ubs-valais",
         "fr": "regional-sales-manager-personal-banking-region-valais-80-100-ubs-valais"
       },
       "company": "UBS",
@@ -7369,6 +7369,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "regional-sales-manager-personal-banking-region-valais-80-100-ubs-valais"
+        ],
+        "de": [
           "regional-sales-manager-personal-banking-region-valais-80-100-ubs-valais"
         ]
       },
@@ -9961,12 +9964,12 @@
     },
     {
       "id": "ubs-212381ff14c8",
-      "slug": "ubs-card-center-ag-senior-network-security-architect-100-w-m-d-ubs-zurich",
+      "slug": "ubs-card-center-ag-architetto-senior-della-sicurezza-di-rete-100-m-f-d-ubs-zurich",
       "slugByLocale": {
-        "it": "ubs-card-center-ag-senior-network-security-architect-100-w-m-d-ubs-zurich",
+        "it": "ubs-card-center-ag-architetto-senior-della-sicurezza-di-rete-100-m-f-d-ubs-zurich",
         "en": "ubs-card-center-ag-senior-network-security-architect-100-w-m-d-ubs-zurich",
         "de": "ubs-card-center-ag-senior-network-security-architect-100-w-m-d-ubs-zurich",
-        "fr": "ubs-card-center-ag-senior-network-security-architect-100-w-m-d-ubs-zurich"
+        "fr": "ubs-card-center-ag-architecte-senior-en-securite-des-reseaux-100-h-f-d-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -10033,7 +10036,18 @@
         }
       },
       "addressRegion": "ZH",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "ubs-card-center-ag-senior-network-security-architect-100-w-m-d-ubs-zurich"
+        ],
+        "fr": [
+          "ubs-card-center-ag-senior-network-security-architect-100-w-m-d-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ubs-card-center-ag-senior-network-security-architect-100-w-m-d-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-067cda5e9184",
