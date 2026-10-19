@@ -29,7 +29,9 @@ function decodeNcoreMarkup(value = '') {
     .replace(/\\u002f/gi, '/')
     .replace(/\\\//g, '/')
     .replace(/\\u0026/gi, '&')
-    .replace(/&amp;/gi, '&');
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;|&#34;|&#x22;/gi, '"')
+    .replace(/&#x2f;|&#47;/gi, '/');
 }
 
 function canonicalNcoreDetailUrl(value = '') {
