@@ -2863,6 +2863,9 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'giovani-donne-stipendi-svizzera': { it: 'giovani-donne-stipendi-svizzera', en: 'young-women-salaries-switzerland', de: 'junge-frauen-loehne-schweiz', fr: 'jeunes-femmes-salaires-suisse' },
  'imposta-successione-donazione-zurigo-regole': { it: 'imposta-successione-donazione-zurigo-regole', en: 'inheritance-gift-tax-zurich-rules', de: 'erbschafts-schenkungssteuer-zuerich-regeln', fr: 'impot-successions-donations-zurich-regles' },
  'securitas-violazioni-lavoro': { it: 'securitas-violazioni-lavoro', en: 'securitas-labor-law-violations', de: 'securitas-arbeitsgesetz-verstoesse', fr: 'securitas-violations-loi-travail' },
+ 'campagna-fisco-coppie-sposate': { it: 'campagna-fisco-coppie-sposate', en: 'tax-campaign-married-couples', de: 'steuerkampagne-ehepaare', fr: 'campagne-fiscale-couples-maries' },
+ 'impatto-glp1-industria-alimentare': { it: 'impatto-glp1-industria-alimentare', en: 'glp1-impact-food-industry', de: 'glp1-einfluss-lebensmittelindustrie', fr: 'impact-glp1-industrie-alimentaire' },
+ 'lenu-referendum-firme-valide': { it: 'lenu-referendum-firme-valide', en: 'nuclear-law-referendum-successful', de: 'kernenergiegesetz-referendum-erfolgreich', fr: 'referendum-loi-energie-nucleaire-reussi' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

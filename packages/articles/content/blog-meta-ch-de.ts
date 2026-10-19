@@ -8457,7 +8457,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.big-tech-franchi-bolla-ia.excerpt': 'Die US-Technologiegiganten geben Anleihen in Schweizer Franken aus, um Rechenzentren zu finanzieren.',
     'blog.article.big-tech-franchi-bolla-ia.imageAlt': 'Schweizer Stadtansicht mit Büros und Technologieinfrastruktur im Finanzbereich.',
     'blog.article.svizzera-vietnam-relazioni-2026.title': 'Schweiz und Vietnam intensivieren Handel und Investitionen',
-    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin am 17.',
+    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Bundespräsident Guy Parmelin wurde am 17. Oktober 2026 in Hanoi von Tô Lâm und Lê Minh Hưng empfangen. Die Schweiz und Vietnam vertieften ihre Zusammenarbeit bei Handel, Investitionen, nachhaltiger Stadtentwicklung, Arbeitsmarkt und Innovation; die Unterzeichnung des EFTA-Vietnam-Freihandelsabkommens war für den 18. Oktober vorgesehen.',
     'blog.article.svizzera-vietnam-relazioni-2026.imageAlt': 'Blick auf den Luganer See mit den Alpen im Hintergrund, Symbol für die Schweiz-Vietnam-Zusammenarbeit im Handel und Investment.',
     'blog.article.microdrama-pubblicita-tiktok-instagram.title': 'Sexy-Mikrodrama bewirbt auf TikTok eine kostenpflichtige App',
     'blog.article.microdrama-pubblicita-tiktok-instagram.excerpt': 'KI-Anzeigen zeigen Sex zwischen dem Bizarren und Fantasy.',
@@ -8521,7 +8521,16 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-donazione-zurigo-regole.imageAlt': 'Erbschafts- und Schenkungssteuer im Kanton Zürich',
     'blog.article.securitas-violazioni-lavoro.title': 'Securitas soll tausende Male gegen das Arbeitsgesetz verstoßen haben',
     'blog.article.securitas-violazioni-lavoro.excerpt': 'Rund 20\'000 mutmaßliche Verstöße zwischen 2023 und 2025 Rund 900 betroffene Mitarbeitende in der Zentralschweiz Zu lange Schichten und zu kurze Ruhezeiten Securitas',
-    'blog.article.securitas-violazioni-lavoro.imageAlt': 'Securitas Sicherheitspersonal in der Zentralschweiz',
+    'blog.article.securitas-violazioni-lavoro.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.campagna-fisco-coppie-sposate.title': 'Steuern und Ehepaare: Die Gegner starten ihre Kampagne',
+    'blog.article.campagna-fisco-coppie-sposate.excerpt': 'Das Gegenkomitee hat seine Argumente in Bern vorgestellt Die eidgenössische Abstimmung über die Initiative ist für den 29.',
+    'blog.article.campagna-fisco-coppie-sposate.imageAlt': 'Medienkonferenz in Bern zur eidgenössischen Abstimmung über die Besteuerung von Ehepaaren',
+    'blog.article.impatto-glp1-industria-alimentare.title': 'GLP-1-Medikamente gegen Adipositas: Auswirkungen auf die Lebensmittelindustrie',
+    'blog.article.impatto-glp1-industria-alimentare.excerpt': 'In der Schweiz befinden sich weniger als 2% in einer GLP-1-Therapie In den USA sinkt das Lebensmittelbudget um bis zu 5% Emmi, Danone und Nestlé passen ihre Sortimente an Givaudan prognostiziert Wachstum',
+    'blog.article.impatto-glp1-industria-alimentare.imageAlt': 'Ein Supermarktregal in der Schweiz mit frischen Lebensmitteln',
+    'blog.article.lenu-referendum-firme-valide.title': 'Bundesgesetz über die Kernenergie: Referendum zustande gekommen',
+    'blog.article.lenu-referendum-firme-valide.excerpt': '19. Oktober 2026: Referendum formell zustande gekommen 6. Oktober 2026: 79 479 Unterschriften eingereicht 78 922 Unterschriften für gültig erklärt Änderung LENu vom 19',
+    'blog.article.lenu-referendum-firme-valide.imageAlt': 'Bundeshaus in Bern in einer redaktionellen Szene zum LENu-Referendum',
 };
 
 export default blogMetaChDe;

@@ -8513,7 +8513,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.agenda-federale-voto-2026.title': 'Consiglio federale ha trasmesso il pacchetto Svizzera-UE',
     'blog.article.agenda-federale-voto-2026.excerpt': 'Il pacchetto Svizzera-UE è stato trasmesso il 13 marzo 2026 Il 29 novembre 2026 si vota sul finanziamento supplementare dell\'AVS Guy Parmelin ha annunciato',
     'blog.article.agenda-federale-voto-2026.imageAlt': 'Scena istituzionale svizzera legata a decisioni federali e votazioni popolari',
-    'blog.article.giovani-donne-stipendi-svizzera.title': 'Di più Le giovani svizzere guadagnano meno nonostante siano più istruite',
+    'blog.article.giovani-donne-stipendi-svizzera.title': 'Le giovani svizzere guadagnano meno nonostante siano più istruite',
     'blog.article.giovani-donne-stipendi-svizzera.excerpt': 'Nati nel 1995: divario di reddito del 14% Nati nel 1965: divario di reddito del 55% Nel 2025: istruzione terziaria al 54% contro il 48% Tra i genitori',
     'blog.article.giovani-donne-stipendi-svizzera.imageAlt': 'Giovane donna lavora in un ufficio moderno in Svizzera',
     'blog.article.imposta-successione-donazione-zurigo-regole.title': 'Imposta di successione e donazione nel Cantone di Zurigo',
@@ -8521,7 +8521,16 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-donazione-zurigo-regole.imageAlt': 'Imposta di successione e donazione nel Cantone di Zurigo',
     'blog.article.securitas-violazioni-lavoro.title': 'Securitas avrebbe violato migliaia di volte la legge sul lavoro',
     'blog.article.securitas-violazioni-lavoro.excerpt': 'Circa 20\'000 presunte violazioni tra 2023 e 2025 Circa 900 dipendenti coinvolti nella Svizzera centrale Turni troppo lunghi e recuperi troppo brevi Securitas',
-    'blog.article.securitas-violazioni-lavoro.imageAlt': 'Personale di sicurezza Securitas in Svizzera centrale',
+    'blog.article.securitas-violazioni-lavoro.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.campagna-fisco-coppie-sposate.title': 'Fisco e coppie sposate: i contrari aprono la loro campagna',
+    'blog.article.campagna-fisco-coppie-sposate.excerpt': 'Il comitato contrario ha presentato le sue tesi a Berna Il voto federale sull\'iniziativa è previsto il 29 novembre L\'imposizione individuale entrerà in vigore',
+    'blog.article.campagna-fisco-coppie-sposate.imageAlt': 'Conferenza stampa a Berna sulla votazione federale e fiscale delle coppie sposate',
+    'blog.article.impatto-glp1-industria-alimentare.title': 'Farmaci antiobesità GLP-1: impatto sull\'industria alimentare',
+    'blog.article.impatto-glp1-industria-alimentare.excerpt': 'In Svizzera, meno del 2% è in terapia GLP-1 Negli USA il budget alimentare cala fino al 5% Emmi, Danone e Nestlé adattano le gamme Givaudan stima una crescita',
+    'blog.article.impatto-glp1-industria-alimentare.imageAlt': 'Reparto di un supermercato svizzero con prodotti alimentari freschi',
+    'blog.article.lenu-referendum-firme-valide.title': 'Legge federale sull’energia nucleare: referendum riuscito',
+    'blog.article.lenu-referendum-firme-valide.excerpt': '19 ottobre 2026: referendum formalmente riuscito 6 ottobre 2026: presentate 79 479 firme 78 922 firme sono state dichiarate valide Modifica LENu datata 19',
+    'blog.article.lenu-referendum-firme-valide.imageAlt': 'Palazzo federale a Berna in una scena editoriale sul referendum LENu',
 };
 
 export default blogMetaChIt;

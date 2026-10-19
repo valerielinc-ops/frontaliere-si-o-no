@@ -46814,18 +46814,18 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Ogni dogana ticinese classificata per tempo medio di attesa, con trend settimanale e quanti minuti si perdono (o guadagnano) scegliendo un valico piuttosto che un altro.",
       "image": {
         "@type": "ImageObject",
-        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
-        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
-        "creditText": "Frontaliere Ticino",
-        "url": `${BASE_URL}/images/places/mendrisio.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
         "width": 1200,
-        "height": 563,
+        "height": 675,
         "caption": "Traffico in coda a una dogana del Canton Ticino"
       },
       "datePublished": "2026-07-03T13:13:04+02:00",
-      "dateModified": "2026-10-12T00:00:00+02:00",
+      "dateModified": "2026-10-19T00:00:00+02:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -111351,7 +111351,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/places/lugano-view.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Intervento dei soccorritori dopo l'incendio in una palazzina di Via Cortivallo a Lugano"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T08:02:43+00:00",
       "dateModified": "2026-10-18T08:02:43+00:00",
@@ -111390,7 +111390,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-morto-andena-varese.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Stadio di calcio con colori biancorossi"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T08:43:52+00:00",
       "dateModified": "2026-10-18T08:43:52+00:00",
@@ -111429,7 +111429,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-incendio-palazzina-lugano.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Palazzina di via Cortivallo a Lugano dopo l'incendio notturno"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T09:03:30+00:00",
       "dateModified": "2026-10-18T09:03:30+00:00",
@@ -111507,7 +111507,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/places/lugano-view.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Via Cortivallo a Lugano, dove un incendio in appartamento ha causato una vittima"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T09:43:01+00:00",
       "dateModified": "2026-10-18T09:43:01+00:00",
@@ -111546,7 +111546,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-lissago-corte-case-popolari.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Corte residenziale con appartamenti popolari nella luce autunnale"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T10:15:13+00:00",
       "dateModified": "2026-10-18T10:15:13+00:00",
@@ -111653,7 +111653,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-indennita-lavoro-ridotto.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Lavoratore frontaliere consulta documenti assicurazione malattia in ufficio a Bellinzona"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T11:49:38+00:00",
       "dateModified": "2026-10-18T11:49:38+00:00",
@@ -111692,7 +111692,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-ps-tre-iniziative-thun.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Congresso socialista a Thun: sì alle iniziative su api, mobilità e sicurezza digitale."
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T12:57:15+00:00",
       "dateModified": "2026-10-18T12:57:15+00:00",
@@ -111731,7 +111731,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-cassano-indagine-schianto.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Strada del Ticino in luce mattutina, immagine simbolica per una notizia di cronaca locale"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T13:16:47+00:00",
       "dateModified": "2026-10-18T13:16:47+00:00",
@@ -111770,7 +111770,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Frontaliere esamina documenti di lavoro vicino al confine del Ticino"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T14:15:04+00:00",
       "dateModified": "2026-10-18T14:15:04+00:00",
@@ -111809,7 +111809,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-live-arconatese-varese-caronno.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "La sfida Arconatese-Varese a Caronno Pertusella"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T15:47:28+00:00",
       "dateModified": "2026-10-18T15:47:28+00:00",
@@ -111848,7 +111848,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-lamal-guida-2026-canton-argovia.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Frontaliere con documenti di lavoro davanti a un ufficio in Ticino"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T16:43:35+00:00",
       "dateModified": "2026-10-18T16:43:35+00:00",
@@ -111887,7 +111887,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-como-razionalista-fondi-associazioni.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Architettura razionalista in un contesto urbano"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-19T02:46:28+00:00",
       "dateModified": "2026-10-19T02:46:28+00:00",
@@ -111926,7 +111926,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-como-manifestazioni-24-ottobre.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Scorcio urbano di Mendrisio in una giornata autunnale"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-19T03:34:10+00:00",
       "dateModified": "2026-10-19T03:34:10+00:00",
@@ -111965,7 +111965,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-frontaliere-formazione-riqualifica-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Centro di formazione professionale in Ticino per corsi e riqualifica"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-19T04:51:34+00:00",
       "dateModified": "2026-10-19T04:51:34+00:00",
@@ -112004,7 +112004,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-indagini-morte-pierina-buffon.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Accertamenti e rilievi investigativi sull'auto coinvolta"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-19T05:57:44+00:00",
       "dateModified": "2026-10-19T05:57:44+00:00",
@@ -112043,7 +112043,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-sagra-zucca-castagna-cunardo.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Sagra della zucca e della castagna alla Baita del Fondista di Cunardo"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-19T07:18:02+00:00",
       "dateModified": "2026-10-19T07:18:02+00:00",
@@ -112082,7 +112082,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-corsi-ticino-famiglia-rendimento.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Aula di formazione professionale con vista sul paesaggio del Mendrisiotto"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-19T08:07:09+00:00",
       "dateModified": "2026-10-19T08:07:09+00:00",
@@ -112121,7 +112121,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-oss-ticino-stipendio.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Operatore socio sanitario in un ambiente di cura del Ticino"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-19T08:49:07+00:00",
       "dateModified": "2026-10-19T08:49:07+00:00",
@@ -112160,7 +112160,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/article-riqualifica-aliquote-frontalieri-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Lavoratore frontaliere studia documenti di formazione professionale in Ticino."
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-19T09:23:32+00:00",
       "dateModified": "2026-10-19T09:23:32+00:00",
@@ -112173,6 +112173,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riqualifica-aliquote-frontalieri-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-progettista-elettrico-ticino': {
+    title: 'Progettista elettrico frontaliere: imposte e permesso G',
+    description: 'Per il frontaliere progettista elettrico in Ticino: accordo in vigore dal 1° gennaio 2024, imposta alla fonte solo in Svizzera, franchigie e contributi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, progettista, elettrico, imposte, permesso',
+    ogTitle: 'Progettista elettrico frontaliere: imposte e permesso G',
+    ogDescription: 'Il quadro per chi risiede in Italia e lavora come progettista elettrico nel Canton Ticino: accordo firmato nel 2020, ratificato nel 2023, in vigore dal 1° gennaio 2024, trattenuta solo in Svizzera e contributi indicati.',
+    canonicalPath: '/articoli-frontaliere/progettista-elettrico-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Progettista elettrico frontaliere: imposte e permesso G",
+      "description": "Per il frontaliere progettista elettrico in Ticino: accordo in vigore dal 1° gennaio 2024, imposta alla fonte solo in Svizzera, franchigie e contributi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-progettista-elettrico-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Progettista elettrico al lavoro in un ufficio con vista sul Ticino"
+      },
+      "datePublished": "2026-10-19T12:59:22+00:00",
+      "dateModified": "2026-10-19T12:59:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/progettista-elettrico-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-evento-for-matching-varese-2026': {
+    title: 'Varese: il 22 ottobre 2026 l\'evento For Matching',
+    description: '22 ottobre 2026: for MATCHING a Varese Dalle 9.00 alle 12.30 alle Ville Ponti Nuovo report sul mercato del lavoro varesino Dati, crisi aziendali e tavola',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, ottobre, evento, matching',
+    ogTitle: 'Varese: il 22 ottobre 2026 l\'evento For Matching',
+    ogDescription: '22 ottobre 2026: for MATCHING a Varese Dalle 9.00 alle 12.30 alle Ville Ponti Nuovo report sul mercato del lavoro varesino Dati, crisi aziendali e tavola',
+    canonicalPath: '/articoli-frontaliere/evento-for-matching-varese-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: il 22 ottobre 2026 l'evento For Matching",
+      "description": "22 ottobre 2026: for MATCHING a Varese Dalle 9.00 alle 12.30 alle Ville Ponti Nuovo report sul mercato del lavoro varesino Dati, crisi aziendali e tavola",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-evento-for-matching-varese-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-19T13:21:14+00:00",
+      "dateModified": "2026-10-19T13:21:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/evento-for-matching-varese-2026/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
