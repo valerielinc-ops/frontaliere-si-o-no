@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zfv-unternehmungen",
-  "assembledAt": "2026-10-18T09:24:54.664Z",
+  "assembledAt": "2026-10-19T09:24:23.482Z",
   "jobs": [
     {
       "id": "zfv-unternehmungen-f78d59bd4f35",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "cucina-aiuto-50-zfv-unternehmungen-epalinges",
         "en": "kitchen-help-50-zfv-unternehmungen-epalinges",
-        "de": "kuchenhilfe-50-zfv-unternehmungen-epalinges",
+        "de": "aide-de-cuisine-50-zfv-unternehmungen-epalinges",
         "fr": "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
       },
       "company": "ZFV-Unternehmungen",
@@ -33,7 +33,7 @@
       "url": "https://jobs.zfv.ch/Aide-de-cuisine-50-fr-j4701.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:24:49.725Z",
+      "crawledAt": "2026-10-19T09:24:15.523Z",
       "addressLocality": "Epalinges",
       "postalCode": "1066",
       "streetAddress": "Rte de la Corniche 21",
@@ -53,7 +53,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
+        "aide-de-cuisine-50-zfv-unternehmungen-epalinges",
+        "kuchenhilfe-50-zfv-unternehmungen-epalinges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -63,7 +64,7 @@
           "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
         ],
         "de": [
-          "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
+          "kuchenhilfe-50-zfv-unternehmungen-epalinges"
         ]
       },
       "firstSeenAt": "2026-09-04T13:40:05.712Z",
@@ -112,7 +113,7 @@
       "url": "https://jobs.zfv.ch/Apprentissage-2027-Cuisinire-Cuisinier-CFC-de-j4593.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:24:49.333Z",
+      "crawledAt": "2026-10-19T09:24:15.051Z",
       "addressLocality": "Renens",
       "postalCode": "1020",
       "streetAddress": "Rue de la Gare de triage 7",
@@ -193,7 +194,7 @@
       "url": "https://jobs.zfv.ch/Bankett-und-Seminarassistentin-80-100-de-j4642.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:48.585Z",
+      "crawledAt": "2026-10-19T09:24:14.224Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Fabrikstrasse 8",
@@ -272,7 +273,7 @@
       "url": "https://jobs.zfv.ch/Bar-Service-Mitarbeiterin-Aushilfe-de-j4743.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:48.083Z",
+      "crawledAt": "2026-10-19T09:24:13.709Z",
       "needsRetranslation": true,
       "addressLocality": "Horw",
       "postalCode": "6048",
@@ -352,7 +353,7 @@
       "url": "https://jobs.zfv.ch/Betriebsleiterin-de-j4755.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:47.589Z",
+      "crawledAt": "2026-10-19T09:24:13.224Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -431,7 +432,7 @@
       "url": "https://jobs.zfv.ch/Betriebsleiterin-mit-Kochfunktion-80-100-de-j4759.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:47.102Z",
+      "crawledAt": "2026-10-19T09:24:12.710Z",
       "needsRetranslation": false,
       "addressLocality": "Bern",
       "postalCode": "3004",
@@ -511,7 +512,7 @@
       "url": "https://jobs.zfv.ch/Betriebstournante-20-de-j4691.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:46.586Z",
+      "crawledAt": "2026-10-19T09:24:12.216Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Allmendstrasse 140",
@@ -566,10 +567,10 @@
       "id": "zfv-unternehmungen-0783d9a7cdc9",
       "slug": "addetto-a-polivalente-50-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "it": "operatore-turistico-operativo-e-50-zfv-unternehmungen-zurich",
-        "en": "operating-tour-operator-e-50-zfv-unternehmungen-zurich",
+        "it": "addetto-a-polivalente-50-zfv-unternehmungen-zurich",
+        "en": "operations-all-rounder-50-zfv-unternehmungen-zurich",
         "de": "betriebstournant-e-50-zfv-unternehmungen-zurich",
-        "fr": "tour-operateur-e-50-zfv-unternehmungen-zurich"
+        "fr": "betriebstournant-e-50-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -593,7 +594,7 @@
       "url": "https://jobs.zfv.ch/Betriebstournante-50-de-j4745.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:46.093Z",
+      "crawledAt": "2026-10-19T09:24:11.715Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -617,20 +618,23 @@
         "betriebstournant-e-50-zfv-unternehmungen-zurich",
         "hospitality-all-rounder-50-zfv-unternehmungen-zurich",
         "addetto-a-polivalente-nella-ristorazione-50-zfv-unternehmungen-zurich",
-        "operations-all-rounder-50-zfv-unternehmungen-zurich"
+        "operatore-turistico-operativo-e-50-zfv-unternehmungen-zurich",
+        "operating-tour-operator-e-50-zfv-unternehmungen-zurich",
+        "tour-operateur-e-50-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebstournant-e-50-zfv-unternehmungen-zurich",
-          "addetto-a-polivalente-nella-ristorazione-50-zfv-unternehmungen-zurich"
+          "addetto-a-polivalente-nella-ristorazione-50-zfv-unternehmungen-zurich",
+          "operatore-turistico-operativo-e-50-zfv-unternehmungen-zurich"
         ],
         "en": [
           "betriebstournant-e-50-zfv-unternehmungen-zurich",
           "hospitality-all-rounder-50-zfv-unternehmungen-zurich",
-          "operations-all-rounder-50-zfv-unternehmungen-zurich"
+          "operating-tour-operator-e-50-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "betriebstournant-e-50-zfv-unternehmungen-zurich"
+          "tour-operateur-e-50-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-10-08T09:19:40.110Z",
@@ -679,7 +683,7 @@
       "url": "https://jobs.zfv.ch/Buffet-Mitarbeiterin-50-de-j4748.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:45.601Z",
+      "crawledAt": "2026-10-19T09:24:11.209Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -732,9 +736,9 @@
       "id": "zfv-unternehmungen-e25dcf06f27f",
       "slug": "buffet-collaboratore-trice-70-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "de": "buffet-mitarbeiter-in-70-zfv-unternehmungen-zurich",
         "it": "buffet-collaboratore-trice-70-zfv-unternehmungen-zurich",
         "en": "buffet-associate-70-zfv-unternehmungen-zurich",
+        "de": "buffet-mitarbeiter-in-70-zfv-unternehmungen-zurich",
         "fr": "buffet-collaborateur-trice-70-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
@@ -742,16 +746,16 @@
       "companyDomain": "zfv.ch",
       "title": "Buffet-Mitarbeiter:in (70%)",
       "titleByLocale": {
-        "de": "Buffet-Mitarbeiter:in (70%)",
         "it": "Buffet-Collaboratore/trice (70%)",
         "en": "Buffet-Associate (70%)",
+        "de": "Buffet-Mitarbeiter:in (70%)",
         "fr": "Buffet-Collaborateur/trice (70%)"
       },
       "description": "Die Gastronomie im Toni-Areal gehört zu der Zürcher Hochschule für Angewandte Wissenschaften sowie der Zürcher Hochschule der Künste im Campus Toni-Areal. Die Gastronomie besteht aus der Mensa Molki, dem Bistro Chez Toni, einer Cafeteria sowie der Kaskadengastronomie. Im Weiteren werden zahlreiche interne und externe Caterings durchgeführt. Täglich werden rund 800 Mittagessen zubereitet. Getreu der ZFV-Philosophie wird frisch vor Ort mit regionalen sowie ökologisch sinnvoll produzierten und fair gehandelten Lebensmitteln gekocht. Bist du unser neues Teammitglied, welches uns als Buffet-Mitarbeiter:in (70%) per sofort oder nach Vereinbarung unterstützt? Du arbeitest flexibel zwischen Freitag und Montag in einem ca. 70% Pensum. Von Freitag bis Montag wirst du an der Kaffeebar eingesetzt. Am Samstag sind Catering Kaffee-Auslieferungen und Rücklieferungen vom Freitag vor der Schicht zu tätigen. Die Stelle beeinhaltet also einen kleinen Teil Catering. Dein Aufgabenmenü:\n• Begrüssung, Bedienung und Beratung der Gäste\n• Sicherstellung einer hohen Gästezufriedenheit\n• Bedienung der Kasse\n• Erstellung der Mise en Place\n• Sicherstellung einer ansprechenden Warenpräsentation\n• Mitarbeit bei Caterings und Sonderanlässen bei Bedarf\n• Auslieferungen und Rücklieferungen von Caterings am Samstag morgen vor der Schicht in der Kaffeebar\n• Sicherstellung der Sauberkeit und Ordnung im Arbeitsumfeld\n• Erledigung von allgemeinen Aufräum- und Reinigungsarbeiten Dein Erfolgsrezept:\n• Praxiserfahrung in der Gastronomie / Hotellerie\n• Erfahrung im Catering von Vorteil\n• Sehr Gute mündliche Deutschkenntnisse\n• Erste Erfahrung an einer Kaffeebar\n• Herzlich, gewinnend und empathisch\n• Freude am Genuss\n• Hands-on Mentalität Das bieten wir dir: Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut. Unter anderem legen wir dabei grossen Wert auf Lohntransparenz und Lohngleichheit. Für diese Position bieten wir bei einem 100%-Pensum, abhängig von deiner Erfahrung und Qualifikation, einen Jahreslohn von rund CHF 52'000 (inkl. 13. Monatslohn). Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
       "descriptionByLocale": {
-        "de": "Die Gastronomie im Toni-Areal gehört zu der Zürcher Hochschule für Angewandte Wissenschaften sowie der Zürcher Hochschule der Künste im Campus Toni-Areal. Die Gastronomie besteht aus der Mensa Molki, dem Bistro Chez Toni, einer Cafeteria sowie der Kaskadengastronomie. Im Weiteren werden zahlreiche interne und externe Caterings durchgeführt. Täglich werden rund 800 Mittagessen zubereitet. Getreu der ZFV-Philosophie wird frisch vor Ort mit regionalen sowie ökologisch sinnvoll produzierten und fair gehandelten Lebensmitteln gekocht. Bist du unser neues Teammitglied, welches uns als Buffet-Mitarbeiter:in (70%) per sofort oder nach Vereinbarung unterstützt? Du arbeitest flexibel zwischen Freitag und Montag in einem ca. 70% Pensum. Von Freitag bis Montag wirst du an der Kaffeebar eingesetzt. Am Samstag sind Catering Kaffee-Auslieferungen und Rücklieferungen vom Freitag vor der Schicht zu tätigen. Die Stelle beeinhaltet also einen kleinen Teil Catering. Dein Aufgabenmenü:\n• Begrüssung, Bedienung und Beratung der Gäste\n• Sicherstellung einer hohen Gästezufriedenheit\n• Bedienung der Kasse\n• Erstellung der Mise en Place\n• Sicherstellung einer ansprechenden Warenpräsentation\n• Mitarbeit bei Caterings und Sonderanlässen bei Bedarf\n• Auslieferungen und Rücklieferungen von Caterings am Samstag morgen vor der Schicht in der Kaffeebar\n• Sicherstellung der Sauberkeit und Ordnung im Arbeitsumfeld\n• Erledigung von allgemeinen Aufräum- und Reinigungsarbeiten Dein Erfolgsrezept:\n• Praxiserfahrung in der Gastronomie / Hotellerie\n• Erfahrung im Catering von Vorteil\n• Sehr Gute mündliche Deutschkenntnisse\n• Erste Erfahrung an einer Kaffeebar\n• Herzlich, gewinnend und empathisch\n• Freude am Genuss\n• Hands-on Mentalität Das bieten wir dir: Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut. Unter anderem legen wir dabei grossen Wert auf Lohntransparenz und Lohngleichheit. Für diese Position bieten wir bei einem 100%-Pensum, abhängig von deiner Erfahrung und Qualifikation, einen Jahreslohn von rund CHF 52'000 (inkl. 13. Monatslohn). Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
         "it": "La ristorazione nel Toni-Areal fa capo alla Zürcher Hochschule für Angewandte Wissenschaften e alla Zürcher Hochschule der Künste presso il Campus Toni-Areal. La ristorazione comprende la Mensa Molki, il Bistro Chez Toni, una caffetteria e la ristorazione a cascata. Inoltre, vengono realizzati numerosi catering interni ed esterni. Ogni giorno vengono preparati circa 800 pranzi. In linea con la filosofia ZFV, si preparano piatti freschi sul posto utilizzando alimenti regionali, prodotti in modo ecologicamente sostenibile e provenienti dal commercio equo. Sei il nuovo membro del nostro team che ci supporta come addetto/a al buffet (70%) con effetto immediato o previo accordo? Lavori in modo flessibile tra venerdì e lunedì, con un grado d'impiego di circa il 70%. Da venerdì a lunedì sarai impiegato/a al bar del caffè. Il sabato, prima del turno, devono essere effettuate le consegne di caffè per il catering e le riconsegne del venerdì. La posizione comprende quindi una piccola parte di attività di catering. Il tuo menù di mansioni:\n• Accoglienza, servizio e consulenza agli ospiti\n• Garantire un'elevata soddisfazione degli ospiti\n• Gestione della cassa\n• Preparazione della Mise en Place\n• Garantire una presentazione invitante dei prodotti\n• Collaborazione ai catering e agli eventi speciali, se necessario\n• Consegne e riconsegne relative ai catering il sabato mattina prima del turno presso il bar del caffè\n• Garantire la pulizia e l'ordine nell'ambiente di lavoro\n• Svolgimento di lavori generali di riordino e pulizia La tua ricetta per il successo:\n• Esperienza pratica nella ristorazione / nel settore alberghiero\n• L'esperienza nel catering costituisce un vantaggio\n• Ottima padronanza orale del tedesco\n• Prima esperienza in una caffetteria\n• Cordiale, affabile ed empatico/a\n• Passione per la buona cucina\n• Mentalità pratica Cosa ti offriamo: Creiamo team che si sostengono a vicenda e in cui puoi crescere. Lavoriamo insieme e puntiamo su tutto ciò che fa bene. Tra le altre cose, attribuiamo grande importanza alla trasparenza salariale e alla parità retributiva. Per questa posizione offriamo, con un grado d'impiego del 100%, a seconda della tua esperienza e qualifica, una retribuzione annua di circa CHF 52'000 (incl. 13. Mensilità). Se vuoi condividere con noi la tua passione per la gastronomia, saremo lieti di ricevere la tua candidatura online completa.",
         "en": "The food service operation at Toni-Areal is part of Zurich University of Applied Sciences and Zurich University of the Arts at the Toni-Areal campus. The food service operation consists of the Mensa Molki, the Bistro Chez Toni, a cafeteria and the cascade catering operation. In addition, numerous internal and external catering events are carried out. Around 800 lunches are prepared every day. In keeping with the ZFV philosophy, fresh food is cooked on site using regional, ecologically sound and fairly traded ingredients. Are you our new team member who will support us as a buffet employee (70%) with immediate effect or by arrangement? You work flexibly between Friday and Monday in an approximately 70% position. From Friday to Monday, you will work at the coffee bar. On Saturday, coffee deliveries for catering events and returns from Friday must be made before the shift. The position therefore includes a small amount of catering work. Your task menu:\n• Welcoming, serving and advising guests\n• Ensuring a high level of guest satisfaction\n• Operating the cash register\n• Preparing the mise en place\n• Ensuring an appealing presentation of goods\n• Assisting with catering events and special occasions as needed\n• Deliveries and returns for catering events on Saturday morning before the shift at the coffee bar\n• Ensuring cleanliness and order in the work environment\n• Carrying out general tidying and cleaning tasks Your recipe for success:\n• Practical experience in the food service / hotel industry\n• Experience in catering is an advantage\n• Very good spoken German skills\n• Initial experience working at a coffee bar\n• Warm, personable and empathetic\n• Enjoyment of food\n• Hands-on mentality What we offer you: We create teams that support one another and in which you are encouraged. We work together and focus on everything that does us good. Among other things, we place great value on pay transparency and equal pay. For this position, at a 100% workload, depending on your experience and qualifications, we offer an annual salary of around CHF 52'000 (incl. 13. Monthly salary). If you would like to share your passion for gastronomy with us, we look forward to receiving your complete online application.",
+        "de": "Die Gastronomie im Toni-Areal gehört zu der Zürcher Hochschule für Angewandte Wissenschaften sowie der Zürcher Hochschule der Künste im Campus Toni-Areal. Die Gastronomie besteht aus der Mensa Molki, dem Bistro Chez Toni, einer Cafeteria sowie der Kaskadengastronomie. Im Weiteren werden zahlreiche interne und externe Caterings durchgeführt. Täglich werden rund 800 Mittagessen zubereitet. Getreu der ZFV-Philosophie wird frisch vor Ort mit regionalen sowie ökologisch sinnvoll produzierten und fair gehandelten Lebensmitteln gekocht. Bist du unser neues Teammitglied, welches uns als Buffet-Mitarbeiter:in (70%) per sofort oder nach Vereinbarung unterstützt? Du arbeitest flexibel zwischen Freitag und Montag in einem ca. 70% Pensum. Von Freitag bis Montag wirst du an der Kaffeebar eingesetzt. Am Samstag sind Catering Kaffee-Auslieferungen und Rücklieferungen vom Freitag vor der Schicht zu tätigen. Die Stelle beeinhaltet also einen kleinen Teil Catering. Dein Aufgabenmenü:\n• Begrüssung, Bedienung und Beratung der Gäste\n• Sicherstellung einer hohen Gästezufriedenheit\n• Bedienung der Kasse\n• Erstellung der Mise en Place\n• Sicherstellung einer ansprechenden Warenpräsentation\n• Mitarbeit bei Caterings und Sonderanlässen bei Bedarf\n• Auslieferungen und Rücklieferungen von Caterings am Samstag morgen vor der Schicht in der Kaffeebar\n• Sicherstellung der Sauberkeit und Ordnung im Arbeitsumfeld\n• Erledigung von allgemeinen Aufräum- und Reinigungsarbeiten Dein Erfolgsrezept:\n• Praxiserfahrung in der Gastronomie / Hotellerie\n• Erfahrung im Catering von Vorteil\n• Sehr Gute mündliche Deutschkenntnisse\n• Erste Erfahrung an einer Kaffeebar\n• Herzlich, gewinnend und empathisch\n• Freude am Genuss\n• Hands-on Mentalität Das bieten wir dir: Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut. Unter anderem legen wir dabei grossen Wert auf Lohntransparenz und Lohngleichheit. Für diese Position bieten wir bei einem 100%-Pensum, abhängig von deiner Erfahrung und Qualifikation, einen Jahreslohn von rund CHF 52'000 (inkl. 13. Monatslohn). Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
         "fr": "La restauration du Toni-Areal appartient à la Zürcher Hochschule für Angewandte Wissenschaften ainsi qu'à la Zürcher Hochschule der Künste, sur le campus Toni-Areal. Elle comprend la Mensa Molki, le Bistro Chez Toni, une cafétéria ainsi que la restauration en cascade. Par ailleurs, de nombreux services de catering internes et externes sont assurés. Environ 800 repas de midi sont préparés chaque jour. Fidèles à la philosophie de ZFV, nous cuisinons frais sur place avec des aliments régionaux, produits de manière respectueuse de l'environnement et issus du commerce équitable. Es-tu notre nouvelle recrue, qui nous soutiendra en tant qu'employé·e au buffet (70%) dès que possible ou à convenir ? Tu travailleras de manière flexible du vendredi au lundi à un taux d'occupation d'environ 70%. Du vendredi au lundi, tu seras affecté·e au bar à café. Le samedi, tu devras effectuer avant ton service les livraisons de café pour le catering ainsi que les retours du vendredi. Le poste comprend donc une petite part de catering. Ton menu de tâches :\n• Accueil, service et conseil aux client·es\n• Garantie d'une grande satisfaction de la clientèle\n• Tenue de la caisse\n• Préparation de la mise en place\n• Garantie d'une présentation attrayante des produits\n• Participation aux caterings et aux événements spéciaux si nécessaire\n• Livraisons et retours liés aux caterings le samedi matin avant le service au bar à café\n• Garantie de la propreté et de l'ordre dans l'environnement de travail\n• Réalisation de travaux généraux de rangement et de nettoyage Ta recette du succès :\n• Expérience pratique dans la restauration / l'hôtellerie\n• Une expérience dans le catering est un atout\n• Très bonnes connaissances de l'allemand à l'oral\n• Première expérience dans un bar à café\n• Chaleureux, avenant et empathique\n• Goût pour les plaisirs gustatifs\n• Esprit pratique Voici ce que nous t'offrons : Nous créons des équipes qui se soutiennent mutuellement et au sein desquelles tu es encouragé. Nous avançons ensemble et misons sur tout ce qui fait du bien. Nous accordons notamment une grande importance à la transparence salariale et à l'égalité salariale. Pour ce poste, nous proposons, pour un taux d'occupation de 100 %, en fonction de ton expérience et de tes qualifications, un salaire annuel d'environ CHF 52'000 (incl. 13. Salaire mensuel). Si vous souhaitez partager avec nous votre passion pour la gastronomie, nous nous réjouissons de recevoir votre candidature complète en ligne."
       },
       "location": "Zürich",
@@ -759,7 +763,7 @@
       "url": "https://jobs.zfv.ch/Buffet-Mitarbeiterin-70-de-j4754.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:45.101Z",
+      "crawledAt": "2026-10-19T09:24:10.677Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Pfingstweidstrasse 96",
@@ -777,9 +781,10 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.zfv.ch/Buffet-Mitarbeiterin-70-de-j4754.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "buffet-mitarbeiter-in-70-zfv-unternehmungen-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "buffet-mitarbeiter-in-70-zfv-unternehmungen-zurich"
@@ -791,9 +796,7 @@
           "buffet-mitarbeiter-in-70-zfv-unternehmungen-zurich"
         ]
       },
-      "previousSlugs": [
-        "buffet-mitarbeiter-in-70-zfv-unternehmungen-zurich"
-      ],
+      "firstSeenAt": "2026-10-18T09:24:45.101Z",
       "salaryMin": 51500,
       "salaryMax": 78100,
       "salarySource": "estimated",
@@ -806,8 +809,7 @@
           "maxValue": 78100,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-18T09:24:45.101Z"
+      }
     },
     {
       "id": "zfv-unternehmungen-efb35e6d49c1",
@@ -840,7 +842,7 @@
       "url": "https://jobs.zfv.ch/Cafeteria-Mitarbeiterin-50-de-j4662.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:44.606Z",
+      "crawledAt": "2026-10-19T09:24:10.180Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Winterthurerstrasse 190",
@@ -913,7 +915,7 @@
       "url": "https://jobs.zfv.ch/Catering-Mitarbeiterin-60-80-de-j4746.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:44.103Z",
+      "crawledAt": "2026-10-19T09:24:09.659Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -993,7 +995,7 @@
       "url": "https://jobs.zfv.ch/Chef-de-Rang-50-60-de-j3840.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:43.601Z",
+      "crawledAt": "2026-10-19T09:24:09.132Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -1059,7 +1061,7 @@
       "id": "zfv-unternehmungen-84b32fd65b1b",
       "slug": "responsabile-di-sala-90-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "capo-del-servizio-90-zfv-unternehmungen-bern",
+        "it": "responsabile-di-sala-90-zfv-unternehmungen-bern",
         "en": "chief-de-service-90-zfv-unternehmungen-bern",
         "de": "chef-de-service-90-zfv-unternehmungen-bern",
         "fr": "chef-de-salle-90-zfv-unternehmungen-bern"
@@ -1086,7 +1088,7 @@
       "url": "https://jobs.zfv.ch/Chef-de-Service-90-de-j4750.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:43.093Z",
+      "crawledAt": "2026-10-19T09:24:08.590Z",
       "needsRetranslation": false,
       "addressLocality": "Bern",
       "postalCode": "3004",
@@ -1107,11 +1109,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-service-90-zfv-unternehmungen-bern"
+        "chef-de-service-90-zfv-unternehmungen-bern",
+        "capo-del-servizio-90-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-service-90-zfv-unternehmungen-bern"
+          "chef-de-service-90-zfv-unternehmungen-bern",
+          "capo-del-servizio-90-zfv-unternehmungen-bern"
         ],
         "en": [
           "chef-de-service-90-zfv-unternehmungen-bern"
@@ -1166,7 +1170,7 @@
       "url": "https://jobs.zfv.ch/Cuisinier-re-fr-j4752.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:24:42.600Z",
+      "crawledAt": "2026-10-19T09:24:08.049Z",
       "needsRetranslation": false,
       "addressLocality": "Lausanne, Ecublens",
       "postalCode": "1003",
@@ -1246,7 +1250,7 @@
       "url": "https://jobs.zfv.ch/Event-Mitarbeiterin-Aushilfe-de-j3875.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:41.838Z",
+      "crawledAt": "2026-10-19T09:24:07.331Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "streetAddress": "Lidostrasse 5",
@@ -1325,7 +1329,7 @@
       "url": "https://jobs.zfv.ch/Event-Mitarbeiterin-Produktion-Aushilfe-de-j3430.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:41.343Z",
+      "crawledAt": "2026-10-19T09:24:06.795Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -1383,7 +1387,7 @@
         "it": "f-b-direttore-zfv-unternehmungen-zurich",
         "en": "f-b-director-zfv-unternehmungen-zurich",
         "de": "f-b-director-zfv-unternehmungen-zurich",
-        "fr": "directeur-f-b-zfv-unternehmungen-zurich"
+        "fr": "f-b-director-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -1407,7 +1411,7 @@
       "url": "https://jobs.zfv.ch/FB-Director-de-j4659.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:40.840Z",
+      "crawledAt": "2026-10-19T09:24:06.131Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Orellistrasse 21",
@@ -1427,14 +1431,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "f-b-director-zfv-unternehmungen-zurich"
+        "f-b-director-zfv-unternehmungen-zurich",
+        "directeur-f-b-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "f-b-director-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "f-b-director-zfv-unternehmungen-zurich"
+          "directeur-f-b-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-08-05T11:37:46.415Z",
@@ -1483,7 +1488,7 @@
       "url": "https://jobs.zfv.ch/Fachfraumann-Hotellerie-Hauswirtschaft-EFZ-Lehrstelle-2027-de-j4631.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:40.341Z",
+      "crawledAt": "2026-10-19T09:24:05.498Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Marktgasse 49",
@@ -1562,7 +1567,7 @@
       "url": "https://jobs.zfv.ch/Fachfraumann-Hotellerie-Hauswirtschaft-EFZ-Lehrstelle-2027-de-j4535.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:39.709Z",
+      "crawledAt": "2026-10-19T09:24:04.590Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Seefeldstrasse 63",
@@ -1654,7 +1659,7 @@
       "url": "https://jobs.zfv.ch/Fachfraumann-Hotellerie-Hauswirtschaft-EFZ-Lehrstelle-2027-de-j4533.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:39.073Z",
+      "crawledAt": "2026-10-19T09:24:03.675Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Davidstrasse 21",
@@ -1733,7 +1738,7 @@
       "url": "https://jobs.zfv.ch/Fachfraumann-Hotellerie-Hauswirtschaft-EFZ-Lehrstelle-2027-de-j4528.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:38.435Z",
+      "crawledAt": "2026-10-19T09:24:02.752Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Laupenstrasse 15",
@@ -1812,7 +1817,7 @@
       "url": "https://jobs.zfv.ch/Front-Office-Praktikantin-de-j4472.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:37.157Z",
+      "crawledAt": "2026-10-19T09:24:01.015Z",
       "needsRetranslation": false,
       "addressLocality": "Rapperswil",
       "postalCode": "8640",
@@ -1886,7 +1891,7 @@
       "url": "https://jobs.zfv.ch/Front-Office-Praktikantin-de-j4468.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:36.527Z",
+      "crawledAt": "2026-10-19T09:24:00.178Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -1960,7 +1965,7 @@
       "url": "https://jobs.zfv.ch/Gouvernante-de-j4686.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:35.772Z",
+      "crawledAt": "2026-10-19T09:23:59.341Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Sihlstrasse 9",
@@ -2050,7 +2055,7 @@
       "url": "https://jobs.zfv.ch/Gouvernante-de-j4296.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:35.277Z",
+      "crawledAt": "2026-10-19T09:23:58.791Z",
       "addressLocality": "Rapperswil",
       "postalCode": "8640",
       "streetAddress": "Untere Bahnhofstrasse 5",
@@ -2097,7 +2102,7 @@
       "slug": "assistente-cuoco-assistente-cuoco-60-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "it": "assistente-cuoco-assistente-cuoco-60-zfv-unternehmungen-zurich",
-        "en": "assistant-cook-assistant-cook-60-zfv-unternehmungen-zurich",
+        "en": "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich",
         "de": "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich",
         "fr": "cuisinier-adjoint-cuisinier-adjoint-60-zfv-unternehmungen-zurich"
       },
@@ -2123,7 +2128,7 @@
       "url": "https://jobs.zfv.ch/Hilfskoechin-Hilfskoch-60-de-j4734.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:34.770Z",
+      "crawledAt": "2026-10-19T09:23:58.241Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -2144,14 +2149,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
+        "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich",
+        "assistant-cook-assistant-cook-60-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
         ],
         "en": [
-          "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
+          "assistant-cook-assistant-cook-60-zfv-unternehmungen-zurich"
         ],
         "fr": [
           "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
@@ -2177,7 +2183,7 @@
       "slug": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
       "slugByLocale": {
         "it": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
-        "en": "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil",
+        "en": "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
         "de": "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
         "fr": "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-adliswil"
       },
@@ -2203,7 +2209,7 @@
       "url": "https://jobs.zfv.ch/Hilfskoechin-Hilfskoch-80-de-j4688.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:34.256Z",
+      "crawledAt": "2026-10-19T09:23:57.670Z",
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "streetAddress": "Soodmattenstrasse 2 / 4 / 10",
@@ -2223,14 +2229,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
+        "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
+        "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
         ],
         "en": [
-          "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
+          "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil"
         ],
         "fr": [
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
@@ -2282,7 +2289,7 @@
       "url": "https://jobs.zfv.ch/Hotel-Kommunikationsfachfraumann-EFZ-Lehrstelle-2027-de-j4536.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:33.749Z",
+      "crawledAt": "2026-10-19T09:23:57.125Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Seefeldstrasse 63",
@@ -2361,7 +2368,7 @@
       "url": "https://jobs.zfv.ch/Hotel-Kommunikationsfachfraumann-EFZ-Lehrstelle-2027-de-j4529.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:33.111Z",
+      "crawledAt": "2026-10-19T09:23:56.251Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Laupenstrasse 15",
@@ -2440,7 +2447,7 @@
       "url": "https://jobs.zfv.ch/Inklusive-Mitarbeit-als-Mitarbeiterin-Hauswirtschaft-30-50-de-j4738.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:31.717Z",
+      "crawledAt": "2026-10-19T09:23:54.194Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -2520,7 +2527,7 @@
       "url": "https://jobs.zfv.ch/Junior-Sous-Chefin-de-j4694.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:31.208Z",
+      "crawledAt": "2026-10-19T09:23:53.646Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Fernsehstrasse 1-4",
@@ -2578,10 +2585,10 @@
       "id": "zfv-unternehmungen-4f619d70341d",
       "slug": "cuoca-cuoco-zfv-unternehmungen-baden",
       "slugByLocale": {
-        "it": "cucinare-cucinare-zfv-unternehmungen-baden",
-        "en": "cook-cook-zfv-unternehmungen-baden",
+        "it": "cuoca-cuoco-zfv-unternehmungen-baden",
+        "en": "kochin-koch-zfv-unternehmungen-baden",
         "de": "kochin-koch-zfv-unternehmungen-baden",
-        "fr": "cuire-cuire-zfv-unternehmungen-baden"
+        "fr": "cuisiniere-cuisinier-zfv-unternehmungen-baden"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2605,7 +2612,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-de-j4730.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:30.713Z",
+      "crawledAt": "2026-10-19T09:23:53.083Z",
       "needsRetranslation": true,
       "addressLocality": "Baden",
       "postalCode": "5400",
@@ -2627,18 +2634,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-zfv-unternehmungen-baden",
-        "cuisiniere-cuisinier-zfv-unternehmungen-baden"
+        "cucinare-cucinare-zfv-unternehmungen-baden",
+        "cook-cook-zfv-unternehmungen-baden",
+        "cuire-cuire-zfv-unternehmungen-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-zfv-unternehmungen-baden"
+          "kochin-koch-zfv-unternehmungen-baden",
+          "cucinare-cucinare-zfv-unternehmungen-baden"
         ],
         "en": [
-          "kochin-koch-zfv-unternehmungen-baden"
+          "cook-cook-zfv-unternehmungen-baden"
         ],
         "fr": [
           "kochin-koch-zfv-unternehmungen-baden",
-          "cuisiniere-cuisinier-zfv-unternehmungen-baden"
+          "cuire-cuire-zfv-unternehmungen-baden"
         ]
       },
       "firstSeenAt": "2026-09-22T00:05:09.436Z",
@@ -2687,7 +2697,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-65-de-j4496.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:30.210Z",
+      "crawledAt": "2026-10-19T09:23:52.573Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Klingelbergstrasse 48",
@@ -2755,7 +2765,7 @@
       "slug": "cucinare-cucinare-70-80-zfv-unternehmungen-basel",
       "slugByLocale": {
         "it": "cucinare-cucinare-70-80-zfv-unternehmungen-basel",
-        "en": "cook-cook-70-80-zfv-unternehmungen-basel",
+        "en": "kochin-koch-70-80-zfv-unternehmungen-basel",
         "de": "kochin-koch-70-80-zfv-unternehmungen-basel",
         "fr": "cuisiniere-70-80-zfv-unternehmungen-basel"
       },
@@ -2781,7 +2791,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-70-80-de-j4450.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:29.708Z",
+      "crawledAt": "2026-10-19T09:23:52.061Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Klingelbergstrasse 48",
@@ -2814,7 +2824,8 @@
         "operating-tournament-e-40-zfv-unternehmungen-basel",
         "betriebstournant-e-40-zfv-unternehmungen-basel",
         "tournoi-operationnel-e-40-zfv-unternehmungen-basel",
-        "tour-operateur-e-40-zfv-unternehmungen-basel"
+        "tour-operateur-e-40-zfv-unternehmungen-basel",
+        "cook-cook-70-80-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2836,7 +2847,7 @@
         "en": [
           "assistant-cook-assistant-cook-60-zfv-unternehmungen-basel",
           "operational-assistant-in-zfv-unternehmungen-basel",
-          "kochin-koch-70-80-zfv-unternehmungen-basel"
+          "cook-cook-70-80-zfv-unternehmungen-basel"
         ],
         "de": [
           "hilfskochin-hilfskoch-60-zfv-unternehmungen-basel",
@@ -2867,7 +2878,7 @@
       "slug": "cucinare-cucinare-zfv-unternehmungen-adliswil",
       "slugByLocale": {
         "it": "cucinare-cucinare-zfv-unternehmungen-adliswil",
-        "en": "cook-cook-zfv-unternehmungen-adliswil",
+        "en": "kochin-koch-80-zfv-unternehmungen-adliswil",
         "de": "kochin-koch-zfv-unternehmungen-adliswil",
         "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
       },
@@ -2893,7 +2904,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-80-de-j4580.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:29.205Z",
+      "crawledAt": "2026-10-19T09:23:51.573Z",
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "streetAddress": "Soodmattenstrasse 2 / 4 / 10",
@@ -2918,7 +2929,8 @@
         "cook-cook-40-60-zfv-unternehmungen-adliswil",
         "kochin-koch-40-60-zfv-unternehmungen-adliswil",
         "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
-        "cuire-80-zfv-unternehmungen-adliswil"
+        "cuire-80-zfv-unternehmungen-adliswil",
+        "cook-cook-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2930,7 +2942,7 @@
         ],
         "en": [
           "cook-cook-40-60-zfv-unternehmungen-adliswil",
-          "kochin-koch-80-zfv-unternehmungen-adliswil"
+          "cook-cook-zfv-unternehmungen-adliswil"
         ],
         "de": [
           "kochin-koch-80-zfv-unternehmungen-adliswil",
@@ -2988,7 +3000,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-Aushilfe-de-j4179.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:28.698Z",
+      "crawledAt": "2026-10-19T09:23:51.047Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "streetAddress": "Lidostrasse 5",
@@ -3078,7 +3090,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-befristet-bis-Feb-2027-de-j4521.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:28.199Z",
+      "crawledAt": "2026-10-19T09:23:50.505Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -3176,7 +3188,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-Chef-de-Partie-de-j4747.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:27.693Z",
+      "crawledAt": "2026-10-19T09:23:49.983Z",
       "needsRetranslation": false,
       "addressLocality": "Luzern",
       "postalCode": "6003",
@@ -3242,7 +3254,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-Chef-de-Partie-de-j4723.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:27.178Z",
+      "crawledAt": "2026-10-19T09:23:49.431Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -3308,7 +3320,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-Chef-de-Partie-de-j4602.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:26.676Z",
+      "crawledAt": "2026-10-19T09:23:48.895Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Bahnhofstrasse 45",
@@ -3336,11 +3348,11 @@
           "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich",
           "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2"
         ],
-        "de": [
-          "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich"
-        ],
         "en": [
           "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2"
+        ],
+        "de": [
+          "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich"
         ],
         "fr": [
           "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2"
@@ -3367,7 +3379,7 @@
       "slugByLocale": {
         "it": "cucina-capo-de-partie-zfv-unternehmungen-luzern",
         "en": "cook-chief-de-partie-zfv-unternehmungen-luzern",
-        "de": "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern-8gs040",
+        "de": "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern",
         "fr": "cuisinier-chef-de-partie-zfv-unternehmungen-luzern"
       },
       "company": "ZFV-Unternehmungen",
@@ -3392,7 +3404,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-Chef-de-Partie-de-j3948.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:26.170Z",
+      "crawledAt": "2026-10-19T09:23:48.337Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "streetAddress": "Lidostrasse 5",
@@ -3412,14 +3424,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
+        "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern",
+        "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern-8gs040"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
         ],
         "de": [
-          "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
+          "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern-8gs040"
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:58.994Z",
@@ -3468,7 +3481,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4735.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:25.671Z",
+      "crawledAt": "2026-10-19T09:23:47.817Z",
       "addressLocality": "Murten",
       "postalCode": "3280",
       "streetAddress": "Löwenberg 45B",
@@ -3547,7 +3560,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4674.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:25.156Z",
+      "crawledAt": "2026-10-19T09:23:47.244Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "streetAddress": "Frohburgstrasse 3",
@@ -3626,7 +3639,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4569.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:24.518Z",
+      "crawledAt": "2026-10-19T09:23:46.645Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Binzmühlestrasse 14",
@@ -3705,7 +3718,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4565.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:23.874Z",
+      "crawledAt": "2026-10-19T09:23:46.038Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "St. Alban-Anlage 26",
@@ -3784,7 +3797,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4560.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:22.712Z",
+      "crawledAt": "2026-10-19T09:23:44.783Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "Hegenheimermattweg 91",
@@ -3863,7 +3876,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4559.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:22.187Z",
+      "crawledAt": "2026-10-19T09:23:44.130Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Wölflistrasse 5",
@@ -3944,7 +3957,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4556.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:21.137Z",
+      "crawledAt": "2026-10-19T09:23:42.860Z",
       "addressLocality": "Olten",
       "postalCode": "4600",
       "streetAddress": "Bahnhofstrasse 12",
@@ -4029,7 +4042,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4552.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:19.864Z",
+      "crawledAt": "2026-10-19T09:23:41.494Z",
       "addressLocality": "Rotkreuz",
       "postalCode": "6343",
       "streetAddress": "Suurstoffi 1",
@@ -4108,7 +4121,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4551.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:19.226Z",
+      "crawledAt": "2026-10-19T09:23:40.779Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "streetAddress": "Baarerstrasse 100",
@@ -4187,7 +4200,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4547.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:17.924Z",
+      "crawledAt": "2026-10-19T09:23:39.478Z",
       "addressLocality": "Horw",
       "postalCode": "6048",
       "streetAddress": "Technikumstrasse 21",
@@ -4266,7 +4279,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4542.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:17.288Z",
+      "crawledAt": "2026-10-19T09:23:38.818Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Pionierstrasse 3",
@@ -4345,7 +4358,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4541.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:16.646Z",
+      "crawledAt": "2026-10-19T09:23:38.129Z",
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "streetAddress": "Soodmattenstrasse 2 / 4 / 10",
@@ -4424,7 +4437,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4539.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:15.994Z",
+      "crawledAt": "2026-10-19T09:23:37.475Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "Europastrasse 1",
@@ -4503,7 +4516,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4531.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:15.346Z",
+      "crawledAt": "2026-10-19T09:23:36.810Z",
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 94 / 96",
@@ -4586,7 +4599,7 @@
       "url": "https://jobs.zfv.ch/Kuechenangestellter-EBA-Lehrstelle-2027-de-j4699.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:13.408Z",
+      "crawledAt": "2026-10-19T09:23:34.757Z",
       "needsRetranslation": false,
       "addressLocality": "Luzern",
       "postalCode": "6003",
@@ -4668,7 +4681,7 @@
       "url": "https://jobs.zfv.ch/Kuechenchefin-de-j4692.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:12.637Z",
+      "crawledAt": "2026-10-19T09:23:33.968Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -4760,7 +4773,7 @@
       "url": "https://jobs.zfv.ch/Leiterin-Public-Catering-de-j4736.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:12.126Z",
+      "crawledAt": "2026-10-19T09:23:33.356Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -4837,7 +4850,7 @@
       "url": "https://jobs.zfv.ch/Management-Praktikantin-de-j4751.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:11.626Z",
+      "crawledAt": "2026-10-19T09:23:32.809Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -4916,7 +4929,7 @@
       "url": "https://jobs.zfv.ch/Mitarbeiterin-Hauswirtschaft-de-j4724.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:10.869Z",
+      "crawledAt": "2026-10-19T09:23:32.050Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -4996,7 +5009,7 @@
       "url": "https://jobs.zfv.ch/Mitarbeiterin-Hauswirtschaft-Aushilfe-de-j3970.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:10.366Z",
+      "crawledAt": "2026-10-19T09:23:31.485Z",
       "needsRetranslation": false,
       "addressLocality": "Rapperswil",
       "postalCode": "8640",
@@ -5076,7 +5089,7 @@
       "url": "https://jobs.zfv.ch/Nachtportier-40-de-j4749.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:09.594Z",
+      "crawledAt": "2026-10-19T09:23:30.684Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Laupenstrasse 15",
@@ -5155,7 +5168,7 @@
       "url": "https://jobs.zfv.ch/Office-Mitarbeiterin-de-j4727.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:09.090Z",
+      "crawledAt": "2026-10-19T09:23:30.120Z",
       "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3004",
@@ -5235,7 +5248,7 @@
       "url": "https://jobs.zfv.ch/Office-Mitarbeiterin-de-j4667.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:08.576Z",
+      "crawledAt": "2026-10-19T09:23:29.594Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Orellistrasse 21",
@@ -5319,9 +5332,9 @@
       "id": "zfv-unternehmungen-9530c37e33f0",
       "slug": "office-collaboratore-trice-50-zfv-unternehmungen-winterthur",
       "slugByLocale": {
-        "de": "office-mitarbeiter-in-50-zfv-unternehmungen-winterthur",
         "it": "office-collaboratore-trice-50-zfv-unternehmungen-winterthur",
         "en": "office-associate-50-zfv-unternehmungen-winterthur",
+        "de": "office-mitarbeiter-in-50-zfv-unternehmungen-winterthur",
         "fr": "office-collaborateur-trice-50-zfv-unternehmungen-winterthur"
       },
       "company": "ZFV-Unternehmungen",
@@ -5329,16 +5342,16 @@
       "companyDomain": "zfv.ch",
       "title": "Office-Mitarbeiter:in (50%)",
       "titleByLocale": {
-        "de": "Office-Mitarbeiter:in (50%)",
         "it": "Office-Collaboratore/trice (50%)",
         "en": "Office-Associate (50%)",
+        "de": "Office-Mitarbeiter:in (50%)",
         "fr": "Office-Collaborateur/trice (50%)"
       },
       "description": "Dieser Arbeitsort umfasst eine Mensa und das 24/7-«Nellis»-Konzept. Der Begegnungsort in Winterthur schafft einen einladenden Treffpunkt für Lernende und Mitarbeitende. Unser Team begeistert hier von Montag bis Freitag durchschnittlich 200 Gäste mit einem vielseitigen Angebot – von täglich wechselnden Menüs über Sandwiches und Snacks bis hin zu internen Caterings. Bist du unser neues Teammitglied, welches uns als Office-Mitarbeiter per sofort oder nach Vereinbarung unterstützt? Du arbeitest in einem ca. 50%-Pensum jeweils von Montag bis Freitag von 11:30 Uhr bis 15:30 Uhr. Während den Schulferien besteht kein Einsatz im Betrieb; temporäre Einsätze in anderen Betrieben sind bei Bedarf möglich. Dein Aufgabenmenü:\n• Abwasch von Geschirr, Besteck sowie sämtlichen Küchenutensilien\n• Bedienung der Abwaschmaschine\n• Sicherstellung der Sauberkeit und Ordnung im Office-Bereich\n• Entsorgung und Abfalltrennung\n• Unterhalt sowie Pflege der Maschinen in der Abwaschküche\n• Erledigung diverser Reinigungsausgaben in der Küche sowie im gesamten Betrieb\n• Umsetzung der ZFV-Qualitäts- und Dienstleistungsstandards\n• Einhaltung sowie Umsetzung der Hygiene- und Arbeitssicherheitsrichtlinien\n• Mithilfe bei der Speisenausgabe während des Mittagsservices Dein Erfolgsrezept:\n• Erste Erfahrung in der Gastronomie / Hotellerie\n• Erfahrung in der Abwaschküche\n• Gute mündliche Deutschkenntnisse\n• Teamfähigkeit\n• Lernbereit und belastbar\n• Hygienebewusst\n• Strukturiert und selbständig Das bieten wir dir: Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut. Unter anderem legen wir dabei grossen Wert auf Lohntransparenz und Lohngleichheit. Für diese Position bieten wir bei einem 100%-Pensum, abhängig von deiner Erfahrung und Qualifikation, einen Jahreslohn von rund CHF 52'000 (inkl. 13. Monatslohn). Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
       "descriptionByLocale": {
-        "de": "Dieser Arbeitsort umfasst eine Mensa und das 24/7-«Nellis»-Konzept. Der Begegnungsort in Winterthur schafft einen einladenden Treffpunkt für Lernende und Mitarbeitende. Unser Team begeistert hier von Montag bis Freitag durchschnittlich 200 Gäste mit einem vielseitigen Angebot – von täglich wechselnden Menüs über Sandwiches und Snacks bis hin zu internen Caterings. Bist du unser neues Teammitglied, welches uns als Office-Mitarbeiter per sofort oder nach Vereinbarung unterstützt? Du arbeitest in einem ca. 50%-Pensum jeweils von Montag bis Freitag von 11:30 Uhr bis 15:30 Uhr. Während den Schulferien besteht kein Einsatz im Betrieb; temporäre Einsätze in anderen Betrieben sind bei Bedarf möglich. Dein Aufgabenmenü:\n• Abwasch von Geschirr, Besteck sowie sämtlichen Küchenutensilien\n• Bedienung der Abwaschmaschine\n• Sicherstellung der Sauberkeit und Ordnung im Office-Bereich\n• Entsorgung und Abfalltrennung\n• Unterhalt sowie Pflege der Maschinen in der Abwaschküche\n• Erledigung diverser Reinigungsausgaben in der Küche sowie im gesamten Betrieb\n• Umsetzung der ZFV-Qualitäts- und Dienstleistungsstandards\n• Einhaltung sowie Umsetzung der Hygiene- und Arbeitssicherheitsrichtlinien\n• Mithilfe bei der Speisenausgabe während des Mittagsservices Dein Erfolgsrezept:\n• Erste Erfahrung in der Gastronomie / Hotellerie\n• Erfahrung in der Abwaschküche\n• Gute mündliche Deutschkenntnisse\n• Teamfähigkeit\n• Lernbereit und belastbar\n• Hygienebewusst\n• Strukturiert und selbständig Das bieten wir dir: Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut. Unter anderem legen wir dabei grossen Wert auf Lohntransparenz und Lohngleichheit. Für diese Position bieten wir bei einem 100%-Pensum, abhängig von deiner Erfahrung und Qualifikation, einen Jahreslohn von rund CHF 52'000 (inkl. 13. Monatslohn). Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
         "it": "Questa sede di lavoro comprende una mensa e il concetto 24/7-«Nellis». Il luogo d'incontro di Winterthur crea un punto di ritrovo accogliente per persone in formazione e collaboratori. Qui, dal lunedì al venerdì, il nostro team conquista in media 200 ospiti con un'offerta variegata – dai menù che cambiano ogni giorno passando per panini e snack fino ai catering interni. Sei il nuovo membro del nostro team che ci supporta come addetto/a al lavaggio con effetto immediato o previo accordo? Lavori con un grado d'impiego di circa il 50%, dal lunedì al venerdì, dalle 11:30 alle 15:30. Durante le vacanze scolastiche non è previsto alcun impiego nella struttura; all'occorrenza sono possibili impieghi temporanei in altre strutture. Il tuo menù di mansioni:\n• Lavaggio di stoviglie, posate e di tutti gli utensili da cucina\n• Utilizzo della lavastoviglie\n• Garantire la pulizia e l'ordine nell'area di lavaggio\n• Smaltimento e separazione dei rifiuti\n• Manutenzione e cura dei macchinari nella zona lavaggio stoviglie\n• Svolgimento di diverse attività di pulizia in cucina e nell'intera struttura\n• Attuazione degli standard ZFV in materia di qualità e servizi\n• Rispetto e attuazione delle direttive in materia di igiene e sicurezza sul lavoro\n• Supporto nella distribuzione dei pasti durante il servizio di pranzo La tua ricetta del successo:\n• Prima esperienza nella ristorazione / nel settore alberghiero\n• Esperienza nel reparto lavaggio di una cucina\n• Buone conoscenze orali della lingua tedesca\n• Capacità di lavorare in team\n• Disponibile a imparare e resistente allo stress\n• Attento all'igiene\n• Strutturato e autonomo Ciò che ti offriamo: Creiamo team che si sostengono a vicenda e in cui vieni incoraggiato. Collaboriamo e puntiamo su tutto ciò che fa bene. Tra le altre cose, attribuiamo grande importanza alla trasparenza salariale e all'uguaglianza salariale. Per questa posizione offriamo, con un impiego al 100%, a seconda della tua esperienza e qualifica, uno stipendio annuo di circa CHF 52'000 (incl. 13. Mensilità). Se vuoi condividere con noi la tua passione per la gastronomia, saremo lieti di ricevere la tua candidatura online completa.",
         "en": "This workplace includes a canteen and the 24/7-«Nellis»-concept. The meeting place in Winterthur creates an inviting gathering place for trainees and employees. From Monday to Friday, our team delights an average of 200 guests here with a varied offering – from daily changing menus through sandwiches and snacks to internal catering events. Are you our new team member who will support us as an office employee with immediate effect or by arrangement? You work in an approximately 50% position from Monday to Friday from 11:30 to 15:30. During school holidays, there are no shifts at the operation; temporary assignments at other operations are possible if needed. Your task menu:\n• Washing dishes, cutlery and all kitchen utensils\n• Operating the dishwasher\n• Ensuring cleanliness and order in the office area\n• Waste disposal and sorting\n• Maintenance and care of the machines in the dishwashing area\n• Carrying out various cleaning tasks in the kitchen as well as throughout the entire operation\n• Implementation of the ZFV quality and service standards\n• Compliance with and implementation of the hygiene and occupational safety guidelines\n• Assistance with serving food during the lunch service Your recipe for success:\n• Initial experience in gastronomy / the hotel industry\n• Experience in a dishwashing area\n• Good spoken German skills\n• Ability to work in a team\n• Willing to learn and resilient\n• Hygiene-conscious\n• Structured and independent What we offer you: We create teams that support each other and in which you are encouraged. We work together and focus on everything that feels good. Among other things, we place great emphasis on salary transparency and equal pay. For this position, at a 100% workload, depending on your experience and qualifications, we offer an annual salary of around CHF 52'000 (incl. 13. Monthly salary). If you would like to share your passion for gastronomy with us, we look forward to receiving your complete online application.",
+        "de": "Dieser Arbeitsort umfasst eine Mensa und das 24/7-«Nellis»-Konzept. Der Begegnungsort in Winterthur schafft einen einladenden Treffpunkt für Lernende und Mitarbeitende. Unser Team begeistert hier von Montag bis Freitag durchschnittlich 200 Gäste mit einem vielseitigen Angebot – von täglich wechselnden Menüs über Sandwiches und Snacks bis hin zu internen Caterings. Bist du unser neues Teammitglied, welches uns als Office-Mitarbeiter per sofort oder nach Vereinbarung unterstützt? Du arbeitest in einem ca. 50%-Pensum jeweils von Montag bis Freitag von 11:30 Uhr bis 15:30 Uhr. Während den Schulferien besteht kein Einsatz im Betrieb; temporäre Einsätze in anderen Betrieben sind bei Bedarf möglich. Dein Aufgabenmenü:\n• Abwasch von Geschirr, Besteck sowie sämtlichen Küchenutensilien\n• Bedienung der Abwaschmaschine\n• Sicherstellung der Sauberkeit und Ordnung im Office-Bereich\n• Entsorgung und Abfalltrennung\n• Unterhalt sowie Pflege der Maschinen in der Abwaschküche\n• Erledigung diverser Reinigungsausgaben in der Küche sowie im gesamten Betrieb\n• Umsetzung der ZFV-Qualitäts- und Dienstleistungsstandards\n• Einhaltung sowie Umsetzung der Hygiene- und Arbeitssicherheitsrichtlinien\n• Mithilfe bei der Speisenausgabe während des Mittagsservices Dein Erfolgsrezept:\n• Erste Erfahrung in der Gastronomie / Hotellerie\n• Erfahrung in der Abwaschküche\n• Gute mündliche Deutschkenntnisse\n• Teamfähigkeit\n• Lernbereit und belastbar\n• Hygienebewusst\n• Strukturiert und selbständig Das bieten wir dir: Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut. Unter anderem legen wir dabei grossen Wert auf Lohntransparenz und Lohngleichheit. Für diese Position bieten wir bei einem 100%-Pensum, abhängig von deiner Erfahrung und Qualifikation, einen Jahreslohn von rund CHF 52'000 (inkl. 13. Monatslohn). Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
         "fr": "Ce lieu de travail comprend une cantine et le concept « Nellis » 24/7. Le lieu de rencontre de Winterthur crée un point de rencontre accueillant pour les personnes en formation et les collaborateurs. Du lundi au vendredi, notre équipe ravit ici en moyenne 200 convives avec une offre variée – des menus qui changent chaque jour aux sandwichs et snacks, en passant par les prestations de traiteur internes. Es-tu le nouveau membre de notre équipe qui nous soutiendra en tant que collaborateur de l'office avec effet immédiat ou à convenir ? Tu travailles à environ 50 % du lundi au vendredi, de 11:30 à 15:30. Pendant les vacances scolaires, aucune intervention n'est prévue dans l'établissement ; des engagements temporaires dans d'autres établissements sont possibles en cas de besoin. Ton menu de tâches :\n• Lavage de la vaisselle, des couverts ainsi que de tous les ustensiles de cuisine\n• Utilisation de la machine à laver la vaisselle\n• Assurer la propreté et l’ordre dans l’espace office\n• Élimination et tri des déchets\n• Entretien et maintenance des machines de la plonge\n• Exécution de diverses tâches de nettoyage dans la cuisine ainsi que dans l’ensemble de l’établissement\n• Mise en œuvre des standards de qualité et de service de ZFV\n• Respect et mise en œuvre des directives d’hygiène et de sécurité au travail\n• Aide à la distribution des repas pendant le service de midi Ta recette du succès :\n• Première expérience dans la restauration / l’hôtellerie\n• Expérience en plonge\n• Bonnes connaissances orales de l’allemand\n• Vous êtes disposé à travailler en équipe ;\n• Prêt à apprendre et résilient\n• Hygiénique\n• Structuré et autonome C'est ce que nous vous proposons : nous créons des équipes qui se soutiennent mutuellement et dans lesquelles vous êtes encouragé. Nous agissons ensemble et misons sur tout ce qui fait du bien. Entre autres choses, nous attachons une grande importance à la transparence et à l'égalité salariales. Pour ce poste, nous offrons un salaire annuel d'environ 52 000 CHF (TVA incluse) pour un taux d'occupation de 100 %, en fonction de votre expérience et de vos qualifications. 13. Salaire mensuel). Si vous souhaitez partager avec nous votre passion pour la gastronomie, nous nous réjouissons de recevoir votre candidature complète en ligne."
       },
       "location": "Winterthur",
@@ -5346,7 +5359,7 @@
       "url": "https://jobs.zfv.ch/Office-Mitarbeiterin-50-de-j4753.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:08.080Z",
+      "crawledAt": "2026-10-19T09:23:29.066Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Schlosstalstrasse 139",
@@ -5364,9 +5377,10 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.zfv.ch/Office-Mitarbeiterin-50-de-j4753.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "office-mitarbeiter-in-50-zfv-unternehmungen-winterthur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "office-mitarbeiter-in-50-zfv-unternehmungen-winterthur"
@@ -5378,9 +5392,7 @@
           "office-mitarbeiter-in-50-zfv-unternehmungen-winterthur"
         ]
       },
-      "previousSlugs": [
-        "office-mitarbeiter-in-50-zfv-unternehmungen-winterthur"
-      ],
+      "firstSeenAt": "2026-10-18T09:24:08.080Z",
       "salaryMin": 36800,
       "salaryMax": 55800,
       "salarySource": "estimated",
@@ -5393,8 +5405,7 @@
           "maxValue": 55800,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-18T09:24:08.080Z"
+      }
     },
     {
       "id": "zfv-unternehmungen-d22732398ce5",
@@ -5427,7 +5438,7 @@
       "url": "https://jobs.zfv.ch/Office-Mitarbeiterin-80-de-j4681.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:07.559Z",
+      "crawledAt": "2026-10-19T09:23:28.537Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Pionierstrasse 3",
@@ -5506,7 +5517,7 @@
       "url": "https://jobs.zfv.ch/Pool-dtudiants-fr-j4729.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:24:07.058Z",
+      "crawledAt": "2026-10-19T09:23:27.976Z",
       "needsRetranslation": false,
       "addressLocality": "Lausanne",
       "postalCode": "1003",
@@ -5586,7 +5597,7 @@
       "url": "https://jobs.zfv.ch/Praktikantin-Menschen-Kultur-de-j4695.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:06.304Z",
+      "crawledAt": "2026-10-19T09:23:27.263Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Flüelastrasse 51",
@@ -5667,7 +5678,7 @@
       "url": "https://jobs.zfv.ch/Rceptionistin-de-j4763.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:05.797Z",
+      "crawledAt": "2026-10-19T09:23:26.754Z",
       "needsRetranslation": false,
       "addressLocality": "Rapperswil",
       "postalCode": "8640",
@@ -5733,7 +5744,7 @@
       "url": "https://jobs.zfv.ch/Restaurantfachfraumann-EFZ-Lehrstelle-2027-de-j4718.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:05.298Z",
+      "crawledAt": "2026-10-19T09:23:26.211Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Sihlstrasse 9",
@@ -5814,7 +5825,7 @@
       "url": "https://jobs.zfv.ch/Restaurantfachfraumann-EFZ-Lehrstelle-2027-de-j4612.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:04.636Z",
+      "crawledAt": "2026-10-19T09:23:25.571Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Marktgasse 49",
@@ -5893,7 +5904,7 @@
       "url": "https://jobs.zfv.ch/Restaurantfachfraumann-EFZ-Lehrstelle-2027-de-j4532.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:03.960Z",
+      "crawledAt": "2026-10-19T09:23:24.944Z",
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 94 / 96",
@@ -5945,7 +5956,7 @@
       "id": "zfv-unternehmungen-7e4f10d29cce",
       "slug": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
+        "it": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
         "en": "service-associate-20-zfv-unternehmungen-bern",
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "fr": "service-collaborateur-trice-20-zfv-unternehmungen-bern"
@@ -5972,7 +5983,7 @@
       "url": "https://jobs.zfv.ch/Service-Mitarbeiterin-20-de-j4257.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:02.523Z",
+      "crawledAt": "2026-10-19T09:23:23.532Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Schlösslistrasse 5",
@@ -5997,12 +6008,14 @@
         "personnel-des-services-en-20-zfv-unternehmungen-bern",
         "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "service-staff-in-20-zfv-unternehmungen-bern-72427b",
-        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b"
+        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b",
+        "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "personale-di-servizio-in-20-zfv-unternehmungen-bern",
-          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
+          "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
         ],
         "en": [
           "service-staff-in-20-zfv-unternehmungen-bern",
@@ -6061,7 +6074,7 @@
       "url": "https://jobs.zfv.ch/Service-Mitarbeiterin-Aushilfe-de-j4712.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:24:01.476Z",
+      "crawledAt": "2026-10-19T09:23:22.362Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6171,7 +6184,7 @@
       "url": "https://jobs.zfv.ch/Sous-chef-de-j4762.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:23:59.983Z",
+      "crawledAt": "2026-10-19T09:23:20.776Z",
       "needsRetranslation": false,
       "addressLocality": "Ecublens",
       "postalCode": "1024",
@@ -6256,7 +6269,7 @@
       "url": "https://jobs.zfv.ch/Sous-Chefin-de-j4682.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:23:59.194Z",
+      "crawledAt": "2026-10-19T09:23:20.026Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6323,6 +6336,74 @@
       }
     },
     {
+      "id": "zfv-unternehmungen-12c1e6248949",
+      "slug": "souschef-in-zfv-unternehmungen-murten",
+      "slugByLocale": {
+        "de": "souschef-in-zfv-unternehmungen-murten",
+        "it": "souschef-in-zfv-unternehmungen-murten",
+        "en": "souschef-in-zfv-unternehmungen-murten",
+        "fr": "souschef-in-zfv-unternehmungen-murten"
+      },
+      "company": "ZFV-Unternehmungen",
+      "companyKey": "zfv-unternehmungen",
+      "companyDomain": "zfv.ch",
+      "title": "Souschef:in",
+      "titleByLocale": {
+        "de": "Souschef:in",
+        "it": "Souschef:in",
+        "en": "Souschef:in",
+        "fr": "Souschef:in"
+      },
+      "description": "Dieser Arbeitsort eröffnet per Januar 2027 und umfasst als einer der spannendsten Mehrspartenbetriebe der Schweizer Gastronomie ein Free-Flow-Restaurant mit rund 280 Plätzen sowie eine Terrasse mit weiteren 120 Plätzen, eine Bar, Catering, Seminargastronomie sowie eine Hotellerie mit rund 168 Zimmern unter einem Dach. Der Begegnungsort am Murtensee im Herzen der Drei-Seen-Region schafft einen einladenden Treffpunkt für verschiedene Gästegruppen. Dazu gehört auch die Eventlocation CEL mit jährlich 45'000 Seminargästen. Dort betreut unser Team verschiedene Anlässe – von Banketten über Sommerfeste und kleine Feiern bis hin zu Grossanlässen. Bist du unser neues Teammitglied, welches uns als Souschef:in per 01. Januar 2027 oder nach Vereinbarung unterstützt? Du arbeitest an fünf Tagen pro Woche zwischen Montag und Sonntag in Früh-, Mittel- oder Spätschicht zwischen 06:00 und 21:00 Uhr. An Wochenenden finden Veranstaltungen statt, die teilweise eine Präsenz bis 03:00 Uhr erfordern. Die Betriebsferien umfassen die Ostertage, zwei Wochen Mitte Juli sowie zwei Wochen über Weihnachten. Die restlichen Ferientage können frei gewählt werden. Dein Aufgabenmenü:\n• Mitwirkung bei der Führung und Organisation des gesamten Küchenbereichs\n• Sicherstellung einer hochstehenden Qualität der Speisen und aktive Mitarbeit in der Produktion\n• Aktive Mitarbeit bei der Zubereitung der Speisen auf allen Posten im Küchenbereich\n• Erstellung der Mise en Place\n• Mitarbeit bei der Weiterentwicklung einer inspirierenden und innovativen Angebotsplanung\n• Mitarbeit bei der Kalkulation, Umsetzung sowie Rezeptierung mittels Warenbewirtschaftungssystem\n• Analysierung der Kunden- und Gästebedürfnisse sowie Einschätzung und Umsetzung relevanter Trends\n• Warenannahme und Bewirtschaftung des Lagers\n• Erledigung verschiedener administrativer Aufgaben\n• Das ZFV-Leadership Modell «wir machen andere erfolgreich» im Alltag aller erlebbar machen.\n• Förderung einer Kultur geprägt von Vertrauen, Mut, Transparenz und Freude\n• Vision und Strategie verkörpern, verstehen, vertreten und vorantreiben\n• Ziele verfolgen, priorisieren und die Umsetzung messen\n• Die Umsetzung der ZFV-Nachhaltigkeits- und Umweltstrategie vorantreiben\n• Förderung der Teambildung und Entwicklung der Mitarbeitenden Dein Erfolgsrezept:\n• Grundausbildung als Koch: EFZ oder gastronomische Grundausbildung EFZ mit Zusatzausbildung als Koch: EFZ\n• 8 Jahre Berufserfahrung in der Gastronomie / Hotellerie\n• Küchenerfahrung auf allen Posten in der Küche\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Agiles und innovatives Mindset\n• Zielorientierung\n• Kundenorientierung\n• Teamfähigkeit\n• Lernbereitschaft\n• Leadership Das bieten wir dir: Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut. Unter anderem legen wir dabei grossen Wert auf Lohntransparenz und Lohngleichheit. Für diese Position bieten wir bei einem 100%-Pensum, abhängig von deiner Erfahrung und Qualifikation, einen Jahreslohn zwischen CHF 60'000 und CHF 71'500 (inkl. 13. Monatslohn). Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
+      "descriptionByLocale": {
+        "de": "Dieser Arbeitsort eröffnet per Januar 2027 und umfasst als einer der spannendsten Mehrspartenbetriebe der Schweizer Gastronomie ein Free-Flow-Restaurant mit rund 280 Plätzen sowie eine Terrasse mit weiteren 120 Plätzen, eine Bar, Catering, Seminargastronomie sowie eine Hotellerie mit rund 168 Zimmern unter einem Dach. Der Begegnungsort am Murtensee im Herzen der Drei-Seen-Region schafft einen einladenden Treffpunkt für verschiedene Gästegruppen. Dazu gehört auch die Eventlocation CEL mit jährlich 45'000 Seminargästen. Dort betreut unser Team verschiedene Anlässe – von Banketten über Sommerfeste und kleine Feiern bis hin zu Grossanlässen. Bist du unser neues Teammitglied, welches uns als Souschef:in per 01. Januar 2027 oder nach Vereinbarung unterstützt? Du arbeitest an fünf Tagen pro Woche zwischen Montag und Sonntag in Früh-, Mittel- oder Spätschicht zwischen 06:00 und 21:00 Uhr. An Wochenenden finden Veranstaltungen statt, die teilweise eine Präsenz bis 03:00 Uhr erfordern. Die Betriebsferien umfassen die Ostertage, zwei Wochen Mitte Juli sowie zwei Wochen über Weihnachten. Die restlichen Ferientage können frei gewählt werden. Dein Aufgabenmenü:\n• Mitwirkung bei der Führung und Organisation des gesamten Küchenbereichs\n• Sicherstellung einer hochstehenden Qualität der Speisen und aktive Mitarbeit in der Produktion\n• Aktive Mitarbeit bei der Zubereitung der Speisen auf allen Posten im Küchenbereich\n• Erstellung der Mise en Place\n• Mitarbeit bei der Weiterentwicklung einer inspirierenden und innovativen Angebotsplanung\n• Mitarbeit bei der Kalkulation, Umsetzung sowie Rezeptierung mittels Warenbewirtschaftungssystem\n• Analysierung der Kunden- und Gästebedürfnisse sowie Einschätzung und Umsetzung relevanter Trends\n• Warenannahme und Bewirtschaftung des Lagers\n• Erledigung verschiedener administrativer Aufgaben\n• Das ZFV-Leadership Modell «wir machen andere erfolgreich» im Alltag aller erlebbar machen.\n• Förderung einer Kultur geprägt von Vertrauen, Mut, Transparenz und Freude\n• Vision und Strategie verkörpern, verstehen, vertreten und vorantreiben\n• Ziele verfolgen, priorisieren und die Umsetzung messen\n• Die Umsetzung der ZFV-Nachhaltigkeits- und Umweltstrategie vorantreiben\n• Förderung der Teambildung und Entwicklung der Mitarbeitenden Dein Erfolgsrezept:\n• Grundausbildung als Koch: EFZ oder gastronomische Grundausbildung EFZ mit Zusatzausbildung als Koch: EFZ\n• 8 Jahre Berufserfahrung in der Gastronomie / Hotellerie\n• Küchenerfahrung auf allen Posten in der Küche\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Agiles und innovatives Mindset\n• Zielorientierung\n• Kundenorientierung\n• Teamfähigkeit\n• Lernbereitschaft\n• Leadership Das bieten wir dir: Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut. Unter anderem legen wir dabei grossen Wert auf Lohntransparenz und Lohngleichheit. Für diese Position bieten wir bei einem 100%-Pensum, abhängig von deiner Erfahrung und Qualifikation, einen Jahreslohn zwischen CHF 60'000 und CHF 71'500 (inkl. 13. Monatslohn). Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
+        "it": "Dieser Arbeitsort eröffnet per Januar 2027 und umfasst als einer der spannendsten Mehrspartenbetriebe der Schweizer Gastronomie ein Free-Flow-Restaurant mit rund 280 Plätzen sowie eine Terrasse mit weiteren 120 Plätzen, eine Bar, Catering, Seminargastronomie sowie eine Hotellerie mit rund 168 Zimmern unter einem Dach. Der Begegnungsort am Murtensee im Herzen der Drei-Seen-Region schafft einen einladenden Treffpunkt für verschiedene Gästegruppen. Dazu gehört auch die Eventlocation CEL mit jährlich 45'000 Seminargästen. Dort betreut unser Team verschiedene Anlässe – von Banketten über Sommerfeste und kleine Feiern bis hin zu Grossanlässen. Bist du unser neues Teammitglied, welches uns als Souschef:in per 01. Januar 2027 oder nach Vereinbarung unterstützt? Du arbeitest an fünf Tagen pro Woche zwischen Montag und Sonntag in Früh-, Mittel- oder Spätschicht zwischen 06:00 und 21:00 Uhr. An Wochenenden finden Veranstaltungen statt, die teilweise eine Präsenz bis 03:00 Uhr erfordern. Die Betriebsferien umfassen die Ostertage, zwei Wochen Mitte Juli sowie zwei Wochen über Weihnachten. Die restlichen Ferientage können frei gewählt werden. Dein Aufgabenmenü:\n• Mitwirkung bei der Führung und Organisation des gesamten Küchenbereichs\n• Sicherstellung einer hochstehenden Qualität der Speisen und aktive Mitarbeit in der Produktion\n• Aktive Mitarbeit bei der Zubereitung der Speisen auf allen Posten im Küchenbereich\n• Erstellung der Mise en Place\n• Mitarbeit bei der Weiterentwicklung einer inspirierenden und innovativen Angebotsplanung\n• Mitarbeit bei der Kalkulation, Umsetzung sowie Rezeptierung mittels Warenbewirtschaftungssystem\n• Analysierung der Kunden- und Gästebedürfnisse sowie Einschätzung und Umsetzung relevanter Trends\n• Warenannahme und Bewirtschaftung des Lagers\n• Erledigung verschiedener administrativer Aufgaben\n• Das ZFV-Leadership Modell «wir machen andere erfolgreich» im Alltag aller erlebbar machen.\n• Förderung einer Kultur geprägt von Vertrauen, Mut, Transparenz und Freude\n• Vision und Strategie verkörpern, verstehen, vertreten und vorantreiben\n• Ziele verfolgen, priorisieren und die Umsetzung messen\n• Die Umsetzung der ZFV-Nachhaltigkeits- und Umweltstrategie vorantreiben\n• Förderung der Teambildung und Entwicklung der Mitarbeitenden Dein Erfolgsrezept:\n• Grundausbildung als Koch: EFZ oder gastronomische Grundausbildung EFZ mit Zusatzausbildung als Koch: EFZ\n• 8 Jahre Berufserfahrung in der Gastronomie / Hotellerie\n• Küchenerfahrung auf allen Posten in der Küche\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Agiles und innovatives Mindset\n• Zielorientierung\n• Kundenorientierung\n• Teamfähigkeit\n• Lernbereitschaft\n• Leadership Das bieten wir dir: Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut. Unter anderem legen wir dabei grossen Wert auf Lohntransparenz und Lohngleichheit. Für diese Position bieten wir bei einem 100%-Pensum, abhängig von deiner Erfahrung und Qualifikation, einen Jahreslohn zwischen CHF 60'000 und CHF 71'500 (inkl. 13. Monatslohn). Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
+        "en": "Dieser Arbeitsort eröffnet per Januar 2027 und umfasst als einer der spannendsten Mehrspartenbetriebe der Schweizer Gastronomie ein Free-Flow-Restaurant mit rund 280 Plätzen sowie eine Terrasse mit weiteren 120 Plätzen, eine Bar, Catering, Seminargastronomie sowie eine Hotellerie mit rund 168 Zimmern unter einem Dach. Der Begegnungsort am Murtensee im Herzen der Drei-Seen-Region schafft einen einladenden Treffpunkt für verschiedene Gästegruppen. Dazu gehört auch die Eventlocation CEL mit jährlich 45'000 Seminargästen. Dort betreut unser Team verschiedene Anlässe – von Banketten über Sommerfeste und kleine Feiern bis hin zu Grossanlässen. Bist du unser neues Teammitglied, welches uns als Souschef:in per 01. Januar 2027 oder nach Vereinbarung unterstützt? Du arbeitest an fünf Tagen pro Woche zwischen Montag und Sonntag in Früh-, Mittel- oder Spätschicht zwischen 06:00 und 21:00 Uhr. An Wochenenden finden Veranstaltungen statt, die teilweise eine Präsenz bis 03:00 Uhr erfordern. Die Betriebsferien umfassen die Ostertage, zwei Wochen Mitte Juli sowie zwei Wochen über Weihnachten. Die restlichen Ferientage können frei gewählt werden. Dein Aufgabenmenü:\n• Mitwirkung bei der Führung und Organisation des gesamten Küchenbereichs\n• Sicherstellung einer hochstehenden Qualität der Speisen und aktive Mitarbeit in der Produktion\n• Aktive Mitarbeit bei der Zubereitung der Speisen auf allen Posten im Küchenbereich\n• Erstellung der Mise en Place\n• Mitarbeit bei der Weiterentwicklung einer inspirierenden und innovativen Angebotsplanung\n• Mitarbeit bei der Kalkulation, Umsetzung sowie Rezeptierung mittels Warenbewirtschaftungssystem\n• Analysierung der Kunden- und Gästebedürfnisse sowie Einschätzung und Umsetzung relevanter Trends\n• Warenannahme und Bewirtschaftung des Lagers\n• Erledigung verschiedener administrativer Aufgaben\n• Das ZFV-Leadership Modell «wir machen andere erfolgreich» im Alltag aller erlebbar machen.\n• Förderung einer Kultur geprägt von Vertrauen, Mut, Transparenz und Freude\n• Vision und Strategie verkörpern, verstehen, vertreten und vorantreiben\n• Ziele verfolgen, priorisieren und die Umsetzung messen\n• Die Umsetzung der ZFV-Nachhaltigkeits- und Umweltstrategie vorantreiben\n• Förderung der Teambildung und Entwicklung der Mitarbeitenden Dein Erfolgsrezept:\n• Grundausbildung als Koch: EFZ oder gastronomische Grundausbildung EFZ mit Zusatzausbildung als Koch: EFZ\n• 8 Jahre Berufserfahrung in der Gastronomie / Hotellerie\n• Küchenerfahrung auf allen Posten in der Küche\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Agiles und innovatives Mindset\n• Zielorientierung\n• Kundenorientierung\n• Teamfähigkeit\n• Lernbereitschaft\n• Leadership Das bieten wir dir: Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut. Unter anderem legen wir dabei grossen Wert auf Lohntransparenz und Lohngleichheit. Für diese Position bieten wir bei einem 100%-Pensum, abhängig von deiner Erfahrung und Qualifikation, einen Jahreslohn zwischen CHF 60'000 und CHF 71'500 (inkl. 13. Monatslohn). Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
+        "fr": "Dieser Arbeitsort eröffnet per Januar 2027 und umfasst als einer der spannendsten Mehrspartenbetriebe der Schweizer Gastronomie ein Free-Flow-Restaurant mit rund 280 Plätzen sowie eine Terrasse mit weiteren 120 Plätzen, eine Bar, Catering, Seminargastronomie sowie eine Hotellerie mit rund 168 Zimmern unter einem Dach. Der Begegnungsort am Murtensee im Herzen der Drei-Seen-Region schafft einen einladenden Treffpunkt für verschiedene Gästegruppen. Dazu gehört auch die Eventlocation CEL mit jährlich 45'000 Seminargästen. Dort betreut unser Team verschiedene Anlässe – von Banketten über Sommerfeste und kleine Feiern bis hin zu Grossanlässen. Bist du unser neues Teammitglied, welches uns als Souschef:in per 01. Januar 2027 oder nach Vereinbarung unterstützt? Du arbeitest an fünf Tagen pro Woche zwischen Montag und Sonntag in Früh-, Mittel- oder Spätschicht zwischen 06:00 und 21:00 Uhr. An Wochenenden finden Veranstaltungen statt, die teilweise eine Präsenz bis 03:00 Uhr erfordern. Die Betriebsferien umfassen die Ostertage, zwei Wochen Mitte Juli sowie zwei Wochen über Weihnachten. Die restlichen Ferientage können frei gewählt werden. Dein Aufgabenmenü:\n• Mitwirkung bei der Führung und Organisation des gesamten Küchenbereichs\n• Sicherstellung einer hochstehenden Qualität der Speisen und aktive Mitarbeit in der Produktion\n• Aktive Mitarbeit bei der Zubereitung der Speisen auf allen Posten im Küchenbereich\n• Erstellung der Mise en Place\n• Mitarbeit bei der Weiterentwicklung einer inspirierenden und innovativen Angebotsplanung\n• Mitarbeit bei der Kalkulation, Umsetzung sowie Rezeptierung mittels Warenbewirtschaftungssystem\n• Analysierung der Kunden- und Gästebedürfnisse sowie Einschätzung und Umsetzung relevanter Trends\n• Warenannahme und Bewirtschaftung des Lagers\n• Erledigung verschiedener administrativer Aufgaben\n• Das ZFV-Leadership Modell «wir machen andere erfolgreich» im Alltag aller erlebbar machen.\n• Förderung einer Kultur geprägt von Vertrauen, Mut, Transparenz und Freude\n• Vision und Strategie verkörpern, verstehen, vertreten und vorantreiben\n• Ziele verfolgen, priorisieren und die Umsetzung messen\n• Die Umsetzung der ZFV-Nachhaltigkeits- und Umweltstrategie vorantreiben\n• Förderung der Teambildung und Entwicklung der Mitarbeitenden Dein Erfolgsrezept:\n• Grundausbildung als Koch: EFZ oder gastronomische Grundausbildung EFZ mit Zusatzausbildung als Koch: EFZ\n• 8 Jahre Berufserfahrung in der Gastronomie / Hotellerie\n• Küchenerfahrung auf allen Posten in der Küche\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Agiles und innovatives Mindset\n• Zielorientierung\n• Kundenorientierung\n• Teamfähigkeit\n• Lernbereitschaft\n• Leadership Das bieten wir dir: Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut. Unter anderem legen wir dabei grossen Wert auf Lohntransparenz und Lohngleichheit. Für diese Position bieten wir bei einem 100%-Pensum, abhängig von deiner Erfahrung und Qualifikation, einen Jahreslohn zwischen CHF 60'000 und CHF 71'500 (inkl. 13. Monatslohn). Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung."
+      },
+      "location": "Murten",
+      "canton": "FR",
+      "url": "https://jobs.zfv.ch/Souschefin-de-j4770.html",
+      "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-19T09:23:18.358Z",
+      "needsRetranslation": true,
+      "addressLocality": "Murten",
+      "postalCode": "3280",
+      "streetAddress": "Löwenberg 45B",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Cucina",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Ristorazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-19",
+      "postedDate": "2026-10-19",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.zfv.ch/Souschefin-de-j4770.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 67500,
+      "salaryMax": 84500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67500,
+          "maxValue": 84500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-19T09:23:18.358Z"
+    },
+    {
       "id": "zfv-unternehmungen-1dabf4c58414",
       "slug": "stv-responsabile-catering-zfv-unternehmungen-zurich",
       "slugByLocale": {
@@ -6353,7 +6434,7 @@
       "url": "https://jobs.zfv.ch/Stv-Leiterin-Catering-de-j4639.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:23:57.679Z",
+      "crawledAt": "2026-10-19T09:23:17.851Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6452,7 +6533,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4574.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:23:57.182Z",
+      "crawledAt": "2026-10-19T09:23:17.320Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Trüsselstrasse 2",
@@ -6531,7 +6612,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4571.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:23:56.533Z",
+      "crawledAt": "2026-10-19T09:23:16.708Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Technoramastrasse 1",
@@ -6610,7 +6691,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4568.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:23:55.896Z",
+      "crawledAt": "2026-10-19T09:23:16.080Z",
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 130",
@@ -6689,7 +6770,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4566.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:23:55.262Z",
+      "crawledAt": "2026-10-19T09:23:15.432Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "St. Alban-Anlage 26",
@@ -6768,7 +6849,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4562.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:23:53.964Z",
+      "crawledAt": "2026-10-19T09:23:14.182Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "Hegenheimermattweg 91",
@@ -6847,7 +6928,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4554.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:23:53.326Z",
+      "crawledAt": "2026-10-19T09:23:13.547Z",
       "addressLocality": "Rotkreuz",
       "postalCode": "6343",
       "streetAddress": "Suurstoffi 1",
@@ -6926,7 +7007,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4553.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:23:52.646Z",
+      "crawledAt": "2026-10-19T09:23:12.890Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "streetAddress": "Baarerstrasse 100",
@@ -7005,7 +7086,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4550.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:23:52.000Z",
+      "crawledAt": "2026-10-19T09:23:12.281Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "streetAddress": "Walter-von-Moos-Promenade 2",
@@ -7084,7 +7165,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4548.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:23:51.358Z",
+      "crawledAt": "2026-10-19T09:23:11.658Z",
       "addressLocality": "Horw",
       "postalCode": "6048",
       "streetAddress": "Technikumstrasse 21",
@@ -7163,7 +7244,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4540.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:23:50.083Z",
+      "crawledAt": "2026-10-19T09:23:10.441Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "Europastrasse 1",
@@ -7242,7 +7323,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4537.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:23:49.566Z",
+      "crawledAt": "2026-10-19T09:23:09.940Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -7322,7 +7403,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiepraktikerin-EBA-Lehrstelle-2027-de-j4575.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:23:48.901Z",
+      "crawledAt": "2026-10-19T09:23:09.334Z",
       "needsRetranslation": false,
       "addressLocality": "Bern",
       "postalCode": "3004",
