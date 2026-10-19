@@ -69,7 +69,6 @@ describe('SumUpPaymentWidget', () => {
     renderWidget({
       amountCents: 3999,
       title: 'Completa il pagamento',
-      priceNote: 'Pagamento unico · nessun rinnovo',
     });
 
     expect(screen.getByRole('heading', { name: 'Completa il pagamento' })).toBeInTheDocument();

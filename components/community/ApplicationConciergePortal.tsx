@@ -503,7 +503,6 @@ export default function ApplicationConciergePortal({
           locale={locale}
           amountCents={APPLICATION_CONCIERGE_PRICE_EUR_CENTS}
           title={t('jobBoard.concierge.paymentTitle')}
-          priceNote={t('jobBoard.concierge.priceNote')}
           onResponse={handleSumUpResponse}
           onError={() => setSumUpPaymentError(t('jobBoard.concierge.paymentError'))}
           onClose={closeSumUpPayment}

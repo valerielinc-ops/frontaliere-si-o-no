@@ -78,7 +78,6 @@ export interface SumUpPaymentWidgetProps {
   onClose: () => void;
   amountCents?: number;
   title?: string;
-  priceNote?: string;
   error?: string | null;
   busy?: boolean;
 }
@@ -97,7 +96,6 @@ export default function SumUpPaymentWidget({
   onClose,
   amountCents = ASSISTED_APPLICATION_PRICE_EUR_CENTS,
   title,
-  priceNote,
   error = null,
   busy = false,
 }: SumUpPaymentWidgetProps) {
@@ -221,7 +219,7 @@ export default function SumUpPaymentWidget({
             id={descriptionId}
             className="mt-4 flex items-center justify-between gap-4 rounded-stripe border border-accent/20 bg-accent-subtle/50 px-3 py-3"
           >
-            <span className="text-sm font-medium text-subtle">{priceNote || t('jobBoard.assisted.priceNote')}</span>
+            <span className="text-sm font-medium text-subtle">{t('jobBoard.assisted.priceNote')}</span>
             <span className="shrink-0 text-lg font-semibold tabular-nums text-heading">{formattedAmount}</span>
           </div>
         </header>
@@ -270,7 +268,7 @@ export default function SumUpPaymentWidget({
             <p>
               <span className="font-semibold text-subtle">SumUp</span>
               {' · '}
-              {priceNote || t('jobBoard.assisted.priceNote')}
+              {t('jobBoard.assisted.priceNote')}
             </p>
           </div>
         </div>
