@@ -127,6 +127,13 @@
       "decidedAt": "2026-10-18T09:47:17Z",
       "ref": "#13670, #13411, #13229",
       "reason": "Gia' coperto da AGENTS.md #6: parser e guard non trattano campi parziali, regex o heading come prova senza validare dominio/contesto e gestire unknown, ambigui e vicino non-target."
+    },
+    {
+      "key": "reviewer-finding/fp:body-contract-body-claims",
+      "outcome": "added",
+      "decidedAt": "2026-10-19T11:00:31Z",
+      "ref": "#13858, #12188, #12098",
+      "reason": "Aggiunta in REVIEW.md al punto sui claim perf/optimization: baseline, popolazione, fase e confronto dell'evidenza devono coincidere con il claim; un delta parziale o post-merge non prova un risultato piu' ampio."
     }
   ]
 }
