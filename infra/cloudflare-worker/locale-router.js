@@ -2730,9 +2730,9 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     if (stale) return stale;
   }
 
-  // HEAD must resolve the same catalog-declared query and employer identities
-  // as GET, without reading or caching a response body. Other families stay unchanged.
-  if (request.method === 'HEAD' && (resp.status === 200 || resp.status === 404)) {
+  // Healthy HEAD aliases must resolve before returning the origin response.
+  // Origin 404s share the GET/HEAD recovery chain below.
+  if (request.method === 'HEAD' && resp.status === 200) {
     const queryRedirect = await recoverOrphanQueryAlias(url, origin, resp.status === 200);
     if (queryRedirect) return queryRedirect;
     const employerRedirect = await recoverEmployerProfileAlias(url, origin);
@@ -2825,8 +2825,10 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
 
   // Canton-drift recovery: upgrade a job-detail orphan 404 with a known slug to a
   // real HTTP 301 (full link-equity transfer) instead of the soft-404+JS path.
-  // Unknown slugs fall through to the soft 404 below.
-  if (request.method === 'GET' && resp.status === 404) {
+  // HEAD uses the same registry and GET destination probes as GET: otherwise
+  // the exact same legacy URL advertises a 301 to users but a 404 to HEAD clients.
+  // Unknown slugs still fall through to the soft 404 below.
+  if ((request.method === 'GET' || request.method === 'HEAD') && resp.status === 404) {
     const queryRedirect = await recoverOrphanQueryAlias(url, origin);
     if (queryRedirect) return queryRedirect;
     const employerRedirect = await recoverEmployerProfileAlias(url, origin);
@@ -2852,7 +2854,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
 
   // Stamp Cache-Control on 404s too so crawler re-fetches of dead URLs are
   // absorbed by the edge instead of re-invoking the Worker.
-  if (request.method === 'GET' && resp.status === 404) {
+  if ((request.method === 'GET' || request.method === 'HEAD') && resp.status === 404) {
     const headers = new Headers(resp.headers);
     headers.set('Cache-Control', NOT_FOUND_CACHE_CONTROL);
     return new Response(resp.body, { status: 404, statusText: resp.statusText, headers });
