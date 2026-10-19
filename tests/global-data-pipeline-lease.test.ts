@@ -296,6 +296,8 @@ describe('global data pipeline lease', () => {
     expect(isRetryableLeaseError(timeout)).toBe(true);
     expect(isRetryableLeaseError({ status: 503 })).toBe(true);
     expect(isRetryableLeaseError({ body: { error: { status: 'ABORTED' } } })).toBe(true);
+    expect(isRetryableLeaseError({ status: 400, body: { error: { status: 'FAILED_PRECONDITION' } } })).toBe(true);
+    expect(isRetryableLeaseError({ status: 400, body: { error: { status: 'INVALID_ARGUMENT' } } })).toBe(false);
     expect(isRetryableLeaseError({ status: 401 })).toBe(false);
     expect(isRetryableLeaseError(new Error('service account project_id is missing'))).toBe(false);
   });
@@ -476,6 +478,101 @@ describe('global data pipeline lease', () => {
       expect(calls.filter((url) => url.endsWith(':rollback'))).toHaveLength(1);
     });
 
+    it('ritenta la gara acquire quando la precondizione stantia restituisce 400', async () => {
+      const expiredAt = new Date(NOW - 60_000).toISOString();
+      const initialUpdateTime = '2026-09-14T11:59:00.000Z';
+      const committedUpdateTime = '2026-09-14T12:00:01.000Z';
+      let snapshotReads = 0;
+      let transactions = 0;
+      let transactionalReads = 0;
+      let commitAttempts = 0;
+      let winner = '';
+      let releaseSnapshots: () => void = () => {};
+      let releaseTransactionalReads: () => void = () => {};
+      const snapshotsReady = new Promise<void>((resolve) => {
+        releaseSnapshots = resolve;
+      });
+      const transactionalReadsReady = new Promise<void>((resolve) => {
+        releaseTransactionalReads = resolve;
+      });
+      const expiredLease = {
+        owner: 'expired-owner',
+        repo: 'org/repo',
+        workflow: 'lease-test',
+        runId: 'expired-run',
+        acquiredAt: '2026-09-14T11:00:00.000Z',
+        heartbeatAt: '2026-09-14T11:59:00.000Z',
+        expiresAt: expiredAt,
+      };
+      const activeLease = {
+        ...expiredLease,
+        expiresAt: new Date(NOW + 60_000).toISOString(),
+      };
+
+      vi.stubGlobal('fetch', vi.fn(async (url: string, init: RequestInit = {}) => {
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) {
+          return json(200, { transaction: `tx-${++transactions}` });
+        }
+        if (url.endsWith(':rollback')) return json(200, {});
+        if (url.endsWith(':commit')) {
+          commitAttempts += 1;
+          if (commitAttempts === 1) {
+            const body = JSON.parse(String(init.body || '{}')) as {
+              writes?: Array<{
+                update?: {
+                  fields?: Record<string, { stringValue?: string }>;
+                };
+              }>;
+            };
+            winner = body.writes?.[0]?.update?.fields?.owner?.stringValue || '';
+            return json(200, { commitTime: committedUpdateTime });
+          }
+          return json(400, { error: { status: 'FAILED_PRECONDITION' } });
+        }
+        if (url.includes('?transaction=')) {
+          transactionalReads += 1;
+          if (transactionalReads <= 2) {
+            if (transactionalReads === 2) releaseTransactionalReads();
+            await transactionalReadsReady;
+            return json(200, leaseDocument(expiredLease, initialUpdateTime));
+          }
+          return json(200, leaseDocument({ ...activeLease, owner: winner }, committedUpdateTime));
+        }
+        snapshotReads += 1;
+        if (snapshotReads === 2) releaseSnapshots();
+        await snapshotsReady;
+        return json(200, leaseDocument(expiredLease, initialUpdateTime));
+      }));
+
+      const results = await Promise.allSettled([
+        acquireLease({
+          credentials: CREDENTIALS,
+          owner: 'acquire-a',
+          leaseDoc: 'ci_leases/test',
+          now: NOW,
+          waitMs: 0,
+          ttlMs: 60_000,
+          sleep: async () => {},
+        }),
+        acquireLease({
+          credentials: CREDENTIALS,
+          owner: 'acquire-b',
+          leaseDoc: 'ci_leases/test',
+          now: NOW,
+          waitMs: 0,
+          ttlMs: 60_000,
+          sleep: async () => {},
+        }),
+      ]);
+      const values = results.flatMap((result) => result.status === 'fulfilled' ? [result.value] : []);
+
+      expect(results.map((result) => result.status)).toEqual(['fulfilled', 'fulfilled']);
+      expect(values.filter((result) => result.acquired)).toHaveLength(1);
+      expect(values.filter((result) => result.busy)).toHaveLength(1);
+      expect(commitAttempts).toBe(2);
+    });
+
     it('rilascia il lock di release non-owner', async () => {
       const calls: string[] = [];
       const expiresAt = new Date(Date.now() + 90 * 60_000).toISOString();
@@ -598,6 +695,52 @@ describe('global data pipeline lease', () => {
       expect(released).toMatchObject({ released: true, attempts: 2, contended: true });
       expect(server.lease).toBeNull();
       expect(describeLeaseRelease(released)).toContain('contended=yes');
+    });
+
+    it('ritenta il release oltre tre conflitti fino al quarto commit entro 60 secondi', async () => {
+      let clock = NOW;
+      const sleepDelays: number[] = [];
+      let commitAttempts = 0;
+      vi.spyOn(Date, 'now').mockImplementation(() => clock);
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) return json(200, { transaction: `tx-${commitAttempts + 1}` });
+        if (url.endsWith(':rollback')) return json(200, {});
+        if (url.endsWith(':commit')) {
+          commitAttempts += 1;
+          return commitAttempts <= 3
+            ? json(400, { error: { status: 'FAILED_PRECONDITION' } })
+            : json(200, {});
+        }
+        return json(200, leaseDocument({
+          owner: 'release-owner',
+          repo: 'org/repo',
+          workflow: 'active-workflow',
+          runId: 'active-run',
+          acquiredAt: '2026-09-14T11:00:00.000Z',
+          heartbeatAt: '2026-09-14T11:59:00.000Z',
+          expiresAt: '2026-09-14T13:00:00.000Z',
+        }, '2026-09-14T11:59:00.000Z'));
+      }));
+
+      const released = await releaseLease({
+        credentials: CREDENTIALS,
+        owner: 'release-owner',
+        leaseDoc: 'ci_leases/test',
+        waitMs: 60_000,
+        pollMs: 2_000,
+        jitter: () => 0.5,
+        sleep: async (delay: number) => {
+          sleepDelays.push(delay);
+          clock += delay;
+        },
+      });
+
+      expect(released).toMatchObject({ released: true, attempts: 4, contended: true });
+      expect(commitAttempts).toBe(4);
+      expect(sleepDelays).toEqual([2_000, 2_000, 2_000]);
+      expect(clock - NOW).toBeLessThan(60_000);
+      expect(released.releaseFailed).toBeUndefined();
     });
   });
 });

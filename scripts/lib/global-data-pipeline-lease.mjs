@@ -118,7 +118,6 @@ const REQUEST_TIMEOUT_MS = 15_000;
 const ROLLBACK_TIMEOUT_MS = 2_000;
 const TRANSACTION_ATTEMPTS = 4;
 const RELEASE_TRANSACTION_ATTEMPTS = 1;
-const RELEASE_MAX_ATTEMPTS = 3;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -287,6 +286,17 @@ function nonNegativeEnvInteger(name, fallback) {
   return value;
 }
 
+function failedPreconditionError(error) {
+  const status = Number(
+    error?.status
+      ?? error?.statusCode
+      ?? error?.response?.status
+      ?? error?.body?.error?.code,
+  );
+  return status === 400
+    && String(error?.body?.error?.status || '').toUpperCase() === 'FAILED_PRECONDITION';
+}
+
 /**
  * Firestore is a coordination aid, not the data source. A transient REST or
  * network failure while acquiring the lease gets a small consecutive retry
@@ -312,6 +322,7 @@ export function isRetryableLeaseError(error) {
   if (apiStatus === 'ABORTED' || apiStatus === 'DEADLINE_EXCEEDED' || apiStatus === 'UNAVAILABLE') {
     return true;
   }
+  if (failedPreconditionError(error)) return true;
 
   return false;
 }
@@ -415,7 +426,9 @@ async function readLeaseSnapshot(baseUrl, token, leaseDoc, requestTimeoutMs = RE
 }
 
 function conflictError(error) {
-  return error?.status === 409 || error?.body?.error?.status === 'ABORTED';
+  return error?.status === 409
+    || error?.body?.error?.status === 'ABORTED'
+    || failedPreconditionError(error);
 }
 
 async function commitTransaction(baseUrl, token, transaction, write, requestTimeoutMs = REQUEST_TIMEOUT_MS) {
@@ -750,6 +763,7 @@ export async function releaseLease(options = {}) {
 
   const owner = options.owner || ownerFromEnvironment();
   const sleepFn = typeof options.sleep === 'function' ? options.sleep : sleep;
+  const jitter = options.jitterFn || options.jitter;
   const credentials = options.credentials || credentialsFromEnvironment();
   // waitMs=0 still permits one immediate release attempt; it means “no
   // retry”, not “skip the GET”. The normal path remains capped at 60 seconds.
@@ -760,8 +774,9 @@ export async function releaseLease(options = {}) {
   let lastHolder;
   let lastError;
   let contended;
+  let pollNumber = 0;
 
-  while (attempts < RELEASE_MAX_ATTEMPTS) {
+  while (true) {
     attempts += 1;
     try {
       const result = await transact({
@@ -789,7 +804,11 @@ export async function releaseLease(options = {}) {
 
     const remaining = deadline == null ? 0 : deadline - Date.now();
     if (remaining <= 0) break;
-    await sleepFn(Math.min(pollMs, remaining));
+    const delay = Math.min(
+      leasePollDelayMs(pollMs, { owner, pollNumber: pollNumber++, jitter }),
+      remaining,
+    );
+    await sleepFn(delay);
   }
 
   return {
