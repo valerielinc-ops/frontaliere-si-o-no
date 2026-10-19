@@ -61,6 +61,39 @@ describe('UserProfile helpers', () => {
       expect(profile.familyMembers).toBe('4');
     });
 
+    it('migrates the legacy profile into the anonymous cache on first load', () => {
+      localStorage.setItem('frontaliere_user_profile', JSON.stringify({ familySituation: 'married' }));
+
+      const profile = loadUserProfile();
+
+      expect(profile.familySituation).toBe('married');
+      expect(JSON.parse(localStorage.getItem('frontaliere_user_profile:anonymous') || '{}'))
+        .toMatchObject({ familySituation: 'married' });
+      expect(localStorage.getItem('frontaliere_user_profile')).toBeNull();
+    });
+
+    it('migrates the legacy profile without exposing it to a signed-in account', () => {
+      localStorage.setItem('frontaliere_user_profile', JSON.stringify({ familySituation: 'married' }));
+
+      const profile = loadUserProfile('account-123');
+
+      expect(profile.familySituation).toBe('');
+      expect(JSON.parse(localStorage.getItem('frontaliere_user_profile:anonymous') || '{}'))
+        .toMatchObject({ familySituation: 'married' });
+      expect(localStorage.getItem('frontaliere_user_profile:account-123')).toBeNull();
+    });
+
+    it('keeps an existing anonymous profile and retains a different legacy copy', () => {
+      localStorage.setItem('frontaliere_user_profile', JSON.stringify({ familySituation: 'married' }));
+      localStorage.setItem('frontaliere_user_profile:anonymous', JSON.stringify({ familySituation: 'single' }));
+
+      const profile = loadUserProfile();
+
+      expect(profile.familySituation).toBe('single');
+      expect(JSON.parse(localStorage.getItem('frontaliere_user_profile') || '{}'))
+        .toMatchObject({ familySituation: 'married' });
+    });
+
     it('handles corrupted localStorage gracefully', () => {
       localStorage.setItem('frontaliere_user_profile:anonymous', 'not-json');
       const profile = loadUserProfile();
