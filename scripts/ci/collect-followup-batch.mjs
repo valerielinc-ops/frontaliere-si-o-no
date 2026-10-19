@@ -546,7 +546,7 @@ const CLAIM_BULLET_LINE_RE = /^\s*[-*+]\s+\S/;
  * un bullet (riga vuota inclusa): la prosa successiva, per esempio la nota su
  * un bucket storico sealed, resta fuori dal claim come prima.
  */
-function claimLinesWithBullets(lines) {
+export function claimLinesWithBullets(lines) {
   const out = [];
   let inClaimList = false;
   for (const line of lines) {
@@ -564,12 +564,17 @@ function claimLinesWithBullets(lines) {
   return out;
 }
 
-// Un `#N` e' un bucket in due forme: `bucket #N` / `bucket: #N`, oppure `#N`
+// Un `#N` e' un bucket in due forme: una riga che nomina il bucket, oppure
+// `parent #N` per un bucket gia' esistente che il triage aggiorna senza creare
+// una figlia. La forma col parent e' il marker emesso quando il bucket ha gia'
+// item aperti (PR #13825); senza di essa la verifica vede il triage ma non la
+// sua persistenza e lascia la run rossa.
 // seguito sulla stessa riga dal tag `follow-up(daily:YYYY-MM-DD)` che il
 // template impone (FOLLOWUP.md § Closing comment), senza un altro `#` in mezzo:
 // il tag si lega al numero piu' vicino, non a una PR citata prima sulla riga.
 // Un `#N` preceduto da `PR`, `pull request` o `pull-request` non e' mai un bucket.
-const BUCKET_WORD_REF_RE = /\bbucket\s*:?\s*#([1-9]\d*)\b/gi;
+const BUCKET_WORD_REF_RE = /\bbucket\b[^\n#]*?(?<!\b(?:PR|pull[-\s]+request)\s*)#([1-9]\d*)\b/gi;
+const PARENT_BUCKET_REF_RE = /\bparent(?:\s+issue)?\s+#([1-9]\d*)\b/gi;
 const BUCKET_TAG_REF_RE = /(?<!\b(?:PR|pull[-\s]+request)\s*)#([1-9]\d*)\b[^#\n]*?`follow-up\(daily:\d{4}-\d{2}-\d{2}\)`/gi;
 
 /** I `#N` legati al tag `follow-up(daily:YYYY-MM-DD)` in un testo. */
@@ -597,14 +602,27 @@ export function claimDailyTagBucketReferences(markerBody) {
  * l'item della PR, quindi un numero omonimo nell'altro repository non puo'
  * provare nulla.
  */
-function claimBucketReferences(claim) {
+export function claimBucketReferences(claim) {
   return [
     ...[...claim.matchAll(BUCKET_WORD_REF_RE)],
+    ...[...claim.matchAll(PARENT_BUCKET_REF_RE)],
     ...[...claim.matchAll(BUCKET_TAG_REF_RE)],
   ]
     // Ordine di lettura del marker, per un log `bucket=[...]` leggibile.
     .sort((left, right) => left.index - right.index)
     .map((match) => Number(match[1]));
+}
+
+/**
+ * I bucket che un marker promette nella sua finestra di claim.
+ *
+ * Il gate sul conio usa questa stessa grammatica per qualificare il repository
+ * della PR sorgente; le citazioni dopo la lista restano contesto storico e non
+ * possono qualificare un bucket nuovo.
+ */
+export function triageMarkerBucketReferences(markerBody) {
+  const lines = String(markerBody || '').split(/\r?\n/);
+  return claimBucketReferences(claimLinesWithBullets(lines).join('\n'));
 }
 
 /**
