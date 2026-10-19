@@ -123,22 +123,22 @@ describe('UserProfile helpers', () => {
       expect(result.maritalStatus).toBe('SINGLE');
     });
 
-    it('maps permit-g → NEW', () => {
+    it('does not infer the tax regime from permit-g', () => {
       const profile: UserProfileData = {
         workPosition: '', age: '', familySituation: '', frontaliereType: 'permit-g',
         municipality: '', children: '0', familyMembers: '1', ...BASE_FIELDS,
       };
       const result = profileToSimInputs(profile);
-      expect(result.frontierWorkerType).toBe('NEW');
+      expect(result.frontierWorkerType).toBeUndefined();
     });
 
-    it('maps permit-b → OLD', () => {
+    it('does not infer the tax regime from permit-b', () => {
       const profile: UserProfileData = {
         workPosition: '', age: '', familySituation: '', frontaliereType: 'permit-b',
         municipality: '', children: '0', familyMembers: '1', ...BASE_FIELDS,
       };
       const result = profileToSimInputs(profile);
-      expect(result.frontierWorkerType).toBe('OLD');
+      expect(result.frontierWorkerType).toBeUndefined();
     });
 
     it('maps children count correctly', () => {

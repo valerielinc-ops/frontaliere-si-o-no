@@ -14,6 +14,8 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { fetchCommitHash } from '@/services/buildInfo';
 import { getContextualConversionContext } from '@/services/conversionContext';
 import { userProfileStorageKey } from '@/services/userProfileStorage';
+import { DEFAULT_INPUTS } from '@/constants';
+import type { SimulationInputs } from '@/types';
 const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
 // Newsletter/community popups are NON-CRITICAL overlays. Use React.lazy (NOT
 // lazyRetry) + SilentErrorBoundary (see SafeLazy below) so a chunk-load failure
