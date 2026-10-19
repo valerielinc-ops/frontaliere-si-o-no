@@ -783,14 +783,20 @@ export function persistedBucketIssueMatches(issue, prNumber, prComments = '', ma
   const info = dailyBucketInfo(issue?.title || '');
   const body = String(issue?.body || '');
   const pr = String(Number(prNumber));
-  // A decomposed parent is not titled like a daily bucket. Its source ledger
-  // keeps the item id and Sources: PR #N on the same bullet, while a daily
-  // bucket stores them on the item heading and a following source bullet.
-  const sourcePattern = new RegExp(
-    `^\\s*-\\s+(?:Sources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b|FU-\\d{4}-\\d{2}-\\d{2}-\\d{3}\\b[^\\n]*\\bSources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b)`,
-    'im',
-  );
-  const directEvidence = sourcePattern.test(body);
+  // A daily bucket owns its source bullet through the preceding stable item
+  // heading. A decomposed parent is not titled like a daily bucket; its source
+  // ledger keeps the item id and Sources: PR #N on the same bullet. Keeping the
+  // two grammars separate prevents an ordinary issue's unrelated Sources bullet
+  // from being mistaken for persisted follow-up evidence.
+  const directEvidence = info
+    ? new RegExp(
+      `^\\s*###\\s+FU-\\d{4}-\\d{2}-\\d{2}-\\d{3}\\b[^\\n]*$(?:(?!^\\s*#{2,3}\\s+)[\\s\\S])*?^\\s*-\\s+Sources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b`,
+      'im',
+    ).test(body)
+    : new RegExp(
+      `^\\s*-\\s+FU-\\d{4}-\\d{2}-\\d{2}-\\d{3}\\b[^\\n]*\\bSources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b`,
+      'im',
+    ).test(body);
   if (directEvidence) return true;
   if (!info) return false;
   return gatePreservedFollowupMatches(prComments, issue.number, prNumber, markerCreatedAt);

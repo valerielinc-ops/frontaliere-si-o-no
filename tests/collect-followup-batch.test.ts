@@ -373,6 +373,28 @@ describe('marker idempotency requires durable bucket/item evidence', () => {
     expect(persistedBucketIssueMatches(persisted, 8101)).toBe(true);
   });
 
+  it('does not treat an ordinary issue source bullet as persisted follow-up evidence', () => {
+    const ordinary = {
+      title: 'ordinary issue',
+      body: 'mentions FU-2026-10-19-001\n- Sources: PR #14038',
+    };
+    expect(persistedBucketIssueMatches(ordinary, 14038)).toBe(false);
+  });
+
+  it('keeps a daily source bullet tied to its own stable item heading', () => {
+    const unrelatedHeading = {
+      title: 'follow-up(daily:2026-09-09): 2 items — owner/repo',
+      body: [
+        '### FU-2026-09-09-001 — another item',
+        '- Sources: PR #8102',
+        '',
+        '### FU-2026-09-09-002 — item for this PR',
+        '- State: open',
+      ].join('\n'),
+    };
+    expect(persistedBucketIssueMatches(unrelatedHeading, 8101)).toBe(false);
+  });
+
   it('recognizes Markdown bullet markers as persistence claims', () => {
     expect(triageMarkerPersistenceExpectation(
       '## Post-merge follow-up triage\n- Created: daily bucket #42 con 1 item',
