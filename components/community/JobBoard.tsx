@@ -2389,7 +2389,7 @@ function useInterruptibleDerivation<TItem, TAccumulator, TResult>({
 
 /**
  * The gate's unified subscriber write. An enrolled jobgate visitor also gets
- * `variant: 'jobgate-v4:<arm>'` on the document (the readout's join key); the
+ * `variant: 'jobgate-v5:<arm>'` on the document (the readout's join key); the
  * consent fields still come from `unifiedEmailConsentInput`, unchanged. Not
  * enrolled (kill switch, timeout, bot bypass) → exactly `upsertUnifiedEmailSubscriber`.
  */
@@ -9533,8 +9533,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const descriptionPreview = jobDescriptionPreview(publicDescription);
  const descriptionPending = !publicDescription
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
- // jobgate-v4: colour, elevation and block order of the gate per arm; the
- // control arm keeps the exact classes and order the gate shipped with.
+ // jobgate-v5: contrast/accent treatment per arm; Spotlight is also the
+ // fail-safe product default. Copy and order stay fixed in every arm.
  const gateSkin = jobGateSkin(jobGate.arm);
  const inlineEmailForm = (
  <form
@@ -9763,8 +9763,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </section>
 
  {/* Auth gate — embedded inline for all viewports (no extra click needed).
-     jobgate-v4 arms restyle it through `gateSkin` (components/community/jobGateSkin.ts);
-     `actions_first` also moves the sign-in buttons right under the title. */}
+     jobgate-v5 arms change only contrast/accent through `gateSkin`
+     (components/community/jobGateSkin.ts). */}
  {(() => {
  const gateHeading = (
  <h2 className={gateSkin.heading}>

@@ -4,6 +4,9 @@ import { getConfigValue } from './firebase';
 import { ASSISTED_APPLICATION_PRICE_EUR_CENTS as SHARED_ASSISTED_APPLICATION_PRICE_EUR_CENTS } from '@/functions/src/assistedApplicationConstants.js';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import { isLikelyBot } from './botPatterns';
+import { ASSISTED_APPLICATION_COPY_EXPERIMENT_ID } from './assistedApplicationCopyAnalyticsContract.mjs';
+
+export { ASSISTED_APPLICATION_COPY_EXPERIMENT_ID };
 
 export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = SHARED_ASSISTED_APPLICATION_PRICE_EUR_CENTS;
 
@@ -15,7 +18,6 @@ export const ASSISTED_APPLICATION_EXPERIMENT_RC_KEY = 'ASSISTED_APPLICATION_EXPE
  * arm, price, CTA, steps and legal copy stay unchanged; only the title and
  * description use one of these four message angles.
  */
-export const ASSISTED_APPLICATION_COPY_EXPERIMENT_ID = 'assisted-application-copy-v1';
 export const ASSISTED_APPLICATION_COPY_VARIANT_RC_KEY = 'ASSISTED_APPLICATION_COPY_VARIANT';
 export const ASSISTED_APPLICATION_COPY_VARIANTS = [
   'control',
@@ -410,6 +412,10 @@ export function trackAssistedApplicationEvent(
   context: AssistedApplicationEventContext,
 ): void {
   if (shouldSuppressAssistedApplicationEvent()) return;
+  // USER properties persist across events. Set the assignment for candidate
+  // funnel events and clear it before events that are not in a copy arm (for
+  // example an administrator issuing a refund in the same browser session).
+  Analytics.setAssistedApplicationCopyAssignment(context.copy_variant ?? null);
   Analytics.trackExperimentEvent(eventName, {
     ...context,
     ...(context.copy_variant ? { copy_experiment_id: ASSISTED_APPLICATION_COPY_EXPERIMENT_ID } : {}),
@@ -418,4 +424,5 @@ export function trackAssistedApplicationEvent(
     job_id: String(context.jobId),
     company_id: String(context.companyId),
   });
+  if (context.copy_variant) Analytics.setAssistedApplicationCopyAssignment(null);
 }

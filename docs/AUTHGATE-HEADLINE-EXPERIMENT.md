@@ -345,3 +345,63 @@ only after the bundle with the v4 arms is live (the browser falls back to
 control for an unknown arm name, so publishing early would put everyone in
 control rather than break the page).
 
+### Chiusura anticipata — decisione del proprietario, 2026-10-19
+
+La finestra assestata 2026-10-07..2026-10-16 ha dato:
+
+| arm | gate persons | nuovi iscritti | CR primaria | vs control | p Holm |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `control` | 1.036 | 130 | 12,55% | — | — |
+| `actions_first` | 1.051 | 138 | 13,13% | +4,6% | 1,0000 |
+| `navy_panel` | 1.033 | 127 | 12,29% | −2,0% | 1,0000 |
+| `spotlight` | 986 | 165 | 16,73% | +33,4% | 0,0231 |
+
+Spotlight è il vincitore operativo scelto dal proprietario, non un vincitore
+statistico: il braccio più piccolo ha 986 persone su 5.153 pianificate (19%) e
+la potenza stimata è 17%; la durata minima di piano non è stata raggiunta. La
+promozione prevista è fissare Spotlight come default, forzare i client v4
+ancora in cache su Spotlight e poi avviare v5 su un namespace Remote Config
+separato. La pubblicazione live e la chiusura della issue di monitor sono
+pendenti al deploy e alla revisione del diff Remote Config.
+
+---
+
+## Round 5 — `jobgate-v5` — varianti visive di Spotlight
+
+Spotlight è il default di prodotto anche se Remote Config è disattivato, lento
+o non disponibile. Un namespace nuovo (`JOBGATE_V5_EXPERIMENT_*`) separa
+assegnazione e readout dai dati v4; una chiave server-only registra la data di
+attivazione e il monitor inizia dal giorno successivo. `JOBGATE_EXPERIMENT_FORCE`
+resta `spotlight` per i bundle v4 in cache. Tutto il test usa Firebase Remote
+Config e Firebase Analytics.
+
+Il nuovo test cambia solo contrasto/accento: copy, ordine, controls, consenso,
+CTA, fade della preview e altezza restano identici in tutti i bracci.
+
+| arm | trattamento |
+| --- | --- |
+| `spotlight` | Baseline promossa: superficie bianca, cornice/accento e CTA email in evidenza. |
+| `spotlight_quiet` | Superficie bianca e bordo neutro; meno enfasi attorno alla stessa CTA. |
+| `spotlight_tinted` | Superficie semantica accent-subtle con bordo accent, senza ombra. |
+| `spotlight_outline` | Superficie bianca con outline accent più netto, senza ombra e senza cambiare il box model. |
+
+Le classi rispettano i token del sito e mantengono identiche spaziatura,
+dimensioni dei controlli e ordine del contenuto, così il cambio dopo il fetch
+non sposta lo slot AdSense. L'asse è solo il trattamento di contrasto/accento,
+non la gerarchia né la copy.
+
+**Piano** (`scripts/experiments/jobgate-plan.mjs`): riferimento operativo 16,73%
+dal braccio Spotlight v4, con la cautela che il round precedente si è fermato
+in anticipo; effetto minimo +20% relativo, potenza 80%, α 0,05 su tre
+confronti, 700 persone gate/day. Campione calcolato: 2.807 persone per braccio;
+decisioni su settimane intere, minimo 28 giorni, massimo 70. Il riferimento non
+è presentato come una stima stabile né come prova causale.
+
+`node scripts/experiments/jobgate-rc.mjs` mostra il diff live in dry-run:
+abilitazione v5, quattro pesi al 25%, force v5 vuoto, data di lancio e pin
+legacy Spotlight. `--apply` si usa solo dopo aver verificato il deploy e aver
+approvato quel diff; i parametri legacy ENABLED/ARMS non vengono alterati.
+Il readout manuale usa lo stesso marker per il default e rifiuta date precedenti;
+le finestre diagnostiche manuali (`--since`/`--until`) non possono accompagnare
+un comando di promozione.
+

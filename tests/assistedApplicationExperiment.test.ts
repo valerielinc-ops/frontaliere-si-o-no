@@ -5,10 +5,14 @@ import { describe, expect, it, beforeEach, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => ({
   trackExperimentEvent: vi.fn(),
+  setAssistedApplicationCopyAssignment: vi.fn(),
 }));
 
 vi.mock('../services/analytics', () => ({
-  Analytics: { trackExperimentEvent: mocks.trackExperimentEvent },
+  Analytics: {
+    trackExperimentEvent: mocks.trackExperimentEvent,
+    setAssistedApplicationCopyAssignment: mocks.setAssistedApplicationCopyAssignment,
+  },
 }));
 
 import { getConfigValue } from '@/services/firebase';
@@ -188,6 +192,7 @@ describe('assisted application funnel events', () => {
       company_id: 'company-acme',
       price_eur_cents: 199,
     }));
+    expect(mocks.setAssistedApplicationCopyAssignment).toHaveBeenCalledWith(null);
   });
 
   it('joins copy-test events to the copy experiment without replacing the funnel arm', () => {
@@ -203,6 +208,25 @@ describe('assisted application funnel events', () => {
       copy_experiment_id: ASSISTED_APPLICATION_COPY_EXPERIMENT_ID,
       copy_variant: 'time_saved',
     }));
+    expect(mocks.setAssistedApplicationCopyAssignment).toHaveBeenCalledWith('time_saved');
+    expect(mocks.setAssistedApplicationCopyAssignment).toHaveBeenLastCalledWith(null);
+    expect(mocks.setAssistedApplicationCopyAssignment.mock.invocationCallOrder[0])
+      .toBeLessThan(mocks.trackExperimentEvent.mock.invocationCallOrder[0]);
+    expect(mocks.setAssistedApplicationCopyAssignment.mock.invocationCallOrder[1])
+      .toBeGreaterThan(mocks.trackExperimentEvent.mock.invocationCallOrder[0]);
+  });
+
+  it('clears the USER-scoped copy assignment before an event without a copy arm', () => {
+    trackAssistedApplicationEvent('refund_issued', {
+      variant: 'assisted_application',
+      jobId: 'job-42',
+      companyId: 'company-acme',
+    });
+
+    expect(mocks.setAssistedApplicationCopyAssignment).toHaveBeenCalledWith(null);
+    expect(mocks.setAssistedApplicationCopyAssignment.mock.invocationCallOrder[0])
+      .toBeLessThan(mocks.trackExperimentEvent.mock.invocationCallOrder[0]);
+    expect(mocks.trackExperimentEvent).toHaveBeenCalledWith('refund_issued', expect.not.objectContaining({ copy_variant: expect.anything() }));
   });
 });
 

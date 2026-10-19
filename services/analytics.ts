@@ -116,6 +116,10 @@ import { safeAffiliateToken, buildAffiliatePubref, sanitizeAffiliatePubref } fro
 import { APPLICATION_CONCIERGE_PATH } from '../functions/src/lib/newsletterUrlPaths.js';
 import { readBuildIdForTelemetry } from './buildInfo';
 import { jobGateNewsletterTags } from './jobGateExperiment';
+import {
+ ASSISTED_APPLICATION_COPY_EXPERIMENT_ID,
+ ASSISTED_APPLICATION_COPY_USER_PROPERTIES,
+} from './assistedApplicationCopyAnalyticsContract.mjs';
 import { GA4_ERROR_EVENTS, isNonProductionTelemetryHost } from './nonProductionHost';
 
 export interface AffiliateTelemetry {
@@ -401,7 +405,7 @@ function _doLog(eventName: string, params?: Record<string, any>) {
  }
 }
 
-function _doSetProps(properties: Record<string, string>) {
+function _doSetProps(properties: Record<string, string | null>) {
  try {
  if (_analytics && _setUserProperties) {
  _setUserProperties(_analytics, properties);
@@ -605,7 +609,7 @@ const sendGatedDecisionMoment = createDecisionMomentEmitter({
 const logDecisionMoment = (eventName: string, params: Record<string, any>): Promise<void> =>
  sendGatedDecisionMoment(eventName, enrichEventParams(eventName, params));
 
-const setProps = (properties: Record<string, string>) => {
+const setProps = (properties: Record<string, string | null>) => {
  if (_firebaseReady) {
  _doSetProps(properties);
  } else {
@@ -2010,6 +2014,18 @@ export const Analytics = {
  if (flags.isNewsletterSubscriber !== undefined) props.is_newsletter_subscriber = String(flags.isNewsletterSubscriber);
  if (flags.isJobAlertSubscriber !== undefined) props.is_job_alert_subscriber = String(flags.isJobAlertSubscriber);
  setProps(props);
+ },
+
+ /**
+ * Keep the assisted-application copy assignment available as GA4 USER
+ * dimensions on every subsequent funnel event. Values are fixed experiment
+ * identifiers only; never put visitor/job/application details in a property.
+ */
+ setAssistedApplicationCopyAssignment: (variant: string | null) => {
+  setProps({
+   [ASSISTED_APPLICATION_COPY_USER_PROPERTIES.experiment]: variant ? ASSISTED_APPLICATION_COPY_EXPERIMENT_ID : null,
+   [ASSISTED_APPLICATION_COPY_USER_PROPERTIES.variant]: variant,
+  });
  },
 
  // ─── App-Specific Events (snake_case, max 40 char) ──────────
