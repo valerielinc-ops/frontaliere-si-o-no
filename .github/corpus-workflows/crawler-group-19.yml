@@ -7700,7 +7700,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7745,34 +7745,34 @@ jobs:
             fi
           }
           aggregate_crawler_member 'migros' 'migros-ticino'
-          aggregate_crawler_member 'mikron' 'mikron'
-          aggregate_crawler_member 'rsbj' 'rsbj'
-          aggregate_crawler_member 'sulzer' 'sulzer'
-          aggregate_crawler_member 'suchtfachstelle-zuerich' 'suchtfachstelle-zuerich'
-          aggregate_crawler_member 'swissquote' 'swissquote'
-          aggregate_crawler_member 'medartis' 'medartis'
-          aggregate_crawler_member 'rapelli' 'rapelli'
-          aggregate_crawler_member 'stadler-rail' 'stadler-rail'
-          aggregate_crawler_member 'stiftung-kind-autismus' 'stiftung-kind-autismus'
+          aggregate_crawler_member 'mikron'
+          aggregate_crawler_member 'rsbj'
+          aggregate_crawler_member 'sulzer'
+          aggregate_crawler_member 'suchtfachstelle-zuerich'
+          aggregate_crawler_member 'swissquote'
+          aggregate_crawler_member 'medartis'
+          aggregate_crawler_member 'rapelli'
+          aggregate_crawler_member 'stadler-rail'
+          aggregate_crawler_member 'stiftung-kind-autismus'
           aggregate_crawler_member 'komax-group' 'komax'
-          aggregate_crawler_member 'spitaeler-schaffhausen' 'spitaeler-schaffhausen'
+          aggregate_crawler_member 'spitaeler-schaffhausen'
           aggregate_crawler_member 'grace' 'grace-la-margna'
-          aggregate_crawler_member 'okjob' 'okjob'
-          aggregate_crawler_member 'goline' 'goline'
-          aggregate_crawler_member 'sune-egge' 'sune-egge'
-          aggregate_crawler_member 'klinik-susenberg' 'klinik-susenberg'
-          aggregate_crawler_member 'integra-biosciences' 'integra-biosciences'
-          aggregate_crawler_member 'forel-klinik' 'forel-klinik'
-          aggregate_crawler_member 'hfr-hopital-fribourgeois' 'hfr-hopital-fribourgeois'
-          aggregate_crawler_member 'gz-dielsdorf' 'gz-dielsdorf'
-          aggregate_crawler_member 'csl-behring' 'csl-behring'
-          aggregate_crawler_member 'cseb' 'cseb'
-          aggregate_crawler_member 'bucher-suter' 'bucher-suter'
-          aggregate_crawler_member 'alpiq' 'alpiq'
-          aggregate_crawler_member 'vereinaklosters' 'vereinaklosters'
-          aggregate_crawler_member 'unibe' 'unibe'
+          aggregate_crawler_member 'okjob'
+          aggregate_crawler_member 'goline'
+          aggregate_crawler_member 'sune-egge'
+          aggregate_crawler_member 'klinik-susenberg'
+          aggregate_crawler_member 'integra-biosciences'
+          aggregate_crawler_member 'forel-klinik'
+          aggregate_crawler_member 'hfr-hopital-fribourgeois'
+          aggregate_crawler_member 'gz-dielsdorf'
+          aggregate_crawler_member 'csl-behring'
+          aggregate_crawler_member 'cseb'
+          aggregate_crawler_member 'bucher-suter'
+          aggregate_crawler_member 'alpiq'
+          aggregate_crawler_member 'vereinaklosters'
+          aggregate_crawler_member 'unibe'
           aggregate_crawler_member 'convit' 'convit-holding'
-          aggregate_crawler_member 'agat' 'agat'
+          aggregate_crawler_member 'agat'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

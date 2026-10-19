@@ -7958,7 +7958,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -8002,36 +8002,36 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'orell-fuessli-thalia' 'orell-fuessli-thalia'
-          aggregate_crawler_member 'stadtspital-zuerich' 'stadtspital-zuerich'
-          aggregate_crawler_member 'dormakaba' 'dormakaba'
-          aggregate_crawler_member 'ksbl' 'ksbl'
-          aggregate_crawler_member 'marriott' 'marriott'
-          aggregate_crawler_member 'kellerhals-carrard' 'kellerhals-carrard'
-          aggregate_crawler_member 'klinik-sonnenhalde' 'klinik-sonnenhalde'
-          aggregate_crawler_member 'logitech' 'logitech'
-          aggregate_crawler_member 'vtg' 'vtg'
-          aggregate_crawler_member 'spital-buelach' 'spital-buelach'
-          aggregate_crawler_member 'pdag' 'pdag'
-          aggregate_crawler_member 'ricola' 'ricola'
-          aggregate_crawler_member 'omega' 'omega'
-          aggregate_crawler_member 'michaelpage' 'michaelpage'
-          aggregate_crawler_member 'galderma' 'galderma'
-          aggregate_crawler_member 'six-group' 'six-group'
-          aggregate_crawler_member 'hoch-health' 'hoch-health'
-          aggregate_crawler_member 'liebherr' 'liebherr'
-          aggregate_crawler_member 'cambiavalute' 'cambiavalute'
-          aggregate_crawler_member 'livit' 'livit'
-          aggregate_crawler_member 'flury-stiftung' 'flury-stiftung'
-          aggregate_crawler_member 'bps-suisse' 'bps-suisse'
-          aggregate_crawler_member 'beekeeper' 'beekeeper'
-          aggregate_crawler_member 'ardian' 'ardian'
-          aggregate_crawler_member 'clinique-le-noirmont' 'clinique-le-noirmont'
-          aggregate_crawler_member 'geberit' 'geberit'
-          aggregate_crawler_member 'lombard-odier' 'lombard-odier'
-          aggregate_crawler_member 'kone' 'kone'
-          aggregate_crawler_member 'seniorenzentrum-engelhof' 'seniorenzentrum-engelhof'
-          aggregate_crawler_member 'medimeo-ch' 'medimeo-ch'
+          aggregate_crawler_member 'orell-fuessli-thalia'
+          aggregate_crawler_member 'stadtspital-zuerich'
+          aggregate_crawler_member 'dormakaba'
+          aggregate_crawler_member 'ksbl'
+          aggregate_crawler_member 'marriott'
+          aggregate_crawler_member 'kellerhals-carrard'
+          aggregate_crawler_member 'klinik-sonnenhalde'
+          aggregate_crawler_member 'logitech'
+          aggregate_crawler_member 'vtg'
+          aggregate_crawler_member 'spital-buelach'
+          aggregate_crawler_member 'pdag'
+          aggregate_crawler_member 'ricola'
+          aggregate_crawler_member 'omega'
+          aggregate_crawler_member 'michaelpage'
+          aggregate_crawler_member 'galderma'
+          aggregate_crawler_member 'six-group'
+          aggregate_crawler_member 'hoch-health'
+          aggregate_crawler_member 'liebherr'
+          aggregate_crawler_member 'cambiavalute'
+          aggregate_crawler_member 'livit'
+          aggregate_crawler_member 'flury-stiftung'
+          aggregate_crawler_member 'bps-suisse'
+          aggregate_crawler_member 'beekeeper'
+          aggregate_crawler_member 'ardian'
+          aggregate_crawler_member 'clinique-le-noirmont'
+          aggregate_crawler_member 'geberit'
+          aggregate_crawler_member 'lombard-odier'
+          aggregate_crawler_member 'kone'
+          aggregate_crawler_member 'seniorenzentrum-engelhof'
+          aggregate_crawler_member 'medimeo-ch'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
