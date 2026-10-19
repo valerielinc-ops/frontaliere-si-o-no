@@ -1,4 +1,44 @@
 {
   "schemaVersion": 1,
-  "pending": []
+  "pending": [
+    {
+      "id": "border-2026-10-12",
+      "channel": "tiktok",
+      "kind": "border",
+      "day": "2026-10-12",
+      "caption": "🛂 Dogane Ticino: attese e traffico al confine\n\nLa classifica delle dogane più veloci del Ticino nella settimana 2026-10-12 – 2026-10-18.\n\n1. Camedo (Re-Centovalli) — 0 min\n2. Drezzo Pedrinate — 0 min\n3. Lanzo d'Intelvi Arogno — 0 min\n4. Maslianico Pizzamiglio — 0 min\n5. Oria Gandria — 0 min\n\n👉 Link in bio: frontaliereticino.ch\n\n#frontalieri #ticino #dogane #confine #svizzera #traffico",
+      "imageUrls": [
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-12-0.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-12-1.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-12-2.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-12-3.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-12-4.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-12-5.jpg"
+      ],
+      "video": {
+        "url": "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-12.mp4",
+        "bytes": 517739,
+        "sha256": "9c7e25f1d3a958090307f2adafc9c211de310a5ce1b80b9add34055e7b6918e2",
+        "durationMs": 22267,
+        "width": 1080,
+        "height": 1920,
+        "creativeVariant": "motion-graphic-v1"
+      },
+      "ledgerEntries": [
+        {
+          "id": "2026-10-12",
+          "kind": "border",
+          "url": "/traffico-dogane/camedo/oggi/",
+          "day": "2026-10-12",
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "motion-graphic-v1",
+          "creativeLabel": "Motion graphic",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
+        }
+      ],
+      "createdAt": "2026-10-19T14:41:19.252Z",
+      "expiresAt": "2026-10-26T14:41:19.252Z"
+    }
+  ]
 }
