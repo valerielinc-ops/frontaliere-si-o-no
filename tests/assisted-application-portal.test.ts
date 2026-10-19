@@ -192,7 +192,7 @@ describe('legacy portal sections', () => {
         { id: 'password-repeat', kind: 'text', inputType: 'password', form: 0, label: 'Retype Password: *', required: true },
         { id: 'permit', kind: 'combobox', form: 0, label: 'Do you hold a valid work permit for Switzerland?', required: true },
       ],
-      buttons: [{ id: 'cv-upload', text: '\uE1EF', disabled: false }, { id: 'apply', text: 'Apply', disabled: false }],
+      buttons: [{ id: 'f5', domId: 'upload-control', dataAutomationId: 'cv-upload', text: '\uE1EF', disabled: false }, { id: 'f6', text: 'Apply', disabled: false }],
       captcha: false,
       passwordVisible: true,
       errors: [],
@@ -204,7 +204,7 @@ describe('legacy portal sections', () => {
         ...base,
         fields: uploaded ? [...base.fields, { id: 'cv', kind: 'file', inputType: 'file', form: 0, label: 'Resume / CV (PDF preferred):', required: true }] : base.fields,
       })),
-      locator: vi.fn((selector: string) => selector.includes('data-aa-id="cv-upload"')
+      locator: vi.fn((selector: string) => selector.includes('data-aa-id="f5"')
         ? { first: () => ({ click: vi.fn(async () => { uploaded = true; }) }) }
         : { first: () => ({ click: vi.fn() }) }),
     };
@@ -230,6 +230,42 @@ describe('legacy portal sections', () => {
     expect(uploaded).toBe(true);
     expect(fileInput.setInputFiles).toHaveBeenCalledWith('/tmp/candidate-cv.pdf');
     expect(result.snapshot.fields.some((field: any) => field.kind === 'file')).toBe(true);
+  });
+
+  it('does not use a SuccessFactors upload marker on an account page without an application form', async () => {
+    let clicked = false;
+    const base = {
+      url: 'https://career5.successfactors.eu/careers',
+      fields: [
+        { id: 'f1', kind: 'text', inputType: 'email', label: 'Email address', required: true },
+        { id: 'f2', kind: 'text', inputType: 'password', label: 'Create password', required: true },
+      ],
+      buttons: [
+        { id: 'f3', domId: 'upload-control', dataAutomationId: 'cv-upload', text: '\uE1EF', disabled: false },
+        { id: 'f4', text: 'Create account', disabled: false },
+      ],
+      captcha: false,
+      passwordVisible: true,
+      errors: [],
+      text: '',
+    };
+    const frame = {
+      url: () => base.url,
+      evaluate: vi.fn(async () => base),
+      locator: vi.fn(() => ({ first: () => ({ click: vi.fn(async () => { clicked = true; }) }) })),
+    };
+    const page = {
+      url: () => base.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      locator: vi.fn(() => ({ count: vi.fn(async () => 0) })),
+      waitForLoadState: vi.fn(async () => {}),
+    };
+
+    const result = await openFormSections(page as any, base as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
+
+    expect(result.cv).toBeUndefined();
+    expect(clicked).toBe(false);
   });
 
   it('does not treat an unrelated private-use button as a CV trigger outside SuccessFactors', async () => {

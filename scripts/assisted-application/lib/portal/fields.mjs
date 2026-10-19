@@ -451,7 +451,13 @@ export function extractFieldsInPage() {
   const actionLink = (element) => element.tagName === 'A' && Boolean(element.closest('.css_button'));
   const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element);
   const buttonName = (element) => clean(element.innerText || element.value || element.getAttribute('aria-label') || element.textContent || element.getAttribute('title') || '');
-  const buttonAccessibleLabel = (element) => clean(element.getAttribute('aria-label') || '');
+  const buttonAccessibleLabel = (element) => {
+    const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/)
+      .map(textOf)
+      .filter(Boolean)
+      .join(' ');
+    return clean(labelledBy || element.getAttribute('aria-label') || element.getAttribute('title') || '');
+  };
   const fileContext = (element) => {
     for (let node = element.parentElement, depth = 0; node && depth < 6; node = node.parentElement, depth += 1) {
       const text = clean(node.innerText || node.textContent);
@@ -473,6 +479,12 @@ export function extractFieldsInPage() {
       && actionControl(element))
     .map((element) => ({
       id: idFor(element),
+      domId: clean(element.getAttribute('id') || ''),
+      name: clean(element.getAttribute('name') || ''),
+      label: buttonAccessibleLabel(element),
+      title: clean(element.getAttribute('title') || ''),
+      ariaLabel: clean(element.getAttribute('aria-label') || ''),
+      dataAutomationId: clean(element.getAttribute('data-automation-id') || ''),
       ...dialogMeta(element),
       text: buttonName(element),
       section: headingBefore(element),

@@ -1104,7 +1104,7 @@ function successFactorsIconButtonFor(snapshot, kind) {
   const markerPattern = kind === 'cv' ? SUCCESS_FACTORS_UPLOAD_MARKER_RE : SUCCESS_FACTORS_COVER_MARKER_RE;
   const candidates = (snapshot?.buttons || []).filter((button) => {
     if (button.disabled || button.chrome || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return false;
-    const marker = `${button.id || ''} ${button.name || ''} ${button.label || ''} ${button.title || ''} ${button.ariaLabel || ''}`;
+    const marker = `${button.domId || ''} ${button.id || ''} ${button.name || ''} ${button.label || ''} ${button.title || ''} ${button.ariaLabel || ''} ${button.dataAutomationId || ''}`;
     return markerPattern.test(marker);
   });
   return candidates.length === 1 ? candidates[0] : null;
@@ -1118,11 +1118,14 @@ function isSuccessFactorsPage(page) {
   }
 }
 
-function iconUploadAllowedForPage(page, button, kind = 'cv') {
+function iconUploadAllowedForPage(page, button, kind = 'cv', snapshot = null) {
   if (!button || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return true;
-  const marker = `${button.id || ''} ${button.name || ''} ${button.label || ''} ${button.title || ''} ${button.ariaLabel || ''}`;
+  const contextPattern = kind === 'cover_letter' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : CV_DOCUMENT_CONTEXT_RE;
+  const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
+  if (contextPattern.test(context)) return true;
+  const marker = `${button.domId || ''} ${button.id || ''} ${button.name || ''} ${button.label || ''} ${button.title || ''} ${button.ariaLabel || ''} ${button.dataAutomationId || ''}`;
   const markerPattern = kind === 'cover_letter' ? SUCCESS_FACTORS_COVER_MARKER_RE : SUCCESS_FACTORS_UPLOAD_MARKER_RE;
-  return isSuccessFactorsPage(page) && markerPattern.test(marker);
+  return isSuccessFactorsPage(page) && ownAccountForm(snapshot || {}) && markerPattern.test(marker);
 }
 
 // Tries per page and action in one run: a click a portal drops is tried again
@@ -1208,13 +1211,13 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   let cv;
   while (cvFile && !done.has(cvKey) && !current.fields.some((field) => field.kind === 'file')) {
     const namedTriggerButton = uploadButtonFor(current, 'cv');
-    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page)
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page) && ownAccountForm(current)
       ? successFactorsIconButtonFor(current, 'cv')
       : null;
     const triggerButton = namedTriggerButton || iconTriggerButton;
     const trigger = iconTriggerButton && !namedTriggerButton
       ? { snapshot: triggerButton }
-      : iconUploadAllowedForPage(page, triggerButton, 'cv') && triggerButton
+      : iconUploadAllowedForPage(page, triggerButton, 'cv', current) && triggerButton
         ? locatorFor(page, triggerButton)
         : null;
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
@@ -1229,13 +1232,13 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   let coverLetter;
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
     const namedTriggerButton = uploadButtonFor(current, 'cover_letter');
-    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page)
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page) && ownAccountForm(current)
       ? successFactorsIconButtonFor(current, 'cover_letter')
       : null;
     const triggerButton = namedTriggerButton || iconTriggerButton;
     const trigger = iconTriggerButton && !namedTriggerButton
       ? { snapshot: triggerButton }
-      : iconUploadAllowedForPage(page, triggerButton, 'cover_letter') && triggerButton
+      : iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current) && triggerButton
         ? locatorFor(page, triggerButton)
         : null;
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
