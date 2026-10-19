@@ -57,13 +57,40 @@ export function extractFieldsInPage() {
     return { dialog: Boolean(dialogId), dialogId };
   };
   // The site's own header, navigation and footer, around the page: a «Sign In» up there is the site's (on
-  // Workday it opens a dialog over the page), not the link of the form below. A <footer> or a <header>
-  // inside the form, a dialog or the page's main part belongs to it.
+  // Workday it opens a dialog over the page), not the link of the form below. A page can still put its
+  // application form inside one of those elements, so only controls identified as global site controls
+  // are chrome. A <footer> or a <header> inside the form, a dialog or the page's main part belongs to it.
   const SITE_CHROME = 'header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]';
   const PAGE_CONTENT = 'main, [role="main"], form, dialog, [role="dialog"], article, section';
+  const GLOBAL_SEARCH_RE = /\b(?:search|suche|suchen|durchsuchen|finden|cerca|ricerca|recherche|chercher|query|jobs?|stellen)\b|(?:^|[\s_-])as_q(?:$|[\s_-])/i;
   const inSiteChrome = (element) => {
     const chrome = element.closest(SITE_CHROME);
     return Boolean(chrome) && !chrome.closest(PAGE_CONTENT);
+  };
+  const controlDescriptor = (element) => {
+    const labels = [...(element.labels || [])].map((label) => label.innerText || label.textContent || '');
+    return [
+      element.getAttribute('aria-label'),
+      element.getAttribute('placeholder'),
+      element.getAttribute('name'),
+      element.id,
+      ...labels,
+    ].filter(Boolean).join(' ');
+  };
+  const isGlobalSearchControl = (element) => {
+    const tag = element.tagName?.toLowerCase();
+    const type = tag === 'input' ? (element.getAttribute('type') || 'text').toLowerCase() : tag;
+    return type === 'search' || Boolean(element.closest('[role="search"]')) || GLOBAL_SEARCH_RE.test(controlDescriptor(element));
+  };
+  const applicationFormFor = (element) => {
+    const form = element.form || element.closest('form');
+    if (!form) return false;
+    const controls = [...form.querySelectorAll('input, select, textarea, [role="combobox"]')];
+    const hasRequiredControl = controls.some((control) => control.required || control.getAttribute('aria-required') === 'true');
+    const hasNonSearchControl = controls.some((control) => !isGlobalSearchControl(control)
+      && !['hidden', 'submit', 'button', 'reset', 'image'].includes((control.getAttribute('type') || '').toLowerCase()));
+    const hasSubmit = Boolean(form.querySelector('button[type="submit"], input[type="submit"]'));
+    return hasRequiredControl || (hasSubmit && hasNonSearchControl);
   };
   const textOf = (id) => {
     const node = id && document.getElementById(id);
@@ -268,9 +295,13 @@ export function extractFieldsInPage() {
     // The site's own search box is not part of the application; Workday's
     // "selectinput" (a search box that picks an option) is. Some corporate
     // sites use a plain text input for the same global search (SIX, 2026-10-19),
-    // so the chrome guard must cover every input type, not only type=search.
-    if ((type === 'search' && element.getAttribute('data-uxi-widget-type') !== 'selectinput')
-      || (inSiteChrome(element) && element.getAttribute('data-uxi-widget-type') !== 'selectinput')) continue;
+    // so the chrome guard must cover every input type, not only type=search. A form
+    // embedded in a header can still be the application form; its controls win over
+    // the surrounding chrome classification.
+    const applicationOwned = applicationFormFor(element);
+    if (element.getAttribute('data-uxi-widget-type') !== 'selectinput'
+      && !applicationOwned
+      && (type === 'search' || (inSiteChrome(element) && isGlobalSearchControl(element)))) continue;
     if (element.closest(datePickerSelector)) continue;
     if (element.disabled || element.readOnly || !visible(element)) continue;
     // A field its own label keeps for robots («This input is for robots only, do not enter if you're human»)
@@ -447,7 +478,7 @@ export function extractFieldsInPage() {
       fileContext: fileContext(element),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
-      ...(inSiteChrome(element) ? { chrome: true } : {}),
+      ...(inSiteChrome(element) && !applicationFormFor(element) ? { chrome: true } : {}),
     }))
     .filter((button) => button.text)
     .slice(0, 60);

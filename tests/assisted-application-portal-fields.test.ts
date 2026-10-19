@@ -385,4 +385,19 @@ describe('portal field extraction', () => {
     expect(searchFields[0]).toMatchObject({ label: 'Land*', search: true, required: true });
     expect(page.fields.some((field: any) => ['Finden', 'Suche'].includes(field.label))).toBe(false);
   });
+
+  it('keeps an application form embedded in site chrome while omitting its global search', () => {
+    const page = extract(`
+      <header>
+        <form id="application">
+          <label for="app-name">Full name*</label><input id="app-name" required>
+          <button type="submit" aria-label="Submit application">Submit application</button>
+        </form>
+        <form role="search"><label for="global-query">Finden</label><input id="global-query" name="as_q"></form>
+      </header>`);
+    expect(page.fields).toEqual([expect.objectContaining({ label: 'Full name*', required: true })]);
+    expect(page.buttons).toHaveLength(1);
+    expect(page.buttons[0]).toMatchObject({ text: 'Submit application' });
+    expect(page.buttons[0]).not.toHaveProperty('chrome');
+  });
 });
