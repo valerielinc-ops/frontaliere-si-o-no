@@ -151,6 +151,9 @@ function pushMainCandidate(baseSha, worktree, gitFn) {
     });
   } catch (error) {
     const detail = safeError(error);
+    // A non-descendant candidate can be based on a stale origin/main; the
+    // outer bounded attempt loop refreshes the base and rebuilds the worktree.
+    // Keep actual integrity/proof failures fatal.
     if (/candidate tree collapse|cannot resolve commit|cannot inspect tree|cannot prove ancestry/iu.test(detail)) {
       throw mainPushGuardError(error);
     }
