@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-19T21:21:14.352Z",
+  "generatedAt": "2026-10-19T22:21:23.823Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -26228,6 +26228,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T01:17:37.116Z"
     },
+    "guidle:AhaFP38::046cab9ecb8b8c552bd2869160ebf60e236477b53e5eb8f5371e0b44be01b73a": {
+      "id": "guidle:AhaFP38",
+      "sourceDescriptionHash": "046cab9ecb8b8c552bd2869160ebf60e236477b53e5eb8f5371e0b44be01b73a",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Touch the Mountains Interlaken; comune: Interlaken; cantone: BE; categoria: Festival / Incontro; organizzatore: Guidle; partecipante: Touch The Mountains; data: 2027-01-01; ora: 13:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Touch the Mountains Interlaken; comune: Interlaken; cantone: BE; categoria: Festival / Incontro; organizzatore: Guidle; partecipante: Touch The Mountains; data: 2027-01-01; ora: 13:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Touch the Mountains Interlaken; municipality: Interlaken; canton: BE; category: Festival / Incontro; organiser: Guidle; participant: Touch The Mountains; date: 2027-01-01; time: 13:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Touch the Mountains Interlaken; gemeinde: Interlaken; kanton: BE; kategorie: Festival / Incontro; veranstalter: Guidle; mitwirkender: Touch The Mountains; datum: 2027-01-01; uhrzeit: 13:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Touch the Mountains Interlaken; commune: Interlaken; canton: BE; catégorie: Festival / Incontro; organisateur: Guidle; participant: Touch The Mountains; date: 2027-01-01; heure: 13:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-19T22:15:13.243Z"
+    },
     "guidle:AHAjDqp::45aaede42dc0524abd1775f4df85a0adc13940afb410c4b812f3c9259aed05a4": {
       "id": "guidle:AHAjDqp",
       "sourceDescriptionHash": "45aaede42dc0524abd1775f4df85a0adc13940afb410c4b812f3c9259aed05a4",
@@ -34068,6 +34082,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T10:16:06.271Z"
     },
+    "guidle:AQTb3gq::0ace066bdfb595858eb83b98dc92b916fcd4b5b94e5bcc37c54310108f0c7560": {
+      "id": "guidle:AQTb3gq",
+      "sourceDescriptionHash": "0ace066bdfb595858eb83b98dc92b916fcd4b5b94e5bcc37c54310108f0c7560",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Neue Reformierte Kirche; comune: Urdorf; cantone: ZH; categoria: Altri musica; organizzatore: Guidle; data: 2027-01-01; ora: 18:15. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Neue Reformierte Kirche; comune: Urdorf; cantone: ZH; categoria: Altri musica; organizzatore: Guidle; data: 2027-01-01; ora: 18:15. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Neue Reformierte Kirche; municipality: Urdorf; canton: ZH; category: Altri musica; organiser: Guidle; date: 2027-01-01; time: 18:15. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Neue Reformierte Kirche; gemeinde: Urdorf; kanton: ZH; kategorie: Altri musica; veranstalter: Guidle; datum: 2027-01-01; uhrzeit: 18:15. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Neue Reformierte Kirche; commune: Urdorf; canton: ZH; catégorie: Altri musica; organisateur: Guidle; date: 2027-01-01; heure: 18:15. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-19T22:15:13.234Z"
+    },
     "guidle:AQTRYxM::ec13289692448b057e09550dc9537e93e4b0125a119388f6d47abbee22ab3a0b": {
       "id": "guidle:AQTRYxM",
       "sourceDescriptionHash": "ec13289692448b057e09550dc9537e93e4b0125a119388f6d47abbee22ab3a0b",
@@ -39289,6 +39317,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T17:22:04.676Z"
+    },
+    "guidle:AvUGqa8::d11cf975b3b62fbd05444c2605294738ef1831dedadd35323c91ce0b5d253dd4": {
+      "id": "guidle:AvUGqa8",
+      "sourceDescriptionHash": "d11cf975b3b62fbd05444c2605294738ef1831dedadd35323c91ce0b5d253dd4",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Halle de gymnastique Mervelier; comune: Mervelier; cantone: JU; categoria: Banda di ottoni; organizzatore: Guidle; data: 2027-03-13; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Halle de gymnastique Mervelier; comune: Mervelier; cantone: JU; categoria: Banda di ottoni; organizzatore: Guidle; data: 2027-03-13; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Halle de gymnastique Mervelier; municipality: Mervelier; canton: JU; category: Banda di ottoni; organiser: Guidle; date: 2027-03-13; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Halle de gymnastique Mervelier; gemeinde: Mervelier; kanton: JU; kategorie: Banda di ottoni; veranstalter: Guidle; datum: 2027-03-13; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Halle de gymnastique Mervelier; commune: Mervelier; canton: JU; catégorie: Banda di ottoni; organisateur: Guidle; date: 2027-03-13; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-19T22:15:13.259Z"
     },
     "guidle:AVuXBcE::051fcad4d69be97adda155766f60346e00b3d0b14bd355d441eea39a6cde03ae": {
       "id": "guidle:AVuXBcE",
@@ -161200,15 +161242,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AhaFP38::046cab9ecb8b8c552bd2869160ebf60e236477b53e5eb8f5371e0b44be01b73a": {
-      "id": "guidle:AhaFP38",
-      "sourceDescriptionHash": "046cab9ecb8b8c552bd2869160ebf60e236477b53e5eb8f5371e0b44be01b73a",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-19T20:23:27.298Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AhG1fup::e0120879d6cda853b6715b9bb2d8d6d103ad9eff7342059b48b3731f62156871": {
       "id": "guidle:AhG1fup",
       "sourceDescriptionHash": "e0120879d6cda853b6715b9bb2d8d6d103ad9eff7342059b48b3731f62156871",
@@ -161875,15 +161908,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AQTb3gq::0ace066bdfb595858eb83b98dc92b916fcd4b5b94e5bcc37c54310108f0c7560": {
-      "id": "guidle:AQTb3gq",
-      "sourceDescriptionHash": "0ace066bdfb595858eb83b98dc92b916fcd4b5b94e5bcc37c54310108f0c7560",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-19T20:24:07.292Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AqtJZwT::59244302c74e1eb5887e0c6aafea2f565bd2a154f019af0c279bcb4f3eaf666f": {
       "id": "guidle:AqtJZwT",
       "sourceDescriptionHash": "59244302c74e1eb5887e0c6aafea2f565bd2a154f019af0c279bcb4f3eaf666f",
@@ -162259,15 +162283,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-10T14:24:32.378Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AvUGqa8::d11cf975b3b62fbd05444c2605294738ef1831dedadd35323c91ce0b5d253dd4": {
-      "id": "guidle:AvUGqa8",
-      "sourceDescriptionHash": "d11cf975b3b62fbd05444c2605294738ef1831dedadd35323c91ce0b5d253dd4",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-19T20:27:51.649Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
