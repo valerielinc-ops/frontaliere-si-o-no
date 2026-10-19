@@ -17,7 +17,7 @@ const TransportCalculator = lazyRetry(() => import('@/components/vita/TransportC
 export default function VitaTabContent() {
  const { t } = useTranslation();
  const { vitaSubTab } = useNavigation();
- const { userProfile } = useTabContent();
+ const { userProfile, authUser } = useTabContent();
 
  return (
  <div className="max-w-7xl mx-auto">
@@ -37,7 +37,7 @@ export default function VitaTabContent() {
  ) : vitaSubTab === 'schools' ? (
  <FrontierGuide activeSection="schools" />
  ) : vitaSubTab === 'nursery' ? (
- <NurseryComparator userProfile={userProfile} />
+ <NurseryComparator key={authUser?.uid ?? 'anonymous'} userProfile={userProfile} />
  ) : vitaSubTab === 'places' ? (
  <FrontierGuide activeSection="places" />
  ) : vitaSubTab === 'transport' ? (

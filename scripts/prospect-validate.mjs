@@ -19,12 +19,23 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { loadCandidates, reopenRejectedCandidate, saveCandidates, setStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
+import {
+  loadCandidates,
+  reopenRejectedCandidate,
+  requeuePromotedCandidate,
+  saveCandidates,
+  setStatus,
+  statusCounts,
+} from './lib/prospector/candidate-store.mjs';
 import { runSpec } from './lib/prospector/synthesize.mjs';
 import { gradeExtraction } from './lib/prospector/validate.mjs';
 import { sourceCrawlerAdapterFor } from './lib/prospector/source-adapters.mjs';
 import { probeCompanyLogo } from './lib/prospector/logo-probe.mjs';
 import { PROSPECTOR_DIR, VALIDATION_PATH, ROOT } from './lib/prospector/config.mjs';
+import {
+  candidateStatusAfterValidation,
+  GATE_DEFAULTS,
+} from './lib/prospector/promotion-gate.mjs';
 import { loadSourceHostOwnership, matchExistingCrawler } from './lib/crawler-source-hosts.mjs';
 import { tenantHostOwner } from './lib/prospector/coverage.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
@@ -220,7 +231,21 @@ for (const spec of specs) {
 
   if (candidate) {
     const rejectedRevalidation = canRevalidateRejectedCandidate(spec, candidate);
-    const next = report.verdict === 'good' ? 'promoted' : (report.verdict === 'bad' ? 'rejected' : 'validated');
+    const next = candidateStatusAfterValidation(report);
+    const qualityProblems = [...report.problems];
+    let sourceBackedLocationProblem = '';
+    // `good` is the extraction-quality verdict, not a waiver for PROMOTE's
+    // source-backed geography predicate. Keep an unproven candidate retryable;
+    // do not invent a fallback location or turn missing evidence into a
+    // terminal rejection.
+    if (report.verdict === 'good' && next !== 'promoted') {
+      const measuredRate = Number(report.locationSourceRate);
+      const measuredLabel = Number.isFinite(measuredRate)
+        ? `${Math.round(measuredRate * 100)}%`
+        : 'non misurata';
+      sourceBackedLocationProblem = `localita' source-backed ${measuredLabel} sotto la soglia PROMOTE ${Math.round(GATE_DEFAULTS.minLocationSourceRate * 100)}%`;
+      qualityProblems.push(sourceBackedLocationProblem);
+    }
     // Keep a short grading history. A single good grade proves the page parsed
     // ONCE; autonomous promotion needs proof it parses the same way on a
     // different day, because the dominant failure of a synthesised crawler is a
@@ -260,21 +285,32 @@ for (const spec of specs) {
         continue;
       }
     }
-    setStatus(store, candidate.key, next, {
+    const statusPatch = {
       crawlerKey: spec.companyKey,
       domain: candidate.domain || spec.companyHost,
       careersUrl: candidate.careersUrl || spec.seedUrls?.[0] || null,
+      ...(sourceBackedLocationProblem ? { reason: sourceBackedLocationProblem } : {}),
       ...(rejectedRevalidation && next === 'rejected'
-        ? { reason: report.problems[0] || 'rivalutazione source adapter respinta' }
+        ? { reason: qualityProblems[0] || 'rivalutazione source adapter respinta' }
         : {}),
       detailEnrichment: spec.detailEnrichment === true,
       qualityScore: report.score,
       qualityVerdict: report.verdict,
-      qualityProblems: report.problems,
+      qualityProblems,
       vacancyCount: report.vacancyCount,
       validationHistory: history.slice(-8),
       ...(adapter ? { sourceAdapterVersion: adapter.version } : {}),
-    }, dryRun ? null : undefined);
+    };
+    if (candidate.status === 'promoted' && next === 'validated') {
+      requeuePromotedCandidate(
+        store,
+        candidate.key,
+        statusPatch,
+        dryRun ? null : undefined,
+      );
+    } else {
+      setStatus(store, candidate.key, next, statusPatch, dryRun ? null : undefined);
+    }
   }
 }
 

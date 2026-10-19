@@ -79,7 +79,8 @@
       "datePosted": "2026-08-31",
       "postingDateSource": "reported",
       "crawledAt": "2026-10-19T09:16:35.617Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Detailhandelsfachmann/-frau EFZ - Wil SG",
@@ -311,7 +312,8 @@
       ],
       "datePosted": "2026-09-02",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T09:16:37.275Z"
+      "crawledAt": "2026-10-19T09:16:37.275Z",
+      "needsRetranslation": true
     },
     {
       "title": "Detailhandelsfachmann/-frau EFZ - Oerlikon Sternen",
@@ -1040,8 +1042,8 @@
       },
       "slugByLocale": {
         "it": "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-communications-ag-fonds",
-        "en": "cfc-retail-management-trainees-la-chaux-de-fonds-sunrise-communications-ag-fonds",
-        "de": "cfc-auszubildende-zum-einzelhandelsmanagement-la-chaux-de-fonds-sunrise-communications-ag-fonds",
+        "en": "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds",
+        "de": "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds",
         "fr": "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
       },
       "id": "sunrise-sede-ticino-1839b5eb2855",
@@ -1065,17 +1067,19 @@
       "crawledAt": "2026-10-19T09:16:44.233Z",
       "previousSlugsByLocale": {
         "en": [
-          "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
+          "cfc-retail-management-trainees-la-chaux-de-fonds-sunrise-communications-ag-fonds"
         ],
         "de": [
-          "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
+          "cfc-auszubildende-zum-einzelhandelsmanagement-la-chaux-de-fonds-sunrise-communications-ag-fonds"
         ],
         "it": [
           "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
         ]
       },
       "previousSlugs": [
-        "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
+        "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds",
+        "cfc-retail-management-trainees-la-chaux-de-fonds-sunrise-communications-ag-fonds",
+        "cfc-auszubildende-zum-einzelhandelsmanagement-la-chaux-de-fonds-sunrise-communications-ag-fonds"
       ]
     },
     {

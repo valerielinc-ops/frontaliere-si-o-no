@@ -3,7 +3,12 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { retainPublishedPastEvents } from '../scripts/assemble-events-dataset.mjs';
 import { publishedEventRoutes } from '../scripts/lib/events-retention.mjs';
-import { pathForEventDetail, renderEventDetailPage } from '../build-plugins/eventsSeoPagesPlugin';
+import {
+  historicalEventSlugMigrations,
+  pathForEventDetail,
+  renderEventDetailPage,
+  renderEventSlugRedirectPage,
+} from '../build-plugins/eventsSeoPagesPlugin';
 import { MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { readAttr, readTagByAttr } from '../scripts/lib/html-attr.mjs';
 
@@ -35,7 +40,7 @@ for (const event of archived) {
 
 describe('reported GSC event archive coverage', () => {
   it('keeps the additional export routes attributable to exact pinned source observations', () => {
-    expect(fixture.freshExport.routes).toHaveLength(308);
+    expect(fixture.freshExport.routes).toHaveLength(309);
     const snapshots = JSON.parse(readFileSync(new URL('../data/events-recovery-archive.json', import.meta.url), 'utf8')).sourceSnapshots as { commit: string }[];
     const commits = new Set(snapshots.map(snapshot => snapshot.commit));
     for (const row of fixture.freshExport.routes) {
@@ -46,7 +51,7 @@ describe('reported GSC event archive coverage', () => {
   });
 
   it('keeps every attested reported route attached to its exact public identity', () => {
-    expect(fixture.routes).toHaveLength(682);
+    expect(fixture.routes).toHaveLength(683);
     expect(new Set(fixture.routes.map(([path]) => path)).size).toBe(fixture.routes.length);
     for (const [path, id] of fixture.routes) {
       const canonical = canonicalOwners.get(path);
@@ -105,6 +110,38 @@ describe('reported GSC event archive coverage', () => {
       expect(canonicalOwners.has(alias), alias).toBe(false);
       expect([...(historyOwners.get(alias) || [])], alias).toEqual([id]);
     }
+  });
+
+  it('corrects the Geneva cycling-tour date and bridges the reported 2027 URL', () => {
+    const id = 'ge-agenda:tournee-estivale-communes-samedis-velo-11-juillet';
+    const event = archived.find(candidate => candidate.id === id)!;
+    expect(event).toMatchObject({
+      title: 'Tournée estivale des Communes - Samedis du Vélo 11 juillet',
+      startDate: '2026-07-04', endDate: '2026-07-11',
+      venue: 'Place de Pont Rouge sous le gigantesque totem à horloge rouge',
+      url: 'https://www.pro-velo-geneve.ch/tourn_e_samedi_du_v_lo_lancy_en_juillet',
+      canton: 'GE', comune: 'Lancy',
+    });
+
+    const route = assigned.get(id)!;
+    const canonicalPath = pathForEventDetail('fr', route.comune, route.slug, route.canton);
+    const reportedPath = '/fr/evenements/geneve/geneve/tournee-estivale-des-communes-samedis-du-velo-11-juillet-2027-07-04/';
+    expect(canonicalPath).toBe('/fr/evenements/geneve/lancy/tournee-estivale-des-communes-samedis-du-velo-11-2026-07-04/');
+    expect([...(historyOwners.get(reportedPath) || [])]).toEqual([id]);
+
+    const [migration] = historicalEventSlugMigrations([event] as never, 'GE', 'Lancy', new Map([[id, route.slug]]));
+    expect(migration).toMatchObject({
+      eventId: id,
+      fromSlug: 'tournee-estivale-des-communes-samedis-du-velo-11-juillet-2027-07-04',
+      comune: 'Lancy',
+      toSlug: route.slug,
+      fromCanton: 'GE', fromComune: 'Genève',
+    });
+    const bridge = renderEventSlugRedirectPage('fr', canonicalPath, event);
+    expect(bridge).toContain(`<link rel="canonical" href="https://frontaliereticino.ch${canonicalPath}">`);
+    expect(bridge).toContain(`http-equiv="refresh" content="0; url=https://frontaliereticino.ch${canonicalPath}"`);
+    expect(bridge).toContain(event.title);
+    expect(bridge).not.toContain('noindex');
   });
 
   it('renders substantive self-canonical archives rather than generic retired pages', () => {

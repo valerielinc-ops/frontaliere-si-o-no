@@ -69,6 +69,7 @@ import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { isSafeDistPath } from './shared/distPathSafety';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
+import { HREFLANG_LINK_RX } from './shared/headLinkPatterns';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { ORPHAN_LANDING_SECTION } from './orphanQueryData';
@@ -243,6 +244,7 @@ const MIN_JOBS_FOR_INDEXABLE_CLUSTER = 3;
 // (e.g. for an A/B test of organic CTR vs. SERP impressions).
 const STRIP_CLUSTER_SEO_PROSE = (process.env.STRIP_CLUSTER_SEO_PROSE ?? '1') !== '0';
 // EJP_STRIPPED_MARKER imported from ./shared/ejpMarker (single source of truth).
+const CLUSTER_MIRROR_HREFLANG_LINK_RX = new RegExp(HREFLANG_LINK_RX.source, HREFLANG_LINK_RX.flags);
 
 // ── Utilities ───────────────────────────────────────────────────────────
 
@@ -3155,6 +3157,21 @@ function renderHreflang(
   });
 }
 
+/**
+ * Legacy cluster mirrors canonicalize to the aggregate locale page. Keep the
+ * hreflang cluster on those canonical pages by removing alternate links from
+ * the mirror copy while preserving its canonical and page content.
+ */
+export function stripHreflangForClusterMirror(html: string): string {
+  const headEnd = html.indexOf('</head>');
+  if (headEnd < 0) {
+    throw new Error('Cannot prepare a cluster mirror without a closing </head> tag');
+  }
+
+  const head = html.slice(0, headEnd);
+  return `${head.replace(CLUSTER_MIRROR_HREFLANG_LINK_RX, '')}${html.slice(headEnd)}`;
+}
+
 // Memoize renderJobBoardCommuterContext: pure function, ~52k calls per build
 // across only ~560 unique (locale, location, sectorOrType, omitCommute) inputs.
 // Cleared at the top of closeBundle so it can't leak across builds in dev/tests.
@@ -5222,10 +5239,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           dateStamp,
         });
 
-        // Tiered emission decision per cluster context. The same html
-        // payload is reused for the canonical + the flat-bridge source
-        // + every legacy-canton mirror, so we decide once and apply
-        // uniformly. PR #743 fix: the mirror set is computed BEFORE the
+        // Tiered emission decision per cluster context. The canonical HTML
+        // feeds the canonical page and flat bridge; mirrors use a copy with
+        // hreflang removed because their canonical points to the aggregate
+        // locale page. We decide indexability once and apply it uniformly.
+        // PR #743 fix: the mirror set is computed BEFORE the
         // decision and every candidate path goes through `decideMulti` —
         // GSC + GA4 attribute traffic to the legacy mirror (typically
         // `/cerca-lavoro-ticino/ricerca-X/`), not the freshly-promoted
@@ -5282,6 +5300,9 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const __clHtml = __clNoindex
           ? replaceRobotsMeta(__clThinned, 'noindex,follow')
           : __clThinned;
+        const __clMirrorHtml = __clMirrorPaths.size > 0
+          ? stripHreflangForClusterMirror(__clHtml)
+          : __clHtml;
         profileRecord('cluster-thin', __tClThin);
         const __clDelta = __clAction === 'thin' ? out.html.length - __clHtml.length : 0;
         if (__clAction === 'thin') clusterThinCount++; else clusterFullCount++;
@@ -5337,11 +5358,10 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         if (__clEmission.sitemapEligible) sitemapLocs.push(out.loc);
 
         // ── Legacy mirrors ──────────────────────────────────────────────
-        // Emit byte-identical copies of the canonical (Svizzera) HTML at the
-        // legacy per-canton paths that this cluster previously occupied. The
-        // mirror's `<link rel="canonical">` already points to Svizzera (it's
-        // baked into the rendered HTML), so search engines fold the mirror
-        // into the canonical instead of treating it as a duplicate.
+        // Emit copies of the canonical (Svizzera) page at the legacy
+        // per-canton paths that this cluster previously occupied. The mirror
+        // canonical points to Svizzera, and its hreflang is removed so the
+        // locale cluster stays on the self-canonical aggregate pages.
         //
         // Three mirror sources are merged into a single Set of absolute
         // paths (deduped + collision-guarded against the canonical):
@@ -5383,7 +5403,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           // via flat bridges would add hundreds of thousands of files for a
           // negligible UX gain.
           const mirrorIndexPath = path.join(distDir, mirrorPath, 'index.html');
-          collector.add(mirrorIndexPath, __clHtml);
+          collector.add(mirrorIndexPath, __clMirrorHtml);
           clusterBytesSaved += __clDelta;
           emittedFiles.push(path.relative(distDir, mirrorIndexPath));
           // The mirror's HTML canonicalizes to Svizzera (out.loc), so this TI

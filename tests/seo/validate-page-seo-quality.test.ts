@@ -5,11 +5,13 @@ import {
   hasMetaRefresh,
   hasMetaViewport,
   isIntentionalRedirectPage,
+  isIntentionalJobBoardNoindexPage,
   maskHtmlCommentsOutsideRawText,
   validateBestPracticeSeo,
   validateSchemas,
 } from '../../scripts/validate-page-seo-quality.mjs';
 import { minifyHtml } from '../../build-plugins/shared/htmlMinify';
+import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
 const GOOD_PAGE = `
@@ -167,6 +169,14 @@ describe('blocking page checks', () => {
 
     expect(hasMetaRefresh(html)).toBe(true);
     expect(isIntentionalRedirectPage(html)).toBe(true);
+  });
+
+  it('recognizes only shared-marker job-board noindex targets', () => {
+    const noindex = '<meta name=robots content=noindex,follow>';
+
+    expect(isIntentionalJobBoardNoindexPage(`${JOB_BOARD_NOINDEX_TARGET_MARKER}${noindex}`)).toBe(true);
+    expect(isIntentionalJobBoardNoindexPage(noindex)).toBe(false);
+    expect(isIntentionalJobBoardNoindexPage(`${JOB_BOARD_NOINDEX_TARGET_MARKER}<meta name=robots content=index,follow>`)).toBe(false);
   });
 });
 
