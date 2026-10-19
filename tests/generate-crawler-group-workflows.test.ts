@@ -611,6 +611,29 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
   });
 
+  it('exit 45 (transient lease errors): reports an error, does not retry, no per-crawler issue', () => {
+    const transientLeaseDir = writeFixtureCommitScript(45);
+    const crawler = withInspectableFailureReporter(crawlerFixture({ commitCommand: transientLeaseDir }));
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).toBe(45);
+    expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
+  });
+
+  it('exit 45 under the target timeout wrapper stays a real systemic error', () => {
+    const transientLeaseDir = writeFixtureCommitScript(45);
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({ commitCommand: transientLeaseDir })),
+      targetTimeoutMinutes: 30,
+    };
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).toBe(45);
+    expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
+  });
+
   it('exit 143 (runner shutdown): preserves systemic status without a per-crawler issue', () => {
     const crawler = withInspectableFailureReporter(crawlerFixture({ runCommand: 'bash -c "exit 143"' }));
 
@@ -1591,6 +1614,14 @@ describe('watchdog kill visibility (exit 124 without the in-script reporter)', (
     expect(runAggregate({ status: '124' }).argv).toHaveLength(0);
   });
 
+  it('reports exit 45 as a systemic lease error without filing a per-crawler issue', () => {
+    const { stdout, argv, output } = runAggregate({ status: '45' });
+    expect(argv).toHaveLength(0);
+    expect(stdout).toContain('::error::sbb: global data-pipeline lease hit consecutive transient Firestore errors (exit 45)');
+    expect(output).toContain('failure_count=1');
+    expect(output).toContain('wait_outcome=failure');
+  });
+
   it('never files for other statuses, even with a stale marker', () => {
     expect(runAggregate({ status: '1', marker: '91' }).argv).toHaveLength(0);
     expect(runAggregate({ status: '0', marker: '91' }).argv).toHaveLength(0);
@@ -1629,13 +1660,17 @@ describe('push-contention class (exit 42) in generated steps', () => {
     expect(files.length).toBeGreaterThan(0);
     for (const f of files) {
       const y = fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8');
-      // the failure-report gate must exclude 42...
-      expect(y).toContain('[ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]');
+      // the arithmetic failure-report gate must exclude 42...
+      expect(y).toContain('git_commit_exit != 0 && git_commit_exit != 42');
       // ...and the contention branch must log loudly instead of filing an issue
       expect(y).toContain('push contention loss (exit 42)');
       // A global lease convoy is a separate retryable systemic class.
-      expect(y).toContain('[ "$git_commit_exit" -ne 44 ]');
+      expect(y).toContain('git_commit_exit != 44 && git_commit_exit != 45');
       expect(y).toContain('global data-pipeline lease busy (exit 44)');
+      // A bounded transient Firestore outage is not retryable in this
+      // generation: it must stay red and skip the per-crawler flood.
+      expect(y).toContain('git_commit_exit != 45');
+      expect(y).toContain('consecutive transient Firestore errors (exit 45)');
       // real failures still fail the step (the plain exit 1 path survives)
       expect(y).toContain('exit 1');
     }
@@ -1664,6 +1699,9 @@ describe('#9667 — token-bound retry class on the group-batch commit step', () 
       // ...as must the cross-repository lease convoy (exit 44), while the
       // exhausted retryable branch still propagates the non-zero status.
       expect(commitStep.run).toContain('[ "$git_commit_exit" -ne 44 ]');
+      // Exit 45 is deliberately absent from the retry predicate: the generic
+      // non-retryable branch annotates the step and propagates it unchanged.
+      expect(commitStep.run).not.toContain('[ "$git_commit_exit" -ne 45 ]');
       expect(commitStep.run).toContain('retryable commit exit $git_commit_exit');
       expect(commitStep.run).toContain('exit "$git_commit_exit"');
     }
