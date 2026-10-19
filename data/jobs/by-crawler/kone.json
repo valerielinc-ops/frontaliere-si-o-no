@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kone",
-  "assembledAt": "2026-10-19T09:48:36.079Z",
+  "assembledAt": "2026-10-19T21:54:50.517Z",
   "jobs": [
     {
       "id": "kone-5845ef254b6b",
@@ -34,7 +34,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Servicetechniker-in-Aufzge--Gebiet-Luzern_R0662101",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:48:32.287Z",
+      "crawledAt": "2026-10-19T21:54:43.714Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Bern/Verkaufsberater-in-Neuanlagen---Region-Bern_R0663874",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:48:31.478Z",
+      "crawledAt": "2026-10-19T21:54:42.895Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Aufzugsmonteur-in---Region-Luzern_R0664487",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:48:30.583Z",
+      "crawledAt": "2026-10-19T21:54:42.068Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -326,7 +326,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "crawlerMissStreak": 1
     }
   ]
 }
