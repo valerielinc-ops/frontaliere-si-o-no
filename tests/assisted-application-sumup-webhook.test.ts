@@ -19,6 +19,11 @@ vi.mock('../functions/src/assistedApplicationCheckout.js', () => ({
 }));
 vi.mock('../functions/src/sumupAssistedApplicationCore.js', () => ({
   SUMUP_PAYMENT_PROVIDER: 'sumup',
+  latestSumUpTransaction: (checkout: { transactions?: Array<Record<string, unknown>> }) => (
+    [...(checkout.transactions || [])].sort((left, right) => (
+      Date.parse(String(right.timestamp || '')) - Date.parse(String(left.timestamp || ''))
+    ))[0] || null
+  ),
   retrieveSumUpCheckout: (...args: unknown[]) => mocks.retrieveSumUpCheckout(...args),
 }));
 vi.mock('../functions/src/applicationConciergeConstants.js', () => ({
@@ -29,7 +34,10 @@ vi.mock('../functions/src/applicationConciergeCheckout.js', () => ({
   handleApplicationConciergeWebhookEvent: (...args: unknown[]) => mocks.handleApplicationConciergeWebhookEvent(...args),
 }));
 
-const { handleAssistedApplicationSumUpWebhook } = await import('../functions/src/assistedApplicationSumupWebhook.js');
+const {
+  handleAssistedApplicationSumUpWebhook,
+  runAssistedApplicationSumUpReconciliation,
+} = await import('../functions/src/assistedApplicationSumupWebhook.js');
 
 function makeDb(
   order: Record<string, unknown> | null,
@@ -56,6 +64,11 @@ function makeDb(
             data: () => order,
           }),
         }),
+        where: () => ({
+          get: async () => ({
+            docs: order ? [{ id: 'order-1', data: () => order }] : [],
+          }),
+        }),
       };
     },
   };
@@ -65,8 +78,10 @@ beforeEach(() => {
   mocks.db.mockReset();
   mocks.retrieveSumUpCheckout.mockReset();
   mocks.handleAssistedApplicationWebhookEvent.mockReset();
+  mocks.handleAssistedApplicationWebhookEvent.mockResolvedValue(true);
   mocks.handleApplicationConciergeWebhookEvent.mockReset();
 });
+
 describe('SumUp assisted-application webhook', () => {
   it('retrieves and dispatches a paid checkout only for its own pending order', async () => {
     mocks.db.mockReturnValue(makeDb({
@@ -81,7 +96,10 @@ describe('SumUp assisted-application webhook', () => {
       amount: 0.99,
       currency: 'EUR',
       status: 'PAID',
-      transactions: [{ id: 'sumup_transaction_1', transaction_code: 'TX1' }],
+      transactions: [
+        { id: 'sumup_transaction_success', transaction_code: 'SUCCESS', timestamp: '2026-10-12T12:22:48.309Z' },
+        { id: 'sumup_transaction_failed', transaction_code: 'FAILED', timestamp: '2026-10-12T12:21:25.969Z' },
+      ],
     });
 
     const result = await handleAssistedApplicationSumUpWebhook({
@@ -101,8 +119,8 @@ describe('SumUp assisted-application webhook', () => {
       payment_status: 'paid',
       client_reference_id: 'order-1',
       customer_email: 'candidate@example.test',
-      sumupTransactionId: 'sumup_transaction_1',
-      sumupTransactionCode: 'TX1',
+      sumupTransactionId: 'sumup_transaction_success',
+      sumupTransactionCode: 'SUCCESS',
       metadata: {
         product: 'assisted_application',
         paymentProvider: 'sumup',
@@ -168,5 +186,38 @@ describe('SumUp assisted-application webhook', () => {
       expect.objectContaining({ ts: '__timestamp__' }),
     );
     expect(mocks.handleAssistedApplicationWebhookEvent).not.toHaveBeenCalled();
+  });
+
+  it('reconciles a recent provider-paid checkout when the callback was missed', async () => {
+    const order = {
+      paymentProvider: 'sumup',
+      sumupCheckoutId: 'sumup_checkout_1',
+      paymentStatus: 'failed',
+      createdAt: new Date('2026-10-12T12:21:15.119Z'),
+    };
+    const firestore = makeDb(order);
+    mocks.db.mockReturnValue(firestore);
+    mocks.retrieveSumUpCheckout.mockResolvedValue({
+      id: 'sumup_checkout_1',
+      checkout_reference: 'order-1',
+      amount: 0.99,
+      currency: 'EUR',
+      status: 'PAID',
+      transactions: [{ id: 'sumup_transaction_success', timestamp: '2026-10-12T12:22:48.309Z' }],
+    });
+
+    await expect(runAssistedApplicationSumUpReconciliation({
+      db: () => firestore,
+      retrieve: mocks.retrieveSumUpCheckout,
+      nowMs: Date.parse('2026-10-19T12:00:00Z'),
+      ts: '__reconciliation_timestamp__',
+    })).resolves.toEqual({
+      candidates: 1,
+      inspected: 1,
+      promoted: 1,
+      skipped: 0,
+      errors: 0,
+    });
+    expect(mocks.handleAssistedApplicationWebhookEvent).toHaveBeenCalledTimes(1);
   });
 });

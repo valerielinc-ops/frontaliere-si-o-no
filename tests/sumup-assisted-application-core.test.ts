@@ -21,6 +21,7 @@ const {
   createSumUpAssistedApplicationCheckout,
   createSumUpHostedCheckout,
   getAssistedApplicationPaymentProvider,
+  latestSumUpTransaction,
   refundSumUpTransaction,
   retrieveSumUpCheckout,
 } = await import('../functions/src/sumupAssistedApplicationCore.js');
@@ -39,6 +40,19 @@ beforeEach(() => {
   fetchMock.mockReset();
 });
 describe('SumUp assisted-application payment client', () => {
+  it('selects the newest transaction by timestamp, not array position', () => {
+    expect(latestSumUpTransaction({
+      transactions: [
+        { id: 'successful-retry', status: 'SUCCESSFUL', timestamp: '2026-10-12T12:22:48.309Z' },
+        { id: 'failed-retry', status: 'FAILED', timestamp: '2026-10-12T12:22:15.638Z' },
+        { id: 'failed-first', status: 'FAILED', timestamp: '2026-10-12T12:21:25.969Z' },
+      ],
+    })).toEqual(expect.objectContaining({
+      id: 'successful-retry',
+      status: 'SUCCESSFUL',
+    }));
+  });
+
   it('uses SumUp only when the payment-provider configuration explicitly selects it', async () => {
     expect(await getAssistedApplicationPaymentProvider()).toBe('sumup');
     remoteConfig.mockResolvedValue('');
