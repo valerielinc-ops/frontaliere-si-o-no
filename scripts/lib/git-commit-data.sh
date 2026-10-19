@@ -57,6 +57,10 @@
 #        queue stayed occupied. Grouped callers return this to the generated
 #        workflow as a retryable systemic outcome; sequential callers stop
 #        cleanly without pretending that data was committed.
+#   45 — GLOBAL_DATA_PIPELINE_LEASE_TRANSIENT_ERROR: the lease service produced
+#        the bounded number of consecutive transient errors. This is a real
+#        coordination-service failure, not a queue outcome: callers must keep
+#        the workflow red and must not retry the same generation.
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
@@ -1932,6 +1936,9 @@ global_data_pipeline_lease_acquire() {
   fi
   if [ "$lease_status" -eq 44 ]; then
     echo "::warning::global data pipeline lease remained busy after the bounded wait; this writer staged nothing and will retry on the next scheduled run"
+  fi
+  if [ "$lease_status" -eq 45 ]; then
+    echo "::error::global data pipeline lease stopped after consecutive transient Firestore errors; this writer staged nothing and will not retry this generation"
   fi
   return "$lease_status"
 }
