@@ -32,6 +32,7 @@ import {
   LOCALES,
   promotePreviousSlugToLegacy,
 } from './dedicated-crawler-common.mjs';
+import { replaceSlugRouteEverywhere } from './slug-history-journal.mjs';
 import {
   archiveRecordNamesPosting,
   archiveRecordSourceIdentities,
@@ -246,43 +247,6 @@ function hasExplicitlyDifferentSourceIdentity(expiredJob, activeJob) {
   return !expiredIdentities.has(buildStableJobIdentity(activeJob));
 }
 
-function replaceRouteInEntry(entry, route, replacement) {
-  let changed = false;
-  if (entry.slug === route) {
-    entry.slug = replacement;
-    changed = true;
-  }
-  if (entry.slugByLocale && typeof entry.slugByLocale === 'object' && !Array.isArray(entry.slugByLocale)) {
-    for (const [locale, value] of Object.entries(entry.slugByLocale)) {
-      if (value !== route) continue;
-      entry.slugByLocale[locale] = replacement;
-      changed = true;
-    }
-  }
-  if (Array.isArray(entry.previousSlugs)) {
-    for (let index = 0; index < entry.previousSlugs.length; index += 1) {
-      if (entry.previousSlugs[index] !== route) continue;
-      entry.previousSlugs[index] = replacement;
-      changed = true;
-    }
-  }
-  if (
-    entry.previousSlugsByLocale
-    && typeof entry.previousSlugsByLocale === 'object'
-    && !Array.isArray(entry.previousSlugsByLocale)
-  ) {
-    for (const [locale, slugs] of Object.entries(entry.previousSlugsByLocale)) {
-      if (!Array.isArray(slugs)) continue;
-      for (let index = 0; index < slugs.length; index += 1) {
-        if (slugs[index] !== route) continue;
-        slugs[index] = replacement;
-        changed = true;
-      }
-    }
-  }
-  return changed;
-}
-
 function collisionRouteSuffix(entry, route, attempt) {
   const identities = [...archiveRecordSourceIdentities(entry)].sort();
   const source = identities[0] || String(entry.sourceIdentity || '').trim();
@@ -354,7 +318,10 @@ export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs) {
         attempt += 1;
       } while (reservedRoutes.has(replacement));
 
-      if (!replaceRouteInEntry(expiredJob, route, replacement)) continue;
+      if (!replaceSlugRouteEverywhere(expiredJob, route, replacement, {
+        source: 'expired-jobs-archive.repairExpiredRoutesAgainstActive',
+        reason: 'route collides with a distinct active posting',
+      })) continue;
       reservedRoutes.add(replacement);
       changed += 1;
       repairedRoutes += 1;

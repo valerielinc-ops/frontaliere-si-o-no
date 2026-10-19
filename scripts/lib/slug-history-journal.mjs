@@ -12,6 +12,7 @@
  * Surface:
  *   recordSlugMutation({ jobId, locale, slug, action, source, reason? })
  *   removePreviousSlugRoutes(job, routes, options?)
+ *   replaceSlugRouteEverywhere(job, fromRoute, toRoute, options?)
  *   summarize()      → { total, captured, dropped, restored, capTrimmed, sources, jobs }
  *   formatSummary()  → human-readable string for commit message body
  *   writeSummaryOnExit(path?) → registers process.on('exit') hook
@@ -164,6 +165,76 @@ export function removePreviousSlugRoutes(job, routes, {
   }
 
   return removed;
+}
+
+/**
+ * Rename a proven route collision across every route-bearing field in one
+ * record. This is deliberately a journal primitive: a collision repair must
+ * not leave the old route in a locale map or in either historical mirror,
+ * while direct writes to those fields outside the authorized mutation
+ * boundaries are forbidden by the slug-write encapsulation ratchet.
+ *
+ * @param {object} job
+ * @param {string} fromRoute
+ * @param {string} toRoute
+ * @param {{source?: string, reason?: string}} [options]
+ * @returns {number} number of route occurrences renamed
+ */
+export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
+  source = 'replaceSlugRouteEverywhere',
+  reason = 'route ownership moved to a distinct posting',
+} = {}) {
+  if (!job || typeof job !== 'object') return 0;
+  const from = String(fromRoute ?? '').trim();
+  const to = String(toRoute ?? '').trim();
+  if (!from || !to || from === to) return 0;
+
+  let replaced = 0;
+  const recordDrop = (locale) => {
+    recordSlugMutation({
+      jobId: job.id || '<unkeyed>',
+      locale,
+      slug: from,
+      action: 'drop',
+      source,
+      reason,
+    });
+  };
+  const replace = (value, assign, locale) => {
+    if (value !== from) return;
+    assign(to);
+    replaced += 1;
+    recordDrop(locale);
+  };
+
+  replace(job.slug, (value) => { job.slug = value; }, 'it');
+
+  if (job.slugByLocale && typeof job.slugByLocale === 'object' && !Array.isArray(job.slugByLocale)) {
+    for (const [locale, value] of Object.entries(job.slugByLocale)) {
+      replace(value, (next) => { job.slugByLocale[locale] = next; }, locale);
+    }
+  }
+
+  if (Array.isArray(job.previousSlugs)) {
+    for (let index = 0; index < job.previousSlugs.length; index += 1) {
+      replace(job.previousSlugs[index], (next) => { job.previousSlugs[index] = next; }, null);
+    }
+  }
+
+  if (
+    job.previousSlugsByLocale
+    && typeof job.previousSlugsByLocale === 'object'
+    && !Array.isArray(job.previousSlugsByLocale)
+  ) {
+    for (const [locale, slugs] of Object.entries(job.previousSlugsByLocale)) {
+      if (!Array.isArray(slugs)) continue;
+      for (let index = 0; index < slugs.length; index += 1) {
+        replace(slugs[index], (next) => { slugs[index] = next; }, locale);
+      }
+    }
+  }
+
+  return replaced;
 }
 
 /**
