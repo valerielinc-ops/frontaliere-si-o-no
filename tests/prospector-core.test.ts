@@ -35,7 +35,9 @@ import {
   diagnosePromotionBlocks,
   clampMinDays,
   findOpenPromotionPr,
+  candidateStatusAfterValidation,
   GATE_DEFAULTS,
+  passesSourceBackedLocationRate,
 } from '../scripts/lib/prospector/promotion-gate.mjs';
 import { createSpecUrlPolicy, geographyFieldsForDecision, needsDetailEnrichment, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import {
@@ -1584,6 +1586,15 @@ describe('promotion gate', () => {
       vacancyCount: 6,
     })),
     ...over,
+  });
+
+  it('keeps source-backed geography fail-closed across validation and promotion', () => {
+    expect(passesSourceBackedLocationRate(undefined)).toBe(false);
+    expect(passesSourceBackedLocationRate(0.749)).toBe(false);
+    expect(passesSourceBackedLocationRate(0.75)).toBe(true);
+    expect(candidateStatusAfterValidation({ verdict: 'good', locationSourceRate: 0.5 })).toBe('validated');
+    expect(candidateStatusAfterValidation({ verdict: 'good', locationSourceRate: 1 })).toBe('promoted');
+    expect(candidateStatusAfterValidation({ verdict: 'bad', locationSourceRate: 1 })).toBe('rejected');
   });
 
   it('ships a candidate proven on two distinct days', () => {
