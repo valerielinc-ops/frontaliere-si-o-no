@@ -377,6 +377,37 @@ describe('handleAssistedApplicationAdmin', () => {
     expect(filtered.body.orders.map((order: any) => order.orderId)).toEqual(['waiting']);
   });
 
+  it('keeps concierge orders out of the one-off queue and lists them through the concierge filter', async () => {
+    const database = makeDb({
+      oneOff: {
+        paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
+        createdAt: '2026-09-24T09:22:00.000Z',
+      },
+      concierge: {
+        billingMode: 'application_concierge', parentServiceId: 'service-1',
+        paymentStatus: 'paid', submissionStatus: 'awaiting_upload',
+        createdAt: '2026-09-24T09:21:00.000Z',
+      },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    const oneOffQueue = await handleAssistedApplicationAdmin(request());
+    const conciergeQueue = await handleAssistedApplicationAdmin(request({ query: { billingMode: 'application_concierge' } }));
+
+    expect(oneOffQueue.body.orders.map((order: any) => order.orderId)).toEqual(['oneOff']);
+    expect(conciergeQueue.body.orders).toMatchObject([
+      { orderId: 'concierge', billingMode: 'application_concierge', parentServiceId: 'service-1' },
+    ]);
+  });
+
+  it('rejects unsupported billing mode filters', async () => {
+    mocks.getAdminDb.mockReturnValue(makeDb().db);
+
+    const result = await handleAssistedApplicationAdmin(request({ query: { billingMode: 'one_off' } }));
+
+    expect(result).toEqual({ status: 400, body: { ok: false, error: 'invalid_billing_mode' } });
+  });
+
   it('records materials received by email as awaiting_upload → in_progress', async () => {
     const database = makeDb({
       waiting: { paymentStatus: 'paid', submissionStatus: 'awaiting_upload' },
@@ -452,6 +483,24 @@ describe('handleAssistedApplicationAdmin', () => {
     expect(refunded).toMatchObject({ status: 200, body: { ok: true, orderId: 'blocked', submissionStatus: 'refunded', refundId: 're_assisted_1' } });
     expect(database.store.assisted_applications.blocked).toMatchObject({ paymentStatus: 'refunded', submissionStatus: 'refunded' });
     expect(database.events.blocked[0].data).toMatchObject({ eventType: 'refund_issued', refundId: 're_assisted_1' });
+  });
+
+  it('requires a parent-service refund for a concierge order', async () => {
+    const database = makeDb({
+      concierge: {
+        billingMode: 'application_concierge', paymentStatus: 'paid', submissionStatus: 'in_progress',
+        stripePaymentIntentId: 'pi_concierge_1',
+      },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    const result = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'refund', orderId: 'concierge' },
+    }));
+
+    expect(result).toEqual({ status: 409, body: { ok: false, error: 'parent_service_refund_required' } });
+    expect(mocks.getStripe).not.toHaveBeenCalled();
   });
 
   it('does not mark an order refunded when Stripe returns a pending refund', async () => {
