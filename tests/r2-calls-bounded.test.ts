@@ -227,7 +227,7 @@ case "\${1:-}" in scripts/lib/r2-image-namespace-lock.mjs|*/scripts/lib/r2-image
       exit 0 ;;
     verify)
       [ "$1" = "--namespace" ] || exit 87
-      case "$2" in blog|places|blog,places) ;; *) exit 87 ;; esac
+      case "$2" in blog|places) ;; *) exit 87 ;; esac
       [ "$3" = "--context" ] || exit 87
       printf 'verify:%s:%s\\n' "$2" "$4" >> "$STUB_LEASE_CALLS"
       exit "\${STUB_LEASE_VERIFY_STATUS:-0}" ;;
@@ -832,7 +832,7 @@ describe('behaviour: the R2 images batch holds every present namespace lease', (
     ]);
   });
 
-  it('verifies every namespace in a caller-owned multi-namespace capability', () => {
+  it('verifies each namespace in a caller-owned multi-namespace capability independently', () => {
     const callerContext = JSON.stringify({
       version: 1,
       leases: ['blog', 'places'].map((namespace) => ({
@@ -849,7 +849,8 @@ describe('behaviour: the R2 images batch holds every present namespace lease', (
     });
     expect(r.code).toBe(0);
     expect(r.leaseCalls).toEqual([
-      `verify:blog,places:${callerContext}`,
+      `verify:blog:${callerContext}`,
+      `verify:places:${callerContext}`,
       `copy:images:${callerContext}`,
     ]);
   });

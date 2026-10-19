@@ -322,6 +322,8 @@ _publish_cdn_r2() {
     local _image_lease_namespaces="$1"
     shift
     local _image_lease_context _image_lease_owned=0 _command_status=0 _release_status=0
+    local _image_lease_namespace
+    local -a _image_lease_namespace_list=()
     local _prior_context_set="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT+x}"
     local _prior_context="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT-}"
     local _lease_cli="scripts/lib/r2-image-namespace-lock.mjs"
@@ -332,10 +334,13 @@ _publish_cdn_r2() {
 
     if [ -n "$_prior_context" ]; then
       _image_lease_context="$_prior_context"
-      if ! node "$_lease_cli" verify --namespace "$_image_lease_namespaces" --context "$_image_lease_context"; then
-        echo "::error::[r2] existing image lease does not cover the requested namespaces or is no longer valid; skipping images/ sync"
-        return 1
-      fi
+      IFS=',' read -r -a _image_lease_namespace_list <<< "$_image_lease_namespaces"
+      for _image_lease_namespace in "${_image_lease_namespace_list[@]}"; do
+        if ! node "$_lease_cli" verify --namespace "$_image_lease_namespace" --context "$_image_lease_context"; then
+          echo "::error::[r2] existing image lease does not cover the requested namespaces or is no longer valid; skipping images/ sync"
+          return 1
+        fi
+      done
     else
       if ! _image_lease_context="$(node "$_lease_cli" acquire --namespace "$_image_lease_namespaces")" || [ -z "$_image_lease_context" ]; then
         echo "::error::[r2] could not acquire the image namespace lease; skipping images/ sync"
