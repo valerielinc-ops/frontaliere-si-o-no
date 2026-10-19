@@ -13499,6 +13499,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.indagini-morte-pierina-buffon.title': 'Morte pierina buffon: accertamenti a cassano e gallarate',
     'blog.article.indagini-morte-pierina-buffon.excerpt': 'Venerdì mattina lo schianto a Cassano Magnago La Jaguar sarebbe stata lanciata a 140 chilometri orari La Procura valuta la pianificazione del delitto Accesso',
     'blog.article.indagini-morte-pierina-buffon.imageAlt': 'Accertamenti e rilievi investigativi sull\'auto coinvolta',
+    'blog.article.sagra-zucca-castagna-cunardo.title': 'A Cunardo la quinta Sagra della zucca e della castagna',
+    'blog.article.sagra-zucca-castagna-cunardo.excerpt': 'Quinta edizione alla Baita del Fondista di Cunardo Da venerdì 23 a domenica 25 ottobre Cena del venerdì: novità del programma Sabato musica dalle 21 Cosa: Sagra',
+    'blog.article.sagra-zucca-castagna-cunardo.imageAlt': 'Sagra della zucca e della castagna alla Baita del Fondista di Cunardo',
 };
 
 export default blogMetaIt;

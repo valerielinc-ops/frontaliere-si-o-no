@@ -13497,6 +13497,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.indagini-morte-pierina-buffon.title': 'Pierina buffon Tod: Untersuchungen in Cassano und Gallarate',
     'blog.article.indagini-morte-pierina-buffon.excerpt': 'Am Freitagmorgen wäre der Absturz bei Cassano Magnago gestartet worden Der Jaguar wäre bei 140 Stundenkilometern gestartet worden Die Staatsanwaltschaft bewertet die Planung des Verbrechens Zugang',
     'blog.article.indagini-morte-pierina-buffon.imageAlt': 'Ermittlungen und Spurensicherung am beteiligten Fahrzeug',
+    'blog.article.sagra-zucca-castagna-cunardo.title': 'In Cunardo: das fünfte Kürbis- und Kastanienfest',
+    'blog.article.sagra-zucca-castagna-cunardo.excerpt': 'Fünfte Ausgabe in der Baita del Fondista in Cunardo Von Freitag, dem 23.',
+    'blog.article.sagra-zucca-castagna-cunardo.imageAlt': 'Kürbis- und Kastanienfest in der Baita del Fondista in Cunardo',
 };
 
 export default blogMetaDe;

@@ -13498,6 +13498,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.indagini-morte-pierina-buffon.title': 'Death of buffoon pierina: cassan and gallarate investigations',
     'blog.article.indagini-morte-pierina-buffon.excerpt': 'Friday morning the crash at Cassano Magnago The Jaguar would have been launched at 140 kilometers per hour The Prosecutor evaluates the planning of the crime Access',
     'blog.article.indagini-morte-pierina-buffon.imageAlt': 'Investigative checks and findings on the vehicle involved',
+    'blog.article.sagra-zucca-castagna-cunardo.title': 'The fifth pumpkin and chestnut festival in Cunardo',
+    'blog.article.sagra-zucca-castagna-cunardo.excerpt': 'Fifth edition at the Baita del Fondista di Cunardo From Friday, October 23 to Sunday, October 25 Friday dinner: new addition to the program Saturday music from 21 What: Festival',
+    'blog.article.sagra-zucca-castagna-cunardo.imageAlt': 'Pumpkin and chestnut festival at Baita del Fondista in Cunardo',
 };
 
 export default blogMetaEn;

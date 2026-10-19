@@ -45542,6 +45542,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sagra-zucca-castagna-cunardo',
+ category: 'novita',
+ date: '2026-10-19T07:18:02.692Z',
+ image: '/images/blog/article-sagra-zucca-castagna-cunardo.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

@@ -13500,6 +13500,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.indagini-morte-pierina-buffon.title': 'Morte pierina buffon : vérifications à cassano et gallarate',
     'blog.article.indagini-morte-pierina-buffon.excerpt': 'Vendredi matin, le crash à Cassano Magnago La Jaguar aurait été lancée à 140 kilomètres par heure Le procureur évalue la planification du crime Accès',
     'blog.article.indagini-morte-pierina-buffon.imageAlt': 'Enquêtes et constatations sur le véhicule impliqué',
+    'blog.article.sagra-zucca-castagna-cunardo.title': 'À Cunardo, la cinquième fête de la courge et de la châtaigne',
+    'blog.article.sagra-zucca-castagna-cunardo.excerpt': 'Cinquième édition à la Baita del Fondista de Cunardo Du vendredi 23 au dimanche 25 octobre Dîner du vendredi : nouveauté du programme Samedi, musique à partir de 21 h Quoi : fête',
+    'blog.article.sagra-zucca-castagna-cunardo.imageAlt': 'Fête de la citrouille et de la châtaigne à la Baita del Fondista à Cunardo',
 };
 
 export default blogMetaFr;

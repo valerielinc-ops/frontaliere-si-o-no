@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 651,
+      "5": 652,
       "6": 5054
     },
-    "publishedCovers": 7388,
+    "publishedCovers": 7389,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -200491,6 +200491,39 @@
         "provider": "openai-codex",
         "assetId": "article-rapporto-consiglio-federale-schengen",
         "imageUrl": "/images/blog/article-rapporto-consiglio-federale-schengen.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sagra-zucca-castagna-cunardo": {
+      "cover": "/images/blog/article-sagra-zucca-castagna-cunardo.webp",
+      "hash": "625df52d956793ca72e2a24ca63e9a2f9e1f66dc9f3fcc18997e6e5f8710542b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "sagra-zucca-castagna-cunardo",
+          "category": "novita",
+          "date": "2026-10-19T07:18:02.692Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sagra-zucca-castagna-cunardo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sagra-zucca-castagna-cunardo",
+        "imageUrl": "/images/blog/article-sagra-zucca-castagna-cunardo.webp",
         "evidence": "generated-engine-record"
       }
     },
