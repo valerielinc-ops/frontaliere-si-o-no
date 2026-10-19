@@ -1,7 +1,7 @@
 {
   "key": "oscam-castelrotto",
   "label": "Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi)",
-  "generatedAt": "2026-10-18T21:11:19.493Z",
+  "generatedAt": "2026-10-19T09:12:19.991Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5494,
-  "avgDurationMs": 5494,
+  "durationMs": 6714,
+  "avgDurationMs": 6714,
   "durationHistory": [
-    5494
+    6714
   ],
   "newJobs": [
     {
@@ -35,7 +35,7 @@
       "url": "https://www.oscam.ch/wp-content/uploads/2026/02/Concorso-generale-2026.pdf",
       "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-18T21:11:00.876Z",
+      "crawledAt": "2026-10-19T09:12:01.005Z",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "streetAddress": "Nucleo 30",
@@ -81,7 +81,7 @@
       "url": "https://www.oscam.ch/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf",
       "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-18T21:11:01.131Z",
+      "crawledAt": "2026-10-19T09:12:01.224Z",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "streetAddress": "Nucleo 30",
@@ -112,5 +112,5 @@
       }
     }
   ],
-  "codeCommit": "b6e494ea5b9a932f8e412d6ccd19c05b9a480ea5"
+  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
 }
