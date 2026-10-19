@@ -17,12 +17,40 @@ export const SUMUP_API_KEY_RC_KEY = 'SUMUP_API_KEY';
 export const SUMUP_MERCHANT_CODE_RC_KEY = 'SUMUP_MERCHANT_CODE';
 export const SUMUP_WEBHOOK_URL_RC_KEY = 'SUMUP_ASSISTED_APPLICATION_WEBHOOK_URL';
 export const SUMUP_PAYMENT_PROVIDER = 'sumup';
+export const SUMUP_REMOTE_CONFIG_KEYS = Object.freeze({
+  provider: ASSISTED_APPLICATION_PAYMENT_PROVIDER_RC_KEY,
+  apiKey: SUMUP_API_KEY_RC_KEY,
+  merchantCode: SUMUP_MERCHANT_CODE_RC_KEY,
+  webhookUrl: SUMUP_WEBHOOK_URL_RC_KEY,
+});
+export const SUMUP_CONFIG_LIMITS = Object.freeze({
+  apiKey: 500,
+  merchantCode: 100,
+  webhookUrl: 1000,
+});
 
 const SUMUP_API_BASE_URL = 'https://api.sumup.com';
 
 function boundedString(value, max) {
   const result = String(value ?? '').trim();
   return result && result.length <= max ? result : '';
+}
+
+export function isValidSumUpWebhookUrl(value) {
+  try {
+    return new URL(value).protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
+export function isCompleteSumUpConfig({ apiKey, merchantCode, webhookUrl } = {}) {
+  return Boolean(
+    boundedString(apiKey, SUMUP_CONFIG_LIMITS.apiKey)
+      && boundedString(merchantCode, SUMUP_CONFIG_LIMITS.merchantCode)
+      && boundedString(webhookUrl, SUMUP_CONFIG_LIMITS.webhookUrl)
+      && isValidSumUpWebhookUrl(boundedString(webhookUrl, SUMUP_CONFIG_LIMITS.webhookUrl)),
+  );
 }
 
 function timestampMillis(value) {
@@ -63,8 +91,8 @@ async function sumUpCredentials(read = getRemoteConfigValue) {
     read(SUMUP_API_KEY_RC_KEY),
     read(SUMUP_MERCHANT_CODE_RC_KEY),
   ]);
-  const apiKey = boundedString(rawApiKey, 500);
-  const merchantCode = boundedString(rawMerchantCode, 100);
+  const apiKey = boundedString(rawApiKey, SUMUP_CONFIG_LIMITS.apiKey);
+  const merchantCode = boundedString(rawMerchantCode, SUMUP_CONFIG_LIMITS.merchantCode);
   if (!apiKey || !merchantCode) throw new Error('sumup_credentials_missing');
   return { apiKey, merchantCode };
 }
@@ -74,8 +102,8 @@ async function sumUpConfig(read = getRemoteConfigValue) {
     sumUpCredentials(read),
     read(SUMUP_WEBHOOK_URL_RC_KEY),
   ]);
-  const normalizedWebhookUrl = boundedString(webhookUrl, 1000);
-  if (!normalizedWebhookUrl || !/^https:\/\//.test(normalizedWebhookUrl)) {
+  const normalizedWebhookUrl = boundedString(webhookUrl, SUMUP_CONFIG_LIMITS.webhookUrl);
+  if (!isCompleteSumUpConfig({ apiKey, merchantCode, webhookUrl: normalizedWebhookUrl })) {
     throw new Error('sumup_webhook_url_missing');
   }
   return { apiKey, merchantCode, webhookUrl: normalizedWebhookUrl };
