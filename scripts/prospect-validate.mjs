@@ -19,7 +19,14 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { loadCandidates, reopenRejectedCandidate, saveCandidates, setStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
+import {
+  loadCandidates,
+  reopenRejectedCandidate,
+  requeuePromotedCandidate,
+  saveCandidates,
+  setStatus,
+  statusCounts,
+} from './lib/prospector/candidate-store.mjs';
 import { runSpec } from './lib/prospector/synthesize.mjs';
 import { gradeExtraction } from './lib/prospector/validate.mjs';
 import { sourceCrawlerAdapterFor } from './lib/prospector/source-adapters.mjs';
@@ -278,7 +285,7 @@ for (const spec of specs) {
         continue;
       }
     }
-    setStatus(store, candidate.key, next, {
+    const statusPatch = {
       crawlerKey: spec.companyKey,
       domain: candidate.domain || spec.companyHost,
       careersUrl: candidate.careersUrl || spec.seedUrls?.[0] || null,
@@ -292,7 +299,17 @@ for (const spec of specs) {
       vacancyCount: report.vacancyCount,
       validationHistory: history.slice(-8),
       ...(adapter ? { sourceAdapterVersion: adapter.version } : {}),
-    }, dryRun ? null : undefined);
+    };
+    if (candidate.status === 'promoted' && next === 'validated') {
+      requeuePromotedCandidate(
+        store,
+        candidate.key,
+        statusPatch,
+        dryRun ? null : undefined,
+      );
+    } else {
+      setStatus(store, candidate.key, next, statusPatch, dryRun ? null : undefined);
+    }
   }
 }
 

@@ -12,6 +12,7 @@ import {
   isTraceRetryDue,
   pruneTerminal,
   reopenRejectedCandidate,
+  requeuePromotedCandidate,
   reviveRetryableDeadCandidate,
   scheduleTraceRetry,
   saveCandidates,
@@ -27,6 +28,30 @@ function storeWith(candidates: Record<string, any>, rejectedTombstones: Record<s
 }
 
 describe('prospector candidate store — rejected tombstones (#6903)', () => {
+  it('requeues only a promoted candidate after a retryable validation failure', () => {
+    const key = 'source-location.example';
+    const store = storeWith({
+      [key]: { key, status: 'promoted', qualityScore: 0.98 },
+    });
+
+    expect(requeuePromotedCandidate(store, key, {
+      reason: 'localita source-backed sotto soglia',
+      qualityScore: 0.77,
+    }, null)).toMatchObject({
+      status: 'validated',
+      qualityScore: 0.77,
+      reason: 'localita source-backed sotto soglia',
+    });
+    expect(store.candidates[key].status).toBe('validated');
+  });
+
+  it('does not rewind a state other than promoted', () => {
+    const key = 'production.example';
+    const store = storeWith({ [key]: { key, status: 'production' } });
+    expect(requeuePromotedCandidate(store, key, { reason: 'retry' }, null)).toBeNull();
+    expect(store.candidates[key].status).toBe('production');
+  });
+
   it('compacts an old rejected record and blocks the same key after rediscovery', () => {
     const key = 'mpi-age.de.umantis.com';
     const store = storeWith({

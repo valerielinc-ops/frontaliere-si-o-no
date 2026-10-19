@@ -342,6 +342,32 @@ export function setStatus(store, key, status, patch = {}, ledgerFile = LEDGER_PA
 }
 
 /**
+ * Return a promoted candidate to the retryable validation queue after a fresh
+ * run proves a non-terminal gate failure. This is intentionally narrower than
+ * `setStatus`: the normal state machine is forward-only, and no other state
+ * may be rewound by a validation result. `promoted` is the one state that
+ * represents a quality pass while still being outside production.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {string} key
+ * @param {Record<string, any>} [patch]
+ * @param {string|null} [ledgerFile]
+ * @returns {Record<string, any>|null}
+ */
+export function requeuePromotedCandidate(store, key, patch = {}, ledgerFile = LEDGER_PATH) {
+  const c = store.candidates[key];
+  if (!c || c.status !== 'promoted') return null;
+  const at = new Date().toISOString();
+  const safePatch = Object.fromEntries(
+    Object.entries(patch).filter(([name]) => name !== 'status'),
+  );
+  c.status = 'validated';
+  Object.assign(c, safePatch, { updatedAt: at });
+  appendLedger({ key, from: 'promoted', to: 'validated', at, reason: safePatch.reason }, ledgerFile);
+  return c;
+}
+
+/**
  * Reopen a rejected candidate only after an explicitly opted-in source adapter
  * has produced a new validation entry. The adapter version is a bounded retry
  * key: a second bad result under the same version remains terminal.
