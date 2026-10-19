@@ -10,6 +10,7 @@ const {
   MAX_RUN_ATTEMPTS,
   MAX_REVIEW_ROUNDS,
   OWNER_REVIEW_MS,
+  PORTAL_AUTO_RETRY_DELAYS_MS,
   evaluateRedFlags,
   isTransientRunError,
   transition,
@@ -354,6 +355,37 @@ describe('career-ops handoff, closed ads and owner regeneration', () => {
     expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:whatsapp'] });
     step = transition(step.flow, { type: 'owner_handoff' }, { draft: roundDraft, nowMs: T0 });
     expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_handoff', reason: 'whatsapp' }]);
+  });
+
+  it('retries an unsupported portal page twice with backoff, but leaves CAPTCHA for the owner', () => {
+    const roundDraft = { ...cleanDraft, round: 1 };
+    const submitting = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+    let step = transition(submitting, { type: 'submit_handoff', reason: 'portal_needs_candidate' }, { draft: roundDraft, nowMs: T0 });
+    expect(step.flow).toMatchObject({
+      state: 'owner_takeover',
+      heldBy: ['portal:portal_needs_candidate'],
+      portalAutoRetryCount: 0,
+      portalAutoRetryAt: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0],
+    });
+    expect(transition(step.flow, { type: 'portal_auto_retry' }, { draft: roundDraft, nowMs: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0] - 1 }).ignored).toBe('portal_retry_not_due');
+
+    // applyAutomationEvent keeps the existing dispatch when it persists a
+    // transition without a new dispatch effect.
+    step = transition({ ...step.flow, dispatch: submitting.dispatch }, { type: 'portal_auto_retry' }, { draft: roundDraft, nowMs: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0] });
+    expect(step.flow).toMatchObject({ state: 'submitting', portalAutoRetryCount: 1, portalAutoRetryAt: null });
+    expect(step.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+
+    const secondHandoffAt = T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0] + 1_000;
+    const retryDispatch = { mode: 'submit', round: 1, attempts: 1, reason: 'portal_auto_retry' };
+    step = transition({ ...step.flow, dispatch: retryDispatch }, { type: 'submit_handoff', reason: 'portal_needs_candidate' }, { draft: roundDraft, nowMs: secondHandoffAt });
+    expect(step.flow.portalAutoRetryAt).toBe(secondHandoffAt + PORTAL_AUTO_RETRY_DELAYS_MS[1]);
+    step = transition({ ...step.flow, dispatch: retryDispatch }, { type: 'portal_auto_retry' }, { draft: roundDraft, nowMs: secondHandoffAt + PORTAL_AUTO_RETRY_DELAYS_MS[1] });
+    expect(step.flow).toMatchObject({ state: 'submitting', portalAutoRetryCount: 2, portalAutoRetryAt: null });
+
+    step = transition(step.flow, { type: 'submit_handoff', reason: 'portal_needs_candidate' }, { draft: roundDraft, nowMs: secondHandoffAt + PORTAL_AUTO_RETRY_DELAYS_MS[1] + 1_000 });
+    expect(step.flow).toMatchObject({ state: 'owner_takeover', portalAutoRetryCount: 2, portalAutoRetryAt: null });
+    const captcha = transition(submitting, { type: 'submit_handoff', reason: 'captcha' }, { draft: roundDraft, nowMs: T0 });
+    expect(captcha.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:captcha'], portalAutoRetryAt: null });
   });
 
   // A real order of 2026-10-07: taken over while in the owner's review, «Riprova l'invio automatico» sent
