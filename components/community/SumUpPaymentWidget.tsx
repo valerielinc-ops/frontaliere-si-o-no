@@ -5,6 +5,9 @@ import { useTranslation, type Locale } from '@/services/i18n';
 import { ASSISTED_APPLICATION_PRICE_EUR_CENTS } from '@/services/assistedApplicationExperiment';
 
 const SUMUP_SDK_SRC = 'https://gateway.sumup.com/gateway/ecom/card/v2/sdk.js';
+const SUMUP_GOOGLE_PAY_MERCHANT_ID_RC_KEY = 'SUMUP_GOOGLE_PAY_MERCHANT_ID';
+const SUMUP_GOOGLE_PAY_MERCHANT_NAME = 'Frontaliere Ticino';
+const SUMUP_GOOGLE_PAY_CONFIG_TIMEOUT_MS = 1500;
 const SUMUP_LOCALE: Record<Locale, string> = {
   it: 'it-CH',
   en: 'en-GB',
@@ -20,6 +23,10 @@ interface SumUpMountOptions {
   locale: string;
   country: 'CH';
   showFooter: boolean;
+  googlePay?: {
+    merchantId: string;
+    merchantName: string;
+  };
   onResponse: (type: string, body: unknown) => void;
   onLoad?: () => void;
 }
@@ -68,6 +75,28 @@ function loadSumUpSdk(): Promise<void> {
   });
 
   return sdkPromise;
+}
+
+async function loadSumUpGooglePayOptions(): Promise<SumUpMountOptions['googlePay']> {
+  try {
+    const merchantId = await Promise.race([
+      import('@/services/firebase').then(({ getConfigValue }) =>
+        getConfigValue(SUMUP_GOOGLE_PAY_MERCHANT_ID_RC_KEY),
+      ),
+      new Promise<string>((resolve) => {
+        window.setTimeout(() => resolve(''), SUMUP_GOOGLE_PAY_CONFIG_TIMEOUT_MS);
+      }),
+    ]);
+    const normalizedMerchantId = merchantId.trim();
+    if (!normalizedMerchantId) return undefined;
+    return {
+      merchantId: normalizedMerchantId,
+      merchantName: SUMUP_GOOGLE_PAY_MERCHANT_NAME,
+    };
+  } catch {
+    // A missing/unavailable RC value must never disable the regular card form.
+    return undefined;
+  }
 }
 
 export interface SumUpPaymentWidgetProps {
@@ -139,8 +168,8 @@ export default function SumUpPaymentWidget({
     let card: SumUpCardInstance | null = null;
     setSdkLoading(true);
 
-    void loadSumUpSdk()
-      .then(() => {
+    void Promise.all([loadSumUpSdk(), loadSumUpGooglePayOptions()])
+      .then(([, googlePay]) => {
         if (cancelled) return;
         const sumUpCard = window.SumUpCard;
         if (!sumUpCard) throw new Error('sumup_sdk_unavailable');
@@ -152,6 +181,7 @@ export default function SumUpPaymentWidget({
           locale: SUMUP_LOCALE[locale],
           country: 'CH',
           showFooter: true,
+          ...(googlePay ? { googlePay } : {}),
           onResponse: (type, body) => responseRef.current(type, body),
           onLoad: () => {
             if (!cancelled) setSdkLoading(false);

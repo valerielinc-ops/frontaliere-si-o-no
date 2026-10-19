@@ -109,6 +109,59 @@ describe('locale-router pushable-origin edge files (#4881)', () => {
   });
 });
 
+describe('Apple Pay domain verification uses the repository before Cloudflare fallback', () => {
+  it('serves the repository copy even when the Cloudflare copy also exists', async () => {
+    mockFetch({ edgeStatus: 200, edgeBody: 'cloudflare-copy', originStatus: 200, originBody: 'repo-copy' });
+
+    const res = await worker.fetch(
+      new Request(`${APEX}/.well-known/apple-developer-merchantid-domain-association`),
+      {},
+      ctx,
+    );
+
+    expect(res.status).toBe(200);
+    expect(await res.text()).toBe('repo-copy');
+    expect(res.headers.get('X-Apple-Pay-Source')).toBe('repo');
+  });
+
+  it('uses the Cloudflare copy only when the repository origin is missing', async () => {
+    mockFetch({ edgeStatus: 200, edgeBody: 'cloudflare-copy', originStatus: 404, originBody: 'not found' });
+
+    const res = await worker.fetch(
+      new Request(`${APEX}/.well-known/apple-developer-merchantid-domain-association`),
+      {},
+      ctx,
+    );
+
+    expect(res.status).toBe(200);
+    expect(await res.text()).toBe('cloudflare-copy');
+    expect(res.headers.get('X-Apple-Pay-Source')).toBe('cloudflare-fallback');
+  });
+
+  it('preserves the repository 404 when both copies are absent', async () => {
+    mockFetch({ edgeStatus: 404, originStatus: 404, originBody: 'not found' });
+
+    const res = await worker.fetch(
+      new Request(`${APEX}/.well-known/apple-developer-merchantid-domain-association`),
+      {},
+      ctx,
+    );
+
+    expect(res.status).toBe(404);
+    expect(await res.text()).toBe('not found');
+  });
+
+  it('has a wildcard route so query-string probes use the same precedence rule', () => {
+    const toml = readFileSync(
+      path.resolve(__dirname, '..', 'infra', 'cloudflare-worker', 'wrangler.toml'),
+      'utf-8',
+    );
+    expect(toml).toContain(
+      '{ pattern = "frontaliereticino.ch/.well-known/apple-developer-merchantid-domain-association*", zone_name',
+    );
+  });
+});
+
 /**
  * /sitemap-blog.xml (#4974). Registered for CORRECTNESS, not freshness: the
  * apex passthrough origin was serving this file stripped of all 15225 hreflang
