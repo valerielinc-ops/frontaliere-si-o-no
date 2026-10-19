@@ -1,16 +1,16 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-10-18T09:23:04.113Z",
+  "generatedAt": "2026-10-19T09:27:18.966Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 16527,
-  "avgDurationMs": 16527,
+  "durationMs": 17500,
+  "avgDurationMs": 17500,
   "durationHistory": [
-    16527
+    17500
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-18T09:22:53.681Z",
+      "crawledAt": "2026-10-19T09:27:06.571Z",
       "firstSeenAt": "2026-10-15T21:22:55.556Z",
       "sourceLang": "it",
       "addressLocality": "Collina d'Oro",
@@ -78,7 +78,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-18T09:22:53.681Z",
+      "crawledAt": "2026-10-19T09:27:06.571Z",
       "firstSeenAt": "2026-09-09T23:11:44.442Z",
       "sourceLang": "it",
       "addressLocality": "Collina d'Oro",
@@ -122,7 +122,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-18T09:22:53.681Z",
+      "crawledAt": "2026-10-19T09:27:06.571Z",
       "firstSeenAt": "2026-09-28T21:24:44.230Z",
       "sourceLang": "it",
       "addressLocality": "Lamone",
@@ -168,7 +168,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-18T09:22:53.681Z",
+      "crawledAt": "2026-10-19T09:27:06.571Z",
       "firstSeenAt": "2026-10-15T21:22:55.556Z",
       "sourceLang": "it",
       "addressLocality": "Collina d'Oro",
@@ -215,7 +215,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-18T09:22:53.681Z",
+      "crawledAt": "2026-10-19T09:27:06.571Z",
       "firstSeenAt": "2026-10-15T21:22:55.556Z",
       "sourceLang": "en",
       "addressLocality": "Collina d'Oro",
@@ -255,7 +255,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-18T09:22:53.681Z",
+      "crawledAt": "2026-10-19T09:27:06.571Z",
       "firstSeenAt": "2026-08-31T21:29:17.361Z",
       "sourceLang": "en",
       "addressLocality": "Grancia",
@@ -299,7 +299,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-18T09:22:53.681Z",
+      "crawledAt": "2026-10-19T09:27:06.571Z",
       "firstSeenAt": "2026-09-23T23:48:30.532Z",
       "sourceLang": "en",
       "addressLocality": "Grancia",
@@ -342,7 +342,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-18T09:22:53.681Z",
+      "crawledAt": "2026-10-19T09:27:06.571Z",
       "firstSeenAt": "2026-09-23T23:48:30.532Z",
       "sourceLang": "en",
       "addressLocality": "Grancia",
@@ -384,7 +384,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-18T09:22:53.681Z",
+      "crawledAt": "2026-10-19T09:27:06.571Z",
       "firstSeenAt": "2026-08-24T10:28:44.645Z",
       "sourceLang": "it",
       "country": "CH",
@@ -407,5 +407,5 @@
       }
     }
   ],
-  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
+  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
 }
