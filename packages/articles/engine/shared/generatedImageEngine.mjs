@@ -15,7 +15,6 @@ import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
-import sharp from 'sharp';
 import {
   buildGeneratedImagePrompt,
   generatedImagePromptInput,
@@ -1244,6 +1243,7 @@ function xmpFor({ title, provider, model, kind = GENERATED_IMAGE_KIND, licenseUr
 }
 
 async function normalizeToWebp(rawPath, outputPath, spec, metadata) {
+  const sharp = await loadSharp();
   const format = spec.format || GENERATED_IMAGE_DEFAULT_FORMAT;
   const qualities = [82, 76, 70, 64, 58, 52, 46];
   let lastBuffer = null;
@@ -1264,6 +1264,7 @@ async function normalizeToWebp(rawPath, outputPath, spec, metadata) {
 }
 
 async function inspectWebp(filePath, expected, xmpMetadata = {}) {
+  const sharp = await loadSharp();
   const buffer = fs.readFileSync(filePath);
   const imageMetadata = await sharp(buffer).metadata();
   if (imageMetadata.format !== 'webp') throw new Error('normalized image is not WebP');
@@ -1278,6 +1279,11 @@ async function inspectWebp(filePath, expected, xmpMetadata = {}) {
     throw new Error('XMP/IPTC generated-media marker is missing');
   }
   return { buffer, metadata: imageMetadata };
+}
+
+async function loadSharp() {
+  const sharpModule = await import('sharp');
+  return sharpModule.default ?? sharpModule;
 }
 
 function parseVisionResult(text) {
