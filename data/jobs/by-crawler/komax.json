@@ -407,11 +407,6 @@
       "jobReqId": "1165135955",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "development-engineer-electronics-with-emv-lead-komax-ch",
-        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm",
-        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b6cc1c0330"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "development-engineer-electronics-with-emv-lead-komax-ch",
@@ -422,11 +417,11 @@
           "development-engineer-electronics-with-emv-lead-komax-ch"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2425,
-      "retranslationAttempts": 7,
-      "firstSeenAt": "2026-09-10T23:22:05.166Z",
+      "previousSlugs": [
+        "development-engineer-electronics-with-emv-lead-komax-ch",
+        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm",
+        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b6cc1c0330"
+      ],
       "salaryMin": 107000,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -439,7 +434,12 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-10T23:22:05.166Z",
+      "retranslationAttempts": 8,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2425,
+      "needsRetranslation": true
     },
     {
       "id": "komax-925f9fb150d6",

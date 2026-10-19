@@ -9518,7 +9518,7 @@
         "it": "addetto-agli-eventi-retribuito-a-ore-ubs-geneve",
         "en": "event-attendant-hourly-paid-ubs-geneve",
         "de": "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve",
-        "fr": "event-attendant-hourly-paid-ubs-geneve"
+        "fr": "participant-a-l-evenement-paye-en-heures-ubs-geneve"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -9572,8 +9572,7 @@
       "locationDerivedFrom": "vacancy-text",
       "previousSlugs": [
         "event-attendant-hourly-paid-ubs-geneve",
-        "event-attendant-hourly-paid-ubs-geneve-2",
-        "participant-a-l-evenement-paye-en-heures-ubs-geneve"
+        "event-attendant-hourly-paid-ubs-geneve-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9585,7 +9584,7 @@
         ],
         "fr": [
           "event-attendant-hourly-paid-ubs-geneve-2",
-          "participant-a-l-evenement-paye-en-heures-ubs-geneve"
+          "event-attendant-hourly-paid-ubs-geneve"
         ]
       },
       "firstSeenAt": "2026-10-06T09:14:59.207Z",
@@ -10353,7 +10352,7 @@
       "slug": "client-advisor-retail-acacias-ubs-suisse-romande",
       "slugByLocale": {
         "it": "client-advisor-retail-acacias-ubs-suisse-romande",
-        "en": "client-advisor-retail-acacias-ubs-suisse-romande",
+        "en": "clients-of-the-market-ubs-suisse-romande",
         "de": "client-advisor-retail-acacias-ubs-suisse-romande",
         "fr": "client-advisor-retail-acacias-ubs-suisse-romande"
       },
@@ -10407,14 +10406,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-10-14T15:29:53.147Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "clients-of-the-market-ubs-suisse-romande"
-        ]
-      },
-      "previousSlugs": [
-        "clients-of-the-market-ubs-suisse-romande"
-      ],
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",

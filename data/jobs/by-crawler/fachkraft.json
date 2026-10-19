@@ -2786,7 +2786,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6130",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -2820,8 +2819,6 @@
         "zimmermann-zimmerin-come-leiter-produktion-fachkraft-ch-gmbh-willisau",
         "zimmermann-zimmerin-als-leiter-produktion-fachkraft-ch-gmbh-willisau"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.492Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -2835,6 +2832,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6130",
+      "firstSeenAt": "2026-10-19T11:01:25.492Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -2873,7 +2872,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "4800",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -2887,10 +2885,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/zimmermann-zimmerin-holzbaupolier-in-zofingen-dauerstelle-309922/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "zimmermann-zimmerin-holzbaupolier-in-als-leiter-in-produktion-fur-holzsystembau-zofingen",
-        "zimmermann-zimmerin-holzbaupolier-in-come-responsabile-produktion-per-holzsystembau-fachkraft-ch-gmbh-zofingen"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "zimmermann-zimmerin-holzbaupolier-in-als-leiter-in-produktion-fur-holzsystembau-zofingen",
@@ -2903,8 +2897,10 @@
           "zimmermann-zimmerin-holzbaupolier-in-als-leiter-in-produktion-fur-holzsystembau-zofingen"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.491Z",
+      "previousSlugs": [
+        "zimmermann-zimmerin-holzbaupolier-in-als-leiter-in-produktion-fur-holzsystembau-zofingen",
+        "zimmermann-zimmerin-holzbaupolier-in-come-responsabile-produktion-per-holzsystembau-fachkraft-ch-gmbh-zofingen"
+      ],
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -2918,6 +2914,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "4800",
+      "firstSeenAt": "2026-10-19T11:01:25.491Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -8113,7 +8111,6 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9000",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -8146,8 +8143,6 @@
         "schreiner-in-mit-individueller-einzelanfertigung-wil-sg-st-gallen-fachkraft-ch",
         "schreiner-in-mit-individueller-einzelanfertigung-fachkraft-ch-gmbh-wil-sg"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.477Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -8161,6 +8156,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "9000",
+      "firstSeenAt": "2026-10-19T11:01:25.477Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -11746,7 +11743,6 @@
       "addressRegion": "SH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8200",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -11760,10 +11756,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/schreiner-in-schaffhausen-dauerstelle-309637/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "schreiner-in-fur-montagetatigkeiten-mit-hoher-eigenverantwortung-schaffhausen-schaffhausen",
-        "schreiner-in-per-montagetatigkeiten-con-hoher-eigenverantwortung-fachkraft-ch-gmbh-schaffhausen"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "schreiner-in-fur-montagetatigkeiten-mit-hoher-eigenverantwortung-schaffhausen-schaffhausen",
@@ -11776,8 +11768,10 @@
           "schreiner-in-fur-montagetatigkeiten-mit-hoher-eigenverantwortung-schaffhausen-schaffhausen"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.467Z",
+      "previousSlugs": [
+        "schreiner-in-fur-montagetatigkeiten-mit-hoher-eigenverantwortung-schaffhausen-schaffhausen",
+        "schreiner-in-per-montagetatigkeiten-con-hoher-eigenverantwortung-fachkraft-ch-gmbh-schaffhausen"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -11791,6 +11785,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8200",
+      "firstSeenAt": "2026-10-19T11:01:25.467Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -14359,7 +14355,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8450",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -14393,8 +14388,6 @@
         "schreiner-in-per-montage-anspruchsvoller-innenausbauten-fachkraft-ch-gmbh-andelfingen",
         "schreiner-in-fur-montage-anspruchsvoller-innenausbauten-fachkraft-ch-gmbh-andelfingen"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.461Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -14408,6 +14401,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8450",
+      "firstSeenAt": "2026-10-19T11:01:25.461Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -16258,7 +16253,6 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9000",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -16292,8 +16286,6 @@
         "schreiner-in-per-massgefertigte-holztreppen-fachkraft-ch-gmbh-wil-sg",
         "schreiner-in-fur-massgefertigte-holztreppen-fachkraft-ch-gmbh-wil-sg"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.457Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -16307,6 +16299,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "9000",
+      "firstSeenAt": "2026-10-19T11:01:25.457Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -19078,7 +19072,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8450",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -19112,8 +19105,6 @@
         "schreiner-in-per-individuelle-innenausbauten-fachkraft-ch-gmbh-andelfingen",
         "schreiner-in-fur-individuelle-innenausbauten-fachkraft-ch-gmbh-andelfingen"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.448Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -19127,6 +19118,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8450",
+      "firstSeenAt": "2026-10-19T11:01:25.448Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -19165,7 +19158,6 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9200",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -19199,8 +19191,6 @@
         "schreiner-in-per-individuelle-innenausbauten-fachkraft-ch-gmbh-gossau",
         "schreiner-in-fur-individuelle-innenausbauten-fachkraft-ch-gmbh-gossau"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.448Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -19214,6 +19204,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "9200",
+      "firstSeenAt": "2026-10-19T11:01:25.448Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -20778,7 +20770,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8001",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -20816,8 +20807,6 @@
           "schreiner-in-fur-hochwertigen-innenausbau-fachkraft-ch-gmbh-zurich"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-09T14:19:39.704Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -20830,7 +20819,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8001",
+      "firstSeenAt": "2026-09-09T14:19:39.704Z"
     },
     {
       "id": "fachkraft-fdc517a3ebbc",
@@ -22173,7 +22164,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "5620",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -22207,8 +22197,6 @@
         "schreiner-in-per-fenstermontage-e-serviceeinsatze-fachkraft-ch-gmbh-bremgarten",
         "schreiner-in-fur-fenstermontage-und-serviceeinsatze-fachkraft-ch-gmbh-bremgarten"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.440Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -22222,6 +22210,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "5620",
+      "firstSeenAt": "2026-10-19T11:01:25.440Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -24722,7 +24712,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8157",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -24756,8 +24745,6 @@
         "schreiner-in-per-bank-e-maschinenarbeiten-fachkraft-ch-gmbh-dielsdorf",
         "schreiner-in-fur-bank-und-maschinenarbeiten-fachkraft-ch-gmbh-dielsdorf"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.433Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -24771,6 +24758,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8157",
+      "firstSeenAt": "2026-10-19T11:01:25.433Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -31104,7 +31093,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6003",
       "category": "Risorse Umane",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -31118,10 +31106,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/sanitaerinstallateur-in-luzern-dauerstelle-309854/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sanitarinstallateur-in-mit-fuhrungserfahrung-und-servicekompetenz-luzern-luzern-fachkraft",
-        "sanitarinstallateur-in-con-fuhrungserfahrung-e-servicekompetenz-fachkraft-ch-gmbh-luzern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "sanitarinstallateur-in-mit-fuhrungserfahrung-und-servicekompetenz-luzern-luzern-fachkraft",
@@ -31134,8 +31118,10 @@
           "sanitarinstallateur-in-mit-fuhrungserfahrung-und-servicekompetenz-luzern-luzern-fachkraft"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.415Z",
+      "previousSlugs": [
+        "sanitarinstallateur-in-mit-fuhrungserfahrung-und-servicekompetenz-luzern-luzern-fachkraft",
+        "sanitarinstallateur-in-con-fuhrungserfahrung-e-servicekompetenz-fachkraft-ch-gmbh-luzern"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -31149,6 +31135,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6003",
+      "firstSeenAt": "2026-10-19T11:01:25.415Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -33739,7 +33727,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "4800",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -33771,8 +33758,6 @@
           "installateur-trice-sanitaire-pour-constructions-nouvelles-et-transformations-fachkraft-ch-gmbh-zofingen-aargau"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-28T22:03:38.289Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -33785,7 +33770,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "4800",
+      "firstSeenAt": "2026-09-28T22:03:38.289Z"
     },
     {
       "id": "fachkraft-c267038ef1e4",
@@ -34142,7 +34129,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6003",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -34156,10 +34142,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/sanitaerinstallateur-in-luzern-dauerstelle-309864/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sanitarinstallateur-in-fur-heizungsbau-und-autogenschweiss-luzern-luzern-fachkraft-ch",
-        "sanitarinstallateur-in-per-heizungsbau-e-autogenschweiss-fachkraft-ch-gmbh-luzern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "sanitarinstallateur-in-fur-heizungsbau-und-autogenschweiss-luzern-luzern-fachkraft-ch",
@@ -34172,8 +34154,10 @@
           "sanitarinstallateur-in-fur-heizungsbau-und-autogenschweiss-luzern-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.405Z",
+      "previousSlugs": [
+        "sanitarinstallateur-in-fur-heizungsbau-und-autogenschweiss-luzern-luzern-fachkraft-ch",
+        "sanitarinstallateur-in-per-heizungsbau-e-autogenschweiss-fachkraft-ch-gmbh-luzern"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -34187,6 +34171,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6003",
+      "firstSeenAt": "2026-10-19T11:01:25.405Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -36365,7 +36351,6 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9000",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -36399,8 +36384,6 @@
         "produktionsmechaniker-in-per-rohrbearbeitung-fachkraft-ch-gmbh-wil-sg",
         "produktionsmechaniker-in-fur-rohrbearbeitung-fachkraft-ch-gmbh-wil-sg"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.399Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -36414,6 +36397,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "9000",
+      "firstSeenAt": "2026-10-19T11:01:25.399Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -47124,7 +47109,6 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9000",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -47158,8 +47142,6 @@
         "polymechaniker-in-per-cnc-rohrbiegemaschinen-fachkraft-ch-gmbh-wil-sg",
         "polymechaniker-in-fur-cnc-rohrbiegemaschinen-fachkraft-ch-gmbh-wil-sg"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.368Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -47173,6 +47155,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "9000",
+      "firstSeenAt": "2026-10-19T11:01:25.368Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -64166,7 +64150,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6130",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -64180,6 +64163,22 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/polymechaniker-in-cnc-fertigung-willisau-dauerstelle-309721/",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6130",
+      "firstSeenAt": "2026-10-19T11:01:25.320Z",
+      "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z",
       "previousSlugsByLocale": {
         "de": [
           "polymechaniker-in-cnc-fertigung-mit-modernster-technologie-fachkraft-ch-gmbh-willisau"
@@ -64197,23 +64196,7 @@
       "previousSlugs": [
         "polymechaniker-in-cnc-fertigung-mit-modernster-technologie-willisau-luzern-fachkraft-ch",
         "polymechaniker-in-cnc-fertigung-mit-modernster-technologie-fachkraft-ch-gmbh-willisau"
-      ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.320Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
+      ]
     },
     {
       "id": "fachkraft-1b010f0b881c",
@@ -78405,7 +78388,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8400",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -78439,8 +78421,6 @@
         "montage-elektriker-in-per-neubauprojekte-e-sanierungsarbeiten-fachkraft-ch-gmbh-winterthur",
         "montage-elektriker-in-fur-neubauprojekte-und-sanierungsarbeiten-fachkraft-ch-gmbh-winterthur"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.280Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -78454,6 +78434,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8400",
+      "firstSeenAt": "2026-10-19T11:01:25.280Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -78978,7 +78960,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6210",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -79012,8 +78993,6 @@
         "montage-elektriker-in-per-grossbaustellen-fachkraft-ch-gmbh-sursee",
         "montage-elektriker-in-fur-grossbaustellen-fachkraft-ch-gmbh-sursee"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.278Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -79027,6 +79006,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6210",
+      "firstSeenAt": "2026-10-19T11:01:25.278Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -87517,7 +87498,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "4900",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -87551,8 +87531,6 @@
         "metallbauer-in-per-schweizweite-montageeinsatze-fachkraft-ch-gmbh-langenthal",
         "metallbauer-in-fur-schweizweite-montageeinsatze-fachkraft-ch-gmbh-langenthal"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.255Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -87566,6 +87544,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "4900",
+      "firstSeenAt": "2026-10-19T11:01:25.255Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -94064,7 +94044,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6003",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -94078,10 +94057,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/metallbauer-in-luzern-dauerstelle-309909/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "metallbauer-in-fur-industrielle-blechverarbeitung-mit-schweisskenntnissen-luzern-luzern",
-        "metallbauer-in-per-industrielle-blechverarbeitung-con-schweisskenntnissen-fachkraft-ch-gmbh-luzern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-in-fur-industrielle-blechverarbeitung-mit-schweisskenntnissen-luzern-luzern",
@@ -94094,8 +94069,10 @@
           "metallbauer-in-fur-industrielle-blechverarbeitung-mit-schweisskenntnissen-luzern-luzern"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.240Z",
+      "previousSlugs": [
+        "metallbauer-in-fur-industrielle-blechverarbeitung-mit-schweisskenntnissen-luzern-luzern",
+        "metallbauer-in-per-industrielle-blechverarbeitung-con-schweisskenntnissen-fachkraft-ch-gmbh-luzern"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -94109,6 +94086,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6003",
+      "firstSeenAt": "2026-10-19T11:01:25.240Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -111952,7 +111931,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6210",
       "category": "Logistica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -111986,8 +111964,6 @@
         "logistiker-in-con-staplerausweis-e-sap-kenntnissen-fachkraft-ch-gmbh-sursee",
         "logistiker-in-mit-staplerausweis-und-sap-kenntnissen-fachkraft-ch-gmbh-sursee"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.188Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -112001,6 +111977,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6210",
+      "firstSeenAt": "2026-10-19T11:01:25.188Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -112039,7 +112017,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8953",
       "category": "Logistica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -112073,8 +112050,6 @@
         "logistiker-in-con-vielseitigem-verantwortungsbereich-fachkraft-ch-gmbh-dietikon",
         "logistiker-in-mit-vielseitigem-verantwortungsbereich-fachkraft-ch-gmbh-dietikon"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.189Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -112088,6 +112063,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8953",
+      "firstSeenAt": "2026-10-19T11:01:25.189Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -113767,7 +113744,6 @@
       "addressRegion": "ZG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6300",
       "category": "Logistica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -113781,10 +113757,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/logistiker-in-zug-dauerstelle-309769/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "logistiker-in-mit-exportabwicklung-und-zollkenntnissen-zug-zug-fachkraft-ch",
-        "logistiker-in-con-exportabwicklung-e-zollkenntnissen-fachkraft-ch-gmbh-zug"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-mit-exportabwicklung-und-zollkenntnissen-zug-zug-fachkraft-ch",
@@ -113797,8 +113769,10 @@
           "logistiker-in-mit-exportabwicklung-und-zollkenntnissen-zug-zug-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.184Z",
+      "previousSlugs": [
+        "logistiker-in-mit-exportabwicklung-und-zollkenntnissen-zug-zug-fachkraft-ch",
+        "logistiker-in-con-exportabwicklung-e-zollkenntnissen-fachkraft-ch-gmbh-zug"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -113812,6 +113786,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6300",
+      "firstSeenAt": "2026-10-19T11:01:25.184Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -125666,7 +125642,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "5000",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -125700,8 +125675,6 @@
         "heizungsinstallateur-in-per-anlagenmontage-fachkraft-ch-gmbh-aarau",
         "heizungsinstallateur-in-fur-anlagenmontage-fachkraft-ch-gmbh-aarau"
       ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-19T11:01:25.143Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -125715,6 +125688,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "5000",
+      "firstSeenAt": "2026-10-19T11:01:25.143Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -131391,7 +131366,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6210",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -131424,8 +131398,6 @@
         "gartner-in-vorarbeiter-in-mit-natursteinarbeiten-sursee-luzern-fachkraft-ch",
         "gartner-in-vorarbeiter-in-mit-natursteinarbeiten-fachkraft-ch-gmbh-sursee"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.120Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -131439,6 +131411,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6210",
+      "firstSeenAt": "2026-10-19T11:01:25.120Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -140875,7 +140849,6 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8500",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -140889,6 +140862,21 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/gaertner-in-garten-und-landschaftsbau-muenchwilen-tg-dauerstelle-308540/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "giardiniere-a-giardinaggio-e-paesaggistica-per-la-manutenzione-dei-giardini-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
+        "gardener-horticulture-and-landscaping-for-garden-maintenance-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
+        "jardinier-ere-paysagisme-pour-l-entretien-des-jardins-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
+        "giardiniere-a-giardinaggio-e-paesaggismo-per-la-manutenzione-dei-giardini-fachkraft-ch-gmbh-munchwilen-tg",
+        "gardener-garden-and-landscape-construction-for-garden-maintenance-fachkraft-ch-gmbh-munchwilen-tg",
+        "jardinier-ere-amenagement-des-jardins-et-des-espaces-verts-pour-l-entretien-des-jardins-fachkraft-ch-gmbh-munchwilen-tg",
+        "gartner-in-8211-garten-und-landschaftsbau-fur-gartenunterhalt-munchwilen-tg-thurgau",
+        "giardinieri-giardinaggio-e-paesaggistica-per-la-manutenzione-del-giardino-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
+        "gardeners-gardening-and-landscaping-for-garden-maintenance-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
+        "jardiniers-jardinage-et-amenagement-paysager-pour-l-entretien-du-jardin-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
+        "gartner-in-garten-und-landschaftsbau-fur-gartenunterhalt-munchwilen-tg-thurgau-fachkraft",
+        "gartner-in-garten-e-landschaftsbau-per-gartenunterhalt-fachkraft-ch-gmbh-munchwilen-tg",
+        "gartner-in-garten-und-landschaftsbau-fur-gartenunterhalt-fachkraft-ch-gmbh-munchwilen-tg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "giardiniere-a-giardinaggio-e-paesaggistica-per-la-manutenzione-dei-giardini-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
@@ -140914,23 +140902,6 @@
           "gartner-in-garten-und-landschaftsbau-fur-gartenunterhalt-fachkraft-ch-gmbh-munchwilen-tg"
         ]
       },
-      "previousSlugs": [
-        "giardiniere-a-giardinaggio-e-paesaggistica-per-la-manutenzione-dei-giardini-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
-        "gardener-horticulture-and-landscaping-for-garden-maintenance-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
-        "jardinier-ere-paysagisme-pour-l-entretien-des-jardins-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
-        "giardiniere-a-giardinaggio-e-paesaggismo-per-la-manutenzione-dei-giardini-fachkraft-ch-gmbh-munchwilen-tg",
-        "gardener-garden-and-landscape-construction-for-garden-maintenance-fachkraft-ch-gmbh-munchwilen-tg",
-        "jardinier-ere-amenagement-des-jardins-et-des-espaces-verts-pour-l-entretien-des-jardins-fachkraft-ch-gmbh-munchwilen-tg",
-        "gartner-in-8211-garten-und-landschaftsbau-fur-gartenunterhalt-munchwilen-tg-thurgau",
-        "giardinieri-giardinaggio-e-paesaggistica-per-la-manutenzione-del-giardino-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
-        "gardeners-gardening-and-landscaping-for-garden-maintenance-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
-        "jardiniers-jardinage-et-amenagement-paysager-pour-l-entretien-du-jardin-fachkraft-ch-gmbh-munchwilen-tg-thurgau",
-        "gartner-in-garten-und-landschaftsbau-fur-gartenunterhalt-munchwilen-tg-thurgau-fachkraft",
-        "gartner-in-garten-e-landschaftsbau-per-gartenunterhalt-fachkraft-ch-gmbh-munchwilen-tg",
-        "gartner-in-garten-und-landschaftsbau-fur-gartenunterhalt-fachkraft-ch-gmbh-munchwilen-tg"
-      ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-08-27T20:01:58.827Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -140944,6 +140915,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8500",
+      "firstSeenAt": "2026-08-27T20:01:58.827Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -140982,7 +140955,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6210",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -141016,8 +140988,6 @@
         "gartner-in-garten-e-landschaftsbau-per-gartenpflege-e-neuanlagen-fachkraft-ch-gmbh-sursee",
         "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-und-neuanlagen-fachkraft-ch-gmbh-sursee"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.090Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -141031,6 +141001,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6210",
+      "firstSeenAt": "2026-10-19T11:01:25.090Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -162496,7 +162468,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6210",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -162528,8 +162499,6 @@
         "elektroinstallateur-in-efz-fur-grossbaustellen-sursee-luzern-fachkraft-ch",
         "elektroinstallateur-in-efz-fur-grossbaustellen-fachkraft-ch-gmbh-sursee"
       ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-19T11:01:25.032Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -162542,7 +162511,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6210",
+      "firstSeenAt": "2026-10-19T11:01:25.032Z"
     },
     {
       "id": "fachkraft-3ad6b8fdae86",
@@ -169423,7 +169394,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6210",
       "category": "IT",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -169457,8 +169427,6 @@
         "automatikmonteur-in-con-sps-e-softwareentwicklung-fachkraft-ch-gmbh-sursee",
         "automatikmonteur-in-mit-sps-und-softwareentwicklung-fachkraft-ch-gmbh-sursee"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.011Z",
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -169472,6 +169440,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6210",
+      "firstSeenAt": "2026-10-19T11:01:25.011Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -172281,7 +172251,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6210",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -172315,8 +172284,6 @@
         "automatiker-in-con-steuerungs-e-schaltanlagenbau-fachkraft-ch-gmbh-sursee",
         "automatiker-in-mit-steuerungs-und-schaltanlagenbau-fachkraft-ch-gmbh-sursee"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:25.004Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -172330,6 +172297,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6210",
+      "firstSeenAt": "2026-10-19T11:01:25.004Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -177715,7 +177684,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8157",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -177729,41 +177697,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/automatiker-in-dielsdorf-dauerstelle-293795/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "automatiker-in-mit-projektleitung-im-schaltschrankbau-winterthur-zurich-fachkraft-ch",
-          "automatiker-in-mit-projektleitung-im-schaltschrankbau-fachkraft-ch-o6cp7i",
-          "automatician-with-project-management-in-control-cabinet-construction-fachkraft-ch-gmbh-lugano",
-          "automatique-avec-gestion-de-projet-dans-la-construction-d-armoires-de-controle-fachkraft-ch-gmbh-lugano",
-          "automatician-with-experience-in-electrical-cabinet-construction-fachkraft-ch-gmbh-lugano",
-          "automatique-avec-experience-dans-la-construction-d-armoires-electriques-fachkraft-ch-gmbh-lugano",
-          "operatore-automatico-costruzione-cabinet-di-controllo-fachkraft-ch-gmbh-lugano",
-          "automatician-with-experience-in-electrical-cabinet-construction-fachkraft-ch-gmbh-zurich-zurich",
-          "automatician-for-cabinet-construction-and-commissioning-fachkraft-ch-gmbh-st-gallen-st-gallen",
-          "automatiker-in-fur-schaltschrankbau-und-inbetriebnahme-fachkraft-ch-gmbh-st-gallen",
-          "automatikmonteur-in-fur-schaltschrankbau-fachkraft-ch-gmbh-lugano",
-          "automatician-with-project-management-in-control-cabinet-construction-fachkraft-ch-gmbh-winterthur-zurich",
-          "automatiker-in-mit-erfahrung-im-schaltschrankbau-fachkraft-ch",
-          "automatique-avec-experience-dans-la-construction-d-armoires-electriques-fachkraft-ch-gmbh-zurich-zurich",
-          "automatique-pour-la-construction-et-la-mise-en-service-de-cabinets-fachkraft-ch-gmbh-st-gallen-st-gallen",
-          "automatiker-in-fur-schaltschrankbau-und-inbetriebnahme-st-gallen-st-gallen-fachkraft-ch",
-          "automatiker-in-per-schaltschrankbau-fachkraft-ch-gmbh-dielsdorf",
-          "tecnico-a-di-automazione-per-la-costruzione-di-quadri-elettrici-fachkraft-ch-gmbh-dielsdorf-zurich",
-          "automatiker-in-fur-schaltschrankbau-dielsdorf-zurich-fachkraft-ch"
-        ],
-        "en": [
-          "automatiker-in-fur-schaltschrankbau-fachkraft-ch-gmbh-dielsdorf",
-          "automation-technician-for-control-cabinet-construction-fachkraft-ch-gmbh-dielsdorf-zurich"
-        ],
-        "de": [
-          "automatiker-in-fur-schaltschrankbau-fachkraft-ch-gmbh-dielsdorf",
-          "automatiker-in-fur-schaltschrankbau-dielsdorf-zurich-fachkraft-ch"
-        ],
-        "fr": [
-          "automatiker-in-fur-schaltschrankbau-fachkraft-ch-gmbh-dielsdorf",
-          "automaticien-ne-pour-la-construction-d-armoires-electriques-fachkraft-ch-gmbh-dielsdorf-zurich"
-        ]
-      },
       "previousSlugs": [
         "automatique-avec-gestion-de-projet-dans-la-construction-d-armoires-de-controle-fachkraft-ch-gmbh-winterthur-zurich",
         "automatiker-in-mit-erfahrung-im-schaltschrankbau-zurich-zurich-fachkraft-ch",
@@ -177817,8 +177750,41 @@
         "automaticien-ne-pour-la-construction-d-armoires-electriques-fachkraft-ch-gmbh-dielsdorf-zurich",
         "automatiker-in-fur-schaltschrankbau-dielsdorf-zurich-fachkraft-ch"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-08-27T00:42:50.008Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-mit-projektleitung-im-schaltschrankbau-winterthur-zurich-fachkraft-ch",
+          "automatiker-in-mit-projektleitung-im-schaltschrankbau-fachkraft-ch-o6cp7i",
+          "automatician-with-project-management-in-control-cabinet-construction-fachkraft-ch-gmbh-lugano",
+          "automatique-avec-gestion-de-projet-dans-la-construction-d-armoires-de-controle-fachkraft-ch-gmbh-lugano",
+          "automatician-with-experience-in-electrical-cabinet-construction-fachkraft-ch-gmbh-lugano",
+          "automatique-avec-experience-dans-la-construction-d-armoires-electriques-fachkraft-ch-gmbh-lugano",
+          "operatore-automatico-costruzione-cabinet-di-controllo-fachkraft-ch-gmbh-lugano",
+          "automatician-with-experience-in-electrical-cabinet-construction-fachkraft-ch-gmbh-zurich-zurich",
+          "automatician-for-cabinet-construction-and-commissioning-fachkraft-ch-gmbh-st-gallen-st-gallen",
+          "automatiker-in-fur-schaltschrankbau-und-inbetriebnahme-fachkraft-ch-gmbh-st-gallen",
+          "automatikmonteur-in-fur-schaltschrankbau-fachkraft-ch-gmbh-lugano",
+          "automatician-with-project-management-in-control-cabinet-construction-fachkraft-ch-gmbh-winterthur-zurich",
+          "automatiker-in-mit-erfahrung-im-schaltschrankbau-fachkraft-ch",
+          "automatique-avec-experience-dans-la-construction-d-armoires-electriques-fachkraft-ch-gmbh-zurich-zurich",
+          "automatique-pour-la-construction-et-la-mise-en-service-de-cabinets-fachkraft-ch-gmbh-st-gallen-st-gallen",
+          "automatiker-in-fur-schaltschrankbau-und-inbetriebnahme-st-gallen-st-gallen-fachkraft-ch",
+          "automatiker-in-per-schaltschrankbau-fachkraft-ch-gmbh-dielsdorf",
+          "tecnico-a-di-automazione-per-la-costruzione-di-quadri-elettrici-fachkraft-ch-gmbh-dielsdorf-zurich",
+          "automatiker-in-fur-schaltschrankbau-dielsdorf-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "automatiker-in-fur-schaltschrankbau-fachkraft-ch-gmbh-dielsdorf",
+          "automation-technician-for-control-cabinet-construction-fachkraft-ch-gmbh-dielsdorf-zurich"
+        ],
+        "de": [
+          "automatiker-in-fur-schaltschrankbau-fachkraft-ch-gmbh-dielsdorf",
+          "automatiker-in-fur-schaltschrankbau-dielsdorf-zurich-fachkraft-ch"
+        ],
+        "fr": [
+          "automatiker-in-fur-schaltschrankbau-fachkraft-ch-gmbh-dielsdorf",
+          "automaticien-ne-pour-la-construction-d-armoires-electriques-fachkraft-ch-gmbh-dielsdorf-zurich"
+        ]
+      },
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -177832,6 +177798,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8157",
+      "firstSeenAt": "2026-08-27T00:42:50.008Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -177870,7 +177838,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6210",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -177904,8 +177871,6 @@
         "automatiker-in-per-prozessautomation-e-steuerungstechnik-fachkraft-ch-gmbh-sursee",
         "automatiker-in-fur-prozessautomation-und-steuerungstechnik-fachkraft-ch-gmbh-sursee"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.988Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -177919,6 +177884,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6210",
+      "firstSeenAt": "2026-10-19T11:01:24.988Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -184728,7 +184695,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "4900",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -184768,8 +184734,6 @@
           "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-fachkraft-ch-gmbh-langenthal"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-13T22:18:59.779Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -184783,6 +184747,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "4900",
+      "firstSeenAt": "2026-10-13T22:18:59.779Z",
       "translationHoldReleasedAt": "2026-10-14T02:24:22.172Z"
     },
     {
@@ -185872,7 +185838,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6003",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -185886,10 +185851,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/anlagen-und-apparatebauer-in-luzern-dauerstelle-309907/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-mit-mag-und-tig-schweisskenntnissen-luzern-luzern-fachkraft",
-        "anlagen-e-apparatebauer-in-con-mag-e-tig-schweisskenntnissen-fachkraft-ch-gmbh-luzern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "anlagen-und-apparatebauer-in-mit-mag-und-tig-schweisskenntnissen-luzern-luzern-fachkraft",
@@ -185902,8 +185863,10 @@
           "anlagen-und-apparatebauer-in-mit-mag-und-tig-schweisskenntnissen-luzern-luzern-fachkraft"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-19T11:01:24.963Z",
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-mit-mag-und-tig-schweisskenntnissen-luzern-luzern-fachkraft",
+        "anlagen-e-apparatebauer-in-con-mag-e-tig-schweisskenntnissen-fachkraft-ch-gmbh-luzern"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -185917,6 +185880,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6003",
+      "firstSeenAt": "2026-10-19T11:01:24.963Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -197987,7 +197952,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6003",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -198023,8 +197987,6 @@
           "maler-in-fur-neu-und-umbauarbeiten-luzern-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-29T22:24:17.691Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -198037,7 +197999,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6003",
+      "firstSeenAt": "2026-09-29T22:24:17.691Z"
     },
     {
       "id": "fachkraft-eca1c7f8c5ed",
@@ -205824,7 +205788,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6003",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -205838,10 +205801,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/elektroinstallateur-in-luzern-temporaer-309678/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "elektroinstallateur-in-fur-schiff-und-industriebau-luzern-luzern-fachkraft-ch",
-        "installatore-trice-elettrico-a-in-per-schiff-e-industriebau-fachkraft-ch-gmbh-luzern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-fur-schiff-und-industriebau-luzern-luzern-fachkraft-ch",
@@ -205854,8 +205813,10 @@
           "elektroinstallateur-in-fur-schiff-und-industriebau-luzern-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.911Z",
+      "previousSlugs": [
+        "elektroinstallateur-in-fur-schiff-und-industriebau-luzern-luzern-fachkraft-ch",
+        "installatore-trice-elettrico-a-in-per-schiff-e-industriebau-fachkraft-ch-gmbh-luzern"
+      ],
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -205868,7 +205829,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6003",
+      "firstSeenAt": "2026-10-19T11:01:24.911Z"
     },
     {
       "id": "fachkraft-41ba4ba7dc53",
@@ -211200,7 +211163,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6130",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -211233,8 +211195,6 @@
           "industrielackierer-in-hilfsarbeiter-in-fur-nasslackarbeiten-fachkraft-ch-gmbh-willisau"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-03T10:07:24.286Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -211247,7 +211207,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6130",
+      "firstSeenAt": "2026-10-03T10:07:24.286Z"
     },
     {
       "id": "fachkraft-49fcd1b27582",
@@ -228629,7 +228591,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "5080",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -228663,8 +228624,6 @@
         "zimmermann-zimmerin-per-renovationsprojekte-e-innenausbau-fachkraft-ch-gmbh-laufenburg",
         "zimmermann-zimmerin-fur-renovationsprojekte-und-innenausbau-fachkraft-ch-gmbh-laufenburg"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.846Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -228678,6 +228637,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "5080",
+      "firstSeenAt": "2026-10-19T11:01:24.846Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -229391,7 +229352,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "5600",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -229425,8 +229385,6 @@
         "zimmermann-zimmerin-per-neubau-e-elementbau-fachkraft-ch-gmbh-lenzburg",
         "zimmermann-zimmerin-fur-neubau-und-elementbau-fachkraft-ch-gmbh-lenzburg"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.846Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -229440,6 +229398,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "5600",
+      "firstSeenAt": "2026-10-19T11:01:24.846Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -232199,7 +232159,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "5400",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -232233,8 +232192,6 @@
         "schreiner-in-per-mobelbau-fachkraft-ch-gmbh-baden",
         "schreiner-in-fur-mobelbau-fachkraft-ch-gmbh-baden"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.838Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -232248,6 +232205,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "5400",
+      "firstSeenAt": "2026-10-19T11:01:24.838Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -241956,7 +241915,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8001",
       "category": "Logistica",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -241970,10 +241928,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/logistiker-in-zuerich-temporaer-310004/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "logistiker-in-mit-breitem-aufgabengebiet-zurich-zurich-fachkraft-ch",
-        "logistiker-in-con-breitem-aufgabengebiet-fachkraft-ch-gmbh-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-mit-breitem-aufgabengebiet-zurich-zurich-fachkraft-ch",
@@ -241986,8 +241940,10 @@
           "logistiker-in-mit-breitem-aufgabengebiet-zurich-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.812Z",
+      "previousSlugs": [
+        "logistiker-in-mit-breitem-aufgabengebiet-zurich-zurich-fachkraft-ch",
+        "logistiker-in-con-breitem-aufgabengebiet-fachkraft-ch-gmbh-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -242001,6 +241957,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8001",
+      "firstSeenAt": "2026-10-19T11:01:24.812Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -245214,8 +245172,6 @@
         "elektroinstallateur-in-mit-vielseitigem-aufgabengebiet-kulm-aargau-fachkraft-ch",
         "elektroinstallateur-in-mit-vielseitigem-aufgabengebiet-fachkraft-ch-gmbh-kulm"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.802Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -245229,7 +245185,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "firstSeenAt": "2026-10-19T11:01:24.802Z"
     },
     {
       "id": "fachkraft-3982975edfb8",
@@ -248148,7 +248105,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "5400",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -248182,8 +248138,6 @@
         "automatiker-in-con-kundenservice-e-storungsbehebung-fachkraft-ch-gmbh-baden",
         "automatiker-in-mit-kundenservice-und-storungsbehebung-fachkraft-ch-gmbh-baden"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.796Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -248197,6 +248151,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "5400",
+      "firstSeenAt": "2026-10-19T11:01:24.796Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -248235,7 +248191,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "5400",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -248269,8 +248224,6 @@
         "automatikmonteur-in-per-anlagenverdrahtung-e-funktionstests-fachkraft-ch-gmbh-baden",
         "automatikmonteur-in-fur-anlagenverdrahtung-und-funktionstests-fachkraft-ch-gmbh-baden"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.796Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -248284,6 +248237,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "5400",
+      "firstSeenAt": "2026-10-19T11:01:24.796Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -264525,7 +264480,6 @@
       "addressRegion": "ZG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6300",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -264539,10 +264493,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/gaertner-in-zug-temporaer-309814/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "gartner-in-fur-gartenpflege-zug-zug-fachkraft-ch",
-        "gartner-in-per-gartenpflege-fachkraft-ch-gmbh-zug"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-fur-gartenpflege-zug-zug-fachkraft-ch",
@@ -264555,8 +264505,10 @@
           "gartner-in-fur-gartenpflege-zug-zug-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.753Z",
+      "previousSlugs": [
+        "gartner-in-fur-gartenpflege-zug-zug-fachkraft-ch",
+        "gartner-in-per-gartenpflege-fachkraft-ch-gmbh-zug"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -264570,6 +264522,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6300",
+      "firstSeenAt": "2026-10-19T11:01:24.753Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -265387,7 +265341,6 @@
       "addressRegion": "ZG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6300",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -265401,10 +265354,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/gaertner-in-eba-zug-temporaer-309818/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "gartner-in-eba-fur-gartenpflege-zug-zug-fachkraft-ch",
-        "gartner-in-afp-per-gartenpflege-fachkraft-ch-gmbh-zug"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-eba-fur-gartenpflege-zug-zug-fachkraft-ch",
@@ -265417,8 +265366,10 @@
           "gartner-in-eba-fur-gartenpflege-zug-zug-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.753Z",
+      "previousSlugs": [
+        "gartner-in-eba-fur-gartenpflege-zug-zug-fachkraft-ch",
+        "gartner-in-afp-per-gartenpflege-fachkraft-ch-gmbh-zug"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -265432,6 +265383,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6300",
+      "firstSeenAt": "2026-10-19T11:01:24.753Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -265792,7 +265745,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6210",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -265826,8 +265778,6 @@
         "montage-elektriker-in-per-neu-e-umbau-fachkraft-ch-gmbh-sursee",
         "montage-elektriker-in-fur-neu-und-umbau-fachkraft-ch-gmbh-sursee"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.751Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -265841,6 +265791,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6210",
+      "firstSeenAt": "2026-10-19T11:01:24.751Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -266050,7 +266002,6 @@
       "addressRegion": "SO",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "4600",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -266084,8 +266035,6 @@
         "polymechaniker-in-per-instandhaltung-e-fahrzeugtechnik-fachkraft-ch-gmbh-olten",
         "polymechaniker-in-fur-instandhaltung-und-fahrzeugtechnik-fachkraft-ch-gmbh-olten"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.752Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -266099,6 +266048,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "4600",
+      "firstSeenAt": "2026-10-19T11:01:24.752Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -268753,7 +268704,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8180",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -268787,8 +268737,6 @@
         "haustechnikpraktiker-in-heizung-per-warmepumpen-sanierungen-fachkraft-ch-gmbh-bulach",
         "haustechnikpraktiker-in-heizung-fur-warmepumpen-sanierungen-fachkraft-ch-gmbh-bulach"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.745Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -268802,6 +268750,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8180",
+      "firstSeenAt": "2026-10-19T11:01:24.745Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -268926,7 +268876,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8400",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -268960,8 +268909,6 @@
         "heizungsinstallateur-in-per-vielfaltige-montageprojekte-fachkraft-ch-gmbh-winterthur",
         "heizungsinstallateur-in-fur-vielfaltige-montageprojekte-fachkraft-ch-gmbh-winterthur"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.746Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -268975,6 +268922,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8400",
+      "firstSeenAt": "2026-10-19T11:01:24.746Z",
       "translationHoldReleasedAt": "2026-10-19T16:33:53.612Z"
     },
     {
@@ -269265,7 +269214,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8450",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -269297,8 +269245,6 @@
         "elektroinstallateur-in-efz-fur-service-und-neubau-andelfingen-zurich-fachkraft-ch",
         "elektroinstallateur-in-efz-fur-service-und-neubau-fachkraft-ch-gmbh-andelfingen"
       ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-19T11:01:24.744Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -269311,7 +269257,9 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8450",
+      "firstSeenAt": "2026-10-19T11:01:24.744Z"
     },
     {
       "id": "fachkraft-60090b81d47f",
@@ -269349,7 +269297,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6210",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -269383,8 +269330,6 @@
         "installatore-trice-elettrico-a-in-per-neu-umbau-e-servicearbeiten-fachkraft-ch-gmbh-sursee",
         "elektroinstallateur-in-fur-neu-umbau-und-servicearbeiten-fachkraft-ch-gmbh-sursee"
       ],
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-19T11:01:24.744Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -269397,7 +269342,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6210",
+      "firstSeenAt": "2026-10-19T11:01:24.744Z"
     },
     {
       "id": "fachkraft-c56451f2409f",
@@ -273778,7 +273725,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "zimmermann-zimmerin-fur-hochwertige-treppenkonstruktionen-wil-sg-st-gallen-fachkraft-ch",

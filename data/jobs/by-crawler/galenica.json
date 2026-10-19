@@ -3964,7 +3964,9 @@
       "id": "galenica-304add9da676",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil"
+          "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil",
+          "farmacista-farmacista-m-f-d-galenica-galenica-volketswil-nwkfjc",
+          "apotheker-apothekerin-m-w-d-galenica-volketswil"
         ],
         "en": [
           "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil"
@@ -3974,7 +3976,9 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil"
+        "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil",
+        "farmacista-farmacista-m-f-d-galenica-galenica-volketswil-nwkfjc",
+        "apotheker-apothekerin-m-w-d-galenica-volketswil"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -4185,7 +4189,9 @@
       "id": "galenica-189c8551b5d4",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-apotheker-apothekerin-w-m-d-sa-so-zurich"
+          "galenica-galenica-apotheker-apothekerin-w-m-d-sa-so-zurich",
+          "farmacista-m-f-d-sa-so-galenica-galenica-zurich-nwmxa8",
+          "galenica-galenica-apotheker-apothekerin-w-m-d-sa-so-bern"
         ],
         "en": [
           "galenica-galenica-apotheker-apothekerin-w-m-d-sa-so-zurich"
@@ -4195,7 +4201,9 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-apotheker-apothekerin-w-m-d-sa-so-zurich"
+        "galenica-galenica-apotheker-apothekerin-w-m-d-sa-so-zurich",
+        "farmacista-m-f-d-sa-so-galenica-galenica-zurich-nwmxa8",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-sa-so-bern"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -4212,7 +4220,8 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
