@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-19T11:11:34.835Z",
+  "updatedAt": "2026-10-19T11:12:28.414Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -586783,12 +586783,12 @@
     },
     "medimeo@luzern": {
       "key": "medimeo@luzern",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:28:12.701Z",
-      "updatedAt": "2026-10-18T09:48:06.408Z",
+      "updatedAt": "2026-10-19T11:12:27.527Z",
       "name": "Medimeo AG",
       "city": "Luzern",
       "zip": "6000",
@@ -586950,7 +586950,8 @@
         }
       ],
       "promotionPr": "13792",
-      "promotionBranch": "prospector/promote-2026-10-18"
+      "promotionBranch": "prospector/promote-2026-10-18",
+      "promotedAt": "2026-10-19T11:12:27.526Z"
     },
     "medimeo@region-zurich": {
       "key": "medimeo@region-zurich",
@@ -587048,12 +587049,12 @@
     },
     "medimeo@st-gallen": {
       "key": "medimeo@st-gallen",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T18:31:01.514Z",
-      "updatedAt": "2026-10-18T09:48:06.408Z",
+      "updatedAt": "2026-10-19T11:12:27.950Z",
       "name": "Medimeo AG",
       "city": "St. Gallen",
       "zip": "9000",
@@ -587201,7 +587202,8 @@
         }
       ],
       "promotionPr": "13792",
-      "promotionBranch": "prospector/promote-2026-10-18"
+      "promotionBranch": "prospector/promote-2026-10-18",
+      "promotedAt": "2026-10-19T11:12:27.950Z"
     },
     "medimeo@thun": {
       "key": "medimeo@thun",
@@ -662547,7 +662549,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:31:27.340Z",
-      "updatedAt": "2026-10-18T09:47:39.747Z",
+      "updatedAt": "2026-10-19T11:12:28.384Z",
       "name": "Pantr GmbH",
       "city": "Zug",
       "zip": "6300",
