@@ -8,6 +8,14 @@ import { openFormSections, uploadButtonFor } from '../scripts/assisted-applicati
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
 function extract(html: string, url = 'https://jobs.example/apply') {
   const { window } = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, { url });
+  // JSDOM does not implement the browser's rendered-text `innerText`; the
+  // extractor uses it to keep an icon glyph separate from its aria label.
+  Object.defineProperty(window.HTMLElement.prototype, 'innerText', {
+    configurable: true,
+    get() {
+      return this.textContent || '';
+    },
+  });
   window.Element.prototype.getBoundingClientRect = function rect(this: Element) {
     const size = Number(this.getAttribute('data-size') || 20);
     return { width: size, height: size, top: 0, left: 0, right: size, bottom: size, x: 0, y: 0, toJSON: () => ({}) } as DOMRect;
