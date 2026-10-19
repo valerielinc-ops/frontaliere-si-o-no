@@ -4074,6 +4074,12 @@ function repairExpiredArchiveSlicesAgainstActive(activeJobs) {
  * The path overrides are used by the isolated regression test; production
  * callers use the repository defaults.
  */
+function relabelExpiredArchiveEntries(entries) {
+  const expiredBrandLabels = declaredBrandLabels();
+  applyDeclaredBrandRelabel(entries, expiredBrandLabels);
+  refreshDeclaredBrandSlugs(entries, expiredBrandLabels);
+}
+
 export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePath = DATA_EXPIRED } = {}) {
   const sliceFiles = listSliceFiles(sliceDir);
 
@@ -4089,9 +4095,7 @@ export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePa
     // normal return path so the caller repairs route ownership against the
     // active dataset and persists the repaired archive below.
     normalizeExpiredAtEntries(legacyEntries, { source: 'assemble/legacy-aggregate' });
-    const expiredBrandLabels = declaredBrandLabels();
-    applyDeclaredBrandRelabel(legacyEntries, expiredBrandLabels);
-    refreshDeclaredBrandSlugs(legacyEntries, expiredBrandLabels);
+    relabelExpiredArchiveEntries(legacyEntries);
     console.log(`  📄 No per-crawler expired slices: carried ${legacyEntries.length} legacy archive entries into assembly`);
     return legacyEntries;
   }
@@ -4174,9 +4178,7 @@ export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePa
   // sit under the same employer brand. Reconcile them in the same pass so a
   // corrected label does not read one way on the active page and another on
   // the expired one.
-  const expiredBrandLabels = declaredBrandLabels();
-  applyDeclaredBrandRelabel(assembled, expiredBrandLabels);
-  refreshDeclaredBrandSlugs(assembled, expiredBrandLabels);
+  relabelExpiredArchiveEntries(assembled);
 
   console.log(`  📄 ${sliceFiles.length} expired slices: ${totalSliceEntries} entries → ${assembled.length} unique slugs`);
   return assembled;
