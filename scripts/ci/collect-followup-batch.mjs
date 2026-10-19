@@ -546,7 +546,7 @@ const CLAIM_BULLET_LINE_RE = /^\s*[-*+]\s+\S/;
  * un bullet (riga vuota inclusa): la prosa successiva, per esempio la nota su
  * un bucket storico sealed, resta fuori dal claim come prima.
  */
-export function claimLinesWithBullets(lines) {
+function claimLinesWithBullets(lines) {
   const out = [];
   let inClaimList = false;
   for (const line of lines) {
