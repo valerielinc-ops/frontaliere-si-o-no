@@ -7998,7 +7998,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -8042,36 +8042,36 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'tertianum' 'tertianum'
-          aggregate_crawler_member 'etat-de-vaud' 'etat-de-vaud'
-          aggregate_crawler_member 'rheinmetall-air-defence' 'rheinmetall-air-defence'
+          aggregate_crawler_member 'tertianum'
+          aggregate_crawler_member 'etat-de-vaud'
+          aggregate_crawler_member 'rheinmetall-air-defence'
           aggregate_crawler_member 'trumpf' 'trumpf-schweiz'
-          aggregate_crawler_member 'sfs-group' 'sfs-group'
+          aggregate_crawler_member 'sfs-group'
           aggregate_crawler_member 'usi' 'usi-universita-della-svizzera-italiana'
-          aggregate_crawler_member 'ksml' 'ksml'
-          aggregate_crawler_member 'spital-lachen' 'spital-lachen'
-          aggregate_crawler_member 'kanton-zuerich' 'kanton-zuerich'
-          aggregate_crawler_member 'zuger-kantonsspital' 'zuger-kantonsspital'
-          aggregate_crawler_member 'sicpa' 'sicpa'
-          aggregate_crawler_member 'hofweissbad' 'hofweissbad'
-          aggregate_crawler_member 'tinext' 'tinext'
-          aggregate_crawler_member 'apleona-schweiz-ag' 'apleona-schweiz-ag'
-          aggregate_crawler_member 'pkb-private-bank' 'pkb-private-bank'
-          aggregate_crawler_member 'klinik-schloss-mammern' 'klinik-schloss-mammern'
-          aggregate_crawler_member 'zermatt-bergbahnen' 'zermatt-bergbahnen'
-          aggregate_crawler_member 'etat-de-fribourg' 'etat-de-fribourg'
-          aggregate_crawler_member 'huber-suhner' 'huber-suhner'
-          aggregate_crawler_member 'canton-valais' 'canton-valais'
-          aggregate_crawler_member 'constellium' 'constellium'
-          aggregate_crawler_member 'empa' 'empa'
-          aggregate_crawler_member 'kantonsspital-uri' 'kantonsspital-uri'
-          aggregate_crawler_member 'bobst' 'bobst'
-          aggregate_crawler_member 'baloise' 'baloise'
-          aggregate_crawler_member 'etavis' 'etavis'
-          aggregate_crawler_member 'amina-bank' 'amina-bank'
-          aggregate_crawler_member 'opus-personal' 'opus-personal'
-          aggregate_crawler_member 'rohrer-gartenbau-und-hauswartungen' 'rohrer-gartenbau-und-hauswartungen'
-          aggregate_crawler_member 'wokin' 'wokin'
+          aggregate_crawler_member 'ksml'
+          aggregate_crawler_member 'spital-lachen'
+          aggregate_crawler_member 'kanton-zuerich'
+          aggregate_crawler_member 'zuger-kantonsspital'
+          aggregate_crawler_member 'sicpa'
+          aggregate_crawler_member 'hofweissbad'
+          aggregate_crawler_member 'tinext'
+          aggregate_crawler_member 'apleona-schweiz-ag'
+          aggregate_crawler_member 'pkb-private-bank'
+          aggregate_crawler_member 'klinik-schloss-mammern'
+          aggregate_crawler_member 'zermatt-bergbahnen'
+          aggregate_crawler_member 'etat-de-fribourg'
+          aggregate_crawler_member 'huber-suhner'
+          aggregate_crawler_member 'canton-valais'
+          aggregate_crawler_member 'constellium'
+          aggregate_crawler_member 'empa'
+          aggregate_crawler_member 'kantonsspital-uri'
+          aggregate_crawler_member 'bobst'
+          aggregate_crawler_member 'baloise'
+          aggregate_crawler_member 'etavis'
+          aggregate_crawler_member 'amina-bank'
+          aggregate_crawler_member 'opus-personal'
+          aggregate_crawler_member 'rohrer-gartenbau-und-hauswartungen'
+          aggregate_crawler_member 'wokin'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

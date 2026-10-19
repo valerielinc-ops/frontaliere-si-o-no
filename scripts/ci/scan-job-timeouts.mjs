@@ -154,8 +154,10 @@ import {
 // `check-workflows-scope.mjs` (Mode 1) terminerebbe `issue-fix.yml` a zero token.
 // Il nome di uno step arriva dal `name:` scritto a mano nel workflow e può
 // contenerlo (`Run .github/workflows/foo.yml`), quindi la redazione è applicata
-// al body INTERO — stessa regola e stessa funzione di `report-workflow-failure.mjs`.
-import { redactWorkflowPaths } from './report-validate-dist-failure.mjs';
+// al body INTERO. Il matcher è condiviso col guard e vive in un gemello
+// `identical`, non nel reporter dist `adapted`: così questo file resta
+// trasportabile e runnable da solo su entrambi i repo.
+import { redactWorkflowPaths } from '../lib/workflow-scope-detect.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -387,6 +389,43 @@ function ghJson(path, { allowFailure = true } = {}) {
   } catch {
     return null;
   }
+}
+
+/**
+ * `actions/runs` exposes `name` as the evaluated run name, not necessarily the
+ * workflow's declared `name:`. A workflow with `run-name:` therefore returns
+ * a per-dispatch value (for example the loop-clock marker), which cannot be
+ * passed to `gh run list -w` for recovery. The workflow id is the stable link
+ * back to the declared workflow identity.
+ */
+function workflowNameFromRun(run) {
+  const direct = run?.workflow_name ?? run?.workflowName;
+  if (typeof direct === 'string' && direct.trim()) return direct.trim();
+  const name = run?.name;
+  return typeof name === 'string' ? name.trim() : '';
+}
+
+function workflowNameForRun(run, cache) {
+  const workflowId = String(run?.workflow_id ?? '').trim();
+  if (!workflowId) return workflowNameFromRun(run) || null;
+  if (cache.has(workflowId)) return cache.get(workflowId);
+
+  const workflow = ghJson(repoPath(`actions/workflows/${encodeURIComponent(workflowId)}`));
+  const canonical = typeof workflow?.name === 'string' ? workflow.name.trim() : '';
+  if (canonical) {
+    cache.set(workflowId, canonical);
+    return canonical;
+  }
+
+  // Falling back to a run-name here would mint an issue that the recovery
+  // path cannot query. Skip this occurrence and let the next scan retry once
+  // the Actions metadata is readable instead.
+  console.warn(
+    `::warning::[scan-job-timeouts] workflow identity unreadable for run ${run?.id ?? '?'} `
+      + `(workflow_id=${workflowId}); timeout not reported`,
+  );
+  cache.set(workflowId, null);
+  return null;
 }
 
 /** The workflow file running this scan, from GITHUB_WORKFLOW_REF. */
@@ -630,8 +669,9 @@ export const JOB_TIMEOUT_REPORT_SIGNATURE = 'scripts/ci/scan-job-timeouts.mjs';
  * `close-recovered-failure-issues.mjs` on purpose. See the module docstring.
  */
 export function scopedTitle(run) {
-  if (run?.head_branch === RECURRENCE_GATE_BRANCH) return `CI Failure: ${run.name}`;
-  return `CI Failure (${run?.event || UNKNOWN_EVENT}): ${run.name}`;
+  const workflow = workflowNameFromRun(run);
+  if (run?.head_branch === RECURRENCE_GATE_BRANCH) return `CI Failure: ${workflow}`;
+  return `CI Failure (${run?.event || UNKNOWN_EVENT}): ${workflow}`;
 }
 
 /** `{ event, workflow }` per un titolo della famiglia, altrimenti `null`. */
@@ -1006,10 +1046,20 @@ export async function main() {
   let startupFailureReports = 0;
   let zeroJobFailureReports = 0;
   let failedUnreadable = 0;
+  let workflowIdentityUnreadable = 0;
   const jobsCache = new Map();
   const jobsForRun = (run) => {
     if (!jobsCache.has(run.id)) jobsCache.set(run.id, listJobsSnapshot(run.id));
     return jobsCache.get(run.id);
+  };
+  const workflowNames = new Map();
+  const reportableRun = (run) => {
+    const workflow = workflowNameForRun(run, workflowNames);
+    if (!workflow) {
+      workflowIdentityUnreadable += 1;
+      return null;
+    }
+    return { ...run, workflow_name: workflow };
   };
 
   // title → issue ref already opened/matched during THIS scan. See the DEDUP note
@@ -1127,6 +1177,8 @@ export async function main() {
     }
     timeoutRuns += 1;
     timeoutJobs += hits.length;
+    const reportRun = reportableRun(run);
+    if (!reportRun) continue;
     for (const { job } of hits) {
       console.log(`[scan-job-timeouts] TIMEOUT: ${run.name} / ${job.name} (run ${run.id})`);
     }
@@ -1150,10 +1202,10 @@ export async function main() {
     // vedi la nota sull'import: nessun path `.github/workflows/**` nel body.
     const description = redactWorkflowPaths(rawDescription);
     await emit({
-      title: scopedTitle(run),
+      title: scopedTitle(reportRun),
       description,
       labels: ['Bug', 'ci-timeout'],
-      workflow: run.name,
+      workflow: reportRun.workflow_name,
       runUrl: run.html_url,
       jobCount: hits.length,
       occurredAt: run.created_at,
@@ -1173,6 +1225,8 @@ export async function main() {
       continue;
     }
     startupFailureReports += 1;
+    const reportRun = reportableRun(run);
+    if (!reportRun) continue;
     const rawDescription = [
       '## Workflow failure prima della creazione dei job',
       '',
@@ -1193,10 +1247,10 @@ export async function main() {
       'Rilevato da `scripts/ci/scan-job-timeouts.mjs` (scan periodico esterno ai job).',
     ].join('\n');
     await emit({
-      title: scopedTitle(run),
+      title: scopedTitle(reportRun),
       description: redactWorkflowPaths(rawDescription),
       labels: ['Bug', 'ci-startup-failure'],
-      workflow: run.name,
+      workflow: reportRun.workflow_name,
       runUrl: run.html_url,
       jobCount: 1,
       occurredAt: run.created_at,
@@ -1213,6 +1267,8 @@ export async function main() {
     }
     if (jobsData.jobs.length === 0 && Number(jobsData.total_count) === 0) {
       zeroJobFailureReports += 1;
+      const reportRun = reportableRun(run);
+      if (!reportRun) continue;
       const rawDescription = [
         '## Workflow failure senza job',
         '',
@@ -1233,10 +1289,10 @@ export async function main() {
         'Rilevato da `scripts/ci/scan-job-timeouts.mjs` (scan periodico esterno ai job).',
       ].join('\n');
       await emit({
-        title: scopedTitle(run),
+        title: scopedTitle(reportRun),
         description: redactWorkflowPaths(rawDescription),
         labels: ['Bug', 'ci-startup-failure'],
-        workflow: run.name,
+        workflow: reportRun.workflow_name,
         runUrl: run.html_url,
         jobCount: 1,
         occurredAt: run.created_at,
@@ -1248,6 +1304,8 @@ export async function main() {
       .filter(({ kill }) => kill)
       .sort((a, b) => String(a.job?.name || '').localeCompare(String(b.job?.name || '')));
     if (kills.length === 0) continue;
+    const reportRun = reportableRun(run);
+    if (!reportRun) continue;
     for (const { job } of kills) {
       console.log(`[scan-job-timeouts] HOST-KILL: ${run.name} / ${job.name} (run ${run.id})`);
     }
@@ -1287,10 +1345,10 @@ export async function main() {
     // vedi la nota sull'import: nessun path `.github/workflows/**` nel body.
     const description = redactWorkflowPaths(rawDescription);
     await emit({
-      title: scopedTitle(run),
+      title: scopedTitle(reportRun),
       description,
       labels: ['Bug', 'ci-host-kill'],
-      workflow: run.name,
+      workflow: reportRun.workflow_name,
       runUrl: run.html_url,
       jobCount: kills.length,
       occurredAt: run.created_at,
@@ -1305,7 +1363,7 @@ export async function main() {
   console.log(
     `[scan-job-timeouts] startup summary — ${startupFailureReports} startup_failure + `
       + `${zeroJobFailureReports} failure senza job segnalate `
-      + `(${failedUnreadable} failure illeggibili).`,
+      + `(${failedUnreadable} failure illeggibili, ${workflowIdentityUnreadable} identità workflow illeggibili).`,
   );
   console.log(`[scan-job-timeouts] done — ${reported} dead job(s) reported (dry-run=${DRY_RUN}).`);
 }

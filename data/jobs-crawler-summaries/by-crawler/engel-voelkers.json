@@ -1,59 +1,18 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-10-19T09:31:10.710Z",
+  "generatedAt": "2026-10-19T21:28:07.044Z",
   "total": 10,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
-  "unchangedCount": 8,
-  "durationMs": 21268,
-  "avgDurationMs": 21268,
+  "removedCount": 0,
+  "unchangedCount": 9,
+  "durationMs": 21932,
+  "avgDurationMs": 21932,
   "durationHistory": [
-    21268
+    21932
   ],
-  "newJobs": [
-    {
-      "title": "Immobilienberater/in 100 % | Ascona",
-      "slug": "consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/4d4445b6-2423-4ffe-b7fa-3332af1127f8",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/4d4445b6-2423-4ffe-b7fa-3332af1127f8",
-      "company": "Ticino Premium Properties SA",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Ascona",
-      "addressLocality": "Ascona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "engel-voelkers-b138e8e2c828",
-      "needsRetranslation": true,
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "6612",
-      "firstSeenAt": "2026-10-19T09:30:59.298Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 19,
-        "completeness": 20
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Management & Marketing Assistant (m/w/d) – 100 %",
@@ -95,20 +54,21 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Junior Immobilienmakler/in 50-100%",
-      "slug": "agente-immobiliare-junior-50-100-buutiq-immobilien-ag-frauenfeld",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/43b06b00-1b67-4956-8d0f-ff022a315a67",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/43b06b00-1b67-4956-8d0f-ff022a315a67",
-      "company": "buutiq Immobilien AG",
+      "title": "Immobilienberater/in 100 % | Ascona",
+      "slug": "consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/4d4445b6-2423-4ffe-b7fa-3332af1127f8",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/4d4445b6-2423-4ffe-b7fa-3332af1127f8",
+      "company": "Ticino Premium Properties SA",
       "companyKey": "engel-voelkers",
       "companyDomain": "engelvoelkers.com",
-      "location": "Frauenfeld",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
+      "location": "Ascona",
+      "addressLocality": "Ascona",
+      "addressRegion": "TI",
       "addressCountry": "CH",
-      "canton": "TG",
+      "canton": "TI",
       "country": "CH",
       "category": "sales",
       "sector": "Immobiliare",
@@ -120,13 +80,13 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "engel-voelkers-ebd1a190a812",
-      "salaryMin": 54000,
-      "salaryMax": 82500,
+      "id": "engel-voelkers-b138e8e2c828",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "postalCode": "8500",
-      "firstSeenAt": "2026-10-16T21:26:04.558Z",
+      "postalCode": "6612",
+      "firstSeenAt": "2026-10-19T09:30:59.298Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -134,9 +94,7 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "title": "Immobilienberater:In (m/w/d) 100% - Rheinfelden",
       "slug": "consulente-immobiliare-in-m-w-d-100-rheinfelden-ev-rheinfelden-immobilien-ag-rheinfelden",
@@ -455,5 +413,5 @@
       }
     }
   ],
-  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

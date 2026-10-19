@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swica",
-  "assembledAt": "2026-10-19T10:01:34.176Z",
+  "assembledAt": "2026-10-19T21:32:50.102Z",
   "jobs": [
     {
       "id": "swica-c77bbc77017c",
@@ -34,7 +34,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/leiter-agentur-alle/7d81878c-e2d8-4eba-9819-013813722c42",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:29.370Z",
+      "crawledAt": "2026-10-19T21:32:21.905Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Bahnhofstrasse 8",
@@ -117,7 +117,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/89735a66-1b63-4240-87d7-cff574aa1984",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:28.873Z",
+      "crawledAt": "2026-10-19T21:32:21.405Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -211,7 +211,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/2429d8ab-a822-4d37-a3a7-f7d3e0e5f248",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:28.397Z",
+      "crawledAt": "2026-10-19T21:32:20.909Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Teufener Strasse 5",
@@ -291,7 +291,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/126b47f4-f1c5-43e8-8656-249b202fab69",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:27.912Z",
+      "crawledAt": "2026-10-19T21:32:20.402Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Hirschmattstrasse 32",
@@ -371,7 +371,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/25201503-b1ea-4c26-ab8e-1d096e3b305e",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:27.536Z",
+      "crawledAt": "2026-10-19T21:32:20.023Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt 56",
@@ -451,7 +451,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/01c12200-43f3-4044-9a15-2ff1e584af40",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:27.129Z",
+      "crawledAt": "2026-10-19T21:32:19.637Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Hirschengraben 8",
@@ -511,90 +511,6 @@
       }
     },
     {
-      "id": "swica-7eac9ee4588b",
-      "slug": "apprendistato-come-commerciante-mercante-efz-salute-e-assicurazione-sociale-2027-swica-gesundheitsorganisation",
-      "slugByLocale": {
-        "it": "apprendistato-come-commerciante-mercante-efz-salute-e-assicurazione-sociale-2027-swica-gesundheitsorganisation",
-        "en": "apprenticeship-as-a-merchant-merchant-efz-health-and-social-insurance-2027-swica-gesundheitsorganisation-winterthur",
-        "de": "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica",
-        "fr": "apprentissage-en-tant-que-commercant-vendeur-efz-sante-et-assurance-sociale-2027-swica-gesundheitsorganisation"
-      },
-      "company": "SWICA Gesundheitsorganisation",
-      "companyKey": "swica",
-      "companyDomain": "swica.ch",
-      "title": "Lehre als Kauffrau/Kaufmann EFZ \"Kranken- und Sozialversicherungen\", 2027",
-      "titleByLocale": {
-        "it": "Apprendistato come commerciante/mercante EFZ \"Salute e Assicurazione Sociale\", 2027",
-        "en": "Apprenticeship as a merchant/merchant EFZ \"Health and Social Insurance\", 2027",
-        "de": "Lehre als Kauffrau/Kaufmann EFZ \"Kranken- und Sozialversicherungen\", 2027",
-        "fr": "Apprentissage en tant que commerçant/vendeur EFZ \"Santé et assurance sociale\", 2027"
-      },
-      "description": "Tschüss Schule, hallo Berufswelt. Oder noch besser: Hallo SWICA! Wir bilden fürs Leben gern junge Menschen wie dich aus. Darum legen wir uns so richtig ins Zeug, um dir den Start ins Berufsleben einfach zu machen. Von der Einführungswoche bis zur Lehrabschlussprüfung: Das packen wir gemeinsam!\n Was du bei uns lernst und machst\n\n• Du kümmerst dich um sämtliche Kundenanfragen (am Schalter, telefonisch oder per Mail)\n• Du weisst, welche Leistungen von der Versicherung übernommen werden\n• Du erkennst die Zusammenhänge zwischen den Sozialversicherungen\n• Du lernst die verschiedenen Gesetze und Verordnungen kennen\n• Du betreust Kundendossiers und pflegst die Daten\n Was du mitbringst\n\n• Gute Leistungen in allen Hauptfächern (D/F/E/M) der höchsten Volksschulstufe oder des 10. Schuljahres (Noten 4.5 oder höher)\n• Beim Multicheck Wirtschaft und Administration erreichst du mindestens 50 Punkte\n• Du interessierst dich für die Themen Versicherungen und Gesundheitswesen\n• Du bist zuverlässig, freundlich und kommunikativ und hast Freude am Kontakt mit Menschen\n• Du hast ein sicheres und gepflegtes Auftreten und angenehme Umgangsformen\n• Du hast Talent im Umgang mit Zahlen und verfügst über eine rasche Auffassungsgabe\n Warum SWICA\n\n• Optimal ins Berufsleben starten: In der Einführungswoche die ganze SWICA und deine Mitlernenden kennenlernen.\n• Ein gut durchdachtes Ausbildungsprogramm mit viel Abwechslung und Einblicken in verschiedene Abteilungen und Bereiche.\n• Berufsbildnerinnen und Berufsbildner, die dich kompetent begleiten und auch mit Rat und Tat unterstützen.\n• Interne Branchenkunde, damit du den Schritt von der Theorie zur Praxis schon früh schaffst und \"richtig\" mitarbeiten kannst.\n• Interessante Möglichkeiten für die Zeit nach deinem erfolgreichen Lehrabschluss – Fremdsprachenaufenthalt inklusive.\n• Ein starker Teamgeist unter den rund 60 Mitlernenden (KV und IT) und in der ganzen SWICA – du bist vom ersten Tag an mit allen per Du.\n Danielle Grimm, Verantwortliche Fachbereich Berufsbildung, gibt dir gerne Auskunft.",
-      "descriptionByLocale": {
-        "it": "Addio scuola, ciao mondo professionale. O ancora meglio: Ciao SWICA! Ci piace formare giovani come te per tutta la vita. Ecco perché facciamo del nostro meglio per rendere più facile per voi iniziare la vostra carriera. Dalla settimana introduttiva all'esame finale: lo imballiamo insieme!\nCosa impari e fai con noi\n\n• Si prende cura di tutte le richieste del cliente (al bancone, per telefono o per posta)\n• Sai quali servizi sono coperti dall'assicurazione\n• È possibile vedere i collegamenti tra la sicurezza sociale\n• Imparerai sulle diverse leggi e regolamenti\n• Gestisci i dossier dei clienti e mantieni i dati\nCosa porti\n\n• Buona prestazione in tutti i principali soggetti (D/F/E/M) al più alto livello di scuola elementare o al 10. Anno scolastico (classi 4,5 o superiore)\n• Nel Multicheck Economy e Amministrazione si raggiungono almeno 50 punti\n• Sei interessato all'assicurazione e all'assistenza sanitaria\n• Sei affidabile, amichevole e comunicativo e godere del contatto con le persone\n• Hai un aspetto sicuro e curato e buone maniere\n• Hai talento nel trattare con i numeri e avere una rapida comprensione\nPerché SWICA\n\n• Inizia la tua vita professionale in modo ottimale: Nella settimana introduttiva, conoscere l'intera SWICA e i tuoi compagni di studio.\n• Un programma di formazione ben pensato con un sacco di varietà e approfondimenti in diversi dipartimenti e aree.\n• I formatori professionali che vi accompagnano con competenza e vi sostengono con consigli e azioni.\n• Cliente del settore interno, in modo da poter fare il passo dalla teoria alla pratica in anticipo e \"lavorare correttamente\".\n• Opportunità interessanti per il tempo dopo il vostro grado di insegnamento di successo – soggiorno di lingua straniera incluso.\n• Uno spirito di squadra forte tra i circa 60 studenti (KV e IT) e in tutto SWICA – siete con tutti dal primo giorno.\nDanielle Grimm, Responsible Department of Professional Education and Training, è lieta di fornirvi informazioni.",
-        "en": "Goodbye school, hello professional world. Or even better: Hello SWICA! We like to train young people like you for life. That is why we really do our best to make it easy for you to start your career. From the introductory week to the final exam: we pack it together!\nWhat you learn and do with us\n\n• You take care of all customer requests (at the counter, by phone or by mail)\n• You know which services are covered by the insurance\n• You can see the connections between social security\n• You will learn about the different laws and regulations\n• You manage customer dossiers and maintain the data\nWhat you bring\n\n• Good performance in all major subjects (D/F/E/M) at the highest elementary school level or at the 10. School year (grades 4.5 or higher)\n• In the Multicheck Economy and Administration you reach at least 50 points\n• You are interested in insurance and health care\n• You are reliable, friendly and communicative and enjoy contact with people\n• You have a safe and well-groomed appearance and pleasant manners\n• You have talent in dealing with numbers and have a quick understanding\nWhy SWICA\n\n• Start your professional life optimally: In the introductory week, get to know the whole SWICA and your fellow learners.\n• A well thought-out training program with lots of variety and insights into different departments and areas.\n• Vocational trainers who accompany you competently and also support you with advice and deeds.\n• Internal industry customer, so that you can make the step from theory to practice early on and \"work properly\".\n• Interesting opportunities for the time after your successful teaching degree – foreign language stay included.\n• A strong team spirit among the approximately 60 learners (KV and IT) and throughout SWICA – you are with everyone from day one.\nDanielle Grimm, Responsible Department of Vocational Education and Training, is happy to provide you with information.",
-        "de": "Tschüss Schule, hallo Berufswelt. Oder noch besser: Hallo SWICA! Wir bilden fürs Leben gern junge Menschen wie dich aus. Darum legen wir uns so richtig ins Zeug, um dir den Start ins Berufsleben einfach zu machen. Von der Einführungswoche bis zur Lehrabschlussprüfung: Das packen wir gemeinsam!\nWas du bei uns lernst und machst\n\n• Du kümmerst dich um sämtliche Kundenanfragen (am Schalter, telefonisch oder per Mail)\n• Du weisst, welche Leistungen von der Versicherung übernommen werden\n• Du erkennst die Zusammenhänge zwischen den Sozialversicherungen\n• Du lernst die verschiedenen Gesetze und Verordnungen kennen\n• Du betreust Kundendossiers und pflegst die Daten\nWas du mitbringst\n\n• Gute Leistungen in allen Hauptfächern (D/F/E/M) der höchsten Volksschulstufe oder des 10. Schuljahres (Noten 4.5 oder höher)\n• Beim Multicheck Wirtschaft und Administration erreichst du mindestens 50 Punkte\n• Du interessierst dich für die Themen Versicherungen und Gesundheitswesen\n• Du bist zuverlässig, freundlich und kommunikativ und hast Freude am Kontakt mit Menschen\n• Du hast ein sicheres und gepflegtes Auftreten und angenehme Umgangsformen\n• Du hast Talent im Umgang mit Zahlen und verfügst über eine rasche Auffassungsgabe\nWarum SWICA\n\n• Optimal ins Berufsleben starten: In der Einführungswoche die ganze SWICA und deine Mitlernenden kennenlernen.\n• Ein gut durchdachtes Ausbildungsprogramm mit viel Abwechslung und Einblicken in verschiedene Abteilungen und Bereiche.\n• Berufsbildnerinnen und Berufsbildner, die dich kompetent begleiten und auch mit Rat und Tat unterstützen.\n• Interne Branchenkunde, damit du den Schritt von der Theorie zur Praxis schon früh schaffst und \"richtig\" mitarbeiten kannst.\n• Interessante Möglichkeiten für die Zeit nach deinem erfolgreichen Lehrabschluss – Fremdsprachenaufenthalt inklusive.\n• Ein starker Teamgeist unter den rund 60 Mitlernenden (KV und IT) und in der ganzen SWICA – du bist vom ersten Tag an mit allen per Du.\nDanielle Grimm, Verantwortliche Fachbereich Berufsbildung, gibt dir gerne Auskunft.",
-        "fr": "Au revoir l'école, bonjour monde professionnel. Ou encore mieux : Bonjour SWICA ! Nous aimons former des jeunes comme vous pour la vie. C'est pourquoi nous faisons de notre mieux pour que vous puissiez commencer votre carrière facilement. De la semaine d'introduction à l'examen final : nous la réunissons !\nCe que vous apprenez et faites avec nous\n\n• Vous prenez soin de toutes les demandes des clients (au comptoir, par téléphone ou par la poste)\n• Vous savez quels services sont couverts par l'assurance\n• Vous pouvez voir les liens entre la sécurité sociale\n• Vous apprendrez les différentes lois et réglementations\n• Vous gérez les dossiers clients et maintenez les données\nCe que vous apportez\n\n• Bonne performance dans toutes les matières principales (D/F/E/M) au niveau primaire le plus élevé ou au niveau 10. Année scolaire (grade 4.5 ou plus)\n• Dans le Multicheck Economy and Administration vous atteignez au moins 50 points\n• Vous êtes intéressé par l'assurance et les soins de santé\n• Vous êtes fiable, amical et communicatif et profitez du contact avec les gens\n• Vous avez une apparence sûre et soignée et des manières agréables\n• Vous avez du talent dans le traitement des nombres et avez une compréhension rapide\nPourquoi SWICA\n\n• Commencez votre vie professionnelle de manière optimale: Au cours de la semaine d'introduction, apprenez à connaître toute la SWICA et vos camarades apprenants.\n• Un programme de formation bien pensé avec beaucoup de variété et de connaissances dans différents ministères et domaines.\n• Les formateurs professionnels qui vous accompagnent avec compétence et qui vous accompagnent également avec des conseils et des actions.\n• Client interne de l'industrie, afin que vous puissiez faire le pas de la théorie à la pratique tôt et \"travailler correctement\".\n• Possibilités intéressantes pour le temps après votre diplôme d'enseignement réussi – séjour en langue étrangère inclus.\n• Un esprit d'équipe fort parmi les quelque 60 apprenants (KV et IT) et dans toute la SWICA – vous êtes avec tout le monde dès le premier jour.\nDanielle Grimm, Département responsable de l'enseignement et de la formation professionnels, est heureuse de vous fournir des informations."
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/d9b59a00-40b6-4691-b04d-be9202aff934",
-      "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:26.765Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "streetAddress": "Widnauerstrasse 1",
-      "postalCode": "8400",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-08",
-      "postedDate": "2026-07-08",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/d9b59a00-40b6-4691-b04d-be9202aff934",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica",
-        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur",
-        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-ls90xu"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica",
-          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur",
-          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-ls90xu"
-        ],
-        "en": [
-          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica"
-        ],
-        "fr": [
-          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T23:07:49.253Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "swica-8a2eefee3e7d",
       "slug": "care-manager-clienti-privati-swica-gesundheitsorganisation-luzern",
       "slugByLocale": {
@@ -625,7 +541,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/care-manager-privatkunden/98824056-e64d-4f18-825b-aa901ef30d5f",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:26.379Z",
+      "crawledAt": "2026-10-19T21:32:19.232Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Hirschmattstrasse 32",
@@ -718,7 +634,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/versicherungsberater-quereinstieg-alle/1bd55bc3-8057-4b0a-869b-2664d77e5be7",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:25.880Z",
+      "crawledAt": "2026-10-19T21:32:18.721Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "Aarbergstrasse 121",
@@ -799,7 +715,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungen-ausland-alle/0f0ca9a5-8730-47fb-97c8-4ef72ddd5cb1",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:25.509Z",
+      "crawledAt": "2026-10-19T21:32:18.333Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt 56",
@@ -893,7 +809,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/leiter-agentur-alle/ea1d7774-446c-4dbc-8b8a-45d805024f45",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:25.140Z",
+      "crawledAt": "2026-10-19T21:32:17.950Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "streetAddress": "Bahnhofstrasse 86",
@@ -975,7 +891,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-krankentaggeld-service-support-alle/5f9b5f12-4347-40b9-82f9-59e8cb00a6ac",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:24.754Z",
+      "crawledAt": "2026-10-19T21:32:17.567Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Schwarzenburgstrasse 160",
@@ -1056,7 +972,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/arzt-aerztin-telemedizin-alle/841d2cc0-3ea4-4918-8288-93d443706025",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:24.261Z",
+      "crawledAt": "2026-10-19T21:32:17.054Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1140,7 +1056,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-software-packager-alle/e0f4de32-2298-4e4b-92ac-665eea2eabb5",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:23.880Z",
+      "crawledAt": "2026-10-19T21:32:16.669Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1218,7 +1134,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/underwriter-unternehmensgeschaeft-alle/f9ff186b-22fa-48a3-888f-4409cd056563",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:23.401Z",
+      "crawledAt": "2026-10-19T21:32:16.164Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1299,7 +1215,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/2aa8a610-024b-48e3-b95b-7355e65404c0",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:23.031Z",
+      "crawledAt": "2026-10-19T21:32:15.782Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Poststrasse 19",
@@ -1380,7 +1296,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/application-manager-coredata-automation-alle/00e48b77-75d6-4793-8049-37b04ecb1f75",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:22.674Z",
+      "crawledAt": "2026-10-19T21:32:15.404Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Römerstrasse 37",
@@ -1457,7 +1373,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-m365-engineer-alle/b157ce54-2866-4607-a862-c0593e94009a",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:22.312Z",
+      "crawledAt": "2026-10-19T21:32:15.015Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1535,7 +1451,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/2627f149-a164-42a5-a6e3-020d219b5621",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:21.916Z",
+      "crawledAt": "2026-10-19T21:32:14.636Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "streetAddress": "Kasernenstrasse 6",
@@ -1616,7 +1532,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-gesundheit-alle/899c86e0-9b46-4f47-8b00-13c932e99421",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:21.548Z",
+      "crawledAt": "2026-10-19T21:32:14.239Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt",
@@ -1673,9 +1589,9 @@
       "id": "swica-172f0232da6a",
       "slug": "incaricato-sanita-tutti-swica-gesundheitsorganisation-basel",
       "slugByLocale": {
-        "de": "sachbearbeiter-gesundheit-alle-swica-basel",
         "it": "incaricato-sanita-tutti-swica-gesundheitsorganisation-basel",
         "en": "health-clerk-all-swica-gesundheitsorganisation-basel",
+        "de": "sachbearbeiter-gesundheit-alle-swica-basel",
         "fr": "responsable-de-la-sante-tous-swica-gesundheitsorganisation-basel"
       },
       "company": "SWICA Gesundheitsorganisation",
@@ -1683,24 +1599,25 @@
       "companyDomain": "swica.ch",
       "title": "Sachbearbeiter Gesundheit (alle)",
       "titleByLocale": {
-        "de": "Sachbearbeiter Gesundheit (alle)",
         "it": "Responsabile del caso sanitario (tutti)",
         "en": "Health case officer (all)",
+        "de": "Sachbearbeiter Gesundheit (alle)",
         "fr": "Agent de santé (tous)"
       },
       "description": "Wir engagieren uns für die Gesundheit – weil Gesundheit alles ist. Dafür setzen wir uns ein, auch als Arbeitgeberin. Wir sind überzeugt: Nur in einer gesunden Arbeitswelt fühlen sich die besten Talente wohl und kommen weiter: beruflich wie persönlich. Dafür geben wir alles.\n So gestaltest du Gesundheit mit\n\n• Du prüfst und bearbeitest selbstständig Leistungsfälle im ambulanten Bereich\n• Du betreust unsere Versicherungsnehmer kompetent, lösungsorientiert und kundenorientiert\n• Du koordinierst und korrespondierst mit Kunden, Leistungserbringern, anderen Versicherungen sowie Behörden\n Das zeichnet dich aus\n\n• Du verfügst über eine abgeschlossene kaufmännische Ausbildung mit medizinischen Kenntnissen oder über eine abgeschlossene medizinische Ausbildung mit kaufmännischer Erfahrung\n• Du zeichnest dich durch eine exakte, strukturierte und zuverlässige Arbeitsweise sowie eine rasche Auffassungsgabe aus\n• Du findest dich schnell in verschiedenen Anwendungsprogrammen und digitalen Tools zurecht und hast Freude an der Arbeit mit unterschiedlichen Systemen\n• Du verfügst über eine stilsichere mündliche und schriftliche Ausdrucksweise in Deutsch\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Jahresarbeitszeit, mindestens 5 Wochen Ferien, Teilzeitmodelle und grosszügiges Home Office im Rahmen der Möglichkeiten der Stelle – du gestaltest deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit mit einem marktgerechten Lohn.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden – damit du gesund und mit Energie bei der Sache bist.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Sabina Ille, gibt dir gerne Auskunft.",
       "descriptionByLocale": {
-        "de": "Wir engagieren uns für die Gesundheit – weil Gesundheit alles ist. Dafür setzen wir uns ein, auch als Arbeitgeberin. Wir sind überzeugt: Nur in einer gesunden Arbeitswelt fühlen sich die besten Talente wohl und kommen weiter: beruflich wie persönlich. Dafür geben wir alles.\n So gestaltest du Gesundheit mit\n\n• Du prüfst und bearbeitest selbstständig Leistungsfälle im ambulanten Bereich\n• Du betreust unsere Versicherungsnehmer kompetent, lösungsorientiert und kundenorientiert\n• Du koordinierst und korrespondierst mit Kunden, Leistungserbringern, anderen Versicherungen sowie Behörden\n Das zeichnet dich aus\n\n• Du verfügst über eine abgeschlossene kaufmännische Ausbildung mit medizinischen Kenntnissen oder über eine abgeschlossene medizinische Ausbildung mit kaufmännischer Erfahrung\n• Du zeichnest dich durch eine exakte, strukturierte und zuverlässige Arbeitsweise sowie eine rasche Auffassungsgabe aus\n• Du findest dich schnell in verschiedenen Anwendungsprogrammen und digitalen Tools zurecht und hast Freude an der Arbeit mit unterschiedlichen Systemen\n• Du verfügst über eine stilsichere mündliche und schriftliche Ausdrucksweise in Deutsch\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Jahresarbeitszeit, mindestens 5 Wochen Ferien, Teilzeitmodelle und grosszügiges Home Office im Rahmen der Möglichkeiten der Stelle – du gestaltest deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit mit einem marktgerechten Lohn.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden – damit du gesund und mit Energie bei der Sache bist.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Sabina Ille, gibt dir gerne Auskunft.",
-        "it": "Siamo impegnati nella salute – perché la salute è tutto. Ci impegniamo a questo, anche come datore di lavoro. Siamo convinti: Solo in un mondo di lavoro sano i migliori talenti si sentono a proprio agio e vanno avanti: professionalmente e personalmente. Per questo diamo tutto.\n Questo è il modo in cui si forma la salute\n\n• Controllare e processare in modo indipendente i casi di prestazioni nell'area ambulatoria\n• Sostiene i nostri responsabili competenti, orientati alla soluzione e orientati al cliente\n• Lei coordina e corrisponde a clienti, fornitori di servizi, altre compagnie di assicurazione e autorità\n Questo ti fa a pezzi\n\n• Hai una formazione commerciale completa con conoscenze mediche o una formazione medica completa con esperienza commerciale\n• Sei caratterizzato da un metodo di lavoro preciso, strutturato e affidabile e da una rapida comprensione\n• Troverete rapidamente la vostra strada intorno a vari programmi applicativi e strumenti digitali e godere di lavorare con diversi sistemi\n• Hai un'espressione orale e scritta elegante in tedesco\n Perché SWICA\n\n• Costruiamo sull'umanità. Ecco perché ci concentriamo sull'apertura, il rispetto e la fiducia nel nostro lavoro quotidiano. In questo modo, ci assumiamo la responsabilità e pensiamo in termini di soluzioni – insieme, per i nostri clienti. Questo è anche il motivo per cui siamo stati il numero 1 nella soddisfazione del cliente per molti anni.\n• Ci fidiamo di te e ti diamo spazio. Ore lavorative annuali, almeno 5 settimane di vacanze, modelli part-time e generoso ufficio domestico nell'ambito delle possibilità del lavoro – si rendono la vita quotidiana in gran parte flessibile.\n• Valutiamo e premiamo il vostro lavoro con un salario di mercato equo.\n• Perché la salute è tutto. Con la nostra gestione della salute aziendale e le offerte specifiche per la regione, ci occupiamo del vostro benessere – in modo che siate coinvolti in modo sano ed energico.\n• Pensiamo a lungo termine. Con tre piani di risparmio, deduzione di coordinamento pensum-dipendente e benefici ben al di sopra del minimo legale, si garantisce bene per il vostro futuro.\n Sabina Ille, è felice di darvi informazioni.",
-        "en": "We are committed to health – because health is everything. We are committed to this, also as an employer. We are convinced: Only in a healthy working world do the best talents feel comfortable and move forward: professionally and personally. For that we give everything.\n This is how you shape health\n\n• You check and independently process performance cases in the ambulatory area\n• You support our policyholders competently, solution-oriented and customer-oriented\n• You coordinate and correspond with customers, service providers, other insurance companies and authorities\n This sets you apart\n\n• You have a completed commercial education with medical knowledge or a completed medical education with commercial experience\n• You are characterized by an exact, structured and reliable working method as well as a quick understanding\n• You will quickly find your way around various application programs and digital tools and enjoy working with different systems\n• You have a stylish oral and written expression in German\n Why SWICA\n\n• We build on humanity. That is why we focus on openness, respect and trust in our everyday work. In doing so, we take on responsibility and think in terms of solutions – together, for our customers. This is also why we have been number 1 in customer satisfaction for many years.\n• We trust you and give you space. Annual working hours, at least 5 weeks of holidays, part-time models and generous home office within the scope of the possibilities of the job – you make your everyday life largely flexible.\n• We value and reward your work with a fair market wage.\n• Because health is everything. With our company health management and region-specific offers, we take care of your well-being – so that you are healthy and energetically involved.\n• We think long term. With three savings plans, pensum-dependent coordination deduction and benefits well above the legal minimum, you ensure good for your future.\n Sabina Ille, is happy to give you information.",
-        "fr": "Nous sommes attachés à la santé – car la santé est tout. Nous nous y engageons, aussi en tant qu'employeur. Nous sommes convaincus : Ce n'est que dans un monde du travail sain que les meilleurs talents se sentent à l'aise et progressent : professionnellement et personnellement. Pour cela, nous donnons tout.\n Voilà comment vous façonnez la santé\n\n• Vous vérifiez et traitez indépendamment les cas de performance dans la zone ambulatoire\n• Vous soutenez nos souscripteurs avec compétence, adéquation et adéquation client\n• Vous coordonnez et correspondez avec les clients, les prestataires de services, les autres compagnies d'assurance et les autorités\n Cela vous distingue\n\n• Vous avez une formation commerciale complète avec des connaissances médicales ou une formation médicale complète avec une expérience commerciale\n• Vous êtes caractérisé par une méthode de travail exacte, structurée et fiable ainsi qu'une compréhension rapide\n• Vous trouverez rapidement votre chemin autour de divers programmes d'application et outils numériques et profiter de travailler avec différents systèmes\n• Vous avez une expression orale et écrite en allemand\n Pourquoi SWICA\n\n• Nous bâtissons sur l'humanité. C'est pourquoi nous nous concentrons sur l'ouverture, le respect et la confiance dans notre travail quotidien. Ce faisant, nous assumons la responsabilité et pensons en termes de solutions – ensemble, pour nos clients. C'est aussi la raison pour laquelle nous sommes le numéro 1 en satisfaction client depuis de nombreuses années.\n• Nous vous faisons confiance et vous donnons de l'espace. Heures de travail annuelles, au moins 5 semaines de vacances, modèles à temps partiel et bureau à domicile généreux dans le cadre des possibilités de l'emploi – vous rendez votre vie quotidienne largement flexible.\n• Nous apprécions et récompensons votre travail avec un salaire équitable du marché.\n• Parce que la santé est tout. Avec la gestion de la santé de notre entreprise et les offres spécifiques à la région, nous prenons soin de votre bien-être – afin que vous soyez en bonne santé et énergiquement impliqué.\n• Nous pensons à long terme. Avec trois régimes d'épargne, une déduction de coordination dépendante du capital-investissement et des avantages bien au-dessus du minimum légal, vous assurez le bien pour votre avenir.\n Sabina Ille, est heureuse de vous donner des informations."
+        "it": "Siamo impegnati nella salute – perché la salute è tutto. Ci impegniamo a questo, anche come datore di lavoro. Siamo convinti: Solo in un mondo di lavoro sano i migliori talenti si sentono a proprio agio e vanno avanti: professionalmente e personalmente. Per questo diamo tutto.\nQuesto è il modo in cui si forma la salute\n\n• Controllare e processare in modo indipendente i casi di prestazioni nell'area ambulatoria\n• Sostiene i nostri responsabili competenti, orientati alla soluzione e orientati al cliente\n• Lei coordina e corrisponde a clienti, fornitori di servizi, altre compagnie di assicurazione e autorità\nQuesto ti fa a pezzi\n\n• Hai una formazione commerciale completa con conoscenze mediche o una formazione medica completa con esperienza commerciale\n• Sei caratterizzato da un metodo di lavoro preciso, strutturato e affidabile e da una rapida comprensione\n• Troverete rapidamente la vostra strada intorno a vari programmi applicativi e strumenti digitali e godere di lavorare con diversi sistemi\n• Hai un'espressione orale e scritta elegante in tedesco\nPerché SWICA\n\n• Costruiamo sull'umanità. Ecco perché ci concentriamo sull'apertura, il rispetto e la fiducia nel nostro lavoro quotidiano. In questo modo, ci assumiamo la responsabilità e pensiamo in termini di soluzioni – insieme, per i nostri clienti. Questo è anche il motivo per cui siamo stati il numero 1 nella soddisfazione del cliente per molti anni.\n• Ci fidiamo di te e ti diamo spazio. Ore lavorative annuali, almeno 5 settimane di vacanze, modelli part-time e generoso ufficio domestico nell'ambito delle possibilità del lavoro – si rendono la vita quotidiana in gran parte flessibile.\n• Valutiamo e premiamo il vostro lavoro con un salario di mercato equo.\n• Perché la salute è tutto. Con la nostra gestione della salute aziendale e le offerte specifiche per la regione, ci occupiamo del vostro benessere – in modo che siate coinvolti in modo sano ed energico.\n• Pensiamo a lungo termine. Con tre piani di risparmio, deduzione di coordinamento pensum-dipendente e benefici ben al di sopra del minimo legale, si garantisce bene per il vostro futuro.\nSabina Ille, è felice di darvi informazioni.",
+        "en": "We are committed to health – because health is everything. We are committed to this, also as an employer. We are convinced: Only in a healthy working world do the best talents feel comfortable and move forward: professionally and personally. For that we give everything.\nThis is how you shape health\n\n• You check and independently process performance cases in the ambulatory area\n• You support our policyholders competently, solution-oriented and customer-oriented\n• You coordinate and correspond with customers, service providers, other insurance companies and authorities\nThis sets you apart\n\n• You have a completed commercial education with medical knowledge or a completed medical education with commercial experience\n• You are characterized by an exact, structured and reliable working method as well as a quick understanding\n• You will quickly find your way around various application programs and digital tools and enjoy working with different systems\n• You have a stylish oral and written expression in German\nWhy SWICA\n\n• We build on humanity. That is why we focus on openness, respect and trust in our everyday work. In doing so, we take on responsibility and think in terms of solutions – together, for our customers. This is also why we have been number 1 in customer satisfaction for many years.\n• We trust you and give you space. Annual working hours, at least 5 weeks of holidays, part-time models and generous home office within the scope of the possibilities of the job – you make your everyday life largely flexible.\n• We value and reward your work with a fair market wage.\n• Because health is everything. With our company health management and region-specific offers, we take care of your well-being – so that you are healthy and energetically involved.\n• We think long term. With three savings plans, pensum-dependent coordination deduction and benefits well above the legal minimum, you ensure good for your future.\nSabina Ille, is happy to give you information.",
+        "de": "Wir engagieren uns für die Gesundheit – weil Gesundheit alles ist. Dafür setzen wir uns ein, auch als Arbeitgeberin. Wir sind überzeugt: Nur in einer gesunden Arbeitswelt fühlen sich die besten Talente wohl und kommen weiter: beruflich wie persönlich. Dafür geben wir alles.\nSo gestaltest du Gesundheit mit\n\n• Du prüfst und bearbeitest selbstständig Leistungsfälle im ambulanten Bereich\n• Du betreust unsere Versicherungsnehmer kompetent, lösungsorientiert und kundenorientiert\n• Du koordinierst und korrespondierst mit Kunden, Leistungserbringern, anderen Versicherungen sowie Behörden\nDas zeichnet dich aus\n\n• Du verfügst über eine abgeschlossene kaufmännische Ausbildung mit medizinischen Kenntnissen oder über eine abgeschlossene medizinische Ausbildung mit kaufmännischer Erfahrung\n• Du zeichnest dich durch eine exakte, strukturierte und zuverlässige Arbeitsweise sowie eine rasche Auffassungsgabe aus\n• Du findest dich schnell in verschiedenen Anwendungsprogrammen und digitalen Tools zurecht und hast Freude an der Arbeit mit unterschiedlichen Systemen\n• Du verfügst über eine stilsichere mündliche und schriftliche Ausdrucksweise in Deutsch\nWarum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Jahresarbeitszeit, mindestens 5 Wochen Ferien, Teilzeitmodelle und grosszügiges Home Office im Rahmen der Möglichkeiten der Stelle – du gestaltest deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit mit einem marktgerechten Lohn.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden – damit du gesund und mit Energie bei der Sache bist.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\nSabina Ille, gibt dir gerne Auskunft.",
+        "fr": "Nous sommes attachés à la santé – car la santé est tout. Nous nous y engageons, aussi en tant qu'employeur. Nous sommes convaincus : Ce n'est que dans un monde du travail sain que les meilleurs talents se sentent à l'aise et progressent : professionnellement et personnellement. Pour cela, nous donnons tout.\nVoilà comment vous façonnez la santé\n\n• Vous vérifiez et traitez indépendamment les cas de performance dans la zone ambulatoire\n• Vous soutenez nos souscripteurs avec compétence, adéquation et adéquation client\n• Vous coordonnez et correspondez avec les clients, les prestataires de services, les autres compagnies d'assurance et les autorités\nCela vous distingue\n\n• Vous avez une formation commerciale complète avec des connaissances médicales ou une formation médicale complète avec une expérience commerciale\n• Vous êtes caractérisé par une méthode de travail exacte, structurée et fiable ainsi qu'une compréhension rapide\n• Vous trouverez rapidement votre chemin autour de divers programmes d'application et outils numériques et profiter de travailler avec différents systèmes\n• Vous avez une expression orale et écrite en allemand\nPourquoi SWICA\n\n• Nous bâtissons sur l'humanité. C'est pourquoi nous nous concentrons sur l'ouverture, le respect et la confiance dans notre travail quotidien. Ce faisant, nous assumons la responsabilité et pensons en termes de solutions – ensemble, pour nos clients. C'est aussi la raison pour laquelle nous sommes le numéro 1 en satisfaction client depuis de nombreuses années.\n• Nous vous faisons confiance et vous donnons de l'espace. Heures de travail annuelles, au moins 5 semaines de vacances, modèles à temps partiel et bureau à domicile généreux dans le cadre des possibilités de l'emploi – vous rendez votre vie quotidienne largement flexible.\n• Nous apprécions et récompensons votre travail avec un salaire équitable du marché.\n• Parce que la santé est tout. Avec la gestion de la santé de notre entreprise et les offres spécifiques à la région, nous prenons soin de votre bien-être – afin que vous soyez en bonne santé et énergiquement impliqué.\n• Nous pensons à long terme. Avec trois régimes d'épargne, une déduction de coordination dépendante du capital-investissement et des avantages bien au-dessus du minimum légal, vous assurez le bien pour votre avenir.\nSabina Ille, est heureuse de vous donner des informations."
       },
+      "needsRetranslation": false,
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-gesundheit-alle/1ecd2939-cc80-4d0b-9b91-d483ade65e33",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:21.070Z",
+      "crawledAt": "2026-10-19T21:32:13.724Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt",
@@ -1719,9 +1636,11 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-gesundheit-alle/1ecd2939-cc80-4d0b-9b91-d483ade65e33",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-gesundheit-alle-swica-basel",
+        "sachbearbeiter-gesundheit-alle-swica-gesundheitsorganisation-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-gesundheit-alle-swica-basel"
@@ -1733,24 +1652,20 @@
           "sachbearbeiter-gesundheit-alle-swica-gesundheitsorganisation-basel"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-gesundheit-alle-swica-basel",
-        "sachbearbeiter-gesundheit-alle-swica-gesundheitsorganisation-basel"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "firstSeenAt": "2026-09-29T21:25:31.243Z",
+      "salaryMin": 85500,
+      "salaryMax": 129500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 85500,
+          "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-29T21:25:31.243Z"
+      }
     },
     {
       "id": "swica-f36810040623",
@@ -1783,7 +1698,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-martech-specialist-alle/a77d0da5-e9e3-4fcd-b0fd-589e4d649b42",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:20.700Z",
+      "crawledAt": "2026-10-19T21:32:13.354Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Römerstrasse 37",
@@ -1860,7 +1775,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/conseiller-service-clientele-neuchatel-tous/d6bbb7af-c36c-4dca-933c-57e33003d422",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T10:01:20.198Z",
+      "crawledAt": "2026-10-19T21:32:12.832Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "Rue du Seyon 5",
@@ -1941,7 +1856,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungsmanagement-uvg-alle/3d0002cf-95ad-4201-a4f2-c10c81142e0e",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:19.799Z",
+      "crawledAt": "2026-10-19T21:32:12.253Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2021,7 +1936,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/7d83d97b-f7d8-4ba1-a743-1069a127338d",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:19.418Z",
+      "crawledAt": "2026-10-19T21:32:11.722Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Bahnhofstrasse 8",
@@ -2102,7 +2017,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-gesundheit-alle/5267c4f4-f29e-4096-abfb-09aae5df5a92",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:19.050Z",
+      "crawledAt": "2026-10-19T21:32:11.208Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenplatz",
@@ -2183,7 +2098,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/underwriter-unternehmensgeschaeft-alle/e7917d0b-28ec-4e70-a09e-3f8cf84e1b9c",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:18.650Z",
+      "crawledAt": "2026-10-19T21:32:10.833Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zollstrasse 42",
@@ -2231,6 +2146,75 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "swica-5ad03c67f403",
+      "slug": "kundenberater-alle-swica-st-gallen",
+      "slugByLocale": {
+        "de": "kundenberater-alle-swica-st-gallen",
+        "it": "kundenberater-alle-swica-st-gallen",
+        "en": "kundenberater-alle-swica-st-gallen",
+        "fr": "kundenberater-alle-swica-st-gallen"
+      },
+      "company": "SWICA Gesundheitsorganisation",
+      "companyKey": "swica",
+      "companyDomain": "swica.ch",
+      "title": "Kundenberater (alle)",
+      "titleByLocale": {
+        "de": "Kundenberater (alle)",
+        "it": "Kundenberater (alle)",
+        "en": "Kundenberater (alle)",
+        "fr": "Kundenberater (alle)"
+      },
+      "description": "Qualität auf allen Ebenen ist der Schlüssel zu echtem Wohlbefinden. Als Mitarbeiterin oder Mitarbeiter im Team von SWICA verstehst du ganzheitliche Gesundheit als Dienstleistung am Menschen. Du arbeitest mit Profis wie dir zusammen, die diesen Anspruch teilen. Alle ziehen am gleichen Strick; das ist ein gutes Gefühl. So schaffen wir gemeinsam Lösungen, die wirklich weiterbringen.\n So gestaltest du Gesundheit mit\n\n• Vielseitige und spannende telefonische sowie persönliche Beratung unserer Kunden und Verkauf von bedarfsgerechten Versicherungslösungen\n• Selbständige Entgegennahme und Bearbeitung von Kundenanfragen, mit dem Ziel, die beste Kundenzufriedenheit zu erreichen\n• Mitarbeit in einem dynamischen und engagierten Team mit Verkaufszielen\n• Aktive Marktbearbeitung im Auftrag des Vorgesetzten\n• Erstellen von Offerten und Kundenkorrespondenz im Privatkundengeschäft\n• Umsetzen von Massnahmen zur Bestandes Erhaltung und Kundenrückgewinnung\n Das zeichnet dich aus\n\n• Abgeschlossene kaufmännische oder branchennahe (Gesundheitsbranche) Ausbildung sowie fundierte Verkaufserfahrung, mit Vorteil in der Versicherungsbranche\n• VBV-Ausbildung vorhanden oder Bereitschaft, diese raschmöglichst zu absolvieren\n• Lokale Verankerung und Wohnort von Vorteil\n• Kommunikative, zuverlässige und belastbare Persönlichkeit\n• Hohe Eigeninitiative, eine erfolgsorientierte Einstellung sowie ein hohes Mass an Empathie\n• Freude am Kundenkontakt und am aktiven Verkauf\n• Starke Beratungskompetenz, welche sich durch eine hohe Kunden- und Serviceorientierung auszeichnet\n• Gewandte mündliche und schriftliche Ausdrucksweise in Deutsch, jede weitere Sprache von Vorteil\n• Solide MS-Office Kenntnisse\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Loredana Bishat, HR Recruiting, gibt dir gerne Auskunft.",
+      "descriptionByLocale": {
+        "de": "Qualität auf allen Ebenen ist der Schlüssel zu echtem Wohlbefinden. Als Mitarbeiterin oder Mitarbeiter im Team von SWICA verstehst du ganzheitliche Gesundheit als Dienstleistung am Menschen. Du arbeitest mit Profis wie dir zusammen, die diesen Anspruch teilen. Alle ziehen am gleichen Strick; das ist ein gutes Gefühl. So schaffen wir gemeinsam Lösungen, die wirklich weiterbringen.\n So gestaltest du Gesundheit mit\n\n• Vielseitige und spannende telefonische sowie persönliche Beratung unserer Kunden und Verkauf von bedarfsgerechten Versicherungslösungen\n• Selbständige Entgegennahme und Bearbeitung von Kundenanfragen, mit dem Ziel, die beste Kundenzufriedenheit zu erreichen\n• Mitarbeit in einem dynamischen und engagierten Team mit Verkaufszielen\n• Aktive Marktbearbeitung im Auftrag des Vorgesetzten\n• Erstellen von Offerten und Kundenkorrespondenz im Privatkundengeschäft\n• Umsetzen von Massnahmen zur Bestandes Erhaltung und Kundenrückgewinnung\n Das zeichnet dich aus\n\n• Abgeschlossene kaufmännische oder branchennahe (Gesundheitsbranche) Ausbildung sowie fundierte Verkaufserfahrung, mit Vorteil in der Versicherungsbranche\n• VBV-Ausbildung vorhanden oder Bereitschaft, diese raschmöglichst zu absolvieren\n• Lokale Verankerung und Wohnort von Vorteil\n• Kommunikative, zuverlässige und belastbare Persönlichkeit\n• Hohe Eigeninitiative, eine erfolgsorientierte Einstellung sowie ein hohes Mass an Empathie\n• Freude am Kundenkontakt und am aktiven Verkauf\n• Starke Beratungskompetenz, welche sich durch eine hohe Kunden- und Serviceorientierung auszeichnet\n• Gewandte mündliche und schriftliche Ausdrucksweise in Deutsch, jede weitere Sprache von Vorteil\n• Solide MS-Office Kenntnisse\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Loredana Bishat, HR Recruiting, gibt dir gerne Auskunft.",
+        "it": "Qualität auf allen Ebenen ist der Schlüssel zu echtem Wohlbefinden. Als Mitarbeiterin oder Mitarbeiter im Team von SWICA verstehst du ganzheitliche Gesundheit als Dienstleistung am Menschen. Du arbeitest mit Profis wie dir zusammen, die diesen Anspruch teilen. Alle ziehen am gleichen Strick; das ist ein gutes Gefühl. So schaffen wir gemeinsam Lösungen, die wirklich weiterbringen.\n So gestaltest du Gesundheit mit\n\n• Vielseitige und spannende telefonische sowie persönliche Beratung unserer Kunden und Verkauf von bedarfsgerechten Versicherungslösungen\n• Selbständige Entgegennahme und Bearbeitung von Kundenanfragen, mit dem Ziel, die beste Kundenzufriedenheit zu erreichen\n• Mitarbeit in einem dynamischen und engagierten Team mit Verkaufszielen\n• Aktive Marktbearbeitung im Auftrag des Vorgesetzten\n• Erstellen von Offerten und Kundenkorrespondenz im Privatkundengeschäft\n• Umsetzen von Massnahmen zur Bestandes Erhaltung und Kundenrückgewinnung\n Das zeichnet dich aus\n\n• Abgeschlossene kaufmännische oder branchennahe (Gesundheitsbranche) Ausbildung sowie fundierte Verkaufserfahrung, mit Vorteil in der Versicherungsbranche\n• VBV-Ausbildung vorhanden oder Bereitschaft, diese raschmöglichst zu absolvieren\n• Lokale Verankerung und Wohnort von Vorteil\n• Kommunikative, zuverlässige und belastbare Persönlichkeit\n• Hohe Eigeninitiative, eine erfolgsorientierte Einstellung sowie ein hohes Mass an Empathie\n• Freude am Kundenkontakt und am aktiven Verkauf\n• Starke Beratungskompetenz, welche sich durch eine hohe Kunden- und Serviceorientierung auszeichnet\n• Gewandte mündliche und schriftliche Ausdrucksweise in Deutsch, jede weitere Sprache von Vorteil\n• Solide MS-Office Kenntnisse\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Loredana Bishat, HR Recruiting, gibt dir gerne Auskunft.",
+        "en": "Qualität auf allen Ebenen ist der Schlüssel zu echtem Wohlbefinden. Als Mitarbeiterin oder Mitarbeiter im Team von SWICA verstehst du ganzheitliche Gesundheit als Dienstleistung am Menschen. Du arbeitest mit Profis wie dir zusammen, die diesen Anspruch teilen. Alle ziehen am gleichen Strick; das ist ein gutes Gefühl. So schaffen wir gemeinsam Lösungen, die wirklich weiterbringen.\n So gestaltest du Gesundheit mit\n\n• Vielseitige und spannende telefonische sowie persönliche Beratung unserer Kunden und Verkauf von bedarfsgerechten Versicherungslösungen\n• Selbständige Entgegennahme und Bearbeitung von Kundenanfragen, mit dem Ziel, die beste Kundenzufriedenheit zu erreichen\n• Mitarbeit in einem dynamischen und engagierten Team mit Verkaufszielen\n• Aktive Marktbearbeitung im Auftrag des Vorgesetzten\n• Erstellen von Offerten und Kundenkorrespondenz im Privatkundengeschäft\n• Umsetzen von Massnahmen zur Bestandes Erhaltung und Kundenrückgewinnung\n Das zeichnet dich aus\n\n• Abgeschlossene kaufmännische oder branchennahe (Gesundheitsbranche) Ausbildung sowie fundierte Verkaufserfahrung, mit Vorteil in der Versicherungsbranche\n• VBV-Ausbildung vorhanden oder Bereitschaft, diese raschmöglichst zu absolvieren\n• Lokale Verankerung und Wohnort von Vorteil\n• Kommunikative, zuverlässige und belastbare Persönlichkeit\n• Hohe Eigeninitiative, eine erfolgsorientierte Einstellung sowie ein hohes Mass an Empathie\n• Freude am Kundenkontakt und am aktiven Verkauf\n• Starke Beratungskompetenz, welche sich durch eine hohe Kunden- und Serviceorientierung auszeichnet\n• Gewandte mündliche und schriftliche Ausdrucksweise in Deutsch, jede weitere Sprache von Vorteil\n• Solide MS-Office Kenntnisse\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Loredana Bishat, HR Recruiting, gibt dir gerne Auskunft.",
+        "fr": "Qualität auf allen Ebenen ist der Schlüssel zu echtem Wohlbefinden. Als Mitarbeiterin oder Mitarbeiter im Team von SWICA verstehst du ganzheitliche Gesundheit als Dienstleistung am Menschen. Du arbeitest mit Profis wie dir zusammen, die diesen Anspruch teilen. Alle ziehen am gleichen Strick; das ist ein gutes Gefühl. So schaffen wir gemeinsam Lösungen, die wirklich weiterbringen.\n So gestaltest du Gesundheit mit\n\n• Vielseitige und spannende telefonische sowie persönliche Beratung unserer Kunden und Verkauf von bedarfsgerechten Versicherungslösungen\n• Selbständige Entgegennahme und Bearbeitung von Kundenanfragen, mit dem Ziel, die beste Kundenzufriedenheit zu erreichen\n• Mitarbeit in einem dynamischen und engagierten Team mit Verkaufszielen\n• Aktive Marktbearbeitung im Auftrag des Vorgesetzten\n• Erstellen von Offerten und Kundenkorrespondenz im Privatkundengeschäft\n• Umsetzen von Massnahmen zur Bestandes Erhaltung und Kundenrückgewinnung\n Das zeichnet dich aus\n\n• Abgeschlossene kaufmännische oder branchennahe (Gesundheitsbranche) Ausbildung sowie fundierte Verkaufserfahrung, mit Vorteil in der Versicherungsbranche\n• VBV-Ausbildung vorhanden oder Bereitschaft, diese raschmöglichst zu absolvieren\n• Lokale Verankerung und Wohnort von Vorteil\n• Kommunikative, zuverlässige und belastbare Persönlichkeit\n• Hohe Eigeninitiative, eine erfolgsorientierte Einstellung sowie ein hohes Mass an Empathie\n• Freude am Kundenkontakt und am aktiven Verkauf\n• Starke Beratungskompetenz, welche sich durch eine hohe Kunden- und Serviceorientierung auszeichnet\n• Gewandte mündliche und schriftliche Ausdrucksweise in Deutsch, jede weitere Sprache von Vorteil\n• Solide MS-Office Kenntnisse\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Loredana Bishat, HR Recruiting, gibt dir gerne Auskunft."
+      },
+      "needsRetranslation": true,
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/e359d94a-74c5-4318-b4d6-384af4898864",
+      "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-19T21:32:10.459Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "streetAddress": "Teufener Strasse 5",
+      "postalCode": "9000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Servizio Clienti",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-19",
+      "postedDate": "2026-10-19",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/e359d94a-74c5-4318-b4d6-384af4898864",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-19T21:32:10.459Z"
     }
   ]
 }

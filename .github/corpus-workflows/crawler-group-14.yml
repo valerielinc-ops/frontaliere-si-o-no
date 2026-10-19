@@ -7723,7 +7723,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7767,35 +7767,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'spruengli' 'spruengli'
+          aggregate_crawler_member 'spruengli'
           aggregate_crawler_member 'medacta' 'medacta-international'
-          aggregate_crawler_member 'tschuggen' 'tschuggen'
-          aggregate_crawler_member 'selecta' 'selecta'
-          aggregate_crawler_member 'thermo-fisher-scientific' 'thermo-fisher-scientific'
-          aggregate_crawler_member 'somedia' 'somedia'
-          aggregate_crawler_member 'pallas-kliniken' 'pallas-kliniken'
-          aggregate_crawler_member 'leukerbad-clinic' 'leukerbad-clinic'
-          aggregate_crawler_member 'wuerth-international' 'wuerth-international'
-          aggregate_crawler_member 'spital-schwyz' 'spital-schwyz'
-          aggregate_crawler_member 'rhne-reseau-hospitalier-neuchatelois' 'rhne-reseau-hospitalier-neuchatelois'
-          aggregate_crawler_member 'stadt-chur' 'stadt-chur'
-          aggregate_crawler_member 'lalive' 'lalive'
-          aggregate_crawler_member 'recruitingapp-2649' 'recruitingapp-2649'
-          aggregate_crawler_member 'fondation-soins-lausanne' 'fondation-soins-lausanne'
-          aggregate_crawler_member 'lhm-luzerner-hohenklinik-montana' 'lhm-luzerner-hohenklinik-montana'
-          aggregate_crawler_member 'duferco' 'duferco'
-          aggregate_crawler_member 'ksow' 'ksow'
-          aggregate_crawler_member 'clinique-de-genolier' 'clinique-de-genolier'
+          aggregate_crawler_member 'tschuggen'
+          aggregate_crawler_member 'selecta'
+          aggregate_crawler_member 'thermo-fisher-scientific'
+          aggregate_crawler_member 'somedia'
+          aggregate_crawler_member 'pallas-kliniken'
+          aggregate_crawler_member 'leukerbad-clinic'
+          aggregate_crawler_member 'wuerth-international'
+          aggregate_crawler_member 'spital-schwyz'
+          aggregate_crawler_member 'rhne-reseau-hospitalier-neuchatelois'
+          aggregate_crawler_member 'stadt-chur'
+          aggregate_crawler_member 'lalive'
+          aggregate_crawler_member 'recruitingapp-2649'
+          aggregate_crawler_member 'fondation-soins-lausanne'
+          aggregate_crawler_member 'lhm-luzerner-hohenklinik-montana'
+          aggregate_crawler_member 'duferco'
+          aggregate_crawler_member 'ksow'
+          aggregate_crawler_member 'clinique-de-genolier'
           aggregate_crawler_member 'engelvoelkers' 'engel-voelkers'
           aggregate_crawler_member 'delvitech' 'delvitech-sa'
-          aggregate_crawler_member 'cham-swiss-properties' 'cham-swiss-properties'
+          aggregate_crawler_member 'cham-swiss-properties'
           aggregate_crawler_member 'artisa' 'artisa-group'
-          aggregate_crawler_member 'daler-hopital' 'daler-hopital'
-          aggregate_crawler_member 'audemars-piguet' 'audemars-piguet'
+          aggregate_crawler_member 'daler-hopital'
+          aggregate_crawler_member 'audemars-piguet'
           aggregate_crawler_member 'alten' 'alten-switzerland'
-          aggregate_crawler_member 'city-pop' 'city-pop'
-          aggregate_crawler_member 'endeso' 'endeso'
-          aggregate_crawler_member 'abbott' 'abbott'
+          aggregate_crawler_member 'city-pop'
+          aggregate_crawler_member 'endeso'
+          aggregate_crawler_member 'abbott'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

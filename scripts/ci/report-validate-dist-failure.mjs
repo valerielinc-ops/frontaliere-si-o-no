@@ -90,6 +90,9 @@ import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creat
 import { GATES as CATHEDRAL_GATES } from '../cathedral-seo-gates-check.mjs';
 import { MODE_ISSUE_PRIORITY, SEO_GATE_CLASSES, effectiveMode, isPublishBlocking } from './lib/seo-gate-classes.mjs';
 import { renderOffenderSection, reportFileCandidates } from './lib/gate-issue-offenders.mjs';
+import { redactWorkflowPaths } from '../lib/workflow-scope-detect.mjs';
+
+export { redactWorkflowPaths };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -214,21 +217,6 @@ export function parseGateLines(text) {
  *   `##[error]` è la coda dello step fallito (verificato sui run
  *   31259344953 e 31247086904).
  */
-// Un body che cita un path `.github/workflows/**` fa terminare issue-fix.yml
-// PRIMA di Claude (scripts/ci/check-workflows-scope.mjs, Mode 1) — zero token,
-// nessuna PR. I log dei job lo contengono davvero: ogni job di un reusable
-// workflow apre con `Uses: <owner>/<repo>/.github/workflows/<file>.yml@<ref>`
-// (misurato nel log del job 93107610821), e quella riga entra nell'estratto
-// ogni volta che il job muore presto — cioè proprio quando la diagnosi serve.
-// Redigiamo tenendo il NOME del workflow, che all'umano serve, e togliendo il
-// prefisso di path, che è l'unica cosa su cui il guard matcha.
-export function redactWorkflowPaths(text) {
-  return String(text ?? '').replace(
-    /\.github\/workflows\/([A-Za-z0-9._/-]+\.ya?ml)/g,
-    (_m, file) => `«workflow ${file}»`,
-  );
-}
-
 export function extractStepExcerpt(text, { maxLines = EXCERPT_LINES } = {}) {
   const kept = [];
   let inGroup = false;

@@ -7700,7 +7700,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7744,35 +7744,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'roche' 'roche'
-          aggregate_crawler_member 'privatklinik-wyss' 'privatklinik-wyss'
-          aggregate_crawler_member 'sintetica' 'sintetica'
-          aggregate_crawler_member 'spital-zollikerberg' 'spital-zollikerberg'
-          aggregate_crawler_member 'sodexo' 'sodexo'
+          aggregate_crawler_member 'roche'
+          aggregate_crawler_member 'privatklinik-wyss'
+          aggregate_crawler_member 'sintetica'
+          aggregate_crawler_member 'spital-zollikerberg'
+          aggregate_crawler_member 'sodexo'
           aggregate_crawler_member 'raiffeisen-vc' 'banca-raiffeisen-vedeggio-cassarate'
-          aggregate_crawler_member 'yapeal' 'yapeal'
-          aggregate_crawler_member 'sonova' 'sonova'
-          aggregate_crawler_member 'sonnweid' 'sonnweid'
-          aggregate_crawler_member 'helvetia' 'helvetia'
-          aggregate_crawler_member 'prosenectute-ti' 'prosenectute-ti'
-          aggregate_crawler_member 'ksw' 'ksw'
-          aggregate_crawler_member 'stadt-bern' 'stadt-bern'
-          aggregate_crawler_member 'microsoft' 'microsoft'
-          aggregate_crawler_member 'lups' 'lups'
-          aggregate_crawler_member 'ikea' 'ikea'
-          aggregate_crawler_member 'bkw' 'bkw'
-          aggregate_crawler_member 'galenica' 'galenica'
+          aggregate_crawler_member 'yapeal'
+          aggregate_crawler_member 'sonova'
+          aggregate_crawler_member 'sonnweid'
+          aggregate_crawler_member 'helvetia'
+          aggregate_crawler_member 'prosenectute-ti'
+          aggregate_crawler_member 'ksw'
+          aggregate_crawler_member 'stadt-bern'
+          aggregate_crawler_member 'microsoft'
+          aggregate_crawler_member 'lups'
+          aggregate_crawler_member 'ikea'
+          aggregate_crawler_member 'bkw'
+          aggregate_crawler_member 'galenica'
           aggregate_crawler_member 'cler' 'banca-cler'
-          aggregate_crawler_member 'breitling' 'breitling'
-          aggregate_crawler_member 'globus' 'globus'
-          aggregate_crawler_member 'cordenpharma' 'cordenpharma'
-          aggregate_crawler_member 'kanton-gr' 'kanton-gr'
-          aggregate_crawler_member 'chicco-doro' 'chicco-doro'
-          aggregate_crawler_member 'belimo' 'belimo'
-          aggregate_crawler_member 'fart' 'fart'
-          aggregate_crawler_member 'mcm-group' 'mcm-group'
-          aggregate_crawler_member 'grischapersonal' 'grischapersonal'
-          aggregate_crawler_member 'oscam' 'oscam'
+          aggregate_crawler_member 'breitling'
+          aggregate_crawler_member 'globus'
+          aggregate_crawler_member 'cordenpharma'
+          aggregate_crawler_member 'kanton-gr'
+          aggregate_crawler_member 'chicco-doro'
+          aggregate_crawler_member 'belimo'
+          aggregate_crawler_member 'fart'
+          aggregate_crawler_member 'mcm-group'
+          aggregate_crawler_member 'grischapersonal'
+          aggregate_crawler_member 'oscam'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

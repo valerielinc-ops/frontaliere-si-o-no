@@ -7698,7 +7698,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7742,34 +7742,34 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'klinik-sgm' 'klinik-sgm'
-          aggregate_crawler_member 'kanton-st-gallen' 'kanton-st-gallen'
-          aggregate_crawler_member 'suchthilfe-region-basel' 'suchthilfe-region-basel'
-          aggregate_crawler_member 'tally-weijl' 'tally-weijl'
+          aggregate_crawler_member 'klinik-sgm'
+          aggregate_crawler_member 'kanton-st-gallen'
+          aggregate_crawler_member 'suchthilfe-region-basel'
+          aggregate_crawler_member 'tally-weijl'
           aggregate_crawler_member 'lafonte' 'la-fonte'
-          aggregate_crawler_member 'privatklinik-obach' 'privatklinik-obach'
-          aggregate_crawler_member 'epfl' 'epfl'
-          aggregate_crawler_member 'swiss-life' 'swiss-life'
-          aggregate_crawler_member 'sanatorium-kilchberg' 'sanatorium-kilchberg'
-          aggregate_crawler_member 'raiffeisen' 'raiffeisen'
-          aggregate_crawler_member 'upd' 'upd'
-          aggregate_crawler_member 'imad' 'imad'
-          aggregate_crawler_member 'cippatrasporti' 'cippatrasporti'
-          aggregate_crawler_member 'kuehne-nagel' 'kuehne-nagel'
-          aggregate_crawler_member 'manor' 'manor'
-          aggregate_crawler_member 'giorgio-armani' 'giorgio-armani'
-          aggregate_crawler_member 'sika' 'sika'
-          aggregate_crawler_member 'klinik-gut' 'klinik-gut'
-          aggregate_crawler_member 'nvidia-zurich' 'nvidia-zurich'
-          aggregate_crawler_member 'coopers' 'coopers'
-          aggregate_crawler_member 'balgrist' 'balgrist'
-          aggregate_crawler_member 'clinica-hildebrand' 'clinica-hildebrand'
-          aggregate_crawler_member 'agie-charmilles' 'agie-charmilles'
-          aggregate_crawler_member 'brack-alltron' 'brack-alltron'
-          aggregate_crawler_member 'clinique-generale-ste-anne' 'clinique-generale-ste-anne'
-          aggregate_crawler_member 'canton-ticino-osc' 'canton-ticino-osc'
-          aggregate_crawler_member 'stadt-luzern' 'stadt-luzern'
-          aggregate_crawler_member 'lindt-spruengli' 'lindt-spruengli'
+          aggregate_crawler_member 'privatklinik-obach'
+          aggregate_crawler_member 'epfl'
+          aggregate_crawler_member 'swiss-life'
+          aggregate_crawler_member 'sanatorium-kilchberg'
+          aggregate_crawler_member 'raiffeisen'
+          aggregate_crawler_member 'upd'
+          aggregate_crawler_member 'imad'
+          aggregate_crawler_member 'cippatrasporti'
+          aggregate_crawler_member 'kuehne-nagel'
+          aggregate_crawler_member 'manor'
+          aggregate_crawler_member 'giorgio-armani'
+          aggregate_crawler_member 'sika'
+          aggregate_crawler_member 'klinik-gut'
+          aggregate_crawler_member 'nvidia-zurich'
+          aggregate_crawler_member 'coopers'
+          aggregate_crawler_member 'balgrist'
+          aggregate_crawler_member 'clinica-hildebrand'
+          aggregate_crawler_member 'agie-charmilles'
+          aggregate_crawler_member 'brack-alltron'
+          aggregate_crawler_member 'clinique-generale-ste-anne'
+          aggregate_crawler_member 'canton-ticino-osc'
+          aggregate_crawler_member 'stadt-luzern'
+          aggregate_crawler_member 'lindt-spruengli'
           aggregate_crawler_member 'axa' 'axa-svizzera'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then

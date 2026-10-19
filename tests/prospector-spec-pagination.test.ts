@@ -76,7 +76,7 @@ function specWith(extra: Record<string, unknown> = {}) {
   } as any;
 }
 
-async function collect(spec: any, pages: SitePages) {
+async function collect(spec: any, pages: SitePages, runtimeOverrides: Record<string, unknown> = {}) {
   const fetched: string[] = [];
   const policy = createSpecUrlPolicy(spec, { lookupImpl: publicLookup as any });
   try {
@@ -85,6 +85,7 @@ async function collect(spec: any, pages: SitePages) {
       sleepImpl: async () => {},
       retries: 0,
       disableWafProxy: true,
+      ...runtimeOverrides,
     }, policy);
     return { rows, fetched };
   } finally {
@@ -127,6 +128,72 @@ describe('spec.pagination', () => {
       `${ORIGIN}/?sf_paged=2`,
       `${ORIGIN}/?sf_paged=3`,
     ]);
+  });
+
+  it('preserva un outcome undefined presente quando aggrega pagine miste', async () => {
+    const seed = `${ORIGIN}/`;
+    const secondPage = `${ORIGIN}/?sf_paged=2`;
+    const pages = {
+      [seed]: listingPage({ ids: ['sa1'], page: 1, total: 2, next: secondPage }),
+      [secondPage]: listingPage({ ids: ['sa2'], page: 2, total: 2 }),
+    };
+    const listingExtractor = (_html: string, pageUrl: string) => {
+      const pageNumber = new URL(pageUrl).searchParams.get('sf_paged');
+      const rows: any[] = [{
+        url: `${ORIGIN}/job/sa${pageNumber === '2' ? '2' : '1'}/`,
+        title: 'Platform Engineer',
+      }];
+      Object.defineProperties(rows, {
+        fetchOutcome: {
+          value: pageNumber === '2' ? undefined : 'ok',
+          enumerable: false,
+        },
+        discoveredCount: { value: 1, enumerable: false },
+      });
+      return rows;
+    };
+
+    const { rows } = await collect(
+      specWith({ pagination: PAGINATION }),
+      pages,
+      { listingExtractor },
+    );
+
+    expect(Object.prototype.hasOwnProperty.call(rows, 'fetchOutcome')).toBe(true);
+    expect((rows as any).fetchOutcome).toBeUndefined();
+  });
+
+  it('non lascia che un outcome null nasconda il fallimento di una pagina successiva', async () => {
+    const seed = `${ORIGIN}/`;
+    const secondPage = `${ORIGIN}/?sf_paged=2`;
+    const pages = {
+      [seed]: listingPage({ ids: ['sa1'], page: 1, total: 2, next: secondPage }),
+      [secondPage]: listingPage({ ids: ['sa2'], page: 2, total: 2 }),
+    };
+    const listingExtractor = (_html: string, pageUrl: string) => {
+      const pageNumber = new URL(pageUrl).searchParams.get('sf_paged');
+      const rows: any[] = [{
+        url: `${ORIGIN}/job/sa${pageNumber === '2' ? '2' : '1'}/`,
+        title: 'Platform Engineer',
+      }];
+      Object.defineProperties(rows, {
+        fetchOutcome: {
+          value: pageNumber === '2' ? 'selector_miss' : null,
+          enumerable: false,
+        },
+        discoveredCount: { value: 1, enumerable: false },
+      });
+      return rows;
+    };
+
+    const { rows } = await collect(
+      specWith({ pagination: PAGINATION }),
+      pages,
+      { listingExtractor },
+    );
+
+    expect(Object.prototype.hasOwnProperty.call(rows, 'fetchOutcome')).toBe(true);
+    expect((rows as any).fetchOutcome).toBe('selector_miss');
   });
 
   it('può misurare la copertura sulle righe source duplicate prima del dedup', async () => {
@@ -329,16 +396,18 @@ describe('spec.pagination', () => {
     });
   });
 
-  it('senza spec.pagination legge solo il seed e segnala il next non seguito', async () => {
-    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+  it('senza spec.pagination fallisce chiuso se il seed espone un next non seguito', async () => {
     const pages = {
       [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 5, next: `${ORIGIN}/?sf_paged=2` }),
     };
-    const { rows, fetched } = await collect(specWith(), pages);
-    expect(rows).toHaveLength(2);
-    expect(fetched).not.toContain(`${ORIGIN}/?sf_paged=2`);
-    expect(warn.mock.calls.map((c) => String(c[0])).join('\n'))
-      .toMatch(/rel=next non seguito \(https:\/\/jobs\.example\.ch\/\?sf_paged=2\)/);
+    let failure: any;
+    try {
+      await collect(specWith(), pages);
+    } catch (error) {
+      failure = error;
+    }
+    expect(failure).toMatchObject({ specListingFailure: true, specDiscoveredCount: 2 });
+    expect(String(failure.message)).toMatch(/listing incompleta.*rel=next non seguito/);
   });
 });
 

@@ -7958,7 +7958,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -8002,36 +8002,36 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'siemens-healthineers' 'siemens-healthineers'
-          aggregate_crawler_member 'proton' 'proton'
-          aggregate_crawler_member 'spital-zofingen' 'spital-zofingen'
-          aggregate_crawler_member 'sygnum' 'sygnum'
-          aggregate_crawler_member 'gim-architekten' 'gim-architekten'
-          aggregate_crawler_member 'klinik-arlesheim' 'klinik-arlesheim'
+          aggregate_crawler_member 'siemens-healthineers'
+          aggregate_crawler_member 'proton'
+          aggregate_crawler_member 'spital-zofingen'
+          aggregate_crawler_member 'sygnum'
+          aggregate_crawler_member 'gim-architekten'
+          aggregate_crawler_member 'klinik-arlesheim'
           aggregate_crawler_member 'zurich' 'zurich-insurance-sede-ticino'
-          aggregate_crawler_member 'veeam' 'veeam'
-          aggregate_crawler_member 'kispi' 'kispi'
-          aggregate_crawler_member 'pigna' 'pigna'
-          aggregate_crawler_member 'new-yorker' 'new-yorker'
-          aggregate_crawler_member 'relewant' 'relewant'
-          aggregate_crawler_member 'implenia' 'implenia'
-          aggregate_crawler_member 'baronie' 'baronie'
-          aggregate_crawler_member 'recruitingapp-1123' 'recruitingapp-1123'
-          aggregate_crawler_member 'pdgr' 'pdgr'
-          aggregate_crawler_member 'imerys' 'imerys'
-          aggregate_crawler_member 'elettra-1938' 'elettra-1938'
-          aggregate_crawler_member 'cerbios-pharma' 'cerbios-pharma'
-          aggregate_crawler_member 'clinique-de-montchoisi' 'clinique-de-montchoisi'
-          aggregate_crawler_member 'ophtalmique' 'ophtalmique'
-          aggregate_crawler_member 'barry-callebaut' 'barry-callebaut'
-          aggregate_crawler_member 'evam-vaud' 'evam-vaud'
-          aggregate_crawler_member 'holmes-place' 'holmes-place'
-          aggregate_crawler_member 'clinique-generale-beaulieu' 'clinique-generale-beaulieu'
+          aggregate_crawler_member 'veeam'
+          aggregate_crawler_member 'kispi'
+          aggregate_crawler_member 'pigna'
+          aggregate_crawler_member 'new-yorker'
+          aggregate_crawler_member 'relewant'
+          aggregate_crawler_member 'implenia'
+          aggregate_crawler_member 'baronie'
+          aggregate_crawler_member 'recruitingapp-1123'
+          aggregate_crawler_member 'pdgr'
+          aggregate_crawler_member 'imerys'
+          aggregate_crawler_member 'elettra-1938'
+          aggregate_crawler_member 'cerbios-pharma'
+          aggregate_crawler_member 'clinique-de-montchoisi'
+          aggregate_crawler_member 'ophtalmique'
+          aggregate_crawler_member 'barry-callebaut'
+          aggregate_crawler_member 'evam-vaud'
+          aggregate_crawler_member 'holmes-place'
+          aggregate_crawler_member 'clinique-generale-beaulieu'
           aggregate_crawler_member 'board' 'board-international'
-          aggregate_crawler_member 'aldi-suisse' 'aldi-suisse'
-          aggregate_crawler_member 'badrutts-palace' 'badrutts-palace'
-          aggregate_crawler_member 'asile-des-aveugles' 'asile-des-aveugles'
-          aggregate_crawler_member 'technic-emplois' 'technic-emplois'
+          aggregate_crawler_member 'aldi-suisse'
+          aggregate_crawler_member 'badrutts-palace'
+          aggregate_crawler_member 'asile-des-aveugles'
+          aggregate_crawler_member 'technic-emplois'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

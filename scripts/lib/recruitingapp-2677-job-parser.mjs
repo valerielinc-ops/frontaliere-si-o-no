@@ -102,7 +102,7 @@ export function stableLocationCandidatesKey(candidates = []) {
  * The generic Umantis cascade can mistake the first segment for a location
  * (`38,5h` / `80-100`), so this tenant reads the source's middle segment.
  */
-function extractRecruitingapp2677DetailFields(html = '', pageUrl = '', opts = {}) {
+export function extractRecruitingapp2677DetailFields(html = '', pageUrl = '', opts = {}) {
   const detail = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, pageUrl, opts);
   const introRx = /<(?:div|section)\b[^>]*\bclass\s*=\s*["'][^"']*\bintro\b[^"']*["'][^>]*>[\s\S]*?<\/(?:div|section)>/gi;
   const rawHtml = String(html || '');
@@ -132,10 +132,16 @@ function extractRecruitingapp2677DetailFields(html = '', pageUrl = '', opts = {}
   return detail;
 }
 
-function attachSnapshotProof(rows, proof) {
+function attachSnapshotProof(rows, proof, observedDetailsByUrl = null, titleEvidenceByUrl = null) {
   Object.defineProperties(rows, {
     authoritativeSnapshotProof: { value: proof, enumerable: false },
     discoveredCount: { value: proof.discoveredCount, enumerable: false },
+    ...(observedDetailsByUrl ? {
+      observedDetailsByUrl: { value: observedDetailsByUrl, enumerable: false },
+    } : {}),
+    ...(titleEvidenceByUrl ? {
+      titleEvidenceByUrl: { value: titleEvidenceByUrl, enumerable: false },
+    } : {}),
   });
   return rows;
 }
@@ -229,6 +235,7 @@ async function fetchJobListings(runtime = {}) {
   const listingTitles = new Map();
   const conflictingListingIds = new Set();
   const observedDetails = new Map();
+  const observedDetailsByUrl = new Map();
   const invalidDetailIds = new Set();
   const conflictingDetailIds = new Set();
   // Keep the same Undici implementation that the production polite-fetch
@@ -274,6 +281,7 @@ async function fetchJobListings(runtime = {}) {
       const decision = resolveDetailOrListingSwissGeography(detail, {});
       const observation = {
         id: vacancyId,
+        listingTitle: listingTitles.get(vacancyId) || '',
         title: normalizeSpace(detail.title || ''),
         rich: isSufficientVacancyDescription(detail.description),
         swiss: Boolean(decision.geography),
@@ -299,6 +307,12 @@ async function fetchJobListings(runtime = {}) {
       } else {
         observedDetails.set(vacancyId, observation);
       }
+      observedDetailsByUrl.set(pageUrl, {
+        body: html,
+        status: 200,
+        url: pageUrl,
+        detail,
+      });
     }
     return detail;
   };
@@ -330,7 +344,7 @@ async function fetchJobListings(runtime = {}) {
       `recruitingapp-2677: incomplete detail snapshot (${proof.detailCount}/${proof.discoveredCount})`,
     );
   }
-  return attachSnapshotProof(rows, proof);
+  return attachSnapshotProof(rows, proof, observedDetailsByUrl);
 }
 
 export function assertCompleteRecruitingapp2677Snapshot(jobs) {
@@ -363,7 +377,12 @@ export async function fetchAllRecruitingapp2677Jobs(runtime = {}) {
     const authoritativeEmpty = umantisAuthoritativeEmptyOrNull(listings, RECRUITINGAPP_2677_COMPANY_NAME);
     if (authoritativeEmpty) return authoritativeEmpty;
     const proof = listings?.authoritativeSnapshotProof || emptySnapshotProof();
-    return attachSnapshotProof([], { ...proof, publishedCount: 0 });
+    return attachSnapshotProof(
+      [],
+      { ...proof, publishedCount: 0 },
+      listings?.observedDetailsByUrl || null,
+      listings?.titleEvidenceByUrl || null,
+    );
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -433,5 +452,19 @@ export async function fetchAllRecruitingapp2677Jobs(runtime = {}) {
 
   console.log(`\n📋 Total E-Recruiting LLB-Gruppe Stellen jobs discovered: ${jobs.length}`);
   const proof = listings.authoritativeSnapshotProof || emptySnapshotProof();
-  return attachSnapshotProof(jobs, { ...proof, publishedCount: jobs.length });
+  const observedDetailsByUrl = new Map(listings.observedDetailsByUrl || []);
+  const titleEvidenceByUrl = new Map(jobs.map((job) => {
+    const id = umantisVacancyIdentity(job.url);
+    const observedEntry = [...observedDetailsByUrl.entries()]
+      .find(([detailUrl]) => umantisVacancyIdentity(detailUrl) === id);
+    if (observedEntry && observedEntry[0] !== job.url) observedDetailsByUrl.set(job.url, observedEntry[1]);
+    const listingTitle = proof.details?.find((detail) => detail.id === id)?.listingTitle || '';
+    return [job.url, { listingTitle, finalTitle: job.title, titleSource: 'source-adapter-output' }];
+  }));
+  return attachSnapshotProof(
+    jobs,
+    { ...proof, publishedCount: jobs.length },
+    observedDetailsByUrl,
+    titleEvidenceByUrl,
+  );
 }

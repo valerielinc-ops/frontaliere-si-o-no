@@ -6,7 +6,10 @@ const specCrawlerMocks = vi.hoisted(() => ({
   runSpecInProduction: vi.fn(),
 }));
 
-vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => specCrawlerMocks);
+vi.mock('../scripts/lib/prospector/spec-crawler.mjs', async (importOriginal) => ({
+  ...(await importOriginal()),
+  ...specCrawlerMocks,
+}));
 
 import {
   extractSeniorenzentrumEngelhofDetailFields,
@@ -17,6 +20,7 @@ import {
   SENIORENZENTRUM_ENGELHOF_COMPANY_NAME,
   SENIORENZENTRUM_ENGELHOF_KEY,
 } from '../scripts/lib/seniorenzentrum-engelhof-job-parser.mjs';
+import { sourceAdapterRuntimeObservationFor, sourceCrawlerAdapterFor } from '../scripts/lib/prospector/source-adapters.mjs';
 
 const sourceDescription = [
   '<p>Im Seniorenzentrum Engelhof begleiten wir ältere Menschen in ihrem Alltag.</p>',
@@ -190,6 +194,19 @@ describe('Seniorenzentrum Engelhof crawler parser', () => {
       expect(jobs.every((job) => job.sourceLang === 'de')).toBe(true);
       expect(jobs.every((job) => job.url.includes('employerboard.ch/job/'))).toBe(true);
       expect(specCrawlerMocks.loadSpec).toHaveBeenCalledWith(SENIORENZENTRUM_ENGELHOF_KEY);
+      expect(Object.getOwnPropertyDescriptor(jobs, 'expectedFilterCount')).toMatchObject({ value: 1 });
+      expect(Object.getOwnPropertyDescriptor(jobs, 'expectedFilters').value)
+        .toMatchObject({ engelhof_target_job_scope: 1 });
+      expect(Object.getOwnPropertyDescriptor(jobs, 'detailDrop').value)
+        .toMatchObject({ candidates: 2, dropped: 0 });
+      expect(sourceAdapterRuntimeObservationFor(jobs, {
+        companyKey: SENIORENZENTRUM_ENGELHOF_KEY,
+        adapter: sourceCrawlerAdapterFor({ companyKey: SENIORENZENTRUM_ENGELHOF_KEY }),
+      })).toMatchObject({
+        listingCount: 3,
+        expectedFilterCount: 1,
+        complete: true,
+      });
     });
 
     it('does not replace missing workplace evidence with the employer address', async () => {
@@ -204,7 +221,76 @@ describe('Seniorenzentrum Engelhof crawler parser', () => {
         streetAddress: '',
       }]);
 
-      await expect(fetchAllSeniorenzentrumEngelhofJobs()).resolves.toEqual([]);
+      const jobs = await fetchAllSeniorenzentrumEngelhofJobs();
+      expect(jobs).toEqual([]);
+      expect(Object.getOwnPropertyDescriptor(jobs, 'detailDrop').value)
+        .toMatchObject({ candidates: 1, gone: 1, dropped: 1 });
+      expect(sourceAdapterRuntimeObservationFor(jobs, {
+        companyKey: SENIORENZENTRUM_ENGELHOF_KEY,
+        adapter: sourceCrawlerAdapterFor({ companyKey: SENIORENZENTRUM_ENGELHOF_KEY }),
+      })).toMatchObject({
+        snapshotAccepted: true,
+        productionSnapshotAccepted: true,
+        complete: false,
+        dropCounts: { detail_runtime_gone: 1 },
+      });
+    });
+
+    it('preserves non-enumerable fetch metadata through row mapping and empty output', async () => {
+      const failedPartialListings: any[] = [sourceListing];
+      Object.defineProperties(failedPartialListings, {
+        fetchOutcome: { value: 'anti_bot_block', enumerable: false },
+        discoveredCount: { value: 3, enumerable: false },
+        detailDrop: {
+          value: { candidates: 3, gone: 1, rejected: 1, dropped: 2 },
+          enumerable: false,
+        },
+      });
+      specCrawlerMocks.loadSpec.mockReturnValue({ companyKey: SENIORENZENTRUM_ENGELHOF_KEY });
+      specCrawlerMocks.runSpecInProduction.mockResolvedValue(failedPartialListings);
+
+      const jobs = await fetchAllSeniorenzentrumEngelhofJobs();
+      expect(jobs).toHaveLength(1);
+      expect(Object.keys(jobs)).not.toContain('fetchOutcome');
+      expect(Object.getOwnPropertyDescriptor(jobs, 'fetchOutcome')).toMatchObject({
+        value: 'anti_bot_block', enumerable: false,
+      });
+      expect(Object.getOwnPropertyDescriptor(jobs, 'discoveredCount')).toMatchObject({
+        value: 3, enumerable: false,
+      });
+      expect(Object.getOwnPropertyDescriptor(jobs, 'detailDrop')).toMatchObject({
+        value: { candidates: 3, gone: 1, rejected: 1, dropped: 2 }, enumerable: false,
+      });
+      expect(sourceAdapterRuntimeObservationFor(jobs, {
+        companyKey: SENIORENZENTRUM_ENGELHOF_KEY,
+        adapter: sourceCrawlerAdapterFor({ companyKey: SENIORENZENTRUM_ENGELHOF_KEY }),
+      })).toMatchObject({
+        fetchOutcome: 'anti_bot_block',
+        listingCount: 3,
+        snapshotAccepted: false,
+        complete: false,
+      });
+
+      const blockedEmpty: any[] = [];
+      Object.defineProperties(blockedEmpty, {
+        fetchOutcome: { value: 'selector_miss', enumerable: false },
+        discoveredCount: { value: 0, enumerable: false },
+        detailDrop: {
+          value: { candidates: 0, gone: 0, rejected: 0, dropped: 0 },
+          enumerable: false,
+        },
+      });
+      specCrawlerMocks.runSpecInProduction.mockResolvedValue(blockedEmpty);
+      const emptyJobs = await fetchAllSeniorenzentrumEngelhofJobs();
+      expect(emptyJobs).toHaveLength(0);
+      expect(Object.getOwnPropertyDescriptor(emptyJobs, 'fetchOutcome')).toMatchObject({
+        value: 'selector_miss', enumerable: false,
+      });
+      expect(sourceAdapterRuntimeObservationFor(emptyJobs)).toMatchObject({
+        fetchOutcome: 'selector_miss',
+        snapshotAccepted: false,
+        complete: false,
+      });
     });
   });
 });

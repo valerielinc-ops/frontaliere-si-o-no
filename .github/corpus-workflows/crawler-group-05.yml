@@ -7695,7 +7695,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7739,35 +7739,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'klinik-schuetzen' 'klinik-schuetzen'
-          aggregate_crawler_member 'epi-geneve' 'epi-geneve'
+          aggregate_crawler_member 'klinik-schuetzen'
+          aggregate_crawler_member 'epi-geneve'
           aggregate_crawler_member 'kempinski' 'grand-hotel-des-bains-kempinski'
-          aggregate_crawler_member 'vaxcyte' 'vaxcyte'
-          aggregate_crawler_member 'tether' 'tether'
-          aggregate_crawler_member 'schulthess-klinik' 'schulthess-klinik'
-          aggregate_crawler_member 'vitrea-gesundheit' 'vitrea-gesundheit'
+          aggregate_crawler_member 'vaxcyte'
+          aggregate_crawler_member 'tether'
+          aggregate_crawler_member 'schulthess-klinik'
+          aggregate_crawler_member 'vitrea-gesundheit'
           aggregate_crawler_member 'mendrisio' 'citta-di-mendrisio'
-          aggregate_crawler_member 'valora' 'valora'
-          aggregate_crawler_member 'talan' 'talan'
-          aggregate_crawler_member 'straumann' 'straumann'
-          aggregate_crawler_member 'faulhaber' 'faulhaber'
-          aggregate_crawler_member 'ipersonal' 'ipersonal'
-          aggregate_crawler_member 'eraneos' 'eraneos'
-          aggregate_crawler_member 'h-ju-hopital-du-jura' 'h-ju-hopital-du-jura'
-          aggregate_crawler_member 'gavi' 'gavi'
-          aggregate_crawler_member 'clinique-la-source' 'clinique-la-source'
-          aggregate_crawler_member 'cedes' 'cedes'
-          aggregate_crawler_member 'bracco' 'bracco'
-          aggregate_crawler_member 'bms-building' 'bms-building'
-          aggregate_crawler_member 'citta-di-bellinzona' 'citta-di-bellinzona'
-          aggregate_crawler_member 'berner-klinik-montana' 'berner-klinik-montana'
-          aggregate_crawler_member 'agroscope' 'agroscope'
-          aggregate_crawler_member 'amstein-walthert' 'amstein-walthert'
-          aggregate_crawler_member 'caseificio-gottardo' 'caseificio-gottardo'
-          aggregate_crawler_member 'neoproconseils' 'neoproconseils'
-          aggregate_crawler_member 'rituals-cosmetics' 'rituals-cosmetics'
-          aggregate_crawler_member 'vista' 'vista'
-          aggregate_crawler_member 'fmi' 'fmi'
+          aggregate_crawler_member 'valora'
+          aggregate_crawler_member 'talan'
+          aggregate_crawler_member 'straumann'
+          aggregate_crawler_member 'faulhaber'
+          aggregate_crawler_member 'ipersonal'
+          aggregate_crawler_member 'eraneos'
+          aggregate_crawler_member 'h-ju-hopital-du-jura'
+          aggregate_crawler_member 'gavi'
+          aggregate_crawler_member 'clinique-la-source'
+          aggregate_crawler_member 'cedes'
+          aggregate_crawler_member 'bracco'
+          aggregate_crawler_member 'bms-building'
+          aggregate_crawler_member 'citta-di-bellinzona'
+          aggregate_crawler_member 'berner-klinik-montana'
+          aggregate_crawler_member 'agroscope'
+          aggregate_crawler_member 'amstein-walthert'
+          aggregate_crawler_member 'caseificio-gottardo'
+          aggregate_crawler_member 'neoproconseils'
+          aggregate_crawler_member 'rituals-cosmetics'
+          aggregate_crawler_member 'vista'
+          aggregate_crawler_member 'fmi'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

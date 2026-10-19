@@ -1,28 +1,29 @@
 {
   "key": "pigna",
   "label": "Stiftung Pigna",
-  "generatedAt": "2026-10-19T09:39:01.568Z",
-  "total": 8,
+  "generatedAt": "2026-10-19T21:36:44.024Z",
+  "total": 7,
   "discovered": null,
   "parsed": 7,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 8,
+  "written": 7,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 7,
-  "durationMs": 12407,
-  "avgDurationMs": 12407,
+  "durationMs": 8949,
+  "avgDurationMs": 8949,
   "durationHistory": [
-    12407
+    8949
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "id": "pigna-9f9a0da513c4",
       "slug": "staffa-esterna-60-80-stiftung-pigna-kloten",
@@ -30,7 +31,7 @@
       "companyKey": "pigna",
       "companyDomain": "pigna.ch",
       "title": "BETREUUNGSPERSONAL AUSSENWOHNGRUPPE 60-80%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Kloten",
       "canton": "ZH",
       "url": "https://app.reflinejobs.io/1531/0288/pub/513/index.html",
@@ -67,7 +68,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "pigna-9aace9639d35",
@@ -82,7 +82,7 @@
       "url": "https://app.reflinejobs.io/1531/0306/pub/524/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:38:44.022Z",
+      "crawledAt": "2026-10-19T21:36:23.161Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://app.reflinejobs.io/1531/0303/pub/521/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:38:43.113Z",
+      "crawledAt": "2026-10-19T21:36:22.646Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       "url": "https://app.reflinejobs.io/1531/0300/pub/516/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:38:42.251Z",
+      "crawledAt": "2026-10-19T21:36:22.100Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "url": "https://app.reflinejobs.io/1531/0297/pub/488/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:38:41.407Z",
+      "crawledAt": "2026-10-19T21:36:21.563Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -250,7 +250,7 @@
       "url": "https://app.reflinejobs.io/1531/0270/pub/504/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:38:40.242Z",
+      "crawledAt": "2026-10-19T21:36:21.026Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -292,7 +292,7 @@
       "url": "https://app.reflinejobs.io/1531/0216/pub/501/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:38:39.630Z",
+      "crawledAt": "2026-10-19T21:36:20.488Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -334,7 +334,7 @@
       "url": "https://app.reflinejobs.io/1531/0156/pub/498/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:38:38.807Z",
+      "crawledAt": "2026-10-19T21:36:19.915Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -364,5 +364,5 @@
       }
     }
   ],
-  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

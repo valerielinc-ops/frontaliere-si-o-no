@@ -7955,7 +7955,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -8000,35 +8000,35 @@ jobs:
             fi
           }
           aggregate_crawler_member 'kronenhof' 'grand-hotel-kronenhof'
-          aggregate_crawler_member 'spital-affoltern' 'spital-affoltern'
-          aggregate_crawler_member 'valiant-bank' 'valiant-bank'
-          aggregate_crawler_member 'octapharma' 'octapharma'
-          aggregate_crawler_member 'wagerenhof' 'wagerenhof'
-          aggregate_crawler_member 'pfister' 'pfister'
-          aggregate_crawler_member 'unispital-basel' 'unispital-basel'
+          aggregate_crawler_member 'spital-affoltern'
+          aggregate_crawler_member 'valiant-bank'
+          aggregate_crawler_member 'octapharma'
+          aggregate_crawler_member 'wagerenhof'
+          aggregate_crawler_member 'pfister'
+          aggregate_crawler_member 'unispital-basel'
           aggregate_crawler_member 'sbb' 'ffs-officine-ferrovie-federali'
           aggregate_crawler_member 'ibsa' 'ibsa-institut-biochimique'
-          aggregate_crawler_member 'rennbahnklinik' 'rennbahnklinik'
-          aggregate_crawler_member 'mabetex' 'mabetex'
-          aggregate_crawler_member 'recruitingapp-2563' 'recruitingapp-2563'
-          aggregate_crawler_member 'gzo-wetzikon' 'gzo-wetzikon'
-          aggregate_crawler_member 'kanton-aargau' 'kanton-aargau'
-          aggregate_crawler_member 'css-versicherung' 'css-versicherung'
-          aggregate_crawler_member 'holcim' 'holcim'
-          aggregate_crawler_member 'klinik-adelheid' 'klinik-adelheid'
-          aggregate_crawler_member 'avaloq' 'avaloq'
-          aggregate_crawler_member 'kanton-solothurn' 'kanton-solothurn'
-          aggregate_crawler_member 'gesundheitsnetz-kuesnacht' 'gesundheitsnetz-kuesnacht'
-          aggregate_crawler_member 'asana-spital' 'asana-spital'
-          aggregate_crawler_member 'bachem' 'bachem'
-          aggregate_crawler_member 'apg-sga' 'apg-sga'
+          aggregate_crawler_member 'rennbahnklinik'
+          aggregate_crawler_member 'mabetex'
+          aggregate_crawler_member 'recruitingapp-2563'
+          aggregate_crawler_member 'gzo-wetzikon'
+          aggregate_crawler_member 'kanton-aargau'
+          aggregate_crawler_member 'css-versicherung'
+          aggregate_crawler_member 'holcim'
+          aggregate_crawler_member 'klinik-adelheid'
+          aggregate_crawler_member 'avaloq'
+          aggregate_crawler_member 'kanton-solothurn'
+          aggregate_crawler_member 'gesundheitsnetz-kuesnacht'
+          aggregate_crawler_member 'asana-spital'
+          aggregate_crawler_member 'bachem'
+          aggregate_crawler_member 'apg-sga'
           aggregate_crawler_member 'ail' 'ail-lugano'
-          aggregate_crawler_member 'sta' 'sta'
-          aggregate_crawler_member 'elprom' 'elprom'
-          aggregate_crawler_member 'sonarsource' 'sonarsource'
-          aggregate_crawler_member 'elite-interim' 'elite-interim'
-          aggregate_crawler_member 'gipo' 'gipo'
-          aggregate_crawler_member 'le-team' 'le-team'
+          aggregate_crawler_member 'sta'
+          aggregate_crawler_member 'elprom'
+          aggregate_crawler_member 'sonarsource'
+          aggregate_crawler_member 'elite-interim'
+          aggregate_crawler_member 'gipo'
+          aggregate_crawler_member 'le-team'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

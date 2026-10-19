@@ -368,6 +368,55 @@ export function requeuePromotedCandidate(store, key, patch = {}, ledgerFile = LE
 }
 
 /**
+ * Reopen a candidate only after the exact promotion PR is verified CLOSED and
+ * unmerged. This is the sole allowed rewind from `promoting`; ordinary
+ * `setStatus` stays forward-only. The closed PR remains in bounded audit
+ * history while the in-flight pointer is cleared.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {string} key
+ * @param {{ number?: string|number, state?: string, mergedAt?: string|null, closedAt?: string|null, url?: string }} pullRequest
+ * @param {string|null} [ledgerFile]
+ * @returns {Record<string, any>|null}
+ */
+export function requeueClosedPromotionCandidate(store, key, pullRequest = {}, ledgerFile = LEDGER_PATH) {
+  const candidate = store.candidates[key];
+  const associatedNumber = Number(candidate?.promotionPr);
+  const verifiedNumber = Number(pullRequest.number);
+  if (!candidate || candidate.status !== 'promoting'
+    || !Number.isSafeInteger(associatedNumber) || associatedNumber <= 0
+    || verifiedNumber !== associatedNumber
+    || pullRequest.state !== 'CLOSED'
+    || !Object.prototype.hasOwnProperty.call(pullRequest, 'mergedAt')
+    || pullRequest.mergedAt !== null) return null;
+
+  const at = new Date().toISOString();
+  const history = Array.isArray(candidate.promotionHistory) ? candidate.promotionHistory : [];
+  history.push({
+    number: String(associatedNumber),
+    state: 'CLOSED',
+    mergedAt: null,
+    closedAt: pullRequest.closedAt || null,
+    url: pullRequest.url || null,
+    observedAt: at,
+  });
+  candidate.promotionHistory = history.slice(-20);
+  candidate.status = 'promoted';
+  delete candidate.promotionPr;
+  delete candidate.promotionBranch;
+  candidate.reason = `PR ${associatedNumber} chiusa senza merge, ricandidato`;
+  candidate.updatedAt = at;
+  appendLedger({
+    key,
+    from: 'promoting',
+    to: 'promoted',
+    at,
+    reason: candidate.reason,
+  }, ledgerFile);
+  return candidate;
+}
+
+/**
  * Reopen a rejected candidate only after an explicitly opted-in source adapter
  * has produced a new validation entry. The adapter version is a bounded retry
  * key: a second bad result under the same version remains terminal.

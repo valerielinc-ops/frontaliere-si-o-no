@@ -7700,7 +7700,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7745,34 +7745,34 @@ jobs:
             fi
           }
           aggregate_crawler_member 'ksgr' 'kantonsspital-graubuenden-ksgr'
-          aggregate_crawler_member 'senevita' 'senevita'
-          aggregate_crawler_member 'rehaklinik-hasliberg' 'rehaklinik-hasliberg'
+          aggregate_crawler_member 'senevita'
+          aggregate_crawler_member 'rehaklinik-hasliberg'
           aggregate_crawler_member 'eoc' 'eoc-ente-ospedaliero-cantonale'
           aggregate_crawler_member 'tich' 'amministrazione-cantonale-ti'
           aggregate_crawler_member 'swisscom' 'swisscom-sede-ticino'
-          aggregate_crawler_member 'swica' 'swica'
-          aggregate_crawler_member 'spital-nidwalden' 'spital-nidwalden'
-          aggregate_crawler_member 'spitex-zuerich' 'spitex-zuerich'
-          aggregate_crawler_member 'fhgr' 'fhgr'
-          aggregate_crawler_member 'vir-biotechnology' 'vir-biotechnology'
-          aggregate_crawler_member 'kispi-sg' 'kispi-sg'
-          aggregate_crawler_member 'recruitingapp-1154' 'recruitingapp-1154'
-          aggregate_crawler_member 'decathlon' 'decathlon'
-          aggregate_crawler_member 'gemeinde-st-moritz' 'gemeinde-st-moritz'
-          aggregate_crawler_member 'hopital-la-tour' 'hopital-la-tour'
-          aggregate_crawler_member 'davos-klosters-bergbahnen' 'davos-klosters-bergbahnen'
-          aggregate_crawler_member 'claraspital' 'claraspital'
-          aggregate_crawler_member 'ghol' 'ghol'
+          aggregate_crawler_member 'swica'
+          aggregate_crawler_member 'spital-nidwalden'
+          aggregate_crawler_member 'spitex-zuerich'
+          aggregate_crawler_member 'fhgr'
+          aggregate_crawler_member 'vir-biotechnology'
+          aggregate_crawler_member 'kispi-sg'
+          aggregate_crawler_member 'recruitingapp-1154'
+          aggregate_crawler_member 'decathlon'
+          aggregate_crawler_member 'gemeinde-st-moritz'
+          aggregate_crawler_member 'hopital-la-tour'
+          aggregate_crawler_member 'davos-klosters-bergbahnen'
+          aggregate_crawler_member 'claraspital'
+          aggregate_crawler_member 'ghol'
           aggregate_crawler_member 'lastminute' 'lastminute-com'
-          aggregate_crawler_member 'entero' 'entero'
-          aggregate_crawler_member 'franklin-university' 'franklin-university'
-          aggregate_crawler_member 'everest-re' 'everest-re'
-          aggregate_crawler_member 'csvm-mustair' 'csvm-mustair'
-          aggregate_crawler_member 'benteler' 'benteler'
-          aggregate_crawler_member 'adullam' 'adullam'
-          aggregate_crawler_member 'buersten-technik' 'buersten-technik'
-          aggregate_crawler_member 'matterhorn-gotthard-bahn' 'matterhorn-gotthard-bahn'
-          aggregate_crawler_member 'deillon-delley-architectes' 'deillon-delley-architectes'
+          aggregate_crawler_member 'entero'
+          aggregate_crawler_member 'franklin-university'
+          aggregate_crawler_member 'everest-re'
+          aggregate_crawler_member 'csvm-mustair'
+          aggregate_crawler_member 'benteler'
+          aggregate_crawler_member 'adullam'
+          aggregate_crawler_member 'buersten-technik'
+          aggregate_crawler_member 'matterhorn-gotthard-bahn'
+          aggregate_crawler_member 'deillon-delley-architectes'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

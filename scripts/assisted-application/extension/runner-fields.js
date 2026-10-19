@@ -441,8 +441,23 @@
   const BUTTONS = 'button, input[type="submit"], a[role="button"], a[href], [role="button"]';
   const actionLink = (element) => element.tagName === 'A' && Boolean(element.closest('.css_button'));
   const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element);
-  const buttonName = (element) => clean(element.innerText || element.value || element.getAttribute('aria-label') || element.textContent || element.getAttribute('title') || '');
-  const buttonAccessibleLabel = (element) => clean(element.getAttribute('aria-label') || '');
+  const buttonName = (element) => [
+    // `innerText` is the rendered label in a browser. JSDOM does not expose
+    // it, so inspect text content before accessibility attributes; normalize
+    // each candidate first so whitespace does not hide a later useful value.
+    element.innerText,
+    element.textContent,
+    element.value,
+    element.getAttribute('aria-label'),
+    element.getAttribute('title'),
+  ].map(clean).find(Boolean) || '';
+  const buttonAccessibleLabel = (element) => {
+    const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/)
+      .map(textOf)
+      .filter(Boolean)
+      .join(' ');
+    return clean(labelledBy || element.getAttribute('aria-label') || element.getAttribute('title') || '');
+  };
   const fileContext = (element) => {
     for (let node = element.parentElement, depth = 0; node && depth < 6; node = node.parentElement, depth += 1) {
       const text = clean(node.innerText || node.textContent);
@@ -464,6 +479,12 @@
       && actionControl(element))
     .map((element) => ({
       id: idFor(element),
+      domId: clean(element.getAttribute('id') || ''),
+      name: clean(element.getAttribute('name') || ''),
+      label: buttonAccessibleLabel(element),
+      title: clean(element.getAttribute('title') || ''),
+      ariaLabel: clean(element.getAttribute('aria-label') || ''),
+      dataAutomationId: clean(element.getAttribute('data-automation-id') || ''),
       ...dialogMeta(element),
       text: buttonName(element),
       section: headingBefore(element),

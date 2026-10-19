@@ -1,7 +1,7 @@
 {
   "key": "nant",
   "label": "Fondation de Nant",
-  "generatedAt": "2026-10-19T09:12:28.251Z",
+  "generatedAt": "2026-10-19T21:13:45.101Z",
   "total": 8,
   "discovered": null,
   "parsed": 6,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 3956,
-  "avgDurationMs": 3956,
+  "unchangedCount": 5,
+  "durationMs": 2960,
+  "avgDurationMs": 2960,
   "durationHistory": [
-    3956
+    2960
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "nant-5bed28d501c2",
       "slug": "frequenza-variabile-fondation-de-nant-corsier-sur-vevey",
@@ -29,13 +30,13 @@
       "companyKey": "nant",
       "companyDomain": "nant.ch",
       "title": "Aide-soignant-e à taux variable",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Corsier-sur-Vevey",
       "canton": "VD",
       "url": "https://app.beehire.com/invite/PdTkBFu_5",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:12:13.338Z",
+      "crawledAt": "2026-10-19T21:13:34.741Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -56,16 +57,14 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "nant-fc8182a71f9d",
       "slug": "infermiera-cdm-70-molaine-fondation-de-nant-corsier-sur-vevey",
@@ -79,7 +78,7 @@
       "url": "https://app.beehire.com/invite/SBKxBZBpb",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:12:13.339Z",
+      "crawledAt": "2026-10-19T21:13:34.741Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -122,7 +121,7 @@
       "url": "https://app.beehire.com/invite/ERrUfAGgv",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:12:13.329Z",
+      "crawledAt": "2026-10-19T21:13:34.740Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -151,7 +150,10 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "nant-e518f34e66bb",
       "slug": "psicologo-associato-o-assistente-alla-fine-della-formazione-80-fondation-de-nant-vevey",
@@ -165,7 +167,7 @@
       "url": "https://app.beehire.com/invite/Xu9Ki3gRv",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:12:13.328Z",
+      "crawledAt": "2026-10-19T21:13:34.739Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -196,51 +198,6 @@
       }
     },
     {
-      "id": "nant-466f15d99955",
-      "slug": "stewardship-dipendente-contratto-orario-6h-settimana-fondation-de-nant-chateau-d-x",
-      "company": "Fondation de Nant",
-      "companyKey": "nant",
-      "companyDomain": "nant.ch",
-      "title": "Employé·e en intendance – contrat horaire 6h/semaine",
-      "location": "Château-d’Œx",
-      "canton": "VD",
-      "url": "https://app.beehire.com/invite/PfepkyPQG",
-      "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:12:17.412Z",
-      "addressLocality": "Château-d’Œx",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1804",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Santé mentale / Psychiatrie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://app.beehire.com/invite/PfepkyPQG",
-      "careerSiteUrl": "https://nant.ch/carrieres/",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
       "id": "nant-37ad31e543ad",
       "slug": "educatore-mistrale-90-fondation-de-nant-corsier-sur-vevey",
       "company": "Fondation de Nant",
@@ -252,7 +209,7 @@
       "url": "https://app.beehire.com/invite/GhP4UCz1f",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:12:13.323Z",
+      "crawledAt": "2026-10-19T21:13:34.738Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -295,7 +252,7 @@
       "url": "https://app.beehire.com/invite/vOH7Zsw7M",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T09:12:13.317Z",
+      "crawledAt": "2026-10-19T21:13:34.737Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -317,6 +274,48 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "nant-466f15d99955",
+      "slug": "stewardship-dipendente-contratto-orario-6h-settimana-fondation-de-nant-chateau-d-x",
+      "company": "Fondation de Nant",
+      "companyKey": "nant",
+      "companyDomain": "nant.ch",
+      "title": "Employé·e en intendance – contrat horaire 6h/semaine",
+      "location": "Château-d’Œx",
+      "canton": "VD",
+      "url": "https://app.beehire.com/invite/PfepkyPQG",
+      "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-18T09:12:17.412Z",
+      "addressLocality": "Château-d’Œx",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1804",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Santé mentale / Psychiatrie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://app.beehire.com/invite/PfepkyPQG",
+      "careerSiteUrl": "https://nant.ch/carrieres/",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -359,7 +358,7 @@
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -369,5 +368,5 @@
       }
     }
   ],
-  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }

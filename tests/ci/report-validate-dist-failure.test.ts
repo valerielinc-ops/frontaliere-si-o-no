@@ -432,6 +432,12 @@ describe('redazione dei path .github/workflows/** (capability guard del fixer)',
       .toBe('gh workflow run audit-dist-from-run.yml -f x=1'); // bare .yml: il guard non ci matcha
   });
 
+  it('lo scanner dei timeout usa il matcher identico, non il reporter dist adattato', () => {
+    const scanner = readFileSync(resolve(ROOT, 'scripts/ci/scan-job-timeouts.mjs'), 'utf8');
+    expect(scanner).toContain("from '../lib/workflow-scope-detect.mjs'");
+    expect(scanner).not.toContain("from './report-validate-dist-failure.mjs'");
+  });
+
   it('il body finale è redatto anche quando il path arriva da un excerpt già composto', () => {
     const [payload] = buildIssuePayloads(bfsInput({
       failedJobs: [{

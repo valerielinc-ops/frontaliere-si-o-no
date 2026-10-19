@@ -7700,7 +7700,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
-            crawler_id="$2"
+            crawler_id="${2:-$slug}"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7744,35 +7744,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'solina' 'solina'
-          aggregate_crawler_member 'spital-muri' 'spital-muri'
-          aggregate_crawler_member 'localsearch' 'localsearch'
+          aggregate_crawler_member 'solina'
+          aggregate_crawler_member 'spital-muri'
+          aggregate_crawler_member 'localsearch'
           aggregate_crawler_member 'livingcircle' 'the-living-circle'
-          aggregate_crawler_member 'klinik-barmelweid' 'klinik-barmelweid'
-          aggregate_crawler_member 'hirslanden' 'hirslanden'
-          aggregate_crawler_member 'oetiker' 'oetiker'
-          aggregate_crawler_member 'suva' 'suva'
-          aggregate_crawler_member 'weisse-arena' 'weisse-arena'
-          aggregate_crawler_member 'csc-costruzioni' 'csc-costruzioni'
-          aggregate_crawler_member 'spital-sts' 'spital-sts'
-          aggregate_crawler_member 'ete' 'ete'
-          aggregate_crawler_member 'spital-oberengadin' 'spital-oberengadin'
-          aggregate_crawler_member 'paraplegie' 'paraplegie'
+          aggregate_crawler_member 'klinik-barmelweid'
+          aggregate_crawler_member 'hirslanden'
+          aggregate_crawler_member 'oetiker'
+          aggregate_crawler_member 'suva'
+          aggregate_crawler_member 'weisse-arena'
+          aggregate_crawler_member 'csc-costruzioni'
+          aggregate_crawler_member 'spital-sts'
+          aggregate_crawler_member 'ete'
+          aggregate_crawler_member 'spital-oberengadin'
+          aggregate_crawler_member 'paraplegie'
           aggregate_crawler_member 'zegna' 'ermenegildo-zegna-logistica'
-          aggregate_crawler_member 'fusalp' 'fusalp'
-          aggregate_crawler_member 'concara' 'concara'
-          aggregate_crawler_member 'fielmann' 'fielmann'
-          aggregate_crawler_member 'concordia' 'concordia'
-          aggregate_crawler_member 'engadin-tourismus' 'engadin-tourismus'
-          aggregate_crawler_member 'colin-cie' 'colin-cie'
-          aggregate_crawler_member 'bcv' 'bcv'
-          aggregate_crawler_member 'apple-retail-switzerland' 'apple-retail-switzerland'
-          aggregate_crawler_member 'bethesda-spital' 'bethesda-spital'
-          aggregate_crawler_member 'air-zermatt' 'air-zermatt'
-          aggregate_crawler_member 'benu' 'benu'
-          aggregate_crawler_member 'bitfinex' 'bitfinex'
+          aggregate_crawler_member 'fusalp'
+          aggregate_crawler_member 'concara'
+          aggregate_crawler_member 'fielmann'
+          aggregate_crawler_member 'concordia'
+          aggregate_crawler_member 'engadin-tourismus'
+          aggregate_crawler_member 'colin-cie'
+          aggregate_crawler_member 'bcv'
+          aggregate_crawler_member 'apple-retail-switzerland'
+          aggregate_crawler_member 'bethesda-spital'
+          aggregate_crawler_member 'air-zermatt'
+          aggregate_crawler_member 'benu'
+          aggregate_crawler_member 'bitfinex'
           aggregate_crawler_member 'sunrise' 'sunrise-sede-ticino'
-          aggregate_crawler_member 'lwphr' 'lwphr'
+          aggregate_crawler_member 'lwphr'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
