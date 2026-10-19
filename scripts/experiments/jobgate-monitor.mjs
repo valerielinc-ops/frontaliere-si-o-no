@@ -306,10 +306,14 @@ async function syncIssues({ report, state, prevIssue, alarms, decision, applied,
 
 // ── Main ─────────────────────────────────────────────────────
 
+function publishRemoteConfig(args) {
+  return execFileSync(process.execPath, args, { stdio: ['ignore', 2, 'inherit'] });
+}
+
 export async function runMonitor(argv, {
   now = new Date(),
   eventName = process.env.GITHUB_EVENT_NAME,
-  publishRc = (args) => execFileSync(process.execPath, args, { stdio: ['ignore', 2, 'inherit'] }),
+  publishRc = publishRemoteConfig,
   // Dependency injection for unit tests; the production CLI never populates it.
   testInputs = null,
 } = {}) {
@@ -319,6 +323,9 @@ export async function runMonitor(argv, {
     return { exitCode: 0 };
   }
   assertSafePromotionInputs(args);
+  if (args.apply && args['approve-promotion'] && testInputs && publishRc === publishRemoteConfig) {
+    throw new Error('An approved promotion cannot use injected test inputs with the live Remote Config publisher.');
+  }
   const rcValues = testInputs?.rcValues
     ?? (args['rc-json'] ? JSON.parse(fs.readFileSync(args['rc-json'], 'utf8')) : await readRcValues());
   const startedAt = String(rcValues[JOBGATE_STARTED_AT_KEY] ?? '').trim();

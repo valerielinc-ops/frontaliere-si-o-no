@@ -25,32 +25,17 @@ controllata. Il parametro pubblico è
 
 ## Misurazione
 
-Gli eventi restano nel funnel Firebase Analytics dell'esperimento
-`assisted-application-v2` e aggiungono:
+Gli eventi originali restano intatti nel funnel Firebase Analytics
+`assisted-application-v2`. In parallelo, gli eventi chiave della candidatura
+assistita emettono nomi dedicati `aa_copy_<fase>_<variante>`: per esempio
+`aa_copy_exposure_time_saved` e `aa_copy_completed_time_saved`. Il nome evento
+è una dimensione GA4 standard; così ogni conversione porta la variante nella
+stessa emissione, senza user properties persistenti, nuove custom dimensions o
+dipendenze dall'ordine asincrono tra chiamate Analytics. Sono tracciati
+esposizione, completamento checkout e gli esiti secondari elencati nel
+readout. I nomi sono low-cardinality e non contengono dati personali.
 
-- `copy_experiment_id: assisted-application-copy-v1`;
-- `copy_variant`, presente dall'impressione fino al pagamento, al consenso,
-  all'upload e alla coda manuale.
-
-Per rendere la segmentazione utilizzabile nei report GA4 senza consumare altri
-event-scoped custom dimensions (il limite EVENT è già esaurito), attorno a ogni
-evento di candidatura assistita assegnato si impostano due user properties
-low-cardinality e non personali; vengono cancellate subito dopo l'evento e
-prima degli eventi fuori dal test, così non contaminano altri percorsi sullo
-stesso client Analytics:
-
-- `aa_copy_experiment` = `assisted-application-copy-v1`;
-- `aa_copy_variant` = `control`, `time_saved`, `portal_relief` oppure `handled_for_you`.
-
-Le due definizioni GA4 sono USER-scoped. Il dry-run, che è il default, è:
-
-```bash
-node scripts/experiments/assisted-application-copy-ga4.mjs
-```
-
-La registrazione è una modifica amministrativa durevole: eseguire
-`--apply` solo dopo aver verificato property, scope e nomi nel dry-run. Per il
-readout, dopo la registrazione:
+Readout:
 
 ```bash
 node scripts/analytics/assisted-application-copy-readout.mjs --days 28
@@ -65,13 +50,14 @@ Il rapporto checkout completati / offerte viste è descrittivo nella stessa
 finestra, non una conversione di coorte rigorosa: persone esposte prima
 dell'intervallo possono completare il checkout al suo interno. Per un confronto
 cumulativo usa sempre la stessa data iniziale del test e un `--until` assestato.
-La registrazione non retro-etichetta gli eventi passati. Nessun nome, email,
-testo della candidatura o URL viene aggiunto alle user properties.
+Il readout non retro-etichetta eventi precedenti alla nuova strumentazione. Non
+vengono aggiunti nomi, email, testo della candidatura o URL a GA4.
 
-KPI primario: utenti unici con `checkout_completed` / utenti unici con
-`assisted_application_offer_viewed` per braccio (rapporto descrittivo nella
-finestra, non attribuzione rigorosa per singola coorte). KPI secondari: scelta del pagamento, abbandono dopo l'apertura del
-checkout, consenso, upload del CV e candidatura messa in coda. Guardrail:
+KPI primario: utenti unici con `aa_copy_completed_<variante>` / utenti unici
+con `aa_copy_exposure_<variante>` (rapporto descrittivo nella finestra, non
+attribuzione rigorosa per singola coorte). KPI secondari: scelta del pagamento,
+abbandono dopo l'apertura del checkout, consenso, upload del CV e candidatura
+messa in coda. Guardrail:
 scelta del percorso gratuito, errori checkout/upload, rimborsi, blocchi e tempo
 operativo.
 

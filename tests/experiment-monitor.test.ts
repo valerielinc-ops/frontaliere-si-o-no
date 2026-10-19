@@ -348,12 +348,20 @@ describe('CLI jobgate-v5-monitor (fixture, nessuna rete)', () => {
 
   async function runWithPublisher(extra: string[], eventName: string) {
     const publishRc = vi.fn();
-    const result = await runMonitor(extra, {
-      eventName,
-      publishRc,
-      testInputs: { rcValues: rcOn, statusPayload: winning },
-    });
-    return { result, publishRc };
+    const previousProperty = process.env.GA4_PROPERTY_ID;
+    process.env.GA4_PROPERTY_ID = 'properties/524485296';
+    try {
+      const result = await runMonitor(extra, {
+        eventName,
+        now: new Date('2026-12-16T12:00:00Z'),
+        publishRc,
+        testInputs: { rcValues: rcOn, statusPayload: winning },
+      });
+      return { result, publishRc };
+    } finally {
+      if (previousProperty === undefined) delete process.env.GA4_PROPERTY_ID;
+      else process.env.GA4_PROPERTY_ID = previousProperty;
+    }
   }
 
   it('dry-run di default: promozione pronta, comando stampato e non eseguito', () => {
@@ -381,6 +389,21 @@ describe('CLI jobgate-v5-monitor (fixture, nessuna rete)', () => {
     expect(approved.result.state).toMatchObject({ action: 'promote', applied: true });
     expect(approved.publishRc).toHaveBeenCalledOnce();
     expect(approved.publishRc.mock.calls[0][0]).toContain('--apply');
+  });
+
+  it('non consente che fixture iniettate raggiungano il publisher Remote Config di produzione', async () => {
+    const previousProperty = process.env.GA4_PROPERTY_ID;
+    process.env.GA4_PROPERTY_ID = 'properties/524485296';
+    try {
+      await expect(runMonitor(['--apply', '--approve-promotion'], {
+        eventName: 'workflow_dispatch',
+        now: new Date('2026-12-16T12:00:00Z'),
+        testInputs: { rcValues: rcOn, statusPayload: winning },
+      })).rejects.toThrow(/cannot use injected test inputs with the live Remote Config publisher/);
+    } finally {
+      if (previousProperty === undefined) delete process.env.GA4_PROPERTY_ID;
+      else process.env.GA4_PROPERTY_ID = previousProperty;
+    }
   });
 
   it('non permette a fixture JSON CLI di autorizzare una promozione', async () => {
