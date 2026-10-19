@@ -530,6 +530,12 @@ describe('readout: finestra vincolata alla data effettiva di jobgate-v5', () => 
     })).toEqual({ since: '2026-10-20', until: '2026-10-28' });
   });
 
+  it('rifiuta --since e --days insieme invece di ignorare la data esplicita', () => {
+    expect(() => resolveJobGateReadoutWindow({ since: '2026-10-22', days: '14' }, {
+      experimentStart: '2026-10-19',
+    })).toThrow(/--since and --days are mutually exclusive/);
+  });
+
   it('keeps --baseline --days independent from the experiment launch floor', () => {
     expect(resolveJobGateReadoutWindow({ days: '14', baseline: true }, {
       defaultSince: '2026-10-20',

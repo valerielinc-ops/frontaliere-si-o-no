@@ -31,7 +31,11 @@ export function resolveJobGateReadoutWindow(args, {
     throw new Error(`Invalid default analysis start: ${earliestSince}`);
   }
 
-  if (args.days) {
+  if (args.days != null && args.since) {
+    throw new Error('--since and --days are mutually exclusive; choose a fixed start date or a rolling window.');
+  }
+
+  if (args.days != null) {
     const days = Number(args.days);
     if (!Number.isInteger(days) || days < 1) throw new Error('--days must be an integer >= 1');
     const settled = settledWindow({ days, lagDays, now });

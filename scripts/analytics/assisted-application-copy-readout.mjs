@@ -54,6 +54,8 @@ function resolveWindow(args, now = new Date()) {
 
 export function summarizeCopyReport(response) {
   const byVariant = {};
+  // The request has only `eventName` as a dimension, so GA4 returns one row
+  // per event name; user totals must not be summed across overlapping rows.
   for (const row of response?.rows || []) {
     const [encodedEventName] = (row.dimensionValues || []).map((value) => value?.value ?? '');
     const [eventCount, totalUsers] = (row.metricValues || []).map((value) => Number(value?.value) || 0);

@@ -199,6 +199,10 @@ describe('telemetry and subscriber tags', () => {
     expect(getJobGateTelemetryParams()).toBeNull();
     expect(getJobGateSubscriberVariant()).toBeNull();
     expect(jobGateNewsletterTags('job_gate_google_unlock')).toEqual({});
+    setActiveJobGateAssignment({ ready: false, enrolled: false, arm: 'spotlight' });
+    expect(getJobGateTelemetryParams()).toBeNull();
+    expect(getJobGateSubscriberVariant()).toBeNull();
+    expect(jobGateNewsletterTags('job_gate_google_unlock')).toEqual({});
   });
 
   it('tags the gate subscribe event and the subscriber document for an enrolled visitor', () => {
@@ -396,6 +400,13 @@ describe('scripts/experiments/jobgate-rc.mjs (pure parts, no network)', () => {
     });
     expect(template.parameters[JOBGATE_STARTED_AT_KEY]).toMatchObject({ defaultValue: { value: '2026-10-19' }, valueType: 'STRING' });
     expect(template.parameters[JOBGATE_LEGACY_FORCE_KEY].defaultValue.value).toBe('spotlight');
+
+    const repeatedValues = buildJobGateValues(parseArgs([]), {
+      existingStartedAt: template.parameters[JOBGATE_STARTED_AT_KEY].defaultValue.value,
+      now: new Date('2026-10-20T12:00:00Z'),
+    });
+    expect(repeatedValues[JOBGATE_STARTED_AT_KEY]).toBe('2026-10-19');
+    expect(stageJobGateValues(template, repeatedValues).every((entry: { changed: boolean }) => !entry.changed)).toBe(true);
   });
 
   it('publishes without force (etag-guarded) and only behind --apply', () => {

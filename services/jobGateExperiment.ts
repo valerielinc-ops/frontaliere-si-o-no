@@ -75,12 +75,14 @@ export function resolveJobGateAssignment(input: {
 let activeAssignment: JobGateAssignment | null = null;
 
 export function setActiveJobGateAssignment(assignment: JobGateAssignment | null): void {
-  activeAssignment = assignment && assignment.enrolled ? assignment : null;
+  activeAssignment = assignment;
 }
 
 /** `{ experiment_id, variant }` for the enrolled visitor, or null (not enrolled / not resolved). */
 export function getJobGateTelemetryParams(): { experiment_id: string; variant: JobGateArm } | null {
-  return activeAssignment ? { experiment_id: JOBGATE_EXPERIMENT_ID, variant: activeAssignment.arm } : null;
+  return activeAssignment?.enrolled
+    ? { experiment_id: JOBGATE_EXPERIMENT_ID, variant: activeAssignment.arm }
+    : null;
 }
 
 /** `newsletter_subscribers.variant` for the enrolled visitor (`jobgate-v5:<arm>`), else null. */
