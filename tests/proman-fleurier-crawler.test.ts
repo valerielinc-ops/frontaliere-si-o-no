@@ -24,6 +24,23 @@ const detailFixture = readFileSync(
   'utf8',
 ).replace('{{POSTED_DATE}}', swissPostedDate);
 const canonicalSeed = 'https://www.proman-group.ch/Job/SearchJobs?brancheId=0&regionId=0&typeId=0';
+const currentRenderedFixture = `
+  <section class="u-section-job-details-header"><div><h1>Automaticien de production</h1></div></section>
+  <section class="u-section-job-details-content"><div class="u-job-details">
+    <article class="u-job-item">
+      <h2>Automaticien de production</h2>
+      <ul class="u-job-infos">
+        <li><u-svg source="24/job/location"></u-svg><span class="sr-only">lieu</span> Canton de Neuchâtel </li>
+        <li><u-svg source="24/job/type"></u-svg><span class="sr-only">Type de poste</span> Poste fixe </li>
+      </ul>
+      <p class="u-intro"></p>
+      <ul class="u-specs">
+        <p>Votre profil</p><div><ul><li>Formation technique achevée</li><li>Expérience confirmée dans l'automation industrielle.</li></ul></div>
+        <p>Vos tâches</p><div>Réaliser le montage, le câblage et la mise en service des équipements.</div>
+      </ul>
+    </article>
+  </div></section>
+`;
 
 function response(url: string, body: string) {
   return {
@@ -44,6 +61,88 @@ describe('PROMAN Fleurier source-backed crawler', () => {
     expect(detail.canton).toBe('NE');
     expect(detail.addressLocality).toBe('La Chaux-de-Fonds');
     expect(detail.description.split(/\s+/u).length).toBeGreaterThan(50);
+  });
+
+  it('extracts the current rendered detail fields when structured vacancy data is absent', () => {
+    const detail = extractPromanFleurierDetailFields(currentRenderedFixture, detailUrl);
+    expect(detail.title).toBe('Automaticien de production');
+    expect(detail.location).toBe('Canton de Neuchâtel');
+    expect(detail.canton).toBe('NE');
+    expect(detail.addressLocality).toBe('');
+    expect(detail.description).toContain('montage');
+    expect(detail.description).toContain('Expérience confirmée');
+    expect(detail.description).not.toContain('Personne de contact');
+  });
+
+  it('accepts only an exact class token from a real class attribute', () => {
+    const html = `
+      <section class="u-section-job-details-header"><h1>Role</h1></section>
+      <ul class="u-job-infos"><li><u-svg source="24/job/location"></u-svg> Fleurier</li></ul>
+      <div data-class="u-specs">wrong-data</div>
+      <div class="u-specs-extra">wrong-prefix</div>
+      <div class="u-specs">real description</div>
+    `;
+    const detail = extractPromanFleurierDetailFields(html, detailUrl);
+    expect(detail.description).toContain('real description');
+    expect(detail.description).not.toContain('wrong');
+  });
+
+  it('keeps a long rendered posting detail and retains the crawled vacancy', async () => {
+    const longDescription = 'Description complète du poste avec responsabilités et compétences. '.repeat(400);
+    const longDetailFixture = `
+      <section class="u-section-job-details-header"><h1>Automaticien de production</h1></section>
+      <ul class="u-job-infos"><li><u-svg source="24/job/location"></u-svg><span>lieu</span>Fleurier</li></ul>
+      <ul class="u-specs"><div>${longDescription}</div></ul>
+    `;
+    const fetchImpl = async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 'User-agent: *\nAllow: /');
+      if (url === canonicalSeed) {
+        return response(url, `<li class="u-job-item"><a class="u-link-fit" href="${new URL(detailUrl).pathname.replace(/\/$/, '')}" aria-hidden="true"></a><div><h3>Automaticien de production</h3><ul class="u-job-infos"><li><u-svg source="24/job/location"></u-svg><span>lieu</span>Fleurier</li></ul></div></li>`);
+      }
+      if (url === detailUrl.replace(/\/$/, '')) return response(url, longDetailFixture);
+      throw new Error(`unexpected URL ${url}`);
+    };
+    const jobs = await fetchAllPromanFleurierJobs({
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      hostDelayMs: 0,
+      retries: 0,
+    });
+
+    expect(extractPromanFleurierDetailFields(longDetailFixture, detailUrl).description.length).toBeGreaterThan(20_000);
+    expect(jobs).toEqual([expect.objectContaining({
+      url: detailUrl.replace(/\/$/, ''),
+      canton: 'NE',
+      description: expect.stringContaining('responsabilités et compétences'),
+    })]);
+  });
+
+  it('rejects an incomplete rendered container instead of publishing its tail', () => {
+    const incompleteFixture = `
+      <section class="u-section-job-details-header"><h1>Automaticien de production</h1></section>
+      <ul class="u-job-infos"><li><u-svg source="24/job/location"></u-svg> Fleurier</li></ul>
+      <ul class="u-specs"><p>Vos tâches</p><div>source body before footer-leak`;
+    const detail = extractPromanFleurierDetailFields(incompleteFixture, detailUrl);
+    expect(detail.description).not.toContain('footer-leak');
+  });
+
+  it('uses only reviewed Proman aliases when the detail omits a recognized municipality', () => {
+    const neuchatelAlias = extractPromanFleurierDetailFields(
+      currentRenderedFixture.replace('Canton de Neuchâtel', 'Couvet'),
+      detailUrl,
+    );
+    expect(neuchatelAlias.location).toBe('Couvet');
+    expect(neuchatelAlias.canton).toBe('NE');
+    expect(neuchatelAlias.addressLocality).toBe('Val-de-Travers');
+
+    const foreignAlias = extractPromanFleurierDetailFields(
+      currentRenderedFixture.replace('Canton de Neuchâtel', 'St-Léonard'),
+      detailUrl,
+    );
+    expect(foreignAlias.location).toBe('');
+    expect(foreignAlias.sourceBackedCanton).toBe('VS');
+    expect(isPromanFleurierExpectedDetailFilter({ reason: 'geography', detail: foreignAlias })).toBe(true);
   });
 
   it('pairs an empty overlay link with the visible heading in the same listing card', () => {

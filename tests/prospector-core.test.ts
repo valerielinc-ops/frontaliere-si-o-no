@@ -1242,6 +1242,39 @@ describe('careers trail', () => {
     expect(isCareerLink(link)).toBe(true);
   });
 
+  it('reads a card heading for an aria-hidden overlay link', () => {
+    const html = '<li class="u-job-item"><a class="u-link-fit" href="/job/42/automaticien" aria-hidden="true"></a><div><h3>Automaticien de production</h3></div></li>';
+    const [link] = extractLinks(html, 'https://acme.ch/');
+    expect(link).toMatchObject({
+      url: 'https://acme.ch/job/42/automaticien',
+      text: 'Automaticien de production',
+    });
+  });
+
+  it('does not borrow an overlay heading from outside a balanced list item', () => {
+    const html = '<li><h3>Previous card</h3></li><a href="/job/42" aria-hidden="true"></a><h3>Unrelated heading</h3>';
+    const [link] = extractLinks(html, 'https://acme.ch/');
+    expect(link.text).toBe('');
+  });
+
+  it('does not bind a later closing tag to an earlier unclosed anchor', () => {
+    const html = `<a href="/first">First ${'x'.repeat(500)}<a href="/second">Second</a>`;
+    const links = extractLinks(html, 'https://acme.ch/');
+    expect(links[0].text).not.toContain('Second');
+    expect(links[1].text).toBe('Second');
+  });
+
+  it('keeps overlay link text bounded by a case-insensitive closing tag', () => {
+    const links = extractLinks(
+      '<A href="/jobs">Jobs</A><a href="/other">Other</a>',
+      'https://acme.ch/',
+    );
+    expect(links.map(({ url, text }) => ({ url, text }))).toEqual([
+      { url: 'https://acme.ch/jobs', text: 'Jobs' },
+      { url: 'https://acme.ch/other', text: 'Other' },
+    ]);
+  });
+
   it('only accepts unlabelled third-party links in relaxed mode', () => {
     const links = [{ url: 'https://acme.ats.example/', text: '', host: 'acme.ats.example' }];
     expect(externalAtsLinks(links, 'acme.ch')).toEqual([]);

@@ -42,6 +42,15 @@ describe('prospector careers ownership trail', () => {
     await expect(careersFromSitemap('https://www.mediamarkt.ch')).resolves.toEqual([]);
   });
 
+  it('does not borrow an outer list heading for an empty nested overlay link', () => {
+    const links = extractLinks(
+      '<li><ul><li><a aria-hidden="true" href="/job"></a></li></ul><h3>Outer</h3></li>',
+      'https://careers.example/',
+    );
+
+    expect(links).toEqual([{ url: 'https://careers.example/job', text: '', host: 'careers.example' }]);
+  });
+
   it('does not promote a homepage fallback or its partner-logo footer', async () => {
     const homepage = `<html><title>Villa Garni Gardenia</title><body><main>Benvenuti a Caslano${filler}</main><footer><a href="https://www.hotelleriesuisse.ch/it/"><img alt="Partner"></a></footer></body></html>`;
     mocks.politeFetch.mockImplementation(async (url: string) => response(url, homepage));

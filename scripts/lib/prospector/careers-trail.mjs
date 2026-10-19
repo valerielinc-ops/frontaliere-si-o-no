@@ -123,6 +123,39 @@ export function joinAnchorParts(text = '', attr = '') {
 }
 
 /**
+ * Return balanced list-item scopes so overlay headings cannot leak across
+ * cards when the source contains an empty, aria-hidden anchor.
+ * @param {string} html
+ * @returns {{ start: number, end: number }[]}
+ */
+function balancedListItemScopes(html = '') {
+  const scopes = [];
+  const stack = [];
+  const rx = /<\/?li\b[^>]*>/gi;
+  let match;
+  while ((match = rx.exec(String(html || '')))) {
+    if (match[0].startsWith('</')) {
+      const start = stack.pop();
+      if (start !== undefined) scopes.push({ start, end: match.index + match[0].length });
+    } else {
+      stack.push(match.index);
+    }
+  }
+  return scopes;
+}
+
+function containingListItem(scopes, anchorStart, anchorEnd) {
+  let closest = null;
+  for (const scope of scopes) {
+    if (scope.start < anchorStart && scope.end >= anchorEnd
+      && (!closest || scope.start > closest.start)) {
+      closest = scope;
+    }
+  }
+  return closest;
+}
+
+/**
  * Absolute same-host links in an HTML document, with their anchor text.
  * Cross-origin links are available only when a caller explicitly opts in;
  * careers-trail discovery does that for the separate ATS hop, while the
@@ -147,17 +180,42 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
   let baseHost = '';
   try { baseHost = new URL(baseUrl).host; } catch { /* absolute hrefs may still be usable */ }
   const sameOriginOnly = options.sameOriginOnly ?? true;
-  const rx = /<a\b([^>]*)>/gi;
-  let m;
-  while ((m = rx.exec(html))) {
+  const anchors = [...String(html || '').matchAll(/<a\b([^>]*)>/gi)];
+  const listItemScopes = balancedListItemScopes(html);
+  for (let anchorIndex = 0; anchorIndex < anchors.length; anchorIndex += 1) {
+    const m = anchors[anchorIndex];
     const attrs = m[1];
+    const anchorContentStart = m.index + m[0].length;
+    const nextAnchorStart = anchors[anchorIndex + 1]?.index ?? html.length;
+    const textWindowEnd = Math.min(html.length, nextAnchorStart, anchorContentStart + 4000);
+    const closeOffset = html.slice(anchorContentStart, textWindowEnd).search(/<\/a>/i);
+    const anchorClose = closeOffset >= 0 ? anchorContentStart + closeOffset : -1;
     const href = readAttr(attrs, 'href');
     if (!href) continue;
     if (/^(#|mailto:|tel:|javascript:|data:)/i.test(href.trim())) continue;
     // Anchor text = the markup up to the next </a>, tags stripped.
-    const rest = html.slice(rx.lastIndex, rx.lastIndex + 400);
-    const text = rest.split(/<\/a>/i)[0].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    const rest = html.slice(
+      anchorContentStart,
+      anchorClose >= 0 ? anchorClose : Math.min(html.length, anchorContentStart + 400),
+    );
+    const text = rest.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
     const aria = readAttr(attrs, ['aria-label', 'title']);
+    // Some card templates use an empty, aria-hidden overlay anchor as the
+    // click target and render the authored title in a sibling heading. Keep
+    // that heading as link evidence when the source explicitly marks the
+    // anchor as hidden; this avoids guessing from arbitrary nearby prose.
+    let overlayHeading = '';
+    if (!text && /^true$/i.test(String(readAttr(attrs, 'aria-hidden') || '').trim())) {
+      const anchorEnd = anchorClose >= 0 ? anchorClose + 4 : anchorContentStart;
+      const item = containingListItem(listItemScopes, m.index, anchorEnd);
+      if (item && item.end > anchorEnd) {
+        const scope = html.slice(anchorEnd, item.end);
+        overlayHeading = scope.match(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/i)?.[1]
+          ?.replace(/<[^>]*>/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim() || '';
+      }
+    }
     let parsed;
     try { parsed = new URL(href, baseUrl); } catch { continue; }
     if (!/^https?:$/i.test(parsed.protocol)) continue;
@@ -166,7 +224,11 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
     const key = abs.split('#')[0];
     if (seen.has(key)) continue;
     seen.add(key);
-    out.push({ url: abs, text: cleanAnchorText(joinAnchorParts(text, aria)), host: normalizeHost(parsed.hostname) });
+    out.push({
+      url: abs,
+      text: cleanAnchorText(joinAnchorParts(text || overlayHeading, aria)),
+      host: normalizeHost(parsed.hostname),
+    });
   }
   return out;
 }
