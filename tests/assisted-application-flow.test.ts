@@ -369,14 +369,17 @@ describe('career-ops handoff, closed ads and owner regeneration', () => {
     });
     expect(transition(step.flow, { type: 'portal_auto_retry' }, { draft: roundDraft, nowMs: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0] - 1 }).ignored).toBe('portal_retry_not_due');
 
-    step = transition(step.flow, { type: 'portal_auto_retry' }, { draft: roundDraft, nowMs: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0] });
+    // applyAutomationEvent keeps the existing dispatch when it persists a
+    // transition without a new dispatch effect.
+    step = transition({ ...step.flow, dispatch: submitting.dispatch }, { type: 'portal_auto_retry' }, { draft: roundDraft, nowMs: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0] });
     expect(step.flow).toMatchObject({ state: 'submitting', portalAutoRetryCount: 1, portalAutoRetryAt: null });
     expect(step.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
 
     const secondHandoffAt = T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0] + 1_000;
-    step = transition(step.flow, { type: 'submit_handoff', reason: 'portal_needs_candidate' }, { draft: roundDraft, nowMs: secondHandoffAt });
+    const retryDispatch = { mode: 'submit', round: 1, attempts: 1, reason: 'portal_auto_retry' };
+    step = transition({ ...step.flow, dispatch: retryDispatch }, { type: 'submit_handoff', reason: 'portal_needs_candidate' }, { draft: roundDraft, nowMs: secondHandoffAt });
     expect(step.flow.portalAutoRetryAt).toBe(secondHandoffAt + PORTAL_AUTO_RETRY_DELAYS_MS[1]);
-    step = transition(step.flow, { type: 'portal_auto_retry' }, { draft: roundDraft, nowMs: secondHandoffAt + PORTAL_AUTO_RETRY_DELAYS_MS[1] });
+    step = transition({ ...step.flow, dispatch: retryDispatch }, { type: 'portal_auto_retry' }, { draft: roundDraft, nowMs: secondHandoffAt + PORTAL_AUTO_RETRY_DELAYS_MS[1] });
     expect(step.flow).toMatchObject({ state: 'submitting', portalAutoRetryCount: 2, portalAutoRetryAt: null });
 
     step = transition(step.flow, { type: 'submit_handoff', reason: 'portal_needs_candidate' }, { draft: roundDraft, nowMs: secondHandoffAt + PORTAL_AUTO_RETRY_DELAYS_MS[1] + 1_000 });
