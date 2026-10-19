@@ -511,7 +511,7 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     expect(r.stdout).toMatch(/skipping targeted CDN purge: publish window is not coherent/);
     expect(r.stdout).not.toMatch(/ledger: 1 key\(s\) uploaded by this run/);
     expect(r.ledger).toBeNull();
-    expect(completionMarkerPuts(r.calls)).toHaveLength(1);
+    expect(completionMarkerPuts(r.calls)).toEqual([]);
     expect(r.calls.some((c) => /rclone \S+\/stage\/cdn-build-id\.txt :s3:bkt\/cdn-build-id\.txt/.test(c))).toBe(false);
   });
 
