@@ -79,10 +79,11 @@ export function capExtractedText(text, maxChars = MAX_DEFAULT_LEN) {
  * Try to pull articleBody / description / headline from any JSON-LD blocks.
  * Returns the longest articleBody-shaped string found, or null.
  */
-function extractFromJsonLd(document) {
-  const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+function extractFromJsonLd(root, include = () => true) {
+  const scripts = root.querySelectorAll('script[type="application/ld+json"]');
   let best = null;
   for (const script of scripts) {
+    if (!include(script)) continue;
     let parsed;
     try {
       parsed = JSON.parse(script.textContent);
@@ -186,11 +187,183 @@ function collectParagraphTexts(root, include = () => true, maxChars = Number.POS
     .filter(Boolean);
 }
 
-function normalizeNoscriptRoot(noscript) {
-  if (noscript.querySelector(PARAGRAPH_SELECTOR)) return noscript;
+const NOSCRIPT_RAW_TEXT_OPEN_RE = /<(script|style|textarea|title|xmp|iframe|noembed|noframes|plaintext)\b[^>]*>/gi;
+const NOSCRIPT_RECOVERABLE_TAIL_RE = /^<(p|h2|h3|h4|li|blockquote)\b[^>]*>/i;
+const NOSCRIPT_END_TAG_RE = /^<\/noscript\s*>/i;
+
+function findUnclosedNoscriptRawTextElement(markup) {
+  const rawTextOpening = new RegExp(NOSCRIPT_RAW_TEXT_OPEN_RE.source, 'gi');
+  let opening;
+  while ((opening = rawTextOpening.exec(markup))) {
+    const tag = opening[1].toLowerCase();
+    if (tag === 'plaintext') {
+      return { contentStart: rawTextOpening.lastIndex, tag };
+    }
+
+    const closing = new RegExp(`</${tag}\\s*>`, 'gi');
+    closing.lastIndex = rawTextOpening.lastIndex;
+    const match = closing.exec(markup);
+    if (!match) return { contentStart: rawTextOpening.lastIndex, tag };
+    rawTextOpening.lastIndex = closing.lastIndex;
+  }
+  return null;
+}
+
+function hasClosedNoscriptRawTextElements(markup) {
+  return findUnclosedNoscriptRawTextElement(markup) === null;
+}
+
+function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
+  let state = 'code';
+  for (let index = contentStart; index < markup.length; index += 1) {
+    const char = markup[index];
+    const next = markup[index + 1];
+
+    if (state === 'template') {
+      // Nested template/interpolation parsing is intentionally unsupported:
+      // never recover an outer boundary after entering this lexical state.
+      return -1;
+    }
+
+    if (state === 'single-quote' || state === 'double-quote') {
+      if (char === '\\') {
+        index += 1;
+      } else if ((state === 'single-quote' && char === "'")
+        || (state === 'double-quote' && char === '"')) {
+        state = 'code';
+      }
+      continue;
+    }
+
+    if (state === 'line-comment') {
+      if (char === '\n' || char === '\r') state = 'code';
+      continue;
+    }
+
+    if (state === 'block-comment') {
+      if (char === '*' && next === '/') {
+        state = 'code';
+        index += 1;
+      }
+      continue;
+    }
+
+    if (state === 'regex-literal' || state === 'regex-character-class') {
+      if (char === '\\') {
+        index += 1;
+      } else if (state === 'regex-literal' && char === '[') {
+        state = 'regex-character-class';
+      } else if (state === 'regex-character-class' && char === ']') {
+        state = 'regex-literal';
+      } else if (state === 'regex-literal' && char === '/') {
+        state = 'code';
+      }
+      continue;
+    }
+
+    if (state === 'html-comment') {
+      if (markup.startsWith('-->', index)) {
+        state = 'code';
+        index += 2;
+      }
+      continue;
+    }
+
+    if (markup.startsWith('</noscript', index)) {
+      const endTag = NOSCRIPT_END_TAG_RE.exec(markup.slice(index));
+      if (endTag) return index + endTag[0].length;
+    }
+
+    if (char === "'") {
+      state = 'single-quote';
+    } else if (char === '"') {
+      state = 'double-quote';
+    } else if (char === '`') {
+      // A template literal may contain nested interpolation/templates; fail
+      // closed instead of trying to tokenize only part of JavaScript.
+      return -1;
+    } else if (char === '/' && next === '/') {
+      state = 'line-comment';
+      index += 1;
+    } else if (char === '/' && next === '*') {
+      state = 'block-comment';
+      index += 1;
+    } else if (char === '/') {
+      state = 'regex-literal';
+    } else if (markup.startsWith('<!--', index)) {
+      state = 'html-comment';
+      index += 3;
+    }
+  }
+  return -1;
+}
+
+function findReliableNoscriptTailBoundary(markup, tailStart) {
+  const opening = NOSCRIPT_RECOVERABLE_TAIL_RE.exec(markup.slice(tailStart));
+  if (!opening) return null;
+
+  const closing = new RegExp(`^</${opening[1]}\\s*>`, 'i');
+  const content = markup.slice(tailStart + opening[0].length);
+  for (let index = 0; index < content.length; index += 1) {
+    const char = content[index];
+    if (char === '<') {
+      // Only the close for the immediate opener is a source-level boundary.
+      // Any other markup could be a comparison or a lexical payload.
+      const closingMatch = closing.exec(content.slice(index));
+      return closingMatch
+        ? {
+          start: tailStart,
+          end: tailStart + opening[0].length + index + closingMatch[0].length,
+        }
+        : null;
+    }
+
+    // Quotes, JSON delimiters, slashes/comments and code punctuation make a
+    // closing tag ambiguous: it may belong to JavaScript rather than this
+    // plain HTML tail.
+    if ('"\'`{}[]();=\\/'.includes(char)) {
+      return null;
+    }
+  }
+  return null;
+}
+
+function hasSafeNoscriptTailSuffix(markup, tailEnd) {
+  return /^\s*(?:<\/noscript\s*>)?\s*$/i.test(markup.slice(tailEnd));
+}
+
+function findRecoverableNoscriptTail(markup, contentStart, rawTextTag) {
+  if (rawTextTag !== 'script') return -1;
+  const leadingWhitespace = markup.slice(contentStart).match(/^\s*/u)?.[0].length || 0;
+  const tailStart = contentStart + leadingWhitespace;
+
+  // A code prefix such as `a<p>b` is valid JavaScript comparison syntax. Do
+  // not scan past it looking for a later paragraph-shaped token.
+  const boundary = findReliableNoscriptTailBoundary(markup, tailStart);
+  return boundary && hasSafeNoscriptTailSuffix(markup, boundary.end)
+    ? boundary.start
+    : -1;
+}
+
+/**
+ * Normalize a noscript fallback whose nested markup was preserved as text.
+ * Raw-text elements consume everything after an unmatched opening tag, so an
+ * unclosed one rejects the whole block instead of returning a parser-dependent
+ * fragment. Detached innerHTML parsing does not execute scripts or load assets.
+ */
+function parseNoscriptFallback(noscript, sourceMarkup) {
+  // Validate the original bytes before consulting the DOM: an unclosed
+  // raw-text element can change the tree JSDOM exposes after the damage.
+  if (typeof sourceMarkup !== 'string' || !hasClosedNoscriptRawTextElements(sourceMarkup)) {
+    return null;
+  }
+  if (noscript.querySelector(`${PARAGRAPH_SELECTOR}, script[type="application/ld+json"]`)) {
+    return noscript;
+  }
 
   const rawMarkup = noscript.textContent || '';
   if (!/<\/?[a-z][\s\S]*>/i.test(rawMarkup)) return noscript;
+  if (!hasClosedNoscriptRawTextElements(rawMarkup)) return null;
 
   const normalized = noscript.ownerDocument.createElement('div');
   normalized.innerHTML = rawMarkup;
@@ -213,11 +386,12 @@ function hasNoscriptNonContentMarker(element) {
     });
 }
 
-function hasNoscriptNonContentAncestor(node, root) {
+function hasNoscriptNonContentAncestor(node, root, { allowCandidateMetadataTag = false } = {}) {
   for (let current = node; current; current = current.parentElement) {
     const tag = current.tagName.toLowerCase();
-    if (NOSCRIPT_METADATA_TAGS.has(tag)
-      || NOSCRIPT_TRACKING_TAGS.has(tag)
+    const candidateTagIsAllowed = allowCandidateMetadataTag && current === node;
+    if ((!candidateTagIsAllowed && NOSCRIPT_METADATA_TAGS.has(tag))
+      || (!candidateTagIsAllowed && NOSCRIPT_TRACKING_TAGS.has(tag))
       || hasNoscriptNonContentMarker(current)) {
       return true;
     }
@@ -226,48 +400,201 @@ function hasNoscriptNonContentAncestor(node, root) {
   return false;
 }
 
-/**
- * Return true when a noscript block contains no unmarked article paragraphs.
- *
- * Noscript is also used for pixels, tag-manager fallbacks and head metadata.
- * Those blocks can contain a paragraph-shaped payload, so checking only the
- * element tag is not enough. Keep real fallback prose when at least one
- * paragraph is outside a metadata/tracking wrapper.
- */
-function isNoscriptMetadata(noscript) {
-  if (!noscript) return true;
-  if (hasNoscriptNonContentMarker(noscript)) return true;
-
-  const root = normalizeNoscriptRoot(noscript);
-  const contentNodes = [...root.querySelectorAll(PARAGRAPH_SELECTOR)];
-  if (contentNodes.length === 0) return true;
-
-  return contentNodes.every(node => hasNoscriptNonContentAncestor(node, root));
+function noscriptJsonLdIsEditorial(script, root) {
+  return !hasNoscriptNonContentAncestor(script, root, { allowCandidateMetadataTag: true });
 }
 
-/**
- * Normalize a noscript fallback whose nested markup was preserved as text.
- *
- * Depending on the HTML parser's scripting mode, a noscript body can be either
- * a normal element tree or one text node containing the serialized markup.
- * Parse the latter in a detached container so paragraph extraction has the
- * same shape in both cases. Setting innerHTML on a detached element does not
- * execute scripts or load the source page's resources.
- */
-function extractNoscriptText(noscript, maxChars = Number.POSITIVE_INFINITY) {
-  if (!noscript) return [];
+function emptyNoscriptFallback() {
+  return { paragraphs: [], jsonLdBody: null, legacyText: '' };
+}
 
-  const normalized = normalizeNoscriptRoot(noscript);
-  const isEditorialParagraph = node => !hasNoscriptNonContentAncestor(node, normalized);
-  if (normalized === noscript) {
-    return collectParagraphTexts(noscript, isEditorialParagraph, maxChars);
+function extractNoscriptLegacyText(root) {
+  const clone = root.cloneNode(true);
+  for (const element of clone.querySelectorAll('*')) {
+    const tag = element.tagName.toLowerCase();
+    if (NOSCRIPT_METADATA_TAGS.has(tag)
+      || NOSCRIPT_TRACKING_TAGS.has(tag)
+      || hasNoscriptNonContentMarker(element)) {
+      element.remove();
+    }
+  }
+  return cleanText(clone.textContent || '');
+}
+
+function inspectNoscriptFallback(noscript, maxChars, sourceMarkup) {
+  if (!noscript || hasNoscriptNonContentAncestor(noscript, noscript.ownerDocument.documentElement)) {
+    return emptyNoscriptFallback();
   }
 
-  removeNoiseNodes(normalized);
-  return collectParagraphTexts(normalized, isEditorialParagraph, maxChars);
+  const root = parseNoscriptFallback(noscript, sourceMarkup);
+  if (!root) return emptyNoscriptFallback();
+  if (root !== noscript) removeNoiseNodes(root);
+
+  return {
+    paragraphs: collectParagraphTexts(
+      root,
+      node => !hasNoscriptNonContentAncestor(node, root),
+      maxChars,
+    ),
+    jsonLdBody: extractFromJsonLd(root, script => noscriptJsonLdIsEditorial(script, root)),
+    legacyText: extractNoscriptLegacyText(root),
+  };
 }
 
-function extractParagraphs(root, maxChars = Number.POSITIVE_INFINITY) {
+function topLevelNoscripts(root) {
+  return [...root.querySelectorAll('noscript')]
+    .filter(node => !node.parentElement?.closest('noscript'));
+}
+
+function areAdjacentNoscripts(previous, current) {
+  if (!previous || previous.parentNode !== current.parentNode) return false;
+  let sibling = previous.nextSibling;
+  while (sibling && sibling !== current) {
+    const isWhitespace = sibling.nodeType === 3 && !sibling.textContent.trim();
+    const isComment = sibling.nodeType === 8;
+    if (!isWhitespace && !isComment) return false;
+    sibling = sibling.nextSibling;
+  }
+  return sibling === current;
+}
+
+function mergeNoscriptFallbackBlocks(root, maxChars, sourceMarkupByNode) {
+  const states = new Map();
+  const paragraphsByNode = new Map();
+  const jsonLdBodies = [];
+  let group = [];
+
+  const flush = () => {
+    if (group.length === 0) return;
+    // An adjacent run is one ordered fallback. Tracking-only members add no
+    // paragraphs, while editorial members retain their original DOM order.
+    const [first, ...rest] = group;
+    paragraphsByNode.set(first, group.flatMap(node => states.get(node).paragraphs));
+    for (const node of rest) paragraphsByNode.set(node, []);
+    group = [];
+  };
+
+  let previous = null;
+  for (const noscript of topLevelNoscripts(root)) {
+    const state = inspectNoscriptFallback(noscript, maxChars, sourceMarkupByNode.get(noscript));
+    states.set(noscript, state);
+    if (state.jsonLdBody) jsonLdBodies.push(state.jsonLdBody);
+
+    if (!areAdjacentNoscripts(previous, noscript)) flush();
+    group.push(noscript);
+    previous = noscript;
+  }
+  flush();
+
+  return { states, paragraphsByNode, jsonLdBodies };
+}
+
+function selectNoscriptJsonLdPrecedence(document, fallbacks) {
+  const bodies = [
+    extractFromJsonLd(document, script => !script.closest('noscript')),
+    ...fallbacks.jsonLdBodies,
+  ].filter(Boolean);
+
+  return bodies.reduce((best, body) => (!best || body.length > best.length ? body : best), null);
+}
+
+function safeNoscriptNaiveFallback(document, fallbacks, maxChars) {
+  const sourceNoscripts = topLevelNoscripts(document.body);
+  const clone = document.body.cloneNode(true);
+  const clonedNoscripts = topLevelNoscripts(clone);
+
+  for (let index = 0; index < clonedNoscripts.length; index += 1) {
+    const state = fallbacks.states.get(sourceNoscripts[index]);
+    const text = state?.paragraphs.join(' ') || state?.legacyText || '';
+    if (text) {
+      clonedNoscripts[index].replaceWith(clone.ownerDocument.createTextNode(` ${text} `));
+    } else {
+      clonedNoscripts[index].remove();
+    }
+  }
+
+  for (const node of clone.querySelectorAll('script, style')) node.remove();
+  const text = capExtractedText(cleanText(clone.textContent || ''), maxChars);
+  return { text, method: 'naive-fallback', paragraphCount: 0 };
+}
+
+function prepareNoscriptSource(html) {
+  const sourceDom = new JSDOM(html, { includeNodeLocations: true });
+  const sourceMarkup = [];
+  const rejectedRanges = [];
+
+  try {
+    for (const noscript of sourceDom.window.document.querySelectorAll('noscript')) {
+      const location = sourceDom.nodeLocation(noscript);
+      const markup = location?.startTag && location?.endTag
+        ? html.slice(location.startTag.endOffset, location.endTag.startOffset)
+        : null;
+      if (typeof markup === 'string' && hasClosedNoscriptRawTextElements(markup)) {
+        sourceMarkup.push(markup);
+      } else if (location) {
+        let rejectedEnd = location.endOffset;
+        if (location.startTag) {
+          const unterminatedMarkup = html.slice(location.startTag.endOffset);
+          const rawText = findUnclosedNoscriptRawTextElement(unterminatedMarkup);
+          if (rawText) {
+            // parse5 reports a zero-width noscript when both raw-text and
+            // noscript stay open. A literal end tag is usable only when a
+            // source scanner reaches it outside every JavaScript lexical
+            // state; otherwise the whole suffix remains poisoned.
+            const noscriptEnd = rawText.tag === 'script'
+              ? findNoscriptEndTagOutsideLexicalState(
+                unterminatedMarkup,
+                rawText.contentStart,
+              )
+              : -1;
+            const tailBoundary = rawText.tag === 'script'
+              ? findReliableNoscriptTailBoundary(
+                unterminatedMarkup,
+                rawText.contentStart
+                  + (unterminatedMarkup.slice(rawText.contentStart).match(/^\s*/u)?.[0].length || 0),
+              )
+              : null;
+            const tailIsSafe = !tailBoundary
+              || hasSafeNoscriptTailSuffix(unterminatedMarkup, tailBoundary.end);
+            if (noscriptEnd >= 0) {
+              rejectedEnd = tailIsSafe ? location.startTag.endOffset + noscriptEnd : html.length;
+            } else {
+              const tailOffset = tailIsSafe
+                ? findRecoverableNoscriptTail(
+                  unterminatedMarkup,
+                  rawText.contentStart,
+                  rawText.tag,
+                )
+                : -1;
+              rejectedEnd = tailOffset >= 0
+                ? location.startTag.endOffset + tailOffset
+                : html.length;
+            }
+          } else {
+            rejectedEnd = html.length;
+          }
+        }
+        rejectedRanges.push([location.startOffset, rejectedEnd]);
+      }
+    }
+  } finally {
+    sourceDom.window.close();
+  }
+
+  if (rejectedRanges.length === 0) return { parsedHtml: html, sourceMarkup };
+
+  let cursor = 0;
+  let parsedHtml = '';
+  for (const [start, end] of rejectedRanges.sort((a, b) => a[0] - b[0])) {
+    parsedHtml += html.slice(cursor, start);
+    parsedHtml += html.slice(start, end).replace(/[^\r\n]/g, ' ');
+    cursor = end;
+  }
+  parsedHtml += html.slice(cursor);
+  return { parsedHtml, sourceMarkup };
+}
+
+function extractParagraphs(root, maxChars = Number.POSITIVE_INFINITY, fallbacks = null) {
   if (!root) return [];
   const paragraphs = [];
   const candidates = [...root.querySelectorAll(`${PARAGRAPH_SELECTOR}, noscript`)];
@@ -275,8 +602,7 @@ function extractParagraphs(root, maxChars = Number.POSITIVE_INFINITY) {
   for (const candidate of candidates) {
     if (candidate.tagName.toLowerCase() === 'noscript') {
       if (candidate.parentElement?.closest('noscript')) continue;
-      if (isNoscriptMetadata(candidate)) continue;
-      paragraphs.push(...extractNoscriptText(candidate, maxChars));
+      paragraphs.push(...(fallbacks?.paragraphsByNode.get(candidate) || []));
       continue;
     }
     if (candidate.closest('noscript')) continue;
@@ -310,39 +636,57 @@ export function extractArticleText(html, opts = {}) {
   }
 
   let dom;
+  let parsedHtml = html;
+  let sourceMarkup = [];
   try {
     // No runScripts, no external resource loading, no CSS parsing chatter.
     // We only need the parsed DOM tree to walk for text nodes.
     const silentVirtualConsole = new (require_virtual_console_lazy())();
     silentVirtualConsole.on('jsdomError', () => {});
-    dom = new JSDOM(html, { virtualConsole: silentVirtualConsole });
+    if (opts.scriptingDisabled === true) {
+      ({ parsedHtml, sourceMarkup } = prepareNoscriptSource(html));
+    }
+    dom = new JSDOM(parsedHtml, { virtualConsole: silentVirtualConsole });
   } catch {
     return naiveFallback(html, maxChars);
   }
   const document = dom.window.document;
   const publishedAt = extractPublishedDate(document);
+  const noscriptSourceMarkup = new WeakMap();
+
+  if (opts.scriptingDisabled === true) {
+    const parsedNodes = [...document.querySelectorAll('noscript')];
+    for (let index = 0; index < parsedNodes.length; index += 1) {
+      noscriptSourceMarkup.set(parsedNodes[index], sourceMarkup[index] ?? null);
+    }
+  }
 
   // Strip noise nodes up-front. NOTE: JSON-LD `<script type="application/ld+json">`
   // MUST survive this pass — the JSON-LD extractor reads it next. We only purge
   // executable/styling script tags.
   removeNoiseNodes(document, { includeNoscript: opts.scriptingDisabled !== true });
+  const noscriptFallbacks = opts.scriptingDisabled === true
+    ? mergeNoscriptFallbackBlocks(document, maxChars, noscriptSourceMarkup)
+    : null;
 
   // 1. JSON-LD articleBody (most reliable)
-  const jsonLdBody = extractFromJsonLd(document);
+  const jsonLdBody = noscriptFallbacks
+    ? selectNoscriptJsonLdPrecedence(document, noscriptFallbacks)
+    : extractFromJsonLd(document);
   if (jsonLdBody && jsonLdBody.length > 200) {
     const text = capExtractedText(cleanText(jsonLdBody), maxChars);
     return { text, method: 'jsonld', paragraphCount: text.split(/[.!?]\s+/).length, publishedAt };
   }
 
   // 2/3. Article-tag with paragraph extraction
-  const articleParagraphs = extractParagraphs(document.querySelector('article'), maxChars);
+  const articleParagraphs = extractParagraphs(document.querySelector('article'), maxChars, noscriptFallbacks);
   if (articleParagraphs.length >= 2) {
     const text = capExtractedText(articleParagraphs.join('\n\n'), maxChars);
     return { text, method: 'article-tag', paragraphCount: articleParagraphs.length, publishedAt };
   }
 
   // 4. Main-tag with paragraph extraction
-  const mainParagraphs = extractParagraphs(document.querySelector('main'), maxChars);
+  const mainParagraphs = extractParagraphs(document.querySelector('main'), maxChars, noscriptFallbacks);
   if (mainParagraphs.length >= 2) {
     const text = capExtractedText(mainParagraphs.join('\n\n'), maxChars);
     return { text, method: 'main-tag', paragraphCount: mainParagraphs.length, publishedAt };
@@ -353,7 +697,7 @@ export function extractArticleText(html, opts = {}) {
     || extractFromMeta(document, 'meta[name="title"]');
   const ogDesc = extractFromMeta(document, 'meta[property="og:description"]')
     || extractFromMeta(document, 'meta[name="description"]');
-  const bodyParagraphs = extractParagraphs(document.body, maxChars);
+  const bodyParagraphs = extractParagraphs(document.body, maxChars, noscriptFallbacks);
   if (ogDesc || bodyParagraphs.length >= 1) {
     const parts = [];
     if (ogTitle) parts.push(ogTitle);
@@ -366,6 +710,7 @@ export function extractArticleText(html, opts = {}) {
   }
 
   // 6. Last resort: legacy naive strip — preserves prior behaviour.
+  if (noscriptFallbacks) return safeNoscriptNaiveFallback(document, noscriptFallbacks, maxChars);
   return naiveFallback(html, maxChars);
 }
 
