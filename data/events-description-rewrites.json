@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-19T09:20:35.844Z",
+  "generatedAt": "2026-10-19T10:20:40.866Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -45701,6 +45701,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T21:30:22.675Z"
+    },
+    "myswitzerland:0c9c1969726c48a8a637d05286e8402a::02ab166c08207a15e0256d8ffb5ac6864af3d035736938d3f1b56e361d2b7b75": {
+      "id": "myswitzerland:0c9c1969726c48a8a637d05286e8402a",
+      "sourceDescriptionHash": "02ab166c08207a15e0256d8ffb5ac6864af3d035736938d3f1b56e361d2b7b75",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Lucerne; comune: Luzern; cantone: LU; categoria: Event; organizzatore: MySwitzerland; data: 2027-06-02; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Lucerne; comune: Luzern; cantone: LU; categoria: Event; organizzatore: MySwitzerland; data: 2027-06-02; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Lucerne; municipality: Luzern; canton: LU; category: Event; organiser: MySwitzerland; date: 2027-06-02; time: 19:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Lucerne; gemeinde: Luzern; kanton: LU; kategorie: Event; veranstalter: MySwitzerland; datum: 2027-06-02; uhrzeit: 19:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Lucerne; commune: Luzern; canton: LU; catégorie: Event; organisateur: MySwitzerland; date: 2027-06-02; heure: 19:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-19T10:16:00.973Z"
     },
     "myswitzerland:0ca71c1b1ac64ed69d44db7f7eec951f::4f824400729d1d4613eac651aa056176d6dd95ae9f98ce4df2c55400c8a961c9": {
       "id": "myswitzerland:0ca71c1b1ac64ed69d44db7f7eec951f",
@@ -158798,15 +158812,6 @@
       "code": "sentence-count",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T07:21:48.703Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:0c9c1969726c48a8a637d05286e8402a::02ab166c08207a15e0256d8ffb5ac6864af3d035736938d3f1b56e361d2b7b75": {
-      "id": "myswitzerland:0c9c1969726c48a8a637d05286e8402a",
-      "sourceDescriptionHash": "02ab166c08207a15e0256d8ffb5ac6864af3d035736938d3f1b56e361d2b7b75",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T21:49:19.001Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
