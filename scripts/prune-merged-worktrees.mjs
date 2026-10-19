@@ -198,6 +198,10 @@ const selected = (...names) => !ONLY || names.some((n) => typeof n === 'string' 
 // `worktree-agent-<id>` 0-ahead orfani (dir worktree già auto-rimossa da
 // EnterWorktree). Zero gh, zero rimozione worktree → non-presidiabile.
 const ORPHANS_ONLY = process.argv.includes('--orphans-only');
+// Le pulizie di repository non legate a un candidato sono ammesse solo nello
+// sweep completo applicato. Dry-run e --only possono aggiornare la base per le
+// prove, ma non devono potare ref, pack o metadati di worktree estranei.
+const GLOBAL_PRUNE_ENABLED = APPLY && !ONLY;
 
 // Costo dello sweep, stampato in coda: le chiamate gh sono la risorsa scarsa
 // (quota condivisa col resto del workspace), le prove il tempo in più.
@@ -509,7 +513,10 @@ const fetchRun = withSingleFlightLock(fetchLock, () => {
   // uccidono una `gh api` senza stato su disco, questo uccide un trasferimento
   // che sta scrivendo un pack multi-GB.
   try {
-    execFileSync('git', ['fetch', 'origin', mainBranch, '--prune', '-q'], {
+    const fetchArgs = ['fetch', 'origin', mainBranch];
+    if (GLOBAL_PRUNE_ENABLED) fetchArgs.push('--prune');
+    fetchArgs.push('-q');
+    execFileSync('git', fetchArgs, {
       stdio: 'ignore',
       timeout: FETCH_TIMEOUT_MS,
       killSignal: 'SIGTERM',
@@ -517,11 +524,15 @@ const fetchRun = withSingleFlightLock(fetchLock, () => {
   } catch {
     /* fetch fallito/scaduto: si prosegue con l'origin/<main> locale (vedi sopra) */
   }
-  return sweepStaleFetchPacks(join(gitDir, 'objects', 'pack'));
+  return GLOBAL_PRUNE_ENABLED
+    ? sweepStaleFetchPacks(join(gitDir, 'objects', 'pack'))
+    : { removed: 0, bytes: 0, candidates: 0 };
 });
 
 if (!fetchRun.acquired) {
   console.log(`ℹ️  fetch saltato: un'altra istanza tiene ${fetchLock} — uso origin/${mainBranch} locale.`);
+} else if (!GLOBAL_PRUNE_ENABLED) {
+  console.log(`ℹ️  pulizie globali del repository saltate: ${APPLY ? '--only attivo' : 'dry-run'}.`);
 } else if (fetchRun.value?.removed) {
   const mb = Math.round(fetchRun.value.bytes / 1048576);
   console.log(`🧹 potati ${fetchRun.value.removed} pack temporanei di fetch abortiti (${mb} MB).`);
@@ -2184,7 +2195,11 @@ for (const o of orphanRemove) {
     console.log(`⚠️  FALLITA rimozione directory ${o.path} — saltata`);
   }
 }
-sh('git worktree prune', { allowFail: true });
+if (GLOBAL_PRUNE_ENABLED) {
+  sh('git worktree prune', { allowFail: true });
+} else {
+  console.log(`ℹ️  git worktree prune saltato: ${APPLY ? '--only attivo' : 'dry-run'}.`);
+}
 
 console.log('');
 console.log(`✓ applicate ${done} rimozioni${failed ? `, ${failed} FALLITE (vedi sopra)` : ''}. ${reportWt.length + reportBranch.length + orphanReport.length} voci report-only lasciate intatte.`);
