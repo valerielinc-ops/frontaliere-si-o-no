@@ -385,4 +385,26 @@ describe('portal field extraction', () => {
     expect(searchFields[0]).toMatchObject({ label: 'Land*', search: true, required: true });
     expect(page.fields.some((field: any) => ['Finden', 'Suche'].includes(field.label))).toBe(false);
   });
+
+  it('keeps required application fields and submit controls nested in site chrome', () => {
+    const page = extract(`
+      <header>
+        <form><label for="global-query">Suche</label><input id="global-query" name="as_q"></form>
+        <form>
+          <label for="app-email">Email address*</label>
+          <input id="app-email" name="email" type="email" required>
+          <button type="submit">Apply</button>
+        </form>
+      </header>`);
+
+    expect(page.fields.some((field: any) => field.label === 'Suche')).toBe(false);
+    expect(page.fields.find((field: any) => field.label === 'Email address*')).toMatchObject({
+      inputType: 'email',
+      required: true,
+    });
+    expect(page.buttons.find((button: any) => button.text === 'Apply')).toMatchObject({
+      text: 'Apply',
+      chrome: undefined,
+    });
+  });
 });

@@ -97,6 +97,40 @@ export function extractFieldsInPage() {
     // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
     return [...new Set([headingBefore(element), zoneText(element)].filter(Boolean))].join(' · ') || names[0] || '';
   };
+  const SITE_SEARCH_TEXT_RE = /\b(?:search|suche|suchen|find(?:en)?|recherche|rechercher|cerca|buscar|busca|query)\b/i;
+  const hasSiteSearchIdentity = (element) => [
+    element.getAttribute('type'),
+    element.getAttribute('name'),
+    element.id,
+    element.getAttribute('aria-label'),
+    element.getAttribute('placeholder'),
+    labelFor(element),
+  ].some((value) => /^(?:q|as_q)$/i.test(clean(value)) || SITE_SEARCH_TEXT_RE.test(String(value || '')));
+  const isSiteSearchForm = (form) => {
+    if (!form) return false;
+    if (form.getAttribute('role') === 'search' || form.closest('[role="search"]')) return true;
+    return [...form.querySelectorAll('input')].some((element) => {
+      const name = element.getAttribute('name') || '';
+      const id = element.id || '';
+      return element.getAttribute('type')?.toLowerCase() === 'search'
+        || /^(?:q|as_q|search|query)$/i.test(name)
+        || /(?:global|site)[-_]?(?:query|search)|(?:^|[-_])search(?:[-_]|$)/i.test(id);
+    });
+  };
+  const isApplicationOwnedControl = (element) => {
+    if (element.required || element.getAttribute('aria-required') === 'true') return true;
+    const form = element.form || element.closest('form');
+    if (form && !isSiteSearchForm(form)) return true;
+    return element.matches('button[type="submit"], input[type="submit"]') && !isSiteSearchForm(form);
+  };
+  const isSiteChromeControl = (element) => inSiteChrome(element) && !isApplicationOwnedControl(element);
+  const isSiteGlobalSearchField = (element) => {
+    if (element.getAttribute('data-uxi-widget-type') === 'selectinput') return false;
+    const inSearchLandmark = Boolean(element.closest('[role="search"]'));
+    return (inSiteChrome(element) || inSearchLandmark)
+      && hasSiteSearchIdentity(element)
+      && !isApplicationOwnedControl(element);
+  };
   // Classic portals sometimes put the checkbox name in the input's label
   // position and leave the human sentence as an adjacent text node (for
   // example: <input name="agbs_check"> Accetto ...). Keep that sentence in
@@ -265,12 +299,9 @@ export function extractFieldsInPage() {
     const tag = element.tagName.toLowerCase();
     const type = tag === 'input' ? (element.getAttribute('type') || 'text').toLowerCase() : tag;
     if (['hidden', 'submit', 'button', 'reset', 'image'].includes(type)) continue;
-    // The site's own search box is not part of the application; Workday's
-    // "selectinput" (a search box that picks an option) is. Some corporate
-    // sites use a plain text input for the same global search (SIX, 2026-10-19),
-    // so the chrome guard must cover every input type, not only type=search.
-    if ((type === 'search' && element.getAttribute('data-uxi-widget-type') !== 'selectinput')
-      || (inSiteChrome(element) && element.getAttribute('data-uxi-widget-type') !== 'selectinput')) continue;
+    // Only omit a search control identified as site-global. An application
+    // can place required fields inside the employer's header or footer.
+    if (isSiteGlobalSearchField(element)) continue;
     if (element.closest(datePickerSelector)) continue;
     if (element.disabled || element.readOnly || !visible(element)) continue;
     // A field its own label keeps for robots («This input is for robots only, do not enter if you're human»)
@@ -395,7 +426,7 @@ export function extractFieldsInPage() {
     const label = labelFor(element);
     // The site's own language menu is not part of the application, nor any other menu of its header,
     // navigation or footer (Workday's «settingsSelectorButton», read as a field of every page of the form).
-    if (/language.?selector|sprachauswahl/i.test(`${label} ${element.getAttribute('data-automation-id') || ''}`) || inSiteChrome(element)) continue;
+    if (/language.?selector|sprachauswahl/i.test(`${label} ${element.getAttribute('data-automation-id') || ''}`) || isSiteChromeControl(element)) continue;
     fields.push({
       id: idFor(element),
       kind: 'listbox',
@@ -447,7 +478,7 @@ export function extractFieldsInPage() {
       fileContext: fileContext(element),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
-      ...(inSiteChrome(element) ? { chrome: true } : {}),
+      ...(isSiteChromeControl(element) ? { chrome: true } : {}),
     }))
     .filter((button) => button.text)
     .slice(0, 60);
