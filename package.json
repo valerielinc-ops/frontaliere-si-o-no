@@ -64,6 +64,7 @@
     "new-article": "node scripts/create-article.mjs",
     "companies:generate": "node scripts/generate-crawler-companies.mjs",
     "jobs:assemble": "node scripts/assemble-jobs-dataset.mjs",
+    "data:sector-hub-candidates": "tsx scripts/discover-sector-hub-candidates.ts",
     "plate-auctions:ingest": "node scripts/plate-auctions/ingest.mjs",
     "plate-auctions:discover": "node scripts/plate-auctions/discover-sources.mjs",
     "jobs:assemble:stats": "node scripts/assemble-jobs-dataset.mjs --stats",
