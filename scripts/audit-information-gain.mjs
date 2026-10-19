@@ -65,6 +65,7 @@ import { isFuelSectionPath } from './lib/fuelSections.mjs';
 import { isEventsSectionPath } from './lib/eventsSections.mjs';
 import { isHealthPremiumsPath } from './lib/healthPremiumSections.mjs';
 import { isBorderWaitPath } from './lib/borderWaitSections.mjs';
+import { isSalaryProfessionCantonPath } from './lib/salaryProfessionSections.mjs';
 
 /**
  * Median share of page-specific prose a gated cohort must clear.
@@ -351,6 +352,13 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       // canonical root, canton hubs, or age leaves into editorial cohorts.
       // The matcher is backed by the same 732-route table as the TS router.
       if (isHealthPremiumsPath(relPath)) return;
+      // Salary-intent profession×canton pages are structured salary/job
+      // records. Their differentiating median, net estimate and job payload
+      // are numeric or entity fields that informationGain intentionally masks;
+      // comparing the shared methodology prose would turn this data vertical
+      // into a false editorial near-duplicate cohort. Use the exact generated
+      // route set so a similarly shaped editorial slug remains in scope.
+      if (isSalaryProfessionCantonPath(relPath)) return;
       fingerprints.push(fingerprintPage(relPath, html));
     },
     report() {
