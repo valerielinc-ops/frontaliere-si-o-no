@@ -255,6 +255,7 @@ export async function acquireImageNamespaceLock(
     pollMs = IMAGE_LOCK_POLL_MS,
     leaseMs = IMAGE_LOCK_LEASE_MS,
     onWait = () => {},
+    onLeaseWritten = () => {},
     signal,
   } = {},
 ) {
@@ -279,10 +280,11 @@ export async function acquireImageNamespaceLock(
     };
     const created = await putLease(request, namespace, lease, { name: 'if-none-match', value: '*' });
     if (created) {
-      // Do not throw for an abort between a successful conditional PUT and the
-      // caller recording this lease. The outer multi-namespace acquisition
-      // must first add it to its rollback set.
-      return confirmAcquiredLease(request, { ...lease, etag: created.etag });
+      const writtenLease = { ...lease, etag: created.etag };
+      // Record ownership before the confirmation read can fail: a successful
+      // PUT may have created a live lock even when its response is incomplete.
+      onLeaseWritten(writtenLease);
+      return confirmAcquiredLease(request, writtenLease);
     }
 
     throwIfAborted(signal);
@@ -297,7 +299,11 @@ export async function acquireImageNamespaceLock(
         throw new Error(`[r2-image-namespace-lock] lock ${namespace} has no ETag; refusing an unsafe takeover`);
       }
       const replaced = await putLease(request, namespace, lease, { name: 'if-match', value: current.etag });
-      if (replaced) return confirmAcquiredLease(request, { ...lease, etag: replaced.etag });
+      if (replaced) {
+        const writtenLease = { ...lease, etag: replaced.etag };
+        onLeaseWritten(writtenLease);
+        return confirmAcquiredLease(request, writtenLease);
+      }
       throwIfAborted(signal);
       continue;
     }
@@ -326,11 +332,17 @@ export async function acquireImageNamespaceLeases(namespaces, options = {}) {
       if (remainingMs <= 0) {
         throw new Error(`[r2-image-namespace-lock] timed out waiting for namespace ${namespace}`);
       }
-      acquired.push(await acquireImageNamespaceLock(namespace, {
+      let recordedIndex = -1;
+      const confirmedLease = await acquireImageNamespaceLock(namespace, {
         ...options,
         now,
         timeoutMs: remainingMs,
-      }));
+        onLeaseWritten: (writtenLease) => {
+          recordedIndex = acquired.push(writtenLease) - 1;
+        },
+      });
+      if (recordedIndex === -1) acquired.push(confirmedLease);
+      else acquired[recordedIndex] = confirmedLease;
       // A signal may have arrived while the final confirmation GET was in
       // flight. Record the confirmed lock first, then abort so catch can CAS
       // release every acquired namespace, including the last one.
@@ -500,9 +512,11 @@ async function main(args = process.argv.slice(2), env = process.env) {
   }
 
   if (command === 'verify') {
-    const namespace = options.get('--namespace');
+    const namespaces = parseImageNamespaces(options.get('--namespace'));
     const context = options.get('--context');
-    await verifyImageNamespaceLease(context, namespace, { request });
+    for (const namespace of namespaces) {
+      await verifyImageNamespaceLease(context, namespace, { request });
+    }
     return;
   }
 

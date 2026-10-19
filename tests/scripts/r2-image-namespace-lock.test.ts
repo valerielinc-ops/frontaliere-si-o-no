@@ -123,6 +123,76 @@ globalThis.fetch = async () => {
     }
   });
 
+  it('verifies every namespace in a comma-delimited CLI request', () => {
+    const temp = mkdtempSync(join(tmpdir(), 'image-lease-cli-verify-many-'));
+    try {
+      const preload = join(temp, 'stub-r2-fetch.mjs');
+      const statePath = join(temp, 'lease-state.json');
+      const requests = join(temp, 'requests.log');
+      const leases = Object.fromEntries(['blog', 'places'].map((namespace) => [namespace, {
+        etag: `${namespace}-etag`,
+        payload: {
+          namespace,
+          owner: `owner-${namespace}`,
+          leaseId: `lease-${namespace}`,
+          acquiredAt: 1_000,
+          expiresAt: 1_800_000_000_000,
+        },
+      }]));
+      const context = JSON.stringify({
+        version: 1,
+        leases: Object.values(leases).map(({ payload }) => ({
+          namespace: payload.namespace,
+          owner: payload.owner,
+          leaseId: payload.leaseId,
+          expiresAt: payload.expiresAt,
+        })),
+      });
+      writeFileSync(statePath, JSON.stringify(leases));
+      writeFileSync(preload, `
+import { appendFileSync, readFileSync } from 'node:fs';
+const leases = JSON.parse(readFileSync(process.env.STUB_IMAGE_LEASE_STATE, 'utf8'));
+globalThis.fetch = async (url) => {
+  const namespace = new URL(url).pathname.endsWith('/blog.json') ? 'blog' : 'places';
+  appendFileSync(process.env.STUB_IMAGE_LEASE_REQUESTS, 'GET ' + namespace + '\\n');
+  const lease = leases[namespace];
+  return {
+    status: 200,
+    headers: { get: (name) => name.toLowerCase() === 'etag' ? lease.etag : undefined },
+    text: async () => JSON.stringify(lease.payload),
+  };
+};
+`);
+
+      const result = spawnSync(process.execPath, [
+        resolve(import.meta.dirname, '../../scripts/lib/r2-image-namespace-lock.mjs'),
+        'verify',
+        '--namespace',
+        'blog,places',
+        '--context',
+        context,
+      ], {
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          NODE_OPTIONS: `--import=${preload}`,
+          STUB_IMAGE_LEASE_STATE: statePath,
+          STUB_IMAGE_LEASE_REQUESTS: requests,
+          R2_S3_ENDPOINT: 'https://r2.invalid',
+          R2_BUCKET: 'test-bucket',
+          R2_ACCESS_KEY_ID: 'test-access-key',
+          R2_SECRET_ACCESS_KEY: 'test-secret-key',
+        },
+        timeout: 5_000,
+      });
+
+      expect(result.status).toBe(0);
+      expect(readFileSync(requests, 'utf8').trim().split('\n')).toEqual(['GET blog', 'GET places']);
+    } finally {
+      rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
   it('acquires in stable order, verifies the owner and lease id, and releases in reverse order', async () => {
     const { request, calls, objects } = fakeR2();
     let now = 1_000;
@@ -255,6 +325,41 @@ globalThis.fetch = async () => {
       expect(payload).toMatchObject({ namespace, releasedAt: expect.any(Number), expiresAt: expect.any(Number) });
       expect(payload?.expiresAt).toBe(payload?.releasedAt);
     }
+  });
+
+  it('rolls back a committed lease when its confirmation response omits the ETag', async () => {
+    const { request: baseRequest, calls, objects } = fakeR2();
+    const key = imageNamespaceLockKey('blog');
+    let hideConfirmationEtag = true;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      const result = await baseRequest(input);
+      if (input.method === 'PUT' && input.headers?.['if-none-match'] === '*' && result.status === 200) {
+        return response(200);
+      }
+      if (input.method === 'GET' && hideConfirmationEtag) {
+        hideConfirmationEtag = false;
+        return response(result.status, await result.text());
+      }
+      return result;
+    };
+    const now = 1_000;
+
+    await expect(acquireImageNamespaceLeases(['blog'], {
+      request,
+      now: () => now,
+      leaseMs: 60_000,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    })).rejects.toThrow('acquisition could not be confirmed with an ETag');
+
+    expect(calls.filter(({ method, key: requestKey, headers }) => (
+      method === 'PUT' && requestKey === key && headers['if-match']
+    ))).toHaveLength(1);
+    expect(objects.get(key)?.payload).toMatchObject({
+      namespace: 'blog',
+      releasedAt: now,
+      expiresAt: now,
+    });
   });
 
   it('handles CLI SIGTERM while waiting for places, CAS-releases blog, and lets a later acquire succeed', async () => {

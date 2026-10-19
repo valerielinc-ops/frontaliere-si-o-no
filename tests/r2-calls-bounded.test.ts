@@ -832,6 +832,28 @@ describe('behaviour: the R2 images batch holds every present namespace lease', (
     ]);
   });
 
+  it('verifies every namespace in a caller-owned multi-namespace capability', () => {
+    const callerContext = JSON.stringify({
+      version: 1,
+      leases: ['blog', 'places'].map((namespace) => ({
+        namespace,
+        owner: 'test-owner',
+        leaseId: `caller-owned-${namespace}`,
+        expiresAt: 1_800_000_000_000,
+      })),
+    });
+    const r = runPublish('multi-namespace-lease-inherited', {
+      STUB_BLOG_IMAGES: '1',
+      STUB_PLACES_IMAGES: '1',
+      FRONTALIERE_R2_IMAGE_LEASE_CONTEXT: callerContext,
+    });
+    expect(r.code).toBe(0);
+    expect(r.leaseCalls).toEqual([
+      `verify:blog,places:${callerContext}`,
+      `copy:images:${callerContext}`,
+    ]);
+  });
+
   it('an invalid caller-owned capability is fail-closed without acquire, copy, or release', () => {
     const callerContext = '{"version":1,"leases":[{"namespace":"places","owner":"test-owner","leaseId":"wrong-namespace","expiresAt":1800000000000}]}';
     const r = runPublish('blog-lease-invalid-inherited', {
