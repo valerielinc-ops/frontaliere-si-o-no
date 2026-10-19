@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 659,
+      "5": 665,
       "6": 5054
     },
-    "publishedCovers": 7396,
+    "publishedCovers": 7402,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -200821,6 +200821,204 @@
         "provider": "openai-codex",
         "assetId": "article-truffa-falsi-poliziotti-vaud",
         "imageUrl": "/images/blog/article-truffa-falsi-poliziotti-vaud.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-campagna-fisco-coppie-sposate": {
+      "cover": "/images/blog/article-campagna-fisco-coppie-sposate.webp",
+      "hash": "fda594c50d6c37387c7121d1c82c6cecba15ceb59bd7a4819c0c92075d07fb46",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "campagna-fisco-coppie-sposate",
+          "category": "fiscale",
+          "date": "2026-10-19T09:57:56.171Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-campagna-fisco-coppie-sposate.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-campagna-fisco-coppie-sposate",
+        "imageUrl": "/images/blog/article-campagna-fisco-coppie-sposate.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-impatto-glp1-industria-alimentare": {
+      "cover": "/images/blog/article-impatto-glp1-industria-alimentare.webp",
+      "hash": "a95199e81a1f08962a3aeb4087e3a7ba9c118651dc5ee85a531a2cfbceeb3bc6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "impatto-glp1-industria-alimentare",
+          "category": "novita",
+          "date": "2026-10-19T11:07:20.538Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-impatto-glp1-industria-alimentare.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-impatto-glp1-industria-alimentare",
+        "imageUrl": "/images/blog/article-impatto-glp1-industria-alimentare.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-kloentalerstrasse-cantiere-2026": {
+      "cover": "/images/blog/article-kloentalerstrasse-cantiere-2026.webp",
+      "hash": "a6cbac4e73124c74a2986d6cb9d8b023409dbb697a2080f4b15d4dcf58569c10",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-gl",
+          "id": "kloentalerstrasse-cantiere-2026",
+          "category": "pratico",
+          "date": "2026-10-19T12:11:05.452Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-kloentalerstrasse-cantiere-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-kloentalerstrasse-cantiere-2026",
+        "imageUrl": "/images/blog/article-kloentalerstrasse-cantiere-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-pulizie-tunnel-sciaffusa": {
+      "cover": "/images/blog/article-pulizie-tunnel-sciaffusa.webp",
+      "hash": "7b7c66b68cc65c754b267dea137eac191f20df24fc9eab8fc0e39559ed3e1404",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "pulizie-tunnel-sciaffusa",
+          "category": "pratico",
+          "date": "2026-10-19T12:03:42.288Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-pulizie-tunnel-sciaffusa.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-pulizie-tunnel-sciaffusa",
+        "imageUrl": "/images/blog/article-pulizie-tunnel-sciaffusa.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sondaggio-imprese-st-gallen-2026": {
+      "cover": "/images/blog/article-sondaggio-imprese-st-gallen-2026.webp",
+      "hash": "e759303d859919b590bd60eb21b0138d69daa421f9c5453cf209521d660c6901",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "sondaggio-imprese-st-gallen-2026",
+          "category": "novita",
+          "date": "2026-10-19T10:59:29.088Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sondaggio-imprese-st-gallen-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sondaggio-imprese-st-gallen-2026",
+        "imageUrl": "/images/blog/article-sondaggio-imprese-st-gallen-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-ustat-manutenzione-chiusura": {
+      "cover": "/images/blog/article-ustat-manutenzione-chiusura.webp",
+      "hash": "8acc305534f4b3a4b8797473f3ef81c1e303c52fb41ac1fc9c110e893167c28d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ti",
+          "id": "ustat-manutenzione-chiusura",
+          "category": "pratico",
+          "date": "2026-10-19T10:54:19.378Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ustat-manutenzione-chiusura.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-ustat-manutenzione-chiusura",
+        "imageUrl": "/images/blog/article-ustat-manutenzione-chiusura.webp",
         "evidence": "generated-engine-record"
       }
     }
