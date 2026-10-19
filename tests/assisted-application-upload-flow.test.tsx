@@ -40,15 +40,14 @@ vi.mock('@/services/assistedApplicationExperiment', () => ({
 }));
 vi.mock('@/services/i18n', async () => {
   const { default: strings } = await import('@/services/locales/it-core');
+  const translate = (key: string, values?: Record<string, string>) => Object.entries(values || {}).reduce(
+    (text, [name, value]) => text.replaceAll(`{${name}}`, value),
+    strings[key] ?? key,
+  );
+
   return {
     getLocale: () => 'it',
-    useTranslation: () => ({
-      locale: 'it',
-      t: (key: string, values?: Record<string, string>) => Object.entries(values || {}).reduce(
-        (text, [name, value]) => text.replaceAll(`{${name}}`, value),
-        strings[key] ?? key,
-      ),
-    }),
+    useTranslation: () => ({ locale: 'it', t: translate }),
   };
 });
 
