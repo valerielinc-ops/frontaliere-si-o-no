@@ -129,6 +129,53 @@ describe('candidate CV profile projection', () => {
     expect(english.skills).toEqual(['Azure', 'M365']);
     expect(french.skills).toEqual(['SAP', 'ServiceNow']);
   });
+
+  it('keeps representative experience details as matching evidence when no skills section exists', () => {
+    const profile = parseCandidateCvText([
+      'Candidate Example',
+      'IT Manager',
+      'Professional Experience',
+      '2022 - Present',
+      'IT Manager',
+      'Led SAP S/4HANA migration and established ServiceNow governance',
+      'Coordinated application lifecycle controls across finance and supply chain',
+      '2018 - 2022',
+      'Application Specialist',
+      'Managed CRM integrations and enterprise application support',
+      'Education',
+      'MBA Finance',
+    ].join('\n'));
+
+    expect(profile.skills).toEqual([]);
+    expect(profile.experienceSummary).toEqual(expect.arrayContaining([
+      '2022 - Present',
+      '2018 - 2022',
+      'Led SAP S/4HANA migration and established ServiceNow governance',
+      'Managed CRM integrations and enterprise application support',
+    ]));
+    expect(profile.experienceSummary).not.toContain('MBA Finance');
+    expect(profile.experienceSummary.length).toBeLessThanOrEqual(12);
+
+    const longExperience = ['Candidate Example', 'Professional Experience'];
+    for (let index = 0; index < 7; index += 1) {
+      longExperience.push(`${2025 - index} - Present`);
+      longExperience.push(`Delivered SAP platform modernization and governance for business teams ${index}`);
+    }
+    longExperience.push('Education', 'MBA Finance');
+    const longProfile = parseCandidateCvText(longExperience.join('\n'));
+    expect(longProfile.experienceSummary.length).toBeLessThanOrEqual(12);
+    expect(longProfile.experienceSummary.filter((line) => line.startsWith('Delivered SAP'))).toHaveLength(6);
+
+    const roleOnlyScore = scoreJobForProfile(
+      { title: 'IT Manager', description: 'SAP S/4HANA ServiceNow governance' },
+      { headline: 'IT Manager', workPosition: 'IT Manager', skills: [], experienceSummary: ['2022 - 2024'] },
+    ).score;
+    const evidenceScore = scoreJobForProfile(
+      { title: 'IT Manager', description: 'SAP S/4HANA ServiceNow governance' },
+      profile,
+    ).score;
+    expect(evidenceScore).toBeGreaterThan(roleOnlyScore);
+  });
 });
 describe('application concierge matching', () => {
   it('derives the same service-scoped proposal id for retries and concurrent runs', () => {
@@ -340,6 +387,8 @@ describe('application concierge matching', () => {
       expect(weak).toEqual(expect.objectContaining({
         status: 'retracted',
         retractionReason: 'match_below_threshold',
+        matchScore: 0,
+        matchReasons: [],
       }));
       expect(accepted).toEqual(expect.objectContaining({ status: 'accepted', matchScore: 99 }));
     } finally {

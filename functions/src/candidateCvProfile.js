@@ -20,7 +20,8 @@ const MAX_EXPERIENCE_LINES = 12;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const SKILL_HEADING_RE = /^(?:skills?|core skills?|key skills?|technical skills?|technical competencies|core competencies|key competencies|professional competencies|competencies|skills and expertise|areas of expertise|expertise|competenze(?: tecniche| chiave| professionali)?|compétences?(?: techniques| clés| cles| informatiques)?|competences(?: techniques| cles| informatiques)?|kenntnisse|fachkenntnisse|informatikkenntnisse|fähigkeiten|fahigkeiten|kompetenzen)\s*:?$/i;
-const SECTION_HEADING_RE = /^(?:curriculum vitae|cv|profilo|profile|summary|professional summary|esperienza|esperienze|experience|work experience|professional experience|employment history|work history|competenze|skills|core skills|key skills|technical competencies|core competencies|key competencies|professional competencies|competencies|skills and expertise|areas of expertise|expertise|competenze tecniche|competenze chiave|competenze professionali|compétences|compétences techniques|compétences clés|compétences cles|compétences informatiques|competences techniques|competences cles|competences informatiques|kenntnisse|fachkenntnisse|informatikkenntnisse|fähigkeiten|fahigkeiten|kompetenzen|lingue|languages|langues|sprachen|formazione|education|éducation|ausbildung|istruzione|references|referenze)\s*:?$/i;
+const EXPERIENCE_HEADING_RE = /^(?:esperienza(?: professionale)?|esperienze(?: professionali)?|experience|work experience|professional experience|employment history|work history|professional background|career history|expérience professionnelle|berufserfahrung)\s*:?$/i;
+const SECTION_HEADING_RE = /^(?:curriculum vitae|cv|profilo|profile|summary|professional summary|esperienza|esperienze|experience|work experience|professional experience|employment history|work history|professional background|career history|expérience professionnelle|berufserfahrung|competenze|skills|core skills|key skills|technical competencies|core competencies|key competencies|professional competencies|competencies|skills and expertise|areas of expertise|expertise|competenze tecniche|competenze chiave|competenze professionali|compétences|compétences techniques|compétences clés|compétences cles|compétences informatiques|competences techniques|competences cles|competences informatiques|kenntnisse|fachkenntnisse|informatikkenntnisse|fähigkeiten|fahigkeiten|kompetenzen|lingue|languages|langues|sprachen|formazione|education|éducation|ausbildung|istruzione|references|referenze)\s*:?$/i;
 const CONTACT_RE = /(?:@|\+?\d[\d\s()./-]{6,})/;
 const YEAR_RE = /(?:19|20)\d{2}/;
 const STOP_LINE_RE = /^(?:curriculum vitae|cv|profilo|profile|esperienza|esperienze|experience|work experience|employment history|work history|competenze|skills|lingue|languages|langues|sprachen|formazione|education|éducation|ausbildung|istruzione|references|referenze)\s*:?[\s]*$/i;
@@ -99,8 +100,51 @@ function skillValues(lines) {
 }
 
 function experienceValues(lines) {
-  return lines.filter((line) => YEAR_RE.test(line) || /\b(?:oggi|present|current|actuel|heute)\b/i.test(line))
-    .slice(0, MAX_EXPERIENCE_LINES);
+  const isDated = (line) => YEAR_RE.test(line) || /\b(?:oggi|present|current|actuel|heute)\b/i.test(line);
+  const section = sectionLines(lines, EXPERIENCE_HEADING_RE);
+  if (!section.length) return lines.filter(isDated).slice(0, MAX_EXPERIENCE_LINES);
+
+  const datedLines = section.filter(isDated).slice(0, Math.floor(MAX_EXPERIENCE_LINES / 2));
+  const segments = [];
+  let currentSegment = [];
+  for (const line of section) {
+    if (isDated(line) && currentSegment.length) {
+      segments.push(currentSegment);
+      currentSegment = [];
+    }
+    currentSegment.push(line);
+  }
+  if (currentSegment.length) segments.push(currentSegment);
+
+  const descriptionGroups = segments.map((segment) => segment.filter((line) => !isDated(line)
+    && line.length >= 36
+    && !CONTACT_RE.test(line)
+    && !SECTION_HEADING_RE.test(line)
+    && !SKILL_HEADING_RE.test(line)));
+  const descriptionSlots = Math.max(0, MAX_EXPERIENCE_LINES - datedLines.length);
+  const descriptions = [];
+  for (let depth = 0; descriptions.length < descriptionSlots; depth += 1) {
+    let foundAtDepth = false;
+    for (const group of descriptionGroups) {
+      if (!group[depth]) continue;
+      descriptions.push(group[depth]);
+      foundAtDepth = true;
+      if (descriptions.length >= descriptionSlots) break;
+    }
+    if (!foundAtDepth) break;
+  }
+
+  const result = [];
+  const seen = new Set();
+  for (const value of [...datedLines, ...descriptions]) {
+    const item = clean(value, 240);
+    const key = item.toLocaleLowerCase();
+    if (!item || seen.has(key)) continue;
+    seen.add(key);
+    result.push(item);
+    if (result.length >= MAX_EXPERIENCE_LINES) break;
+  }
+  return result;
 }
 
 function normalizedSearchText(profile) {

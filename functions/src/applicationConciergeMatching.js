@@ -284,6 +284,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           proposalRef,
           {
             matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
+            matchScore: rescored.score,
+            matchReasons: rescored.reasons,
             updatedAt: FieldValue.serverTimestamp(),
           },
           'proposed',
