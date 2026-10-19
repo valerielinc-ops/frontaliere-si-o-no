@@ -6,7 +6,12 @@ import {
 
 describe('prospector source-crawler adapters', () => {
   it('routes each triad spec through its existing production parser and detail extractor', () => {
-    expect(Object.keys(SOURCE_CRAWLER_ADAPTERS).sort()).toEqual(['agat', 'le-team', 'rh-expert-ch']);
+    expect(Object.keys(SOURCE_CRAWLER_ADAPTERS).sort()).toEqual([
+      'agat',
+      'le-team',
+      'rh-expert-ch',
+      'seniorenzentrum-engelhof',
+    ]);
     for (const companyKey of Object.keys(SOURCE_CRAWLER_ADAPTERS)) {
       const adapter = sourceCrawlerAdapterFor({ companyKey });
       expect(adapter?.version).toMatch(/-dedicated-v1$/);
@@ -19,6 +24,7 @@ describe('prospector source-crawler adapters', () => {
     expect(sourceCrawlerAdapterFor({ companyKey: 'rh-expert-ch' })?.allowRejectedRevalidation).toBe(true);
     expect(sourceCrawlerAdapterFor({ companyKey: 'le-team' })?.allowRejectedRevalidation).toBeUndefined();
     expect(sourceCrawlerAdapterFor({ companyKey: 'agat' })?.allowRejectedRevalidation).toBeUndefined();
+    expect(sourceCrawlerAdapterFor({ companyKey: 'seniorenzentrum-engelhof' })?.allowRejectedRevalidation).toBe(true);
     expect(sourceCrawlerAdapterFor({ companyKey: 'unrelated' })).toBeNull();
   });
 });

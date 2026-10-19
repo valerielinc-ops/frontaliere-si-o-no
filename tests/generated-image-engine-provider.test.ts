@@ -33,9 +33,30 @@ import {
   verifyGeneratedImage,
   verifyWikimediaExtmetadata,
 } from '../packages/articles/engine/shared/generatedImageEngine.mjs';
+import {
+  imageVisionRejectionError as pureImageVisionRejectionError,
+  imageVisionRejected as pureImageVisionRejected,
+  isCompleteArticleHeroVisionVerdict as pureIsCompleteArticleHeroVisionVerdict,
+  VISION_SCHEMA,
+} from '../packages/articles/engine/shared/generatedImageVision.mjs';
 import { LICENSED_PHOTO_KIND } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
 describe('generated image provider contracts', () => {
+  it('re-exports the shared pure article-hero vision contract', () => {
+    expect(imageVisionRejectionError).toBe(pureImageVisionRejectionError);
+    expect(imageVisionRejected).toBe(pureImageVisionRejected);
+    expect(isCompleteArticleHeroVisionVerdict).toBe(pureIsCompleteArticleHeroVisionVerdict);
+  });
+
+  it('keeps the shared vision policy immutable', () => {
+    expect(Object.isFrozen(VISION_SCHEMA)).toBe(true);
+    expect(Object.isFrozen(VISION_SCHEMA.required)).toBe(true);
+    expect(Object.isFrozen(VISION_SCHEMA.properties)).toBe(true);
+    expect(Object.isFrozen(VISION_SCHEMA.properties.ok)).toBe(true);
+    expect(() => { VISION_SCHEMA.required.length = 0; }).toThrow(TypeError);
+    expect(isCompleteArticleHeroVisionVerdict({})).toBe(false);
+  });
+
   it('requires a complete article-hero vision verdict for both generated and licensed photos', () => {
     const verdict = {
       ok: true,

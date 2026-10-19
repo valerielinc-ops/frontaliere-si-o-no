@@ -823,7 +823,7 @@ function parseListingEndpointResponse(body, companyKey) {
  * are stripped, so a real detail parameter (`lang`, a tenant id) survives.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
- * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, pageStateParams: string[] }}
+ * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, pageStateParams: string[], selfNextIsTerminal: boolean, countDuplicateRowsForCoverage: boolean }}
  */
 export function normalizeSpecPagination(spec) {
   const raw = spec?.pagination && typeof spec.pagination === 'object' ? spec.pagination : {};
@@ -838,7 +838,15 @@ export function normalizeSpecPagination(spec) {
     ? raw.pageStateParams.map((name) => String(name || '').trim()).filter(Boolean)
     : [];
   const selfNextIsTerminal = raw.selfNextIsTerminal === true;
-  return { maxPages, minCoverage, declaredTotalRx, pageStateParams, selfNextIsTerminal };
+  const countDuplicateRowsForCoverage = raw.countDuplicateRowsForCoverage === true;
+  return {
+    maxPages,
+    minCoverage,
+    declaredTotalRx,
+    pageStateParams,
+    selfNextIsTerminal,
+    countDuplicateRowsForCoverage,
+  };
 }
 
 /**
@@ -1151,6 +1159,11 @@ function isSameListingPageUrl(left, right) {
 export async function collectSpecListingRows(spec, runtime, validateUrl) {
   /** @type {Map<string, any>} */
   const bySlug = new Map();
+  // Most specs measure coverage by distinct detail URL. A small number of
+  // sources declare raw listing rows while duplicating a vacancy across pages;
+  // those specs opt into counting the source rows after URL/template guards,
+  // before de-duplication, so a complete walk is not rejected as truncated.
+  let listingRowsForCoverage = 0;
   const templateRx = spec.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
   const emptyOutcome = spec.rescueOnEmptyListing === true
     && runtime.disableWafProxy !== true
@@ -1186,6 +1199,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       const sourceUrl = vacancy.sourceUrl || v.url;
       try { await validateUrl(sourceUrl); } catch { continue; }
       if (templateRx && !matchesDetailTemplate(sourceUrl, templateRx)) continue;
+      listingRowsForCoverage += 1;
       if (bySlug.has(v.url)) continue;
       const listingEvidence = umantisListingEvidence.get(umantisVacancyIdentity(sourceUrl));
       const publication = mergeSourcePostingDates({}, vacancy);
@@ -1280,6 +1294,8 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       }
       continue;
     }
+    const seedRowsBefore = bySlug.size;
+    const seedCoverageRowsBefore = listingRowsForCoverage;
     let page;
     try {
       page = await fetchRuntimePage(seed, validateUrl, runtime);
@@ -1378,7 +1394,6 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         );
       }
     }
-    const seedRowsBefore = bySlug.size;
     await addListingCandidates(candidates, umantisListingEvidence);
 
     // Opt-in pagination (`spec.pagination`). A listing that shows only its
@@ -1423,7 +1438,9 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         try {
           next = await fetchRuntimePage(nextUrl, validateUrl, runtime);
         } catch (error) {
-          const readRows = bySlug.size - seedRowsBefore;
+          const readRows = pagination.countDuplicateRowsForCoverage
+            ? listingRowsForCoverage - seedCoverageRowsBefore
+            : bySlug.size - seedRowsBefore;
           const coverageSatisfied = declaredTotal != null
             && readRows >= Math.ceil(declaredTotal * pagination.minCoverage);
           const announcedFinal = currentPageCandidateCount > 0
@@ -1502,13 +1519,19 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         nextUrl = findNextListingPageUrl(body, pageUrl);
       }
       const seedRows = bySlug.size - seedRowsBefore;
+      const coverageRows = pagination.countDuplicateRowsForCoverage
+        ? listingRowsForCoverage - seedCoverageRowsBefore
+        : seedRows;
       console.log(
         `[prospector:${spec.companyKey}] listing paginata: ${pages} pagine, ${seedRows} annunci`
-        + (declaredTotal == null ? '' : ` (totale dichiarato dalla fonte: ${declaredTotal})`),
+        + (declaredTotal == null
+          ? ''
+          : ` (copertura ${coverageRows}, totale dichiarato dalla fonte: ${declaredTotal})`),
       );
-      if (declaredTotal != null && seedRows < Math.ceil(declaredTotal * pagination.minCoverage)) {
+      if (declaredTotal != null && coverageRows < Math.ceil(declaredTotal * pagination.minCoverage)) {
         throw markSpecListingFailure(new Error(
-          `[prospector:${spec.companyKey}] listing incompleta: ${seedRows}/${declaredTotal} annunci `
+          `[prospector:${spec.companyKey}] listing incompleta: ${coverageRows}/${declaredTotal} righe di copertura `
+          + `(annunci distinti: ${seedRows}) `
           + `dichiarati dalla fonte su ${pages} pagine (copertura minima ${pagination.minCoverage})`,
         ), bySlug.size);
       }

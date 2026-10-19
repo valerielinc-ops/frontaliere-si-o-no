@@ -1,6 +1,10 @@
 import { extractAgatDetailFields, fetchAllAgatJobs } from '../agat-job-parser.mjs';
 import { extractLeTeamDetailFields, fetchAllLeTeamJobs } from '../le-team-job-parser.mjs';
 import { extractRhExpertChDetailFields, fetchAllRhExpertChJobs } from '../rh-expert-ch-job-parser.mjs';
+import {
+  extractSeniorenzentrumEngelhofDetailFields,
+  fetchAllSeniorenzentrumEngelhofJobs,
+} from '../seniorenzentrum-engelhof-job-parser.mjs';
 
 /**
  * Source-specific production parsers that must also grade their own output.
@@ -22,6 +26,12 @@ export const SOURCE_CRAWLER_ADAPTERS = Object.freeze({
     version: 'rh-expert-ch-dedicated-v1',
     fetchJobs: fetchAllRhExpertChJobs,
     detailExtractor: extractRhExpertChDetailFields,
+    allowRejectedRevalidation: true,
+  }),
+  'seniorenzentrum-engelhof': Object.freeze({
+    version: 'seniorenzentrum-engelhof-dedicated-v1',
+    fetchJobs: fetchAllSeniorenzentrumEngelhofJobs,
+    detailExtractor: extractSeniorenzentrumEngelhofDetailFields,
     allowRejectedRevalidation: true,
   }),
 });
