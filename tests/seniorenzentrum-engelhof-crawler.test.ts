@@ -9,6 +9,7 @@ const specCrawlerMocks = vi.hoisted(() => ({
 vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => specCrawlerMocks);
 
 import {
+  extractSeniorenzentrumEngelhofDetailFields,
   fetchAllSeniorenzentrumEngelhofJobs,
   isSeniorenzentrumEngelhofJob,
   isSeniorenzentrumEngelhofOssJob,
@@ -42,6 +43,21 @@ const sourceListing = {
   url: 'https://seniorenzentrum-engelhof.employerboard.ch/job/pflegehelferin-pflegehelfer-srk/J993250/1526A5DC-5936-45AF-9A3322C77271510E',
 };
 
+const detailHtml = `
+  <html>
+    <head><title>Lernende/-r Assistent/-in Gesundheit &amp; Soziales EBA - Altendorf</title></head>
+    <body>
+      <div class="wwj-content">
+        <div class="wwj-text" data-cy="job-detail">
+          <p>Wir wünschen uns eine aufgestellte und motivierte Persönlichkeit.</p>
+          <p>Seniorenzentrum Engelhof, Engelhofstrasse 1, 8852 Altendorf.</p>
+          <p>Arbeitsort: 8853 Lachen.</p>
+        </div>
+      </div>
+    </body>
+  </html>
+`;
+
 afterEach(() => {
   specCrawlerMocks.loadSpec.mockReset();
   specCrawlerMocks.runSpecInProduction.mockReset();
@@ -59,7 +75,10 @@ describe('Seniorenzentrum Engelhof crawler parser', () => {
       'utf8',
     ));
 
-    expect(spec).toMatchObject({ rescueOnEmptyListing: true });
+    expect(spec).toMatchObject({
+      rescueOnEmptyListing: true,
+      revalidateRejectedWithSourceAdapter: true,
+    });
   });
 
   describe('source and profession filters', () => {
@@ -85,6 +104,48 @@ describe('Seniorenzentrum Engelhof crawler parser', () => {
       expect(isSeniorenzentrumEngelhofJob({ companyKey: SENIORENZENTRUM_ENGELHOF_KEY })).toBe(true);
       expect(isSeniorenzentrumEngelhofJob({ url: sourceListing.url })).toBe(true);
       expect(isSeniorenzentrumEngelhofJob({ companyKey: 'other', url: 'https://other.example/job/1' })).toBe(false);
+    });
+  });
+
+  it('recovers the source-backed workplace from the EmployerBoard vacancy body', () => {
+    expect(extractSeniorenzentrumEngelhofDetailFields(
+      detailHtml,
+      sourceListing.url,
+    )).toMatchObject({
+      location: '8853 Lachen',
+      canton: 'SZ',
+      addressLocality: 'Lachen',
+      addressRegion: 'SZ',
+      postalCode: '8853',
+    });
+    expect(extractSeniorenzentrumEngelhofDetailFields(
+      detailHtml,
+      sourceListing.url,
+    ).location).not.toBe('8852 Altendorf');
+  });
+
+  it('rejects the employer seat when no variable workplace is present', () => {
+    const detail = extractSeniorenzentrumEngelhofDetailFields(
+      '<div data-cy="job-detail"><p>Arbeitsort: 8852 Altendorf.</p></div>',
+      sourceListing.url,
+    );
+
+    expect(detail.location).toBe('');
+    expect(detail.locationCandidates).toEqual([]);
+    expect(detail.locationGateRejected).toBe(true);
+  });
+
+  it('accepts an unlabelled variable postal pair only after the employer seat', () => {
+    const detail = extractSeniorenzentrumEngelhofDetailFields(
+      '<div data-cy="job-detail"><p>8852 Altendorf.</p><p>8853 Lachen.</p></div>',
+      sourceListing.url,
+    );
+
+    expect(detail).toMatchObject({
+      location: '8853 Lachen',
+      addressLocality: 'Lachen',
+      postalCode: '8853',
+      canton: 'SZ',
     });
   });
 

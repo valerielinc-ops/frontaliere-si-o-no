@@ -14,6 +14,7 @@
   "detailTemplate": "/job/*/*/*",
   "detailEnrichment": true,
   "rescueOnEmptyListing": true,
+  "revalidateRejectedWithSourceAdapter": true,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 6,
   "sampleTitles": [
