@@ -117,15 +117,7 @@ export async function getAssistedApplicationPaymentProvider(read = getRemoteConf
   const configured = String(await read(ASSISTED_APPLICATION_PAYMENT_PROVIDER_RC_KEY) || '')
     .trim()
     .toLowerCase();
-  if (configured !== SUMUP_PAYMENT_PROVIDER) return 'stripe';
-  try {
-    await sumUpConfig(read);
-    return SUMUP_PAYMENT_PROVIDER;
-  } catch {
-    // A partially provisioned switch must not strand a checkout. Stripe is the
-    // existing safe path until the verifier has proved the complete contract.
-    return 'stripe';
-  }
+  return configured === SUMUP_PAYMENT_PROVIDER ? SUMUP_PAYMENT_PROVIDER : 'stripe';
 }
 
 async function sumUpRequest(path, { apiKey, method = 'GET', body } = {}) {
