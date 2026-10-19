@@ -1660,12 +1660,12 @@ describe('push-contention class (exit 42) in generated steps', () => {
     expect(files.length).toBeGreaterThan(0);
     for (const f of files) {
       const y = fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8');
-      // the failure-report gate must exclude 42...
-      expect(y).toContain('[ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]');
+      // the arithmetic failure-report gate must exclude 42...
+      expect(y).toContain('git_commit_exit != 0 && git_commit_exit != 42');
       // ...and the contention branch must log loudly instead of filing an issue
       expect(y).toContain('push contention loss (exit 42)');
       // A global lease convoy is a separate retryable systemic class.
-      expect(y).toContain('[ "$git_commit_exit" -ne 44 ]');
+      expect(y).toContain('git_commit_exit != 44 && git_commit_exit != 45');
       expect(y).toContain('global data-pipeline lease busy (exit 44)');
       // A bounded transient Firestore outage is not retryable in this
       // generation: it must stay red and skip the per-crawler flood.
