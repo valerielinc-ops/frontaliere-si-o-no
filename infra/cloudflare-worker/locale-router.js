@@ -862,9 +862,10 @@ export function articleAliasTarget(pathname, registry) {
   let route = matchSection(pathname) || matchCorpusSection(pathname);
   let rows = articleAliasRows(route, registry);
   if (!rows) return null;
-  const leaf = pathname.slice(route.prefix.length).match(/^\/([^/]+)\/?$/);
+  const leaf = pathname.slice(route.prefix.length).match(/^\/([^/]+)(\/.+)?\/?$/);
   if (!leaf) return null;
   const slug = lowerSegment(leaf[1]);
+  const hasNestedSuffix = Boolean(leaf[2]);
   let group = route.section === 'articolifrontaliere' ? 'blog'
     : route.section === 'articolisvizzera' ? 'swiss' : null;
   let ids = articleAliasIds(slug, rows, group, registry);
@@ -890,6 +891,10 @@ export function articleAliasTarget(pathname, registry) {
   const id = [...ids][0];
   const canonicalSlug = Object.prototype.hasOwnProperty.call(rows, id) && rows[id]?.[route.locale];
   if (typeof canonicalSlug !== 'string' || !canonicalSlug || /[\s/\\?#%]/u.test(canonicalSlug)) return null;
+  // A malformed relative link can append a path to a live article URL. Drop
+  // that suffix only when the first segment is already this locale's current
+  // canonical slug; aliases, unknown slugs and cross-locale guesses still 404.
+  if (hasNestedSuffix && (!group || canonicalSlug !== slug)) return null;
   const target = `${route.prefix}/${canonicalSlug}/`;
   if (!group && corpusSectionCanonicalDir(target, route) !== target) return null;
   if (normaliseRetiredPath(target) === normaliseRetiredPath(pathname.replace(/\/+$/, '') + '/')) return null;
@@ -903,7 +908,10 @@ async function recoverArticleAlias(url, origin, corpusEntry = null) {
   if (corpusEntry ? corpusEntry.status !== 'live'
     : !['articolifrontaliere', 'articolisvizzera'].includes(route?.section)) return null;
   if (!route) return null;
-  if (!/^\/[^/]+\/?$/.test(url.pathname.slice(route.prefix.length))) return null;
+  const articlePath = url.pathname.slice(route.prefix.length);
+  const nationalArticleSection = ['articolifrontaliere', 'articolisvizzera'].includes(route.section);
+  if (!/^\/[^/]+\/?$/.test(articlePath)
+    && !(nationalArticleSection && /^\/[^/]+\/.+\/?$/.test(articlePath))) return null;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 5000);
   let target;
