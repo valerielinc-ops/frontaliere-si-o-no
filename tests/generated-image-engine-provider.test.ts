@@ -178,6 +178,155 @@ describe('generated image provider contracts', () => {
       rmSync(tempDir, { recursive: true, force: true });
     }
   });
+  it('recognizes nested transport causes and Gemini request aborts as vision-provider outages', async () => {
+    const tempDir = mkdtempSync(path.join(process.cwd(), '.tmp-vision-provider-outage-'));
+    const imagePath = path.join(tempDir, 'candidate.webp');
+    const socketPath = path.join(os.tmpdir(), `frontaliere-vision-outage-${process.pid}-${Date.now()}.sock`);
+    const originalSocket = process.env.CODEX_AUTH_BROKER_SOCKET;
+    const originalGeminiKey = process.env.GEMINI_API_KEY;
+    const originalFetch = globalThis.fetch;
+    const server = net.createServer((socket) => {
+      socket.setEncoding('utf8');
+      socket.once('data', () => socket.end(`${JSON.stringify({ ok: false, error: 'service unavailable' })}\n`));
+    });
+
+    try {
+      writeFileSync(imagePath, 'fixture image bytes');
+      await new Promise<void>((resolve, reject) => {
+        server.once('error', reject);
+        server.listen(socketPath, resolve);
+      });
+      process.env.CODEX_AUTH_BROKER_SOCKET = socketPath;
+      process.env.GEMINI_API_KEY = 'fixture-provider-key';
+
+      const verifyWithFetchFailure = async (fetchFailure: Error) => {
+        vi.stubGlobal('fetch', async () => { throw fetchFailure; });
+        return verifyGeneratedImage(imagePath, {
+          scope: 'article-hero',
+          subject: 'test article',
+        }).then(() => null, (caught: unknown) => caught as Error & {
+          code?: string;
+          sharedProviderUnavailable?: boolean;
+          cause?: unknown;
+        });
+      };
+
+      const socketFailure = Object.assign(new Error('connection reset'), { code: 'ECONNRESET' });
+      const nestedTransport = await verifyWithFetchFailure(new TypeError('fetch failed', { cause: socketFailure }));
+      expect(nestedTransport?.code).toBe('AI_PROVIDER_UNAVAILABLE');
+      expect(nestedTransport?.sharedProviderUnavailable).toBe(true);
+
+      const abort = new Error('The operation was aborted');
+      abort.name = 'AbortError';
+      const abortedRequest = await verifyWithFetchFailure(abort);
+      expect(abortedRequest?.code).toBe('AI_PROVIDER_UNAVAILABLE');
+      expect(abortedRequest?.sharedProviderUnavailable).toBe(true);
+    } finally {
+      if (originalSocket === undefined) delete process.env.CODEX_AUTH_BROKER_SOCKET;
+      else process.env.CODEX_AUTH_BROKER_SOCKET = originalSocket;
+      if (originalGeminiKey === undefined) delete process.env.GEMINI_API_KEY;
+      else process.env.GEMINI_API_KEY = originalGeminiKey;
+      vi.unstubAllGlobals();
+      globalThis.fetch = originalFetch;
+      await new Promise<void>((resolve) => server.close(() => resolve()));
+      rmSync(tempDir, { recursive: true, force: true });
+    }
+  });
+  it('does not classify a malformed vision response as provider unavailability', async () => {
+    const tempDir = mkdtempSync(path.join(process.cwd(), '.tmp-malformed-vision-response-'));
+    const imagePath = path.join(tempDir, 'candidate.webp');
+    const socketPath = path.join(os.tmpdir(), `frontaliere-malformed-vision-${process.pid}-${Date.now()}.sock`);
+    const originalSocket = process.env.CODEX_AUTH_BROKER_SOCKET;
+    const originalGeminiKey = process.env.GEMINI_API_KEY;
+    const server = net.createServer((socket) => {
+      socket.setEncoding('utf8');
+      socket.once('data', () => socket.end(`${JSON.stringify({ ok: true, result: 'not a JSON verdict' })}\n`));
+    });
+
+    try {
+      writeFileSync(imagePath, 'fixture image bytes');
+      await new Promise<void>((resolve, reject) => {
+        server.once('error', reject);
+        server.listen(socketPath, resolve);
+      });
+      process.env.CODEX_AUTH_BROKER_SOCKET = socketPath;
+      delete process.env.GEMINI_API_KEY;
+
+      const error = await verifyGeneratedImage(imagePath, {
+        scope: 'article-hero',
+        subject: 'test article',
+      }).then(() => null, (caught: unknown) => caught as Error & {
+        code?: string;
+        sharedProviderUnavailable?: boolean;
+      });
+
+      expect(error?.code).toBe('IMAGE_VISION_VERDICT_INCOMPLETE');
+      expect(error?.sharedProviderUnavailable).not.toBe(true);
+    } finally {
+      if (originalSocket === undefined) delete process.env.CODEX_AUTH_BROKER_SOCKET;
+      else process.env.CODEX_AUTH_BROKER_SOCKET = originalSocket;
+      if (originalGeminiKey === undefined) delete process.env.GEMINI_API_KEY;
+      else process.env.GEMINI_API_KEY = originalGeminiKey;
+      await new Promise<void>((resolve) => server.close(() => resolve()));
+      rmSync(tempDir, { recursive: true, force: true });
+    }
+  });
+  it('stops the image-provider chain and preserves a shared vision outage marker', async () => {
+    const outputDir = mkdtempSync(path.join(os.tmpdir(), 'generated-image-vision-outage-'));
+    const imageBytes = await sharp({
+      create: { width: 8, height: 8, channels: 3, background: { r: 25, g: 80, b: 120 } },
+    }).jpeg().toBuffer();
+    const originalGeminiKey = process.env.GEMINI_API_KEY;
+    const originalFalKey = process.env.FAL_KEY;
+    const originalFetch = globalThis.fetch;
+    const providerAttempts: Array<{ provider: string; status: string }> = [];
+    process.env.GEMINI_API_KEY = 'fixture-provider-key';
+    delete process.env.FAL_KEY;
+    vi.stubGlobal('fetch', async () => ({
+      ok: true,
+      json: async () => ({
+        output_image: { type: 'image', mime_type: 'image/jpeg', data: imageBytes.toString('base64') },
+      }),
+      text: async () => '',
+    }));
+    const verifierFailure = new Error('all shared image-vision providers are unavailable');
+    Object.assign(verifierFailure, { code: 'AI_PROVIDER_UNAVAILABLE', sharedProviderUnavailable: true });
+
+    try {
+      const error = await generateImageFromSpec({
+        scope: 'article-hero',
+        subject: 'a contemporary workplace',
+        assetId: 'vision-provider-outage-test',
+      }, {
+        outputDir,
+        chain: ['gemini', 'fal'],
+        onProviderAttempt: ({ provider, status }) => providerAttempts.push({ provider, status }),
+        verifyImage: async () => { throw verifierFailure; },
+      }).then(() => null, (caught: unknown) => caught as Error & {
+        sharedProviderUnavailable?: boolean;
+        imageProviderLedger?: { complete: boolean; expectedProviders: string[]; attemptedProviders: string[] };
+      });
+
+      expect(error?.sharedProviderUnavailable).toBe(true);
+      expect(error?.imageProviderLedger).toEqual({
+        schema: 1,
+        complete: false,
+        expectedProviders: ['gemini', 'fal'],
+        attemptedProviders: ['gemini'],
+      });
+      expect(providerAttempts.filter(({ status }) => status === 'started')).toEqual([
+        { provider: 'gemini', status: 'started' },
+      ]);
+    } finally {
+      if (originalGeminiKey === undefined) delete process.env.GEMINI_API_KEY;
+      else process.env.GEMINI_API_KEY = originalGeminiKey;
+      if (originalFalKey === undefined) delete process.env.FAL_KEY;
+      else process.env.FAL_KEY = originalFalKey;
+      vi.unstubAllGlobals();
+      globalThis.fetch = originalFetch;
+      rmSync(outputDir, { recursive: true, force: true });
+    }
+  });
   it('records whether the full selected provider chain was actually attempted', async () => {
     const outputDir = mkdtempSync(path.join(os.tmpdir(), 'generated-image-provider-ledger-'));
     const previousGeminiKey = process.env.GEMINI_API_KEY;
