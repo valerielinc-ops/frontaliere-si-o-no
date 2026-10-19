@@ -16,6 +16,16 @@ function response(body: unknown, status = 200) {
 }
 
 describe('secret alert sweep', () => {
+  it('declares the known unavailable valerielinc repository in the workflow allowlist', () => {
+    const workflow = fs.readFileSync(
+      path.resolve(import.meta.dirname, '../.github/workflows/secret-scanning-sweep.yml'),
+      'utf8',
+    );
+    expect(workflow).toContain(
+      "SECRET_SCAN_ALLOWED_UNAVAILABLE: 'valerielinc-ops/villacomo'",
+    );
+  });
+
   it('normalizes the declared unavailable-repository allowlist', () => {
     expect(parseRepositoryAllowlist(' example/a,example/b , ,')).toEqual(
       new Set(['example/a', 'example/b']),
