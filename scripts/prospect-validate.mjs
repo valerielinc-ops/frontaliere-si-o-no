@@ -233,6 +233,7 @@ for (const spec of specs) {
     const rejectedRevalidation = canRevalidateRejectedCandidate(spec, candidate);
     const next = candidateStatusAfterValidation(report);
     const qualityProblems = [...report.problems];
+    let sourceBackedLocationProblem = '';
     // `good` is the extraction-quality verdict, not a waiver for PROMOTE's
     // source-backed geography predicate. Keep an unproven candidate retryable;
     // do not invent a fallback location or turn missing evidence into a
@@ -242,9 +243,8 @@ for (const spec of specs) {
       const measuredLabel = Number.isFinite(measuredRate)
         ? `${Math.round(measuredRate * 100)}%`
         : 'non misurata';
-      qualityProblems.push(
-        `localita' source-backed ${measuredLabel} sotto la soglia PROMOTE ${Math.round(GATE_DEFAULTS.minLocationSourceRate * 100)}%`,
-      );
+      sourceBackedLocationProblem = `localita' source-backed ${measuredLabel} sotto la soglia PROMOTE ${Math.round(GATE_DEFAULTS.minLocationSourceRate * 100)}%`;
+      qualityProblems.push(sourceBackedLocationProblem);
     }
     // Keep a short grading history. A single good grade proves the page parsed
     // ONCE; autonomous promotion needs proof it parses the same way on a
@@ -289,6 +289,7 @@ for (const spec of specs) {
       crawlerKey: spec.companyKey,
       domain: candidate.domain || spec.companyHost,
       careersUrl: candidate.careersUrl || spec.seedUrls?.[0] || null,
+      ...(sourceBackedLocationProblem ? { reason: sourceBackedLocationProblem } : {}),
       ...(rejectedRevalidation && next === 'rejected'
         ? { reason: qualityProblems[0] || 'rivalutazione source adapter respinta' }
         : {}),
