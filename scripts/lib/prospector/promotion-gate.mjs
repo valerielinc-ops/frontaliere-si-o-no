@@ -97,6 +97,10 @@ export function passesSourceBackedLocationRate(rate, minRate = GATE_DEFAULTS.min
  * @returns {'validated'|'promoted'|'rejected'}
  */
 export function candidateStatusAfterValidation(report = {}) {
+  // A failed/incomplete runtime snapshot is evidence about neither a bad
+  // employer nor an empty listing. Keep the candidate retryable and require
+  // fresh good-day observations before it can satisfy promotion stability.
+  if (report.runtimeSnapshotComplete === false) return 'validated';
   if (report.verdict === 'bad') return 'rejected';
   if (report.verdict === 'good' && passesSourceBackedLocationRate(report.locationSourceRate)) {
     return 'promoted';
@@ -154,7 +158,9 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   const history = sourceAdapterVersion
     ? validationHistory.filter((entry) => entry.sourceAdapterVersion === sourceAdapterVersion)
     : validationHistory;
-  const good = history.filter((h) => h.verdict === 'good');
+  const lastIncompleteIndex = history.findLastIndex((entry) => entry.runtimeSnapshotComplete === false);
+  const stabilityHistory = history.slice(lastIncompleteIndex + 1);
+  const good = stabilityHistory.filter((h) => h.verdict === 'good');
   const latest = history[history.length - 1] || {};
 
   // `promoting` significa che il candidato e' gia' dentro una PR di promozione

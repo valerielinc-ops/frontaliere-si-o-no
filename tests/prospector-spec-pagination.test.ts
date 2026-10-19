@@ -329,16 +329,18 @@ describe('spec.pagination', () => {
     });
   });
 
-  it('senza spec.pagination legge solo il seed e segnala il next non seguito', async () => {
-    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+  it('senza spec.pagination fallisce chiuso se il seed espone un next non seguito', async () => {
     const pages = {
       [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 5, next: `${ORIGIN}/?sf_paged=2` }),
     };
-    const { rows, fetched } = await collect(specWith(), pages);
-    expect(rows).toHaveLength(2);
-    expect(fetched).not.toContain(`${ORIGIN}/?sf_paged=2`);
-    expect(warn.mock.calls.map((c) => String(c[0])).join('\n'))
-      .toMatch(/rel=next non seguito \(https:\/\/jobs\.example\.ch\/\?sf_paged=2\)/);
+    let failure: any;
+    try {
+      await collect(specWith(), pages);
+    } catch (error) {
+      failure = error;
+    }
+    expect(failure).toMatchObject({ specListingFailure: true, specDiscoveredCount: 2 });
+    expect(String(failure.message)).toMatch(/listing incompleta.*rel=next non seguito/);
   });
 });
 
