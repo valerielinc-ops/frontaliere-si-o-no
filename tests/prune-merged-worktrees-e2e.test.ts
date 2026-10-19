@@ -40,10 +40,9 @@ let invalidOnlyPreservedTarget = false;
 type GlobalPruneProbe = { packPath: string; worktreePath: string };
 type GlobalPruneState = { packExists: boolean; worktreeEntryExists: boolean };
 let dryRunProbe: GlobalPruneProbe;
-let scopedProbe: GlobalPruneProbe;
 let dryRunProbeState: GlobalPruneState = { packExists: false, worktreeEntryExists: false };
 let scopedProbeState: GlobalPruneState = { packExists: false, worktreeEntryExists: false };
-let fullApplyProbeStates: GlobalPruneState[] = [];
+let fullApplyProbeState: GlobalPruneState = { packExists: false, worktreeEntryExists: false };
 let dryRunMaintenanceCalls: string[] = [];
 let scopedMaintenanceCalls: string[] = [];
 let fullApplyMaintenanceCalls: string[] = [];
@@ -277,10 +276,9 @@ exit 0
   dryRun = runScript([]);
   dryRunProbeState = readGlobalPruneState(dryRunProbe);
   dryRunMaintenanceCalls = gitMaintenanceCalls(maintenanceLog).slice(callsBefore);
-  scopedProbe = createGlobalPruneProbe('only');
   callsBefore = gitMaintenanceCalls(maintenanceLog).length;
   scopedRun = runScript(['--apply', '--only', 'no-fixture-matches-this']);
-  scopedProbeState = readGlobalPruneState(scopedProbe);
+  scopedProbeState = readGlobalPruneState(dryRunProbe);
   scopedMaintenanceCalls = gitMaintenanceCalls(maintenanceLog).slice(callsBefore);
   // --only must not fall through to unrelated cleanup before the real apply.
   expect(fs.existsSync(wt('feat-merged'))).toBe(true);
@@ -297,7 +295,7 @@ exit 0
   expect(fs.existsSync(wt('feat-merged-dirty'))).toBe(true);
   callsBefore = gitMaintenanceCalls(maintenanceLog).length;
   applyRun = runScript(['--apply']);
-  fullApplyProbeStates = [dryRunProbe, scopedProbe].map(readGlobalPruneState);
+  fullApplyProbeState = readGlobalPruneState(dryRunProbe);
   fullApplyMaintenanceCalls = gitMaintenanceCalls(maintenanceLog).slice(callsBefore);
 }, 120000);
 
@@ -312,10 +310,7 @@ describe('prune-merged-worktrees.mjs su un clone di prova', () => {
   it('dry-run and --only preserve stale packs and unrelated worktree metadata', () => {
     expect(dryRunProbeState).toEqual({ packExists: true, worktreeEntryExists: true });
     expect(scopedProbeState).toEqual({ packExists: true, worktreeEntryExists: true });
-    expect(fullApplyProbeStates).toEqual([
-      { packExists: false, worktreeEntryExists: false },
-      { packExists: false, worktreeEntryExists: false },
-    ]);
+    expect(fullApplyProbeState).toEqual({ packExists: false, worktreeEntryExists: false });
     const containsFetchPrune = (calls: string[]) => calls.some(
       (call) => call.startsWith('fetch ') && call.split(/\s+/).includes('--prune'),
     );
