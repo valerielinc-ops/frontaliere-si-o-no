@@ -197,9 +197,11 @@ const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github', 'workflows');
 
 const DRY_RUN = process.argv.includes('--dry-run');
 // Stable titles minted by github-issue-creator.mjs failure reporters. For `Workflow`/`CI`
-// prefixes, group 2 is the workflow display name (equals `github.workflow` and `gh run
-// list -w <name>`). For `Crawler` prefixes (post-consolidation), group 2 is instead the
-// literal `Run <slug>` background-step identifier — see the module docstring above.
+// prefixes, group 2 is the canonical workflow name accepted by `gh run list -w <name>`.
+// Loop-clock run-name decorations are normalized by `failureRunHistorySource` for old
+// issues; new timeout reports resolve the name through the stable workflow id. For
+// `Crawler` prefixes (post-consolidation), group 2 is instead the literal `Run <slug>`
+// background-step identifier — see the module docstring above.
 export const TITLE_RE = /^(?:Workflow|Crawler|CI) Failure: (.+)$/;
 export const CRAWLER_STEP_RE = /^Run (.+)$/;
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
@@ -2016,6 +2018,16 @@ export function findCrawlerGroupWorkflowByDisplayName(workflowName, workflowsDir
   return { filename, name: nameMatch[1].trim().replace(/^["']|["']$/g, '') };
 }
 
+// `run-name:` can decorate a dispatched run while the declared workflow name
+// remains the part before this marker. Keep recovery compatible with timeout
+// issues created before scan-job-timeouts started resolving the workflow id.
+const LOOP_CLOCK_RUN_NAME_SUFFIX_RE = /\s+\[loop-clock [a-z0-9][a-z0-9-]*@[^\]\r\n]+\]$/u;
+
+export function canonicalWorkflowNameForHistory(workflowName) {
+  const value = String(workflowName ?? '').trim();
+  return value.replace(LOOP_CLOCK_RUN_NAME_SUFFIX_RE, '').trim() || value;
+}
+
 /**
  * Dove leggere lo storico di recupero di una issue `Workflow|CI Failure:`.
  * Un gruppo crawler si giudica sulle run di produzione del gruppo (repo delle
@@ -2026,9 +2038,10 @@ export function failureRunHistorySource(
   workflowName,
   { workflowsDir = WORKFLOWS_DIR, issueRepo = REPO, runRepo = CRAWLER_RUN_REPO } = {},
 ) {
-  const group = findCrawlerGroupWorkflowByDisplayName(workflowName, workflowsDir);
+  const historyWorkflowName = canonicalWorkflowNameForHistory(workflowName);
+  const group = findCrawlerGroupWorkflowByDisplayName(historyWorkflowName, workflowsDir);
   if (!group) {
-    return { workflowRef: workflowName, repo: issueRepo, includeCrawlerShadowBranches: false };
+    return { workflowRef: historyWorkflowName, repo: issueRepo, includeCrawlerShadowBranches: false };
   }
   return {
     workflowRef: crawlerWorkflowReference(group, issueRepo, runRepo),

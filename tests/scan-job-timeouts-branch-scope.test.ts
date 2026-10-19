@@ -68,6 +68,45 @@ describe('scopedTitle — discriminant FIRST, only for non-main branches', () =>
   });
 });
 
+describe('workflow identity — run-name decorations never become recovery keys', () => {
+  it('resolves the declared workflow name through workflow_id for a loop-clock dispatch', async () => {
+    const run = {
+      id: 39279727929,
+      workflow_id: 369401698,
+      name: 'Revenue signal monitor [loop-clock site-revenue-signal-monitor@2026-10-19T15:40Z]',
+      html_url: 'https://github.com/o/r/actions/runs/39279727929',
+      event: 'workflow_dispatch',
+      head_branch: 'main',
+      created_at: new Date().toISOString(),
+    };
+    const job = {
+      name: 'Monitor revenue signals',
+      conclusion: 'cancelled',
+      check_run_url: 'https://api.github.com/repos/o/r/check-runs/1',
+    };
+
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'api') {
+        const path = args[1];
+        if (path.includes('actions/runs?status=cancelled')) return JSON.stringify({ workflow_runs: [run] });
+        if (path.includes(`actions/workflows/${run.workflow_id}`)) return JSON.stringify({ name: 'Revenue signal monitor' });
+        if (path.includes(`actions/runs/${run.id}/jobs`)) return JSON.stringify({ jobs: [job] });
+        if (path.endsWith('/annotations')) return JSON.stringify([[{ message: 'The job has exceeded the maximum execution time of 10m0s.' }]]);
+        return '{}';
+      }
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/14084';
+      return '';
+    });
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await main();
+
+    const created = callsFor('create')[0];
+    expect(created[created.indexOf('--title') + 1]).toBe('CI Failure: Revenue signal monitor');
+  });
+});
+
 describe('scan-job-timeouts end-to-end — a PR-branch timeout does not land on the main-scoped issue', () => {
   const PR_RUN = {
     id: 32146352793,
