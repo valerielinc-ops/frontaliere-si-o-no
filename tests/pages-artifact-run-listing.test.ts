@@ -54,15 +54,18 @@ while [ "$#" -gt 0 ]; do
 done
 printf '%s\\n' "$url" >> "$GH_STUB_DIR/calls.log"
 emit() { if [ -n "$jqf" ]; then jq -r "$jqf" "$1"; else cat "$1"; fi; }
-case "$url" in
-  */actions/workflows/deploy.yml/runs\\?*)
-    case "$url" in
-      *created=*) emit "$GH_STUB_DIR/runs-with-created.json" ;;
-      *) emit "$GH_STUB_DIR/runs-without-created.json" ;;
-    esac ;;
-  */actions/runs/*/artifacts\\?*)
-    id="\${url#*/actions/runs/}"; id="\${id%%/*}"
-    emit "$GH_STUB_DIR/artifacts-$id.json" ;;
+  case "$url" in
+    */actions/workflows/deploy.yml/runs\\?*)
+      case "$url" in
+        *created=*) emit "$GH_STUB_DIR/runs-with-created.json" ;;
+        *) emit "$GH_STUB_DIR/runs-without-created.json" ;;
+      esac ;;
+    */actions/runs/*/artifacts\\?*)
+      id="\${url#*/actions/runs/}"; id="\${id%%/*}"
+      emit "$GH_STUB_DIR/artifacts-$id.json" ;;
+    */actions/runs/*)
+      id="\${url##*/}"
+      emit "$GH_STUB_DIR/run-$id.json" ;;
   */actions/artifacts/*/zip)
     cat "$GH_STUB_DIR/pages.zip" ;;
   *) echo "gh stub: unexpected call $url" >&2; exit 1 ;;
@@ -71,7 +74,17 @@ esac
 
 let sandbox = '';
 
-function resolve({ withCreated, withoutCreated }: { withCreated: unknown[]; withoutCreated: unknown[] }) {
+function resolve({
+  withCreated,
+  withoutCreated,
+  runId = '',
+  pinnedRun,
+}: {
+  withCreated: unknown[];
+  withoutCreated: unknown[];
+  runId?: string;
+  pinnedRun?: Record<string, unknown>;
+}) {
   const dir = mkdtempSync(path.join(sandbox, 'case-'));
   const bin = path.join(dir, 'bin');
   mkdirSync(bin);
@@ -89,6 +102,10 @@ function resolve({ withCreated, withoutCreated }: { withCreated: unknown[]; with
   for (const stale of STALE_RUNS) {
     writeFileSync(path.join(dir, `artifacts-${stale.id}.json`), JSON.stringify(artifact(stale.id, true)));
   }
+  if (runId) {
+    writeFileSync(path.join(dir, `run-${runId}.json`), JSON.stringify(pinnedRun));
+    writeFileSync(path.join(dir, `artifacts-${runId}.json`), JSON.stringify(artifact(4001, false)));
+  }
   execFileSync('cp', [path.join(sandbox, 'pages.zip'), path.join(dir, 'pages.zip')]);
   const output = path.join(dir, 'github-output');
   writeFileSync(output, '');
@@ -100,7 +117,7 @@ function resolve({ withCreated, withoutCreated }: { withCreated: unknown[]; with
       GH_STUB_DIR: dir,
       GH_TOKEN: 'stub',
       GH_REPO: 'owner/repo',
-      INPUT_RUN_ID: '',
+      INPUT_RUN_ID: runId,
       INPUT_OUTPUT_DIR: path.join(dir, 'out'),
       INPUT_EXPECTED_SHA: '',
       GITHUB_OUTPUT: output,
@@ -182,6 +199,58 @@ describe('fetch-pages-artifact: elenco delle run con finestra created', () => {
   it('nessun messaggio suggerisce piu\' di alzare MAX_PAGES', () => {
     const errors = script.split('\n').filter((line) => line.includes('::error'));
     expect(errors.filter((line) => /\bRaise MAX_PAGES\b/.test(line))).toEqual([]);
+  });
+});
+
+describe('fetch-pages-artifact: identita\u0300 della run pinnata', () => {
+  const canonicalPinnedRun = {
+    id: 4001,
+    name: 'Deploy to GitHub Pages',
+    path: '.github/workflows/deploy.yml',
+    workflow_id: 233284293,
+    event: 'push',
+    status: 'completed',
+    conclusion: 'success',
+    head_branch: 'main',
+    created_at: isoDaysAgo(1),
+    head_sha: '4001'.padEnd(40, 'a'),
+  };
+
+  it('rifiuta un run leggibile ma non appartenente al deploy canonico', () => {
+    const result = resolve({
+      withCreated: [],
+      withoutCreated: [],
+      runId: '38694470428',
+      pinnedRun: {
+        id: 38694470428,
+        name: 'Code checks and review · PR #13364 · opened',
+        path: '.github/workflows/tests.yml',
+        workflow_id: 279287092,
+        event: 'pull_request',
+        status: 'completed',
+        conclusion: 'failure',
+        head_branch: 'issue-13235-orphan-sitemap-pages-luna-max-20261015',
+        created_at: isoDaysAgo(4),
+        head_sha: '38694470428'.padEnd(40, 'a'),
+      },
+    });
+    expect(result.status).toBe(1);
+    expect(result.log).toContain('is not a successful deploy.yml run on main');
+    expect(result.log).toContain('path=.github/workflows/tests.yml');
+    expect(result.calls.some((call) => call.includes('/artifacts?'))).toBe(false);
+    expect(result.outputs).toBe('');
+  });
+
+  it('scarica un run deploy canonico quando e\u0300 pinnato esplicitamente', () => {
+    const result = resolve({
+      withCreated: [],
+      withoutCreated: [],
+      runId: '4001',
+      pinnedRun: canonicalPinnedRun,
+    });
+    expect(result.status).toBe(0);
+    expect(result.log).not.toContain('::error');
+    expect(result.outputs).toContain('run-id=4001');
   });
 });
 
