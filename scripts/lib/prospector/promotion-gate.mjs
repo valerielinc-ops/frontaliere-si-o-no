@@ -67,6 +67,44 @@ export const GATE_DEFAULTS = {
 };
 
 /**
+ * A missing or malformed source-backed location measurement is a failure, not
+ * an invitation to infer a default geography. Keep this predicate shared by
+ * VALIDATE and PROMOTE so a `good` quality score cannot re-enter the promoted
+ * queue while the production gate uses a different interpretation of the same
+ * measurement.
+ *
+ * @param {unknown} rate
+ * @param {unknown} [minRate]
+ * @returns {boolean}
+ */
+export function passesSourceBackedLocationRate(rate, minRate = GATE_DEFAULTS.minLocationSourceRate) {
+  const measured = typeof rate === 'number' ? rate : NaN;
+  const threshold = Number(minRate);
+  return Number.isFinite(measured)
+    && measured >= 0
+    && measured <= 1
+    && Number.isFinite(threshold)
+    && measured >= threshold;
+}
+
+/**
+ * Select the queue state after one validation run. A quality `good` verdict is
+ * not sufficient for PROMOTE: until the source-backed geography yield is
+ * proven, keep the candidate retryable in `validated` rather than putting a
+ * known gate failure into `promoted`.
+ *
+ * @param {{ verdict?: unknown, locationSourceRate?: unknown }} [report]
+ * @returns {'validated'|'promoted'|'rejected'}
+ */
+export function candidateStatusAfterValidation(report = {}) {
+  if (report.verdict === 'bad') return 'rejected';
+  if (report.verdict === 'good' && passesSourceBackedLocationRate(report.locationSourceRate)) {
+    return 'promoted';
+  }
+  return 'validated';
+}
+
+/**
  * Normalizza la leva di verifica `--min-days`.
  *
  * A 0 la condizione del gate diventa `distinctDays >= 0`, cioe' sempre vera: il
@@ -191,7 +229,7 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
 
   const locationSourceRate = latest.locationSourceRate;
   mark('sourceBackedLocation',
-    Number(locationSourceRate) >= g.minLocationSourceRate,
+    passesSourceBackedLocationRate(locationSourceRate, g.minLocationSourceRate),
     locationSourceRate === undefined
       ? 'nessuna misura della localita\' source-backed nell\'ultima validazione: serve una nuova validazione'
       : `solo il ${Math.round(Number(locationSourceRate) * 100)}% delle pagine campionate espone una localita' svizzera source-backed, serve ${Math.round(g.minLocationSourceRate * 100)}%`);
