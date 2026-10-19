@@ -109,7 +109,7 @@ jobs:
             echo "::warning::Skipping sector-hub discovery: assembled data/jobs.json is missing."
             exit 0
           fi
-          npx tsx scripts/discover-sector-hub-candidates.ts \
+          npm run data:sector-hub-candidates -- \
             --traffic-output "$RUNNER_TEMP/sector-hub-traffic.json"
 
       # ── OmniRoute (ON by default, RC kill-switch ENABLE_OMNIROUTE_FALLBACK='0')
@@ -174,7 +174,7 @@ jobs:
           # other scheduled workflows. On rebase conflict, regenerate the
           # snapshot + delta + footer pairs + cluster data on top of the new base.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; node scripts/audit-related-search-candidates.mjs || true; node scripts/ingest-gsc-orphans-into-candidates.mjs || true; if [ -s data/jobs.json ]; then npx tsx scripts/discover-sector-hub-candidates.ts --traffic-input '$RUNNER_TEMP/sector-hub-traffic.json'; fi; bash scripts/lib/stage-weekly-snapshot-files.sh"
+            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; node scripts/audit-related-search-candidates.mjs || true; node scripts/ingest-gsc-orphans-into-candidates.mjs || true; if [ -s data/jobs.json ]; then npm run data:sector-hub-candidates -- --traffic-input '$RUNNER_TEMP/sector-hub-traffic.json'; fi; bash scripts/lib/stage-weekly-snapshot-files.sh"
 
       - name: Cleanup Codex auth broker
         if: always()
