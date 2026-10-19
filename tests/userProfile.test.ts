@@ -34,8 +34,8 @@ describe('UserProfile helpers', () => {
       expect(profile.familySituation).toBe('');
       expect(profile.frontaliereType).toBe('');
       expect(profile.municipality).toBe('');
-      expect(profile.children).toBe('0');
-      expect(profile.familyMembers).toBe('1');
+      expect(profile.children).toBe('');
+      expect(profile.familyMembers).toBe('');
     });
 
     it('loads saved profile from localStorage', () => {
@@ -50,7 +50,7 @@ describe('UserProfile helpers', () => {
         familyMembersList: [],
         ...BASE_FIELDS,
       };
-      localStorage.setItem('frontaliere_user_profile', JSON.stringify(saved));
+      localStorage.setItem('frontaliere_user_profile:anonymous', JSON.stringify(saved));
       const profile = loadUserProfile();
       expect(profile.workPosition).toBe('Software Engineer');
       expect(profile.age).toBe('26-35');
@@ -62,17 +62,17 @@ describe('UserProfile helpers', () => {
     });
 
     it('handles corrupted localStorage gracefully', () => {
-      localStorage.setItem('frontaliere_user_profile', 'not-json');
+      localStorage.setItem('frontaliere_user_profile:anonymous', 'not-json');
       const profile = loadUserProfile();
       expect(profile.workPosition).toBe('');
     });
 
     it('merges partial data with defaults', () => {
-      localStorage.setItem('frontaliere_user_profile', JSON.stringify({ workPosition: 'Dev' }));
+      localStorage.setItem('frontaliere_user_profile:anonymous', JSON.stringify({ workPosition: 'Dev' }));
       const profile = loadUserProfile();
       expect(profile.workPosition).toBe('Dev');
-      expect(profile.children).toBe('0');
-      expect(profile.familyMembers).toBe('1');
+      expect(profile.children).toBe('');
+      expect(profile.familyMembers).toBe('');
     });
   });
 
@@ -249,7 +249,7 @@ describe('UserProfile helpers', () => {
           { id: '1', relationship: 'child', birthYear: '2020', liveTogether: true, dependent: true },
         ],
       };
-      localStorage.setItem('frontaliere_user_profile', JSON.stringify(profile));
+      localStorage.setItem('frontaliere_user_profile:anonymous', JSON.stringify(profile));
       const loaded = loadUserProfile();
       expect(loaded.familyMembersList).toHaveLength(1);
       expect(loaded.familyMembersList![0].relationship).toBe('child');

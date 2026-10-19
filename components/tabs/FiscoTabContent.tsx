@@ -25,7 +25,7 @@ const TaxCreditCalculator = lazyRetry(() => import('@/components/fisco/TaxCredit
 export default function FiscoTabContent() {
  const { t } = useTranslation();
  const { fiscoSubTab } = useNavigation();
- const { taxReturnCountry, setTaxReturnCountry, userProfile } = useTabContent();
+ const { taxReturnCountry, setTaxReturnCountry, userProfile, authUser } = useTabContent();
 
  return (
  <div className="max-w-7xl mx-auto space-y-8">
@@ -47,7 +47,7 @@ export default function FiscoTabContent() {
  ) : fiscoSubTab === 'ristorni' ? (
  <RistorniTracker />
  ) : fiscoSubTab === 'pension' ? (
- <PensionPlanner userProfile={userProfile} />
+ <PensionPlanner key={authUser?.uid ?? 'anonymous'} userProfile={userProfile} />
  ) : fiscoSubTab === 'pillar3' ? (
  <Pillar3Simulator />
  ) : fiscoSubTab === 'quiz' ? (

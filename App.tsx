@@ -13,6 +13,7 @@ import { ErrorBoundary, SilentErrorBoundary } from '@/components/shared/ErrorBou
 import { reportCaughtError } from '@/services/errorReporter';
 import { fetchCommitHash } from '@/services/buildInfo';
 import { getContextualConversionContext } from '@/services/conversionContext';
+import { userProfileStorageKey } from '@/services/userProfileStorage';
 const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
 // Newsletter/community popups are NON-CRITICAL overlays. Use React.lazy (NOT
 // lazyRetry) + SilentErrorBoundary (see SafeLazy below) so a chunk-load failure
@@ -642,7 +643,9 @@ const App: React.FC = () => {
  navHandleTabChange(tab);
  }, [navHandleTabChange]);
 
- const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
+ const [scopedUserProfile, setScopedUserProfile] = useState<{ uid: string | null; profile: UserProfileData | null }>({ uid: null, profile: null });
+ const userProfile = scopedUserProfile.uid === (authUser?.uid ?? null) ? scopedUserProfile.profile : null;
+ const profileAppliedInputsRef = useRef<{ uid: string | null; values: Partial<SimulationInputs> } | null>(null);
  const [contactPrefill, setContactPrefill] = useState<ContactPrefill | null>(null);
  const [enablePersonalization, setEnablePersonalization] = useState(false);
  const [enableApplicationIntentRanking, setEnableApplicationIntentRanking] = useState(false);
@@ -654,43 +657,82 @@ const App: React.FC = () => {
 
  // Load user profile for prefilling simulator inputs (deferred to idle)
  // Skipped when URL params already hydrated the inputs
- useEffect(() => {
- const loadProfile = () => {
+ useLayoutEffect(() => {
+ const nextUid = authUser?.uid ?? null;
+ const previousPrefill = profileAppliedInputsRef.current;
+ if (previousPrefill && previousPrefill.uid !== nextUid) {
+  profileAppliedInputsRef.current = null;
+  setInputs(prev => {
+   const next = { ...prev };
+   for (const key of Object.keys(previousPrefill.values) as Array<keyof SimulationInputs>) {
+    if (Object.is(prev[key], previousPrefill.values[key])) {
+     (next as unknown as Record<string, unknown>)[key] = DEFAULT_INPUTS[key];
+    }
+   }
+   return next;
+  });
+ }
+ setScopedUserProfile({ uid: nextUid, profile: null });
+ setResult(null);
+ let cancelled = false;
+ let idleRequest: number | null = null;
+ let timeoutRequest: ReturnType<typeof setTimeout> | null = null;
+ const loadProfile = async () => {
  // If URL params set the inputs, don't overwrite with profile
- if (urlHydrated.current) return;
- import('@/components/pages/UserProfile').then(({ loadUserProfile, profileToSimInputs }) => {
- const profile = loadUserProfile();
- const hasData = profile.familySituation || profile.children !== '0' || profile.age || profile.frontaliereType;
+ if (cancelled || urlHydrated.current) return;
+ try {
+ const [{ loadUserProfile, profileToSimInputs }, { loadUserProfile: loadPrivateUserProfile }] = await Promise.all([
+  import('@/components/pages/UserProfile'),
+  import('@/services/profileFirestore'),
+ ]);
+ if (cancelled) return;
+ let profile = loadUserProfile(authUser?.uid);
+ let hasData = Boolean(profile.familySituation || profile.children || profile.age || profile.frontaliereType);
+ if (!hasData && authUser?.uid) {
+  const privateProfile = await loadPrivateUserProfile(authUser.uid);
+  if (cancelled) return;
+  if (privateProfile) {
+   profile = { ...profile, ...privateProfile } as UserProfileData;
+   hasData = Boolean(profile.familySituation || profile.children || profile.age || profile.frontaliereType);
+  }
+ }
+ if (cancelled) return;
+ setScopedUserProfile({ uid: authUser?.uid ?? null, profile: hasData ? profile : null });
  if (hasData) {
- setUserProfile(profile);
- // Prefill simulation inputs from profile
- const prefilled = profileToSimInputs(profile);
- if (Object.keys(prefilled).length > 0) {
- setInputs(prev => ({ ...prev, ...prefilled }));
+  const prefilled = profileToSimInputs(profile);
+  if (Object.keys(prefilled).length > 0) {
+   profileAppliedInputsRef.current = { uid: authUser?.uid ?? null, values: prefilled };
+   setInputs(prev => ({ ...prev, ...prefilled }));
+  }
  }
- }
- }).catch((e) => { reportCaughtError(e, 'app.loadUserProfile'); });
+ } catch (e) { reportCaughtError(e, 'app.loadUserProfile'); }
  };
  const idleWindow = window as Window & {
  requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+ cancelIdleCallback?: (handle: number) => void;
  };
  if (typeof idleWindow.requestIdleCallback === 'function') {
- idleWindow.requestIdleCallback(loadProfile, { timeout: 4000 });
+ idleRequest = idleWindow.requestIdleCallback(() => { void loadProfile(); }, { timeout: 4000 });
  } else {
- setTimeout(loadProfile, 2000);
+ timeoutRequest = setTimeout(() => { void loadProfile(); }, 2000);
  }
  // Listen for profile updates via storage events
  const onStorage = (e: StorageEvent) => {
- if (e.key === 'frontaliere_user_profile' && e.newValue) {
+ if (e.key === userProfileStorageKey(authUser?.uid) && e.newValue) {
  try {
  const updated = JSON.parse(e.newValue) as UserProfileData;
- setUserProfile(updated);
+ setScopedUserProfile({ uid: authUser?.uid ?? null, profile: updated });
  } catch { /* ignore */ }
  }
  };
  window.addEventListener('storage', onStorage);
- return () => window.removeEventListener('storage', onStorage);
- }, []);
+ return () => {
+  cancelled = true;
+  if (idleRequest != null) idleWindow.cancelIdleCallback?.(idleRequest);
+  if (timeoutRequest != null) clearTimeout(timeoutRequest);
+  window.removeEventListener('storage', onStorage);
+ };
+ }, [authUser?.uid]);
 
  // Auto-login via HMAC autologin code or legacy custom token in newsletter URL
  useEffect(() => {
@@ -3236,6 +3278,7 @@ const App: React.FC = () => {
    || isApplicationConciergePath(window.location.pathname);
  })()) ? (
  <ApplicationConciergePortal
+  key={authUser?.uid ?? 'anonymous'}
   serviceId={typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('application_concierge_service_id') : null}
   entry={typeof window !== 'undefined' && (new URLSearchParams(window.location.search).get('application_concierge') === '1' || isApplicationConciergePath(window.location.pathname))}
   authUser={authUser}
@@ -3243,6 +3286,7 @@ const App: React.FC = () => {
   onRequireAuth={() => navigateTo('profile' as any)}
  />
  ) : <JobBoard
+ key={authUser?.uid ?? 'anonymous'}
  initialJobSlug={jobSlug || undefined}
  initialFilterParams={jobBoardFilterParams}
  initialFilterCanton={typeof window !== 'undefined' ? (parsePath(window.location.pathname).route.jobBoardCanton ?? null) : null}

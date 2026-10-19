@@ -1,4 +1,4 @@
-import { onRequest } from 'firebase-functions/v2/https';
+import { HttpsError, onCall, onRequest } from 'firebase-functions/v2/https';
 import { handleJobsSourceRelay } from './src/jobsSourceRelay.js';
 import {
  ensureAdminApp,
@@ -90,7 +90,7 @@ import {
   handleManageApplicationConcierge,
   expireApplicationConciergeServices,
 } from './src/applicationConciergeCore.js';
-import { enrichCandidateProfileFromCv } from './src/candidateCvProfile.js';
+import { enrichCandidateProfileFromCv, refreshCandidateCvProfile as refreshCandidateCvProfileRecord } from './src/candidateCvProfile.js';
 import {
   runApplicationConciergeMatching,
   shouldRunApplicationConciergeMatchingForServiceUpdate,
@@ -2579,6 +2579,23 @@ export const enrichAssistedApplicationProfile = onDocumentWritten(
       console.log('[enrichAssistedApplicationProfile]', event.params.orderId, result.status);
     } catch (error) {
       console.error('[enrichAssistedApplicationProfile]', event.params.orderId, error instanceof Error ? error.message : String(error));
+    }
+  },
+);
+
+// A deployed parser upgrade can refresh the signed-in owner's existing CV
+// projection without re-running concierge matching or changing an application.
+export const refreshCandidateCvProfile = onCall(
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 120 },
+  async (request) => {
+    const userId = request.auth?.uid;
+    if (!userId) throw new HttpsError('unauthenticated', 'Sign in is required.');
+    try {
+      const result = await refreshCandidateCvProfileRecord({ db: getAdminDb(), userId });
+      return result;
+    } catch (error) {
+      console.error('[refreshCandidateCvProfile]', error instanceof Error ? error.name : 'unknown_error');
+      throw new HttpsError('internal', 'cv_profile_refresh_failed');
     }
   },
 );

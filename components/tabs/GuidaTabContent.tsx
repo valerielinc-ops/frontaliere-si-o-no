@@ -17,7 +17,7 @@ const BorderMunicipalitiesMap = lazyRetry(() => import('@/components/guide/Borde
 export default function GuidaTabContent() {
  const { t } = useTranslation();
  const { guidaSubTab } = useNavigation();
- const { userProfile, borderCrossing } = useTabContent();
+ const { userProfile, borderCrossing, authUser } = useTabContent();
 
  return (
  <div className="max-w-7xl mx-auto space-y-8">
@@ -41,9 +41,9 @@ export default function GuidaTabContent() {
  ) : guidaSubTab === 'car-cost' ? (
  <CarCostCalculator />
  ) : guidaSubTab === 'permit-compare' ? (
- <PermitCompare userProfile={userProfile} />
+ <PermitCompare key={authUser?.uid ?? 'anonymous'} userProfile={userProfile} />
  ) : guidaSubTab === 'border-map' ? (
- <BorderMunicipalitiesMap userProfile={userProfile} />
+ <BorderMunicipalitiesMap key={authUser?.uid ?? 'anonymous'} userProfile={userProfile} />
  ) : null}
 
  {/* AdSense — bottom multiplex */}

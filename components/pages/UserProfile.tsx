@@ -12,11 +12,12 @@
  * - Data privacy disclaimer
  */
 
-import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useCallback, useMemo, useRef } from 'react';
 import AvgRentValue from '@/components/shared/AvgRentValue';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { reportCaughtError } from '@/services/errorReporter';
-import { loadUserCvProfile, savePartialProfile, type UserCvProfileRecord } from '@/services/profileFirestore';
+import { loadUserCvProfile, loadUserProfile as loadPrivateUserProfile, saveUserProfile, type UserCvProfileRecord } from '@/services/profileFirestore';
+import { loadStoredUserProfile, saveStoredUserProfile, userLocationCacheKey, userProfileStorageKey, userWeatherCacheKey } from '@/services/userProfileStorage';
 import {
  User, LogIn, LogOut, Camera, Briefcase, Users, Calendar,
  Shield, Save, CheckCircle2, MapPin, Heart, Baby, Loader2, Edit3, Sparkles,
@@ -80,8 +81,6 @@ export interface UserProfileData {
  permitExpiry: string;
 }
 
-const PROFILE_STORAGE_KEY = 'frontaliere_user_profile';
-
 const DEFAULT_PROFILE: UserProfileData = {
  workPosition: '',
  age: '',
@@ -89,8 +88,8 @@ const DEFAULT_PROFILE: UserProfileData = {
  familySituation: '',
  frontaliereType: '',
  municipality: '',
- children: '0',
- familyMembers: '1',
+ children: '',
+ familyMembers: '',
  familyMembersList: [],
  workplace: '',
  preferredDogana: '',
@@ -98,6 +97,51 @@ const DEFAULT_PROFILE: UserProfileData = {
  grossSalary: '',
  permitExpiry: '',
 };
+
+function localeFromCvLanguage(value: string | undefined): Locale | '' {
+ const language = String(value || '').trim().toLocaleLowerCase();
+ if (['it', 'en', 'de', 'fr'].includes(language)) return language as Locale;
+ return '';
+}
+
+function cvProfilePrefill(parsed: NonNullable<UserCvProfileRecord['profile']>): Partial<UserProfileData> {
+ const prefill: Partial<UserProfileData> = {};
+ if (parsed.workPosition?.trim()) prefill.workPosition = parsed.workPosition.trim();
+ if (parsed.workplace?.trim()) prefill.workplace = parsed.workplace.trim();
+
+ if (parsed.age && ['18-25', '26-35', '36-45', '46-55', '56-65', '65+'].includes(parsed.age)) prefill.age = parsed.age;
+ if (parsed.gender && ['male', 'female', 'other'].includes(parsed.gender)) prefill.gender = parsed.gender;
+ if (parsed.familySituation && ['single', 'married', 'divorced', 'cohabiting'].includes(parsed.familySituation)) prefill.familySituation = parsed.familySituation;
+ if (parsed.frontaliereType && ['permit-g', 'permit-b', 'considering'].includes(parsed.frontaliereType)) prefill.frontaliereType = parsed.frontaliereType;
+ if (parsed.children && ['0', '1', '2', '3', '4+'].includes(parsed.children)) prefill.children = parsed.children;
+ if (parsed.familyMembers && ['1', '2', '3', '4', '5', '6+'].includes(parsed.familyMembers)) prefill.familyMembers = parsed.familyMembers;
+
+ const municipality = parsed.municipality ? findMunicipality(parsed.municipality) : undefined;
+ if (municipality) prefill.municipality = `${municipality.name} (${municipality.province})`;
+
+ const crossing = parsed.preferredDogana
+  ? borderCrossings.find((item) => item.name.toLocaleLowerCase() === parsed.preferredDogana?.trim().toLocaleLowerCase())
+  : undefined;
+ if (crossing) prefill.preferredDogana = crossing.name;
+
+ const preferredLanguage = localeFromCvLanguage(parsed.preferredLanguage);
+ if (preferredLanguage) prefill.preferredLanguage = preferredLanguage;
+
+ const grossSalary = Number(parsed.grossSalary);
+ if (Number.isFinite(grossSalary) && grossSalary > 0) prefill.grossSalary = String(grossSalary);
+ if (parsed.permitExpiry && /^\d{4}-\d{2}-\d{2}$/.test(parsed.permitExpiry)) prefill.permitExpiry = parsed.permitExpiry;
+
+ const relationships = ['spouse', 'child', 'parent', 'sibling', 'other'];
+ const familyMembersList = (parsed.familyMembersList || []).filter((member) =>
+  Boolean(member?.id)
+  && relationships.includes(member.relationship)
+  && typeof member.liveTogether === 'boolean'
+  && typeof member.dependent === 'boolean'
+  && (!member.birthYear || /^(?:19|20)\d{2}$/.test(member.birthYear)));
+ if (familyMembersList.length) prefill.familyMembersList = familyMembersList;
+
+ return prefill;
+}
 
 // ─── Common job positions for frontalieri ────────────────────
 
@@ -146,48 +190,72 @@ const initFirestore = async () => {
  }
 };
 
-const saveProfileToFirestore = async (email: string, data: UserProfileData) => {
- await savePartialProfile(email, data as unknown as Record<string, unknown>);
+const saveProfileToFirestore = async (uid: string, data: Record<string, unknown>) => {
+ await saveUserProfile(uid, data);
 };
 
-const loadProfileFromFirestore = async (email: string): Promise<UserProfileData | null> => {
+const PROFILE_STRING_FIELDS = ['workPosition', 'age', 'gender', 'familySituation', 'frontaliereType', 'municipality', 'children', 'familyMembers', 'workplace', 'preferredDogana', 'preferredLanguage', 'grossSalary', 'permitExpiry'] as const;
+
+const loadLegacyProfileFromFirestore = async (email: string): Promise<Partial<UserProfileData> | null> => {
+ if (!email.trim()) return null;
  try {
  const db = await initFirestore();
  if (!db) return null;
  const { doc, getDoc } = await import('firebase/firestore');
  const key = email.trim().toLowerCase();
  const snap = await getDoc(doc(db, 'newsletter_subscribers', key));
- if (snap.exists()) {
- const data = snap.data();
- return {
- workPosition: data.workPosition || '',
- age: data.age || '',
- gender: data.gender || '',
- familySituation: data.familySituation || '',
- frontaliereType: data.frontaliereType || '',
- municipality: data.municipality || '',
- children: data.children || '0',
- familyMembers: data.familyMembers || '1',
- familyMembersList: data.familyMembersList || [],
- workplace: data.workplace || '',
- preferredDogana: data.preferredDogana || '',
- preferredLanguage: data.preferredLanguage || '',
- grossSalary: data.grossSalary || '',
- permitExpiry: data.permitExpiry || '',
- };
- }
+   if (snap.exists()) {
+    const data = snap.data();
+    const profile: Partial<UserProfileData> = {};
+    PROFILE_STRING_FIELDS.forEach((field) => {
+     const value = data[field];
+     // Legacy subscriber data is a migration fallback. An empty legacy value
+     // must not erase a more recent profile cached on this device.
+     if (typeof value === 'string' && value.trim()) profile[field] = value;
+    });
+    if (Array.isArray(data.familyMembersList) && data.familyMembersList.length) {
+     profile.familyMembersList = data.familyMembersList;
+    }
+    return profile;
+   }
  return null;
  } catch {
  return null;
  }
 };
 
+const loadProfileFromFirestore = async (uid: string, email: string): Promise<Partial<UserProfileData> | null> => {
+ const [privateProfile, legacyProfile] = await Promise.all([
+  loadPrivateUserProfile(uid),
+  loadLegacyProfileFromFirestore(email),
+ ]);
+ if (!privateProfile && !legacyProfile) return null;
+ const merged: Partial<UserProfileData> = {};
+ PROFILE_STRING_FIELDS.forEach((field) => {
+  const privateValue = privateProfile?.[field];
+  const legacyValue = legacyProfile?.[field];
+  if (privateProfile && Object.hasOwn(privateProfile, field) && typeof privateValue === 'string') {
+   // Preserve explicit private blanks so the owner can clear a CV-derived value.
+   merged[field] = privateValue;
+  } else if (typeof legacyValue === 'string' && legacyValue.trim()) {
+   merged[field] = legacyValue;
+  }
+ });
+ const privateFamily = privateProfile?.familyMembersList;
+ if (Array.isArray(privateFamily)) {
+  merged.familyMembersList = privateFamily as FamilyMember[];
+ } else if (legacyProfile?.familyMembersList?.length) {
+  merged.familyMembersList = legacyProfile.familyMembersList;
+ }
+ return merged;
+};
+
 // ─── Exported helpers (used by App.tsx for prefill) ────────────
 
-export function loadUserProfile(): UserProfileData {
+export function loadUserProfile(uid?: string | null): UserProfileData {
  try {
- const stored = localStorage.getItem(PROFILE_STORAGE_KEY);
- if (stored) return { ...DEFAULT_PROFILE, ...JSON.parse(stored) };
+ const stored = loadStoredUserProfile(uid);
+ if (stored) return { ...DEFAULT_PROFILE, ...stored } as UserProfileData;
  } catch { /* ignore */ }
  return DEFAULT_PROFILE;
 }
@@ -197,9 +265,6 @@ export function profileToSimInputs(profile: UserProfileData): Partial<Simulation
  if (profile.familySituation) {
  const map: Record<string, string> = { single: 'SINGLE', married: 'MARRIED', divorced: 'SINGLE', cohabiting: 'SINGLE' };
  partial.maritalStatus = (map[profile.familySituation] || 'SINGLE') as SimulationInputs['maritalStatus'];
- }
- if (profile.frontaliereType) {
- partial.frontierWorkerType = (profile.frontaliereType === 'permit-g' ? 'NEW' : 'OLD') as SimulationInputs['frontierWorkerType'];
  }
  if (profile.children) {
  const n = parseInt(profile.children, 10);
@@ -434,10 +499,12 @@ const UserProfile: React.FC = () => {
  // safe projection and merged into empty local profile fields so a CV uploaded
  // for either paid flow helps complete the same account profile.
  useEffect(() => {
-   if (!user?.uid) { setCvProfile(null); return; }
+   setCvProfile(null);
+   if (!user?.uid) return;
+   const uid = user.uid;
    let cancelled = false;
-   loadUserCvProfile(user.uid).then((record) => {
-     if (!cancelled) setCvProfile(record);
+   loadUserCvProfile(uid).then((record) => {
+     if (!cancelled) setCvProfile(record?.userId === uid ? record : null);
    });
    return () => { cancelled = true; };
  }, [user?.uid]);
@@ -481,10 +548,12 @@ const UserProfile: React.FC = () => {
  const [, setSlugMapReady] = useState(false);
  useEffect(() => { void ensureJobSlugMapLoaded().then(() => setSlugMapReady(true)); }, []);
  const [profile, setProfile] = useState<UserProfileData>(DEFAULT_PROFILE);
+ const [profileCloudLoadedFor, setProfileCloudLoadedFor] = useState<string | null>(null);
  const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved'>('idle');
  const [showFamily, setShowFamily] = useState(false);
  const [validationErrors, setValidationErrors] = useState<string[]>([]);
  const googleButtonRef = useRef<HTMLDivElement>(null);
+ const userEditedProfileFieldsRef = useRef(new Set<keyof UserProfileData>());
  const [gisButtonRendered, setGisButtonRendered] = useState(false);
  const [linkedInAvailable, setLinkedInAvailable] = useState(false);
 
@@ -544,20 +613,28 @@ const UserProfile: React.FC = () => {
  if (!profile.preferredDogana) return null;
  return borderCrossings.find(c => c.name === profile.preferredDogana) || null;
  }, [profile.preferredDogana]);
- // Load profile from localStorage (immediate) + Firestore (async)
- useEffect(() => {
- const stored = localStorage.getItem(PROFILE_STORAGE_KEY);
- if (stored) {
- try {
- const parsed = { ...DEFAULT_PROFILE, ...JSON.parse(stored) };
+ // Keep browser profile cache isolated by authenticated UID.
+ useLayoutEffect(() => {
+ if (saveTimerRef.current) {
+  clearTimeout(saveTimerRef.current);
+  saveTimerRef.current = null;
+ }
+ setProfileCloudLoadedFor(null);
+ setCvProfile(null);
+ userEditedProfileFieldsRef.current.clear();
+ if (authLoading) {
+  setProfile(DEFAULT_PROFILE);
+  setCvProfile(null);
+  return;
+ }
+ const uid = user?.uid || null;
+ const stored = loadStoredUserProfile(uid);
+ const parsed = { ...DEFAULT_PROFILE, ...(stored || {}) } as UserProfileData;
  setProfile(parsed);
- // Apply saved language preference from local profile
  if (parsed.preferredLanguage && ['it', 'en', 'de', 'fr'].includes(parsed.preferredLanguage)) {
- setGlobalLocale(parsed.preferredLanguage as Locale);
+  setGlobalLocale(parsed.preferredLanguage as Locale);
  }
- } catch { /* ignore corrupt data */ }
- }
- }, []);
+ }, [authLoading, user?.uid]);
 
  // Load autologin-enabled flag for the current user
  useEffect(() => {
@@ -612,22 +689,27 @@ const UserProfile: React.FC = () => {
 
  // When user signs in, try loading from Firestore (cloud sync)
  useEffect(() => {
+ const uid = user?.uid;
+ let cancelled = false;
+ if (!uid) {
+  setProfileCloudLoadedFor(null);
+  return () => { cancelled = true; };
+ }
  const email = user ? getAuthEmail(user) : null;
- if (!email) return;
- loadProfileFromFirestore(email).then((cloudProfile) => {
+ loadProfileFromFirestore(uid, email || '').then((cloudProfile) => {
+ if (cancelled) return;
  if (cloudProfile) {
  setProfile(prev => {
  const merged: UserProfileData = { ...prev };
- // Merge string fields: cloud wins if local is empty
- const stringFields = ['workPosition', 'age', 'gender', 'familySituation', 'frontaliereType', 'municipality', 'children', 'familyMembers', 'workplace', 'preferredDogana', 'preferredLanguage', 'grossSalary', 'permitExpiry'] as const;
- stringFields.forEach(k => {
- if (cloudProfile[k] && !prev[k]) merged[k] = cloudProfile[k];
+ // Private cloud values, including explicit blanks, are authoritative unless
+ // the user has edited that field while the async profile load was in flight.
+ PROFILE_STRING_FIELDS.forEach(k => {
+ if (Object.hasOwn(cloudProfile, k) && !userEditedProfileFieldsRef.current.has(k)) merged[k] = cloudProfile[k]!;
  });
- // Merge family members list
- if (cloudProfile.familyMembersList?.length && !prev.familyMembersList?.length) {
- merged.familyMembersList = cloudProfile.familyMembersList;
+ if (Object.hasOwn(cloudProfile, 'familyMembersList') && !userEditedProfileFieldsRef.current.has('familyMembersList')) {
+ merged.familyMembersList = cloudProfile.familyMembersList || [];
  }
- localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(merged));
+ saveStoredUserProfile(user?.uid, merged as unknown as Record<string, unknown>);
  // Apply saved language preference
  if (merged.preferredLanguage && ['it', 'en', 'de', 'fr'].includes(merged.preferredLanguage)) {
  setGlobalLocale(merged.preferredLanguage as Locale);
@@ -635,7 +717,10 @@ const UserProfile: React.FC = () => {
  return merged;
  });
  }
+ }).finally(() => {
+  if (!cancelled) setProfileCloudLoadedFor(uid);
  });
+ return () => { cancelled = true; };
 
  // Newsletter subscription is explicit and is not part of profile sync.
  }, [user?.uid]);
@@ -656,29 +741,40 @@ const UserProfile: React.FC = () => {
  }
 
  if (changed) {
- localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(merged));
+ saveStoredUserProfile(user?.uid, merged as unknown as Record<string, unknown>);
  }
  return merged;
  });
  }, [user?.uid]);
 
  useEffect(() => {
+   if (!user || profileCloudLoadedFor !== user.uid || cvProfile?.userId !== user.uid) return;
    const parsed = cvProfile?.profile;
    if (!parsed) return;
-   const language = (parsed.languages || []).map((value) => value.toLowerCase()).find((value) => /italian|italiano|english|inglese|german|tedesco|french|francese/.test(value));
-   const preferredLanguage = language
-     ? (/italian|italiano/.test(language) ? 'it' : /english|inglese/.test(language) ? 'en' : /german|tedesco/.test(language) ? 'de' : 'fr')
-     : '';
-   setProfile((previous) => {
-     const merged = { ...previous };
-     if (!merged.workPosition && parsed.workPosition) merged.workPosition = parsed.workPosition;
-     if (!merged.workplace && parsed.workplace) merged.workplace = parsed.workplace;
-     if (!merged.preferredLanguage && preferredLanguage) merged.preferredLanguage = preferredLanguage;
-     if (JSON.stringify(merged) === JSON.stringify(previous)) return previous;
-     localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(merged));
-     return merged;
+   const extracted = cvProfilePrefill(parsed);
+   const merged = { ...profile };
+   const applied: Record<string, unknown> = {};
+   Object.entries(extracted).forEach(([field, value]) => {
+     if (value == null) return;
+     const key = field as keyof UserProfileData;
+     if (userEditedProfileFieldsRef.current.has(key)) return;
+     const isEmpty = key === 'familyMembersList'
+       ? !merged.familyMembersList?.length
+       : !String(merged[key] || '').trim();
+     if (!isEmpty) return;
+     (merged as unknown as Record<string, unknown>)[key] = value;
+     applied[key] = value;
    });
- }, [cvProfile, user?.uid]);
+   if (!Object.keys(applied).length) return;
+   setProfile(merged);
+   saveStoredUserProfile(user.uid, merged as unknown as Record<string, unknown>);
+   if (applied.preferredLanguage && merged.preferredLanguage) {
+     setGlobalLocale(merged.preferredLanguage as Locale);
+   }
+   if (Object.keys(applied).length) {
+    void saveProfileToFirestore(user.uid, applied);
+   }
+ }, [cvProfile, profile, profileCloudLoadedFor, user]);
 
  // Google One Tap: prompt when user is not signed in. Authentication here is
  // access-only; newsletter consent is collected only by an explicit
@@ -807,7 +903,12 @@ const UserProfile: React.FC = () => {
  const { terminate } = await import('firebase/firestore');
  await terminate(db).catch(() => {});
  // 3. Clear localStorage
+ localStorage.removeItem(userProfileStorageKey(user.uid));
+ localStorage.removeItem(userWeatherCacheKey(user.uid));
+ localStorage.removeItem(userLocationCacheKey(user.uid));
  localStorage.removeItem('frontaliere_user_profile');
+ localStorage.removeItem('morning_weather_cache');
+ localStorage.removeItem('user_location_cache');
  localStorage.removeItem('frontaliere_achievements');
  // 4. Delete Firebase Auth account
  const deleted = await deleteCurrentUser();
@@ -852,13 +953,13 @@ const UserProfile: React.FC = () => {
  };
 
  const autoSave = useCallback((updatedProfile: UserProfileData) => {
- localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(updatedProfile));
+ saveStoredUserProfile(user?.uid, updatedProfile as unknown as Record<string, unknown>);
  if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
  saveTimerRef.current = setTimeout(async () => {
  setSaveStatus('saving');
- const email = user ? getAuthEmail(user) : null;
- if (email) {
- await saveProfileToFirestore(email, updatedProfile);
+ const uid = user?.uid;
+ if (uid) {
+ await saveProfileToFirestore(uid, updatedProfile as unknown as Record<string, unknown>);
  }
  setSaveStatus('saved');
  const fields = ['workPosition', 'age', 'familySituation', 'frontaliereType', 'municipality', 'grossSalary'] as const;
@@ -869,6 +970,7 @@ const UserProfile: React.FC = () => {
  }, [user?.uid]);
 
  const updateField = (field: keyof UserProfileData, value: string) => {
+ userEditedProfileFieldsRef.current.add(field);
  setProfile(prev => {
  const updated = { ...prev, [field]: value };
  autoSave(updated);
@@ -886,7 +988,14 @@ const UserProfile: React.FC = () => {
  };
  };
 
+ const markFamilyProfileEdited = () => {
+ userEditedProfileFieldsRef.current.add('familyMembersList');
+ userEditedProfileFieldsRef.current.add('children');
+ userEditedProfileFieldsRef.current.add('familyMembers');
+ };
+
  const addFamilyMember = () => {
+ markFamilyProfileEdited();
  const newMember: FamilyMember = {
  id: Date.now().toString(36),
  relationship: 'child',
@@ -902,6 +1011,7 @@ const UserProfile: React.FC = () => {
  };
 
  const updateFamilyMember = (updatedMember: FamilyMember) => {
+ markFamilyProfileEdited();
  setProfile(prev => {
  const newList = (prev.familyMembersList || []).map(m => m.id === updatedMember.id ? updatedMember : m);
  const updated = { ...prev, familyMembersList: newList, ...syncFamilyCounters(newList) };
@@ -911,6 +1021,7 @@ const UserProfile: React.FC = () => {
  };
 
  const removeFamilyMember = (id: string) => {
+ markFamilyProfileEdited();
  setProfile(prev => {
  const newList = (prev.familyMembersList || []).filter(m => m.id !== id);
  const updated = { ...prev, familyMembersList: newList, ...syncFamilyCounters(newList) };
@@ -1628,6 +1739,7 @@ const UserProfile: React.FC = () => {
  onChange={(e) => updateField('children', e.target.value)}
  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
  >
+ <option value="">{t('profile.selectOption')}</option>
  <option value="0">0</option>
  <option value="1">1</option>
  <option value="2">2</option>
@@ -1646,6 +1758,7 @@ const UserProfile: React.FC = () => {
  onChange={(e) => updateField('familyMembers', e.target.value)}
  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
  >
+ <option value="">{t('profile.selectOption')}</option>
  <option value="1">1 ({t('profile.justMe')})</option>
  <option value="2">2</option>
  <option value="3">3</option>
