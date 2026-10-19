@@ -44,6 +44,19 @@ import {
   eventImagePhotoSearchQueries,
   EVENT_IMAGE_LIBRARY_MAX_VARIANTS,
 } from './eventImageLibrary.mjs';
+import {
+  VISION_SCHEMA,
+  imageVisionRejectionError,
+  imageVisionRejected,
+  isCompleteArticleHeroVisionVerdict,
+  structuredVisionFailure,
+} from './generatedImageVision.mjs';
+
+export {
+  imageVisionRejectionError,
+  imageVisionRejected,
+  isCompleteArticleHeroVisionVerdict,
+};
 
 export const CODEX_IMAGE_MODEL = 'gpt-image-2.5';
 export const CODEX_IMAGE_EXECUTOR_MODEL = process.env.CODEX_IMAGE_EXECUTOR_MODEL || 'gpt-5.6-luna';
@@ -105,22 +118,6 @@ function timeoutForDeadline(deadlineAt, fallbackMs) {
 }
 
 const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif']);
-const VISION_SCHEMA = Object.freeze({
-  type: 'object',
-  additionalProperties: false,
-  properties: {
-    ok: { type: 'boolean' },
-    contains_text: { type: 'boolean' },
-    contains_logo: { type: 'boolean' },
-    contains_recognizable_face: { type: 'boolean' },
-    contains_recognizable_foreground_person: { type: 'boolean' },
-    looks_like_specific_real_event: { type: 'boolean' },
-    is_photograph: { type: 'boolean' },
-    is_topic_relevant: { type: 'boolean' },
-    notes: { type: 'string' },
-  },
-  required: ['ok', 'contains_text', 'contains_logo', 'contains_recognizable_face', 'contains_recognizable_foreground_person', 'looks_like_specific_real_event', 'is_photograph', 'is_topic_relevant', 'notes'],
-});
 
 function listFilesRecursively(root) {
   if (!fs.existsSync(root)) return [];
@@ -1294,56 +1291,6 @@ function parseVisionResult(text) {
     if (parsed && typeof parsed === 'object' && typeof parsed.ok === 'boolean') return parsed;
   }
   throw new Error('vision verifier returned no JSON result');
-}
-
-/** Validate the complete verifier schema at the publication boundary. */
-export function isCompleteArticleHeroVisionVerdict(verdict) {
-  if (!verdict || typeof verdict !== 'object' || Array.isArray(verdict)) return false;
-  return VISION_SCHEMA.required.every((field) => (
-    Object.hasOwn(verdict, field)
-      && typeof verdict[field] === VISION_SCHEMA.properties[field].type
-  ));
-}
-
-/** The publication verdict applies topic relevance to synthetic heroes too. */
-export function imageVisionRejected(verdict, { kind = GENERATED_IMAGE_KIND, scope } = {}) {
-  const articleHero = scope === 'article-hero';
-  // The JSON schema is enforced by the primary verifier, but the Gemini
-  // fallback is parsed from free-form text. Require the same complete verdict
-  // at this shared policy boundary before any article hero can be published.
-  if (articleHero && !isCompleteArticleHeroVisionVerdict(verdict)) return true;
-  if (verdict?.ok !== true) return true;
-  if (articleHero && verdict.is_topic_relevant !== true) return true;
-  if (kind === LICENSED_PHOTO_KIND) {
-    return !verdict.ok || verdict.is_photograph !== true || verdict.contains_logo || verdict.contains_recognizable_face
-      || (articleHero && verdict.contains_recognizable_foreground_person !== false)
-      || (articleHero && verdict.contains_text);
-  }
-  return verdict.contains_text !== false || verdict.contains_logo !== false || verdict.contains_recognizable_face !== false || verdict.looks_like_specific_real_event !== false;
-}
-
-const VISION_FAILURE_FLAG_NAMES = Object.freeze([
-  'contains_text',
-  'contains_logo',
-  'contains_recognizable_face',
-  'contains_recognizable_foreground_person',
-  'looks_like_specific_real_event',
-  'is_photograph',
-  'is_topic_relevant',
-]);
-
-function structuredVisionFailure(verdict) {
-  return Object.fromEntries(VISION_FAILURE_FLAG_NAMES
-    .filter((name) => typeof verdict?.[name] === 'boolean')
-    .map((name) => [name, verdict[name]]));
-}
-
-/** Build the typed rejection consumed by the provider failure ledger. */
-export function imageVisionRejectionError(verdict) {
-  const error = new Error(`vision gate rejected image: ${String(verdict?.notes || 'forbidden content')}`);
-  error.code = 'IMAGE_VISION_REJECTED';
-  error.vision = structuredVisionFailure(verdict);
-  return error;
 }
 
 export async function verifyGeneratedImage(filePath, {
