@@ -752,6 +752,19 @@ describe('behaviour: the R2 images batch holds every present namespace lease', (
     expect(completionMarkerPuts(r.calls)).toEqual([]);
   });
 
+  it('clears the tracked timeout process after a writer exits normally', () => {
+    const out = execFileSync('bash', ['-c', [
+      'set -e',
+      'source scripts/lib/r2-image-lease-process.sh',
+      '_R2_IMAGE_LEASE_ACTIVE=1',
+      '_R2_IMAGE_LEASE_TIMEOUT_PID=',
+      '_R2_IMAGE_LEASE_TIMEOUT_PGID=',
+      '_r2_image_lease_wait_timeout bash -c "exit 0"',
+      'printf "%s:%s\\n" "${_R2_IMAGE_LEASE_TIMEOUT_PID:-}" "${_R2_IMAGE_LEASE_TIMEOUT_PGID:-}"',
+    ].join('\n')], { cwd: ROOT, encoding: 'utf8' });
+    expect(out.trim()).toBe(':');
+  });
+
   it('TERM stops and reaps the image writer before releasing its lease, then permits the next acquire', async () => {
     const interrupted = await runPublishInterrupted('blog-lease-term-cleanup', {});
     expect(interrupted.code ?? (interrupted.signal === 'SIGTERM' ? 143 : null)).toBe(143);

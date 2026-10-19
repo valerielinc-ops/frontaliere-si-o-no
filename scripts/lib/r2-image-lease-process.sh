@@ -155,5 +155,10 @@ _r2_image_lease_wait_timeout() {
   fi
 
   wait "$timeout_pid" || timeout_status=$?
+  # The child has been reaped normally. Do not leave its PID or process-group
+  # snapshot armed for the next upload: a later child may reuse either value,
+  # and EXIT cleanup must never signal an unrelated process group.
+  _R2_IMAGE_LEASE_TIMEOUT_PID=
+  _R2_IMAGE_LEASE_TIMEOUT_PGID=
   return "$timeout_status"
 }
