@@ -83,10 +83,10 @@ function variantForOrder(order: AssistedApplicationOrder | null): AssistedApplic
 }
 
 function orderEventContext(order: AssistedApplicationOrder | null) {
-  const copyVariant = normalizeAssistedApplicationCopyVariant(order?.copyVariant) || 'control';
+  const copyVariant = normalizeAssistedApplicationCopyVariant(order?.copyVariant);
   return {
     variant: variantForOrder(order),
-    copy_variant: copyVariant,
+    ...(copyVariant ? { copy_variant: copyVariant } : {}),
     jobId: order?.jobId || 'unknown',
     companyId: order?.companyId || order?.companyName || 'unknown',
   };

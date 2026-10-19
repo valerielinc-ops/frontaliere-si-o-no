@@ -7,43 +7,37 @@
  * sovrascrivibile dalla CLI del monitor; cambiarlo QUI è una decisione di
  * piano, non un'ottimizzazione a risultati visti.
  *
- * Round 4 — `jobgate-v4`, trattamento visivo del gate (control, navy_panel,
- * spotlight, actions_first; ipotesi in docs/AUTHGATE-HEADLINE-EXPERIMENT.md).
+ * Round 5 — `jobgate-v5`, varianti di contrasto/accento sullo Spotlight
+ * promosso; ipotesi in docs/AUTHGATE-HEADLINE-EXPERIMENT.md.
  *
- * Baseline: il braccio `control` di `jobgate-v3` sulla prima settimana intera
- * (2026-09-26..2026-10-02, stesso readout, robot esclusi): 152 nuovi iscritti
- * su 1.528 persone gate_view → CR primaria 9,95% [8,55% – 11,55%]. È la stessa
- * metrica misurata dalla stessa pipeline che giudicherà v4, quindi è il
- * riferimento giusto. La baseline pre-v3 del 16–24/09 (2,88%, misurata
- * senza tag di braccio) è più bassa di oltre tre volte: la causa dello
- * scarto non è stata indagata, quindi il piano non la usa.
+ * Baseline attesa: Spotlight in `jobgate-v4`, finestra 2026-10-07..2026-10-16
+ * (stesso readout, robot esclusi): 165 nuovi iscritti su 986 persone gate_view
+ * → CR primaria 16,73%. Il precedente round è stato fermato prima del campione
+ * pianificato; questa stima è quindi un riferimento operativo, non una
+ * conclusione statistica.
  *
- * Effetto minimo +20% relativo: un cambio visivo muove meno di uno
- * strutturale, e +20% su 9,95% (→ 11,94%) è ancora un risultato che vale la
- * promozione. Potenza 80%, α 0,05 divisa sui 3 confronti (limite di Holm),
- * 700 persone uniche al giorno (deduplicate su finestre lunghe, come per v3):
- * 5.153 persone per braccio → 30 giorni di campione → 35 giorni, cioè cinque
- * settimane intere dal giorno dopo il lancio. Alternative valutate: +25% →
- * 3.363 per braccio (28 giorni, il minimo), +30% → 2.380 (28 giorni).
+ * Effetto minimo +20% relativo: +20% su 16,73% (→ 20,08%) è il minimo
+ * risultato rilevante. Potenza 80%, α 0,05 divisa sui 3 confronti (limite di
+ * Holm), 700 persone uniche al giorno. La funzione condivisa ricalcola il
+ * campione per questa baseline; durata minima 28 giorni e decisioni solo su
+ * settimane intere. La finestra parte dal giorno successivo al marker di
+ * lancio server-only in Remote Config, così un ritardo fra merge e attivazione
+ * non anticipa l'analisi.
  *
- * Il round 3 (`jobgate-v3`, 2026-09-25 → 2026-10-05) è stato chiuso per
- * futilità: dopo una settimana intera il limite superiore dell'IC 95% di ogni
- * sfidante era sotto il +30% pianificato (esito in docs/AUTHGATE-HEADLINE-EXPERIMENT.md).
+ * Round 4 (`jobgate-v4`) è stato chiuso anticipatamente su decisione del
+ * proprietario: Spotlight aveva un segnale favorevole ma campione e potenza
+ * insufficienti per una conclusione statistica.
  */
 
 export const JOBGATE_PLAN = Object.freeze({
-  experimentId: 'jobgate-v4',
-  control: 'control',
-  /**
-   * Pubblicazione di ENABLED=true su Remote Config il 2026-10-06 (dopo il
-   * deploy del bundle con i bracci v4); il giorno del lancio ha traffico a
-   * metà, quindi l'analisi parte dal giorno dopo.
-   */
-  launchedAt: '2026-10-06T00:00:00Z',
-  analysisStart: '2026-10-07',
+  experimentId: 'jobgate-v5',
+  control: 'spotlight',
+  /** Remote Config supplies the exact launch date; this is a pre-launch fallback. */
+  launchedAt: null,
+  analysisStart: '2026-10-20',
   /** CR primaria del control attesa (iscritti job gate / persone gate_view, senza robot). */
-  baselineRate: 0.0995,
-  baselineWindow: 'jobgate-v3 control 2026-09-26..2026-10-02',
+  baselineRate: 0.1673,
+  baselineWindow: 'jobgate-v4 spotlight 2026-10-07..2026-10-16 (owner early-stop readout)',
   /** Persone gate_view uniche al giorno (senza robot), tutte le braccia insieme. */
   dailyGatePersons: 700,
   /** Effetto minimo rilevabile relativo sulla CR primaria. */
@@ -68,7 +62,7 @@ export const JOBGATE_PLAN = Object.freeze({
   }),
   /**
    * Copertura minima dell'attribuzione: quota degli iscritti partiti dal job
-   * gate che portano il tag `jobgate-v4:<braccio>`. Sotto soglia il
+   * gate che portano il tag `jobgate-v5:<braccio>`. Sotto soglia il
    * numeratore della CR primaria è parziale (e non in modo uguale fra i
    * bracci), quindi niente promozione automatica.
    */
