@@ -78,9 +78,13 @@ export const GATE_DEFAULTS = {
  * @returns {boolean}
  */
 export function passesSourceBackedLocationRate(rate, minRate = GATE_DEFAULTS.minLocationSourceRate) {
-  const measured = Number(rate);
+  const measured = typeof rate === 'number' ? rate : NaN;
   const threshold = Number(minRate);
-  return Number.isFinite(measured) && Number.isFinite(threshold) && measured >= threshold;
+  return Number.isFinite(measured)
+    && measured >= 0
+    && measured <= 1
+    && Number.isFinite(threshold)
+    && measured >= threshold;
 }
 
 /**

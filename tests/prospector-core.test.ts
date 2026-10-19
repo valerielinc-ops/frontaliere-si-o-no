@@ -1592,6 +1592,9 @@ describe('promotion gate', () => {
     expect(passesSourceBackedLocationRate(undefined)).toBe(false);
     expect(passesSourceBackedLocationRate(0.749)).toBe(false);
     expect(passesSourceBackedLocationRate(0.75)).toBe(true);
+    expect(passesSourceBackedLocationRate(1.01)).toBe(false);
+    expect(passesSourceBackedLocationRate(true)).toBe(false);
+    expect(passesSourceBackedLocationRate('0.75')).toBe(false);
     expect(candidateStatusAfterValidation({ verdict: 'good', locationSourceRate: 0.5 })).toBe('validated');
     expect(candidateStatusAfterValidation({ verdict: 'good', locationSourceRate: 1 })).toBe('promoted');
     expect(candidateStatusAfterValidation({ verdict: 'bad', locationSourceRate: 1 })).toBe('rejected');
