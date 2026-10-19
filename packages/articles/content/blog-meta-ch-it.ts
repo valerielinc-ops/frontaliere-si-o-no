@@ -8531,6 +8531,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lenu-referendum-firme-valide.title': 'Legge federale sull’energia nucleare: referendum riuscito',
     'blog.article.lenu-referendum-firme-valide.excerpt': '19 ottobre 2026: referendum formalmente riuscito 6 ottobre 2026: presentate 79 479 firme 78 922 firme sono state dichiarate valide Modifica LENu datata 19',
     'blog.article.lenu-referendum-firme-valide.imageAlt': 'Palazzo federale a Berna in una scena editoriale sul referendum LENu',
+    'blog.article.water-summit-zurich-2024.title': 'EurEau Water Summit a Zurigo: 60% acqua senza trattamento',
+    'blog.article.water-summit-zurich-2024.excerpt': 'Siccità e inquinamento minacciano l\'acqua potabile Il summit riunisce esperti e gestori a Zurigo In Svizzera il 60% può avere zero o semplice trattamento L\'80%',
+    'blog.article.water-summit-zurich-2024.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

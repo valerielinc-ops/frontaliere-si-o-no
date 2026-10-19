@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 674,
+      "5": 677,
       "6": 5054
     },
-    "publishedCovers": 7411,
+    "publishedCovers": 7414,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -201022,6 +201022,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-cambio-dirigenza-scuola-appenzell": {
+      "cover": "/images/blog/article-cambio-dirigenza-scuola-appenzell.webp",
+      "hash": "9497ae47c636ed2245c5208a1f362d159617158c6c6ece20134d95fd24e7390e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "cambio-dirigenza-scuola-appenzell",
+          "category": "novita",
+          "date": "2026-10-19T16:21:04.781Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cambio-dirigenza-scuola-appenzell.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cambio-dirigenza-scuola-appenzell",
+        "imageUrl": "/images/blog/article-cambio-dirigenza-scuola-appenzell.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-evento-for-matching-varese-2026": {
       "cover": "/images/blog/article-evento-for-matching-varese-2026.webp",
       "hash": "4b6178abb95684786cf2e919346f860b29048ac6717d8f839aa0347e9563e6f7",
@@ -201253,6 +201286,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-turgovia-servizi-datori-lavoro": {
+      "cover": "/images/blog/article-turgovia-servizi-datori-lavoro.webp",
+      "hash": "f629ebbddf310fc82e3237feb81ff5ad456b46af3faffb98930b3aaf689a7c42",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-tg",
+          "id": "turgovia-servizi-datori-lavoro",
+          "category": "pratico",
+          "date": "2026-10-19T15:27:38.407Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-turgovia-servizi-datori-lavoro.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-turgovia-servizi-datori-lavoro",
+        "imageUrl": "/images/blog/article-turgovia-servizi-datori-lavoro.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-voto-bahnhofplatz-wil-2026": {
       "cover": "/images/blog/article-voto-bahnhofplatz-wil-2026.webp",
       "hash": "1e47bff343e45819af86c130984b432dc1c5d42cc87b06ccac8c55b71e6208c6",
@@ -201316,6 +201382,39 @@
         "provider": "openai-codex",
         "assetId": "article-voto-rete-gas-wil-2026",
         "imageUrl": "/images/blog/article-voto-rete-gas-wil-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-water-summit-zurich-2024": {
+      "cover": "/images/blog/article-water-summit-zurich-2024.webp",
+      "hash": "3645df252542555b223fb68177e8a1ddace37943fb2ae3448d2a9f32cb1ac9c2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "water-summit-zurich-2024",
+          "category": "novita",
+          "date": "2026-10-19T15:35:51.692Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-water-summit-zurich-2024.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-water-summit-zurich-2024",
+        "imageUrl": "/images/blog/article-water-summit-zurich-2024.webp",
         "evidence": "generated-engine-record"
       }
     }

@@ -8531,6 +8531,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lenu-referendum-firme-valide.title': 'Loi fédérale sur l’énergie nucléaire : référendum abouti',
     'blog.article.lenu-referendum-firme-valide.excerpt': '19 octobre 2026 : référendum formellement abouti 6 octobre 2026 : 79 479 signatures déposées 78 922 signatures ont été déclarées valables Modification de la LENu datée du 19',
     'blog.article.lenu-referendum-firme-valide.imageAlt': 'Palais fédéral à Berne dans une scène éditoriale sur le référendum LENu',
+    'blog.article.water-summit-zurich-2024.title': 'EurEau Water Summit à Zurich : 60% d’eau sans traitement',
+    'blog.article.water-summit-zurich-2024.excerpt': 'La sécheresse et la pollution menacent l’eau potable Le sommet réunit des experts et des gestionnaires à Zurich En Suisse, 60% peuvent ne recevoir aucun traitement ou un traitement simple Les 80%',
+    'blog.article.water-summit-zurich-2024.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
