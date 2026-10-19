@@ -130,8 +130,20 @@ export function extractPromanFleurierListingCandidates(html = '', pageUrl = CARE
     const title = sourceText(firstTagBlock(card, 'h3'));
     const href = anchor ? readAttr(anchor.raw, 'href') : '';
     const location = extractPromanInfoValue(card, '24/job/location', /^lieu\s*/i);
-    const geography = resolveSourceBackedSwissGeography({ location });
-    const fields = geography ? sourceBackedSwissGeographyFields({ location }, geography) : null;
+    // Use the same source-owned canton evidence as the detail parser. The
+    // shared resolver does not know every locality published by this board
+    // (for example Fleurier), so resolving only the listing's raw location
+    // would drop the card before its detail page can supply the vacancy.
+    const decision = resolvePromanDetailGeography({ location });
+    const geography = decision.geography;
+    const evidenceCandidate = {
+      ...decision.candidate,
+      location,
+      ...(PROMAN_SOURCE_LOCATION_LOCALITIES.has(locationKey(location))
+        ? { addressLocality: PROMAN_SOURCE_LOCATION_LOCALITIES.get(locationKey(location)) }
+        : {}),
+    };
+    const fields = geography ? sourceBackedSwissGeographyFields(evidenceCandidate, geography) : null;
     // A broad label such as "Canton de Neuchâtel" identifies the target
     // region but is not a publishable addressLocality. Re-resolve the projected
     // fields so only municipality-level evidence reaches the detail pool.
