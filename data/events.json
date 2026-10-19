@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T17:36:12.651Z",
+  "generatedAt": "2026-10-19T18:33:31.365Z",
   "totalEvents": 14524,
   "events": [
     {
@@ -270373,7 +270373,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Alla Biblioteca Cantonale di Locarno si tiene un incontro sul lavoro svolto da PROFILIA alla stazione di Chiasso. Bruna Conti, presidente cantonale dell’organizzazione, descrive il sostegno offerto da oltre un secolo a madri con bambini, incluso un rifugio sicuro e un aiuto umano.",
+      "descriptionByLocale": {
+        "it": "Alla Biblioteca Cantonale di Locarno si tiene un incontro sul lavoro svolto da PROFILIA alla stazione di Chiasso. Bruna Conti, presidente cantonale dell’organizzazione, descrive il sostegno offerto da oltre un secolo a madri con bambini, incluso un rifugio sicuro e un aiuto umano.",
+        "en": "Biblioteca Cantonale in Locarno hosts a meeting about PROFILIA’s work at Chiasso railway station. Bruna Conti, the organisation’s cantonal president, will explain its support for mothers with children over more than a century, including a safe refuge and personal assistance.",
+        "de": "In der Biblioteca Cantonale in Locarno geht es um die Tätigkeit von PROFILIA am Bahnhof von Chiasso. Bruna Conti, die kantonale Präsidentin der Organisation, erläutert die seit mehr als einem Jahrhundert angebotene Unterstützung für Mütter mit Kindern, darunter einen sicheren Zufluchtsort und menschliche Begleitung.",
+        "fr": "À la Biblioteca Cantonale de Locarno, une rencontre présente l’action de PROFILIA à la gare de Chiasso. Bruna Conti, présidente cantonale de l’organisation, y expose le soutien apporté depuis plus d’un siècle aux mères avec leurs enfants, notamment un refuge sûr et un accompagnement humain."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:cindy-acker-greffe-impromptus",
@@ -284264,7 +284272,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento è dedicato a libri per bambini e prevede la partecipazione di Marie-Christine Kamke. Fa parte del calendario di eventi della Città di Lucerna, che tratta temi diversi a Lucerna e nei dintorni.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento è dedicato a libri per bambini e prevede la partecipazione di Marie-Christine Kamke. Fa parte del calendario di eventi della Città di Lucerna, che tratta temi diversi a Lucerna e nei dintorni.",
+        "en": "This event focuses on children’s books and features Marie-Christine Kamke. It is part of the City of Lucerne’s events programme, which covers a range of topics in Lucerne and the surrounding area.",
+        "de": "Die Veranstaltung befasst sich mit Kinderbüchern und wird von Marie-Christine Kamke begleitet. Sie ist Teil des Veranstaltungskalenders der Stadt Luzern, der unterschiedliche Themen in Luzern und Umgebung aufgreift.",
+        "fr": "Cette rencontre est consacrée à des livres pour enfants et fait intervenir Marie-Christine Kamke. Elle s’inscrit dans le programme de manifestations de la Ville de Lucerne, qui aborde différents sujets à Lucerne et dans ses environs."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:13d8a252a2b44a009386130243b290d6",
@@ -289855,7 +289871,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’escursione a Lucerna prende in esame licheni e muschi presenti su rocce, alberi e terreno. Il programma comprende l’osservazione di alcune specie, i loro rapporti con l’ambiente e la varietà delle forme, con lenti d’ingrandimento disponibili.",
+      "descriptionByLocale": {
+        "it": "L’escursione a Lucerna prende in esame licheni e muschi presenti su rocce, alberi e terreno. Il programma comprende l’osservazione di alcune specie, i loro rapporti con l’ambiente e la varietà delle forme, con lenti d’ingrandimento disponibili.",
+        "en": "This excursion in Lucerne examines lichens and mosses in habitats such as rocks, trees and soil. It presents selected species, their ecological relationships and the range of forms they display, with magnifying glasses available for observation.",
+        "de": "Bei einer Exkursion in Luzern werden Flechten und Moose an verschiedenen natürlichen Standorten betrachtet. Die Teilnehmenden lernen ausgewählte Arten, ökologische Zusammenhänge und die Vielfalt ihrer Formen kennen; bei Bedarf stehen Lupen zur Verfügung.",
+        "fr": "Cette excursion à Lucerne porte sur les lichens et les mousses observés sur les rochers, les arbres et le sol. Elle présente quelques espèces, leurs relations avec leur environnement et la diversité de leurs formes; des loupes peuvent être mises à disposition."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3abe1103694044638879ceee9bfc80c3",

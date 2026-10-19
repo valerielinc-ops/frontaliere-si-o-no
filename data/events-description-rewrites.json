@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-19T17:34:35.135Z",
+  "generatedAt": "2026-10-19T18:31:57.271Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -43280,6 +43280,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T15:20:43.027Z"
     },
+    "lu-stadt-agenda:7626904::6a3c14a82bc4f297e39b26c8b4719864ee6372f60b656681bf2ed162f2793003": {
+      "id": "lu-stadt-agenda:7626904",
+      "sourceDescriptionHash": "6a3c14a82bc4f297e39b26c8b4719864ee6372f60b656681bf2ed162f2793003",
+      "description": "L’escursione a Lucerna prende in esame licheni e muschi presenti su rocce, alberi e terreno. Il programma comprende l’osservazione di alcune specie, i loro rapporti con l’ambiente e la varietà delle forme, con lenti d’ingrandimento disponibili.",
+      "descriptionByLocale": {
+        "it": "L’escursione a Lucerna prende in esame licheni e muschi presenti su rocce, alberi e terreno. Il programma comprende l’osservazione di alcune specie, i loro rapporti con l’ambiente e la varietà delle forme, con lenti d’ingrandimento disponibili.",
+        "en": "This excursion in Lucerne examines lichens and mosses in habitats such as rocks, trees and soil. It presents selected species, their ecological relationships and the range of forms they display, with magnifying glasses available for observation.",
+        "de": "Bei einer Exkursion in Luzern werden Flechten und Moose an verschiedenen natürlichen Standorten betrachtet. Die Teilnehmenden lernen ausgewählte Arten, ökologische Zusammenhänge und die Vielfalt ihrer Formen kennen; bei Bedarf stehen Lupen zur Verfügung.",
+        "fr": "Cette excursion à Lucerne porte sur les lichens et les mousses observés sur les rochers, les arbres et le sol. Elle présente quelques espèces, leurs relations avec leur environnement et la diversité de leurs formes; des loupes peuvent être mises à disposition."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-19T18:19:04.813Z"
+    },
     "lu-stadt-agenda:7629577::fc19b858a04a899c9e1e8738802c338676c9d4300798ba67d6aa55caf8added6": {
       "id": "lu-stadt-agenda:7629577",
       "sourceDescriptionHash": "fc19b858a04a899c9e1e8738802c338676c9d4300798ba67d6aa55caf8added6",
@@ -43335,6 +43349,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-07T23:54:59.024Z"
+    },
+    "lu-stadt-agenda:7649788::ad136bfc159fa091fc7f6efc1d528b50d00ed6c0124b7bac2ef4f0123d01d98a": {
+      "id": "lu-stadt-agenda:7649788",
+      "sourceDescriptionHash": "ad136bfc159fa091fc7f6efc1d528b50d00ed6c0124b7bac2ef4f0123d01d98a",
+      "description": "Questo appuntamento è dedicato a libri per bambini e prevede la partecipazione di Marie-Christine Kamke. Fa parte del calendario di eventi della Città di Lucerna, che tratta temi diversi a Lucerna e nei dintorni.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento è dedicato a libri per bambini e prevede la partecipazione di Marie-Christine Kamke. Fa parte del calendario di eventi della Città di Lucerna, che tratta temi diversi a Lucerna e nei dintorni.",
+        "en": "This event focuses on children’s books and features Marie-Christine Kamke. It is part of the City of Lucerne’s events programme, which covers a range of topics in Lucerne and the surrounding area.",
+        "de": "Die Veranstaltung befasst sich mit Kinderbüchern und wird von Marie-Christine Kamke begleitet. Sie ist Teil des Veranstaltungskalenders der Stadt Luzern, der unterschiedliche Themen in Luzern und Umgebung aufgreift.",
+        "fr": "Cette rencontre est consacrée à des livres pour enfants et fait intervenir Marie-Christine Kamke. Elle s’inscrit dans le programme de manifestations de la Ville de Lucerne, qui aborde différents sujets à Lucerne et dans ses environs."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-19T18:19:39.010Z"
     },
     "lu-stadt-agenda:7688353::d3b5d62dd297a95dad48298662b12e9f1a968df72e9aef9c4278192f7e299e30": {
       "id": "lu-stadt-agenda:7688353",
@@ -159186,6 +159214,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T12:21:45.814Z"
     },
+    "tio-agenda:64623::0fc3e6891ca649a204e1f560afc470d9339a206d1f613a47866d00c749f93979": {
+      "id": "tio-agenda:64623",
+      "sourceDescriptionHash": "0fc3e6891ca649a204e1f560afc470d9339a206d1f613a47866d00c749f93979",
+      "description": "Alla Biblioteca Cantonale di Locarno si tiene un incontro sul lavoro svolto da PROFILIA alla stazione di Chiasso. Bruna Conti, presidente cantonale dell’organizzazione, descrive il sostegno offerto da oltre un secolo a madri con bambini, incluso un rifugio sicuro e un aiuto umano.",
+      "descriptionByLocale": {
+        "it": "Alla Biblioteca Cantonale di Locarno si tiene un incontro sul lavoro svolto da PROFILIA alla stazione di Chiasso. Bruna Conti, presidente cantonale dell’organizzazione, descrive il sostegno offerto da oltre un secolo a madri con bambini, incluso un rifugio sicuro e un aiuto umano.",
+        "en": "Biblioteca Cantonale in Locarno hosts a meeting about PROFILIA’s work at Chiasso railway station. Bruna Conti, the organisation’s cantonal president, will explain its support for mothers with children over more than a century, including a safe refuge and personal assistance.",
+        "de": "In der Biblioteca Cantonale in Locarno geht es um die Tätigkeit von PROFILIA am Bahnhof von Chiasso. Bruna Conti, die kantonale Präsidentin der Organisation, erläutert die seit mehr als einem Jahrhundert angebotene Unterstützung für Mütter mit Kindern, darunter einen sicheren Zufluchtsort und menschliche Begleitung.",
+        "fr": "À la Biblioteca Cantonale de Locarno, une rencontre présente l’action de PROFILIA à la gare de Chiasso. Bruna Conti, présidente cantonale de l’organisation, y expose le soutien apporté depuis plus d’un siècle aux mères avec leurs enfants, notamment un refuge sûr et un accompagnement humain."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-19T18:19:34.566Z"
+    },
     "tio-agenda:64626::e9878a8cfc09a16bde7b78f1dc8b65b344c3b60d1232fef5b4770c9cf2e1b60f": {
       "id": "tio-agenda:64626",
       "sourceDescriptionHash": "e9878a8cfc09a16bde7b78f1dc8b65b344c3b60d1232fef5b4770c9cf2e1b60f",
@@ -159350,8 +159392,8 @@
       "id": "ge-agenda:alain-della-maestra-trio",
       "sourceDescriptionHash": "4328776c3d4a58f0bdc4406500dbb1220a1c3c0abac006a188eac66d13787d4c",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:27:20.731Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:22:29.397Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159458,8 +159500,8 @@
       "id": "ge-agenda:chrusimusi",
       "sourceDescriptionHash": "2354eae143f760cd8c3ec3779cada17892c7736ef9a6938b80613237408cfbe5",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:28:30.320Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:24:34.847Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159611,8 +159653,8 @@
       "id": "ge-agenda:giff-projection-dawning",
       "sourceDescriptionHash": "4abc3e04cbbac60e91b7e3ff2b1afd96cb76531e0d46fef5277a3666ab38edf2",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:22:59.481Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:18:24.449Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159620,8 +159662,8 @@
       "id": "ge-agenda:giff-projection-journal-femme-chambre",
       "sourceDescriptionHash": "198c1bbe4de9ee103dd5707eba7bf6ead1c253dd6cb531f112346c97fe539187",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:23:35.996Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:19:00.813Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159629,8 +159671,8 @@
       "id": "ge-agenda:giff-projection-life-chapter-phaedra",
       "sourceDescriptionHash": "348c9087d7a5fb16fcdb3349be989a6869d61a1984ce605f41aed33d75aa428e",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:32:04.665Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:27:36.317Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159638,8 +159680,8 @@
       "id": "ge-agenda:giff-projection-many-people-need",
       "sourceDescriptionHash": "803a7222f5f817b3ee7de30ac87055392dda04875f2a14f84209b5187d464787",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:33:28.979Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:23:57.787Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159647,8 +159689,8 @@
       "id": "ge-agenda:giff-projection-nourrices",
       "sourceDescriptionHash": "c9df64fe23c11484e2662c0f8e37f1964f0487d58f5b0fbf6b2e48e1c04fe879",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:27:35.955Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:21:54.678Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159656,8 +159698,8 @@
       "id": "ge-agenda:giff-projection-peccato",
       "sourceDescriptionHash": "28679a7d60503c1f684cd4b70ffb7f041b5b2e0a9dd502fceda7f18daeff069b",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:28:23.322Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:22:35.455Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159665,8 +159707,8 @@
       "id": "ge-agenda:giff-projection-rififi",
       "sourceDescriptionHash": "bb7325094164bfc630682a837b9e875ed3d9abd3149bd2e6fa84ba972a76e637",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:22:17.200Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:17:47.739Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159674,8 +159716,8 @@
       "id": "ge-agenda:giff-projection-variola-vera",
       "sourceDescriptionHash": "499e017c219c1702373b08050b2a124a00f065b283f4ffb538297954b48e9a52",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:32:51.973Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:23:18.204Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159683,8 +159725,8 @@
       "id": "ge-agenda:giff-projection-vitro-creation-happiness",
       "sourceDescriptionHash": "80f5b2adb1b747236a5454029b0c606c52f43f1f51284e827bf466400bd65f1e",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:26:08.271Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:20:35.230Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159692,8 +159734,8 @@
       "id": "ge-agenda:giff-projection-yesterday-didt-sleep",
       "sourceDescriptionHash": "4277e620a1f542a383fa1000b36e704d283291df19fb10d55a07f3888b7c7013",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:35:49.195Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:26:24.161Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159899,8 +159941,8 @@
       "id": "ge-agenda:nuit-oiseau",
       "sourceDescriptionHash": "cba0c10f2a04a6df3deda36480189858d66d72f4f1b42dbadd1a27e8399be2c9",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:31:31.552Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:27:01.921Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -160142,8 +160184,8 @@
       "id": "ge-agenda:visites-guidees-decouverte-arbres-parc-bastions",
       "sourceDescriptionHash": "882f8700a7b62ef1a026e6a7c5a3238e43e78121c7d8bc49a003bca283fce196",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:25:21.920Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:19:35.430Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -162383,26 +162425,8 @@
       "id": "lu-stadt-agenda:7463710",
       "sourceDescriptionHash": "6342342145998e3da80dfd082a7d93229513e86aded4e001031ce242eef2e42b",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:25:11.237Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "lu-stadt-agenda:7626904::6a3c14a82bc4f297e39b26c8b4719864ee6372f60b656681bf2ed162f2793003": {
-      "id": "lu-stadt-agenda:7626904",
-      "sourceDescriptionHash": "6a3c14a82bc4f297e39b26c8b4719864ee6372f60b656681bf2ed162f2793003",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:30:02.217Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "lu-stadt-agenda:7649788::ad136bfc159fa091fc7f6efc1d528b50d00ed6c0124b7bac2ef4f0123d01d98a": {
-      "id": "lu-stadt-agenda:7649788",
-      "sourceDescriptionHash": "ad136bfc159fa091fc7f6efc1d528b50d00ed6c0124b7bac2ef4f0123d01d98a",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:24:38.260Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:20:26.469Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168367,9 +168391,9 @@
     "tio-agenda:62919::1ab2c73f33c650cb6b795a9630ec6efb05819355f0fc616f223839fb0d60aefd": {
       "id": "tio-agenda:62919",
       "sourceDescriptionHash": "1ab2c73f33c650cb6b795a9630ec6efb05819355f0fc616f223839fb0d60aefd",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:26:57.030Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:21:06.723Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168458,8 +168482,8 @@
       "id": "tio-agenda:63716",
       "sourceDescriptionHash": "20d9938054db25d73a01c8562be1303d80e05c02491fad184e92d713dd0ecc53",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:24:44.611Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:19:06.184Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168620,8 +168644,8 @@
       "id": "tio-agenda:63976",
       "sourceDescriptionHash": "4caf9efe597c7010ddebd2eb39b3ca31c98e19257efe441a03413091070a1b80",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:24:00.838Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:22:58.079Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -169114,9 +169138,9 @@
     "tio-agenda:64597::51e0d93b4449992e38c86c6563a9c335978daeee60a5939283a23b269875239b": {
       "id": "tio-agenda:64597",
       "sourceDescriptionHash": "51e0d93b4449992e38c86c6563a9c335978daeee60a5939283a23b269875239b",
-      "code": "promotional-language",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:25:57.587Z",
+      "code": "sentence-count",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:21:13.139Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -169124,26 +169148,17 @@
       "id": "tio-agenda:64617",
       "sourceDescriptionHash": "a0e2d26fe74767d803c3906dccf0cfb6fef04be8d1d11f714cae5453f49de618",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:29:13.199Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:64623::0fc3e6891ca649a204e1f560afc470d9339a206d1f613a47866d00c749f93979": {
-      "id": "tio-agenda:64623",
-      "sourceDescriptionHash": "0fc3e6891ca649a204e1f560afc470d9339a206d1f613a47866d00c749f93979",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:24:22.961Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:25:14.199Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:64625::6f22c5c4e37af6730eba9d6c8234b5f3d54b289dfcde382707303711ae77eff8": {
       "id": "tio-agenda:64625",
       "sourceDescriptionHash": "6f22c5c4e37af6730eba9d6c8234b5f3d54b289dfcde382707303711ae77eff8",
-      "code": "source-ngram-8",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-19T15:20:28.094Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-19T18:21:26.610Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }
