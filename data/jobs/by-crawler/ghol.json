@@ -1,14 +1,14 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-10-19T10:01:05.202Z",
+  "assembledAt": "2026-10-19T21:29:39.357Z",
   "jobs": [
     {
       "id": "ghol-52354c0ae92c",
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -49,7 +49,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T10:00:59.996Z",
+      "crawledAt": "2026-10-19T21:29:33.218Z",
       "needsRetranslation": false,
       "requirementsByLocale": {
         "it": [
@@ -78,8 +78,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -87,10 +87,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -155,7 +155,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T10:00:59.995Z",
+      "crawledAt": "2026-10-19T21:29:33.217Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -172,77 +172,6 @@
         ]
       },
       "firstSeenAt": "2026-05-21T11:59:27.233Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-cd19adb46d26",
-      "slug": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "assistant-physician-in-practice-forcab-mfe-west-region-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "medecin-assistent-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest",
-      "titleByLocale": {
-        "it": "Assistente medico in pratica – FoRCab MFE, Regione Ovest",
-        "en": "Assistant physician in practice – FoRCab MFE, West Region",
-        "de": "Médecin Assistent-e en cabinet – FoRCab MFE, région Ouest",
-        "fr": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest"
-      },
-      "description": "Descriptif du poste :\n Le programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\n La région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\n Profil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\n Formation :\n\n• Diplôme de médecin suisse ou équivalent",
-      "descriptionByLocale": {
-        "it": "Descrizione del lavoro:\nIl programma Training and Succession in Family and Child Medicine (FoRCab MFE) sostiene la prossima generazione di professionisti della medicina di famiglia, in particolare sovvenzionando e organizzando assistentati di pratica nel Cantone di Vaud. L'organizzazione è regionale.\nLa regione Ovest offre corsi di formazione della durata di diversi anni, riservati ai futuri medici di famiglia. Oltre a un periodo in uno studio di formazione (6 mesi al 100% o 12 mesi al 50%), sono possibili rotazioni nei seguenti reparti: medicina interna, chirurgia, clinica d'emergenza/ambulatoriale e pediatria presso l'Ospedale di Nyon, pneumologia a Rolle e psichiatria a Prangins.\nProfilo richiesto:\n\n• Medico che si è laureato o sta per ottenere una laurea in medicina\n\n• Obiettivo di ottenere una qualifica di specialista in medicina interna generale\n\n• Obiettivo di aprire uno studio come medico di famiglia nell'ovest del Cantone di Vaud\n\n• Non ha ricevuto un sussidio cantonale come parte dell'assistentato nella pratica (tutti i cantoni)\nIstruzione:\n\n• Una laurea in medicina svizzera o equivalente",
-        "en": "Job description:\nThe Training and Succession in Family and Child Medicine (FoRCab MFE) program supports the next generation of family medicine professionals, in particular by subsidizing and organizing practice assistantships in the Canton of Vaud. The organization is regional.\nThe West region offers training courses lasting several years, reserved for future family doctors. In addition to a stint in a training practice (6 months at 100% or 12 months at 50%), rotations are possible in the following departments: internal medicine, surgery, emergency/outpatient clinic and paediatrics at the Nyon Hospital, pulmonology in Rolle and psychiatry in Prangins.\nRequired profile:\n\n• Doctor who has graduated or is in the process of obtaining a medical degree\n\n• Aim to obtain a specialist designation in general internal medicine\n\n• Objective to set up a practice as a family doctor in the west of the Canton of Vaud\n\n• Not have received a cantonal subsidy as part of the assistantship in the practice (all cantons)\nEducation:\n\n• Swiss medical degree or equivalent",
-        "de": "Stellenbeschreibung:\nDas Programm Training and Succession in Family and Child Medicine (FoRCab MFE) unterstützt die nächste Generation von Fachkräften für Allgemeinmediziner, insbesondere durch Subventionierung und Organisation von Praxisassistenten im Kanton Vaud. Die Organisation ist regional ausgerichtet.\nDie West-Region bietet mehrere Jahre dauernde Ausbildungen an, die künftigen Hausärzten vorbehalten sind. Neben einer Ausbildungstätigkeit (6 Monate bei 100 % oder 12 Monate bei 50 %) sind Rotationen in folgenden Abteilungen möglich: Innere Medizin, Chirurgie, Notaufnahme/Ambulanz und Pädiatrie am Nyon Hospital, Pneumologie in Rolle und Psychiatrie in Prangins.\nErforderliches Profil:\n\n• Arzt, der seinen Abschluss gemacht hat oder gerade einen medizinischen Abschluss erwirbt\n\n• Streben Sie an, eine Facharztausbildung in der allgemeinen Inneren Medizin zu erwerben\n\n• Ziel der Errichtung einer Praxis als Hausarzt im Westen des Kantons Vaud\n\n• Keine kantonale Subvention im Rahmen der Assistenztätigkeit in der Praxis erhalten haben (alle Kantone)\nAusbildung:\n\n• Schweizer medizinischer Abschluss oder äquivalent",
-        "fr": "Descriptif du poste :\nLe programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\nLa région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\nProfil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\nFormation :\n\n• Diplôme de médecin suisse ou équivalent"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare-medical",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/I_TEMIvLa",
-      "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-19T10:00:59.994Z",
-      "previousSlugs": [
-        "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:24:46.269Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -304,7 +233,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T10:00:59.994Z",
+      "crawledAt": "2026-10-19T21:29:33.216Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
@@ -315,6 +244,77 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:49:26.103Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-cd19adb46d26",
+      "slug": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "assistant-physician-in-practice-forcab-mfe-west-region-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "medecin-assistent-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest",
+      "titleByLocale": {
+        "it": "Assistente medico in pratica – FoRCab MFE, Regione Ovest",
+        "en": "Assistant physician in practice – FoRCab MFE, West Region",
+        "de": "Médecin Assistent-e en cabinet – FoRCab MFE, région Ouest",
+        "fr": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest"
+      },
+      "description": "Descriptif du poste :\n Le programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\n La région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\n Profil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\n Formation :\n\n• Diplôme de médecin suisse ou équivalent",
+      "descriptionByLocale": {
+        "it": "Descrizione del lavoro:\nIl programma Training and Succession in Family and Child Medicine (FoRCab MFE) sostiene la prossima generazione di professionisti della medicina di famiglia, in particolare sovvenzionando e organizzando assistentati di pratica nel Cantone di Vaud. L'organizzazione è regionale.\nLa regione Ovest offre corsi di formazione della durata di diversi anni, riservati ai futuri medici di famiglia. Oltre a un periodo in uno studio di formazione (6 mesi al 100% o 12 mesi al 50%), sono possibili rotazioni nei seguenti reparti: medicina interna, chirurgia, clinica d'emergenza/ambulatoriale e pediatria presso l'Ospedale di Nyon, pneumologia a Rolle e psichiatria a Prangins.\nProfilo richiesto:\n\n• Medico che si è laureato o sta per ottenere una laurea in medicina\n\n• Obiettivo di ottenere una qualifica di specialista in medicina interna generale\n\n• Obiettivo di aprire uno studio come medico di famiglia nell'ovest del Cantone di Vaud\n\n• Non ha ricevuto un sussidio cantonale come parte dell'assistentato nella pratica (tutti i cantoni)\nIstruzione:\n\n• Una laurea in medicina svizzera o equivalente",
+        "en": "Job description:\nThe Training and Succession in Family and Child Medicine (FoRCab MFE) program supports the next generation of family medicine professionals, in particular by subsidizing and organizing practice assistantships in the Canton of Vaud. The organization is regional.\nThe West region offers training courses lasting several years, reserved for future family doctors. In addition to a stint in a training practice (6 months at 100% or 12 months at 50%), rotations are possible in the following departments: internal medicine, surgery, emergency/outpatient clinic and paediatrics at the Nyon Hospital, pulmonology in Rolle and psychiatry in Prangins.\nRequired profile:\n\n• Doctor who has graduated or is in the process of obtaining a medical degree\n\n• Aim to obtain a specialist designation in general internal medicine\n\n• Objective to set up a practice as a family doctor in the west of the Canton of Vaud\n\n• Not have received a cantonal subsidy as part of the assistantship in the practice (all cantons)\nEducation:\n\n• Swiss medical degree or equivalent",
+        "de": "Stellenbeschreibung:\nDas Programm Training and Succession in Family and Child Medicine (FoRCab MFE) unterstützt die nächste Generation von Fachkräften für Allgemeinmediziner, insbesondere durch Subventionierung und Organisation von Praxisassistenten im Kanton Vaud. Die Organisation ist regional ausgerichtet.\nDie West-Region bietet mehrere Jahre dauernde Ausbildungen an, die künftigen Hausärzten vorbehalten sind. Neben einer Ausbildungstätigkeit (6 Monate bei 100 % oder 12 Monate bei 50 %) sind Rotationen in folgenden Abteilungen möglich: Innere Medizin, Chirurgie, Notaufnahme/Ambulanz und Pädiatrie am Nyon Hospital, Pneumologie in Rolle und Psychiatrie in Prangins.\nErforderliches Profil:\n\n• Arzt, der seinen Abschluss gemacht hat oder gerade einen medizinischen Abschluss erwirbt\n\n• Streben Sie an, eine Facharztausbildung in der allgemeinen Inneren Medizin zu erwerben\n\n• Ziel der Errichtung einer Praxis als Hausarzt im Westen des Kantons Vaud\n\n• Keine kantonale Subvention im Rahmen der Assistenztätigkeit in der Praxis erhalten haben (alle Kantone)\nAusbildung:\n\n• Schweizer medizinischer Abschluss oder äquivalent",
+        "fr": "Descriptif du poste :\nLe programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\nLa région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\nProfil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\nFormation :\n\n• Diplôme de médecin suisse ou équivalent"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare-medical",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/I_TEMIvLa",
+      "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-19T21:29:33.215Z",
+      "previousSlugs": [
+        "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:24:46.269Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -376,7 +376,7 @@
       "applyUrl": "https://app.beehire.com/invite/DYAYXSAFI",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T10:00:59.993Z",
+      "crawledAt": "2026-10-19T21:29:33.213Z",
       "previousSlugs": [
         "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
       ],
@@ -453,7 +453,7 @@
       "applyUrl": "https://app.beehire.com/invite/jsVFtWAvo",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T10:00:59.992Z",
+      "crawledAt": "2026-10-19T21:29:33.212Z",
       "previousSlugs": [
         "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -482,6 +482,70 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "ghol-05bfa91fa669",
+      "slug": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "fr": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "it": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Collaborateur-trice facturation",
+      "titleByLocale": {
+        "fr": "Collaborateur-trice facturation",
+        "it": "Collaborateur-trice facturation",
+        "en": "Collaborateur-trice facturation",
+        "de": "Collaborateur-trice facturation"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\n Niveau de formation :\n CFC employé d’administration ou titre jugé équivalent\n Avantages :\n Un cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\n Une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n L’opportunité de mener des projets de développer dans un secteur stratégique ;\n Participer au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
+      "descriptionByLocale": {
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\n Niveau de formation :\n CFC employé d’administration ou titre jugé équivalent\n Avantages :\n Un cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\n Une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n L’opportunité de mener des projets de développer dans un secteur stratégique ;\n Participer au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
+        "it": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\n Niveau de formation :\n CFC employé d’administration ou titre jugé équivalent\n Avantages :\n Un cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\n Une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n L’opportunité de mener des projets de développer dans un secteur stratégique ;\n Participer au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
+        "en": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\n Niveau de formation :\n CFC employé d’administration ou titre jugé équivalent\n Avantages :\n Un cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\n Une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n L’opportunité de mener des projets de développer dans un secteur stratégique ;\n Participer au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
+        "de": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\n Niveau de formation :\n CFC employé d’administration ou titre jugé équivalent\n Avantages :\n Un cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\n Une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n L’opportunité de mener des projets de développer dans un secteur stratégique ;\n Participer au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé."
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/5d21Gnrjl",
+      "applyUrl": "https://app.beehire.com/invite/5d21Gnrjl",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-19T21:29:33.210Z",
+      "needsRetranslation": true,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-19T21:29:33.210Z"
     }
   ]
 }
