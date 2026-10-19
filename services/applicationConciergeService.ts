@@ -9,7 +9,7 @@ export interface ApplicationConciergeProposal {
   jobTitle: string;
   location?: string | null;
   applyMode?: string | null;
-  status: 'proposed' | 'accepted' | 'declined' | 'expired' | string;
+  status: 'proposed' | 'accepted' | 'declined' | 'expired' | 'retracted' | string;
   proposedAt?: string | null;
   acceptedAt?: string | null;
   declinedAt?: string | null;

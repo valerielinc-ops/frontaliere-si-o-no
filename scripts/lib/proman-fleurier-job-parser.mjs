@@ -1,13 +1,24 @@
 import { createHash } from 'node:crypto';
 import { detectLang, appendSlugDisambiguator } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { extractBalancedTagBlockWithStatus } from './hospital-custom-html-helpers.mjs';
-import { mergeSourcePostingDates } from './source-posting-date.mjs';
-import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-import { extractDetailFields } from './prospector/extract.mjs';
 import {
-  resolveSourceBackedSwissGeography,
+  extractBalancedTagBlock,
+  extractBalancedTagBlockWithStatus,
+  parseSwissShortDate,
+} from './hospital-custom-html-helpers.mjs';
+import { readAttr, scanStartTags } from './html-attr.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
+import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import {
+  bodyTextOf,
+  extractDetailFields,
+  isSufficientVacancyDescription,
+  textOf,
+} from './prospector/extract.mjs';
+import { decodeEntities } from './prospector/entities.mjs';
+import {
   resolveDetailOrListingSwissGeography,
+  resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
 } from './prospector/location-evidence.mjs';
 
@@ -37,11 +48,9 @@ function locationKey(value = '') {
     .trim();
 }
 
-// Proman's detail card sometimes uses a source-local label rather than a
-// canton or a current BFS municipality (for example `Couvet`, `St-Imier`, or
-// `Franches Montagnes`). These are exact labels reviewed on the official
-// board, not a free-text geocoder: every fallback candidate still goes through
-// the shared source-backed resolver with the reviewed canton.
+// These exact labels are reviewed on the official board; they are not a
+// free-text geocoder and every candidate still passes through the shared
+// source-backed geography resolver.
 const PROMAN_SOURCE_LOCATION_CANTONS = new Map([
   ['ayer', 'VS'],
   ['bramois', 'VS'],
@@ -57,14 +66,21 @@ const PROMAN_SOURCE_LOCATION_CANTONS = new Map([
   ['st leonard', 'VS'],
 ]);
 
-// The runtime re-checks the returned evidence. These reviewed parent/current
-// municipality names corroborate the otherwise ambiguous two-letter region
-// code (`NE`) without changing the source display location.
 const PROMAN_SOURCE_LOCATION_LOCALITIES = new Map([
   ['canton de neuchatel', 'Neuchâtel'],
   ['couvet', 'Val-de-Travers'],
   ['fleurier', 'Val-de-Travers'],
 ]);
+
+function hasClass(opening = '', className = '') {
+  return normalizeSpace(readAttr(opening, 'class')).split(' ').includes(className);
+}
+
+function firstTagBlock(html = '', tag = '', predicate = () => true) {
+  const opening = scanStartTags(html, tag).find(({ raw }) => predicate(raw));
+  if (!opening) return '';
+  return extractBalancedTagBlock(html.slice(opening.end), tag);
+}
 
 function classContainer(html = '', className = '') {
   const source = String(html || '');
@@ -83,29 +99,78 @@ function classContainer(html = '', className = '') {
   return block.complete ? block.html : '';
 }
 
+function sourceText(html = '') {
+  return normalizeSpace(decodeEntities(textOf(html)));
+}
+
+function extractPromanInfoValue(html = '', iconSource = '', label = /^$/) {
+  const info = classContainer(html, 'u-job-infos');
+  for (const opening of scanStartTags(info, 'li')) {
+    const block = extractBalancedTagBlock(info.slice(opening.end), 'li');
+    if (!block.includes(iconSource)) continue;
+    return normalizeSpace(sourceText(block).replace(label, ''));
+  }
+  return '';
+}
+
 /**
- * Proman's current detail template has no JobPosting JSON-LD or microdata.
- * These are still authored vacancy fields: the location is the item marked by
- * the official location icon and the body is the rendered `u-specs` block.
+ * PROMAN renders each vacancy as an empty overlay anchor followed by the
+ * visible heading. The generic template matcher deliberately rejects empty
+ * anchors, so pair both source-owned fields inside the same balanced card.
  */
-function extractPromanRenderedDetail(html = '') {
-  const infoBlock = classContainer(html, 'u-job-infos');
-  const locationItem = [...infoBlock.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)]
-    .find((match) => /<u-svg\b[^>]*\bsource\s*=\s*["']24\/job\/location["']/i.test(match[1]));
-  const location = normalizeSpace(
-    stripHtml(locationItem?.[1] || '')
-      .replace(/^\s*lieu\s*/iu, ''),
-  );
-  const bodyHtml = [classContainer(html, 'u-intro'), classContainer(html, 'u-specs')]
-    .filter(Boolean)
-    .join('\n');
+export function extractPromanFleurierListingCandidates(html = '', pageUrl = CAREER_URL) {
+  const rows = [];
+  const seen = new Set();
+  let recognizedCards = 0;
+  for (const opening of scanStartTags(html, 'li')) {
+    if (!hasClass(opening.raw, 'u-job-item')) continue;
+    recognizedCards++;
+    const card = extractBalancedTagBlock(html.slice(opening.end), 'li');
+    const anchor = scanStartTags(card, 'a').find(({ raw }) => hasClass(raw, 'u-link-fit'));
+    const title = sourceText(firstTagBlock(card, 'h3'));
+    const href = anchor ? readAttr(anchor.raw, 'href') : '';
+    const location = extractPromanInfoValue(card, '24/job/location', /^lieu\s*/i);
+    const geography = resolveSourceBackedSwissGeography({ location });
+    const fields = geography ? sourceBackedSwissGeographyFields({ location }, geography) : null;
+    // A broad label such as "Canton de Neuchâtel" identifies the target
+    // region but is not a publishable addressLocality. Re-resolve the projected
+    // fields so only municipality-level evidence reaches the detail pool.
+    const projected = fields ? resolveSourceBackedSwissGeography(fields) : null;
+    if (!href || title.length < 3 || projected?.canton !== TARGET_CANTON) continue;
+    let url;
+    try { url = new URL(href, pageUrl).toString(); } catch { continue; }
+    if (seen.has(url)) continue;
+    seen.add(url);
+    rows.push({
+      title,
+      url,
+      via: 'proman-listing-card',
+      ...fields,
+      locationCandidates: [fields],
+    });
+  }
+  // `null` tells the shared crawler that this page no longer matches the
+  // source-specific markup, so its generic candidate cascade can still run.
+  // An empty array means the markup was recognized and none of its cards is a
+  // publishable vacancy; in that case the generic cascade must stay suppressed.
+  return recognizedCards ? rows : null;
+}
+
+function extractPromanDetailMarkup(html = '') {
+  const title = sourceText(firstTagBlock(html, 'h1'));
+  const location = extractPromanInfoValue(html, '24/job/location', /^lieu\s*/i);
+  const employmentType = extractPromanInfoValue(html, '24/job/type', /^Type de poste\s*/i);
+  const intro = bodyTextOf(classContainer(html, 'u-intro'));
+  const specs = bodyTextOf(classContainer(html, 'u-specs'));
+  const description = [intro, specs].filter(Boolean).join('\n');
+  const published = sourceText(firstTagBlock(html, 'p', (raw) => hasClass(raw, 'u-date')))
+    .match(/(\d{1,2}\.\d{1,2}\.\d{4})/)?.[1] || '';
   return {
-    title: normalizeSpace(stripHtml(
-      /<section\b[^>]*\bclass\s*=\s*["'][^"']*u-section-job-details-header[^"']*["'][^>]*>[\s\S]*?<h1\b[^>]*>([\s\S]*?)<\/h1>/i
-        .exec(String(html || ''))?.[1] || '',
-    )),
+    title,
+    description,
     location,
-    description: stripHtml(bodyHtml),
+    employmentType,
+    ...sourcePostingDateFields(parseSwissShortDate(published)),
   };
 }
 
@@ -149,38 +214,38 @@ function emptyDetail(detail, sourceBackedCanton = '') {
  * than treating them as failed detail extraction.
  */
 export function extractPromanFleurierDetailFields(html = '', pageUrl = '') {
-  const detail = extractDetailFields(html, pageUrl);
-  const rendered = extractPromanRenderedDetail(html);
-  const sourceDetail = {
-    ...detail,
-    ...(rendered.title ? { title: rendered.title } : {}),
-    ...(rendered.description ? { description: rendered.description } : {}),
-    ...(rendered.location
-      ? {
-        location: rendered.location,
-        locationCandidates: [{ location: rendered.location }],
-      }
-      : {}),
+  const generic = extractDetailFields(html, pageUrl);
+  const source = extractPromanDetailMarkup(html);
+  const detail = {
+    ...generic,
+    title: source.title || generic.title,
+    description: isSufficientVacancyDescription(generic.description)
+      && generic.description.length >= source.description.length
+      ? generic.description
+      : (source.description || generic.description),
+    location: source.location || generic.location,
+    employmentType: source.employmentType || generic.employmentType,
+    ...mergeSourcePostingDates(generic, source),
   };
-  const decision = resolvePromanDetailGeography(sourceDetail);
-  if (!decision.geography) return emptyDetail(sourceDetail);
+  const decision = resolvePromanDetailGeography(detail);
+  if (!decision.geography) return emptyDetail(detail);
 
   if (decision.geography.canton !== TARGET_CANTON) {
-    return emptyDetail(sourceDetail, decision.geography.canton);
+    return emptyDetail(detail, decision.geography.canton);
   }
 
+  const sourceLocationKey = locationKey(detail.location);
   const evidenceCandidate = {
     ...decision.candidate,
-    ...(PROMAN_SOURCE_LOCATION_LOCALITIES.has(locationKey(sourceDetail.location))
-      ? { addressLocality: PROMAN_SOURCE_LOCATION_LOCALITIES.get(locationKey(sourceDetail.location)) }
+    ...(PROMAN_SOURCE_LOCATION_LOCALITIES.has(sourceLocationKey)
+      ? { addressLocality: PROMAN_SOURCE_LOCATION_LOCALITIES.get(sourceLocationKey) }
       : {}),
   };
-  const cantonOnly = locationKey(sourceDetail.location) === 'canton de neuchatel';
   const fields = sourceBackedSwissGeographyFields(evidenceCandidate, decision.geography);
   return {
-    ...sourceDetail,
+    ...detail,
     ...fields,
-    ...(cantonOnly ? { addressLocality: '' } : {}),
+    ...(sourceLocationKey === 'canton de neuchatel' ? { addressLocality: '' } : {}),
     locationCandidates: [{ ...evidenceCandidate, ...fields }],
   };
 }
@@ -206,6 +271,7 @@ export function isTrustedDomain(rawUrl = '') {
 async function fetchJobListings(runtime = {}) {
   return runSpecInProduction(loadSpec(PROMAN_FLEURIER_KEY), {
     ...runtime,
+    listingExtractor: extractPromanFleurierListingCandidates,
     detailExtractor: extractPromanFleurierDetailFields,
     isExpectedDetailFilter: isPromanFleurierExpectedDetailFilter,
   });
@@ -246,9 +312,7 @@ export async function fetchAllPromanFleurierJobs(runtime = {}) {
       source: 'PROMAN Official Dedicated Parser',
       sourceLang,
       crawledAt: new Date().toISOString(),
-      addressLocality: locationKey(listing.location) === 'canton de neuchatel'
-        ? ''
-        : (listing.addressLocality || geography.location),
+      addressLocality: listing.addressLocality || geography.location,
       addressRegion: geography.canton,
       ...(listing.addressCountry ? { addressCountry: listing.addressCountry } : {}),
       ...(listing.postalCode ? { postalCode: listing.postalCode } : {}),
