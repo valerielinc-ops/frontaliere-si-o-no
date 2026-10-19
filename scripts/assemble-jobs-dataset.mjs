@@ -4039,8 +4039,9 @@ export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}
 
 /**
  * Repair persisted expired routes after active assembly has established the
- * current route owners. The aggregate is assembled before this pass, so the
- * caller also applies the same pure repair to its in-memory projection.
+ * current route owners. The caller runs this before aggregate assembly and
+ * applies the same pure repair to the in-memory aggregate for legacy entries
+ * that exist only in the old aggregate file.
  */
 function repairExpiredArchiveSlicesAgainstActive(activeJobs) {
   if (!Array.isArray(activeJobs) || activeJobs.length === 0) {
