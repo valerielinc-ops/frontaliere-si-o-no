@@ -7,6 +7,8 @@ import {
   canUseBranchRecovery,
   classifyRunListFailure,
   failureRunScope,
+  canonicalWorkflowNameForHistory,
+  failureRunHistorySource,
   mergeRunHistoryResults,
   historyUnavailableNote,
   alreadyHistoryUnavailable,
@@ -36,6 +38,19 @@ function run(id: number, createdAt: string, conclusion: 'success' | 'failure' | 
 }
 
 describe('close-recovered history reads', () => {
+  it('strips the loop-clock run-name decoration before querying workflow history', () => {
+    const decorated = 'Revenue signal monitor [loop-clock site-revenue-signal-monitor@2026-10-19T15:40Z]';
+    expect(canonicalWorkflowNameForHistory(decorated)).toBe('Revenue signal monitor');
+    expect(failureRunHistorySource(decorated, { issueRepo: 'o/r', runRepo: 'o/r' })).toEqual({
+      workflowRef: 'Revenue signal monitor',
+      repo: 'o/r',
+      includeCrawlerShadowBranches: false,
+    });
+    // A literal workflow name that only resembles the marker remains unchanged.
+    expect(canonicalWorkflowNameForHistory('Revenue signal monitor [loop-clock broken]'))
+      .toBe('Revenue signal monitor [loop-clock broken]');
+  });
+
   it('requires real validate-dist and validate-live jobs before treating the publish wrapper as recovered', () => {
     const workflow = 'Publish to GitHub Pages (deploy + validate)';
     expect(RECOVERY_REQUIRED_JOBS[workflow]).toEqual([

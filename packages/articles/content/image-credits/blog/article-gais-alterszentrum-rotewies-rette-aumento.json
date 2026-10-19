@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "cover": "/images/blog/article-gais-alterszentrum-rotewies-rette-aumento.webp",
+  "source": "generated-provider",
+  "commons": {
+    "title": "Generated editorial illustration",
+    "pageUrl": "https://openai.com/policies/terms-of-use/",
+    "width": 1200,
+    "height": 675,
+    "revision": "2026-10-19T14:39:01.837Z"
+  },
+  "author": {
+    "text": "frontaliereticino.ch",
+    "name": "frontaliereticino.ch",
+    "url": null,
+    "type": "Organization"
+  },
+  "attribution": null,
+  "licence": {
+    "name": "Generated media — provider terms apply",
+    "family": "other-attribution",
+    "attributionRequired": true,
+    "url": "https://openai.com/policies/terms-of-use/"
+  },
+  "restrictions": [
+    "illustrative-only",
+    "no-real-recognizable-foreground-person",
+    "no-public-figure-face",
+    "no-logo-brand-or-text",
+    "no-specific-real-event-photojournalism"
+  ],
+  "modified": "resized",
+  "fetchedAt": "2026-10-19",
+  "status": "ok",
+  "curation": null,
+  "generated": {
+    "schema": 1,
+    "assetId": "article-gais-alterszentrum-rotewies-rette-aumento",
+    "kind": "generated",
+    "provider": "openai-codex",
+    "model": "gpt-image-2.5",
+    "executorModel": "gpt-5.6-luna",
+    "promptVersion": "frontaliereticino.generated-image-policy.v1",
+    "promptHash": "60f1ed4ca2482f75dc8698a0888f6299dc1843035aaa656632826b75e4b6f442",
+    "license": "generated-provider",
+    "licenseUrl": "https://openai.com/policies/terms-of-use/",
+    "credit": "frontaliereticino.ch",
+    "sha256": "13918762c5f2aa380e05db2474046763cbbb664389ef79f9e0534f1a883637f1",
+    "bytes": 208372,
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "generatedAt": "2026-10-19T14:39:01.837Z",
+    "verifiedAt": "2026-10-19T14:39:09.660Z",
+    "restrictions": [
+      "illustrative-only",
+      "no-real-recognizable-foreground-person",
+      "no-public-figure-face",
+      "no-logo-brand-or-text",
+      "no-specific-real-event-photojournalism"
+    ],
+    "scope": "article-hero",
+    "imageUrl": "/images/blog/article-gais-alterszentrum-rotewies-rette-aumento.webp",
+    "area": "Swiss border region",
+    "season": "all seasons",
+    "variant": "article hero",
+    "vision": {
+      "ok": true,
+      "contains_text": false,
+      "contains_logo": false,
+      "contains_recognizable_face": false,
+      "contains_recognizable_foreground_person": false,
+      "looks_like_specific_real_event": false,
+      "is_photograph": false,
+      "is_topic_relevant": true,
+      "notes": "Original synthetic photorealistic illustration of a care facility in an Alpine setting; no people, text, signage, logos, or watermark."
+    }
+  }
+}
