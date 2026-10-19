@@ -51,6 +51,7 @@ routes = [
   { pattern = "frontaliereticino.ch/grenzgaenger-artikel*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/trouver-emploi-tessin*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/nav:pension*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/nav:health*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/calcolatore-5x1000*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/servizi-partner*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en/partner-services*", zone_name = "frontaliereticino.ch" },

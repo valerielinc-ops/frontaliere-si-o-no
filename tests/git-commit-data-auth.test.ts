@@ -54,7 +54,8 @@ describe('git-commit-data.sh GitHub auth hardening', () => {
     const code = GIT_COMMIT_DATA.split('\n')
       .map((text, index) => ({ text, number: index + 1 }))
       .filter(({ text }) => text.trim() !== '' && !text.trim().startsWith('#'));
-    const boundedOps = code.filter(({ text }) => /\brun_bounded "\$GIT_COMMIT_DATA_[A-Z_]+_TIMEOUT_SECONDS"/.test(text));
+    const boundedOps = code.filter(({ text }) =>
+      /\brun_bounded "(?:\$GIT_COMMIT_DATA_[A-Z_]+_TIMEOUT_SECONDS|\$push_timeout|\$PUSH_TIMEOUT)"/.test(text));
     const localArchiveOps = boundedOps.filter(({ text }) => text.includes('GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS'));
     const networkOps = boundedOps.filter(({ text }) => !text.includes('GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS'));
     expect(localArchiveOps.map(({ text }) => /"git archive ([^"]+)"/.exec(text)?.[1])).toEqual([
