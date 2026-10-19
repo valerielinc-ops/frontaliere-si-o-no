@@ -49,7 +49,7 @@ import { listingEvidenceFields } from './detail-extract.mjs';
  * @property {'anti_bot_block'|'selector_miss'|'connection_error'} [emptyListingOutcome]
  *   Outcome to attach when the spec has no accepted listing after its configured rescue path
  * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches
- * @property {{ maxPages?: number, minCoverage?: number, declaredTotalPattern?: string, pageStateParams?: string[], selfNextIsTerminal?: boolean }} [pagination]
+ * @property {{ maxPages?: number, minCoverage?: number, declaredTotalPattern?: string, pageStateParams?: string[], selfNextIsTerminal?: boolean, countDuplicateRowsForCoverage?: boolean }} [pagination]
  *   Follow the seed's `rel="next"` pages; with `declaredTotalPattern` the walk must
  *   collect `minCoverage` of the count the source declares, or the run fails closed;
  *   `pageStateParams` are stripped from detail URLs found on later pages;
