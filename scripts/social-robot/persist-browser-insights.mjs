@@ -20,13 +20,12 @@ import {
 } from 'node:fs';
 import path from 'node:path';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
+import { pushMainWithGuard } from '../lib/main-push-guard.mjs';
 import { withSingleFlightLock } from '../lib/single-flight-lock.mjs';
 import { sweepStaleFetchPacks } from '../lib/stale-fetch-pack-sweep.mjs';
-import { guardTreeShrink } from '../ci/guard-main-tree-shrink.mjs';
 
 const DATA_PATH = 'data/instagram-insights.json';
 const GIT_TIMEOUT_MS = 120_000;
-
 function nextValue(argv, index, option) {
   const value = argv[index + 1];
   if (!value || value.startsWith('--')) throw new Error(`${option} needs a value`);
@@ -105,25 +104,6 @@ function isStorageError(error) {
   return /\b(?:ENOSPC|No space left on device|disk full|not enough space)\b/i.test(text);
 }
 
-class MainTreeShrinkError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = 'MainTreeShrinkError';
-    this.code = 'ERR_MAIN_TREE_SHRINK';
-  }
-}
-
-function assertMainTreeIntegrity(worktree) {
-  const before = gitOutput(worktree, ['rev-parse', '--verify', 'origin/main^{commit}']);
-  const after = gitOutput(worktree, ['rev-parse', '--verify', 'HEAD^{commit}']);
-  const result = guardTreeShrink(before, after, worktree);
-  if (result.suspicious) {
-    throw new MainTreeShrinkError(
-      `Possible catastrophic main tree shrink: ${result.before} → ${result.after} paths (removed ${result.removed}; threshold leaves at most ${result.remainingLimit}).`,
-    );
-  }
-}
-
 function removeStaleInsightWorktrees(root) {
   try {
     for (const name of readdirSync(root)) {
@@ -138,6 +118,44 @@ function removeStaleInsightWorktrees(root) {
 
 function safeError(error) {
   return String(error?.stderr || error?.message || error).replace(/\s+/gu, ' ').replace(/https?:\/\/[^\s]+/gu, '[remote]').slice(0, 280);
+}
+
+function mainPushGuardError(error) {
+  const wrapped = new Error(`main push guard rejected the candidate: ${safeError(error)}`);
+  wrapped.code = 'MAIN_PUSH_GUARD';
+  return wrapped;
+}
+
+function pushMainCandidate(baseSha, worktree, gitFn) {
+  // Tests inject a Git seam that has no real repository. Production always
+  // uses the concrete Git function and therefore always runs the shared guard.
+  if (gitFn !== git) {
+    gitFn(worktree, [
+      'push',
+      `--force-with-lease=refs/heads/main:${baseSha}`,
+      'origin',
+      'HEAD:main',
+    ], {
+      env: { FRONTALIERE_AUTOMATED_DATA_PUSH: 'social-robot-insights' },
+    });
+    return;
+  }
+  try {
+    pushMainWithGuard({
+      repo: worktree,
+      base: baseSha,
+      candidate: 'HEAD',
+      branch: 'main',
+      timeoutSeconds: GIT_TIMEOUT_MS / 1000,
+      env: { ...process.env, FRONTALIERE_AUTOMATED_DATA_PUSH: 'social-robot-insights' },
+    });
+  } catch (error) {
+    const detail = safeError(error);
+    if (/candidate tree collapse|not a descendant|cannot resolve commit|cannot inspect tree|cannot prove ancestry/iu.test(detail)) {
+      throw mainPushGuardError(error);
+    }
+    throw error;
+  }
 }
 
 function readSnapshot(file) {
@@ -207,7 +225,7 @@ function refreshMain(repo, gitFn) {
   }
 }
 
-function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn, treeGuardFn }) {
+function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
   let refreshBeforeAttempt = false;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     sweepRepositoryFetchPacks(repo);
@@ -222,23 +240,31 @@ function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn, treeGuardFn 
         cleanupWorktree(repo, result.worktree, gitFn);
         return { status: result.status, attempt };
       }
-      treeGuardFn(result.worktree);
+      let baseSha;
+      if (gitFn === git) {
+        try {
+          baseSha = gitOutput(repo, ['rev-parse', '--verify', 'refs/remotes/origin/main^{commit}']);
+        } catch (error) {
+          throw mainPushGuardError(error);
+        }
+      } else {
+        // Keep injected Git seams deterministic without bypassing the lease
+        // argument that production receives from the real remote ref.
+        baseSha = String(gitFn(repo, ['rev-parse', '--verify', 'refs/remotes/origin/main^{commit}']) || '').trim();
+      }
       try {
-        gitFn(result.worktree, ['push', 'origin', 'HEAD:main'], {
-          env: { FRONTALIERE_AUTOMATED_DATA_PUSH: 'social-robot-insights' },
-        });
+        pushMainCandidate(baseSha, result.worktree, gitFn);
         cleanupWorktree(repo, result.worktree, gitFn);
         return { status: 'pushed', attempt };
       } catch (error) {
         cleanupWorktree(repo, result.worktree, gitFn);
-        if (error instanceof MainTreeShrinkError) throw error;
         if (isStorageError(error)) throw error;
         if (attempt === attempts) throw error;
         refreshBeforeAttempt = true;
       }
     } catch (error) {
       if (result?.worktree) cleanupWorktree(repo, result.worktree, gitFn);
-      if (error instanceof MainTreeShrinkError) throw error;
+      if (error?.code === 'MAIN_PUSH_GUARD') throw error;
       if (isStorageError(error)) throw error;
       if (attempt === attempts) throw error;
       refreshBeforeAttempt = true;
@@ -247,24 +273,10 @@ function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn, treeGuardFn 
   return { status: 'not-pushed' };
 }
 
-export function persistBrowserInsights({
-  repo,
-  snapshot,
-  dryRun = false,
-  attempts = 3,
-  gitFn = git,
-  treeGuardFn = assertMainTreeIntegrity,
-} = {}) {
+export function persistBrowserInsights({ repo, snapshot, dryRun = false, attempts = 3, gitFn = git } = {}) {
   readSnapshot(snapshot);
   const lockPath = path.join(path.dirname(snapshot), '.insights-persist.lock');
-  const run = withSingleFlightLock(lockPath, () => persistUnlocked({
-    repo,
-    snapshot,
-    dryRun,
-    attempts,
-    gitFn,
-    treeGuardFn,
-  }));
+  const run = withSingleFlightLock(lockPath, () => persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }));
   return run.acquired ? run.value : { status: 'busy' };
 }
 

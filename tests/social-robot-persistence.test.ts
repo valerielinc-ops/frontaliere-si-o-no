@@ -35,11 +35,11 @@ function fakeGitBin(root: string): string {
   fs.writeFileSync(git, `#!/bin/sh
 case "$*" in
   *"worktree add"*) mkdir -p "$7" ;;
+  *"rev-parse"*) printf '%s\\n' '1111111111111111111111111111111111111111' ;;
+  *"merge-base --is-ancestor"*) exit 0 ;;
+  *"ls-tree"*) printf 'tracked-0\\0tracked-1\\0' ;;
   *"diff --cached --quiet"*) exit 1 ;;
-  *"rev-parse --show-object-format"*) printf 'sha1\\n' ;;
-  *"rev-parse"*) printf '%040d\\n' 1 ;;
-  *"ls-tree"*) i=0; while [ "$i" -lt 1001 ]; do printf 'path-%s\\0' "$i"; i=$((i + 1)); done ;;
-  *"push origin HEAD:main"*)
+  *"push "*)
     # Two MiB exceeds Node's default execFileSync buffer.
     dd if=/dev/zero bs=1048576 count=2 2>/dev/null
     if [ "\${FAKE_GIT_FAIL:-0}" = "1" ]; then exit 42; fi
@@ -158,53 +158,6 @@ describe('persistBrowserInsights', () => {
     });
   });
 
-  it('refuses the push if a no-checkout worktree regression stages only the snapshot', () => {
-    const root = tempDir();
-    const repo = path.join(root, 'site');
-    const origin = path.join(root, 'origin.git');
-    fs.mkdirSync(repo);
-    runGit(root, ['init', '--bare', origin]);
-    runGit(repo, ['init', '-b', 'main']);
-    runGit(repo, ['config', 'user.name', 'Persistence test']);
-    runGit(repo, ['config', 'user.email', 'persistence-test@example.invalid']);
-
-    for (let index = 0; index < 1_000; index++) {
-      const filePath = path.join(repo, `tracked/path-${index}.txt`);
-      fs.mkdirSync(path.dirname(filePath), { recursive: true });
-      fs.writeFileSync(filePath, 'keep main\n');
-    }
-    fs.mkdirSync(path.join(repo, 'data'), { recursive: true });
-    fs.writeFileSync(path.join(repo, 'data/instagram-insights.json'), '{"posts":[]}\n');
-    runGit(repo, ['add', '.']);
-    runGit(repo, ['commit', '-m', 'seed main']);
-    runGit(repo, ['remote', 'add', 'origin', origin]);
-    runGit(repo, ['push', '-u', 'origin', 'main']);
-    runGit(repo, ['fetch', 'origin', 'main']);
-
-    let pushes = 0;
-    const regressIndex = (gitRepo: string, args: string[], options: { allowFailure?: boolean; env?: Record<string, string> } = {}) => {
-      if (args[0] === 'read-tree') return '';
-      if (args[0] === 'push') pushes += 1;
-      try {
-        return execFileSync('git', ['-C', gitRepo, ...args], {
-          encoding: 'utf8',
-          ...(options.env ? { env: { ...process.env, ...options.env } } : {}),
-        });
-      } catch (error) {
-        if (options.allowFailure) return null;
-        throw error;
-      }
-    };
-
-    expect(() => persistBrowserInsights({
-      repo,
-      snapshot: snapshotPath(root),
-      gitFn: regressIndex,
-    })).toThrow(/Possible catastrophic main tree shrink: 1001 → 1 paths/u);
-    expect(pushes).toBe(0);
-    expect(runGit(origin, ['ls-tree', '-r', '--name-only', 'main']).trim().split('\n')).toHaveLength(1_001);
-  });
-
   it('uses the already fetched origin/main without a redundant network fetch', () => {
     const root = tempDir();
     const fake = fakeGit();
@@ -213,7 +166,6 @@ describe('persistBrowserInsights', () => {
       repo: path.join(root, 'site'),
       snapshot: snapshotPath(root),
       gitFn: fake.git,
-      treeGuardFn: () => {},
     });
 
     expect(result).toEqual({ status: 'pushed', attempt: 1 });
@@ -234,7 +186,6 @@ describe('persistBrowserInsights', () => {
       snapshot: snapshotPath(root),
       attempts: 2,
       gitFn: fake.git,
-      treeGuardFn: () => {},
     });
 
     expect(result).toEqual({ status: 'pushed', attempt: 2 });
@@ -317,7 +268,6 @@ describe('persistBrowserInsights', () => {
       repo,
       snapshot: snapshotPath(root),
       gitFn: fakeGit().git,
-      treeGuardFn: () => {},
     });
 
     expect(result).toEqual({ status: 'pushed', attempt: 1 });

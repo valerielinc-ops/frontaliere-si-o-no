@@ -77,6 +77,7 @@
 set -euo pipefail
 
 BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
+MAIN_PUSH_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/main-push-guard.mjs"
 
 # The 300-second fetch ceiling is supported by issue 12175's 61.6, 62.6,
 # 83.0 and 95.1-second commit-graph measurements. The 180-second push ceiling
@@ -377,27 +378,48 @@ attempt=1
 # same stream as before.
 PUSH_STDERR_FILE="$(mktemp)"
 trap 'rm -f -- "$PUSH_STDERR_FILE"' EXIT
-TREE_GUARD_FAILED=0
-TREE_SHRINK_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../ci" && pwd)/guard-main-tree-shrink.mjs"
+PUSH_GUARD_FAILED=0
 push_head() {
   local status=0
-  if [ "${BRANCH#refs/heads/}" = "main" ]; then
-    local guarded_push_timeout_ms=$((GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS * 1000 - 1000))
-    if [ "$guarded_push_timeout_ms" -lt 1 ]; then guarded_push_timeout_ms=1; fi
-    run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" "guarded main push" \
-      node "$TREE_SHRINK_GUARD_SCRIPT" --push-main --remote origin --target main --after HEAD \
-      --timeout-ms "$guarded_push_timeout_ms" \
-      --no-thin --no-verify --git-config pack.window=0 --git-config pack.threads=1 \
+  local lease_base_sha=""
+  PUSH_GUARD_FAILED=0
+
+  if [ "$BRANCH" = "main" ]; then
+    if ! lease_base_sha="$(git rev-parse --verify "refs/remotes/origin/${BRANCH}^{commit}")"; then
+      echo "❌ main push guard: cannot resolve refs/remotes/origin/${BRANCH} for the push lease" >"$PUSH_STDERR_FILE"
+      PUSH_GUARD_FAILED=1
+      cat -- "$PUSH_STDERR_FILE" >&2
+      return 1
+    fi
+    local candidate_sha=""
+    if ! candidate_sha="$(git rev-parse --verify HEAD^{commit})"; then
+      echo "❌ main push guard: cannot resolve HEAD for the guarded candidate" >"$PUSH_STDERR_FILE"
+      PUSH_GUARD_FAILED=1
+      cat -- "$PUSH_STDERR_FILE" >&2
+      return 1
+    fi
+    run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" \
+      "guarded git push --no-thin origin <commit>:refs/heads/${BRANCH}" \
+      node "$MAIN_PUSH_GUARD_SCRIPT" \
+      --repo "$PWD" \
+      --base "$lease_base_sha" \
+      --candidate "$candidate_sha" \
+      --branch "$BRANCH" \
+      --timeout-seconds "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" \
+      --push \
       2>"$PUSH_STDERR_FILE" || status=$?
-  else
-    run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" "git push --no-thin origin HEAD:${BRANCH}" \
-      git -c pack.window=0 -c pack.threads=1 push --no-thin --no-verify origin "HEAD:${BRANCH}" \
-      2>"$PUSH_STDERR_FILE" || status=$?
+    if [ "$status" -ne 0 ] && grep -qiE \
+      'candidate tree collapse|not a descendant|cannot resolve commit|cannot inspect tree|cannot prove ancestry' \
+      "$PUSH_STDERR_FILE"; then
+      PUSH_GUARD_FAILED=1
+    fi
+    cat -- "$PUSH_STDERR_FILE" >&2
+    return "$status"
   fi
+  run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" "git push --no-thin origin HEAD:${BRANCH}" \
+    git -c pack.window=0 -c pack.threads=1 push --no-thin --no-verify \
+    origin "HEAD:${BRANCH}" 2>"$PUSH_STDERR_FILE" || status=$?
   cat -- "$PUSH_STDERR_FILE" >&2
-  if [ "$status" -ne 0 ] && grep -q 'Possible catastrophic main tree shrink' "$PUSH_STDERR_FILE"; then
-    TREE_GUARD_FAILED=1
-  fi
   if [ "$status" -ne 0 ] && grep -q 'MAIN_TREE_GUARD_FATAL:' "$PUSH_STDERR_FILE"; then
     echo '::error::Guarded main push failed on an integrity or permanent remote error; refusing to retry or soft-fail.'
     exit 1
@@ -405,8 +427,8 @@ push_head() {
   return "$status"
 }
 until push_head; do
-  if [ "$TREE_GUARD_FAILED" = "1" ]; then
-    echo "::error::Push refused by the main-tree integrity check; this is not a retryable ref race."
+  if [ "$PUSH_GUARD_FAILED" -eq 1 ]; then
+    echo "::error::Main push guard rejected the candidate; refusing to retry a potentially destructive write"
     exit 1
   fi
   # A ruleset / protected-branch decline is not a ref race: the rebase below

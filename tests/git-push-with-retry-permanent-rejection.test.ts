@@ -32,6 +32,8 @@ function setupRejectingRemote(hookMessage: string) {
   git(local, ['commit', '-q', '-m', 'seed']);
   git(local, ['remote', 'add', 'origin', bare]);
   git(local, ['push', '-q', 'origin', 'main']);
+  // The main-push guard validates against the checkout's captured remote tip.
+  git(local, ['fetch', '-q', 'origin', 'main']);
   writeFileSync(join(local, 'data.json'), '{"fresh":true}\n');
   git(local, ['commit', '-q', '-am', 'snapshot']);
 
@@ -110,7 +112,7 @@ describe('git-push-with-retry.sh — a repository-rule decline is not a ref race
 
       const { status, output } = scenario.run(['--max-attempts', '3']);
       expect(status, output).toBe(0);
-      expect(output).toMatch(/fetch first/);
+      expect(output).toMatch(/stale info|fetch first/);
       expect(output).toMatch(/Push rejected \(attempt 1\/3\)/);
       expect(output).not.toMatch(/declined by a repository rule/);
       expect(git(scenario.local, ['ls-remote', 'origin', 'refs/heads/main']).split(/\s+/)[0])
