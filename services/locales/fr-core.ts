@@ -852,7 +852,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.transparency': 'Nous ne garantissons ni réponse, ni entretien, ni embauche. Frontaliere Ticino n’est pas affilié à l’entreprise et le service concerne uniquement cette offre.',
  'jobBoard.assisted.externalCta': 'Postuler soi-même, gratuitement',
  'jobBoard.assisted.externalCtaVideo': 'Postuler soi-même, gratuitement avec une courte vidéo',
- 'jobBoard.assisted.paidCta': 'Déléguer l’envoi — 0,99 €',
+ 'jobBoard.assisted.paidCta': 'Déléguer l’envoi — 1,99 €',
  'jobBoard.assisted.paidLoading': 'Ouverture du paiement…',
  'jobBoard.assisted.priceNote': 'Paiement unique · sans abonnement',
  'jobBoard.concierge.eyebrow': 'Recherche d’emploi automatisée',

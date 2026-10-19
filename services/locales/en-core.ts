@@ -849,7 +849,7 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.transparency': 'We do not guarantee a reply, interview, or hire. Frontaliere Ticino is not affiliated with the company and the service covers this listing only.',
  'jobBoard.assisted.externalCta': 'Apply yourself, for free',
  'jobBoard.assisted.externalCtaVideo': 'Apply yourself, free with a short video',
- 'jobBoard.assisted.paidCta': 'Delegate the submission — €0.99',
+ 'jobBoard.assisted.paidCta': 'Delegate the submission — €1.99',
  'jobBoard.assisted.paidLoading': 'Opening payment…',
  'jobBoard.assisted.priceNote': 'One-time payment · no subscription',
  'jobBoard.concierge.eyebrow': 'Automated job search',

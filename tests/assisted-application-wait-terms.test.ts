@@ -371,7 +371,7 @@ describe('Terms 6.5: an ad that closes while the application waits for the candi
   });
 
   it('writes the exception next to the promise of a refund in every welcome e-mail', () => {
-    const order = (locale: string) => ({ jobTitle: 'Infermiera', companyName: 'Ospedale Esempio', applicantName: 'Maria Rossi', applicantEmail: 'maria.rossi@example.com', locale, amountTotal: 99, currency: 'eur', paidAt: T0 });
+    const order = (locale: string) => ({ jobTitle: 'Infermiera', companyName: 'Ospedale Esempio', applicantName: 'Maria Rossi', applicantEmail: 'maria.rossi@example.com', locale, amountTotal: 199, currency: 'eur', paidAt: T0 });
     const exception = { it: 'in quel caso l\'importo non è rimborsato (Termini, punto 6.5)', fr: 'le montant n\'est pas remboursé (Conditions, point 6.5)', de: 'wird der Betrag nicht erstattet (Nutzungsbedingungen, Ziffer 6.5)', en: 'the amount is not refunded (Terms, section 6.5)' };
     const promise = { it: 'rimbors', fr: 'rembours', de: 'erstatte', en: 'refund' };
     for (const [locale, words] of Object.entries(exception)) {

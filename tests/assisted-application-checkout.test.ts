@@ -189,7 +189,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     });
   });
 
-  it('creates a pending owner-bound order and fixes the Checkout amount at 99 EUR cents', async () => {
+  it('creates a pending owner-bound order and fixes the Checkout amount at 199 EUR cents', async () => {
     const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
 
     const result = await handleCreateAssistedApplicationCheckout(request());
@@ -205,7 +205,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     expect(stripeCheckoutSessionsCreate).toHaveBeenCalledWith(expect.objectContaining({
       mode: 'payment',
       line_items: [{
-        price_data: expect.objectContaining({ currency: 'eur', unit_amount: 99 }),
+        price_data: expect.objectContaining({ currency: 'eur', unit_amount: 199 }),
         quantity: 1,
       }],
       metadata: expect.objectContaining({
@@ -448,7 +448,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           metadata: { product: 'assisted_application', orderId: first.body.orderId },
         },
@@ -530,7 +530,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           customer_details: { email: 'candidate@example.com' },
@@ -561,7 +561,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'sumup_checkout_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'unpaid',
           metadata: {
@@ -584,7 +584,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'sumup_checkout_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: {
@@ -620,7 +620,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-1' },
@@ -657,7 +657,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_stale_session',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-1' },
@@ -681,7 +681,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_unpaid',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'unpaid',
           metadata: { product: 'assisted_application', orderId: 'order-unpaid' },
@@ -725,7 +725,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_async',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-async' },
@@ -763,7 +763,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-1' },
@@ -776,7 +776,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'ch_assisted_1',
-          amount: 99,
+          amount: 199,
           amount_refunded: 50,
           refunded: false,
           payment_intent: 'pi_assisted_1',
@@ -801,7 +801,7 @@ describe('signed project-wide Stripe webhook wiring', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-1' },

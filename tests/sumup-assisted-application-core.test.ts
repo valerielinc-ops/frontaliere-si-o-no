@@ -59,7 +59,7 @@ describe('SumUp assisted-application payment client', () => {
     expect(await getAssistedApplicationPaymentProvider()).toBe('stripe');
   });
 
-  it('creates a 0.99 EUR widget checkout with a server-side status callback', async () => {
+  it('creates a 1.99 EUR widget checkout with a server-side status callback', async () => {
     fetchMock.mockResolvedValue({
       ok: true,
       json: async () => ({
@@ -83,7 +83,7 @@ describe('SumUp assisted-application payment client', () => {
       'Content-Type': 'application/json',
     });
     expect(JSON.parse(init.body)).toEqual({
-      amount: 0.99,
+      amount: 1.99,
       checkout_reference: 'order-1',
       currency: 'EUR',
       description: 'Candidatura assistita',
@@ -141,7 +141,7 @@ describe('SumUp assisted-application payment client', () => {
       .mockResolvedValueOnce({ ok: false, status: 409, json: async () => ({ error_code: 'DUPLICATED_CHECKOUT' }) })
       .mockResolvedValueOnce({ ok: true, json: async () => ([{
         checkout_reference: 'order-1',
-        amount: 0.99,
+        amount: 1.99,
         currency: 'EUR',
         id: 'sumup_checkout_existing',
         status: 'PENDING',

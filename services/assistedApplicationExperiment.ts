@@ -29,7 +29,7 @@ export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v2';
 
 /**
  * Owner decision 2026-09-29: on the rewarded job-board arm, when the Offerwall
- * and its GPT fallback cannot be LOADED, offer the 0,99 € assisted
+ * and its GPT fallback cannot be LOADED, offer the 1,99 € assisted
  * application (with the free external path next to it) instead of silently
  * redirecting. Remote Config flag, local default OFF (services/firebase.ts).
  */

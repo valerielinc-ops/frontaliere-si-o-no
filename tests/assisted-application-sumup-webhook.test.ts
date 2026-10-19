@@ -118,7 +118,7 @@ describe('SumUp assisted-application webhook', () => {
     mocks.retrieveSumUpCheckout.mockResolvedValue({
       id: 'sumup_checkout_1',
       checkout_reference: 'order-1',
-      amount: 0.99,
+      amount: 1.99,
       currency: 'EUR',
       status: 'PAID',
       transactions: [
@@ -139,7 +139,7 @@ describe('SumUp assisted-application webhook', () => {
       expect.objectContaining({ ts: '__timestamp__' }),
     );
     expect(mocks.handleAssistedApplicationWebhookEvent.mock.calls[0][0].data.object).toEqual(expect.objectContaining({
-      amount_total: 99,
+      amount_total: 199,
       currency: 'eur',
       payment_status: 'paid',
       client_reference_id: 'order-1',
@@ -162,7 +162,7 @@ describe('SumUp assisted-application webhook', () => {
     mocks.retrieveSumUpCheckout.mockResolvedValue({
       id: 'sumup_checkout_1',
       checkout_reference: 'order-1',
-      amount: 0.99,
+      amount: 1.99,
       currency: 'EUR',
       status: 'PAID',
     });
@@ -225,7 +225,7 @@ describe('SumUp assisted-application webhook', () => {
     mocks.retrieveSumUpCheckout.mockResolvedValue({
       id: 'sumup_checkout_1',
       checkout_reference: 'order-1',
-      amount: 0.99,
+      amount: 1.99,
       currency: 'EUR',
       status: 'PAID',
       transactions: [{ id: 'sumup_transaction_success', timestamp: '2026-10-12T12:22:48.309Z' }],
@@ -306,14 +306,14 @@ describe('SumUp assisted-application webhook', () => {
         ? {
           id: checkoutId,
           checkout_reference: 'order-101',
-          amount: 0.99,
+      amount: 1.99,
           currency: 'EUR',
           status: 'PAID',
         }
         : {
           id: checkoutId,
           checkout_reference: 'unpaid-order',
-          amount: 0.99,
+      amount: 1.99,
           currency: 'EUR',
           status: 'PENDING',
         }
