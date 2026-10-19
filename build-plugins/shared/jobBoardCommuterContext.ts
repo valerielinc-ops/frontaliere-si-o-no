@@ -524,15 +524,8 @@ const COMMUTER_CONTEXT_CACHE = new Map<string, string>();
 const COMMUTER_CONTEXT_CACHE_MAX = 30000;
 
 function isEntitySpecificCantonContext(opts: JobBoardCommuterContextOpts): boolean {
-  const canton = opts.cantonDisplay?.trim().toLowerCase();
   const entityAwareSlot = opts.cantonSlot === 'company-landing' || opts.cantonSlot === 'city-landing';
-  return Boolean(
-    opts.cantonEntityName?.trim()
-      && canton
-      && canton !== 'ticino'
-      && canton !== 'tessin'
-      && entityAwareSlot,
-  );
+  return Boolean(opts.cantonEntityName?.trim() && entityAwareSlot);
 }
 
 function commuterContextCacheKey(opts: JobBoardCommuterContextOpts): string {
@@ -612,17 +605,20 @@ export function renderJobBoardCommuterContext(
     )
     .join('');
 
-  // Optional canton-aware prose appended ONLY for non-TI canton editorial
-  // pages. Adds ~5 KB of canton-specific intro/methodology/permit/FAQ/links
-  // so the heavy host page (~95-145 KB) clears the 10 % Semrush text/HTML
-  // gate that the legacy block alone could not reach for non-TI cantons.
-  // TI keeps its byte-identical output (HARD INVARIANT per CLAUDE.md
-  // non-negotiables #1, #5, #6).
+  // Optional canton-aware prose appended for non-TI editorial pages and for
+  // entity-aware company/city pages. It adds ~5 KB of canton-specific
+  // intro/methodology/permit/FAQ/links so heavy non-TI host pages clear the
+  // 10 % Semrush text/HTML gate. TI keeps byte-identical output for the
+  // legacy no-entity path.
   let cantonBlock = '';
   if (cantonDisplay && cantonDisplay.trim()) {
     const displayLower = cantonDisplay.trim().toLowerCase();
     const isTicino = displayLower === 'ticino' || displayLower === 'tessin';
-    if (!isTicino) {
+    // Keep the legacy Ticino output unchanged unless the caller supplies an
+    // entity-aware context. Those pages need the entity-specific prose too,
+    // otherwise their names are absent and the context cannot be safely
+    // shared with another company/city page.
+    if (!isTicino || entitySpecific) {
       const slot: CantonSeoSlot = cantonSlot || 'canton-hub';
       cantonBlock = getCantonProseBlock(
         locale,

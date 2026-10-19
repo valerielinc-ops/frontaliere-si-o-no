@@ -116,6 +116,28 @@ describe('renderJobBoardCommuterContext — text-to-HTML ratio', () => {
     expect(a).toBe(b);
   });
 
+  it('renders Ticino entity contexts uncached and keeps each entity name', () => {
+    const first = renderJobBoardCommuterContext({
+      locale: 'en',
+      location: 'Ticino',
+      cantonDisplay: 'Ticino',
+      cantonSlot: 'company-landing',
+      cantonEntityName: 'Alpha Entity',
+    });
+    const second = renderJobBoardCommuterContext({
+      locale: 'en',
+      location: 'Ticino',
+      cantonDisplay: 'Ticino',
+      cantonSlot: 'company-landing',
+      cantonEntityName: 'Beta Entity',
+    });
+
+    expect(first).toContain('Alpha Entity');
+    expect(second).toContain('Beta Entity');
+    expect(second).not.toContain('Alpha Entity');
+    expect(second).not.toBe(first);
+  });
+
   it('does not retain entity-specific contexts past the shared cache cap', () => {
     let first = '';
     let last = '';
