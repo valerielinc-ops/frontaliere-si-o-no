@@ -22,11 +22,11 @@ import {
   fetchHtml,
   decodeEntities,
   normalizeSpace,
+  htmlToText,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
-import { htmlToTextLines } from './html-to-text-lines.mjs';
 import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -170,9 +170,9 @@ export function parseListingPage(html = '') {
     const before = String(html || '').slice(Math.max(0, match.index - 2200), match.index);
     const headings = [...before.matchAll(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi)];
     const heading = headings.at(-1)?.[1] || '';
-    const headingTitle = normalizeSpace(htmlToTextLines(heading));
+    const headingTitle = normalizeSpace(htmlToText(heading));
     const headingStart = headings.at(-1)?.index ?? 0;
-    const nearbyText = htmlToTextLines(before.slice(headingStart));
+    const nearbyText = htmlToText(before.slice(headingStart));
     out.push({
       url,
       title: headingTitle,
@@ -196,7 +196,7 @@ function findGenericSectionStart(html, fromIndex) {
   headingRe.lastIndex = fromIndex;
   let match;
   while ((match = headingRe.exec(html)) !== null) {
-    const heading = normalizeSpace(htmlToTextLines(match[1]));
+    const heading = normalizeSpace(htmlToText(match[1]));
     if (/^(?:unsere benefits|weitere stellen|datenschutz(?:-|\u00a0)?übersicht)/i.test(heading)) {
       return match.index;
     }
@@ -212,11 +212,11 @@ export function parseJobDetail(html = '') {
     .replace(/<style[\s\S]*?<\/style>/gi, '');
   const cleaned = cleanPageHtml(stripped);
   const titleMatch = cleaned.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i);
-  let title = titleMatch ? normalizeSpace(htmlToTextLines(titleMatch[1])) : '';
+  let title = titleMatch ? normalizeSpace(htmlToText(titleMatch[1])) : '';
   if (!title) {
     const documentTitle = cleaned.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i);
     title = documentTitle
-      ? normalizeSpace(htmlToTextLines(documentTitle[1])).replace(/\s*[|–-]\s*Bachtelen\s*$/i, '')
+      ? normalizeSpace(htmlToText(documentTitle[1])).replace(/\s*[|–-]\s*Bachtelen\s*$/i, '')
       : '';
   }
   if (!titleMatch) return { title, description: '', location: '', publication: sourcePostingDateCandidatesFields([]) };
@@ -224,7 +224,7 @@ export function parseJobDetail(html = '') {
   const bodyStart = titleMatch.index + titleMatch[0].length;
   const bodyEnd = findGenericSectionStart(cleaned, bodyStart);
   const bodyHtml = cleaned.slice(bodyStart, bodyEnd);
-  const description = htmlToTextLines(bodyHtml);
+  const description = htmlToText(bodyHtml);
   const location = locationLineFromText(description.split('\n').slice(0, 12).join('\n'));
   const posting = extractJobPostingLd(original);
   const publication = sourcePostingDateCandidatesFields([posting?.datePosted]);
