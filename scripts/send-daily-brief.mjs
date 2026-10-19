@@ -494,7 +494,7 @@ export function applyCadence(recipients, { brief, todayIso, nowMs, briefClickAtB
  * `daily-brief-`. Without that filter, a click on the weekly newsletter would
  * promote someone's BRIEF cadence.
  *
- * A collection-group composite query on `clicked_at` + `campaign_id` needs an
+ * A collection-group composite query on `campaign_id` + `clicked_at` needs an
  * index that may not exist in this project. Rather than fail the send over
  * telemetry, this degrades to the subscriber-level `last_click_at` and says so
  * — the sender prints which mode it ran in.
@@ -528,7 +528,7 @@ export async function fetchBriefClicks(db, sinceMs) {
     console.warn(
       `⚠️ brief click attribution unavailable (${error?.message}) — falling back to subscriber-level last_click_at.\n`
       + '   A click on the weekly will therefore count as engagement with the brief.\n'
-      + '   To get the precise signal, add a collection-group composite index on campaign_deliveries.clicked_at + campaign_id.',
+      + '   To get the precise signal, add a collection-group composite index on campaign_deliveries.campaign_id + clicked_at.',
     );
     return { byEmail: null, mode: 'subscriber-level' };
   }

@@ -86,12 +86,18 @@ jobs:
             --in=/tmp/revenue.json \
             --history=data/funnel-metrics-history.json \
             --summary-out=/tmp/funnel-summary.md
+          node scripts/ci/validate-workflow-data.mjs \
+            --kind funnel-metrics-history \
+            --file data/funnel-metrics-history.json
           echo "## Funnel metrics snapshot" >> "$GITHUB_STEP_SUMMARY"
           cat /tmp/funnel-summary.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit snapshot history
         id: commit
         run: |
+          node scripts/ci/validate-workflow-data.mjs \
+            --kind funnel-metrics-history \
+            --file data/funnel-metrics-history.json
           node scripts/ci/validate-generated-data.mjs \
             --kind funnel \
             --file data/funnel-metrics-history.json

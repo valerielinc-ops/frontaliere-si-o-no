@@ -3,6 +3,7 @@ import {
   fetchAllRecruitingapp2563Jobs,
   RECRUITINGAPP_2563_KEY,
   RECRUITINGAPP_2563_COMPANY_NAME,
+  extractRecruitingapp2563Description,
   extractRecruitingapp2563DetailFields,
   extractRecruitingapp2563TitleLocation,
   isRecruitingapp2563Job,
@@ -18,6 +19,25 @@ describe('Switch Bewerbermanagement Stellen crawler parser', () => {
   });
 
   describe('title-backed workplace evidence', () => {
+    it('extracts only vacancy prose from the current Switch custom template', () => {
+      const body = 'Du betreibst und entwickelst sichere Cloud-Plattformen für Schweizer Hochschulen. '.repeat(12);
+      const html = `
+        <div class="content">
+          <div class="text"><p>Generic employer introduction must stay outside the vacancy.</p></div>
+          <h1>Cloud Engineer Compute in Zürich oder Lausanne</h1>
+          <div class="s1">Dein Team und deine Arbeit</div>
+          <p>${body}</p>
+          <div id="mg_footer"><p>Contact and application chrome must stay outside.</p></div>
+        </div>`;
+
+      const description = extractRecruitingapp2563Description(html);
+      expect(description).toContain('Du betreibst und entwickelst sichere Cloud-Plattformen');
+      expect(description).not.toContain('Generic employer introduction');
+      expect(description).not.toContain('Contact and application chrome');
+      expect(extractRecruitingapp2563Description(html.replace('id="mg_footer"', 'id="changed_footer"')))
+        .toBe('');
+    });
+
     it('accepts a single Swiss city explicitly published in the title', () => {
       expect(extractRecruitingapp2563TitleLocation(
         'Chief Information Officer (80-100%) in Zürich',
@@ -139,9 +159,13 @@ describe('Switch Bewerbermanagement Stellen crawler parser', () => {
       const detail = 'https://recruitingapp-2563.umantis.com/Vacancies/559/Description/1';
       const title = 'Chief Information Officer (80-100%) in Zürich';
       const listing = `<html><body><a href="/Vacancies/559/Description/1">${title}</a></body></html>`;
-      const detailHtml = `<html><body><h1>${title}</h1><main>${
-        'Aufgaben und Verantwortlichkeiten für diese Stelle. '.repeat(40)
-      }</main></body></html>`;
+      const detailBody = 'Aufgaben und Verantwortlichkeiten für diese Stelle. '.repeat(40);
+      const detailHtml = `<html><body><div class="content">
+        <div class="text"><p>Switch Unternehmensporträt.</p></div>
+        <h1>${title}</h1><div class="s1">Dein Team und deine Arbeit</div>
+        <p>${detailBody}</p>
+        <div id="mg_footer"><p>Kontakt und Bewerbungsprozess.</p></div>
+      </div></body></html>`;
       const fetchImpl = async (input: string | URL) => {
         const url = String(input);
         if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /', { status: 200 });
@@ -164,6 +188,7 @@ describe('Switch Bewerbermanagement Stellen crawler parser', () => {
         addressLocality: 'Zürich',
         addressRegion: 'ZH',
         addressCountry: 'CH',
+        description: expect.stringContaining('Aufgaben und Verantwortlichkeiten'),
       })]);
     });
   });

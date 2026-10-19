@@ -28,7 +28,7 @@ import { realpathSync } from 'node:fs';
  */
 import fs from 'node:fs';
 
-import { validateCrawlerGenerationLedgerEntry } from './crawler-group-generation-finalizer.mjs';
+import { validateCrawlerGenerationLedgerEntry } from './lib/crawler-generation-ledger.mjs';
 import { deriveCrawlerGroupIdsFromGroups } from './lib/crawler-generation-group-ids.mjs';
 import {
   DEFAULT_DELIVERY_SETTLE_MS,

@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-10-18T09:16:37.732Z",
+  "generatedAt": "2026-10-18T21:15:48.199Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 6595,
-  "avgDurationMs": 6595,
+  "durationMs": 4782,
+  "avgDurationMs": 4782,
   "durationHistory": [
-    6595
+    4782
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:16:20.861Z",
+      "crawledAt": "2026-10-18T21:15:34.455Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -80,7 +80,7 @@
       "url": "https://careers.straumann.com/global/en/job/22202/team-leader-quality-systems-compliance-m-f-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-18T09:16:22.985Z",
+      "crawledAt": "2026-10-18T21:15:36.196Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -97,7 +97,6 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://careers.straumann.com/global/en/job/22202/team-leader-quality-systems-compliance-m-f-d",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-14T09:16:50.417Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -122,7 +121,7 @@
       "url": "https://careers.straumann.com/global/en/job/22204/global-head-of-dso-education-services",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-18T09:16:22.373Z",
+      "crawledAt": "2026-10-18T21:15:35.893Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -163,7 +162,7 @@
       "url": "https://careers.straumann.com/global/en/job/22282/intern-rdi-academy-product-development",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-18T09:16:21.898Z",
+      "crawledAt": "2026-10-18T21:15:35.293Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -204,7 +203,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-18T09:16:21.526Z",
+      "crawledAt": "2026-10-18T21:15:35.039Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -245,7 +244,7 @@
       "url": "https://careers.straumann.com/global/en/job/21681/global-medical-education-life-cycle-and-demo-materials-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-18T09:16:21.188Z",
+      "crawledAt": "2026-10-18T21:15:34.722Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -275,5 +274,5 @@
       }
     }
   ],
-  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
+  "codeCommit": "b6e494ea5b9a932f8e412d6ccd19c05b9a480ea5"
 }

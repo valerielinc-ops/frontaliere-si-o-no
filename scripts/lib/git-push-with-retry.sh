@@ -377,15 +377,38 @@ attempt=1
 # same stream as before.
 PUSH_STDERR_FILE="$(mktemp)"
 trap 'rm -f -- "$PUSH_STDERR_FILE"' EXIT
+TREE_GUARD_FAILED=0
+TREE_SHRINK_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../ci" && pwd)/guard-main-tree-shrink.mjs"
 push_head() {
   local status=0
-  run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" "git push --no-thin origin HEAD:${BRANCH}" \
-    git -c pack.window=0 -c pack.threads=1 push --no-thin --no-verify origin "HEAD:${BRANCH}" \
-    2>"$PUSH_STDERR_FILE" || status=$?
+  if [ "${BRANCH#refs/heads/}" = "main" ]; then
+    local guarded_push_timeout_ms=$((GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS * 1000 - 1000))
+    if [ "$guarded_push_timeout_ms" -lt 1 ]; then guarded_push_timeout_ms=1; fi
+    run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" "guarded main push" \
+      node "$TREE_SHRINK_GUARD_SCRIPT" --push-main --remote origin --target main --after HEAD \
+      --timeout-ms "$guarded_push_timeout_ms" \
+      --no-thin --no-verify --git-config pack.window=0 --git-config pack.threads=1 \
+      2>"$PUSH_STDERR_FILE" || status=$?
+  else
+    run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" "git push --no-thin origin HEAD:${BRANCH}" \
+      git -c pack.window=0 -c pack.threads=1 push --no-thin --no-verify origin "HEAD:${BRANCH}" \
+      2>"$PUSH_STDERR_FILE" || status=$?
+  fi
   cat -- "$PUSH_STDERR_FILE" >&2
+  if [ "$status" -ne 0 ] && grep -q 'Possible catastrophic main tree shrink' "$PUSH_STDERR_FILE"; then
+    TREE_GUARD_FAILED=1
+  fi
+  if [ "$status" -ne 0 ] && grep -q 'MAIN_TREE_GUARD_FATAL:' "$PUSH_STDERR_FILE"; then
+    echo '::error::Guarded main push failed on an integrity or permanent remote error; refusing to retry or soft-fail.'
+    exit 1
+  fi
   return "$status"
 }
 until push_head; do
+  if [ "$TREE_GUARD_FAILED" = "1" ]; then
+    echo "::error::Push refused by the main-tree integrity check; this is not a retryable ref race."
+    exit 1
+  fi
   # A ruleset / protected-branch decline is not a ref race: the rebase below
   # cannot change the verdict, and --soft-fail-exhausted does not apply (it
   # covers a lost race whose delta the next run recaptures, while a declined

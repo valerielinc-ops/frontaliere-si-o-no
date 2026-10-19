@@ -10,6 +10,7 @@ import {
   resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
+  parseGlFixedPriceJson,
   parseLuFixedPricePdfText,
   parseEcariAuctionRows,
   parseUrFixedPricePdfText,
@@ -163,6 +164,7 @@ const CONNECTORS = {
       return fetchGePlateAuctions({ fetchedAt, now: new Date(fetchedAt), injectedFetcher });
     },
   },
+  gl: makeFixedPriceConnector({ sourceKey: 'gl', parse: parseGlFixedPriceJson }),
   gr: {
     canton: 'Grigioni',
     plateCode: 'GR',

@@ -16445,9 +16445,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen",
-        "en": "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen",
-        "de": "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen",
-        "fr": "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen"
+        "en": "employee-rim-center-a-galliker-transport-ag-altishofen",
+        "de": "mitarbeiter-felgencenter-a-galliker-altishofen",
+        "fr": "centre-rim-des-employes-a-galliker-transport-ag-altishofen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-lucerna/collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen",
@@ -16455,12 +16455,13 @@
         "de": "/de/jobs-im-basel/collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen",
         "fr": "/fr/trouver-emploi-lucerne/collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://apply.refline.ch/878019/0475/pub/1/index.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -29056,6 +29057,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "finhaut",
+      "locale": "it",
+      "path": "/cerca-lavoro-vallese/finhaut/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-vallese/finhaut/"
+      },
+      "queries": [
+        {
+          "query": "frontalieri",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "frontalieri",
+      "title": "Finhaut",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "finhaut",
+        "en": "finhaut",
+        "de": "finhaut",
+        "fr": "finhaut"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/finhaut",
+        "en": "/en/find-jobs-valais/finhaut",
+        "de": "/de/jobs-im-wallis/finhaut",
+        "fr": "/fr/trouver-emploi-valais/finhaut"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -59812,10 +59870,10 @@
         "fr": "sachbearbeiterin-sachbearbeiter-personelles-armee-und-bevolkerungsschutz-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/sachbearbeiterin-sachbearbeiter-personelles-armee-und-bevolkerungsschutz-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "/en/find-jobs-ticino/sachbearbeiterin-sachbearbeiter-personelles-armee-und-bevolkerungsschutz-kantonale-verwaltung-basel-landschaft-liestal",
-        "de": "/de/jobs-im-tessin/sachbearbeiterin-sachbearbeiter-personelles-armee-und-bevolkerungsschutz-kantonale-verwaltung-basel-landschaft-liestal",
-        "fr": "/fr/trouver-emploi-tessin/sachbearbeiterin-sachbearbeiter-personelles-armee-und-bevolkerungsschutz-kantonale-verwaltung-basel-landschaft-liestal"
+        "it": "/cerca-lavoro-basilea/sachbearbeiterin-sachbearbeiter-personelles-armee-und-bevolkerungsschutz-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "/en/find-jobs-basel/sachbearbeiterin-sachbearbeiter-personelles-armee-und-bevolkerungsschutz-kantonale-verwaltung-basel-landschaft-liestal",
+        "de": "/de/jobs-in-basel/sachbearbeiterin-sachbearbeiter-personelles-armee-und-bevolkerungsschutz-kantonale-verwaltung-basel-landschaft-liestal",
+        "fr": "/fr/trouver-emploi-bale/sachbearbeiterin-sachbearbeiter-personelles-armee-und-bevolkerungsschutz-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

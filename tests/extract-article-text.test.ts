@@ -110,6 +110,249 @@ describe('extractArticleText', () => {
     expect(result.text).not.toContain('&lt;p&gt;');
   });
 
+  it('fails closed when raw-text markup inside noscript is malformed', () => {
+    const malformedPayload = 'Malformed raw-text payload that must not truncate or contaminate the remaining source text.';
+    const outerParagraph = 'Stable article paragraph outside the malformed fallback remains available to the extractor.';
+    const html = '<main><noscript>'
+      + '&lt;script type="application/ld+json"&gt;{"articleBody":"unterminated"}'
+      + `&lt;p&gt;${malformedPayload}&lt;/p&gt;`
+      + '</noscript>'
+      + `<p>${outerParagraph}</p></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(outerParagraph);
+    expect(result.text).not.toContain(malformedPayload);
+    expect(result.text).not.toContain('unterminated');
+  });
+
+  it('validates unescaped raw-text markup before trusting the parsed noscript DOM', () => {
+    const malformedParagraph = 'Paragraph before an unclosed raw-text element belongs to the rejected fallback.';
+    const outerParagraph = 'Stable source prose after the malformed noscript remains available to the extractor.';
+    const html = '<main><noscript>'
+      + `<p>${malformedParagraph}</p>`
+      + '<script type="application/ld+json">{"articleBody":"unterminated"}'
+      + '</noscript>'
+      + `<p>${outerParagraph}</p></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(outerParagraph);
+    expect(result.text).not.toContain(malformedParagraph);
+    expect(result.text).not.toContain('unterminated');
+  });
+
+  it('preserves outer prose after a source-level noscript end tag', () => {
+    const outerParagraph = 'Reliable outer content after a source-level noscript close remains available.';
+    const html = '<main><noscript><script type="application/ld+json">'
+      + '{"articleBody":"unterminated"}</noscript>'
+      + `<p>${outerParagraph}</p></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(outerParagraph);
+  });
+
+  it('does not expose outer prose after a plaintext raw-text noscript end tag', () => {
+    const html = '<main><noscript><plaintext>RAW</noscript><p>OUTER</p></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain('OUTER');
+    expect(result.text).toBe('');
+  });
+
+  it('preserves an unambiguously paired source tail after an unclosed raw-text tag', () => {
+    const rejected = 'Paragraph before the unclosed raw-text element belongs to the rejected fallback.';
+    const recovered = 'Paragraph after the malformed raw-text prefix remains recoverable source prose.';
+    const html = '<main><noscript>'
+      + `<p>${rejected}</p>`
+      + `<script>\n<p>${recovered}</p>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(recovered);
+    expect(result.text).not.toContain(rejected);
+  });
+
+  it('does not expose code after a recovered paragraph tail close', () => {
+    const html = '<main><noscript><script><p>ok</p> const leaked = 1;</noscript></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain('leaked');
+    expect(result.text).toBe('');
+  });
+
+  it.each([
+    ['JavaScript string', payload => `const template = "<p>${payload}</p>";`],
+    ['JSON string', payload => `{"html":"<p>${payload}</p>"}`],
+    ['block comment', payload => `/* <p>${payload}</p> */`],
+    ['JavaScript regex literal', payload => `const template = /<p>${payload}/;`],
+  ])('does not promote paragraph-shaped markup inside an unclosed raw-text %s', (_label, rawText) => {
+    const payload = 'Ambiguous paragraph-shaped script payload must remain excluded from source text.';
+    const html = `<main><noscript><script>${rawText(payload)}</main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain(payload);
+    expect(result.text).toBe('');
+  });
+
+  it('fails closed on an ambiguous JavaScript division before a paragraph-shaped tail', () => {
+    const html = '<main><noscript><script>const value = a / b / c; '
+      + '<p>DIVISION_PAYLOAD</p></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain('DIVISION_PAYLOAD');
+    expect(result.text).toBe('');
+  });
+
+  it('fails closed on a minified JavaScript comparison before a paragraph-shaped tail', () => {
+    const html = '<main><noscript><script>const comparison=a<p>b; '
+      + '<p>COMPARISON_PAYLOAD</p></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain('COMPARISON_PAYLOAD');
+    expect(result.text).toBe('');
+  });
+
+  it.each([
+    ['JavaScript string', 'const template = "</p>";'],
+    ['JavaScript comment', '/* </p> */'],
+    ['JSON string', '{"html":"</p>"}'],
+  ])('fails closed on comparison plus a lexical %s before a paragraph tail', (_label, lexicalSource) => {
+    const html = `<main><noscript><script>const comparison=a<p>b; ${lexicalSource} `
+      + '<p>MIXED_COMPARISON_PAYLOAD</p></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain('MIXED_COMPARISON_PAYLOAD');
+    expect(result.text).toBe('');
+  });
+
+  it.each([
+    ['string', 'before "STRING_CLOSE_PAYLOAD</p>"'],
+    ['JSON', 'before {"html":"JSON_CLOSE_PAYLOAD</p>"}'],
+    ['comment', 'before /* COMMENT_CLOSE_PAYLOAD</p> */'],
+  ])('fails closed when an immediate HTML opener contains a lexical %s before its close', (_label, source) => {
+    const html = `<main><noscript><script><p>${source}</main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain('STRING_CLOSE_PAYLOAD');
+    expect(result.text).not.toContain('JSON_CLOSE_PAYLOAD');
+    expect(result.text).not.toContain('COMMENT_CLOSE_PAYLOAD');
+    expect(result.text).toBe('');
+  });
+
+  it.each([
+    ['string', 'const value = "</noscript>";'],
+    ['JSON', '{"html":"</noscript>"}'],
+    ['comment', '/* </noscript> */'],
+    ['regex', String.raw`const value = /<\/noscript>/;`],
+  ])('does not treat a lexical %s noscript end tag as an outer boundary', (_label, source) => {
+    const outerParagraph = 'False noscript close must not expose outer content after a lexical payload.';
+    const html = `<main><noscript><script>${source}</main><p>${outerParagraph}</p>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain(outerParagraph);
+    expect(result.text).toBe('');
+  });
+
+  it('does not expose outer prose after a nested template fake noscript end tag', () => {
+    const outerParagraph = 'FALSE_OUTER_FROM_NESTED_TEMPLATE';
+    const html = '<main><noscript><script>const value = `outer ${`</noscript>`}`;'
+      + `<p>${outerParagraph}</p></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain(outerParagraph);
+    expect(result.text).toBe('');
+  });
+
+  it('keeps adjacent tracking noscript blocks out of the fallback path', () => {
+    const editorial = 'Editorial fallback paragraph with enough substantive source context for extraction.';
+    const tracking = 'Tracking payload that is long enough to pass the paragraph floor and must never enter source text.';
+    const html = '<article>'
+      + `<noscript><p>${editorial}</p></noscript>`
+      + `<noscript><div class="tracking-pixel"><p>${tracking}</p></div></noscript>`
+      + '</article>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(editorial);
+    expect(result.text).not.toContain(tracking);
+  });
+
+  it('preserves editorial order across adjacent noscript blocks', () => {
+    const first = 'First adjacent editorial fallback paragraph retains its original document position.';
+    const tracking = 'Adjacent tracking payload remains excluded even when surrounded by editorial blocks.';
+    const second = 'Second adjacent editorial fallback paragraph follows the first without reordering.';
+    const html = '<article>'
+      + `<noscript><p>${first}</p></noscript>`
+      + `<noscript><div data-track-pixel="1"><p>${tracking}</p></div></noscript>`
+      + `<noscript><p>${second}</p></noscript>`
+      + '</article>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('article-tag');
+    expect(result.text).toBe(`${first}\n\n${second}`);
+    expect(result.text).not.toContain(tracking);
+  });
+
+  it('preserves JSON-LD precedence inside normalized noscript markup', () => {
+    const articleBody = 'Structured JSON-LD body wins over fallback prose and remains the authoritative source. '.repeat(4);
+    const fallbackOne = 'Fallback prose paragraph one is long enough to survive extraction but must not outrank JSON-LD.';
+    const fallbackTwo = 'Fallback prose paragraph two is also long enough to survive extraction but must not outrank JSON-LD.';
+    const html = '<main><noscript>'
+      + `&lt;script type="application/ld+json"&gt;${JSON.stringify({ '@type': 'NewsArticle', articleBody })}&lt;/script&gt;`
+      + `&lt;p&gt;${fallbackOne}&lt;/p&gt;`
+      + `&lt;p&gt;${fallbackTwo}&lt;/p&gt;`
+      + '</noscript></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('jsonld');
+    expect(result.text).toContain('Structured JSON-LD body wins');
+    expect(result.text).not.toContain(fallbackOne);
+    expect(result.text).not.toContain(fallbackTwo);
+  });
+
+  it.each(['direct', 'normalized'])('rejects %s JSON-LD marked as tracking on the script candidate', (shape) => {
+    const trackingBody = 'Tracking JSON-LD payload must not become the authoritative article source. '.repeat(4);
+    const fallbackOne = 'Editorial fallback paragraph one remains available when tracking JSON-LD is rejected.';
+    const fallbackTwo = 'Editorial fallback paragraph two remains available when tracking JSON-LD is rejected.';
+    const markup = '<script type="application/ld+json" class="tracking-pixel">'
+      + `${JSON.stringify({ articleBody: trackingBody })}</script>`
+      + `<p>${fallbackOne}</p><p>${fallbackTwo}</p>`;
+    const fallback = shape === 'normalized'
+      ? markup.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+      : markup;
+    const html = `<main><noscript>${fallback}</noscript></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('main-tag');
+    expect(result.text).toContain(fallbackOne);
+    expect(result.text).toContain(fallbackTwo);
+    expect(result.text).not.toContain('Tracking JSON-LD payload');
+  });
+
+  it('rejects a noscript fallback inside an external tracking wrapper', () => {
+    const tracking = 'Tracking wrapper payload must never enter extracted article text.';
+    const first = 'First regular article paragraph remains available outside the tracking wrapper.';
+    const second = 'Second regular article paragraph remains available outside the tracking wrapper.';
+    const html = '<article>'
+      + `<div class="tracking-pixel"><noscript><p>${tracking}</p></noscript></div>`
+      + `<p>${first}</p><p>${second}</p>`
+      + '</article>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('article-tag');
+    expect(result.text).toContain(first);
+    expect(result.text).toContain(second);
+    expect(result.text).not.toContain(tracking);
+  });
+
+  it.each([
+    ['plain text', 'Plain noscript source text remains available when no paragraph wrapper is present.'],
+    ['div text', '<div>Noscript source text inside a plain div remains available without a paragraph wrapper.</div>'],
+  ])('preserves valid %s in the legacy fallback path', (_label, fallback) => {
+    const html = `<main><noscript>${fallback}</noscript></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('naive-fallback');
+    expect(result.text.toLowerCase()).toContain('noscript source text');
+  });
+
   it('filters document noise wrappers from normalized noscript markup', () => {
     const html = '<main><noscript>&lt;div class="advert"&gt;&lt;p&gt;Sponsored offer text for the partner placement with details and pricing.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;Article paragraph one contains the actual source story and enough prose.&lt;/p&gt;&lt;p&gt;Article paragraph two continues the actual source story with more context.&lt;/p&gt;</noscript></main>';
     const result = extractArticleText(html, { scriptingDisabled: true });

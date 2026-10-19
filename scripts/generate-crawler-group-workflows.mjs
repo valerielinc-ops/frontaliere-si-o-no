@@ -853,6 +853,7 @@ const PER_CRAWLER_REPORT_CONDITION = 'if { [ "$crawler_exit" -ne 0 ] && [ "$craw
 function buildTokenBoundCommitRetryRun({ command, label, nonRetryableFailureLines } = {}) {
   if (typeof command !== 'string' || command.length === 0) throw new TypeError('token-bound commit command is required');
   if (typeof label !== 'string' || label.length === 0) throw new TypeError('token-bound commit label is required');
+  const commandLines = command.split('\n').map((line) => `  ${line}`);
   const failureLines = nonRetryableFailureLines ?? [
     `  echo "::error::${label} failed (exit $git_commit_exit); token-bound output was not published"`,
     `  echo "❌ ${label} failed (exit $git_commit_exit)" >> "$GITHUB_STEP_SUMMARY"`,
@@ -862,7 +863,7 @@ function buildTokenBoundCommitRetryRun({ command, label, nonRetryableFailureLine
     'commit_attempt=1',
     `commit_max_attempts=${TOKEN_BOUND_COMMIT_RETRY_ATTEMPTS}`,
     'while true; do',
-    `  ${command}`,
+    ...commandLines,
     '  git_commit_exit=$?',
     '  if [ "$git_commit_exit" -eq 0 ]; then',
     '    exit 0',
@@ -1966,7 +1967,14 @@ function crawlerGenerationRosterFromGroups(groups) {
 
 export function crawlerGenerationLedgerPersistenceRun() {
   return buildTokenBoundCommitRetryRun({
-    command: 'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl',
+    command: [
+      'if ! node scripts/ci/validate-workflow-data.mjs --kind crawler-generation-ledger --file data/crawler-generation-ledger.jsonl; then',
+      '  echo "::error::crawler generation ledger validation failed; data/crawler-generation-ledger.jsonl was not committed"',
+      '  echo "❌ crawler generation ledger validation failed; data/crawler-generation-ledger.jsonl was not committed" >> "$GITHUB_STEP_SUMMARY"',
+      '  exit 1',
+      'fi',
+      'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl',
+    ].join('\n'),
     label: 'crawler generation ledger',
     nonRetryableFailureLines: [
       `    if [ "$git_commit_exit" -eq ${GROUP_SHARED_PRECONDITION_EXIT} ]; then`,

@@ -23,6 +23,8 @@ import { WEBSITE_ID } from '../services/seo/organizationLd';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { newsletterMountPlaceholder } from './shared/newsletterMountPlaceholder';
 import { cdnDataHydrationUrlExpr } from './shared/cdnDataHydrationUrl';
+import { buildOggiPath } from './borderWaitData';
+import { NEAREST_WEATHER_CROSSINGS } from '../scripts/lib/weather-border-links.mjs';
 import {
   colorForWmo,
   iconSprite,
@@ -32,23 +34,6 @@ import {
   useSunset,
   useWind,
 } from './weatherIconsHelper';
-
-/**
- * Closest border crossings (valichi) by city — frontalieri context: the page
- * exists for commute decisions, so under the hero we show the nearest valico
- * page so the user can jump from "weather Lugano" to "wait time Brogeda" in
- * one click. Slugs match the F8 production routes (chiasso-brogeda, etc.).
- */
-const NEAREST_VALICHI: Record<string, Array<{ slug: string; name: string }>> = {
-  lugano: [{ slug: 'chiasso-brogeda', name: 'Chiasso-Brogeda' }, { slug: 'oria-gandria', name: 'Gandria' }],
-  bellinzona: [{ slug: 'chiasso-brogeda', name: 'Chiasso-Brogeda' }],
-  mendrisio: [{ slug: 'rodero-stabio', name: 'Stabio' }, { slug: 'gaggiolo', name: 'Gaggiolo' }],
-  locarno: [{ slug: 'ponte-tresa', name: 'Ponte Tresa' }],
-  chiasso: [{ slug: 'chiasso-brogeda', name: 'Brogeda' }],
-  como: [{ slug: 'chiasso-brogeda', name: 'Brogeda' }, { slug: 'gaggiolo', name: 'Gaggiolo' }],
-  varese: [{ slug: 'rodero-stabio', name: 'Stabio' }, { slug: 'gaggiolo', name: 'Gaggiolo' }],
-  lecco: [{ slug: 'oria-gandria', name: 'Gandria' }],
-};
 
 const LOCALES: readonly Locale[] = Object.freeze(['it', 'en', 'de', 'fr']);
 const TITLE_MAX = 66;
@@ -400,13 +385,11 @@ ${statsHtml}
 }
 
 function renderValichiRow(locale: Locale, cityId: string): string {
-  const list = NEAREST_VALICHI[cityId];
+  const list = NEAREST_WEATHER_CROSSINGS[cityId];
   if (!list || list.length === 0) return '';
-  const localePath = locale === 'it' ? '' : `/${locale}`;
-  const valicoSlug = locale === 'it' ? 'traffico-dogane' : locale === 'en' ? 'border-traffic' : locale === 'de' ? 'grenze-verkehr' : 'trafic-frontalier';
   const label = locale === 'it' ? 'Valichi vicini' : locale === 'en' ? 'Nearby crossings' : locale === 'de' ? 'Nahe Übergänge' : 'Passages proches';
   const items = list.map((v) => {
-    const url = `${localePath}/${valicoSlug}/${v.slug}/oggi/`;
+    const url = buildOggiPath(locale, v.slug);
     return `<a href="${url}" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium text-strong bg-white hover:bg-surface-alt border border-edge hover:border-edge transition-colors">${escapeHtml(v.name)}<span class="text-muted" aria-hidden="true">→</span></a>`;
   }).join('');
   return `<div class="max-w-4xl mx-auto -mt-2 mb-6 px-1 flex items-center gap-2 flex-wrap"><span class="text-xs uppercase tracking-wider text-subtle font-medium">${escapeHtml(label)}</span>${items}</div>`;

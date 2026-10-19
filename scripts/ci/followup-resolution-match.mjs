@@ -1082,6 +1082,40 @@ export function selectFirstOpenItem(body) {
   return parseFollowupItems(body).find((item) => item.id && item.state === 'open') || null;
 }
 
+/**
+ * Validate the frozen scope used by issue-fix before classifying a daily
+ * bucket as terminal. A missing/ambiguous item is not evidence that the
+ * bucket is complete: only a structurally valid sealed bucket with no open or
+ * in-progress item is terminal.
+ */
+export function dailyBucketScopeDecision(title, body) {
+  const info = dailyBucketInfo(title || '');
+  if (!info) return { isDaily: false, valid: true, terminal: false, reason: null, item: null };
+  const source = String(body || '');
+  const invalid = (reason) => ({ isDaily: true, valid: false, terminal: false, reason, item: null });
+  if (hasUnterminatedMarkdownFence(source)) return invalid('unterminated-markdown-fence');
+  if (bucketState(source) !== 'sealed') return invalid('bucket-not-sealed');
+  if (dailyKeyFromBucketBody(source) !== info.dailyKey) return invalid('mismatched-daily-key');
+  if (!hasDailyBucketRepositoryConsistency(source, info.targetRepository)) {
+    return invalid('mismatched-target-repository');
+  }
+
+  const items = parseFollowupItems(source);
+  if (items.length !== info.itemCount) return invalid('mismatched-item-count');
+  if (!hasStableItemIds(source)) return invalid('missing-stable-item-id');
+  if (!hasStableItemIdsForDailyKey(items, info.dailyKey)) return invalid('mismatched-stable-item-id');
+  if (items.some((item) => !['open', 'in-progress', 'done', 'blocked'].includes(item.state))) {
+    return invalid('invalid-item-state');
+  }
+
+  const item = items.find((entry) => entry.state === 'open') || null;
+  if (item) return { isDaily: true, valid: true, terminal: false, reason: null, item };
+  if (items.some((entry) => entry.state === 'in-progress')) {
+    return { isDaily: true, valid: true, terminal: false, reason: 'item-in-progress', item: null };
+  }
+  return { isDaily: true, valid: true, terminal: true, reason: 'no-open-item', item: null };
+}
+
 /** Replace one stable item's state without touching neighboring body text. */
 export function updateFollowupItemState(body, itemId, state) {
   const wanted = String(itemId || '').toUpperCase();

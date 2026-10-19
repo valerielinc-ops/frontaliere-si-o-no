@@ -486,7 +486,7 @@ function main() {
       // instraderebbe, ma in silenzio e a ogni sweep: esplicitarlo la conta come
       // marked-only invece di lasciarla indistinguibile da un buco del router.
       if (route === 'none') {
-        console.log(`#${n} triaged-no-route pin fuori dal ciclo (keep-open/agent:no-age-out) → skip.`);
+        console.log(`#${n} triaged-no-route pin fuori dal ciclo (keep-open/agent:no-age-out/operations-audit-review) → skip.`);
         markedOnly++;
         continue;
       }

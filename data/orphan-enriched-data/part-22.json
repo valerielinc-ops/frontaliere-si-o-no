@@ -47983,14 +47983,14 @@
       },
       "queries": [
         {
+          "query": "offerte di lavoro osa ticino",
+          "clicks": 9,
+          "impressions": 88
+        },
+        {
           "query": "offerte di lavoro canton ticino per frontalieri",
           "clicks": 3,
           "impressions": 83
-        },
-        {
-          "query": "offerte di lavoro osa ticino",
-          "clicks": 8,
-          "impressions": 79
         },
         {
           "query": "offerte lavoro svizzera per italiani",
@@ -48000,12 +48000,12 @@
         {
           "query": "osa offerte di lavoro",
           "clicks": 2,
-          "impressions": 48
+          "impressions": 53
         },
         {
           "query": "offerte di lavoro osa",
           "clicks": 0,
-          "impressions": 20
+          "impressions": 21
         },
         {
           "query": "frontaliere ticino offerte di lavoro",
@@ -48014,8 +48014,8 @@
         },
         {
           "query": "oss ticino offerte lavoro",
-          "clicks": 0,
-          "impressions": 16
+          "clicks": 1,
+          "impressions": 18
         },
         {
           "query": "offerte lavoro svizzera per italiani",
@@ -48035,7 +48035,7 @@
         {
           "query": "osa ticino lavoro",
           "clicks": 0,
-          "impressions": 10
+          "impressions": 11
         },
         {
           "query": "offerte di lavoro canton ticino",
@@ -48063,6 +48063,11 @@
           "impressions": 8
         },
         {
+          "query": "offerte di lavoro centri diurni ticino",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
           "query": "operatrice socio assistenziale offerte di lavoro",
           "clicks": 0,
           "impressions": 7
@@ -48073,19 +48078,14 @@
           "impressions": 7
         },
         {
-          "query": "offerte di lavoro sistema sanitario svizzero",
-          "clicks": 0,
-          "impressions": 6
-        },
-        {
-          "query": "offerte di lavoro casa di riposo svizzera",
-          "clicks": 0,
+          "query": "asi ticino offerte di lavoro",
+          "clicks": 1,
           "impressions": 6
         }
       ],
-      "totalImpressions": 835,
-      "totalClicks": 27,
-      "topQuery": "offerte di lavoro canton ticino per frontalieri",
+      "totalImpressions": 871,
+      "totalClicks": 31,
+      "topQuery": "offerte di lavoro osa ticino",
       "title": "Operatori socio sanitari",
       "titleByLocale": {
         "it": "",
@@ -68492,6 +68492,68 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel",
+      "locale": "it",
+      "path": "/cerca-lavoro-neuchatel/stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-neuchatel/stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel/"
+      },
+      "queries": [
+        {
+          "query": "offre emploi richemont",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "stage micro",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "offre emploi richemont",
+      "title": "Stage r i micro lavorazione laser 3d di precisione richemont neuchatel",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel",
+        "en": "stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel",
+        "de": "stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel",
+        "fr": "stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-neuchatel/stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel",
+        "en": "/en/find-jobs-neuchatel/stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel",
+        "de": "/de/jobs-im-neuenburg/stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel",
+        "fr": "/fr/trouver-emploi-neuchatel/stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {

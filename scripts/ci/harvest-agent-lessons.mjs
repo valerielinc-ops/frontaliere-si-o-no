@@ -1559,7 +1559,7 @@ export function measureBucket({ source, count, examples = [], escalationCutoff =
 // (`scripts/lib/classify-issue.mjs`) e del veto `KEEP_OPEN_LABELS` di
 // `reconcile-followups.mjs`: tenuta qui e non importata perche' questo file
 // scende `identical` nel corpus, e la parita' la verifica un test.
-export const SELF_HEAL_PIN_LABELS = Object.freeze(['keep-open', 'agent:no-age-out', 'pinned', 'tracker',
+export const SELF_HEAL_PIN_LABELS = Object.freeze(['keep-open', 'agent:no-age-out', 'operations-audit-review', 'pinned', 'tracker',
   'do-not-close', 'revenue']);
 // Claim del fixer: una issue in lavorazione non si chiude sotto i suoi piedi.
 export const SELF_HEAL_CLAIM_LABEL = 'agent:in-progress';

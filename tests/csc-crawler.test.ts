@@ -146,8 +146,40 @@ describe('CSC authoritative Drupal discovery', () => {
 
     await expect(verifyCscDetailUrls([ncoreShortDetailUrl], {
       fetchImpl: vi.fn(async () => htmlResponse(ncoreShortDetailUrl, ncoreShortDetailPage)),
+      renderDetailPage: vi.fn(async () => ({
+        html: ncoreShortDetailPage,
+        responseUrl: ncoreShortDetailUrl,
+      })),
       timeoutMs: 1000,
     })).rejects.toThrow(/did not return a canonical work-position page/);
+  });
+
+  it('renders a client-rendered NCore detail shell before applying the trust contract', async () => {
+    const detailShell = '<!doctype html><html><body><div id="app">Loading position…</div></body></html>';
+    const renderDetailPage = vi.fn(async () => ({
+      html: ncoreDetailPage,
+      responseUrl: ncoreDetailUrl,
+    }));
+
+    await expect(verifyCscDetailUrls([ncoreDetailUrl], {
+      fetchImpl: vi.fn(async () => htmlResponse(ncoreDetailUrl, detailShell)),
+      renderDetailPage,
+      timeoutMs: 1000,
+    })).resolves.toEqual([ncoreDetailUrl]);
+    expect(renderDetailPage).toHaveBeenCalledWith(ncoreDetailUrl, { timeoutMs: 1000 });
+  });
+
+  it('rejects a rendered NCore detail that leaves the exact route contract', async () => {
+    const renderDetailPage = vi.fn(async () => ({
+      html: ncoreDetailPage,
+      responseUrl: ncoreShortDetailUrl,
+    }));
+
+    await expect(verifyCscDetailUrls([ncoreDetailUrl], {
+      fetchImpl: vi.fn(async () => htmlResponse(ncoreDetailUrl, '<html><body>Loading…</body></html>')),
+      renderDetailPage,
+      timeoutMs: 1000,
+    })).rejects.toThrow(/rendered detail redirected outside its exact detail contract/);
   });
 
   it('keeps the shared HTML fallback on the NCore posting body', () => {

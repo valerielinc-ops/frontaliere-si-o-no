@@ -42,6 +42,28 @@ const CAREER_URL = 'https://recruitingapp-2563.umantis.com/Jobs/1?lang=ger&Conte
 // that cannot prove a Swiss site remains fail-closed.
 const SWITCH_SINGLE_CITY_TITLE_RX = /\bin\s+(Zürich|Zurich|Lausanne)\s*$/i;
 const SWITCH_SUPPORTED_CITY_RX = /\b(Zürich|Zurich|Lausanne)\b/gi;
+const SWITCH_DESCRIPTION_START_RX = /<h1\b[^>]*>[\s\S]{0,2000}?<\/h1\s*>/i;
+const SWITCH_DESCRIPTION_END_RX = /<div\b[^>]*\bid\s*=\s*(["'])mg_footer\1[^>]*>/i;
+
+/**
+ * Read the vacancy-only portion of Switch's custom Umantis template.
+ *
+ * The employer introduction sits before the vacancy title and contact,
+ * application and legal chrome sit under `#mg_footer`. Both boundaries are
+ * required so a changed or partial response remains fail-closed.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+export function extractRecruitingapp2563Description(html = '') {
+  const source = String(html || '');
+  const start = SWITCH_DESCRIPTION_START_RX.exec(source);
+  if (!start) return '';
+  const tail = source.slice(start.index + start[0].length);
+  const end = SWITCH_DESCRIPTION_END_RX.exec(tail);
+  if (!end) return '';
+  return normalizeSpace(stripHtml(tail.slice(0, end.index)));
+}
 
 /**
  * Recover Switch's explicit single-city title suffix as source-backed detail
@@ -74,9 +96,10 @@ export function extractRecruitingapp2563TitleLocation(title = '') {
 export function extractRecruitingapp2563DetailFields(html = '', pageUrl = '', opts = {}) {
   const genericDetail = extractDetailFields(html, pageUrl, opts);
   const umantisDetail = extractUmantisDetailFields(html);
+  const switchDescription = extractRecruitingapp2563Description(html);
   const detail = {
     ...genericDetail,
-    description: genericDetail.description || umantisDetail.description,
+    description: genericDetail.description || umantisDetail.description || switchDescription,
   };
   const renderedTitle = stripHtml(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
   const detailTitle = normalizeSpace(detail.title);

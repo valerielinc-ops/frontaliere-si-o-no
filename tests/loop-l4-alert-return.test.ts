@@ -276,7 +276,22 @@ describe('L4 Alert → Return', () => {
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l4-safe-actions.json'), 'utf8')))
       .toMatchObject({ appliesToExternalDelivery: false, actions: [{ autonomy: 'A4', reversible: true }] });
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l4-result.json'), 'utf8')))
-      .toMatchObject({ ok: false, issued: true, actionsWritten: true });
+      .toMatchObject({
+        ok: false,
+        issued: true,
+        actionsWritten: true,
+        evidence: {
+          generatedAt: null,
+          consentChecked: false,
+          deduplicationChecked: false,
+          unattributedDeliveries: null,
+        },
+        closureCriterion: {
+          event: 'schedule',
+          consecutiveOkRuns: 3,
+          nonScheduleRunsAdvanceStreak: false,
+        },
+      });
     expect(issues).toHaveLength(1);
   });
 

@@ -979,6 +979,44 @@ function loadInJobRun(repo, head, checkRuns) {
 const DISABLE_AUTO_MERGE_MUTATION =
   'mutation($pullRequestId:ID!){disablePullRequestAutoMerge(input:{pullRequestId:$pullRequestId}){pullRequest{number autoMergeRequest{enabledAt}}}}';
 
+function nativeAutoMergeRevocationSatisfied(pr) {
+  if (!pr || !['OPEN', 'CLOSED', 'MERGED'].includes(pr.state)) return false;
+  if (pr.state !== 'OPEN') return true;
+  return Object.hasOwn(pr, 'autoMergeRequest') && pr.autoMergeRequest === null;
+}
+
+/**
+ * Revoke an existing opt-in without turning a concurrent merge/disable into a
+ * failed workflow. A failed mutation is considered complete only after a
+ * fresh read proves the PR is closed/merged or has no native request; an open
+ * PR with an active or unverifiable request remains fail-closed.
+ */
+export function revokeNativeAutoMergeSafely({ readPullRequest, disableAutoMerge } = {}) {
+  if (typeof readPullRequest !== 'function' || typeof disableAutoMerge !== 'function') {
+    throw new TypeError('lettura PR e revoca auto-merge devono essere funzioni');
+  }
+
+  const current = readPullRequest();
+  if (nativeAutoMergeRevocationSatisfied(current)) return 'already-satisfied';
+
+  try {
+    disableAutoMerge(current);
+    return 'revoked';
+  } catch (error) {
+    let after;
+    try {
+      after = readPullRequest();
+    } catch (verificationError) {
+      throw new Error(
+        `revoca auto-merge non confermata; stato PR non verificabile dopo l'errore: ${String(verificationError).slice(0, 180)}`,
+        { cause: error },
+      );
+    }
+    if (nativeAutoMergeRevocationSatisfied(after)) return 'already-satisfied';
+    throw error;
+  }
+}
+
 function disableNativeAutoMerge(repo, pr) {
   if (!pr?.id) throw new Error('node ID della PR mancante');
   const response = ghJsonOnce([
@@ -997,8 +1035,17 @@ function disableNativeAutoMerge(repo, pr) {
 
 function revokeExistingAutoMerge(repo, pr, reason) {
   try {
-    disableNativeAutoMerge(repo, pr);
-    console.log(`Native auto-merge guard: opt-in revocato per PR #${pr.number} — ${reason}`);
+    const outcome = revokeNativeAutoMergeSafely({
+      readPullRequest: () => ghJson([
+        'pr', 'view', pr.number, '--repo', repo, '--json',
+        'number,id,state,autoMergeRequest',
+      ]),
+      disableAutoMerge: (current) => disableNativeAutoMerge(repo, current),
+    });
+    const message = outcome === 'revoked'
+      ? 'opt-in revocato'
+      : 'revoca già soddisfatta (PR chiusa o auto-merge assente)';
+    console.log(`Native auto-merge guard: ${message} per PR #${pr.number} — ${reason}`);
   } catch (error) {
     console.error(`::error::native auto-merge guard: revoca opt-in fallita per PR #${pr.number}: ${String(error).slice(0, 240)}`);
     process.exitCode = 1;
