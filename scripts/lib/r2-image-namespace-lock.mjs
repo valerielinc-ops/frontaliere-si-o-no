@@ -12,6 +12,11 @@ export const IMAGE_LOCK_POLL_MS = 5_000;
 export const IMAGE_LEASE_CONTEXT_ENV = 'FRONTALIERE_R2_IMAGE_LEASE_CONTEXT';
 
 const CONTEXT_VERSION = 1;
+const COMMAND_OPTION_RULES = new Map([
+  ['acquire', { allowed: ['--namespace'], required: ['--namespace'] }],
+  ['verify', { allowed: ['--namespace', '--context'], required: ['--namespace', '--context'] }],
+  ['release', { allowed: ['--context'], required: ['--context'] }],
+]);
 
 function requiredString(value, name) {
   if (typeof value !== 'string' || value.length === 0) {
@@ -86,8 +91,53 @@ async function responseText(response) {
   return '';
 }
 
-function delay(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+function imageLeaseAbortError() {
+  const error = new Error('[r2-image-namespace-lock] image namespace lease acquisition aborted');
+  error.name = 'AbortError';
+  return error;
+}
+
+function throwIfAborted(signal) {
+  if (signal?.aborted) throw imageLeaseAbortError();
+}
+
+function delay(ms, signal) {
+  return new Promise((resolve, reject) => {
+    let timer;
+    const cleanup = () => {
+      clearTimeout(timer);
+      signal?.removeEventListener('abort', onAbort);
+    };
+    const onAbort = () => {
+      cleanup();
+      reject(imageLeaseAbortError());
+    };
+
+    if (signal?.aborted) {
+      reject(imageLeaseAbortError());
+      return;
+    }
+    timer = setTimeout(() => {
+      cleanup();
+      resolve();
+    }, ms);
+    signal?.addEventListener('abort', onAbort, { once: true });
+    if (signal?.aborted) onAbort();
+  });
+}
+
+function waitForRetry(ms, sleep, signal) {
+  throwIfAborted(signal);
+  if (!signal) return sleep(ms);
+
+  let onAbort;
+  const aborted = new Promise((resolve, reject) => {
+    onAbort = () => reject(imageLeaseAbortError());
+    signal.addEventListener('abort', onAbort, { once: true });
+    if (signal.aborted) onAbort();
+  });
+  return Promise.race([Promise.resolve().then(() => sleep(ms, signal)), aborted])
+    .finally(() => signal.removeEventListener('abort', onAbort));
 }
 
 function parseLeaseContext(value) {
@@ -205,6 +255,7 @@ export async function acquireImageNamespaceLock(
     pollMs = IMAGE_LOCK_POLL_MS,
     leaseMs = IMAGE_LOCK_LEASE_MS,
     onWait = () => {},
+    signal,
   } = {},
 ) {
   parseImageNamespaces([namespace]);
@@ -217,6 +268,7 @@ export async function acquireImageNamespaceLock(
   const deadline = now() + timeoutMs;
 
   while (now() <= deadline) {
+    throwIfAborted(signal);
     const acquiredAt = now();
     const lease = {
       namespace,
@@ -227,12 +279,17 @@ export async function acquireImageNamespaceLock(
     };
     const created = await putLease(request, namespace, lease, { name: 'if-none-match', value: '*' });
     if (created) {
+      // Do not throw for an abort between a successful conditional PUT and the
+      // caller recording this lease. The outer multi-namespace acquisition
+      // must first add it to its rollback set.
       return confirmAcquiredLease(request, { ...lease, etag: created.etag });
     }
 
+    throwIfAborted(signal);
     const current = await readCurrentLease(request, namespace);
+    throwIfAborted(signal);
     if (!current) {
-      await sleep(Math.min(100, Math.max(0, deadline - now())));
+      await waitForRetry(Math.min(100, Math.max(0, deadline - now())), sleep, signal);
       continue;
     }
     if (current.payload.expiresAt <= now()) {
@@ -241,13 +298,14 @@ export async function acquireImageNamespaceLock(
       }
       const replaced = await putLease(request, namespace, lease, { name: 'if-match', value: current.etag });
       if (replaced) return confirmAcquiredLease(request, { ...lease, etag: replaced.etag });
+      throwIfAborted(signal);
       continue;
     }
 
     onWait({ namespace, expiresAt: current.payload.expiresAt });
     const remaining = deadline - now();
     if (remaining <= 0) break;
-    await sleep(Math.min(pollMs, remaining));
+    await waitForRetry(Math.min(pollMs, remaining), sleep, signal);
   }
 
   throw new Error(`[r2-image-namespace-lock] timed out waiting for namespace ${namespace}`);
@@ -257,11 +315,13 @@ export async function acquireImageNamespaceLeases(namespaces, options = {}) {
   const normalized = parseImageNamespaces(namespaces);
   const now = options.now ?? Date.now;
   const timeoutMs = options.timeoutMs ?? IMAGE_LOCK_ACQUIRE_TIMEOUT_MS;
+  const signal = options.signal;
   positiveDuration(timeoutMs, 'acquire timeout');
   const deadline = now() + timeoutMs;
   const acquired = [];
   try {
     for (const namespace of normalized) {
+      throwIfAborted(signal);
       const remainingMs = deadline - now();
       if (remainingMs <= 0) {
         throw new Error(`[r2-image-namespace-lock] timed out waiting for namespace ${namespace}`);
@@ -271,10 +331,26 @@ export async function acquireImageNamespaceLeases(namespaces, options = {}) {
         now,
         timeoutMs: remainingMs,
       }));
+      // A signal may have arrived while the final confirmation GET was in
+      // flight. Record the confirmed lock first, then abort so catch can CAS
+      // release every acquired namespace, including the last one.
+      throwIfAborted(signal);
     }
     return acquired;
   } catch (error) {
-    await releaseImageNamespaceLeases(acquired, options).catch(() => {});
+    const rollbackOptions = { ...options };
+    delete rollbackOptions.signal;
+    try {
+      await releaseImageNamespaceLeases(acquired, rollbackOptions);
+    } catch (rollbackError) {
+      const acquisitionMessage = error instanceof Error ? error.message : String(error);
+      const rollbackMessage = rollbackError instanceof Error ? rollbackError.message : String(rollbackError);
+      throw new AggregateError(
+        [error, rollbackError],
+        `${acquisitionMessage}; rollback also failed: ${rollbackMessage}`,
+        { cause: error },
+      );
+    }
     throw error;
   }
 }
@@ -346,34 +422,92 @@ export async function releaseImageNamespaceLeases(leases, options = {}) {
   return released;
 }
 
-function requiredFlag(args, flag) {
-  const index = args.indexOf(flag);
-  if (index < 0 || !args[index + 1] || args[index + 1].startsWith('--')) {
-    throw new Error(`[r2-image-namespace-lock] ${flag} requires a value`);
+function parseCommandOptions(command, args) {
+  const commandFlags = COMMAND_OPTION_RULES.get(command);
+  if (!commandFlags) {
+    throw new Error('usage: r2-image-namespace-lock.mjs <acquire|verify|release> --namespace <blog[,places]> [--context <json>]');
   }
-  return args[index + 1];
+
+  const options = new Map();
+  for (let index = 0; index < args.length; index += 1) {
+    const flag = args[index];
+    if (!commandFlags.allowed.includes(flag)) {
+      throw new Error(`[r2-image-namespace-lock] unexpected argument for ${command}: ${flag}`);
+    }
+    if (options.has(flag)) {
+      throw new Error(`[r2-image-namespace-lock] duplicate argument for ${command}: ${flag}`);
+    }
+    const value = args[index + 1];
+    if (typeof value !== 'string' || value.length === 0 || value.startsWith('--')) {
+      throw new Error(`[r2-image-namespace-lock] ${flag} requires a value`);
+    }
+    options.set(flag, value);
+    index += 1;
+  }
+
+  for (const flag of commandFlags.required) {
+    if (!options.has(flag)) throw new Error(`[r2-image-namespace-lock] ${flag} is required for ${command}`);
+  }
+  return options;
+}
+
+async function acquireFromCli(namespaces, request) {
+  const controller = new AbortController();
+  let signalExitStatus = 0;
+  const abortForSignal = (exitStatus) => {
+    if (signalExitStatus !== 0) return;
+    signalExitStatus = exitStatus;
+    controller.abort();
+  };
+  const onSigint = () => abortForSignal(130);
+  const onSigterm = () => abortForSignal(143);
+  process.on('SIGINT', onSigint);
+  process.on('SIGTERM', onSigterm);
+
+  try {
+    const leases = await acquireImageNamespaceLeases(namespaces, {
+      request,
+      signal: controller.signal,
+    });
+    if (signalExitStatus !== 0) {
+      // A signal can race with the final promise resolution. In that case the
+      // acquisition helper has returned ownership to this function instead
+      // of rolling it back, so release it here before leaving the CLI.
+      await releaseImageNamespaceLeases(leases, { request });
+      process.exitCode = signalExitStatus;
+      return;
+    }
+    process.stdout.write(`${serializeImageLeaseContext(leases)}\n`);
+  } catch (error) {
+    if (signalExitStatus === 0) throw error;
+    console.error(`[r2-image-namespace-lock] ${error?.message ?? error}`);
+    process.exitCode = signalExitStatus;
+  } finally {
+    process.removeListener('SIGINT', onSigint);
+    process.removeListener('SIGTERM', onSigterm);
+  }
 }
 
 async function main(args = process.argv.slice(2), env = process.env) {
   const command = args[0];
+  const options = parseCommandOptions(command, args.slice(1));
   const request = createR2Request(env);
 
   if (command === 'acquire') {
-    const namespaces = parseImageNamespaces(requiredFlag(args, '--namespace'));
-    const leases = await acquireImageNamespaceLeases(namespaces, { request });
-    process.stdout.write(`${serializeImageLeaseContext(leases)}\n`);
+    const namespaces = parseImageNamespaces(options.get('--namespace'));
+    await acquireFromCli(namespaces, request);
     return;
   }
 
   if (command === 'verify') {
-    const namespace = requiredFlag(args, '--namespace');
-    const context = requiredFlag(args, '--context');
+    const namespace = options.get('--namespace');
+    const context = options.get('--context');
     await verifyImageNamespaceLease(context, namespace, { request });
     return;
   }
 
   if (command === 'release') {
-    const context = parseLeaseContext(requiredFlag(args, '--context'));
+    const context = parseLeaseContext(options.get('--context'));
     const released = await releaseImageNamespaceLeases(context.leases, { request });
     const notReleased = context.leases.map(({ namespace }) => namespace).filter((namespace) => !released.includes(namespace));
     if (notReleased.length > 0) {

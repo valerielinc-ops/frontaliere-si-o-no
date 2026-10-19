@@ -2,6 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { IMAGE_LEASE_PROTOCOL_VERSION } from '../scripts/lib/r2-image-namespace-lock.mjs';
 
 const workflow = readFileSync(resolve(__dirname, '../.github/workflows/fast-publish-article.yml'), 'utf8');
 const uploaderPath = resolve(__dirname, '../scripts/lib/upload-cdn-file.sh');
@@ -27,6 +28,7 @@ describe('fast-publish image lease source guard', () => {
       encoding: 'utf8',
       env: { PATH: process.env.PATH ?? '/usr/bin:/bin' },
     });
-    expect(version).toBe('1\n');
+    expect(version).toBe(`${IMAGE_LEASE_PROTOCOL_VERSION}\n`);
+    expect(workflow).toContain(`if [ "$protocol_version" != "${IMAGE_LEASE_PROTOCOL_VERSION}" ]; then`);
   });
 });

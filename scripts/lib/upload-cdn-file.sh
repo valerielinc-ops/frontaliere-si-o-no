@@ -35,11 +35,12 @@
 #
 # Failure posture: missing local file, missing R2 credentials, rclone install
 # failure, image lease acquisition/verification failure, or the upload itself
-# failing is reported and the script still exits 0. Failure to safely release
-# a lease owned here is the exception: it exits 1 rather than hide a possibly
-# live lock. The hero image (and anything else this script is expected to
-# carry) has a client-side raw.githubusercontent.com fallback, so this script
-# backs a best-effort CDN warm rather than a hard publish gate.
+# failing is reported and the script still exits 0. Bad usage and failure to
+# safely release a lease owned here exit 1. INT/TERM exit 130/143 after stopping
+# the uploader child; a caller-owned lease is never released here. The hero
+# image (and anything else this script is expected to carry) has a client-side
+# raw.githubusercontent.com fallback, so this script backs a best-effort CDN
+# warm rather than a hard publish gate.
 # A caller that wants to know whether the PUT actually happened should grep
 # this script's stdout for "✅ uploaded" rather than rely on the exit code.
 #
@@ -63,13 +64,18 @@
 # A caller holding a lease passes its verified capability in
 # FRONTALIERE_R2_IMAGE_LEASE_CONTEXT. Unscoped, malformed, expired, or
 # unavailable leases never authorize a PUT.
+# Every `copyto` timeout runs as a tracked child and is stopped/reaped before a
+# handled INT/TERM exits. Other CDN keys get that cancellation safety without
+# acquiring or releasing a blog/places lease.
 # `--image-lease-protocol-version` prints the protocol version without reading
 # credentials or contacting R2; workflows use it to reject an old pinned SHA.
 #
-# Exit codes: 0 for best-effort runtime failures, except a failed release of an
-# owned image lease or bad usage (both return 1; see "Failure posture" above).
+# Exit codes: 0 for best-effort runtime failures; 1 for bad usage or failed
+# release of an owned image lease; 130/143 for handled INT/TERM cancellation.
 # ─────────────────────────────────────────────────────────────────────────────
 set -uo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 if [ "$#" -eq 1 ] && [ "$1" = "--image-lease-protocol-version" ]; then
   printf '1\n'
@@ -282,21 +288,61 @@ case "$cdn_key" in
 esac
 
 if [ -n "$image_namespace" ]; then
-  script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
   image_lease_cli="$script_dir/r2-image-namespace-lock.mjs"
+fi
+image_lease_process_helper="$script_dir/r2-image-lease-process.sh"
+if [ ! -f "$image_lease_process_helper" ]; then
+  echo "::warning::[cdn-upload] image writer process helper is missing — skipping upload of $cdn_key"
+  exit 0
+fi
+source "$image_lease_process_helper"
+_R2_IMAGE_LEASE_ACTIVE=1
+_R2_IMAGE_LEASE_TIMEOUT_PID=
+_R2_IMAGE_LEASE_RELEASE_ALLOWED=1
+_R2_IMAGE_LEASE_SIGNAL_HANDLER=_image_lease_signal
+
+_release_image_namespace_lease() {
+  [ "${image_lease_owned_here:-0}" -eq 1 ] || return 0
+  image_lease_owned_here=0
+  if ! node "$image_lease_cli" release --context "$image_lease_context" >/dev/null; then
+    echo "::error::[cdn-upload] could not safely release the $image_namespace lease" >&2
+    return 1
+  fi
+  return 0
+}
+_image_lease_exit_cleanup() {
+  local exit_code=$?
+  trap '' EXIT INT TERM
+  if [ "${_R2_IMAGE_LEASE_RELEASE_ALLOWED:-1}" = 1 ] \
+      && ! _r2_image_lease_stop_timeout; then
+    _R2_IMAGE_LEASE_RELEASE_ALLOWED=0
+    exit_code=1
+  fi
+  if [ "${_R2_IMAGE_LEASE_RELEASE_ALLOWED:-1}" = 1 ] \
+      && ! _release_image_namespace_lease; then
+    exit_code=1
+  fi
+  exit "$exit_code"
+}
+_image_lease_signal() {
+  local exit_status="$1"
+  trap '' INT TERM
+  if ! _r2_image_lease_stop_timeout; then
+    _R2_IMAGE_LEASE_RELEASE_ALLOWED=0
+  fi
+  exit "$exit_status"
+}
+
+image_lease_owned_here=0
+if [ -n "$image_namespace" ]; then
+  _R2_IMAGE_LEASE_ACTIVE=1
   if [ ! -f "$image_lease_cli" ]; then
     echo "::warning::[cdn-upload] image lease helper is missing — skipping upload of $cdn_key"
     exit 0
   fi
 
   image_lease_context="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT:-}"
-  image_lease_owned_here=0
-  if [ -n "$image_lease_context" ]; then
-    if ! node "$image_lease_cli" verify --namespace "$image_namespace" --context "$image_lease_context" >/dev/null; then
-      echo "::warning::[cdn-upload] no valid $image_namespace lease context — skipping upload of $cdn_key"
-      exit 0
-    fi
-  else
+  if [ -z "$image_lease_context" ]; then
     image_lease_context="$(node "$image_lease_cli" acquire --namespace "$image_namespace")" || {
       echo "::warning::[cdn-upload] could not acquire $image_namespace lease — skipping upload of $cdn_key"
       exit 0
@@ -307,23 +353,17 @@ if [ -n "$image_namespace" ]; then
     fi
     export FRONTALIERE_R2_IMAGE_LEASE_CONTEXT="$image_lease_context"
     image_lease_owned_here=1
+  fi
+fi
 
-    _release_image_namespace_lease() {
-      local exit_code=$?
-      trap - EXIT
-      if [ "$image_lease_owned_here" -eq 1 ] \
-          && ! node "$image_lease_cli" release --context "$image_lease_context" >/dev/null; then
-        echo "::error::[cdn-upload] could not safely release the $image_namespace lease"
-        exit_code=1
-      fi
-      exit "$exit_code"
-    }
-    trap _release_image_namespace_lease EXIT
+trap _image_lease_exit_cleanup EXIT
+trap '_image_lease_signal 130' INT
+trap '_image_lease_signal 143' TERM
 
-    if ! node "$image_lease_cli" verify --namespace "$image_namespace" --context "$image_lease_context" >/dev/null; then
-      echo "::warning::[cdn-upload] acquired $image_namespace lease is no longer valid — skipping upload of $cdn_key"
-      exit 0
-    fi
+if [ -n "$image_namespace" ]; then
+  if ! node "$image_lease_cli" verify --namespace "$image_namespace" --context "$image_lease_context" >/dev/null; then
+    echo "::warning::[cdn-upload] image lease is no longer valid — skipping upload of $cdn_key"
+    exit 0
   fi
 fi
 
@@ -334,16 +374,17 @@ fi
 # else was wrong. Still never fatal — see header "Failure posture".
 attempt_ok=0
 for try in 1 2; do
-  if timeout -k 10 "$r2_timeout_object_s" "${RC[@]}" copyto "$local_file" "$bkt/$cdn_key" \
-       --header-upload "Content-Type: $content_type" \
-       --header-upload "Cache-Control: $cache_control" \
-       --stats=0; then
+  _r2_image_lease_wait_timeout timeout -k 10 "$r2_timeout_object_s" "${RC[@]}" copyto "$local_file" "$bkt/$cdn_key" \
+    --header-upload "Content-Type: $content_type" \
+    --header-upload "Cache-Control: $cache_control" \
+    --stats=0
+  if [ "$?" -eq 0 ]; then
     attempt_ok=1
     break
   fi
   if [ "$try" -lt 2 ]; then
     echo "::warning::[cdn-upload] upload attempt $try/2 failed for $cdn_key — retrying in 3s"
-    sleep 3
+    _r2_image_lease_wait_timeout timeout -k 1 3 sleep 3
   fi
 done
 
