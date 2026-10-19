@@ -13360,7 +13360,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assemblea-ccti-rotta-economia.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.cantieri-lugano-riduzione-disagi.title': 'Baustellen in Lugano: Gemeinde will Unannehmlichkeiten reduzieren',
     'blog.article.cantieri-lugano-riduzione-disagi.excerpt': 'Das Rathaus beantwortet die Frage von Michele Codella Die Arbeiten in Lugano werden auch in den nächsten Jahren fortgesetzt Fokus zwischen Vordach Botta und Corso Pestalozzi',
-    'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'Ansicht des Stadtzentrums von Lugano mit Strasseninfrastruktur',
+    'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.tre-valli-varesine-7-posto-mondiale.title': 'Tre Valli Varesine 7. in der Welt: schlägt Vuelta und Paris-Roubaix',
     'blog.article.tre-valli-varesine-7-posto-mondiale.excerpt': 'Drei Varesine-Täler Siebter in der ProCyclingStats-Rangliste Das Rennen erzielte 913 Punkte Lüttich, Vuelta und Paris-Roubaix liegen hinter der Tour de France',
     'blog.article.tre-valli-varesine-7-posto-mondiale.imageAlt': 'Für diesen Artikel erstellte Illustration',
@@ -13500,6 +13500,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sagra-zucca-castagna-cunardo.title': 'In Cunardo: das fünfte Kürbis- und Kastanienfest',
     'blog.article.sagra-zucca-castagna-cunardo.excerpt': 'Fünfte Ausgabe in der Baita del Fondista in Cunardo Von Freitag, dem 23.',
     'blog.article.sagra-zucca-castagna-cunardo.imageAlt': 'Kürbis- und Kastanienfest in der Baita del Fondista in Cunardo',
+    'blog.article.corsi-ticino-famiglia-rendimento.title': 'Weiterbildung für Grenzgänger 2026: Kurse & Familie',
+    'blog.article.corsi-ticino-famiglia-rendimento.excerpt': 'Das Neue Grenzgängerabkommen ist seit dem 1.',
+    'blog.article.corsi-ticino-famiglia-rendimento.imageAlt': 'Klassenzimmer für Berufsausbildung mit Blick auf die Landschaft des Mendrisiotto',
 };
 
 export default blogMetaDe;

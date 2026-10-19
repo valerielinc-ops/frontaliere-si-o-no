@@ -8473,7 +8473,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-attualita-istituzioni-2026.imageAlt': 'Palais fédéral à Berne représentant le paysage politique suisse',
     'blog.article.pensionato-vince-contro-ffs.title': 'Un retraité obtient gain de cause contre les FFS après des mois de bataille',
     'blog.article.pensionato-vince-contro-ffs.excerpt': 'UFT : supplément de 75 francs jugé injustifié Retard d’un bus, puis un itinéraire alternatif L’affaire commence par le trajet Küsnacht-Rafz Le cas',
-    'blog.article.pensionato-vince-contro-ffs.imageAlt': 'Un retraité gagne la bataille contre les CFF sur les transports',
+    'blog.article.pensionato-vince-contro-ffs.imageAlt': 'Illustration générée pour cet article',
     'blog.article.manager-ffs-denaro-pubblico.title': 'Ex-manager de FFS, Lamborghini et maison en Floride avec de l\'argent public',
     'blog.article.manager-ffs-denaro-pubblico.excerpt': 'Ex-dirigeant de FFS accusé d\'avoir détourné environ 9 millions Enquête fédérale ouverte depuis décembre 2024 Procès prévu fin octobre Préjudice pénalement pertinent',
     'blog.article.manager-ffs-denaro-pubblico.imageAlt': 'Batiments institutionnels federaux en Suisse',

@@ -13363,7 +13363,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.assemblea-ccti-rotta-economia.imageAlt': 'Illustration générée pour cet article',
     'blog.article.cantieri-lugano-riduzione-disagi.title': 'Chantiers à Lugano : la mairie vise à réduire les désagréments',
     'blog.article.cantieri-lugano-riduzione-disagi.excerpt': 'La municipalité répond à la question de Michele Codella Les travaux à Lugano se poursuivront également au cours des prochaines années Focus entre Pennilina Botta et Corso Pestalozzi',
-    'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'Vue du centre-ville de Lugano avec les infrastructures routières',
+    'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'Illustration générée pour cet article',
     'blog.article.tre-valli-varesine-7-posto-mondiale.title': 'Tre Valli Varesine 7ème au monde : bat Vuelta et Paris-Roubaix',
     'blog.article.tre-valli-varesine-7-posto-mondiale.excerpt': 'Trois Vallées Varesines septième au classement ProCyclingStats La course a obtenu 913 points Liège, Vuelta et Paris-Roubaix sont derrière Le Tour de France',
     'blog.article.tre-valli-varesine-7-posto-mondiale.imageAlt': 'Illustration générée pour cet article',
@@ -13503,6 +13503,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sagra-zucca-castagna-cunardo.title': 'À Cunardo, la cinquième fête de la courge et de la châtaigne',
     'blog.article.sagra-zucca-castagna-cunardo.excerpt': 'Cinquième édition à la Baita del Fondista de Cunardo Du vendredi 23 au dimanche 25 octobre Dîner du vendredi : nouveauté du programme Samedi, musique à partir de 21 h Quoi : fête',
     'blog.article.sagra-zucca-castagna-cunardo.imageAlt': 'Fête de la citrouille et de la châtaigne à la Baita del Fondista à Cunardo',
+    'blog.article.corsi-ticino-famiglia-rendimento.title': 'Formation des frontaliers 2026 : cours, reconversion et famille',
+    'blog.article.corsi-ticino-famiglia-rendimento.excerpt': 'Le nouvel Accord sur les frontaliers est en vigueur depuis le 1er janvier 2024 : comparaison entre anciens et nouveaux frontaliers, impôt à la source et reconversion pour les familles avec enfants.',
+    'blog.article.corsi-ticino-famiglia-rendimento.imageAlt': 'Salle de formation professionnelle avec vue sur le paysage du Mendrisiotto',
 };
 
 export default blogMetaFr;

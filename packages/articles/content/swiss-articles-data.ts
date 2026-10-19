@@ -28337,7 +28337,7 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     id: 'pensionato-vince-contro-ffs',
     category: 'pratico',
     date: '2026-10-18T01:47:22.829Z',
-    image: '/images/places/lugano-view.webp',
+    image: '/images/blog/article-pensionato-vince-contro-ffs.webp',
     hasCalculator: true,
     articleType: 'news',
     canton: ['ZH'],

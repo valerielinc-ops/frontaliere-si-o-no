@@ -13362,7 +13362,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.assemblea-ccti-rotta-economia.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.cantieri-lugano-riduzione-disagi.title': 'Cantieri a Lugano: il Municipio punta a ridurre i disagi',
     'blog.article.cantieri-lugano-riduzione-disagi.excerpt': 'Il Municipio risponde all’interrogazione di Michele Codella I lavori a Lugano proseguiranno anche nei prossimi anni Focus tra Pensilina Botta e Corso Pestalozzi',
-    'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'Vista del centro città di Lugano con infrastrutture stradali',
+    'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.tre-valli-varesine-7-posto-mondiale.title': 'Tre Valli Varesine 7ª al mondo: batte Vuelta e Paris-Roubaix',
     'blog.article.tre-valli-varesine-7-posto-mondiale.excerpt': 'Tre Valli Varesine settima nella classifica ProCyclingStats La corsa ha ottenuto 913 punti Liegi, Vuelta e Parigi-Roubaix sono alle spalle Il Tour de France',
     'blog.article.tre-valli-varesine-7-posto-mondiale.imageAlt': 'Illustrazione generata per questo articolo',
@@ -13502,6 +13502,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sagra-zucca-castagna-cunardo.title': 'A Cunardo la quinta Sagra della zucca e della castagna',
     'blog.article.sagra-zucca-castagna-cunardo.excerpt': 'Quinta edizione alla Baita del Fondista di Cunardo Da venerdì 23 a domenica 25 ottobre Cena del venerdì: novità del programma Sabato musica dalle 21 Cosa: Sagra',
     'blog.article.sagra-zucca-castagna-cunardo.imageAlt': 'Sagra della zucca e della castagna alla Baita del Fondista di Cunardo',
+    'blog.article.corsi-ticino-famiglia-rendimento.title': 'Formazione frontalieri 2026: corsi, riqualifica e famiglia',
+    'blog.article.corsi-ticino-famiglia-rendimento.excerpt': 'Il Nuovo Accordo Frontalieri è in vigore dal 1° gennaio 2024: confronto tra vecchi e nuovi frontalieri, imposta alla fonte e riqualifica per famiglie con figli.',
+    'blog.article.corsi-ticino-famiglia-rendimento.imageAlt': 'Aula di formazione professionale con vista sul paesaggio del Mendrisiotto',
 };
 
 export default blogMetaIt;

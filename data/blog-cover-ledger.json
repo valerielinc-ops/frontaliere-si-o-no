@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 652,
+      "5": 656,
       "6": 5054
     },
-    "publishedCovers": 7389,
+    "publishedCovers": 7393,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -200263,6 +200263,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-cantieri-lugano-riduzione-disagi": {
+      "cover": "/images/blog/article-cantieri-lugano-riduzione-disagi.webp",
+      "hash": "25de4a985a16c5882d38024496b05d57da6fda867946cda9ffb3fc31c5e65cae",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "cantieri-lugano-riduzione-disagi",
+          "category": "pratico",
+          "date": "2026-10-17T00:14:09.203Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cantieri-lugano-riduzione-disagi.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cantieri-lugano-riduzione-disagi",
+        "imageUrl": "/images/blog/article-cantieri-lugano-riduzione-disagi.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-como-manifestazioni-24-ottobre": {
       "cover": "/images/blog/article-como-manifestazioni-24-ottobre.webp",
       "hash": "67c2daed02ff0784f3065ae4cb8747c7f8a3713f312727b47d44883ac61f430e",
@@ -200326,6 +200359,39 @@
         "provider": "openai-codex",
         "assetId": "article-como-razionalista-fondi-associazioni",
         "imageUrl": "/images/blog/article-como-razionalista-fondi-associazioni.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-corsi-ticino-famiglia-rendimento": {
+      "cover": "/images/blog/article-corsi-ticino-famiglia-rendimento.webp",
+      "hash": "e158df4d618764b5b01fd9ff133877f4abf196b7ed4fc9902bfb6ae482f11b75",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "corsi-ticino-famiglia-rendimento",
+          "category": "pratico",
+          "date": "2026-10-19T08:07:09.140Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-corsi-ticino-famiglia-rendimento.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-corsi-ticino-famiglia-rendimento",
+        "imageUrl": "/images/blog/article-corsi-ticino-famiglia-rendimento.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -200461,6 +200527,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-pensionato-vince-contro-ffs": {
+      "cover": "/images/blog/article-pensionato-vince-contro-ffs.webp",
+      "hash": "8a61ab8d4b66a1a2a25ec62fa238edfcc867b8709607dbbab756a53947d175b7",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "pensionato-vince-contro-ffs",
+          "category": "pratico",
+          "date": "2026-10-18T01:47:22.829Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-pensionato-vince-contro-ffs.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-pensionato-vince-contro-ffs",
+        "imageUrl": "/images/blog/article-pensionato-vince-contro-ffs.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-rapporto-consiglio-federale-schengen": {
       "cover": "/images/blog/article-rapporto-consiglio-federale-schengen.webp",
       "hash": "1b219f325cb185ac6c361ee1eb39c24604bc31b6f840a86d001493f72a07cbb7",
@@ -200590,6 +200689,39 @@
         "provider": "openai-codex",
         "assetId": "article-taf-regolamento-aeroporto-ginevra",
         "imageUrl": "/images/blog/article-taf-regolamento-aeroporto-ginevra.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-truffa-falsi-poliziotti-vaud": {
+      "cover": "/images/blog/article-truffa-falsi-poliziotti-vaud.webp",
+      "hash": "1e5a6215d9e9509fc0b2438042f8afef1b45ccbd1b9d171c0e1703f59135c0b7",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "truffa-falsi-poliziotti-vaud",
+          "category": "pratico",
+          "date": "2026-10-18T07:26:28.156Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-truffa-falsi-poliziotti-vaud.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-truffa-falsi-poliziotti-vaud",
+        "imageUrl": "/images/blog/article-truffa-falsi-poliziotti-vaud.webp",
         "evidence": "generated-engine-record"
       }
     }

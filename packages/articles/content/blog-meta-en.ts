@@ -13361,7 +13361,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.assemblea-ccti-rotta-economia.imageAlt': 'Illustration generated for this article',
     'blog.article.cantieri-lugano-riduzione-disagi.title': 'Construction sites in Lugano: the City Council aims to reduce inconvenience',
     'blog.article.cantieri-lugano-riduzione-disagi.excerpt': 'The Municipality answers Michele Codella\'s question Work in Lugano will also continue in the coming years Focus between Pensilina Botta and Corso Pestalozzi',
-    'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'View of Lugano city center with road infrastructure',
+    'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'Illustration generated for this article',
     'blog.article.tre-valli-varesine-7-posto-mondiale.title': 'Tre Valli Varesine 7th in the world: beats Vuelta and Paris-Roubaix',
     'blog.article.tre-valli-varesine-7-posto-mondiale.excerpt': 'Three Valli Varesine seventh in the ProCyclingStats ranking The race scored 913 points Liège, Vuelta and Paris-Roubaix are behind The Tour de France',
     'blog.article.tre-valli-varesine-7-posto-mondiale.imageAlt': 'Illustration generated for this article',
@@ -13501,6 +13501,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sagra-zucca-castagna-cunardo.title': 'The fifth pumpkin and chestnut festival in Cunardo',
     'blog.article.sagra-zucca-castagna-cunardo.excerpt': 'Fifth edition at the Baita del Fondista di Cunardo From Friday, October 23 to Sunday, October 25 Friday dinner: new addition to the program Saturday music from 21 What: Festival',
     'blog.article.sagra-zucca-castagna-cunardo.imageAlt': 'Pumpkin and chestnut festival at Baita del Fondista in Cunardo',
+    'blog.article.corsi-ticino-famiglia-rendimento.title': 'Cross-Border Worker Training 2026: Courses, Reskilling and Family',
+    'blog.article.corsi-ticino-famiglia-rendimento.excerpt': 'The New Cross-Border Commuters Agreement has been in force since January 1, 2024: comparison between old and new cross-border commuters, withholding tax, and reclassification for families with children.',
+    'blog.article.corsi-ticino-famiglia-rendimento.imageAlt': 'Vocational training classroom overlooking the Mendrisiotto landscape',
 };
 
 export default blogMetaEn;

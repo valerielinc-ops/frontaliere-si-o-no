@@ -8473,7 +8473,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-attualita-istituzioni-2026.imageAlt': 'Palazzo federale a Berna con rappresentanza della politica svizzera',
     'blog.article.pensionato-vince-contro-ffs.title': 'Pensionato la spunta contro le FFS dopo mesi di battaglia',
     'blog.article.pensionato-vince-contro-ffs.excerpt': 'UFT: supplemento di 75 franchi dichiarato ingiustificato Ritardo di un autobus, poi un itinerario alternativo La vicenda parte dal viaggio Küsnacht-Rafz Il caso',
-    'blog.article.pensionato-vince-contro-ffs.imageAlt': 'Pensionato vince la battaglia contro le FFS sui trasporti pubblici',
+    'blog.article.pensionato-vince-contro-ffs.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.manager-ffs-denaro-pubblico.title': 'Ex manager FFS, Lamborghini e casa in Florida con soldi pubblici',
     'blog.article.manager-ffs-denaro-pubblico.excerpt': 'Ex dirigente FFS accusato di sottrarre circa 9 milioni Indagine federale aperta dal dicembre 2024 Processo previsto a fine ottobre Danno penalmente rilevante',
     'blog.article.manager-ffs-denaro-pubblico.imageAlt': 'Edifici istituzionali federali in Svizzera',
