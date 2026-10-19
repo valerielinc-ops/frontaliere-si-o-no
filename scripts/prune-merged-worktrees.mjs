@@ -78,6 +78,8 @@
 //   node scripts/prune-merged-worktrees.mjs --only <branch-o-path>  # solo il
 //        branch col nome esatto o worktree/directory col path completo
 //
+// Le opzioni sono fail-closed: argomenti sconosciuti, invalidi o incompatibili
+// terminano prima di qualsiasi accesso a Git, così un refuso non allarga lo scope.
 // `--orphans-only` è volutamente più prudente: considera solo branch
 // `worktree-agent-*` senza worktree, richiede una lista completa delle PR aperte
 // e non rimuove un branch ahead>0 finché il tag non è verificato sul remoto.
