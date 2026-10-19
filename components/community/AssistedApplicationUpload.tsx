@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
-import { CheckCircle2, FileText, Loader2, LockKeyhole, Shield, UploadCloud } from 'lucide-react';
+import { CheckCircle2, FileText, Loader2, LockKeyhole, UploadCloud } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import { hasAssistedApplicationConsent } from '@/functions/src/assistedApplicationConstants.js';
@@ -113,6 +113,7 @@ export default function AssistedApplicationUpload({
   const [cvStorageKey, setCvStorageKey] = useState<string | null>(null);
   const [cvFileName, setCvFileName] = useState<string | null>(null);
   const [submitBusy, setSubmitBusy] = useState(false);
+  const cvInputRef = useRef<HTMLInputElement>(null);
   const paymentCompletionTracked = useRef(false);
 
   const readOrder = useCallback(async (): Promise<AssistedApplicationOrder | null> => {
@@ -418,24 +419,100 @@ export default function AssistedApplicationUpload({
               </div>
             ) : (
               <form className="space-y-5" onSubmit={handleSubmit}>
-                <div className="rounded-xl border border-info-border bg-info-subtle/60 p-4 text-sm leading-relaxed text-body">
-                  <div className="flex items-start gap-2">
-                    <Shield className="mt-0.5 h-4 w-4 shrink-0 text-info" aria-hidden="true" />
-                    <p>{t('jobBoard.assisted.privacyNotice')}</p>
-                  </div>
-                </div>
+                <details className="rounded-xl border border-info-border bg-info-subtle/60 text-sm leading-relaxed text-body">
+                  <summary className="cursor-pointer rounded-xl p-4 font-semibold text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                    {t('jobBoard.assisted.privacyNoticeSummary')}
+                  </summary>
+                  <p className="px-4 pb-4">{t('jobBoard.assisted.privacyNotice')}</p>
+                </details>
 
                 {consentPersisted ? (
-                  <div className="rounded-xl border border-success-border bg-success-subtle p-4 text-sm text-body">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" aria-hidden="true" />
-                      <div>
-                        <p className="font-semibold text-heading">{t('jobBoard.assisted.consentRecorded')}</p>
-                        <p className="mt-1 text-xs leading-5">{t('jobBoard.assisted.consentCvLabel')} {cvFileName || (cvStorageKey ? t('jobBoard.assisted.fileSelected') : t('jobBoard.assisted.fileCta'))}</p>
+                  <>
+                    <div role="status" className="rounded-xl border border-success-border bg-success-subtle p-4 text-sm text-body">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" aria-hidden="true" />
+                        <div>
+                          <p className="font-semibold text-heading">{t('jobBoard.assisted.consentRecorded')}</p>
+                          <p className="mt-1 text-xs leading-5">{t('jobBoard.assisted.consentCvLabel')} {cvFileName || (cvStorageKey ? t('jobBoard.assisted.fileSelected') : t('jobBoard.assisted.fileCta'))}</p>
+                        </div>
                       </div>
+                      <AssistedApplicationLegalLinks className="mt-3 block pl-8 text-xs text-muted" />
                     </div>
-                    <AssistedApplicationLegalLinks className="mt-3 block pl-8 text-xs text-muted" />
-                  </div>
+
+                    <section className="space-y-4" aria-labelledby="assisted-application-upload-heading">
+                      <h2 id="assisted-application-upload-heading" className="text-lg font-semibold text-heading">
+                        {t('jobBoard.assisted.uploadStepTitle')}
+                      </h2>
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        <label className="text-sm font-medium text-body">
+                          {t('jobBoard.assisted.name')}
+                          <input value={name} onChange={(event) => { setName(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="name" required />
+                        </label>
+                        <label className="text-sm font-medium text-body">
+                          {t('jobBoard.assisted.email')}
+                          <input type="email" value={email} onChange={(event) => { setEmail(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="email" required />
+                        </label>
+                      </div>
+                      <label className="block text-sm font-medium text-body">
+                        {t('jobBoard.assisted.phone')}
+                        <input value={phone} onChange={(event) => { setPhone(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" />
+                      </label>
+
+                      <div className="flex flex-wrap items-center gap-3">
+                        <button type="button" onClick={() => { void handleSaveDetails(); }} disabled={!consentPersisted || consentSaving || uploading || submitBusy} className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-lg border border-edge px-4 py-2 text-sm font-semibold text-body hover:border-accent disabled:cursor-not-allowed disabled:opacity-50">
+                          {consentSaving && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
+                          {t('jobBoard.assisted.saveData')}
+                        </button>
+                        {detailsSaved && <span className="inline-flex items-center gap-1 text-xs font-medium text-success"><CheckCircle2 size={14} aria-hidden="true" />{t('jobBoard.assisted.dataSaved')}</span>}
+                      </div>
+
+                      <div className="rounded-xl border border-dashed border-accent-border p-4">
+                        <button
+                          type="button"
+                          onClick={() => cvInputRef.current?.click()}
+                          disabled={!consentPersisted || Boolean(cvStorageKey) || consentSaving || uploading || submitBusy}
+                          aria-controls="assisted-application-cv-input"
+                          aria-describedby="assisted-application-cv-hint"
+                          className="flex min-h-[44px] w-full items-center gap-3 text-left text-sm font-semibold text-accent disabled:cursor-not-allowed disabled:text-muted"
+                        >
+                          <UploadCloud className="h-5 w-5 shrink-0" aria-hidden="true" />
+                          <span>{cvStorageKey ? t('jobBoard.assisted.fileSelected') : t('jobBoard.assisted.fileCta')}</span>
+                        </button>
+                        <input
+                          ref={cvInputRef}
+                          id="assisted-application-cv-input"
+                          type="file"
+                          accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                          disabled={!consentPersisted || Boolean(cvStorageKey) || consentSaving || uploading || submitBusy}
+                          aria-hidden="true"
+                          tabIndex={-1}
+                          onChange={(event) => {
+                            const file = event.target.files?.[0];
+                            event.target.value = '';
+                            void handleFileChange(file);
+                          }}
+                          className="sr-only"
+                        />
+                        <p id="assisted-application-cv-hint" className="mt-2 flex items-center gap-1.5 text-xs text-muted">
+                          <LockKeyhole className="h-3.5 w-3.5" aria-hidden="true" />
+                          {t('jobBoard.assisted.fileHint')}
+                        </p>
+                        {uploading && <p className="mt-2 text-xs text-accent">{t('jobBoard.assisted.uploading')}</p>}
+                      </div>
+                      <p className="text-xs leading-relaxed text-subtle" data-testid="assisted-application-email-alternative">
+                        {t('jobBoard.assisted.emailAlternative')}
+                      </p>
+
+                      <button
+                        type="submit"
+                        disabled={!consentPersisted || !cvStorageKey || consentSaving || uploading || submitBusy}
+                        className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
+                      >
+                        {submitBusy && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
+                        {t('jobBoard.assisted.submit')}
+                      </button>
+                    </section>
+                  </>
                 ) : (
                   <>
                     <label className="flex items-start gap-3 rounded-xl border border-edge bg-surface-alt p-4 text-sm text-body">
@@ -460,60 +537,6 @@ export default function AssistedApplicationUpload({
                     </button>
                   </>
                 )}
-
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <label className="text-sm font-medium text-body">
-                    {t('jobBoard.assisted.name')}
-                    <input value={name} onChange={(event) => { setName(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="name" required />
-                  </label>
-                  <label className="text-sm font-medium text-body">
-                    {t('jobBoard.assisted.email')}
-                    <input type="email" value={email} onChange={(event) => { setEmail(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="email" required />
-                  </label>
-                </div>
-                <label className="block text-sm font-medium text-body">
-                  {t('jobBoard.assisted.phone')}
-                  <input value={phone} onChange={(event) => { setPhone(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" />
-                </label>
-
-                <div className="flex flex-wrap items-center gap-3">
-                  <button type="button" onClick={() => { void handleSaveDetails(); }} disabled={!consentPersisted || consentSaving || uploading || submitBusy} className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-lg border border-edge px-4 py-2 text-sm font-semibold text-body hover:border-accent disabled:cursor-not-allowed disabled:opacity-50">
-                    {consentSaving && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
-                    {t('jobBoard.assisted.saveData')}
-                  </button>
-                  {detailsSaved && <span className="inline-flex items-center gap-1 text-xs font-medium text-success"><CheckCircle2 size={14} aria-hidden="true" />{t('jobBoard.assisted.dataSaved')}</span>}
-                </div>
-
-                <div className="rounded-xl border border-dashed border-accent-border p-4">
-                  <label className={`flex cursor-pointer items-center gap-3 text-sm font-semibold ${consentPersisted ? 'text-accent' : 'cursor-not-allowed text-muted'}`}>
-                    <UploadCloud className="h-5 w-5 shrink-0" aria-hidden="true" />
-                    <span>{cvStorageKey ? t('jobBoard.assisted.fileSelected') : t('jobBoard.assisted.fileCta')}</span>
-                    <input
-                      type="file"
-                      accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                      disabled={!consent || Boolean(cvStorageKey) || !consentPersisted || consentSaving || uploading || submitBusy}
-                      onChange={(event) => { void handleFileChange(event.target.files?.[0]); }}
-                      className="sr-only"
-                    />
-                  </label>
-                  <p className="mt-2 flex items-center gap-1.5 text-xs text-muted">
-                    <LockKeyhole className="h-3.5 w-3.5" aria-hidden="true" />
-                    {t('jobBoard.assisted.fileHint')}
-                  </p>
-                  {uploading && <p className="mt-2 text-xs text-accent">{t('jobBoard.assisted.uploading')}</p>}
-                </div>
-                <p className="text-xs leading-relaxed text-subtle" data-testid="assisted-application-email-alternative">
-                  {t('jobBoard.assisted.emailAlternative')}
-                </p>
-
-                <button
-                  type="submit"
-                  disabled={!consentPersisted || !cvStorageKey || consentSaving || uploading || submitBusy}
-                  className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  {submitBusy && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
-                  {t('jobBoard.assisted.submit')}
-                </button>
               </form>
             )}
           </>
