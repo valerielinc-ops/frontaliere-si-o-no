@@ -1166,7 +1166,8 @@ async function runPixabayPhoto(spec, destination, { timeoutMs = 45_000, usedReco
 
 const VISION_PROVIDER_TRANSPORT_CODES = new Set([
   'ECONNABORTED', 'ECONNREFUSED', 'ECONNRESET', 'EAI_AGAIN', 'EHOSTUNREACH',
-  'ENETUNREACH', 'EPIPE', 'ETIMEDOUT',
+  'ENETUNREACH', 'EPIPE', 'ETIMEDOUT', 'UND_ERR_CONNECT_TIMEOUT',
+  'UND_ERR_HEADERS_TIMEOUT', 'UND_ERR_BODY_TIMEOUT', 'UND_ERR_SOCKET',
 ]);
 
 function errorCauseChain(error) {

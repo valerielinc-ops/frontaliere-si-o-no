@@ -211,7 +211,7 @@ describe('generated image provider contracts', () => {
         });
       };
 
-      const socketFailure = Object.assign(new Error('connection reset'), { code: 'ECONNRESET' });
+      const socketFailure = Object.assign(new Error('connection timed out'), { code: 'UND_ERR_CONNECT_TIMEOUT' });
       const nestedTransport = await verifyWithFetchFailure(new TypeError('fetch failed', { cause: socketFailure }));
       expect(nestedTransport?.code).toBe('AI_PROVIDER_UNAVAILABLE');
       expect(nestedTransport?.sharedProviderUnavailable).toBe(true);
