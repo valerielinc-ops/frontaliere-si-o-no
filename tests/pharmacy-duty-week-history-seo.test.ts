@@ -49,8 +49,7 @@ describe('historical pharmacy weekly URLs', () => {
     const sourceWeek = recovery.weeks[0];
     const pastObservation = {
       ...structuredClone(sourceWeek.observations[0]),
-      fetchedAt: '2026-10-18T03:00:00.000Z',
-      catalogueFetchedAt: '2026-10-18T03:00:00.000Z',
+      entries: [structuredClone(sourceWeek.observations[0].entries[0])],
     };
     const futureObservation = {
       ...structuredClone(pastObservation),
