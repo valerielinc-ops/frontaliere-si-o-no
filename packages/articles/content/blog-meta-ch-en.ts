@@ -8457,7 +8457,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.big-tech-franchi-bolla-ia.excerpt': 'U.S. tech giants issue Swiss franc bonds to finance data centers.',
     'blog.article.big-tech-franchi-bolla-ia.imageAlt': 'Swiss urban skyline with offices and technology infrastructure linked to finance.',
     'blog.article.svizzera-vietnam-relazioni-2026.title': 'Switzerland and Vietnam intensify trade and investment',
-    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Swiss Confederation President Guy Parmelin was received in Hanoi on October 17, 2026, by Tô Lâm and Lê Minh Hưng. Switzerland and Vietnam discussed trade, investment, sustainable urban development, employment and innovation; the signing of the EFTA-Vietnam free trade agreement was scheduled for October 18.',
+    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin received in Hanoi on October 17, 2026 EFTA-Vietnam agreement expected for October 18 Projects on trade and sustainable urban development Statements',
     'blog.article.svizzera-vietnam-relazioni-2026.imageAlt': 'View of Lake Lugano with the Alps in the background, representing Switzerland-Vietnam cooperation on trade and investment.',
     'blog.article.microdrama-pubblicita-tiktok-instagram.title': 'Sexy microdrama promotes a paid app on TikTok',
     'blog.article.microdrama-pubblicita-tiktok-instagram.excerpt': 'AI ads depict sex somewhere between bizarre and fantasy.',
@@ -8507,6 +8507,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.title': 'PS supports three initiatives and a document on decent work',
     'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.excerpt': 'In Thun, the PS supported three popular initiatives Baume-Schneider spoke about funding the 13th AHV pension The PS is calling for shorter working hours and higher wages',
     'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.imageAlt': 'Editorial image related to: PS sostiene tre iniziative e documento lavoro dignitoso',
+    'blog.article.apprendistato-zurigo-guida-pratica.title': 'Apprenticeship in Zurich: Job, Contract, Pay and Matura',
+    'blog.article.apprendistato-zurigo-guida-pratica.excerpt': 'Practical guide to apprenticeships in the Canton of Zurich: finding a position, checking the contract, understanding pay and the vocational baccalaureate.',
+    'blog.article.apprendistato-zurigo-guida-pratica.imageAlt': 'Young apprentice in a Swiss workshop in Zurich reviewing a contract',
+    'blog.article.agenda-federale-voto-2026.title': 'Federal Council has transmitted the Switzerland-EU package',
+    'blog.article.agenda-federale-voto-2026.excerpt': 'The Switzerland-EU package was submitted on March 13, 2026 On November 29, 2026, a vote will be held on the additional financing of the AVS Guy Parmelin announced',
+    'blog.article.agenda-federale-voto-2026.imageAlt': 'Swiss institutional scene linked to federal decisions and popular votes',
+    'blog.article.giovani-donne-stipendi-svizzera.title': 'More Young Swiss women earn less despite being more educated',
+    'blog.article.giovani-donne-stipendi-svizzera.excerpt': 'Born in 1995: income gap of 14% Born in 1965: income gap of 55% In 2025: tertiary education at 54% versus 48% Among parents',
+    'blog.article.giovani-donne-stipendi-svizzera.imageAlt': 'Young woman working in a modern office in Switzerland',
+    'blog.article.imposta-successione-donazione-zurigo-regole.title': 'Inheritance and gift tax in the Canton of Zurich',
+    'blog.article.imposta-successione-donazione-zurigo-regole.excerpt': 'Guide to inheritance and gift tax in the Canton of Zurich: rates based on degree of kinship, exemptions for spouse and descendants, and compliance requirements.',
+    'blog.article.imposta-successione-donazione-zurigo-regole.imageAlt': 'Inheritance and gift tax in the Canton of Zurich',
 };
 
 export default blogMetaChEn;

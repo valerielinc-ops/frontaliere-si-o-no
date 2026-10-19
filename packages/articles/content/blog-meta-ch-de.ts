@@ -8457,7 +8457,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.big-tech-franchi-bolla-ia.excerpt': 'Die US-Technologiegiganten geben Anleihen in Schweizer Franken aus, um Rechenzentren zu finanzieren.',
     'blog.article.big-tech-franchi-bolla-ia.imageAlt': 'Schweizer Stadtansicht mit Büros und Technologieinfrastruktur im Finanzbereich.',
     'blog.article.svizzera-vietnam-relazioni-2026.title': 'Schweiz und Vietnam intensivieren Handel und Investitionen',
-    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Bundespräsident Guy Parmelin wurde am 17. Oktober 2026 in Hanoi von Tô Lâm und Lê Minh Hưng empfangen. Die Schweiz und Vietnam vertieften ihre Zusammenarbeit bei Handel, Investitionen, nachhaltiger Stadtentwicklung, Arbeitsmarkt und Innovation; die Unterzeichnung des EFTA-Vietnam-Freihandelsabkommens war für den 18. Oktober vorgesehen.',
+    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin am 17.',
     'blog.article.svizzera-vietnam-relazioni-2026.imageAlt': 'Blick auf den Luganer See mit den Alpen im Hintergrund, Symbol für die Schweiz-Vietnam-Zusammenarbeit im Handel und Investment.',
     'blog.article.microdrama-pubblicita-tiktok-instagram.title': 'Sexy-Mikrodrama bewirbt auf TikTok eine kostenpflichtige App',
     'blog.article.microdrama-pubblicita-tiktok-instagram.excerpt': 'KI-Anzeigen zeigen Sex zwischen dem Bizarren und Fantasy.',
@@ -8507,6 +8507,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.title': 'SP unterstützt drei Initiativen und ein Dokument zu menschenwürdiger Arbeit',
     'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.excerpt': 'In Thun hat die SP drei Volksinitiativen unterstützt Baume-Schneider hat über die Finanzierung der 13.',
     'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.imageAlt': 'Redaktionelles Bild zu: PS sostiene tre iniziative e documento lavoro dignitoso',
+    'blog.article.apprendistato-zurigo-guida-pratica.title': 'Lehre in Zürich: Lehrstelle, Vertrag, Vergütung und Berufsmaturität',
+    'blog.article.apprendistato-zurigo-guida-pratica.excerpt': 'Praktischer Leitfaden für die Lehre im Kanton Zürich: Suche nach einer Lehrstelle, Prüfung des Vertrags, Verständnis der Vergütung und Berufsmaturität.',
+    'blog.article.apprendistato-zurigo-guida-pratica.imageAlt': 'Junger Lehrling in einer Schweizer Werkstatt in Zürich prüft einen Vertrag',
+    'blog.article.agenda-federale-voto-2026.title': 'Der Bundesrat hat das Schweiz-EU-Paket übermittelt',
+    'blog.article.agenda-federale-voto-2026.excerpt': 'Das Schweiz-EU-Paket wurde am 13.',
+    'blog.article.agenda-federale-voto-2026.imageAlt': 'Schweizerische Institutionenszene zu Bundesentscheiden und Volksabstimmungen',
+    'blog.article.giovani-donne-stipendi-svizzera.title': 'Mehr junge Schweizerinnen verdienen weniger, obwohl sie besser ausgebildet sind',
+    'blog.article.giovani-donne-stipendi-svizzera.excerpt': '1995 Geborene: Einkommensgefälle von 14% 1965 Geborene: Einkommensgefälle von 55% 2025: Tertiärbildung bei 54% gegenüber 48% Bei den Eltern',
+    'blog.article.giovani-donne-stipendi-svizzera.imageAlt': 'Junge Frau arbeitet in einem modernen Büro in der Schweiz',
+    'blog.article.imposta-successione-donazione-zurigo-regole.title': 'Erbschafts- und Schenkungssteuer im Kanton Zürich',
+    'blog.article.imposta-successione-donazione-zurigo-regole.excerpt': 'Leitfaden zur Erbschafts- und Schenkungssteuer im Kanton Zürich: Steuersätze nach Verwandtschaftsgrad, Befreiungen für Ehegatten und Nachkommen sowie erforderliche Formalitäten.',
+    'blog.article.imposta-successione-donazione-zurigo-regole.imageAlt': 'Erbschafts- und Schenkungssteuer im Kanton Zürich',
 };
 
 export default blogMetaChDe;

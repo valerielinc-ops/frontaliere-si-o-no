@@ -13488,6 +13488,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tutele-frontaliero-uscita-ticino.title': 'Un navetteur transfrontalier renvoyé en 2026 : droits sur plus de 20 km',
     'blog.article.tutele-frontaliero-uscita-ticino.excerpt': 'Guide pratique pour les navetteurs transfrontaliers sur plus de 20 km : accord CH-IT, retenue à la source, déductibles, AHV, BVG, KVG et chèques post-congédiement.',
     'blog.article.tutele-frontaliero-uscita-ticino.imageAlt': 'Frontalier avec des documents de travail devant un bureau au Tessin',
+    'blog.article.como-razionalista-fondi-associazioni.title': 'Como Razionalista : 78mila euro à deux associations',
+    'blog.article.como-razionalista-fondi-associazioni.excerpt': 'Deux associations soutiendront Como Razionalista Financement prévu de 2026 à 2028 Plus de 78mila euro provenant de la taxe de séjour Versement après les comptes rendus',
+    'blog.article.como-razionalista-fondi-associazioni.imageAlt': 'Architecture rationaliste dans un cadre urbain',
+    'blog.article.como-manifestazioni-24-ottobre.title': 'Como, deux manifestations : l’une pacifique, l’autre à risque',
+    'blog.article.como-manifestazioni-24-ottobre.excerpt': 'Deux manifestations potentielles seraient en cours pour le 24 octobre Une est étudiante, avec des autorisations en règle et des objectifs pacifiques L’autre est associée à des craintes',
+    'blog.article.como-manifestazioni-24-ottobre.imageAlt': 'Vue urbaine de Mendrisio lors d’une journée d’automne',
+    'blog.article.frontaliere-formazione-riqualifica-2026.title': 'Frontalier formation professionnelle requalifie cours 2026 dans les 20 km',
+    'blog.article.frontaliere-formazione-riqualifica-2026.excerpt': 'Guide pratique de la formation professionnelle et des cours de recyclage pour les frontaliers en 2026, avec un focus dans les 20 km et une évaluation du retour.',
+    'blog.article.frontaliere-formazione-riqualifica-2026.imageAlt': 'Centre de formation professionnelle au Tessin pour cours et reconversion',
+    'blog.article.indagini-morte-pierina-buffon.title': 'Morte pierina buffon : vérifications à cassano et gallarate',
+    'blog.article.indagini-morte-pierina-buffon.excerpt': 'Vendredi matin, le crash à Cassano Magnago La Jaguar aurait été lancée à 140 kilomètres par heure Le procureur évalue la planification du crime Accès',
+    'blog.article.indagini-morte-pierina-buffon.imageAlt': 'Enquêtes et constatations sur le véhicule impliqué',
 };
 
 export default blogMetaFr;

@@ -57342,6 +57342,598 @@
           "notes": "Generic synthetic editorial scene matching a Swiss cantonal government election context; no readable text, logos, or identifiable people."
         }
       }
+    },
+    "generated:article-agenda-federale-voto-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T02:24:38.425Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-agenda-federale-voto-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "7a76256a9ee680975677f92fba01fa68717a9baeaccd0e89d2968f0c57ffdd24",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "1623469f054111babbda077125546832f807a0ba09f633524ccd18c4791fd541",
+        "bytes": 63184,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T02:24:38.425Z",
+        "verifiedAt": "2026-10-19T02:24:46.481Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-agenda-federale-voto-2026.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic civic-information illustration with a ballot box, official papers, and a Swiss government building; no readable text, logos, people, or specific-event documentation."
+        }
+      }
+    },
+    "generated:article-como-manifestazioni-24-ottobre": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T03:33:59.885Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-como-manifestazioni-24-ottobre",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "43c77ea727a0f3c4056d50d2f27aa8a7637fdf46289a26f9b3e8d0eaf89d8efd",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "67c2daed02ff0784f3065ae4cb8747c7f8a3713f312727b47d44883ac61f430e",
+        "bytes": 189910,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T03:33:59.885Z",
+        "verifiedAt": "2026-10-19T03:34:09.891Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-como-manifestazioni-24-ottobre.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic autumn street scene relevant to Ticino and cross-border commuting; no readable text, logos, identifiable faces, or specific event."
+        }
+      }
+    },
+    "generated:article-como-razionalista-fondi-associazioni": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T02:46:21.243Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-como-razionalista-fondi-associazioni",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "097ea8eacc39826eefd86f0992eee02382c2236d4647f7da11e6e6d1d9fd60e2",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "5841eda1c7b5f1c2f1a8f3a0bfda19280759158b939e75ec86c33dddca3d653c",
+        "bytes": 141988,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T02:46:21.243Z",
+        "verifiedAt": "2026-10-19T02:46:28.051Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-como-razionalista-fondi-associazioni.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic photorealistic illustration of a modernist civic building in a Ticino/Como-like urban setting; no people, text, signage, logos, or specific event."
+        }
+      }
+    },
+    "generated:article-frontaliere-formazione-riqualifica-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T04:51:13.497Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-frontaliere-formazione-riqualifica-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "c58c1bb9b84307d6eb111c641c862b7119d1bddab3a4375cd1587dea7d87e07c",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "e0172f7e46dfbe7f1f8d85694cebf69100ea37e93e400403695adebc20dfe5fe",
+        "bytes": 97538,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T04:51:13.497Z",
+        "verifiedAt": "2026-10-19T04:51:33.744Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-frontaliere-formazione-riqualifica-2026.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic illustration of a vocational training workshop in a Ticino-like mountain setting; no readable text, logos, recognizable faces, or specific event cues."
+        }
+      }
+    },
+    "generated:article-imposta-successione-donazione-zurigo-regole": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T05:15:34.394Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-imposta-successione-donazione-zurigo-regole",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "08f3787b6b87347dbefd23fca7930fff2043e0a685374433c1c037194e3ebbec",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "b5ccfc109529e37bf5238a24ba8a6e124530e24e3ad4d75b34e066c8b5217503",
+        "bytes": 205292,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T05:15:34.394Z",
+        "verifiedAt": "2026-10-19T05:15:42.494Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-imposta-successione-donazione-zurigo-regole.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic, photorealistic illustration of a Swiss administrative building; no people, text, signage, logos, or event-specific cues."
+        }
+      }
+    },
+    "generated:article-indagini-morte-pierina-buffon": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T05:57:14.507Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-indagini-morte-pierina-buffon",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "a85aa3f16f729b2e24ab166d1593c88f1b5e14abce708365c9105df395938389",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "a5b49a2fb7b4e64e3066ed6d9847b57d86d0a16e3b47ec3d970fe4a02123334c",
+        "bytes": 186686,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T05:57:14.507Z",
+        "verifiedAt": "2026-10-19T05:57:43.809Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-indagini-morte-pierina-buffon.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic photorealistic illustration showing a car, camera, and commuter train in an alpine cross-border setting; no visible text, logos, faces, or people."
+        }
+      }
+    },
+    "generated:article-neuchatel-disoccupazione-maggio-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T03:28:59.403Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-neuchatel-disoccupazione-maggio-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "fc88f56c0909e98bb990ac0b09d0fe96c42b1961f97f1e779492bb5efc95c33f",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "17043f6862d9c1cbcd666ee88a115099cb08fa851627d2d7e84f0784e2ac775a",
+        "bytes": 164650,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T03:28:59.403Z",
+        "verifiedAt": "2026-10-19T03:29:08.922Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-neuchatel-disoccupazione-maggio-2026.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic architectural illustration of a modern office building in a Swiss mountain setting; no people, text, signage, logos, or specific event."
+        }
+      }
+    },
+    "generated:article-rapporto-consiglio-federale-schengen": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T02:54:51.646Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-rapporto-consiglio-federale-schengen",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "7243d2a7eaea374e779813999baa9e73d9fa569ba726518db007dc3f7a8a3800",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "1b219f325cb185ac6c361ee1eb39c24604bc31b6f840a86d001493f72a07cbb7",
+        "bytes": 100790,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T02:54:51.646Z",
+        "verifiedAt": "2026-10-19T02:54:59.067Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-rapporto-consiglio-federale-schengen.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic border-checkpoint illustration relevant to cross-border travel and Schengen; no readable text, logos, watermarks, or recognizable people."
+        }
+      }
     }
   },
   "covers": {
@@ -62646,349 +63238,349 @@
     "bollettino-frontaliere-2026-08-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-09": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-12": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-19": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-20": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-21": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-22": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-23": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-24": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-25": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-26": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-27": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-28": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-29": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-30": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-31": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-01": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-02": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-03": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-05": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-06": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-07": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-12": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-15": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-19": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-20": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-21": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-22": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-23": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-24": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-25": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-26": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-27": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-28": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-29": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-30": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-01": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-02": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-03": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-04": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-05": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-06": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollini-rossi-traffico-san-gottardo-2026": {
@@ -95606,31 +96198,31 @@
     "bollettino-frontaliere-2026-10-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-15": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "article-agevolazioni-doganali-impiego": {
@@ -95876,13 +96468,13 @@
     "bollettino-frontaliere-2026-10-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "article-como-orabasta-famiglie": {
@@ -96758,7 +97350,7 @@
     "bollettino-frontaliere-2026-10-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-18",
+      "verifiedAt": "2026-10-19",
       "status": "no-credit"
     },
     "article-cassano-indagine-schianto": {
@@ -96779,6 +97371,38 @@
     },
     "article-riniker-governo-argovia": {
       "file": "generated:article-riniker-governo-argovia",
+      "modified": "resized"
+    },
+    "article-agenda-federale-voto-2026": {
+      "file": "generated:article-agenda-federale-voto-2026",
+      "modified": "resized"
+    },
+    "article-como-manifestazioni-24-ottobre": {
+      "file": "generated:article-como-manifestazioni-24-ottobre",
+      "modified": "resized"
+    },
+    "article-como-razionalista-fondi-associazioni": {
+      "file": "generated:article-como-razionalista-fondi-associazioni",
+      "modified": "resized"
+    },
+    "article-frontaliere-formazione-riqualifica-2026": {
+      "file": "generated:article-frontaliere-formazione-riqualifica-2026",
+      "modified": "resized"
+    },
+    "article-imposta-successione-donazione-zurigo-regole": {
+      "file": "generated:article-imposta-successione-donazione-zurigo-regole",
+      "modified": "resized"
+    },
+    "article-indagini-morte-pierina-buffon": {
+      "file": "generated:article-indagini-morte-pierina-buffon",
+      "modified": "resized"
+    },
+    "article-neuchatel-disoccupazione-maggio-2026": {
+      "file": "generated:article-neuchatel-disoccupazione-maggio-2026",
+      "modified": "resized"
+    },
+    "article-rapporto-consiglio-federale-schengen": {
+      "file": "generated:article-rapporto-consiglio-federale-schengen",
       "modified": "resized"
     }
   }

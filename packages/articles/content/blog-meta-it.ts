@@ -13487,6 +13487,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tutele-frontaliero-uscita-ticino.title': 'Frontaliere licenziato nel 2026: diritti oltre 20 km',
     'blog.article.tutele-frontaliero-uscita-ticino.excerpt': 'Guida pratica per il frontaliere oltre 20 km: accordo CH-IT, imposta alla fonte, franchigie, AVS, LPP, LAMal e controlli dopo il licenziamento.',
     'blog.article.tutele-frontaliero-uscita-ticino.imageAlt': 'Frontaliere con documenti di lavoro davanti a un ufficio in Ticino',
+    'blog.article.como-razionalista-fondi-associazioni.title': 'Como Razionalista: 78mila euro a due associazioni',
+    'blog.article.como-razionalista-fondi-associazioni.excerpt': 'Due associazioni sosterranno Como Razionalista Finanziamento previsto dal 2026 al 2028 Oltre 78mila euro dall\'imposta di soggiorno Erogazione dopo i rendiconti',
+    'blog.article.como-razionalista-fondi-associazioni.imageAlt': 'Architettura razionalista in un contesto urbano',
+    'blog.article.como-manifestazioni-24-ottobre.title': 'Como, due manifestazioni: una pacifica, l’altra a rischio',
+    'blog.article.como-manifestazioni-24-ottobre.excerpt': 'Sarebbero in corso due possibili manifestazioni per il 24 ottobre Una è studentesca, con permessi in regola e finalità pacifiche L’altra è associata a timori',
+    'blog.article.como-manifestazioni-24-ottobre.imageAlt': 'Scorcio urbano di Mendrisio in una giornata autunnale',
+    'blog.article.frontaliere-formazione-riqualifica-2026.title': 'Frontaliere formazione professionale riqualifica corsi 2026 entro 20 km',
+    'blog.article.frontaliere-formazione-riqualifica-2026.excerpt': 'Guida pratica alla formazione professionale e ai corsi di riqualifica per i frontalieri nel 2026, con focus entro 20 km e valutazione del ritorno.',
+    'blog.article.frontaliere-formazione-riqualifica-2026.imageAlt': 'Centro di formazione professionale in Ticino per corsi e riqualifica',
+    'blog.article.indagini-morte-pierina-buffon.title': 'Morte pierina buffon: accertamenti a cassano e gallarate',
+    'blog.article.indagini-morte-pierina-buffon.excerpt': 'Venerdì mattina lo schianto a Cassano Magnago La Jaguar sarebbe stata lanciata a 140 chilometri orari La Procura valuta la pianificazione del delitto Accesso',
+    'blog.article.indagini-morte-pierina-buffon.imageAlt': 'Accertamenti e rilievi investigativi sull\'auto coinvolta',
 };
 
 export default blogMetaIt;

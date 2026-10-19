@@ -111860,6 +111860,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-razionalista-fondi-associazioni': {
+    title: 'Como Razionalista: 78mila euro a due associazioni',
+    description: 'Due associazioni sosterranno Como Razionalista Finanziamento previsto dal 2026 al 2028 Oltre 78mila euro dall\'imposta di soggiorno Erogazione dopo i rendiconti',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, razionalista, 78mila, euro',
+    ogTitle: 'Como Razionalista: 78mila euro a due associazioni',
+    ogDescription: 'Due associazioni sosterranno Como Razionalista Finanziamento previsto dal 2026 al 2028 Oltre 78mila euro dall\'imposta di soggiorno Erogazione dopo i rendiconti',
+    canonicalPath: '/articoli-frontaliere/como-razionalista-fondi-associazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como Razionalista: 78mila euro a due associazioni",
+      "description": "Due associazioni sosterranno Como Razionalista Finanziamento previsto dal 2026 al 2028 Oltre 78mila euro dall'imposta di soggiorno Erogazione dopo i rendiconti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-como-razionalista-fondi-associazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Architettura razionalista in un contesto urbano"
+      },
+      "datePublished": "2026-10-19T02:46:28+00:00",
+      "dateModified": "2026-10-19T02:46:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-razionalista-fondi-associazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-como-manifestazioni-24-ottobre': {
+    title: 'Como, due manifestazioni: una pacifica, l’altra a rischio',
+    description: 'Sarebbero in corso due possibili manifestazioni per il 24 ottobre Una è studentesca, con permessi in regola e finalità pacifiche L’altra è associata a timori',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, manifestazioni, pacifica, altra',
+    ogTitle: 'Como, due manifestazioni e la partita al Sinigaglia',
+    ogDescription: 'Sarebbero in corso due possibili manifestazioni per il 24 ottobre Una è studentesca, con permessi in regola e finalità pacifiche L’altra è associata a timori',
+    canonicalPath: '/articoli-frontaliere/como-manifestazioni-24-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, due manifestazioni: una pacifica, l’altra a rischio",
+      "description": "Sarebbero in corso due possibili manifestazioni per il 24 ottobre Una è studentesca, con permessi in regola e finalità pacifiche L’altra è associata a timori",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-como-manifestazioni-24-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scorcio urbano di Mendrisio in una giornata autunnale"
+      },
+      "datePublished": "2026-10-19T03:34:10+00:00",
+      "dateModified": "2026-10-19T03:34:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-manifestazioni-24-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-formazione-riqualifica-2026': {
+    title: 'Frontaliere formazione professionale riqualifica corsi 2026 entro 20 km',
+    description: 'Guida alla formazione professionale e corsi di riqualifica per frontalieri nel 2026 entro 20 km dal confine: analisi, scenari e ritorno pratico.',
+    keywords: 'frontalieri, ticino, svizzera, italia, formazione, professionale, riqualifica, corsi',
+    ogTitle: 'Formazione Professionale e Riqualifica per Frontalieri nel 2026',
+    ogDescription: 'Scopri come scegliere i corsi di formazione e riqualifica professionale nel 2026 per i frontalieri che lavorano in Ticino, con focus entro 20 km e valutazione del ritorno pratico.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-formazione-riqualifica-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere formazione professionale riqualifica corsi 2026 entro 20 km",
+      "description": "Guida alla formazione professionale e corsi di riqualifica per frontalieri nel 2026 entro 20 km dal confine: analisi, scenari e ritorno pratico.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-frontaliere-formazione-riqualifica-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di formazione professionale in Ticino per corsi e riqualifica"
+      },
+      "datePublished": "2026-10-19T04:51:34+00:00",
+      "dateModified": "2026-10-19T04:51:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-formazione-riqualifica-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-indagini-morte-pierina-buffon': {
+    title: 'Morte pierina buffon: accertamenti a cassano e gallarate',
+    description: 'Venerdì mattina lo schianto a Cassano Magnago La Jaguar sarebbe stata lanciata a 140 chilometri orari La Procura valuta la pianificazione del delitto Accesso',
+    keywords: 'frontalieri, ticino, svizzera, italia, morte, pierina, buffon, accertamenti',
+    ogTitle: 'Morte Pierina Buffon: indagini e accertamenti a Cassano',
+    ogDescription: 'Venerdì mattina lo schianto a Cassano Magnago La Jaguar sarebbe stata lanciata a 140 chilometri orari La Procura valuta la pianificazione del delitto Accesso',
+    canonicalPath: '/articoli-frontaliere/indagini-morte-pierina-buffon/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Morte pierina buffon: accertamenti a cassano e gallarate",
+      "description": "Venerdì mattina lo schianto a Cassano Magnago La Jaguar sarebbe stata lanciata a 140 chilometri orari La Procura valuta la pianificazione del delitto Accesso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-indagini-morte-pierina-buffon.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Accertamenti e rilievi investigativi sull'auto coinvolta"
+      },
+      "datePublished": "2026-10-19T05:57:44+00:00",
+      "dateModified": "2026-10-19T05:57:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/indagini-morte-pierina-buffon/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

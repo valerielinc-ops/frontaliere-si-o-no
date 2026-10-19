@@ -13486,6 +13486,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tutele-frontaliero-uscita-ticino.title': 'Cross-border commuter dismissed in 2026: rights over 20 km',
     'blog.article.tutele-frontaliero-uscita-ticino.excerpt': 'Practical guide for cross-border commuters over 20 km: CH-IT agreement, withholding tax, deductibles, AHV, BVG, KVG and post-dismissal checks.',
     'blog.article.tutele-frontaliero-uscita-ticino.imageAlt': 'Cross-border worker with work documents outside an office in Ticino',
+    'blog.article.como-razionalista-fondi-associazioni.title': 'Como Rationalist: 78mila euro to two associations',
+    'blog.article.como-razionalista-fondi-associazioni.excerpt': 'Two associations will support Como Rationalist Funding planned from 2026 to 2028 Over 78 thousand euros from the tourist tax Disbursement after the financial reports',
+    'blog.article.como-razionalista-fondi-associazioni.imageAlt': 'Rationalist architecture in an urban setting',
+    'blog.article.como-manifestazioni-24-ottobre.title': 'Como, two demonstrations: one peaceful, the other at risk',
+    'blog.article.como-manifestazioni-24-ottobre.excerpt': 'Two possible demonstrations are reportedly being organized for October 24 One is a student demonstration, with permits in order and peaceful aims The other is associated with fears',
+    'blog.article.como-manifestazioni-24-ottobre.imageAlt': 'Mendrisio urban scene on an autumn day',
+    'blog.article.frontaliere-formazione-riqualifica-2026.title': 'Frontier vocational training retraining courses 2026 within 20 km',
+    'blog.article.frontaliere-formazione-riqualifica-2026.excerpt': 'Practical guide to vocational training and retraining courses for border workers in 2026, with focus within 20 km and evaluation of return.',
+    'blog.article.frontaliere-formazione-riqualifica-2026.imageAlt': 'Professional training center in Ticino for courses and requalification',
+    'blog.article.indagini-morte-pierina-buffon.title': 'Death of buffoon pierina: cassan and gallarate investigations',
+    'blog.article.indagini-morte-pierina-buffon.excerpt': 'Friday morning the crash at Cassano Magnago The Jaguar would have been launched at 140 kilometers per hour The Prosecutor evaluates the planning of the crime Access',
+    'blog.article.indagini-morte-pierina-buffon.imageAlt': 'Investigative checks and findings on the vehicle involved',
 };
 
 export default blogMetaEn;
