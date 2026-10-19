@@ -246,4 +246,3 @@ export function main(filePaths = process.argv.slice(2)) {
 }
 
 if (isDirectInvocation()) process.exitCode = main();
-

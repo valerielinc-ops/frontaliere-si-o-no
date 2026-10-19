@@ -36,4 +36,3 @@ describe('check-article-excerpt-completeness', () => {
     );
   });
 });
-
