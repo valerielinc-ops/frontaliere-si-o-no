@@ -413,7 +413,7 @@ export function buildSectorHubDiscoveryReport({
     const slug = text(candidate.suggestedSlug);
     if (slug) previousBySlug.set(slug, candidate);
   }
-  const currentSlugs = new Set(candidateAcc.keys());
+  const currentSlugs = new Set<string>();
   const candidateRows = [];
   for (const [slug, acc] of candidateAcc) {
     const entries = [...acc.labels.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
@@ -422,6 +422,7 @@ export function buildSectorHubDiscoveryReport({
     const employers = new Set(jobEntries.map(({ job }) => employerIdentity(job)).filter(Boolean));
     const activeJobCount = jobEntries.length;
     if (activeJobCount < MIN_TRACKED_JOBS) continue;
+    currentSlugs.add(slug);
     let activeJobViews = 0;
     let viewsPerLiveDay = 0;
     let activeJobsWithViews = 0;
@@ -483,6 +484,7 @@ export function buildSectorHubDiscoveryReport({
       gscQueryClicks28d: Math.round(queryMetrics.clicks),
       score,
       consecutiveWeeks: candidateAgeWeeks,
+      observedWeeks,
       firstSeenAt: old?.firstSeenAt || generatedAt,
       lastSeenAt: generatedAt,
       status: reviewEligible ? 'eligible-for-review'
@@ -522,7 +524,9 @@ export function buildSectorHubDiscoveryReport({
     || a.suggestedSlug.localeCompare(b.suggestedSlug));
 
   const gscStatus = sourceCoverageStatus(traffic.gsc.error);
-  const ga4Status = sourceCoverageStatus(traffic.ga4.error);
+  const ga4Error = traffic.ga4.error
+    || (traffic.ga4.coverage?.complete === false ? 'GA4 coverage is incomplete or restricted' : undefined);
+  const ga4Status = sourceCoverageStatus(ga4Error);
   const gscPasses = traffic.gsc.error || '';
   return {
     schemaVersion: 1,
@@ -558,7 +562,7 @@ export function buildSectorHubDiscoveryReport({
         returnedPages: Object.keys(traffic.ga4.pages).length,
         minSessionsPerPage: 1,
         coverage: traffic.ga4.coverage || null,
-        error: traffic.ga4.error || null,
+        error: ga4Error || null,
       },
       gsc: {
         status: gscStatus,
