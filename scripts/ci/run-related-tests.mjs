@@ -230,12 +230,10 @@ const sourceTreeLintTests = new Map([
   // Lo scan copre scripts/lib/** piu' un file nominato fuori da lib.
   ['tests/sanitize-control-chars.test.ts', /^scripts\/(?:lib\/.+\.(?:mjs|cjs|js)|publish-article-fast\.mjs)$/],
   ['tests/bounded-parallel.test.ts', /^scripts\/lib\/[^/]+\.sh$/],
-  // Il guard dei limiti di tempo su R2 legge da disco i due script del percorso
-  // di deploy e non li importa. Senza questa voce una PR che aggiunge una
-  // chiamata rclone a uno dei due non lo esegue: e' cosi' che la lookup senza
-  // limite riconoscibile di `upload-cdn-file.sh` e' arrivata su `main` (#11879)
-  // e il rosso e' comparso solo sulla prima PR che toccava `deploy.yml`.
-  ['tests/r2-calls-bounded.test.ts', /^scripts\/lib\/(?:deploy-it-pages-prep|upload-cdn-file)\.sh$/],
+  // Il guard dei limiti/lifecycle R2 legge da disco gli script del percorso
+  // deploy e il loro helper condiviso, senza importarli. Senza questa voce una
+  // modifica all'helper potrebbe saltare il guard fino a una PR non correlata.
+  ['tests/r2-calls-bounded.test.ts', /^scripts\/lib\/(?:deploy-it-pages-prep|upload-cdn-file|r2-image-lease-process)\.sh$/],
   // Questi scandiscono ricorsivamente tutto scripts/, ognuno con le proprie
   // estensioni; costano pochi secondi.
   ['tests/score-ledger-persistence.test.ts', /^scripts\/.+\.mjs$/],

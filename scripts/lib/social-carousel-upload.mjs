@@ -7,6 +7,8 @@
  * uploader (see push-mirrored-event-images-cdn.mjs for the same pattern) —
  * rather than a fresh S3 client, so R2 credential handling and Content-Type
  * detection live in exactly one place.
+ * This caller writes only `images/social/` keys; its result is determined by
+ * the uploader exit status and success marker, not the blog/places lease.
  */
 
 import { spawnSync } from 'node:child_process';
