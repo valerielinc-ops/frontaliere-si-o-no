@@ -1,7 +1,7 @@
 {
   "key": "stryker",
   "label": "Stryker",
-  "generatedAt": "2026-10-19T10:01:13.676Z",
+  "generatedAt": "2026-10-19T21:35:45.648Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 7053,
-  "avgDurationMs": 7053,
+  "durationMs": 6664,
+  "avgDurationMs": 6664,
   "durationHistory": [
-    7053
+    6664
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:05.542Z",
+      "crawledAt": "2026-10-19T21:35:35.836Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Instandhaltungsmechaniker--m-w-d--fr-CNC-Anlagen---Medizintechnik_R571498",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:04.815Z",
+      "crawledAt": "2026-10-19T21:35:35.161Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/XMLNAME--Senior--EHS-Manager--m-w-d--Arbeitssicherheit--Umweltschutz_R573690-1",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T10:01:04.060Z",
+      "crawledAt": "2026-10-19T21:35:34.502Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Praktikum-im-Bereich-Produktionstechnik--Fertigung-Produktion----ab-Februar-Mrz-2027-6-Monate_R569865",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:03.173Z",
+      "crawledAt": "2026-10-19T21:35:33.767Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Apprentice-Manufacturing_R568815",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:02.411Z",
+      "crawledAt": "2026-10-19T21:35:33.114Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Berufsbildner--m-w-d-_R574592",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T10:01:01.631Z",
+      "crawledAt": "2026-10-19T21:35:32.445Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -282,5 +282,5 @@
       }
     }
   ],
-  "codeCommit": "7c57d83a65a7c490dd02472369151a97fd15bff1"
+  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
 }
