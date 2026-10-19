@@ -5300,7 +5300,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const __clHtml = __clNoindex
           ? replaceRobotsMeta(__clThinned, 'noindex,follow')
           : __clThinned;
-        const __clMirrorHtml = __clMirrorPaths.length > 0
+        const __clMirrorHtml = __clMirrorPaths.size > 0
           ? stripHreflangForClusterMirror(__clHtml)
           : __clHtml;
         profileRecord('cluster-thin', __tClThin);

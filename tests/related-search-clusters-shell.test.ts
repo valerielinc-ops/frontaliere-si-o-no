@@ -597,7 +597,7 @@ describe('flat redirect bridge payload', () => {
       'utf8',
     );
 
-    expect(src).toContain('const __clMirrorHtml = __clMirrorPaths.length > 0');
+    expect(src).toContain('const __clMirrorHtml = __clMirrorPaths.size > 0');
     expect(src).toContain('stripHreflangForClusterMirror(__clHtml)');
     expect(src).toContain('collector.add(indexPath, __clHtml);');
     expect(src).toContain('collector.add(mirrorIndexPath, __clMirrorHtml);');
