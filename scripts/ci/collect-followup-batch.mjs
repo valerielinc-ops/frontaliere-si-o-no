@@ -576,6 +576,30 @@ function claimLinesWithBullets(lines) {
 const BUCKET_WORD_REF_RE = /\bbucket\b[^\n#]*?(?<!\b(?:PR|pull[-\s]+request)\s*)#([1-9]\d*)\b/gi;
 const PARENT_BUCKET_REF_RE = /\bparent(?:\s+issue)?\s+#([1-9]\d*)\b/gi;
 const BUCKET_TAG_REF_RE = /(?<!\b(?:PR|pull[-\s]+request)\s*)#([1-9]\d*)\b[^#\n]*?`follow-up\(daily:\d{4}-\d{2}-\d{2}\)`/gi;
+// Una riga di claim puo' riportare anche il bucket esaminato ma invariato.
+// Quel numero e' contesto di audit, non prova di persistenza: va escluso
+// anche quando sulla stessa riga esiste una seconda claim positiva.
+const NON_PERSISTED_BUCKET_TAIL_RE = /\b(?:non\s+(?:modificat[oa]|aggiornat[oa])|invariat[oa]|not\s+(?:modified|updated)|unchanged)\b/i;
+
+function isNonPersistedBucketReference(text, match) {
+  const matchStart = Number.isInteger(match.index) ? match.index : -1;
+  if (matchStart < 0) return false;
+  const numberToken = `#${match[1]}`;
+  const numberOffset = match[0].indexOf(numberToken);
+  if (numberOffset < 0) return false;
+  const numberEnd = matchStart + numberOffset + numberToken.length;
+  const lineEnd = text.indexOf('\n', numberEnd);
+  const nextReference = text.indexOf('#', numberEnd);
+  const boundary = [lineEnd, nextReference]
+    .filter((position) => position >= 0)
+    .sort((left, right) => left - right)[0] ?? text.length;
+  return NON_PERSISTED_BUCKET_TAIL_RE.test(text.slice(numberEnd, boundary));
+}
+
+function persistedBucketReferenceMatches(text, pattern) {
+  return [...text.matchAll(pattern)]
+    .filter((match) => !isNonPersistedBucketReference(text, match));
+}
 
 /** I `#N` legati al tag `follow-up(daily:YYYY-MM-DD)` in un testo. */
 export function dailyTagBucketReferences(text) {
@@ -604,9 +628,9 @@ export function claimDailyTagBucketReferences(markerBody) {
  */
 export function claimBucketReferences(claim) {
   return [
-    ...[...claim.matchAll(BUCKET_WORD_REF_RE)],
-    ...[...claim.matchAll(PARENT_BUCKET_REF_RE)],
-    ...[...claim.matchAll(BUCKET_TAG_REF_RE)],
+    ...persistedBucketReferenceMatches(claim, BUCKET_WORD_REF_RE),
+    ...persistedBucketReferenceMatches(claim, PARENT_BUCKET_REF_RE),
+    ...persistedBucketReferenceMatches(claim, BUCKET_TAG_REF_RE),
   ]
     // Ordine di lettura del marker, per un log `bucket=[...]` leggibile.
     .sort((left, right) => left.index - right.index)
