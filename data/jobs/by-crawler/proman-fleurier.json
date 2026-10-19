@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "proman-fleurier-8a29684da2f4",
-      "slug": "operateur-regleur-cnc-h-f-x-la-chaux-de-fonds-proman-8a29684d",
+      "slug": "regolatore-di-cnc-m-f-x-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-8a29684d",
       "slugByLocale": {
         "fr": "operateur-regleur-cnc-h-f-x-la-chaux-de-fonds-proman-8a29684d",
-        "it": "operateur-regleur-cnc-h-f-x-la-chaux-de-fonds-proman-8a29684d",
-        "en": "operateur-regleur-cnc-h-f-x-la-chaux-de-fonds-proman-8a29684d",
-        "de": "operateur-regleur-cnc-h-f-x-la-chaux-de-fonds-proman-8a29684d"
+        "it": "regolatore-di-cnc-m-f-x-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-8a29684d",
+        "en": "cnc-regulator-m-f-x-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-8a29684d",
+        "de": "cnc-regler-m-w-x-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-8a29684d"
       },
       "slugDisambiguator": "8a29684d",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -66,16 +66,30 @@
         }
       },
       "postalCode": "2300",
-      "firstSeenAt": "2026-10-19T10:01:39.324Z"
+      "firstSeenAt": "2026-10-19T10:01:39.324Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-regleur-cnc-h-f-x-la-chaux-de-fonds-proman-8a29684d"
+        ],
+        "en": [
+          "operateur-regleur-cnc-h-f-x-la-chaux-de-fonds-proman-8a29684d"
+        ],
+        "de": [
+          "operateur-regleur-cnc-h-f-x-la-chaux-de-fonds-proman-8a29684d"
+        ]
+      },
+      "previousSlugs": [
+        "operateur-regleur-cnc-h-f-x-la-chaux-de-fonds-proman-8a29684d"
+      ]
     },
     {
       "id": "proman-fleurier-7c7d60720800",
-      "slug": "operatrice-en-salle-blanche-h-f-x-le-locle-proman-7c7d6072",
+      "slug": "operatore-della-camera-bianca-m-f-x-proman-bm-emploi-sa-fleurier-le-locle-7c7d6072",
       "slugByLocale": {
         "fr": "operatrice-en-salle-blanche-h-f-x-le-locle-proman-7c7d6072",
-        "it": "operatrice-en-salle-blanche-h-f-x-le-locle-proman-7c7d6072",
-        "en": "operatrice-en-salle-blanche-h-f-x-le-locle-proman-7c7d6072",
-        "de": "operatrice-en-salle-blanche-h-f-x-le-locle-proman-7c7d6072"
+        "it": "operatore-della-camera-bianca-m-f-x-proman-bm-emploi-sa-fleurier-le-locle-7c7d6072",
+        "en": "white-room-operator-m-f-x-proman-bm-emploi-sa-fleurier-le-locle-7c7d6072",
+        "de": "wei-raumbetreiber-m-w-x-proman-bm-emploi-sa-fleurier-le-locle-7c7d6072"
       },
       "slugDisambiguator": "7c7d6072",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -132,16 +146,30 @@
         }
       },
       "postalCode": "2400",
-      "firstSeenAt": "2026-10-19T10:01:39.324Z"
+      "firstSeenAt": "2026-10-19T10:01:39.324Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatrice-en-salle-blanche-h-f-x-le-locle-proman-7c7d6072"
+        ],
+        "en": [
+          "operatrice-en-salle-blanche-h-f-x-le-locle-proman-7c7d6072"
+        ],
+        "de": [
+          "operatrice-en-salle-blanche-h-f-x-le-locle-proman-7c7d6072"
+        ]
+      },
+      "previousSlugs": [
+        "operatrice-en-salle-blanche-h-f-x-le-locle-proman-7c7d6072"
+      ]
     },
     {
       "id": "proman-fleurier-2a9f25f7023e",
-      "slug": "macons-h-f-neuchatel-proman-2a9f25f7",
+      "slug": "masons-m-f-proman-bm-emploi-sa-fleurier-neuchatel-2a9f25f7",
       "slugByLocale": {
         "fr": "macons-h-f-neuchatel-proman-2a9f25f7",
-        "it": "macons-h-f-neuchatel-proman-2a9f25f7",
+        "it": "masons-m-f-proman-bm-emploi-sa-fleurier-neuchatel-2a9f25f7",
         "en": "macons-h-f-neuchatel-proman-2a9f25f7",
-        "de": "macons-h-f-neuchatel-proman-2a9f25f7"
+        "de": "freimaurer-m-w-proman-bm-emploi-sa-fleurier-neuchatel-2a9f25f7"
       },
       "slugDisambiguator": "2a9f25f7",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -198,16 +226,27 @@
         }
       },
       "postalCode": "2000",
-      "firstSeenAt": "2026-10-19T10:01:39.323Z"
+      "firstSeenAt": "2026-10-19T10:01:39.323Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "macons-h-f-neuchatel-proman-2a9f25f7"
+        ],
+        "de": [
+          "macons-h-f-neuchatel-proman-2a9f25f7"
+        ]
+      },
+      "previousSlugs": [
+        "macons-h-f-neuchatel-proman-2a9f25f7"
+      ]
     },
     {
       "id": "proman-fleurier-03f73a62c2eb",
-      "slug": "regleur-cnc-h-f-x-val-de-travers-proman-03f73a62",
+      "slug": "regolatore-cnc-m-f-x-proman-bm-emploi-sa-fleurier-val-de-travers-03f73a62",
       "slugByLocale": {
         "fr": "regleur-cnc-h-f-x-val-de-travers-proman-03f73a62",
-        "it": "regleur-cnc-h-f-x-val-de-travers-proman-03f73a62",
-        "en": "regleur-cnc-h-f-x-val-de-travers-proman-03f73a62",
-        "de": "regleur-cnc-h-f-x-val-de-travers-proman-03f73a62"
+        "it": "regolatore-cnc-m-f-x-proman-bm-emploi-sa-fleurier-val-de-travers-03f73a62",
+        "en": "cnc-adjuster-m-f-x-proman-bm-emploi-sa-fleurier-val-de-travers-03f73a62",
+        "de": "cnc-einsteller-m-w-x-proman-bm-emploi-sa-fleurier-val-de-travers-03f73a62"
       },
       "slugDisambiguator": "03f73a62",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -264,16 +303,30 @@
         }
       },
       "postalCode": "2105",
-      "firstSeenAt": "2026-10-19T10:01:39.323Z"
+      "firstSeenAt": "2026-10-19T10:01:39.323Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regleur-cnc-h-f-x-val-de-travers-proman-03f73a62"
+        ],
+        "en": [
+          "regleur-cnc-h-f-x-val-de-travers-proman-03f73a62"
+        ],
+        "de": [
+          "regleur-cnc-h-f-x-val-de-travers-proman-03f73a62"
+        ]
+      },
+      "previousSlugs": [
+        "regleur-cnc-h-f-x-val-de-travers-proman-03f73a62"
+      ]
     },
     {
       "id": "proman-fleurier-52fcb1d48bd7",
-      "slug": "mecanicien-regleur-nuit-h-f-x-la-chaux-de-fonds-proman-52fcb1d4",
+      "slug": "regolatore-meccanico-notte-m-f-x-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-52fcb1d4",
       "slugByLocale": {
         "fr": "mecanicien-regleur-nuit-h-f-x-la-chaux-de-fonds-proman-52fcb1d4",
-        "it": "mecanicien-regleur-nuit-h-f-x-la-chaux-de-fonds-proman-52fcb1d4",
-        "en": "mecanicien-regleur-nuit-h-f-x-la-chaux-de-fonds-proman-52fcb1d4",
-        "de": "mecanicien-regleur-nuit-h-f-x-la-chaux-de-fonds-proman-52fcb1d4"
+        "it": "regolatore-meccanico-notte-m-f-x-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-52fcb1d4",
+        "en": "mechanic-adjuster-night-m-f-x-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-52fcb1d4",
+        "de": "mechanischer-versteller-nacht-m-w-x-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-52fcb1d4"
       },
       "slugDisambiguator": "52fcb1d4",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -330,16 +383,30 @@
         }
       },
       "postalCode": "2300",
-      "firstSeenAt": "2026-10-19T10:01:39.323Z"
+      "firstSeenAt": "2026-10-19T10:01:39.323Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-regleur-nuit-h-f-x-la-chaux-de-fonds-proman-52fcb1d4"
+        ],
+        "en": [
+          "mecanicien-regleur-nuit-h-f-x-la-chaux-de-fonds-proman-52fcb1d4"
+        ],
+        "de": [
+          "mecanicien-regleur-nuit-h-f-x-la-chaux-de-fonds-proman-52fcb1d4"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-regleur-nuit-h-f-x-la-chaux-de-fonds-proman-52fcb1d4"
+      ]
     },
     {
       "id": "proman-fleurier-467433154681",
-      "slug": "regleur-cnc-h-f-la-chaux-de-fonds-proman-46743315",
+      "slug": "regolatore-cnc-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-46743315",
       "slugByLocale": {
         "fr": "regleur-cnc-h-f-la-chaux-de-fonds-proman-46743315",
-        "it": "regleur-cnc-h-f-la-chaux-de-fonds-proman-46743315",
-        "en": "regleur-cnc-h-f-la-chaux-de-fonds-proman-46743315",
-        "de": "regleur-cnc-h-f-la-chaux-de-fonds-proman-46743315"
+        "it": "regolatore-cnc-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-46743315",
+        "en": "cnc-adjuster-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-46743315",
+        "de": "cnc-einsteller-m-w-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-46743315"
       },
       "slugDisambiguator": "46743315",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -396,16 +463,30 @@
         }
       },
       "postalCode": "2300",
-      "firstSeenAt": "2026-10-19T10:01:39.323Z"
+      "firstSeenAt": "2026-10-19T10:01:39.323Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regleur-cnc-h-f-la-chaux-de-fonds-proman-46743315"
+        ],
+        "en": [
+          "regleur-cnc-h-f-la-chaux-de-fonds-proman-46743315"
+        ],
+        "de": [
+          "regleur-cnc-h-f-la-chaux-de-fonds-proman-46743315"
+        ]
+      },
+      "previousSlugs": [
+        "regleur-cnc-h-f-la-chaux-de-fonds-proman-46743315"
+      ]
     },
     {
       "id": "proman-fleurier-24c8cd091cbd",
-      "slug": "menuisier-h-f-la-chaux-de-fonds-proman-24c8cd09",
+      "slug": "carpenter-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-24c8cd09",
       "slugByLocale": {
         "fr": "menuisier-h-f-la-chaux-de-fonds-proman-24c8cd09",
-        "it": "menuisier-h-f-la-chaux-de-fonds-proman-24c8cd09",
+        "it": "carpenter-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-24c8cd09",
         "en": "menuisier-h-f-la-chaux-de-fonds-proman-24c8cd09",
-        "de": "menuisier-h-f-la-chaux-de-fonds-proman-24c8cd09"
+        "de": "zimmermann-m-w-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-24c8cd09"
       },
       "slugDisambiguator": "24c8cd09",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -462,16 +543,27 @@
         }
       },
       "postalCode": "2300",
-      "firstSeenAt": "2026-10-19T10:01:39.322Z"
+      "firstSeenAt": "2026-10-19T10:01:39.322Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "menuisier-h-f-la-chaux-de-fonds-proman-24c8cd09"
+        ],
+        "de": [
+          "menuisier-h-f-la-chaux-de-fonds-proman-24c8cd09"
+        ]
+      },
+      "previousSlugs": [
+        "menuisier-h-f-la-chaux-de-fonds-proman-24c8cd09"
+      ]
     },
     {
       "id": "proman-fleurier-410a461e25f0",
-      "slug": "macon-coffreur-h-f-neuchatel-proman-410a461e",
+      "slug": "mason-m-f-petto-proman-bm-emploi-sa-fleurier-neuchatel-410a461e",
       "slugByLocale": {
         "fr": "macon-coffreur-h-f-neuchatel-proman-410a461e",
-        "it": "macon-coffreur-h-f-neuchatel-proman-410a461e",
-        "en": "macon-coffreur-h-f-neuchatel-proman-410a461e",
-        "de": "macon-coffreur-h-f-neuchatel-proman-410a461e"
+        "it": "mason-m-f-petto-proman-bm-emploi-sa-fleurier-neuchatel-410a461e",
+        "en": "mason-m-f-chest-proman-bm-emploi-sa-fleurier-neuchatel-410a461e",
+        "de": "freimaurer-truhe-m-w-proman-bm-emploi-sa-fleurier-neuchatel-410a461e"
       },
       "slugDisambiguator": "410a461e",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -528,16 +620,30 @@
         }
       },
       "postalCode": "2000",
-      "firstSeenAt": "2026-10-19T10:01:39.322Z"
+      "firstSeenAt": "2026-10-19T10:01:39.322Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "macon-coffreur-h-f-neuchatel-proman-410a461e"
+        ],
+        "en": [
+          "macon-coffreur-h-f-neuchatel-proman-410a461e"
+        ],
+        "de": [
+          "macon-coffreur-h-f-neuchatel-proman-410a461e"
+        ]
+      },
+      "previousSlugs": [
+        "macon-coffreur-h-f-neuchatel-proman-410a461e"
+      ]
     },
     {
       "id": "proman-fleurier-2e8377d6056c",
-      "slug": "installateur-sanitaire-h-f-neuchatel-proman-2e8377d6",
+      "slug": "facilita-della-salute-m-f-proman-bm-emploi-sa-fleurier-neuchatel-2e8377d6",
       "slugByLocale": {
         "fr": "installateur-sanitaire-h-f-neuchatel-proman-2e8377d6",
-        "it": "installateur-sanitaire-h-f-neuchatel-proman-2e8377d6",
-        "en": "installateur-sanitaire-h-f-neuchatel-proman-2e8377d6",
-        "de": "installateur-sanitaire-h-f-neuchatel-proman-2e8377d6"
+        "it": "facilita-della-salute-m-f-proman-bm-emploi-sa-fleurier-neuchatel-2e8377d6",
+        "en": "health-facility-m-f-proman-bm-emploi-sa-fleurier-neuchatel-2e8377d6",
+        "de": "gesundheitseinrichtung-m-w-proman-bm-emploi-sa-fleurier-neuchatel-2e8377d6"
       },
       "slugDisambiguator": "2e8377d6",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -594,16 +700,30 @@
         }
       },
       "postalCode": "2000",
-      "firstSeenAt": "2026-10-19T10:01:39.322Z"
+      "firstSeenAt": "2026-10-19T10:01:39.322Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-sanitaire-h-f-neuchatel-proman-2e8377d6"
+        ],
+        "en": [
+          "installateur-sanitaire-h-f-neuchatel-proman-2e8377d6"
+        ],
+        "de": [
+          "installateur-sanitaire-h-f-neuchatel-proman-2e8377d6"
+        ]
+      },
+      "previousSlugs": [
+        "installateur-sanitaire-h-f-neuchatel-proman-2e8377d6"
+      ]
     },
     {
       "id": "proman-fleurier-659ab439474c",
-      "slug": "charpentiers-h-f-neuchatel-proman-659ab439",
+      "slug": "carpenters-m-f-proman-bm-emploi-sa-fleurier-neuchatel-659ab439",
       "slugByLocale": {
         "fr": "charpentiers-h-f-neuchatel-proman-659ab439",
-        "it": "charpentiers-h-f-neuchatel-proman-659ab439",
+        "it": "carpenters-m-f-proman-bm-emploi-sa-fleurier-neuchatel-659ab439",
         "en": "charpentiers-h-f-neuchatel-proman-659ab439",
-        "de": "charpentiers-h-f-neuchatel-proman-659ab439"
+        "de": "zimmermann-m-w-proman-bm-emploi-sa-fleurier-neuchatel-659ab439"
       },
       "slugDisambiguator": "659ab439",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -660,7 +780,18 @@
         }
       },
       "postalCode": "2000",
-      "firstSeenAt": "2026-10-19T10:01:39.321Z"
+      "firstSeenAt": "2026-10-19T10:01:39.321Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charpentiers-h-f-neuchatel-proman-659ab439"
+        ],
+        "de": [
+          "charpentiers-h-f-neuchatel-proman-659ab439"
+        ]
+      },
+      "previousSlugs": [
+        "charpentiers-h-f-neuchatel-proman-659ab439"
+      ]
     }
   ]
 }

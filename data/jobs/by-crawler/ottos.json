@@ -261,12 +261,12 @@
     },
     {
       "id": "ottos-333de8fc160d",
-      "slug": "monteur-de-meubles-h-f-ottos-la-chaux-de-fonds",
+      "slug": "montaggio-della-mobilia-m-f-otto-s-ag-la-chaux-de-fonds",
       "slugByLocale": {
         "fr": "monteur-de-meubles-h-f-ottos-la-chaux-de-fonds",
-        "it": "monteur-de-meubles-h-f-ottos-la-chaux-de-fonds",
-        "en": "monteur-de-meubles-h-f-ottos-la-chaux-de-fonds",
-        "de": "monteur-de-meubles-h-f-ottos-la-chaux-de-fonds"
+        "it": "montaggio-della-mobilia-m-f-otto-s-ag-la-chaux-de-fonds",
+        "en": "furniture-mount-m-f-otto-s-ag-la-chaux-de-fonds",
+        "de": "mobelmontage-m-w-otto-s-ag-la-chaux-de-fonds"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -329,16 +329,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T10:00:50.449Z"
+      "firstSeenAt": "2026-10-19T10:00:50.449Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "monteur-de-meubles-h-f-ottos-la-chaux-de-fonds"
+        ],
+        "en": [
+          "monteur-de-meubles-h-f-ottos-la-chaux-de-fonds"
+        ],
+        "de": [
+          "monteur-de-meubles-h-f-ottos-la-chaux-de-fonds"
+        ]
+      },
+      "previousSlugs": [
+        "monteur-de-meubles-h-f-ottos-la-chaux-de-fonds"
+      ]
     },
     {
       "id": "ottos-8d3aae929c38",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-sarnen",
+      "slug": "addetto-a-alle-vendite-ausiliario-a-food-non-food-otto-s-ag-sarnen",
       "slugByLocale": {
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-sarnen",
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-sarnen",
-        "en": "aushilfe-verkaufer-in-food-non-food-ottos-sarnen",
-        "fr": "aushilfe-verkaufer-in-food-non-food-ottos-sarnen"
+        "it": "addetto-a-alle-vendite-ausiliario-a-food-non-food-otto-s-ag-sarnen",
+        "en": "temporary-sales-assistant-food-non-food-otto-s-ag-sarnen",
+        "fr": "auxiliaire-de-vente-alimentaire-non-alimentaire-otto-s-ag-sarnen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -400,7 +414,21 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-sarnen"
+        ],
+        "en": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-sarnen"
+        ],
+        "fr": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-sarnen"
+      ]
     },
     {
       "id": "ottos-c68515af04f5",
@@ -3749,9 +3777,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3802,17 +3830,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -3923,7 +3952,7 @@
       "slugByLocale": {
         "fr": "aspirant-e-gerant-e-ottos-biel",
         "it": "aspirant-e-gerant-e-otto-s-ag-biel",
-        "en": "aspirant-e-gerant-e-ottos-biel",
+        "en": "aspirant-e-otto-s-ag-biel",
         "de": "aspirant-e-gerant-e-ottos-biel"
       },
       "company": "OTTO'S AG",
@@ -3976,6 +4005,9 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "aspirant-e-gerant-e-ottos-biel"
+        ],
+        "en": [
           "aspirant-e-gerant-e-ottos-biel"
         ]
       },

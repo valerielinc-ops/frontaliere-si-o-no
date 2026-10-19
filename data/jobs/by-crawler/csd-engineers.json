@@ -2814,8 +2814,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers",
         "it": "collaboratore-trice-administration-con-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers-pratteln",
-        "en": "mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers",
-        "fr": "mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers"
+        "en": "employee-administration-with-focus-on-project-controlling-80-100-m-f-d-csd-engineers-pratteln",
+        "fr": "administration-des-employes-axee-sur-le-controle-du-projet-80-100-h-f-d-csd-engineers-pratteln"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -2863,6 +2863,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers"
+        ],
+        "en": [
+          "mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers"
+        ],
+        "fr": [
           "mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers"
         ]
       },

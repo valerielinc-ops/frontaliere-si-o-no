@@ -3785,12 +3785,12 @@
     },
     {
       "id": "decathlon-b7a7ba4f15c2",
-      "slug": "sport-leader-verkaufsberater-m-w-d-80-decathlon-zurich-decathlon-ch",
+      "slug": "sport-leader-sales-advisor-m-f-d-80-decathlon-zurigo-decathlon-zurich",
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-80-decathlon-zurich-decathlon-ch",
-        "it": "sport-leader-verkaufsberater-m-w-d-80-decathlon-zurich-decathlon-ch",
+        "it": "sport-leader-sales-advisor-m-f-d-80-decathlon-zurigo-decathlon-zurich",
         "en": "sport-leader-verkaufsberater-m-w-d-80-decathlon-zurich-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-80-decathlon-zurich-decathlon-ch"
+        "fr": "leader-sportif-conseiller-commercial-h-f-d-80-decathlon-zurich-decathlon-zurich"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3847,7 +3847,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:58:31.697Z"
+      "firstSeenAt": "2026-10-19T09:58:31.697Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sport-leader-verkaufsberater-m-w-d-80-decathlon-zurich-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-m-w-d-80-decathlon-zurich-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sport-leader-verkaufsberater-m-w-d-80-decathlon-zurich-decathlon-ch"
+      ]
     }
   ]
 }

@@ -569,7 +569,7 @@
       "slug": "artigiano-specializzato-ii-universitat-bern-bern",
       "slugByLocale": {
         "it": "artigiano-specializzato-ii-universitat-bern-bern",
-        "en": "spezialhandwerker-in-ii-universitat-bern",
+        "en": "specialist-skilled-worker-ii-universitat-bern-bern",
         "de": "spezialhandwerker-in-ii-unibe-bern",
         "fr": "artisan-ne-specialise-e-ii-universitat-bern-bern"
       },
@@ -621,7 +621,7 @@
         "artigiani-specializzati-ii-universitat-bern-bern",
         "ouvriers-specialises-ii-universitat-bern-bern",
         "spezialhandwerker-in-ii-universitat-bern-bern",
-        "specialist-skilled-worker-ii-universitat-bern-bern"
+        "spezialhandwerker-in-ii-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -631,7 +631,7 @@
         ],
         "en": [
           "spezialhandwerker-in-ii-universitat-bern-bern",
-          "specialist-skilled-worker-ii-universitat-bern-bern"
+          "spezialhandwerker-in-ii-universitat-bern"
         ],
         "fr": [
           "ouvriers-specialises-ii-universitat-bern-bern",
@@ -824,7 +824,7 @@
         "it": "responsabile-della-scienza-dei-dati-universitat-bern-bern",
         "en": "data-science-officer-unibe-bern",
         "de": "data-science-beauftragter-universitat-bern-bern",
-        "fr": "data-science-officer-universitat-bern"
+        "fr": "specialiste-des-sciences-des-donnees-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -872,7 +872,7 @@
       "previousSlugs": [
         "data-science-officer-unibe-bern",
         "data-science-officer-universitat-bern-bern",
-        "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+        "data-science-officer-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -883,7 +883,7 @@
         ],
         "fr": [
           "data-science-officer-universitat-bern-bern",
-          "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+          "data-science-officer-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-09-24T00:02:05.731Z",
@@ -1473,9 +1473,9 @@
     },
     {
       "id": "unibe-8d3e9e6a7b54",
-      "slug": "it-systemadministrator-in-universitat-bern",
+      "slug": "amministratore-trice-di-sistema-it-universitat-bern-bern",
       "slugByLocale": {
-        "it": "it-systemadministrator-in-universitat-bern",
+        "it": "amministratore-trice-di-sistema-it-universitat-bern-bern",
         "en": "it-system-administrator-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
         "fr": "administrateur-systeme-informatique-universitat-bern-bern"
@@ -1525,13 +1525,13 @@
       "previousSlugs": [
         "it-systemadministrator-in-unibe-bern",
         "it-systemadministrator-in-universitat-bern-bern",
-        "amministratore-trice-di-sistema-it-universitat-bern-bern"
+        "it-systemadministrator-in-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-systemadministrator-in-unibe-bern",
           "it-systemadministrator-in-universitat-bern-bern",
-          "amministratore-trice-di-sistema-it-universitat-bern-bern"
+          "it-systemadministrator-in-universitat-bern"
         ],
         "en": [
           "it-systemadministrator-in-universitat-bern-bern"
@@ -3748,12 +3748,12 @@
     },
     {
       "id": "unibe-7ca922772719",
-      "slug": "hilfsassistenz-social-media-unibe-bern",
+      "slug": "assistente-social-media-universitat-bern-bern",
       "slugByLocale": {
         "de": "hilfsassistenz-social-media-unibe-bern",
-        "it": "hilfsassistenz-social-media-unibe-bern",
-        "en": "hilfsassistenz-social-media-unibe-bern",
-        "fr": "hilfsassistenz-social-media-unibe-bern"
+        "it": "assistente-social-media-universitat-bern-bern",
+        "en": "assistant-social-media-universitat-bern-bern",
+        "fr": "assistant-aux-medias-sociaux-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3812,16 +3812,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:35:11.739Z"
+      "firstSeenAt": "2026-10-19T09:35:11.739Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfsassistenz-social-media-unibe-bern"
+        ],
+        "en": [
+          "hilfsassistenz-social-media-unibe-bern"
+        ],
+        "fr": [
+          "hilfsassistenz-social-media-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "hilfsassistenz-social-media-unibe-bern"
+      ]
     },
     {
       "id": "unibe-ec806b59eb2f",
-      "slug": "doktorandin-doktorand-protect-sh-unibe-bern",
+      "slug": "dottorato-studente-dottorando-protect-sh-universitat-bern-bern",
       "slugByLocale": {
         "de": "doktorandin-doktorand-protect-sh-unibe-bern",
-        "it": "doktorandin-doktorand-protect-sh-unibe-bern",
-        "en": "doktorandin-doktorand-protect-sh-universitat-bern-bern",
-        "fr": "doktorandin-doktorand-protect-sh-unibe-bern"
+        "it": "dottorato-studente-dottorando-protect-sh-universitat-bern-bern",
+        "en": "doctoral-student-doctoral-student-protect-sh-universitat-bern-bern",
+        "fr": "doctorat-doctorant-protect-sh-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3880,7 +3894,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:35:11.732Z"
+      "firstSeenAt": "2026-10-19T09:35:11.732Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doktorandin-doktorand-protect-sh-unibe-bern"
+        ],
+        "en": [
+          "doktorandin-doktorand-protect-sh-universitat-bern-bern"
+        ],
+        "fr": [
+          "doktorandin-doktorand-protect-sh-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "doktorandin-doktorand-protect-sh-unibe-bern",
+        "doktorandin-doktorand-protect-sh-universitat-bern-bern"
+      ]
     }
   ]
 }

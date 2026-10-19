@@ -2882,10 +2882,10 @@
     },
     {
       "id": "buergenstock-hotels-5ffc58e4b314",
-      "slug": "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "centro-benessere-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen",
-        "it": "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "centro-benessere-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "en": "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen"
       },
@@ -2945,7 +2945,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-10T21:43:47.650Z"
+      "firstSeenAt": "2026-08-10T21:43:47.650Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     }
   ]
 }

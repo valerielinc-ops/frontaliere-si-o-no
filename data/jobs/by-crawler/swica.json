@@ -1675,8 +1675,8 @@
       "slugByLocale": {
         "de": "sachbearbeiter-gesundheit-alle-swica-basel",
         "it": "incaricato-sanita-tutti-swica-gesundheitsorganisation-basel",
-        "en": "sachbearbeiter-gesundheit-alle-swica-gesundheitsorganisation-basel",
-        "fr": "sachbearbeiter-gesundheit-alle-swica-gesundheitsorganisation-basel"
+        "en": "health-clerk-all-swica-gesundheitsorganisation-basel",
+        "fr": "responsable-de-la-sante-tous-swica-gesundheitsorganisation-basel"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -1727,16 +1727,15 @@
           "sachbearbeiter-gesundheit-alle-swica-basel"
         ],
         "en": [
-          "health-clerk-all-swica-gesundheitsorganisation-basel"
+          "sachbearbeiter-gesundheit-alle-swica-gesundheitsorganisation-basel"
         ],
         "fr": [
-          "responsable-de-la-sante-tous-swica-gesundheitsorganisation-basel"
+          "sachbearbeiter-gesundheit-alle-swica-gesundheitsorganisation-basel"
         ]
       },
       "previousSlugs": [
         "sachbearbeiter-gesundheit-alle-swica-basel",
-        "health-clerk-all-swica-gesundheitsorganisation-basel",
-        "responsable-de-la-sante-tous-swica-gesundheitsorganisation-basel"
+        "sachbearbeiter-gesundheit-alle-swica-gesundheitsorganisation-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

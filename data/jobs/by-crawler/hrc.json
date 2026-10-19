@@ -560,12 +560,12 @@
     },
     {
       "id": "hrc-9feb303a2e31",
-      "slug": "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-cfc-hrc-rennaz",
+      "slug": "apprentices-community-care-and-health-assistants-chs-cfc-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
         "fr": "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-cfc-hrc-rennaz",
-        "it": "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-cfc-hrc-rennaz",
+        "it": "apprentices-community-care-and-health-assistants-chs-cfc-hopital-riviera-chablais-hrc-rennaz",
         "en": "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-cfc-hrc-rennaz",
-        "de": "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-cfc-hrc-rennaz"
+        "de": "lernende-fachfrauen-und-fachmanner-gesundheit-fage-efz-hopital-riviera-chablais-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
       "companyKey": "hrc",
@@ -623,7 +623,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T10:00:44.651Z"
+      "firstSeenAt": "2026-10-19T10:00:44.651Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-cfc-hrc-rennaz"
+        ],
+        "de": [
+          "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-cfc-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-cfc-hrc-rennaz"
+      ]
     },
     {
       "id": "hrc-eca3f44ea735",

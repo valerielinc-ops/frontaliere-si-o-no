@@ -892,12 +892,12 @@
     },
     {
       "id": "strabag-583caa5a3fe8",
-      "slug": "kunden-montageschreiner-in-strabag-lindau-bei-effretikon",
+      "slug": "falegname-addetto-a-al-servizio-clienti-al-montaggio-strabag-ag-lindau-bei-effretikon",
       "slugByLocale": {
         "de": "kunden-montageschreiner-in-strabag-lindau-bei-effretikon",
-        "it": "kunden-montageschreiner-in-strabag-lindau-bei-effretikon",
-        "en": "kunden-montageschreiner-in-strabag-lindau-bei-effretikon",
-        "fr": "kunden-montageschreiner-in-strabag-lindau-bei-effretikon"
+        "it": "falegname-addetto-a-al-servizio-clienti-al-montaggio-strabag-ag-lindau-bei-effretikon",
+        "en": "customer-installation-carpenter-strabag-ag-lindau-bei-effretikon",
+        "fr": "menuisier-ere-clientele-de-montage-strabag-ag-lindau-bei-effretikon"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -956,16 +956,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:05:39.662Z"
+      "firstSeenAt": "2026-09-19T23:05:39.662Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kunden-montageschreiner-in-strabag-lindau-bei-effretikon"
+        ],
+        "en": [
+          "kunden-montageschreiner-in-strabag-lindau-bei-effretikon"
+        ],
+        "fr": [
+          "kunden-montageschreiner-in-strabag-lindau-bei-effretikon"
+        ]
+      },
+      "previousSlugs": [
+        "kunden-montageschreiner-in-strabag-lindau-bei-effretikon"
+      ]
     },
     {
       "id": "strabag-6f671cb80be4",
-      "slug": "polier-in-ingegneria-civile-strabag-ag-erstfeld",
+      "slug": "capo-cantiere-per-opere-di-ingegneria-civile-strabag-ag-erstfeld",
       "slugByLocale": {
         "de": "polier-in-ingenieurbau-strabag-erstfeld",
-        "it": "polier-in-ingegneria-civile-strabag-ag-erstfeld",
-        "en": "polier-in-ingenieurbau-strabag-erstfeld",
-        "fr": "polier-in-ingenieurbau-strabag-erstfeld"
+        "it": "capo-cantiere-per-opere-di-ingegneria-civile-strabag-ag-erstfeld",
+        "en": "civil-engineering-foreperson-strabag-ag-erstfeld",
+        "fr": "contremaitre-esse-en-genie-civil-strabag-ag-erstfeld"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -1013,11 +1027,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "polier-in-ingenieurbau-strabag-erstfeld",
+          "polier-in-ingegneria-civile-strabag-ag-erstfeld"
+        ],
+        "en": [
+          "polier-in-ingenieurbau-strabag-erstfeld"
+        ],
+        "fr": [
           "polier-in-ingenieurbau-strabag-erstfeld"
         ]
       },
       "previousSlugs": [
-        "polier-in-ingenieurbau-strabag-erstfeld"
+        "polier-in-ingenieurbau-strabag-erstfeld",
+        "polier-in-ingegneria-civile-strabag-ag-erstfeld"
       ],
       "salaryMin": 78000,
       "salaryMax": 98500,
