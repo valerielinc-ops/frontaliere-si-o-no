@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-19T23:15:55.286Z",
+  "updatedAt": "2026-10-19T23:16:42.346Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -664095,12 +664095,12 @@
     },
     "pantr@zug": {
       "key": "pantr@zug",
-      "status": "promoting",
+      "status": "promoted",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:31:27.340Z",
-      "updatedAt": "2026-10-19T11:12:28.384Z",
+      "updatedAt": "2026-10-19T23:16:42.323Z",
       "name": "Pantr GmbH",
       "city": "Zug",
       "zip": "6300",
@@ -664173,9 +664173,17 @@
           "logoFound": true
         }
       ],
-      "promotionPr": "10549",
-      "promotionBranch": "prospector/promote-2026-09-30",
-      "reason": "PR 10549 chiusa senza merge, ricandidato"
+      "reason": "PR 10549 chiusa senza merge, ricandidato",
+      "promotionHistory": [
+        {
+          "number": "10549",
+          "state": "CLOSED",
+          "mergedAt": null,
+          "closedAt": "2026-09-30T23:17:06Z",
+          "url": "https://github.com/valerielinc-ops/frontaliere-si-o-no/pull/10549",
+          "observedAt": "2026-10-19T23:16:42.323Z"
+        }
+      ]
     },
     "paola-bajada@celerina-schlarigna": {
       "key": "paola-bajada@celerina-schlarigna",
