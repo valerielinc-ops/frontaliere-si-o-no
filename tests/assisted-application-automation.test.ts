@@ -19,7 +19,7 @@ const {
   runAutomationSweep,
   startAutomation,
 } = await import('../functions/src/assistedApplicationAutomation.js');
-const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS } = await import('../functions/src/assistedApplicationFlow.js');
+const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DELAYS_MS } = await import('../functions/src/assistedApplicationFlow.js');
 const { automationEmailKey, runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
 
 const T0 = Date.UTC(2026, 8, 30, 8, 0, 0);
@@ -434,9 +434,35 @@ describe('sweep', () => {
     expect(effects.at(-1)).toMatchObject({ type: 'email', kind: 'owner_takeover', reason: 'runner_timeout' });
   });
 
+  it('automatically retries an approved unsupported portal handoff when its backoff expires', async () => {
+    await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
+    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, runEffect, nowMs: T0 });
+    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'candidate_approve' }, actor: 'candidate', runEffect, nowMs: T0 + 1_000 });
+    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'submit_handoff', reason: 'portal_needs_candidate' }, actor: 'runner', runEffect, nowMs: T0 + 2_000 });
+    effects = [];
+
+    const retryAt = T0 + 2_000 + PORTAL_AUTO_RETRY_DELAYS_MS[0];
+    expect(store.read(ORDER_PATH)).toMatchObject({ automationState: 'owner_takeover', automationDueAt: retryAt });
+    expect(await runAutomationSweep({ db: store.db, runEffect, nowMs: retryAt - 1 })).toMatchObject({ portalRetries: 0 });
+    expect(effects).toEqual([]);
+
+    expect(await runAutomationSweep({ db: store.db, runEffect, nowMs: retryAt })).toMatchObject({ portalRetries: 1 });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
+      state: 'submitting',
+      portalAutoRetryCount: 1,
+      portalAutoRetryAt: null,
+      dispatch: { mode: 'submit', round: 1, requestedAt: retryAt, attempts: 1, reason: 'portal_auto_retry' },
+    });
+    expect(store.read(ORDER_PATH)).toMatchObject({ automationState: 'submitting', automationDueAt: retryAt + RUN_WATCHDOG_MS });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+  });
+
   it('computes no due time for terminal flows', () => {
     expect(computeDueAt({ state: 'submitted', deadlineAt: 5 })).toBeNull();
     expect(computeDueAt({ state: 'candidate_review', deadlineAt: 10, reminderAt: 7 })).toBe(7);
+    expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'], portalAutoRetryAt: T0 + 1_000 })).toBe(T0 + 1_000);
+    expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:captcha'], portalAutoRetryAt: T0 + 1_000 })).toBeNull();
   });
 });
 
@@ -445,6 +471,8 @@ describe('effects', () => {
     expect(automationEmailKey({ kind: 'owner_review', held: true }, { round: 2 })).toBe('auto_owner_review_r2_held');
     expect(automationEmailKey({ kind: 'candidate_review' }, { round: 1 })).toBe('auto_candidate_review_r1');
     expect(automationEmailKey({ kind: 'owner_takeover', reason: 'max_rounds' }, { round: 3 })).toBe('auto_owner_takeover_max_rounds_r3');
+    expect(automationEmailKey({ kind: 'owner_takeover', reason: 'portal:portal_needs_candidate' }, { round: 1, dispatch: { requestedAt: 1234 } }))
+      .toBe('auto_owner_takeover_portal_needs_candidate_r1_d1234');
     // A raw runner error names only its step.
     expect(automationEmailKey({ kind: 'owner_takeover', reason: 'Codex auth broker rejected the request: Codex CLI timed out after 600000ms', stage: 'draft' }, { round: 2 }))
       .toBe('auto_owner_takeover_draft_error_r2');

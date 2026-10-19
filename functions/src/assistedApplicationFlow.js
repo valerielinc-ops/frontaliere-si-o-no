@@ -39,6 +39,10 @@ export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
 // 2026-10-01: «cosa succede se l'utente non risponde alle domande?»).
 export const HELD_REMINDERS_AFTER_MS = Object.freeze([24 * 60 * 60 * 1000, 72 * 60 * 60 * 1000]);
 export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
+// The portal-stop issue fixer usually lands within hours. Retry only this
+// unsupported-page stop after time for a fix; CAPTCHA/account/answer stops are
+// not recoverable by blindly running the same portal flow again.
+export const PORTAL_AUTO_RETRY_DELAYS_MS = Object.freeze([6 * 60 * 60 * 1000, 24 * 60 * 60 * 1000]);
 export const MAX_REVIEW_ROUNDS = 3;
 // A draft or submit run that failed on a transient error is dispatched again
 // up to this many runs in all; the owner hears about it only after the last.
@@ -92,7 +96,7 @@ export const FLOW_STATES = Object.freeze([
 
 export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed']);
 // What Valerie can do on an order that stopped (each event still checks the state it accepts).
-const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff', 'owner_submitted']);
+const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff', 'owner_submitted', 'portal_auto_retry']);
 // ...and what settles one without her: the employer's e-mail proving a held submit arrived.
 const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged']);
 // The submit_failed errors of a send that may have reached the employer (never retried).
@@ -194,6 +198,8 @@ function base(flow) {
     // during one: see the end of transition, and the tick.
     lastWait: Number(flow?.lastWait?.until) ? { round: Number(flow.lastWait.round) || 1, since: Number(flow.lastWait.since) || null, until: Number(flow.lastWait.until) } : null,
     postingExpiredAt: Number(flow?.postingExpiredAt) || null,
+    portalAutoRetryAt: Number(flow?.portalAutoRetryAt) || null,
+    portalAutoRetryCount: Number(flow?.portalAutoRetryCount) || 0,
   };
 }
 
@@ -449,15 +455,22 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       return ignore('nothing_due');
     }
     case 'submit_handoff':
-      // Owner decision 2026-10-01: the candidate paid not to apply by hand. A
-      // portal step the robot did not finish (a CAPTCHA, an account, a page it
-      // could not fill) goes to Valerie, who completes it, retries it, or by
-      // her own choice hands it to the candidate (owner_handoff).
+      // CAPTCHA, account verification and candidate-only steps stay with
+      // Valerie. A generic unsupported page gets two delayed retries so the
+      // portal-stop fixer can teach the runner before the order stays held.
       if (state !== 'submitting') return ignore('not_submitting');
       next.state = 'owner_takeover';
       next.deadlineAt = null;
       next.reminderAt = null;
       next.heldBy = [`portal:${String(event.reason || 'portal_needs_candidate').slice(0, 60)}`];
+      {
+        const reason = String(event.reason || 'portal_needs_candidate');
+        const attempts = Number(current.portalAutoRetryCount) || 0;
+        next.portalAutoRetryCount = attempts;
+        next.portalAutoRetryAt = reason === 'portal_needs_candidate' && PORTAL_AUTO_RETRY_DELAYS_MS[attempts]
+          ? nowMs + PORTAL_AUTO_RETRY_DELAYS_MS[attempts]
+          : null;
+      }
       effects = [{ type: 'email', kind: 'owner_takeover', reason: `portal:${event.reason || 'portal_needs_candidate'}`, stage: 'submit', attempts: Number(flow?.dispatch?.attempts) || 1 }];
       break;
     case 'owner_retry_submit':
@@ -469,8 +482,22 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       // The robot sends only what the candidate approved. A real order of 2026-10-07 was taken over while
       // in the owner's review, and «retry» sent its draft to the portal, never seen by the candidate.
       if (!roundWasSent(flow, current.round)) return ignore('not_approved');
+      next.portalAutoRetryAt = null;
       effects = enterSubmitting(next, 'owner_retry');
       break;
+    case 'portal_auto_retry': {
+      if (state !== 'owner_takeover') return ignore('not_taken_over');
+      if (!(current.heldBy || []).includes('portal:portal_needs_candidate')) return ignore('not_auto_retryable');
+      if (!Number(current.portalAutoRetryAt) || Number(current.portalAutoRetryAt) > nowMs) return ignore('portal_retry_not_due');
+      if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
+      if (!roundWasSent(flow, current.round)) return ignore('not_approved');
+      const attempts = Number(current.portalAutoRetryCount) || 0;
+      if (attempts >= PORTAL_AUTO_RETRY_DELAYS_MS.length) return ignore('portal_retry_limit');
+      next.portalAutoRetryCount = attempts + 1;
+      next.portalAutoRetryAt = null;
+      effects = enterSubmitting(next, 'portal_auto_retry');
+      break;
+    }
     case 'owner_handoff':
       // Valerie's choice, for a step only the candidate can do (an SMS to their phone).
       if (state !== 'owner_takeover') return ignore('not_taken_over');
