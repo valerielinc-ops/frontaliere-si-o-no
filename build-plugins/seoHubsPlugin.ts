@@ -4,7 +4,7 @@
  * Generates 4 hub families × 4 locales of paginated index pages:
  *   - JobsHub      → all known job slugs (28k+) → ~284 pages × 4 locales
  *   - SectorsHub   → curated 50-sector list   → 1 page × 4 locales
- *   - CompaniesHub → known-company-slugs.json → ~2 pages × 4 locales
+ *   - CompaniesHub → known-company-slugs.json → paginated directory × 4 locales
  *   - ArticlesHub  → blog-meta-{lang}.ts      → ~9 pages × 4 locales
  *
  * Each page is fully static HTML with canonical, hreflang alternates,
@@ -2793,30 +2793,13 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
 
     const total = items.length;
     const totalPages = Math.max(1, Math.ceil(total / pageSize));
-    // Cap non-IT page-N>1 emission (2026-05-13): the master jobs hub has
-    // ~400 pages × 4 locales = ~1600 thin paginated HTML files at ~150 KB
-    // each = ~240 MB of dist — the dominant source of the deploy artifact
-    // crossing the 1 GB Pages cap + the text-html-ratio regression (471 →
-    // 1917 offenders, all `find-jobs-ticino/all/page-N` family). IT keeps
-    // every page-N as static HTML (canonical for search). Non-IT locales
-    // emit only page-1 — page-N>1 routes via the SPA shell.
-    //
-    // Hreflang impact: buildHtml only emits hreflang alternates on page-1
-    // (see line 661), so dropping non-IT page-N HTML doesn't break per-page
-    // hreflang signals. The sitemap entry for IT page-N>1 also drops its
-    // `xhtml:link` alternates (would 404 otherwise) — page-1 keeps the
-    // full 4-locale alternate set.
-    const emitNonItPageN = false;
-    // Pagination chrome (compact nav + bounded index links + <link rel="next">) is
-    // built from this value, NOT from `totalPages` above — passing the real
-    // ~400-page count to non-IT locales rendered dead `page-2..page-N`
-    // anchors on their own (never-emitted-beyond-1) page-1, which crawlers
-    // followed straight into the `JOB_BOARD_PAGINATION_PATTERN` catch-all in
-    // searchConsoleCompat.ts (redirects ANY `.../alle/page-N/` to the section
-    // root): every one of those links 301'd by construction, since the target
-    // page never existed. Capped to `1` for non-IT locales (matches what is
-    // actually emitted) removes the pagination chrome entirely there instead
-    // of advertising pages that don't exist (#6394).
+    // Keep the large non-IT job archive cap. Company directories are a
+    // separate inventory: truncating them to page 1 made valid company
+    // page-N URLs 404 and hid their remaining records. Emit their real
+    // pages in every locale; navigation must use the same emission policy.
+    // Page-1 hreflang remains reciprocal; page-N entries self-reference
+    // their actual locale (buildHtml emits no page-N head alternates).
+    const emitNonItPageN = hubKey === 'companies';
     const renderTotalPages = locale === 'it' || emitNonItPageN ? totalPages : 1;
     for (let page = 1; page <= totalPages; page++) {
       if (page > 1 && locale !== 'it' && !emitNonItPageN) continue;
@@ -2828,15 +2811,14 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const canonicalPath = paginatedPath(basePath, page);
       writeFile(canonicalPath, html);
 
-      // Sitemap: one entry per (hub, locale, page) tuple. Non-IT locales only
-      // ever reach page 1 (the `continue` above skips page>1 for them), so
+      // Sitemap: one entry per emitted (hub, locale, page) tuple. All locales
+      // reach page 1 and company directories also reach subsequent pages, so
       // each locale gets its own reciprocal <loc> here — required for the
       // 4-locale alternate group below to pass sanitizeSitemapHreflangReciprocity
       // (every href must resolve to a real <loc> elsewhere in the sitemap).
       //
       // Hreflang alternates: page-1 ships the full 4-locale set; page-N>1
-      // ships IT-only (non-IT page-N HTML is no longer emitted, so listing
-      // those URLs as alternates would advertise 404s).
+      // self-references the owning locale, without advertising unbuilt peers.
       const altLinks = page === 1
         ? HUB_LOCALES.map((alt) => {
             const altBase = alt === 'it' ? HUB_SLUGS.it[
@@ -2846,7 +2828,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
             ];
             return `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altBase}" />`;
           }).join('\n')
-        : `    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}${canonicalPath}" />`;
+        : `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${canonicalPath}" />`;
       const url = `${BASE_URL}${canonicalPath}`;
       const priority = page === 1 ? '0.7' : '0.5';
       sitemapEntries.push(
@@ -2854,10 +2836,9 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       );
     }
 
-    // Long non-article hubs keep all their archive pages static for IT, so
-    // emit the matching page-range indexes after the archive pages. Article
-    // archives use a separate core and never reach this function.
-    if (locale === 'it' && totalPages > PAGINATION_INDEX_THRESHOLD) {
+    // Emit matching range indexes wherever this family emits archive pages.
+    // Article archives use a separate core and never reach this function.
+    if ((locale === 'it' || emitNonItPageN) && totalPages > PAGINATION_INDEX_THRESHOLD) {
       const parentPath = basePath.replace(/[^/]+\/$/, '');
       const parentLabel = hubKey === 'companies'
         ? SECTION_LABEL[locale].companies
