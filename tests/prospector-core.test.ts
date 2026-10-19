@@ -1251,6 +1251,19 @@ describe('careers trail', () => {
     });
   });
 
+  it('does not borrow an overlay heading from outside a balanced list item', () => {
+    const html = '<li><h3>Previous card</h3></li><a href="/job/42" aria-hidden="true"></a><h3>Unrelated heading</h3>';
+    const [link] = extractLinks(html, 'https://acme.ch/');
+    expect(link.text).toBe('');
+  });
+
+  it('does not bind a later closing tag to an earlier unclosed anchor', () => {
+    const html = `<a href="/first">First ${'x'.repeat(500)}<a href="/second">Second</a>`;
+    const links = extractLinks(html, 'https://acme.ch/');
+    expect(links[0].text).not.toContain('Second');
+    expect(links[1].text).toBe('Second');
+  });
+
   it('keeps overlay link text bounded by a case-insensitive closing tag', () => {
     const links = extractLinks(
       '<A href="/jobs">Jobs</A><a href="/other">Other</a>',

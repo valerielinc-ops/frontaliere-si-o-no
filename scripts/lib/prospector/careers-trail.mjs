@@ -123,6 +123,36 @@ export function joinAnchorParts(text = '', attr = '') {
 }
 
 /**
+ * Return balanced list-item scopes so overlay headings cannot leak across
+ * cards when the source contains an empty, aria-hidden anchor.
+ * @param {string} html
+ * @returns {{ start: number, end: number }[]}
+ */
+function balancedListItemScopes(html = '') {
+  const scopes = [];
+  const stack = [];
+  const rx = /<\/?li\b[^>]*>/gi;
+  let match;
+  while ((match = rx.exec(String(html || '')))) {
+    if (match[0].startsWith('</')) {
+      const start = stack.pop();
+      if (start !== undefined) scopes.push({ start, end: match.index + match[0].length });
+    } else {
+      stack.push(match.index);
+    }
+  }
+  return scopes;
+}
+
+function containingListItem(scopes, anchorStart, anchorEnd) {
+  for (let index = scopes.length - 1; index >= 0; index -= 1) {
+    const scope = scopes[index];
+    if (scope.start < anchorStart && scope.end >= anchorEnd) return scope;
+  }
+  return null;
+}
+
+/**
  * Absolute same-host links in an HTML document, with their anchor text.
  * Cross-origin links are available only when a caller explicitly opts in;
  * careers-trail discovery does that for the separate ATS hop, while the
@@ -147,17 +177,24 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
   let baseHost = '';
   try { baseHost = new URL(baseUrl).host; } catch { /* absolute hrefs may still be usable */ }
   const sameOriginOnly = options.sameOriginOnly ?? true;
-  const rx = /<a\b([^>]*)>/gi;
-  let m;
-  while ((m = rx.exec(html))) {
+  const anchors = [...String(html || '').matchAll(/<a\b([^>]*)>/gi)];
+  const listItemScopes = balancedListItemScopes(html);
+  for (let anchorIndex = 0; anchorIndex < anchors.length; anchorIndex += 1) {
+    const m = anchors[anchorIndex];
     const attrs = m[1];
+    const anchorContentStart = m.index + m[0].length;
+    const nextAnchorStart = anchors[anchorIndex + 1]?.index ?? html.length;
+    const textWindowEnd = Math.min(html.length, nextAnchorStart, anchorContentStart + 4000);
+    const closeOffset = html.slice(anchorContentStart, textWindowEnd).search(/<\/a>/i);
+    const anchorClose = closeOffset >= 0 ? anchorContentStart + closeOffset : -1;
     const href = readAttr(attrs, 'href');
     if (!href) continue;
     if (/^(#|mailto:|tel:|javascript:|data:)/i.test(href.trim())) continue;
     // Anchor text = the markup up to the next </a>, tags stripped.
-    const closeOffset = html.slice(rx.lastIndex).search(/<\/a>/i);
-    const anchorClose = closeOffset >= 0 ? rx.lastIndex + closeOffset : -1;
-    const rest = html.slice(rx.lastIndex, anchorClose >= 0 ? anchorClose : rx.lastIndex + 400);
+    const rest = html.slice(
+      anchorContentStart,
+      anchorClose >= 0 ? anchorClose : Math.min(html.length, anchorContentStart + 400),
+    );
     const text = rest.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
     const aria = readAttr(attrs, ['aria-label', 'title']);
     // Some card templates use an empty, aria-hidden overlay anchor as the
@@ -166,14 +203,10 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
     // anchor as hidden; this avoids guessing from arbitrary nearby prose.
     let overlayHeading = '';
     if (!text && /^true$/i.test(String(readAttr(attrs, 'aria-hidden') || '').trim())) {
-      const anchorEnd = anchorClose >= 0 ? anchorClose + 4 : rx.lastIndex;
-      const itemStart = html.lastIndexOf('<li', m.index);
-      const itemEnd = html.indexOf('</li>', anchorEnd);
-      const scopeEnd = itemEnd > anchorEnd
-        ? itemEnd
-        : Math.min(html.length, anchorEnd + 2000);
-      if (itemStart >= 0 && scopeEnd > anchorEnd) {
-        const scope = html.slice(anchorEnd, scopeEnd);
+      const anchorEnd = anchorClose >= 0 ? anchorClose + 4 : anchorContentStart;
+      const item = containingListItem(listItemScopes, m.index, anchorEnd);
+      if (item && item.end > anchorEnd) {
+        const scope = html.slice(anchorEnd, item.end);
         overlayHeading = scope.match(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/i)?.[1]
           ?.replace(/<[^>]*>/g, ' ')
           .replace(/\s+/g, ' ')

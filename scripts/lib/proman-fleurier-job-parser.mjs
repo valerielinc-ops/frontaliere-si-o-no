@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang, appendSlugDisambiguator } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
+import { extractBalancedTagBlockWithStatus } from './hospital-custom-html-helpers.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
@@ -73,10 +73,11 @@ function classContainer(html = '', className = '') {
     'i',
   ).exec(String(html || ''));
   if (!match) return '';
-  return extractBalancedTagBlock(
+  const block = extractBalancedTagBlockWithStatus(
     String(html || '').slice(match.index + match[0].length),
     match[1],
   );
+  return block.complete ? block.html : '';
 }
 
 /**

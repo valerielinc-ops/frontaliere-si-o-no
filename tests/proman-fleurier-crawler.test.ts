@@ -67,6 +67,15 @@ describe('PROMAN Fleurier source-backed crawler', () => {
     expect(detail.description).not.toContain('Personne de contact');
   });
 
+  it('rejects an incomplete rendered container instead of publishing its tail', () => {
+    const incompleteFixture = `
+      <section class="u-section-job-details-header"><h1>Automaticien de production</h1></section>
+      <ul class="u-job-infos"><li><u-svg source="24/job/location"></u-svg> Fleurier</li></ul>
+      <ul class="u-specs"><p>Vos tâches</p><div>source body before footer-leak`;
+    const detail = extractPromanFleurierDetailFields(incompleteFixture, detailUrl);
+    expect(detail.description).not.toContain('footer-leak');
+  });
+
   it('uses only reviewed Proman aliases when the card omits the canton', () => {
     const neuchatelAlias = extractPromanFleurierDetailFields(
       currentRenderedFixture.replace('Canton de Neuchâtel', 'Couvet'),
