@@ -1045,8 +1045,15 @@ export const EXPAND_ALL_RE = /^(alle abschnitte einblenden|alle einblenden|expan
 export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
 export const COVER_LETTER_UPLOAD_RE = /((cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione))\s+(hochladen|upload(en)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione)))/i;
 const ICON_ONLY_BUTTON_RE = /^[^\p{L}\p{N}]{1,12}$/u;
-const CV_DOCUMENT_CONTEXT_RE = /\b(?:cv|resume|résumé|lebenslauf|curriculum(?:\s+vitae)?)\b/i;
-const COVER_LETTER_DOCUMENT_CONTEXT_RE = /\b(?:cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione))\b/i;
+// JavaScript's `\b` is ASCII-only and treats `_` as a word character. Document
+// labels can contain accents and filenames commonly use underscores, so only
+// Unicode letters, numbers and combining marks are token characters here.
+const documentContextRe = (terms) => new RegExp(
+  `(?<![\\p{L}\\p{N}\\p{M}])(?:${terms})(?![\\p{L}\\p{N}\\p{M}])`,
+  'iu',
+);
+const CV_DOCUMENT_CONTEXT_RE = documentContextRe('cv|resume|résumé|lebenslauf|curriculum(?:\\s+vitae)?');
+const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe('cover\\s+letter|motivation(?:s|al)?\\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\\s+de\\s+motivation|lettera\\s+di\\s+(?:motivazione|presentazione)');
 
 /**
  * Find a document upload control without guessing from an unlabelled icon.

@@ -213,6 +213,12 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       'How did you hear about this position?',
     ]);
     expect(uploadButtonFor(page, 'cv')).toMatchObject({ id: 'resume-upload', text: '' });
+    expect(uploadButtonFor({ buttons: [{ id: 'aria-label-upload', text: '', section: '', context: 'Upload CV', disabled: false }] }, 'cv'))
+      .toMatchObject({ id: 'aria-label-upload', text: '' });
+    expect(uploadButtonFor({ buttons: [{ id: 'french-upload', text: '', section: '', context: 'Résumé', disabled: false }] }, 'cv'))
+      .toMatchObject({ id: 'french-upload', text: '' });
+    expect(uploadButtonFor({ buttons: [{ id: 'filename-upload', text: '', section: '', context: 'my_resume.pdf', disabled: false }] }, 'cv'))
+      .toMatchObject({ id: 'filename-upload', text: '' });
     expect(uploadButtonFor({ buttons: [{ ...page.buttons[0], section: 'Correspondence', context: 'Correspondence' }] }, 'cv')).toBeNull();
     expect(uploadButtonFor({ buttons: [page.buttons[0], { ...page.buttons[0], id: 'other-icon', context: 'Resume / CV (PDF preferred):' }] }, 'cv')).toBeNull();
   });

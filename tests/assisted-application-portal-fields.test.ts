@@ -325,6 +325,13 @@ describe('portal field extraction', () => {
     });
   });
 
+  it('keeps an icon-only button accessible label in its document context', () => {
+    const page = extract('<form><button type="button" aria-label="Upload CV"></button></form>');
+    expect(page.buttons).toContainEqual(expect.objectContaining({
+      context: expect.stringContaining('Upload CV'),
+    }));
+  });
+
   // Review of #12255: aria-hidden is a flag of the accessibility tree, not a sign that nothing is drawn.
   it('keeps a drawn button that is only aria-hidden, and leaves out what lies under an open modal dialog', () => {
     // A submit some portal marks aria-hidden with no overlay next to it is still the one to press: alone, out

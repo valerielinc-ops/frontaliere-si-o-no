@@ -442,6 +442,7 @@
   const actionLink = (element) => element.tagName === 'A' && Boolean(element.closest('.css_button'));
   const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element);
   const buttonName = (element) => clean(element.innerText || element.value || element.getAttribute('aria-label') || element.textContent || element.getAttribute('title') || '');
+  const buttonAccessibleLabel = (element) => clean(element.getAttribute('aria-label') || '');
   const fileContext = (element) => {
     for (let node = element.parentElement, depth = 0; node && depth < 6; node = node.parentElement, depth += 1) {
       const text = clean(node.innerText || node.textContent);
@@ -469,7 +470,7 @@
       // SuccessFactors can render the CV trigger as an icon-only button. Keep
       // the nearby label/section text so the runner can select it only when
       // the document context is explicit.
-      context: clean([...new Set([sectionContext(element), zoneText(element)].filter(Boolean))].join(' · ')),
+      context: clean([...new Set([sectionContext(element), zoneText(element), buttonAccessibleLabel(element)].filter(Boolean))].join(' · ')),
       fileContext: fileContext(element),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
