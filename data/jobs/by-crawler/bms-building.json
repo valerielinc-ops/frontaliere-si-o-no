@@ -3313,12 +3313,12 @@
     },
     {
       "id": "bms-building-19b0ec709c30",
-      "slug": "chauffeur-poids-lourd-grue-a-100-f-h-d-bms-building-ch",
+      "slug": "autista-di-mezzi-pesanti-con-gru-al-100-m-f-d-bms-building-materials-bulle",
       "slugByLocale": {
         "fr": "chauffeur-poids-lourd-grue-a-100-f-h-d-bms-building-ch",
-        "it": "chauffeur-poids-lourd-grue-a-100-f-h-d-bms-building-ch",
-        "en": "chauffeur-poids-lourd-grue-a-100-f-h-d-bms-building-ch",
-        "de": "chauffeur-poids-lourd-grue-a-100-f-h-d-bms-building-ch"
+        "it": "autista-di-mezzi-pesanti-con-gru-al-100-m-f-d-bms-building-materials-bulle",
+        "en": "driver-weight-heavy-crane-100-m-f-d-bms-building-materials-bulle",
+        "de": "fahrergewicht-schwerer-kran-100-m-w-d-bms-building-materials-bulle"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -3410,7 +3410,21 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-19T21:18:56.311Z"
+      "firstSeenAt": "2026-10-19T21:18:56.311Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-poids-lourd-grue-a-100-f-h-d-bms-building-ch"
+        ],
+        "en": [
+          "chauffeur-poids-lourd-grue-a-100-f-h-d-bms-building-ch"
+        ],
+        "de": [
+          "chauffeur-poids-lourd-grue-a-100-f-h-d-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-poids-lourd-grue-a-100-f-h-d-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-84ee1277b5c1",

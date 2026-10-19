@@ -14104,12 +14104,12 @@
     },
     {
       "id": "lonza-bedf29a12da9",
-      "slug": "associate-principal-scientist-bioanalytical-expert-80-100-f-m-d-lonza-ch",
+      "slug": "ricercatore-principale-associato-esperto-bioanalitico-80-100-m-f-d-lonza-basel",
       "slugByLocale": {
         "en": "associate-principal-scientist-bioanalytical-expert-80-100-f-m-d-lonza-ch",
-        "it": "associate-principal-scientist-bioanalytical-expert-80-100-f-m-d-lonza-ch",
+        "it": "ricercatore-principale-associato-esperto-bioanalitico-80-100-m-f-d-lonza-basel",
         "de": "associate-principal-scientist-bioanalytical-expert-80-100-f-m-d-lonza-ch",
-        "fr": "associate-principal-scientist-bioanalytical-expert-80-100-f-m-d-lonza-ch"
+        "fr": "chercheur-principal-associe-expert-en-bioanalyse-80-100-h-f-d-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14168,16 +14168,27 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-19T21:13:53.354Z"
+      "firstSeenAt": "2026-10-19T21:13:53.354Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-principal-scientist-bioanalytical-expert-80-100-f-m-d-lonza-ch"
+        ],
+        "fr": [
+          "associate-principal-scientist-bioanalytical-expert-80-100-f-m-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-principal-scientist-bioanalytical-expert-80-100-f-m-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-a93383fb28a8",
-      "slug": "scientist-analytical-development-80-100-f-m-d-lonza-ch",
+      "slug": "sviluppo-analitico-degli-scienziati-80-100-m-f-d-lonza-basel",
       "slugByLocale": {
         "en": "scientist-analytical-development-80-100-f-m-d-lonza-ch",
-        "it": "scientist-analytical-development-80-100-f-m-d-lonza-ch",
-        "de": "scientist-analytical-development-80-100-f-m-d-lonza-ch",
-        "fr": "scientist-analytical-development-80-100-f-m-d-lonza-ch"
+        "it": "sviluppo-analitico-degli-scienziati-80-100-m-f-d-lonza-basel",
+        "de": "wissenschaftler-analytische-entwicklung-80-100-m-w-d-lonza-basel",
+        "fr": "developpement-scientifique-analytique-80-100-h-f-d-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14236,7 +14247,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-19T21:13:52.662Z"
+      "firstSeenAt": "2026-10-19T21:13:52.662Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-analytical-development-80-100-f-m-d-lonza-ch"
+        ],
+        "de": [
+          "scientist-analytical-development-80-100-f-m-d-lonza-ch"
+        ],
+        "fr": [
+          "scientist-analytical-development-80-100-f-m-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientist-analytical-development-80-100-f-m-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-643fae706f20",

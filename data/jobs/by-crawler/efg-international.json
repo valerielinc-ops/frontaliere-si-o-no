@@ -1239,7 +1239,7 @@
     },
     {
       "id": "efg-6221",
-      "slug": "third-party-risk-management-officer-efg-lugano",
+      "slug": "responsabile-della-gestione-del-rischio-di-terze-parti-efg-international-ag-lugano",
       "company": "EFG International AG",
       "title": "Third Party Risk Management Officer",
       "location": "Lugano",
@@ -1336,10 +1336,10 @@
       },
       "crawledAt": "2026-10-19T21:14:54.060Z",
       "slugByLocale": {
-        "it": "third-party-risk-management-officer-efg-lugano",
+        "it": "responsabile-della-gestione-del-rischio-di-terze-parti-efg-international-ag-lugano",
         "en": "third-party-risk-management-officer-efg-lugano",
-        "de": "third-party-risk-management-officer-efg-lugano",
-        "fr": "third-party-risk-management-officer-efg-lugano"
+        "de": "risikomanagementbeauftragter-der-dritten-partei-efg-international-ag-lugano",
+        "fr": "agent-de-gestion-des-risques-de-tiers-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
       "addressCountry": "CH",
@@ -1360,7 +1360,21 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-10-19T21:14:54.060Z"
+      "firstSeenAt": "2026-10-19T21:14:54.060Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "third-party-risk-management-officer-efg-lugano"
+        ],
+        "de": [
+          "third-party-risk-management-officer-efg-lugano"
+        ],
+        "fr": [
+          "third-party-risk-management-officer-efg-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "third-party-risk-management-officer-efg-lugano"
+      ]
     },
     {
       "id": "efg-6531",
@@ -3467,7 +3481,7 @@
       "slugByLocale": {
         "it": "operatore-di-commutazione-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltstelle-operator-efg-international-ag-lugano",
+        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -3497,12 +3511,13 @@
         ],
         "de": [
           "switchboard-operator-efg-lugano",
-          "schaltnetzbetreiber-efg-international-ag-lugano"
+          "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
-        "schaltnetzbetreiber-efg-international-ag-lugano"
+        "schaltnetzbetreiber-efg-international-ag-lugano",
+        "schaltstelle-operator-efg-international-ag-lugano"
       ],
       "salarySource": "estimated",
       "applyUrl": "https://www.efginternational.com/us/about/careers",

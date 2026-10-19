@@ -256,12 +256,12 @@
     },
     {
       "id": "sonnweid-01c200aa4ea7",
-      "slug": "fachperson-gesundheit-o-betreuung-cfc-per-la-nachtwache-pflegezentrum-sonnweid-wetzikon",
+      "slug": "professionista-sanitario-o-assistenziale-efz-per-il-servizio-notturno-pflegezentrum-sonnweid-wetzikon",
       "slugByLocale": {
         "de": "fachperson-gesundheit-oder-betreuung-efz-fur-die-nachtwache-sonnweid-wetzikon",
-        "it": "fachperson-gesundheit-o-betreuung-cfc-per-la-nachtwache-pflegezentrum-sonnweid-wetzikon",
-        "en": "fachperson-gesundheit-oder-betreuung-efz-fur-die-nachtwache-sonnweid-wetzikon",
-        "fr": "fachperson-gesundheit-oder-betreuung-efz-fur-die-nachtwache-sonnweid-wetzikon"
+        "it": "professionista-sanitario-o-assistenziale-efz-per-il-servizio-notturno-pflegezentrum-sonnweid-wetzikon",
+        "en": "professional-health-or-care-efz-for-the-night-watch-pflegezentrum-sonnweid-wetzikon",
+        "fr": "sante-professionnelle-ou-soins-efz-pour-la-veille-nocturne-pflegezentrum-sonnweid-wetzikon"
       },
       "company": "Pflegezentrum Sonnweid",
       "companyKey": "sonnweid",
@@ -308,11 +308,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-oder-betreuung-efz-fur-die-nachtwache-sonnweid-wetzikon",
+          "fachperson-gesundheit-o-betreuung-cfc-per-la-nachtwache-pflegezentrum-sonnweid-wetzikon"
+        ],
+        "en": [
+          "fachperson-gesundheit-oder-betreuung-efz-fur-die-nachtwache-sonnweid-wetzikon"
+        ],
+        "fr": [
           "fachperson-gesundheit-oder-betreuung-efz-fur-die-nachtwache-sonnweid-wetzikon"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-oder-betreuung-efz-fur-die-nachtwache-sonnweid-wetzikon"
+        "fachperson-gesundheit-oder-betreuung-efz-fur-die-nachtwache-sonnweid-wetzikon",
+        "fachperson-gesundheit-o-betreuung-cfc-per-la-nachtwache-pflegezentrum-sonnweid-wetzikon"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

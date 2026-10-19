@@ -2040,12 +2040,12 @@
     },
     {
       "id": "anker-swiss-3f271c6eec28",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-alpnach-dorf-3f271c6e",
+      "slug": "copertura-100-anker-swiss-ticino-ag-alpnach-dorf-3f271c6e",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-alpnach-dorf-3f271c6e",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-alpnach-dorf-3f271c6e",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-alpnach-dorf-3f271c6e",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-alpnach-dorf-3f271c6e"
+        "it": "copertura-100-anker-swiss-ticino-ag-alpnach-dorf-3f271c6e",
+        "en": "roofing-100-anker-swiss-ticino-ag-alpnach-dorf-3f271c6e",
+        "fr": "toiture-100-anker-swiss-ticino-ag-alpnach-dorf-3f271c6e"
       },
       "slugDisambiguator": "3f271c6e",
       "company": "Anker Swiss Ticino AG",
@@ -2105,7 +2105,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T21:27:36.270Z"
+      "firstSeenAt": "2026-10-19T21:27:36.270Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dachdecker-100-anker-swiss-ticino-ag-alpnach-dorf-3f271c6e"
+        ],
+        "en": [
+          "dachdecker-100-anker-swiss-ticino-ag-alpnach-dorf-3f271c6e"
+        ],
+        "fr": [
+          "dachdecker-100-anker-swiss-ticino-ag-alpnach-dorf-3f271c6e"
+        ]
+      },
+      "previousSlugs": [
+        "dachdecker-100-anker-swiss-ticino-ag-alpnach-dorf-3f271c6e"
+      ]
     },
     {
       "id": "anker-swiss-ddf9b5f3fe34",
@@ -5976,12 +5990,12 @@
     },
     {
       "id": "anker-swiss-b34c5899dd90",
-      "slug": "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899",
+      "slug": "lattoniere-100-anker-swiss-ticino-ag-lyss-b34c5899",
       "slugByLocale": {
         "de": "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899",
-        "it": "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899",
-        "en": "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899",
-        "fr": "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899"
+        "it": "lattoniere-100-anker-swiss-ticino-ag-lyss-b34c5899",
+        "en": "sheet-metal-worker-100-anker-swiss-ticino-ag-lyss-b34c5899",
+        "fr": "ferblantier-100-anker-swiss-ticino-ag-lyss-b34c5899"
       },
       "slugDisambiguator": "b34c5899",
       "company": "Anker Swiss Ticino AG",
@@ -6029,32 +6043,32 @@
         "de": []
       },
       "previousSlugs": [
-        "lattoniere-100-anker-swiss-ticino-ag-lyss-b34c5899",
         "tinsmith-100-anker-swiss-ticino-ag-lyss-b34c5899",
-        "ferblantier-100-anker-swiss-ticino-ag-lyss-b34c5899",
         "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5",
         "lattoniere-100-anker-swiss-ticino-ag-lyss-aa466ab5",
         "tinsmith-100-anker-swiss-ticino-ag-lyss-aa466ab5",
-        "ferblantier-ere-100-anker-swiss-ticino-ag-lyss-aa466ab5"
+        "ferblantier-ere-100-anker-swiss-ticino-ag-lyss-aa466ab5",
+        "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lattoniere-100-anker-swiss-ticino-ag-lyss-b34c5899",
           "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5",
-          "lattoniere-100-anker-swiss-ticino-ag-lyss-aa466ab5"
+          "lattoniere-100-anker-swiss-ticino-ag-lyss-aa466ab5",
+          "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899"
         ],
         "en": [
           "tinsmith-100-anker-swiss-ticino-ag-lyss-b34c5899",
           "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5",
-          "tinsmith-100-anker-swiss-ticino-ag-lyss-aa466ab5"
+          "tinsmith-100-anker-swiss-ticino-ag-lyss-aa466ab5",
+          "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899"
         ],
         "de": [
           "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5"
         ],
         "fr": [
-          "ferblantier-100-anker-swiss-ticino-ag-lyss-b34c5899",
           "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5",
-          "ferblantier-ere-100-anker-swiss-ticino-ag-lyss-aa466ab5"
+          "ferblantier-ere-100-anker-swiss-ticino-ag-lyss-aa466ab5",
+          "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899"
         ]
       },
       "salaryMin": 68500,
@@ -12127,12 +12141,12 @@
     },
     {
       "id": "anker-swiss-6c68195c2424",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-gwatt-thun-6c68195c",
+      "slug": "copertura-100-anker-swiss-ticino-ag-gwatt-thun-6c68195c",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-gwatt-thun-6c68195c",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-gwatt-thun-6c68195c",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-gwatt-thun-6c68195c",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-gwatt-thun-6c68195c"
+        "it": "copertura-100-anker-swiss-ticino-ag-gwatt-thun-6c68195c",
+        "en": "roofing-100-anker-swiss-ticino-ag-gwatt-thun-6c68195c",
+        "fr": "toiture-100-anker-swiss-ticino-ag-gwatt-thun-6c68195c"
       },
       "slugDisambiguator": "6c68195c",
       "company": "Anker Swiss Ticino AG",
@@ -12192,7 +12206,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T21:27:36.213Z"
+      "firstSeenAt": "2026-10-19T21:27:36.213Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dachdecker-100-anker-swiss-ticino-ag-gwatt-thun-6c68195c"
+        ],
+        "en": [
+          "dachdecker-100-anker-swiss-ticino-ag-gwatt-thun-6c68195c"
+        ],
+        "fr": [
+          "dachdecker-100-anker-swiss-ticino-ag-gwatt-thun-6c68195c"
+        ]
+      },
+      "previousSlugs": [
+        "dachdecker-100-anker-swiss-ticino-ag-gwatt-thun-6c68195c"
+      ]
     },
     {
       "id": "anker-swiss-b6ff98b2b8f9",

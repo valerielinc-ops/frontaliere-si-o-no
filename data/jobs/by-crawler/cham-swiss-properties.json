@@ -84,12 +84,12 @@
     },
     {
       "id": "cham-swiss-properties-d88b4f4e5756",
-      "slug": "fachperson-finanz-e-rechnungswesen-cham-swiss-properties-cham",
+      "slug": "specialista-in-finanza-e-contabilita-cham-swiss-properties-cham",
       "slugByLocale": {
         "de": "fachperson-finanz-und-rechnungswesen-cham-swiss-properties-cham",
-        "it": "fachperson-finanz-e-rechnungswesen-cham-swiss-properties-cham",
-        "en": "fachperson-finanz-und-rechnungswesen-cham-swiss-properties-cham",
-        "fr": "fachperson-finanz-und-rechnungswesen-cham-swiss-properties-cham"
+        "it": "specialista-in-finanza-e-contabilita-cham-swiss-properties-cham",
+        "en": "financial-and-accounting-specialist-cham-swiss-properties-cham",
+        "fr": "specialiste-des-finances-et-de-la-comptabilite-cham-swiss-properties-cham"
       },
       "company": "Cham Swiss Properties",
       "companyKey": "cham-swiss-properties",
@@ -138,11 +138,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-finanz-und-rechnungswesen-cham-swiss-properties-cham",
+          "fachperson-finanz-e-rechnungswesen-cham-swiss-properties-cham"
+        ],
+        "en": [
+          "fachperson-finanz-und-rechnungswesen-cham-swiss-properties-cham"
+        ],
+        "fr": [
           "fachperson-finanz-und-rechnungswesen-cham-swiss-properties-cham"
         ]
       },
       "previousSlugs": [
-        "fachperson-finanz-und-rechnungswesen-cham-swiss-properties-cham"
+        "fachperson-finanz-und-rechnungswesen-cham-swiss-properties-cham",
+        "fachperson-finanz-e-rechnungswesen-cham-swiss-properties-cham"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

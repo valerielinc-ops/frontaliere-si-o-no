@@ -3006,10 +3006,10 @@
     },
     {
       "id": "ubs-94a45d657069",
-      "slug": "2027-internship-group-real-estate-and-supply-chain-zh-ubs-zurich",
+      "slug": "2027-stage-gruppo-immobiliare-e-supply-chain-zh-ubs-zurich",
       "slugByLocale": {
         "en": "2027-internship-group-real-estate-and-supply-chain-zh-ubs-zurich",
-        "it": "2027-internship-group-real-estate-and-supply-chain-zh-ubs-zurich",
+        "it": "2027-stage-gruppo-immobiliare-e-supply-chain-zh-ubs-zurich",
         "de": "2027-internship-group-real-estate-and-supply-chain-zh-ubs-zurich",
         "fr": "2027-internship-group-real-estate-and-supply-chain-zh-ubs-zurich"
       },
@@ -3078,7 +3078,15 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-19T21:18:51.307Z"
+      "firstSeenAt": "2026-10-19T21:18:51.307Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-internship-group-real-estate-and-supply-chain-zh-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-internship-group-real-estate-and-supply-chain-zh-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-144a99d44354",
@@ -3086,8 +3094,8 @@
       "slugByLocale": {
         "en": "2027-graduate-talent-program-internal-audit-group-treasury-zurich-ubs-zurich",
         "it": "2027-graduate-talent-program-internal-audit-group-treasury-zurich-ubs-zurich",
-        "de": "2027-graduate-talent-program-internal-audit-group-treasury-zurich-ubs-zurich",
-        "fr": "2027-graduate-talent-program-internal-audit-group-treasury-zurich-ubs-zurich"
+        "de": "2027-graduiertentalentprogramm-interne-revisionsgruppe-treasury-zurich-ubs-zurich",
+        "fr": "2027-programme-des-talents-diplomes-groupe-de-verification-interne-tresorerie-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",

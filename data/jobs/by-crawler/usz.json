@@ -14511,7 +14511,7 @@
       "slug": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "it": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
-        "en": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich",
+        "en": "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich",
         "de": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
         "fr": "pre-internat-en-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       },
@@ -14558,7 +14558,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-        "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich"
+        "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14566,7 +14566,7 @@
         ],
         "en": [
           "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-          "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich"
+          "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -16827,7 +16827,7 @@
       "slugByLocale": {
         "de": "mpa-fage-fur-die-ambulante-allergologie-80-100-usz-ch",
         "it": "mpa-fage-per-la-ambulante-allergologie-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "mpa-fage-fur-die-ambulante-allergologie-80-100-usz-ch",
+        "en": "mpa-fage-for-ambulatory-allergology-80-100-universitatsspital-zurich-usz-zurich",
         "fr": "mpa-fage-fur-die-ambulante-allergologie-80-100-usz-ch"
       },
       "company": "Universitätsspital Zürich (USZ)",
@@ -16875,6 +16875,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mpa-fage-fur-die-ambulante-allergologie-80-100-usz-ch"
+        ],
+        "en": [
           "mpa-fage-fur-die-ambulante-allergologie-80-100-usz-ch"
         ]
       },
@@ -17201,12 +17204,12 @@
     },
     {
       "id": "usz-c49ede6bc6da",
-      "slug": "leitung-patientenadministration-e-koordination-per-la-medizinische-onkologie-e-hamatologie-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "responsabile-dell-amministrazione-e-del-coordinamento-dei-pazienti-per-l-oncologia-medica-e-l-ematologia-80-100",
       "slugByLocale": {
         "de": "leitung-patientenadministration-und-koordination-fur-die-medizinische-onkologie-und",
-        "it": "leitung-patientenadministration-e-koordination-per-la-medizinische-onkologie-e-hamatologie-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "leitung-patientenadministration-und-koordination-fur-die-medizinische-onkologie-und",
-        "fr": "leitung-patientenadministration-und-koordination-fur-die-medizinische-onkologie-und"
+        "it": "responsabile-dell-amministrazione-e-del-coordinamento-dei-pazienti-per-l-oncologia-medica-e-l-ematologia-80-100",
+        "en": "head-of-patient-administration-and-coordination-for-medical-oncology-and-hematology-80-100-universitatsspital-zurich-usz",
+        "fr": "chef-de-l-administration-des-patients-et-de-la-coordination-de-l-oncologie-et-de-l-hematologie-medicales-80-100"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17253,11 +17256,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leitung-patientenadministration-und-koordination-fur-die-medizinische-onkologie-und",
+          "leitung-patientenadministration-e-koordination-per-la-medizinische-onkologie-e-hamatologie-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "leitung-patientenadministration-und-koordination-fur-die-medizinische-onkologie-und"
+        ],
+        "fr": [
           "leitung-patientenadministration-und-koordination-fur-die-medizinische-onkologie-und"
         ]
       },
       "previousSlugs": [
-        "leitung-patientenadministration-und-koordination-fur-die-medizinische-onkologie-und"
+        "leitung-patientenadministration-und-koordination-fur-die-medizinische-onkologie-und",
+        "leitung-patientenadministration-e-koordination-per-la-medizinische-onkologie-e-hamatologie-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17278,7 +17289,7 @@
       "id": "usz-dabf0dcc194c",
       "slug": "medico-senior-m-f-d-medicina-interna-nell-area-ospedaliera-nella-clinica-gastroenterologia-ed-epatologia-80-100-1a2fdbd50d",
       "slugByLocale": {
-        "it": "medico-senior-m-f-d-medicina-interna-nell-area-ospedaliera-nella-clinica-gastroenterologia-ed-epatologia-80-100-1a2fdbd50d",
+        "it": "medico-senior-m-f-d-medicina-interna-nell-area-ospedaliera-nella-clinica-gastroenterologia-ed-epatologia-80-100",
         "en": "senior-physician-f-m-d-internal-medicine-in-the-inpatient-area-in-the-clinic-gastroenterology-and-hepatology-80-100",
         "de": "oberarztin-oberarzt-w-m-d-innere-medizin-im-stationaren-bereich-in-der-klinik",
         "fr": "medecin-principal-f-m-d-medecine-interne-dans-la-zone-d-hospitalisation-a-la-clinique-gastroenterologie-et-hepatologie"
@@ -17325,13 +17336,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-w-m-d-innere-medizin-im-stationaren-bereich-in-der-klinik",
-        "medico-senior-m-f-d-medicina-interna-nell-area-ospedaliera-nella-clinica-gastroenterologia-ed-epatologia-80-100"
+        "oberarztin-oberarzt-w-m-d-innere-medizin-im-stationaren-bereich-in-der-klinik"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-w-m-d-innere-medizin-im-stationaren-bereich-in-der-klinik",
-          "medico-senior-m-f-d-medicina-interna-nell-area-ospedaliera-nella-clinica-gastroenterologia-ed-epatologia-80-100"
+          "oberarztin-oberarzt-w-m-d-innere-medizin-im-stationaren-bereich-in-der-klinik"
         ]
       },
       "firstSeenAt": "2026-07-15T22:39:32.877Z",
@@ -17437,7 +17446,7 @@
       "id": "usz-774b75d61e80",
       "slug": "sap-bi-consulente-frontend-w-m-d-80-100-universitatsspital-zurich-usz-zurich-232f1d9a24",
       "slugByLocale": {
-        "it": "sap-bi-consulente-frontend-w-m-d-80-100-universitatsspital-zurich-usz-zurich-232f1d9a24",
+        "it": "sap-bi-consulente-frontend-w-m-d-80-100-universitatsspital-zurich-usz-zurich",
         "en": "sap-bi-consultant-frontend-w-m-d-80-100-usz-ch",
         "de": "sap-bi-consultant-frontend-w-m-d-80-100-usz-ch",
         "fr": "sap-bi-consultant-frontend-w-m-d-80-100-usz-ch"
@@ -17485,14 +17494,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sap-bi-consultant-frontend-w-m-d-80-100-usz-ch",
-        "sap-bi-consultant-frontend-80-100-usz-ch",
-        "sap-bi-consulente-frontend-w-m-d-80-100-universitatsspital-zurich-usz-zurich"
+        "sap-bi-consultant-frontend-80-100-usz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sap-bi-consultant-frontend-w-m-d-80-100-usz-ch",
-          "sap-bi-consultant-frontend-80-100-usz-ch",
-          "sap-bi-consulente-frontend-w-m-d-80-100-universitatsspital-zurich-usz-zurich"
+          "sap-bi-consultant-frontend-80-100-usz-ch"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:10.344Z",

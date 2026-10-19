@@ -651,7 +651,7 @@
       "slug": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "it": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
-        "en": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
+        "en": "occupational-therapist-psychiatrie-st-gallen-pfafers",
         "de": "ergotherapeutin-ergotherapeut-psgn-pfafers",
         "fr": "ergotherapeute-psychiatrie-st-gallen-pfafers"
       },
@@ -698,8 +698,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-psgn-pfafers",
-        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
-        "occupational-therapist-psychiatrie-st-gallen-pfafers"
+        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -707,7 +706,7 @@
           "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
         ],
         "en": [
-          "occupational-therapist-psychiatrie-st-gallen-pfafers"
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
         ],
         "fr": [
           "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
@@ -730,12 +729,12 @@
     },
     {
       "id": "psgn-6ce67e232329",
-      "slug": "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil",
+      "slug": "terapeuta-dello-sport-terapeuta-dello-sport-psychiatrie-st-gallen-wil",
       "slugByLocale": {
         "de": "sporttherapeutin-sporttherapeut-psgn-wil",
-        "it": "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil",
-        "en": "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil",
-        "fr": "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
+        "it": "terapeuta-dello-sport-terapeuta-dello-sport-psychiatrie-st-gallen-wil",
+        "en": "sports-therapist-sport-therapist-psychiatrie-st-gallen-wil",
+        "fr": "therapeute-sportotherapeute-psychiatrie-st-gallen-wil"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -782,11 +781,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sporttherapeutin-sporttherapeut-psgn-wil"
+          "sporttherapeutin-sporttherapeut-psgn-wil",
+          "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
+        ],
+        "en": [
+          "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
+        ],
+        "fr": [
+          "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
         ]
       },
       "previousSlugs": [
-        "sporttherapeutin-sporttherapeut-psgn-wil"
+        "sporttherapeutin-sporttherapeut-psgn-wil",
+        "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

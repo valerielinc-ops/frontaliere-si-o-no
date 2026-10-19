@@ -4174,8 +4174,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-zentrale-triage-puk-zuerich-zurich",
         "it": "dipl-pflegefachfrau-pflegefachmann-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "dipl-pflegefachfrau-pflegefachmann-zentrale-triage-puk-zuerich-zurich",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-zentrale-triage-puk-zuerich-zurich"
+        "en": "dipl-nursing-professional-central-triage-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "dipl-specialiste-des-soins-infirmiers-triage-central-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -4226,6 +4226,12 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-zentrale-triage-puk-zuerich-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-zentrale-triage-puk-zuerich-zurich"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-zentrale-triage-puk-zuerich-zurich"
         ]
       },

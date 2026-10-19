@@ -78,12 +78,12 @@
     },
     {
       "id": "badrutts-palace-f1ee8e74c0f4",
-      "slug": "food-receiver-m-f-d-badrutts-palace-ch",
+      "slug": "ricevitore-di-cibo-m-f-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
         "en": "food-receiver-m-f-d-badrutts-palace-ch",
-        "it": "food-receiver-m-f-d-badrutts-palace-ch",
-        "de": "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "fr": "food-receiver-m-f-d-badrutts-palace-ch"
+        "it": "ricevitore-di-cibo-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "de": "lebensmittelempfanger-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "fr": "recepteur-alimentaire-h-f-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -142,7 +142,22 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-19T21:33:29.664Z"
+      "firstSeenAt": "2026-10-19T21:33:29.664Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "food-receiver-m-f-d-badrutts-palace-ch"
+        ],
+        "de": [
+          "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        ],
+        "fr": [
+          "food-receiver-m-f-d-badrutts-palace-ch"
+        ]
+      },
+      "previousSlugs": [
+        "food-receiver-m-f-d-badrutts-palace-ch",
+        "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz"
+      ]
     },
     {
       "id": "badrutts-palace-a71a288a5a6f",
@@ -225,7 +240,7 @@
       "slugByLocale": {
         "it": "capopartita-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "chef-de-partie-m-w-d-badrutts-palace-ch",
-        "de": "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "de": "kuchenchef-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "fr": "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
@@ -270,8 +285,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "chef-de-partie-m-f-d-badrutts-palace-ch",
-        "kuchenchef-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "chef-de-partie-m-f-d-badrutts-palace-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -279,7 +293,7 @@
           "chef-de-partie-m-f-d-badrutts-palace-ch"
         ],
         "de": [
-          "kuchenchef-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-06-24T10:50:10.926Z",

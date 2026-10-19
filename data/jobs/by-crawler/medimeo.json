@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "medimeo-684bc8d175a2",
-      "slug": "arbeiten-nahe-der-grenze-facharztin-facharzt-per-allgemeine-innere-medizin-medimeo-ag-region-basel",
+      "slug": "lavorare-vicino-al-confine-medica-specialista-medico-specialista-in-medicina-interna-generale-medimeo-ag-region-basel",
       "slugByLocale": {
         "de": "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel",
-        "it": "arbeiten-nahe-der-grenze-facharztin-facharzt-per-allgemeine-innere-medizin-medimeo-ag-region-basel",
-        "en": "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel",
-        "fr": "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel"
+        "it": "lavorare-vicino-al-confine-medica-specialista-medico-specialista-in-medicina-interna-generale-medimeo-ag-region-basel",
+        "en": "working-near-the-border-specialist-specialist-for-general-internal-medicine-medimeo-ag-region-basel",
+        "fr": "travailler-pres-de-la-frontiere-specialiste-specialiste-en-medecine-interne-generale-medimeo-ag-region-basel"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -55,11 +55,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel",
+          "arbeiten-nahe-der-grenze-facharztin-facharzt-per-allgemeine-innere-medizin-medimeo-ag-region-basel"
+        ],
+        "en": [
+          "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel"
+        ],
+        "fr": [
           "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel"
         ]
       },
       "previousSlugs": [
-        "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel"
+        "arbeiten-nahe-der-grenze-facharztin-facharzt-fur-allgemeine-innere-medizin-region-basel",
+        "arbeiten-nahe-der-grenze-facharztin-facharzt-per-allgemeine-innere-medizin-medimeo-ag-region-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -79,12 +87,12 @@
     },
     {
       "id": "medimeo-f1c343bc446f",
-      "slug": "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch",
+      "slug": "medico-senior-ginecologia-senior-ostetricia-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch",
-        "it": "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch",
-        "en": "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch",
-        "fr": "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch"
+        "it": "medico-senior-ginecologia-senior-ostetricia-medimeo-ag-olten-aargau",
+        "en": "senior-physician-senior-physician-gynecology-obstetrics-medimeo-ag-olten-aargau",
+        "fr": "medecin-principal-medecin-principal-gynecologie-et-obstetrique-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -142,16 +150,30 @@
         }
       },
       "postalCode": "4600",
-      "firstSeenAt": "2026-10-19T21:18:00.259Z"
+      "firstSeenAt": "2026-10-19T21:18:00.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch"
+      ]
     },
     {
       "id": "medimeo-8b81fc3f2a5b",
-      "slug": "hausarzt-hausarztin-60-100-ab-sofort-o-nach-vereinbarung-medimeo-ag-biel",
+      "slug": "medico-di-famiglia-medica-di-famiglia-60-100-da-subito-o-previo-accordo-medimeo-ag-biel-solothurn-mittelland",
       "slugByLocale": {
         "de": "hausarzt-hausarztin-60-100-ab-sofort-oder-nach-vereinbarung-biel-solothurn-mittelland",
-        "it": "hausarzt-hausarztin-60-100-ab-sofort-o-nach-vereinbarung-medimeo-ag-biel",
-        "en": "hausarzt-hausarztin-60-100-ab-sofort-oder-nach-vereinbarung-biel-solothurn-mittelland",
-        "fr": "hausarzt-hausarztin-60-100-ab-sofort-oder-nach-vereinbarung-biel-solothurn-mittelland"
+        "it": "medico-di-famiglia-medica-di-famiglia-60-100-da-subito-o-previo-accordo-medimeo-ag-biel-solothurn-mittelland",
+        "en": "gp-gp-60-100-immediately-or-by-appointment-medimeo-ag-biel-solothurn-mittelland",
+        "fr": "gp-gp-60-a-100-immediatement-ou-sur-rendez-vous-medimeo-ag-biel-solothurn-mittelland"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -197,11 +219,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "hausarzt-hausarztin-60-100-ab-sofort-oder-nach-vereinbarung-biel-solothurn-mittelland",
+          "hausarzt-hausarztin-60-100-ab-sofort-o-nach-vereinbarung-medimeo-ag-biel"
+        ],
+        "en": [
+          "hausarzt-hausarztin-60-100-ab-sofort-oder-nach-vereinbarung-biel-solothurn-mittelland"
+        ],
+        "fr": [
           "hausarzt-hausarztin-60-100-ab-sofort-oder-nach-vereinbarung-biel-solothurn-mittelland"
         ]
       },
       "previousSlugs": [
-        "hausarzt-hausarztin-60-100-ab-sofort-oder-nach-vereinbarung-biel-solothurn-mittelland"
+        "hausarzt-hausarztin-60-100-ab-sofort-oder-nach-vereinbarung-biel-solothurn-mittelland",
+        "hausarzt-hausarztin-60-100-ab-sofort-o-nach-vereinbarung-medimeo-ag-biel"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -220,12 +250,12 @@
     },
     {
       "id": "medimeo-cf1edaa49b1f",
-      "slug": "oberarzt-oberarztin-psychiatrie-ihr-weg-in-die-schweiz-mit-medimeo-an-ihrer-seite",
+      "slug": "medico-dirigente-medica-dirigente-in-psichiatria-il-vostro-percorso-in-svizzera-con-medimeo-al-vostro-fianco-medimeo-ag",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-psychiatrie-ihr-weg-in-die-schweiz-mit-medimeo-an-ihrer-seite",
-        "it": "oberarzt-oberarztin-psychiatrie-ihr-weg-in-die-schweiz-mit-medimeo-an-ihrer-seite",
-        "en": "oberarzt-oberarztin-psychiatrie-ihr-weg-in-die-schweiz-mit-medimeo-an-ihrer-seite",
-        "fr": "oberarzt-oberarztin-psychiatrie-ihr-weg-in-die-schweiz-mit-medimeo-an-ihrer-seite"
+        "it": "medico-dirigente-medica-dirigente-in-psichiatria-il-vostro-percorso-in-svizzera-con-medimeo-al-vostro-fianco-medimeo-ag",
+        "en": "senior-physician-senior-physician-psychiatry-your-way-to-switzerland-with-medimeo-at-your-side-medimeo-ag-winterthur",
+        "fr": "medecin-senior-medecin-senior-psychiatrie-votre-chemin-vers-la-suisse-avec-medimeo-a-vos-cotes-medimeo-ag-winterthur"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -283,16 +313,30 @@
         }
       },
       "postalCode": "8400",
-      "firstSeenAt": "2026-10-19T21:18:00.257Z"
+      "firstSeenAt": "2026-10-19T21:18:00.257Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-oberarztin-psychiatrie-ihr-weg-in-die-schweiz-mit-medimeo-an-ihrer-seite"
+        ],
+        "en": [
+          "oberarzt-oberarztin-psychiatrie-ihr-weg-in-die-schweiz-mit-medimeo-an-ihrer-seite"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-psychiatrie-ihr-weg-in-die-schweiz-mit-medimeo-an-ihrer-seite"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-oberarztin-psychiatrie-ihr-weg-in-die-schweiz-mit-medimeo-an-ihrer-seite"
+      ]
     },
     {
       "id": "medimeo-37716dbf5a3b",
-      "slug": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-begleitet-in-ihre-erste-oberarztrolle-medimeo-ag-olten",
+      "slug": "medica-dirigente-medico-dirigente-in-ginecologia-e-ostetricia-80-100-accompagnamento-verso-il-vostro-primo-ruolo-di",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-begleitet-in-ihre-erste",
-        "it": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-begleitet-in-ihre-erste-oberarztrolle-medimeo-ag-olten",
-        "en": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-begleitet-in-ihre-erste",
-        "fr": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-begleitet-in-ihre-erste"
+        "it": "medica-dirigente-medico-dirigente-in-ginecologia-e-ostetricia-80-100-accompagnamento-verso-il-vostro-primo-ruolo-di",
+        "en": "senior-physician-gynecology-and-obstetrics-80-100-accompanied-in-your-first-senior-role-medimeo-ag-olten-aargau",
+        "fr": "medecin-senior-gynecologie-et-obstetrique-80-100-accompagne-dans-votre-premier-role-senior-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -338,11 +382,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-begleitet-in-ihre-erste",
+          "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-begleitet-in-ihre-erste-oberarztrolle-medimeo-ag-olten"
+        ],
+        "en": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-begleitet-in-ihre-erste"
+        ],
+        "fr": [
           "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-begleitet-in-ihre-erste"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-begleitet-in-ihre-erste"
+        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-begleitet-in-ihre-erste",
+        "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-begleitet-in-ihre-erste-oberarztrolle-medimeo-ag-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -362,12 +414,12 @@
     },
     {
       "id": "medimeo-4c97f3c54eb3",
-      "slug": "oberarzt-oberarztin-innere-medizin-privatklinik-mit-starkem-teamgedanken-region-bern",
+      "slug": "medico-capoclinica-medica-capoclinica-di-medicina-interna-clinica-privata-con-una-forte-cultura-del-lavoro-di-squadra",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-innere-medizin-privatklinik-mit-starkem-teamgedanken-region-bern",
-        "it": "oberarzt-oberarztin-innere-medizin-privatklinik-mit-starkem-teamgedanken-region-bern",
-        "en": "oberarzt-oberarztin-innere-medizin-privatklinik-mit-starkem-teamgedanken-region-bern",
-        "fr": "oberarzt-oberarztin-innere-medizin-privatklinik-mit-starkem-teamgedanken-region-bern"
+        "it": "medico-capoclinica-medica-capoclinica-di-medicina-interna-clinica-privata-con-una-forte-cultura-del-lavoro-di-squadra",
+        "en": "senior-physician-internal-medicine-private-clinic-with-strong-team-spirit-medimeo-ag-region-bern-berner-oberland",
+        "fr": "medecin-principal-medecine-interne-clinique-privee-avec-un-esprit-d-equipe-fort-medimeo-ag-region-bern-berner-oberland"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -425,16 +477,30 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-10-19T21:18:00.255Z"
+      "firstSeenAt": "2026-10-19T21:18:00.255Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-oberarztin-innere-medizin-privatklinik-mit-starkem-teamgedanken-region-bern"
+        ],
+        "en": [
+          "oberarzt-oberarztin-innere-medizin-privatklinik-mit-starkem-teamgedanken-region-bern"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-innere-medizin-privatklinik-mit-starkem-teamgedanken-region-bern"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-oberarztin-innere-medizin-privatklinik-mit-starkem-teamgedanken-region-bern"
+      ]
     },
     {
       "id": "medimeo-ffc30def115e",
-      "slug": "oberarztin-oberarzt-notaufnahme-region-bern-berner-oberland-emmental-medimeo-ch",
+      "slug": "medico-senior-sala-di-emergenza-medico-senior-medimeo-ag-region-bern-berner-oberland-emmental",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-notaufnahme-region-bern-berner-oberland-emmental-medimeo-ch",
-        "it": "oberarztin-oberarzt-notaufnahme-region-bern-berner-oberland-emmental-medimeo-ch",
-        "en": "oberarztin-oberarzt-notaufnahme-region-bern-berner-oberland-emmental-medimeo-ch",
-        "fr": "oberarztin-oberarzt-notaufnahme-region-bern-berner-oberland-emmental-medimeo-ch"
+        "it": "medico-senior-sala-di-emergenza-medico-senior-medimeo-ag-region-bern-berner-oberland-emmental",
+        "en": "senior-physician-senior-physician-emergency-room-medimeo-ag-region-bern-berner-oberland-emmental",
+        "fr": "medecin-superieur-salle-d-urgence-du-medecin-superieur-medimeo-ag-region-bern-berner-oberland-emmental"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -492,16 +558,30 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-10-19T21:18:00.253Z"
+      "firstSeenAt": "2026-10-19T21:18:00.253Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-notaufnahme-region-bern-berner-oberland-emmental-medimeo-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-notaufnahme-region-bern-berner-oberland-emmental-medimeo-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-notaufnahme-region-bern-berner-oberland-emmental-medimeo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-notaufnahme-region-bern-berner-oberland-emmental-medimeo-ch"
+      ]
     },
     {
       "id": "medimeo-5fa04d29ab87",
-      "slug": "oberarztin-oberarzt-radiologie-80-100-breite-diagnostik-freie-nachte-region-bern-berner",
+      "slug": "medico-senior-radiologia-medico-senior-80-100-diagnosi-ampia-notti-libere-medimeo-ag-region-bern-berner-oberland",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-radiologie-80-100-breite-diagnostik-freie-nachte-region-bern-berner",
-        "it": "oberarztin-oberarzt-radiologie-80-100-breite-diagnostik-freie-nachte-region-bern-berner",
-        "en": "oberarztin-oberarzt-radiologie-80-100-breite-diagnostik-freie-nachte-region-bern-berner",
-        "fr": "oberarztin-oberarzt-radiologie-80-100-breite-diagnostik-freie-nachte-region-bern-berner"
+        "it": "medico-senior-radiologia-medico-senior-80-100-diagnosi-ampia-notti-libere-medimeo-ag-region-bern-berner-oberland",
+        "en": "senior-physician-senior-physician-radiology-80-100-wide-diagnosis-free-nights-medimeo-ag-region-bern-berner-oberland",
+        "fr": "medecin-ou-radiologie-senior-80-100-diagnostic-large-nuits-gratuites-medimeo-ag-region-bern-berner-oberland-emmental"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -559,7 +639,21 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-10-19T21:18:00.252Z"
+      "firstSeenAt": "2026-10-19T21:18:00.252Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-radiologie-80-100-breite-diagnostik-freie-nachte-region-bern-berner"
+        ],
+        "en": [
+          "oberarztin-oberarzt-radiologie-80-100-breite-diagnostik-freie-nachte-region-bern-berner"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-radiologie-80-100-breite-diagnostik-freie-nachte-region-bern-berner"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-radiologie-80-100-breite-diagnostik-freie-nachte-region-bern-berner"
+      ]
     }
   ]
 }

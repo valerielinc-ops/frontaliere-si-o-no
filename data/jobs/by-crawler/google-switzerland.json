@@ -1744,11 +1744,11 @@
     },
     {
       "id": "google-switzerland-0cd1379e1df4",
-      "slug": "infotasks-productivity-agents-deepmind-google-switzerland-zurich",
+      "slug": "infotasks-agenti-di-produttivita-deepmind-google-switzerland-zurich",
       "slugByLocale": {
         "en": "infotasks-productivity-agents-deepmind-google-switzerland-zurich",
-        "it": "infotasks-productivity-agents-deepmind-google-switzerland-zurich",
-        "de": "infotasks-productivity-agents-deepmind-google-switzerland-zurich",
+        "it": "infotasks-agenti-di-produttivita-deepmind-google-switzerland-zurich",
+        "de": "infotasks-produktivitats-agenten-deepmind-google-switzerland-zurich",
         "fr": "infotasks-productivity-agents-deepmind-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
@@ -1815,7 +1815,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T21:17:05.217Z"
+      "firstSeenAt": "2026-10-19T21:17:05.217Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infotasks-productivity-agents-deepmind-google-switzerland-zurich"
+        ],
+        "de": [
+          "infotasks-productivity-agents-deepmind-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "infotasks-productivity-agents-deepmind-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-a594597cb70d",
@@ -4213,8 +4224,8 @@
       "slugByLocale": {
         "en": "ai-strategic-pursuit-lead-automotive-agent-google-cloud-emea-google-switzerland-zurich",
         "it": "ai-strategic-pursuit-lead-automotive-agent-google-cloud-emea-google-switzerland-zurich",
-        "de": "ai-strategic-pursuit-lead-automotive-agent-google-cloud-emea-google-switzerland-zurich",
-        "fr": "ai-strategic-pursuit-lead-automotive-agent-google-cloud-emea-google-switzerland-zurich"
+        "de": "ki-strategischer-verfolgungsfuhrer-automotive-agent-google-cloud-emea-google-switzerland-zurich",
+        "fr": "responsable-des-opportunites-strategiques-en-ia-agent-automobile-google-cloud-emea-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",

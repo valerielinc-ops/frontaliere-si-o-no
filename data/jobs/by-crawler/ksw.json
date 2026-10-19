@@ -1943,12 +1943,12 @@
     },
     {
       "id": "ksw-bef55285e721",
-      "slug": "patientendisponentin-patientendisponent-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "speditore-paziente-spaziente-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "patientendisponentin-patientendisponent-ksw-ch",
-        "it": "patientendisponentin-patientendisponent-kantonsspital-winterthur-ksw-winterthur",
-        "en": "patientendisponentin-patientendisponent-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "patientendisponentin-patientendisponent-kantonsspital-winterthur-ksw-winterthur"
+        "it": "speditore-paziente-spaziente-kantonsspital-winterthur-ksw-winterthur",
+        "en": "patient-dispatcher-patient-dispatcher-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "expediteur-de-patients-expediteur-de-patients-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1996,11 +1996,19 @@
       "department": "Patientendisposition",
       "previousSlugsByLocale": {
         "it": [
-          "patientendisponentin-patientendisponent-ksw-ch"
+          "patientendisponentin-patientendisponent-ksw-ch",
+          "patientendisponentin-patientendisponent-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "patientendisponentin-patientendisponent-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "fr": [
+          "patientendisponentin-patientendisponent-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "previousSlugs": [
-        "patientendisponentin-patientendisponent-ksw-ch"
+        "patientendisponentin-patientendisponent-ksw-ch",
+        "patientendisponentin-patientendisponent-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -2019,9 +2027,9 @@
     },
     {
       "id": "ksw-265156035163",
-      "slug": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca",
+      "slug": "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca",
+        "it": "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
         "en": "nurse-nurse-professional-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegefachfrau-pflegefachmann-ksw-ch",
         "fr": "infirmiere-infirmiere-professionnelle-kantonsspital-winterthur-ksw-winterthur"
@@ -2071,13 +2079,15 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-ksw-ch",
         "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-ksw-ch",
           "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-ksw-ch"
@@ -2105,7 +2115,7 @@
       "id": "ksw-fce9482fcf5c",
       "slug": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-29e08cc9a7",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-29e08cc9a7",
+        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
         "en": "nursing-professional-nursing-professional-kantonsspital-winterthur-ksw-winterthur-ca7442",
         "de": "pflegefachfrau-pflegefachmann-ksw-ch",
         "fr": "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur-ca7442"
@@ -3058,7 +3068,7 @@
         "it": "infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur",
         "en": "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3125,7 +3135,7 @@
           "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
-          "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
+          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-30T22:08:07.552Z",
@@ -3752,7 +3762,7 @@
         "it": "neuropsicologo-neuropsicologo-kantonsspital-winterthur-ksw-winterthur",
         "en": "neuropsychologist-neuropsychologist-kantonsspital-winterthur-ksw-winterthur",
         "de": "neuropsychologin-neuropsychologe-ksw-ch",
-        "fr": "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "neuropsychologue-neuropsychologue-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3798,14 +3808,14 @@
       "department": "Zentrum für Kinder- und Jugendmedizin",
       "previousSlugs": [
         "neuropsychologin-neuropsychologe-ksw-ch",
-        "neuropsychologue-neuropsychologue-kantonsspital-winterthur-ksw-winterthur"
+        "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "neuropsychologin-neuropsychologe-ksw-ch"
         ],
         "fr": [
-          "neuropsychologue-neuropsychologue-kantonsspital-winterthur-ksw-winterthur"
+          "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-17T21:54:07.164Z",
