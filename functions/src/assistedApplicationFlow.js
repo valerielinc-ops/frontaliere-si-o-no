@@ -606,17 +606,24 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       next.heldBy = [];
       effects = [{ type: 'mark_submitted' }];
       break;
-    case 'submit_needs_candidate':
+    case 'submit_needs_candidate': {
       if (state !== 'submitting') return ignore('not_submitting');
       next.state = 'needs_candidate_action';
+      // Portal adapters return question IDs as strings; submit.mjs returns
+      // objects with an `id`. Normalize both shapes before persisting the hold.
+      const questionIds = (Array.isArray(event.questions) ? event.questions : []).map((question) => {
+        const id = typeof question === 'string' ? question : question?.id;
+        return typeof id === 'string' || typeof id === 'number' ? String(id).trim() : '';
+      }).filter(Boolean);
       next.heldBy = [
-        ...(event.questions || []).map((question) => `question:${question.id}`),
+        ...questionIds.map((id) => `question:${id}`),
         ...(event.documents || []).map((id) => `document:${id}`),
       ];
       next.heldSince = null;
       if (next.heldBy.length) waitForCandidate(next, nowMs);
       effects = [{ type: 'email', kind: 'candidate_action_needed' }];
       break;
+    }
     case 'submit_failed': {
       if (state !== 'submitting') return ignore('not_submitting');
       // Safe to run again: the submission guard (scripts/assisted-application/
