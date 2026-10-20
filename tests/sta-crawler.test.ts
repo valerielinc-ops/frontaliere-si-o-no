@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   STA_KEY,
   STA_COMPANY_NAME,
+  extractStaListingCandidates,
   isStaJob,
   isTrustedDomain,
 } from '../scripts/lib/sta-job-parser.mjs';
@@ -24,6 +25,26 @@ describe('STA Personal AG crawler parser', () => {
     const pagination = normalizeSpecPagination(spec);
 
     expect(readDeclaredListingTotal('<span>1’822</span> Resultate', pagination, spec)).toBe(1822);
+  });
+
+  it('uses the current detail link when listing JSON-LD carries a stale URL', () => {
+    const staleUrl = 'https://www.sta.jobs/stellen/zimmermann-zimmerin-willisau-dauerstelle-109941/';
+    const currentUrl = 'https://www.sta.jobs/stellen/44545-stalu/';
+    const html = `
+      <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"JobPosting","title":"Zimmermann/Zimmerin mit GFK-Bauteilen","url":"${staleUrl}"}
+      </script>
+      <article class="job-card">
+        <a href="${currentUrl}">Zimmermann/Zimmerin mit GFK-Bauteilen</a>
+      </article>
+      <nav><a href="/stellen/page/2/">2</a></nav>
+    `;
+
+    expect(extractStaListingCandidates(html)).toEqual([{
+      title: 'Zimmermann/Zimmerin mit GFK-Bauteilen',
+      url: currentUrl,
+      via: 'sta-detail-link',
+    }]);
   });
 
   // ── isCompanyJob ──
