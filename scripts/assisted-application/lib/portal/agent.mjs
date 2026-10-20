@@ -45,17 +45,13 @@ const QUESTION_PROPERTIES = {
   options: LIST(S),
   validation: ANSWER_VALIDATION_SCHEMA,
 };
-const ACTION_REQUIRED = Object.keys(ACTION_PROPERTIES);
-const QUESTION_REQUIRED = Object.keys(QUESTION_PROPERTIES);
-const OPTIONAL_CONTEXT_OBJ = (properties, required) => ({ type: 'object', properties, required, additionalProperties: false });
-
 export const AGENT_SCHEMA = OBJ({
   status: { type: 'string', enum: ['act', 'done', 'needs_candidate', 'stuck'] },
   reason: S,
-  actions: LIST(OPTIONAL_CONTEXT_OBJ(ACTION_PROPERTIES, ACTION_REQUIRED)),
+  actions: LIST(OBJ(ACTION_PROPERTIES)),
   advanceRef: S,
   submitRef: S,
-  questions: LIST(OPTIONAL_CONTEXT_OBJ(QUESTION_PROPERTIES, QUESTION_REQUIRED)),
+  questions: LIST(OBJ(QUESTION_PROPERTIES)),
 });
 
 // Codex turns on one page, actions in one turn, characters of snapshot.
