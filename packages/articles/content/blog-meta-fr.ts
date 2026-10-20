@@ -13521,6 +13521,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.italia-rincari-crescita-2027.title': 'Italie : hausse des prix de l\'énergie et croissance faible, 2027 plus difficile',
     'blog.article.italia-rincari-crescita-2027.excerpt': 'En septembre 2026, les prix italiens augmentent de 0,7% sur un mois L\'inflation italienne atteint 4,2%, contre 3,3% en août Confindustria estime 1% en 2026',
     'blog.article.italia-rincari-crescita-2027.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.schianto-auto-moto-appiano-gentile.title': 'Collision à Appiano Gentile : une voiture contre une moto, un blessé grave',
+    'blog.article.schianto-auto-moto-appiano-gentile.excerpt': 'Accident à l’aube du 19 octobre à Appiano Gentile Une voiture et une moto se percutent peu après 6 heures Trois personnes impliquées, dont une dans un état grave Ambulances mobilisées',
+    'blog.article.schianto-auto-moto-appiano-gentile.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

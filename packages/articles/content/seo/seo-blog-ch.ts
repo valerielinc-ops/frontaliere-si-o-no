@@ -107856,6 +107856,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rickli-ritiro-consiglio-federale': {
+    title: 'Natalie Rickli rifiuta il Consiglio federale, resta a Zurigo',
+    description: 'Natalie Rickli rinuncia al seggio in Consiglio federale Zurigo ha bisogno di un governo cantonale stabile Il 9 dicembre sarà eletto il successore di Parmelin',
+    keywords: 'frontalieri, ticino, svizzera, italia, natalie, rickli, rifiuta, consiglio',
+    ogTitle: 'Natalie Rickli rifiuta il Consiglio federale, resta a Zurigo',
+    ogDescription: 'Natalie Rickli rinuncia al seggio in Consiglio federale Zurigo ha bisogno di un governo cantonale stabile Il 9 dicembre sarà eletto il successore di Parmelin',
+    canonicalPath: '/articoli-svizzera/rickli-ritiro-consiglio-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Natalie Rickli rifiuta il Consiglio federale, resta a Zurigo",
+      "description": "Natalie Rickli rinuncia al seggio in Consiglio federale Zurigo ha bisogno di un governo cantonale stabile Il 9 dicembre sarà eletto il successore di Parmelin",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-rickli-ritiro-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-20T03:16:01+00:00",
+      "dateModified": "2026-10-20T03:16:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rickli-ritiro-consiglio-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

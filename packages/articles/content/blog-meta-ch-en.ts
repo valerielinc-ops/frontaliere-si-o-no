@@ -8537,6 +8537,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.accordo-commercio-elettronico-omc.title': 'E-commerce: Switzerland launches consultation on the ACE',
     'blog.article.accordo-commercio-elettronico-omc.excerpt': 'Consultation launched on October 14, 2026 ACE among 67 WTO members Deadline set for January 28, 2027 Tariffs on electronic transmissions prohibited What →',
     'blog.article.accordo-commercio-elettronico-omc.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.rickli-ritiro-consiglio-federale.title': 'Natalie Rickli rejects the Federal Council, remains in Zurich',
+    'blog.article.rickli-ritiro-consiglio-federale.excerpt': 'Natalie Rickli relinquishes her seat on the Federal Council Zurich needs a stable cantonal government Parmelin\'s successor will be elected on December 9',
+    'blog.article.rickli-ritiro-consiglio-federale.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;
