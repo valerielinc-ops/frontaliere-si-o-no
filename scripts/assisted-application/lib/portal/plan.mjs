@@ -13,7 +13,15 @@ import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRu
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
 import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
 import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
-import { explicitLanguageEntries, explicitLanguageEntry, languageCodesIn, languageExplicitlyAbsent } from '../../../../functions/src/lib/languageFacts.js';
+import {
+  explicitLanguageEntries,
+  explicitLanguageEntry,
+  isLanguageAbilityQuestion,
+  isLanguageIntentQuestion,
+  languageCodeOf,
+  languageCodesIn,
+  languageExplicitlyAbsent,
+} from '../../../../functions/src/lib/languageFacts.js';
 import {
   BIRTH_FIELD_RE,
   NATIONALITY_FIELD_RE,
@@ -69,7 +77,7 @@ export function candidateRules(candidateLocale) {
 - Swiss work permit, work authorisation, residence status, visa or sponsorship: swissStatus.statement is the candidate's own statement of their Swiss status today (null: the candidate did not choose one; then only what profile.workPermit states). Choose the option, or write the value, that says exactly that status, never one that says more (a permit pending, to be requested or not needed); never answer whether the candidate needs a permit, a visa or sponsorship, and never infer a status from the nationality, the address or the place of birth. When no option says it, the field is missing (required) or skipped (optional).
 - Nationality or citizenship: only profile.nationality, choosing the option that names the same country (italiana = Italien = Italy); never from the address, the languages or the place of birth.
 - Age-threshold questions (for example, "under 26" / "meno di 26 anni"): derive the yes/no answer only from an explicit profile.dateOfBirth, calculated against today's date. If the date of birth is absent or invalid, put the required question in missingRequired; never infer age from education, dates of study, the name or the current year.
-- Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). If profile.languagesExplicitList is true, an absent language means the candidate does not speak it; answer "no" or "no knowledge" when the form asks about that specific language. If a listed language explicitly says "no knowledge" or equivalent, answer no rather than yes. If the language is listed but its level is missing, do not invent the level. evidence is "" for every other field.
+- Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). If profile.languagesExplicitList is true, an absent language means the candidate does not speak it only when the form asks about current ability or proficiency in that specific language; answer "no" or "no knowledge" there. Absence does not say whether the candidate is willing, interested, or plans to learn or use that language. For those intent questions, use an explicit prior answer only; when missing, put required fields in missingRequired and skip optional fields. If a listed language explicitly says "no knowledge" or equivalent, answer no rather than yes. If the language is listed but its level is missing, do not invent the level. evidence is "" for every other field.
 - Native language: an explicitly native/mother-tongue entry is sufficient. When profile.cvLanguage identifies the language the CV is written in, and the profile also lists at least one different language with an explicit level while giving no conflicting level for cvLanguage, treat cvLanguage as native/mother tongue for that language's level questions. Do not infer a native language from the CV language alone, and do not infer any other level.
 - Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given. For a date field, use a full calendar date only. Never type an ongoing or partial-period marker such as "ad oggi", "2015", "present" or "current" into a date field; leave the end blank. Do not invent an end date for an ongoing or overlapping CV entry; if the portal requires a full end date and the candidate did not state one, put it in missingRequired.
 - Current school or university: when profile.currentEducation.institution is non-empty, answer a current-school question from it. If the portal offers no matching institution but has an "Other/Autre/Andere" choice, select that choice; if it then exposes a text field for the name, fill the institution exactly as written. Never infer a current school from a completed or undated education entry.
@@ -251,24 +259,8 @@ const YES_RE = /^(ja|sì|si|yes|oui|vero|true|✓)$/i;
 const NO_RE = /^(nein|no|non|ne|falso|false|✕|x)$/i;
 const CEFR = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
 const levelsIn = (text) => [...String(text || '').toLowerCase().matchAll(/\b([abc][12])\b/g)].map((match) => CEFR.indexOf(match[1]));
-// One language in the four the portals use: "Deutsch C1?" is not answered by "Englisch C2".
-const LANGUAGE_ALIASES = [
-  { code: 'de', pattern: /deutsch|tedesco|allemand|german/i },
-  { code: 'en', pattern: /englisch|inglese|anglais|english/i },
-  { code: 'fr', pattern: /französisch|franzoesisch|francese|français|francais|french/i },
-  { code: 'it', pattern: /italienisch|italiano|italien|italian/i },
-];
-const LANGUAGE_CODES = new Set(LANGUAGE_ALIASES.map(({ code }) => code));
 const LANGUAGE_LEVEL_RE = /language|lingua|langue|sprach|livello|niveau|level|kenntnis|conoscenz|connaiss|knowledge|proficien(?:cy|t)|parlat[oa]|parle[sz]?|scritt[oa]|speak|spoken|written|oral|communicat\w*|mündlich|schriftlich|parlé|écrit|\b[abc][12]\b/i;
 const NATIVE_LEVEL_RE = /^(?:native(?:\s+speaker)?|mother\s+tongue|first\s+language|lingua\s+madre|madrelingua|nativ[oa]|muttersprache|muttersprach(?:lich)?|langue\s+maternelle|langue\s+native|langue\s+premi[eè]re)(?:\s*[([{].*)?$/i;
-const LANGUAGE_CODE_RE = /^(it|de|fr|en)(?:[-_]\w+)?$/i;
-const languageCodeOf = (value) => {
-  const text = String(value || '').trim();
-  const code = LANGUAGE_CODE_RE.exec(text)?.[1]?.toLowerCase();
-  if (code && LANGUAGE_CODES.has(code)) return code;
-  return LANGUAGE_ALIASES.find(({ pattern }) => pattern.test(text))?.code || '';
-};
-const languagesIn = (text) => LANGUAGE_ALIASES.map(({ pattern }, index) => (pattern.test(text) ? index : -1)).filter((index) => index >= 0);
 
 /**
  * Native-language evidence is deliberately narrower than "the CV is written
@@ -301,7 +293,7 @@ function languageQuestionCode(fieldOrQuestion, context = '') {
   const text = typeof fieldOrQuestion === 'object'
     ? `${fieldOrQuestion?.label || ''} ${fieldOrQuestion?.context || ''}`
     : `${fieldOrQuestion || ''} ${context}`;
-  return LANGUAGE_LEVEL_RE.test(text) ? languageCodeOf(text) : '';
+  return isLanguageAbilityQuestion(text) ? languageCodeOf(text) : '';
 }
 
 /** Whether the candidate's own data establishes a native language for a field/question. */
@@ -586,9 +578,16 @@ function recordedAnswerForQuestion(candidate, question, context = '') {
     .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer }));
   const items = [...recorded, ...fromAnswerIds];
   const normalized = comparableAnswer(questionFromLabel(question));
+  const normalizedContextQuestion = comparableAnswer(questionFromLabel(context));
   const requestedContext = comparableContext(context);
   const sameContext = (item) => comparableContext(item.context) === requestedContext;
-  const exact = items.find((item) => sameContext(item) && comparableAnswer(questionFromLabel(item.question)) === normalized);
+  const exact = items.find((item) => {
+    const itemQuestion = comparableAnswer(questionFromLabel(item.question));
+    return (sameContext(item) && itemQuestion === normalized)
+      // Some portals expose a short field label plus the full question as
+      // context. Reuse an answer recorded under that exact full question.
+      || (!String(item.context || '').trim() && normalizedContextQuestion && itemQuestion === normalizedContextQuestion);
+  });
   if (exact) return String(exact.answer).trim();
   const topic = questionTopic(question, context);
   if (!topic) return '';
@@ -662,7 +661,7 @@ function localizedNoLanguage(language) {
 
 function languageAnswerForField(candidate, field) {
   const label = String(field?.label || '');
-  if (!LANGUAGE_LEVEL_RE.test(label)) return null;
+  if (!isLanguageAbilityQuestion(label)) return null;
   const codes = languageCodesIn(label);
   if (codes.length !== 1) return null;
   const entries = explicitLanguageEntries(candidate?.profile);
@@ -851,7 +850,9 @@ export function candidateAnswerForField(candidate, field) {
     const value = salary && (field?.options?.length ? optionForAnswer(field, salary) : salary);
     if (value) return { value, source: 'answers' };
   }
-  if (/\b(?:languages spoken|spoken languages|languages|lingue|langues|sprachen)\b/i.test(label) && languageCodesIn(label).length === 0
+  if (isLanguageAbilityQuestion(label)
+    && /\b(?:languages spoken|spoken languages|languages|lingue|langues|sprachen)\b/i.test(label)
+    && languageCodesIn(label).length === 0
     && (field?.kind === 'text' || field?.kind === 'textarea')) {
     const languages = explicitLanguageEntries(candidate?.profile)
       .map((item) => [item.language, item.level].filter(Boolean).join(' ')).join(', ');
@@ -1102,6 +1103,12 @@ export function guardPlan(plan, fields, candidate = null) {
     // Not "the value occurs somewhere in the data": a "Ja" occurs everywhere. The
     // candidate's own answer to this question, or a quote that supports the answer.
     const given = action.action === 'check' ? 'ja' : action.value;
+    if (isLanguageIntentQuestion(`${field.label} ${field.context || ''}`)
+      && ['fill', 'select', 'check'].includes(action.action)
+      && !answeredByCandidate(candidate, field.label, given, field.context)) {
+      ask(field);
+      continue;
+    }
     const supported = knownValues === null || native || isInferredProfileLanguageAnswer(candidate, field, given)
       || answeredByCandidate(candidate, field.label, given, field.context)
       || (evidenceInData(knownValues, action.evidence) && evidenceSupports(field.label, given, action.evidence));

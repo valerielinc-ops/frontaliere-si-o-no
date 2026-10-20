@@ -238,7 +238,7 @@ export function ensureRequiredQuestions(questions, { requirements, profile, answ
     // An explicit CV language list is the candidate's declared list. If it
     // names other languages but not the one in this question, do not ask them
     // to confirm the absence; the requirement is already known to be unmet.
-    if (languageExplicitlyAbsent(profile, `${item.id} ${item.question}`)) continue;
+    if (languageExplicitlyAbsent(profile, item.question)) continue;
     if (asksPermit(item)) {
       if (!result.some((other) => other.id === 'work_permit')) result.push(permitQuestion(item.source || 'match'));
       continue;
