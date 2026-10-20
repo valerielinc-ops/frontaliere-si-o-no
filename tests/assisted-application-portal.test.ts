@@ -993,6 +993,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       'Level of German at C2?',
       'Level of German at C2 or higher?',
       'What is your German level, particularly in writing?',
+      'What is your German level: C2 or at least B2?',
       'Quel est votre niveau en allemand au C2?',
       'Niveau en allemand C2',
       'Qual è il livello di tedesco?',
@@ -1063,6 +1064,17 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       missingRequired: [],
     }, [shortLanguageCode], { ...candidate, profile: { cvText: 'German C2' } });
     expect(partialShortLanguageCode.missingRequired).toEqual([expect.objectContaining({ fieldId: shortLanguageCode.id })]);
+
+    const atLeastUnknownLanguage = {
+      id: 'at-least-unknown-language', kind: 'select',
+      label: 'What is your German level and at least Xhosa?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const partialAtLeastUnknownLanguage = guardPlan({
+      actions: [{ fieldId: atLeastUnknownLanguage.id, action: 'select', value: 'C2', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [atLeastUnknownLanguage], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialAtLeastUnknownLanguage.missingRequired).toEqual([expect.objectContaining({ fieldId: atLeastUnknownLanguage.id })]);
 
     const singleLanguageModifiers = {
       id: 'single-language-modifiers', kind: 'select',

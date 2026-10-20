@@ -354,6 +354,17 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: shortLanguageCode })],
     });
 
+    const atLeastUnknownLanguage = 'What is your German level and at least Xhosa?';
+    const partialAtLeastUnknownLanguage = guardAgentStep(turn('act', [act({
+      ref: 'e37', action: 'select', value: 'C2', question: atLeastUnknownLanguage, answer: 'C2',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialAtLeastUnknownLanguage).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: atLeastUnknownLanguage })],
+    });
+
     const singleLanguageModifiers = 'What is your German level: conversational or professional?';
     const supportedModifierEvidence = guardAgentStep(turn('act', [act({
       ref: 'e33', action: 'select', value: 'C2', question: singleLanguageModifiers, answer: 'C2',
@@ -362,6 +373,17 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
     });
     expect(supportedModifierEvidence).toMatchObject({
+      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+    });
+
+    const atLeastSingleLanguage = 'What is your German level: C2 or at least B2?';
+    const supportedAtLeastEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e38', action: 'select', value: 'C2', question: atLeastSingleLanguage, answer: 'C2',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(supportedAtLeastEvidence).toMatchObject({
       status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
     });
 

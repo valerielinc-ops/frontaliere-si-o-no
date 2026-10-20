@@ -377,7 +377,7 @@ const LANGUAGE_TARGET_ARTICLES = new Set([
   'lo', 'los', 'o', 'os', 'um', 'uma', 'un', 'una', 'une', 'the', 'il', 'i', 'gli', 'aux', 'au',
 ]);
 const LANGUAGE_TARGET_QUALIFIERS = new Set([
-  'also', 'advanced', 'intermediate', 'beginner', 'higher', 'lower', 'greater', 'less', 'more', 'equivalent',
+  'also', 'advanced', 'intermediate', 'beginner', 'higher', 'lower', 'greater', 'less', 'least', 'more', 'equivalent',
   'equivalently', 'better', 'especially', 'particularly', 'preferably', 'ideally', 'specifically', 'including',
   'conversational', 'professional', 'fluent', 'fluency', 'spoken', 'written', 'oral', 'orale', 'orali', 'orally',
   'parla', 'parlata', 'parlato', 'parlate', 'parlati', 'parle', 'parler', 'parlez', 'parli',
