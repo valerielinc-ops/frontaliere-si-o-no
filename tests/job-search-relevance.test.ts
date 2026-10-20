@@ -3,6 +3,7 @@ import {
   classifyJobSearchOccupation,
   getJobSearchRoleProfile,
   getJobSearchRoleTokens,
+  hasPotentialJobSearchQualifier,
   matchesJobOccupation,
   matchesJobSearchRoleProfile,
 } from '../services/jobSearchRelevance';
@@ -51,6 +52,11 @@ describe('occupational relevance for salary searches', () => {
 
 describe('profession versus qualifier intent', () => {
   const qualifiedProfile = getJobSearchRoleProfile('medico anestesista responsabile');
+
+  it('detects qualifier candidates without resolving the profession taxonomy', () => {
+    expect(hasPotentialJobSearchQualifier(getJobSearchRoleTokens('infermiere Lugano'))).toBe(false);
+    expect(hasPotentialJobSearchQualifier(getJobSearchRoleTokens('medico responsabile'))).toBe(true);
+  });
 
   it('keeps the medical profession and anaesthesia specialty in the hard core', () => {
     expect(qualifiedProfile).toMatchObject({
