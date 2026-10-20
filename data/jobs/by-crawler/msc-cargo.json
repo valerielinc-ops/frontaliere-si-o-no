@@ -54,7 +54,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -841,7 +840,27 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-06T21:17:29.732Z"
+      "firstSeenAt": "2026-10-06T21:17:29.732Z",
+      "previousSlugs": [
+        "destinazioni-esperienza-senior-manager-river-msc-group-geneva",
+        "destinationen-erfahrung-senior-manager-river-msc-group-geneva",
+        "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva",
+        "destinations-experience-senior-manager-river-msc-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "destinazioni-esperienza-senior-manager-river-msc-group-geneva",
+          "destinationen-erfahrung-senior-manager-river-msc-group-geneva",
+          "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva",
+          "destinations-experience-senior-manager-river-msc-geneva"
+        ],
+        "de": [
+          "destinationen-erfahrung-senior-manager-river-msc-group-geneva"
+        ],
+        "fr": [
+          "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva"
+        ]
+      }
     },
     {
       "id": "msc-cargo-b06079cfe661",

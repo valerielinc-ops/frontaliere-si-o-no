@@ -530,7 +530,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "apprenti-e-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona",
         "apprentice-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona",
@@ -621,7 +620,6 @@
         "de": []
       },
       "previousSlugs": [
-        "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-832c200c65",
         "apprentice-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona",
         "apprenti-e-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona",
         "lernender-logistiker-a-lehrbeginn-2027-geberit-ch",
@@ -629,7 +627,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-832c200c65",
           "lernender-logistiker-a-lehrbeginn-2027-geberit-ch",
           "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona"
         ],
@@ -1206,7 +1203,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona",
         "chef-d-equipe-service-interieur-a-la-clientele-a-100-geberit-rapperswil-jona",
@@ -1463,7 +1459,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "directeur-de-l-usine-efz-a-100-geberit-rapperswil-jona",
         "plant-manager-efz-a-100-geberit-rapperswil-jona",
@@ -1638,7 +1633,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-rapperswil-jona",
         "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
@@ -2371,7 +2365,7 @@
       "id": "geberit-2157-r44f90146",
       "slug": "operazioni-di-controllo-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "controller-werke-a-100-geberit-ch",
+        "de": "controller-werke-a-100-geberit-ch-p9tt7z",
         "it": "operazioni-di-controllo-a-100-geberit-rapperswil-jona",
         "fr": "le-controleur-fonctionne-a-100-geberit-rapperswil-jona",
         "en": "operazioni-di-controllo-a-100-geberit-rapperswil-jona"
@@ -2430,6 +2424,9 @@
           "controller-werke-a-100-geberit-ch"
         ],
         "fr": [
+          "controller-werke-a-100-geberit-ch"
+        ],
+        "de": [
           "controller-werke-a-100-geberit-ch"
         ]
       },
@@ -2537,7 +2534,7 @@
       "id": "geberit-2229-r9dc003ea",
       "slug": "senior-it-system-ingegnere-platform-services-a-80-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "senior-it-system-engineer-platform-services-a-80-100-geberit-ch",
+        "de": "senior-it-system-engineer-platform-services-a-80-100-geberit-ch-3noltj",
         "it": "senior-it-system-ingegnere-platform-services-a-80-100-geberit-rapperswil-jona",
         "fr": "senior-it-system-ingenieur-platform-services-a-80-100-geberit-rapperswil-jona",
         "en": "senior-it-system-ingegnere-platform-services-a-80-100-geberit-rapperswil-jona"
@@ -2598,6 +2595,9 @@
         ],
         "en": [
           "senior-it-system-engineer-platform-services-a-80-100-geberit-ch"
+        ],
+        "de": [
+          "senior-it-system-engineer-platform-services-a-80-100-geberit-ch"
         ]
       },
       "salaryMin": 92000,
@@ -2620,7 +2620,7 @@
       "id": "geberit-2201-rdf2bf086",
       "slug": "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch",
+        "de": "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch-dd69lb",
         "it": "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
         "en": "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona",
         "fr": "mecanique-mecanique-de-precision-d-entretien-a-100-geberit-rapperswil-jona"
@@ -2680,6 +2680,9 @@
         ],
         "fr": [
           "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
+        ],
+        "de": [
+          "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
         ]
       },
       "salaryMin": 57500,
@@ -2703,7 +2706,7 @@
       "id": "geberit-2182-r0eafe726",
       "slug": "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
+        "de": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch-06qpt5",
         "it": "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona",
         "en": "sanitary-installer-of-building-physics-laboratory-a-100-geberit-rapperswil-jona",
         "fr": "installation-sanitaire-du-laboratoire-de-physique-du-batiment-a-100-geberit-rapperswil-jona"
@@ -2750,8 +2753,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
-        "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch-06qpt5"
+        "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2764,7 +2766,7 @@
           "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
         ],
         "de": [
-          "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch-06qpt5"
+          "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
         ]
       },
       "salaryMin": 57500,
@@ -2787,7 +2789,7 @@
       "id": "geberit-1969-r33c85e0f",
       "slug": "apprendista-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch",
+        "de": "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch-el3wkl",
         "it": "apprendista-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona",
         "en": "apprentice-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona",
         "fr": "apprenti-e-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona"
@@ -2845,6 +2847,9 @@
         ],
         "fr": [
           "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch"
+        ],
+        "de": [
+          "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch"
         ]
       },
       "salaryMin": 48000,
@@ -2867,7 +2872,7 @@
       "id": "geberit-1669-rd13c1547",
       "slug": "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "technician-sanitary-laboratory-a-80-100-geberit-ch",
+        "de": "technician-sanitary-laboratory-a-80-100-geberit-ch-v44lbs",
         "fr": "technicien-sanitary-laboratory-a-80-100-geberit-rapperswil-jona",
         "it": "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona",
         "en": "technician-sanitary-laboratory-a-80-100-geberit-rapperswil-jona"
@@ -2923,6 +2928,9 @@
           "tecnico-a-laboratorio-sanitario-80-100-geberit-rapperswil-jona",
           "technician-sanitary-laboratory-a-80-100-geberit-ch",
           "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona-b2dcbe1d79"
+        ],
+        "de": [
+          "technician-sanitary-laboratory-a-80-100-geberit-ch"
         ]
       },
       "salaryMin": 67000,
@@ -2993,13 +3001,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lernender-logistiker-a-lehrbeginn-2027-geberit-ch",
-        "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-beac4ad4ae",
         "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-logistiker-a-lehrbeginn-2027-geberit-ch",
-          "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-beac4ad4ae",
           "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona"
         ],
         "en": [
@@ -3029,7 +3035,7 @@
       "id": "geberit-2245-r23e109e1",
       "slug": "anlagenfuhrer-cfc-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "anlagenfuhrer-efz-a-100-geberit-ch",
+        "de": "anlagenfuhrer-efz-a-100-geberit-ch-8maz67",
         "it": "anlagenfuhrer-cfc-a-100-geberit-rapperswil-jona",
         "en": "plant-operator-efz-a-100-geberit-rapperswil-jona",
         "fr": "conducteur-d-installation-cfc-a-100-geberit-rapperswil-jona"
@@ -3092,6 +3098,9 @@
         "fr": [
           "directeur-de-l-usine-efz-a-100-geberit-rapperswil-jona",
           "anlagenfuhrer-efz-a-100-geberit-ch"
+        ],
+        "de": [
+          "anlagenfuhrer-efz-a-100-geberit-ch"
         ]
       },
       "salaryMin": 57500,
@@ -3114,7 +3123,7 @@
       "id": "geberit-2262-r0886e0ac",
       "slug": "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "praktikant-verpackungsmanagement-a-100-geberit-ch",
+        "de": "praktikant-verpackungsmanagement-a-100-geberit-ch-cjaoms",
         "it": "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona",
         "en": "intern-packaging-management-a-100-geberit-rapperswil-jona",
         "fr": "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona"
@@ -3174,6 +3183,9 @@
         ],
         "fr": [
           "praktikant-verpackungsmanagement-a-100-geberit-ch"
+        ],
+        "de": [
+          "praktikant-verpackungsmanagement-a-100-geberit-ch"
         ]
       },
       "salaryMin": 48000,
@@ -3196,7 +3208,7 @@
       "id": "geberit-2243-r7a6773ba",
       "slug": "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch",
+        "de": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch-pcaq8h",
         "en": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-rapperswil-jona",
         "fr": "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona",
         "it": "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona"
@@ -3254,6 +3266,9 @@
         ],
         "en": [
           "marketing-crm-strategist-with-focus-on-customer-portal-a-100-geberit-rapperswil-jona"
+        ],
+        "de": [
+          "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
         ]
       },
       "salaryMin": 58500,
@@ -3360,10 +3375,10 @@
       "id": "geberit-1635-ree98a626",
       "slug": "mobile-apps-software-architetto-a-80-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "mobile-apps-software-architect-a-80-100-geberit-ch",
+        "de": "mobile-apps-software-architect-a-80-100-geberit-ch-1fp8hj",
         "fr": "mobile-apps-software-architecte-a-80-100-geberit-rapperswil-jona",
         "it": "mobile-apps-software-architetto-a-80-100-geberit-rapperswil-jona",
-        "en": "mobile-apps-software-architect-a-80-100-geberit-ch"
+        "en": "mobile-apps-software-architect-a-80-100-geberit-ch-1fp8hj"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -3415,6 +3430,12 @@
         "it": [
           "mobile-apps-software-architect-a-80-100-geberit-ch",
           "mobile-apps-software-architetto-a-80-100-geberit-rapperswil-jona-ee2618cbae"
+        ],
+        "en": [
+          "mobile-apps-software-architect-a-80-100-geberit-ch"
+        ],
+        "de": [
+          "mobile-apps-software-architect-a-80-100-geberit-ch"
         ]
       },
       "salaryMin": 60000,
