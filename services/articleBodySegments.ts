@@ -7,9 +7,9 @@ export const MAX_ARTICLE_BODY_SEGMENTS = 20;
 export type ArticleBodyTranslation = (key: string) => string;
 
 /**
- * Collect the same contiguous body segments used by the article renderer.
- * Missing `bodyN` stops the scan: later keys are not visible to production
- * once the first segment is absent.
+ * Collect every published body segment in numeric order. The publisher allows
+ * sparse bodyN keys after the required opening three, so a missing optional
+ * key must not hide later authored sections.
  */
 export function collectArticleBodySegments(
   articleId: string,
@@ -19,7 +19,7 @@ export function collectArticleBodySegments(
   for (let index = 1; index <= MAX_ARTICLE_BODY_SEGMENTS; index += 1) {
     const key = `blog.article.${articleId}.body${index}`;
     const value = translate(key);
-    if (typeof value !== 'string' || value === key) break;
+    if (typeof value !== 'string' || value === key) continue;
     parts.push(normalizeArticleMarkdown(value));
   }
   return parts;

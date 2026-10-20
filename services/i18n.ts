@@ -8,6 +8,7 @@ export type Locale = 'it' | 'en' | 'de' | 'fr';
 import type { ArticleSection, HistoricalArticleSection } from './articleSections';
 import { articlesApiBase } from './articlesApiBase';
 import { isArticleBodyPlaceholder } from './articleBodyRecovery';
+import type { ArticleBodyApiLocale, ArticleBodyApiResult } from './articleBodyApi';
 
 type TranslationKey = string;
 type Translations = Record<TranslationKey, string>;
@@ -192,6 +193,82 @@ async function loadCantonMeta(locale: Locale): Promise<Translations> {
 // Tier 2: Per-article body (bodyN) — loaded on demand
 const loadedArticleBodies = new Set<string>(); // "locale:articleId"
 const articleBodyPromises = new Map<string, Promise<void>>();
+// Published article documents are authoritative per locale/article. `null`
+// records a declared missing document; an available document is an exact
+// namespace and never inherits omitted fields from another locale.
+const apiArticleTranslations = new Map<Locale, Map<string, Translations | null>>();
+let articleBodyRequestSequence = 0;
+const latestArticleBodyRequest = new Map<string, number>();
+
+function articleBodyDocumentKey(section: ArticleSectionName, locale: ArticleBodyApiLocale, id: string): string {
+ return `${section}:${locale}:${id}`;
+}
+
+function beginArticleBodyRequest(
+ section: ArticleSectionName,
+ id: string,
+ locales: readonly ArticleBodyApiLocale[],
+): ReadonlyMap<ArticleBodyApiLocale, number> {
+ const generation = ++articleBodyRequestSequence;
+ const generations = new Map<ArticleBodyApiLocale, number>();
+ for (const locale of locales) {
+  latestArticleBodyRequest.set(articleBodyDocumentKey(section, locale, id), generation);
+  generations.set(locale, generation);
+ }
+ return generations;
+}
+
+function mergeAuthoritativeArticleApiDocuments(
+ result: Extract<ArticleBodyApiResult, { status: 'loaded' | 'missing' }>,
+ section: ArticleSectionName,
+ requestGenerations: ReadonlyMap<ArticleBodyApiLocale, number>,
+): void {
+ let changed = false;
+ for (const document of result.documents) {
+  const documentKey = articleBodyDocumentKey(section, document.locale, document.id);
+  const requestGeneration = requestGenerations.get(document.locale);
+  if (requestGeneration === undefined || latestArticleBodyRequest.get(documentKey) !== requestGeneration) continue;
+  const locale = document.locale as Locale;
+  const byArticle = apiArticleTranslations.get(locale) ?? new Map<string, Translations | null>();
+  const translations: Translations = {};
+  if (document.status === 'available') {
+   const prefix = `blog.article.${document.payload.id}.`;
+   translations[`${prefix}title`] = document.payload.meta.title;
+   translations[`${prefix}excerpt`] = document.payload.meta.excerpt;
+   translations[`${prefix}imageAlt`] = document.payload.meta.imageAlt;
+   for (const [field, value] of Object.entries(document.payload.translations)) {
+    translations[`${prefix}${field}`] = value;
+   }
+  }
+  byArticle.set(document.id, document.status === 'available' ? translations : null);
+  apiArticleTranslations.set(locale, byArticle);
+  changed = true;
+ }
+ if (changed) {
+  localeTick++;
+  listeners.forEach((fn) => fn(currentLocale));
+ }
+}
+
+function authoritativeArticleTranslation(key: string): { handled: boolean; value?: string } {
+ const match = /^blog\.article\.([a-z0-9][a-z0-9-]*)\./u.exec(key);
+ if (!match) return { handled: false };
+ const id = match[1];
+ const currentArticles = apiArticleTranslations.get(currentLocale);
+ const italianArticles = apiArticleTranslations.get('it');
+ if (currentArticles?.has(id)) {
+  const currentDocument = currentArticles.get(id);
+  if (currentDocument) return { handled: true, value: currentDocument[key] };
+  if (currentLocale !== 'it' && italianArticles?.has(id)) {
+   return { handled: true, value: italianArticles.get(id)?.[key] };
+  }
+  return { handled: true };
+ }
+ if (currentLocale !== 'it' && italianArticles?.has(id)) {
+  return { handled: true, value: italianArticles.get(id)?.[key] };
+ }
+ return { handled: false };
+}
 
 /**
  * Lazily loads blog META translations (titles, excerpts) for the current locale + IT fallback.
@@ -253,14 +330,45 @@ export async function loadBlogMeta(section: ArticleSectionName = 'frontaliere'):
  * Lazily loads BODY translations (body1, body2, body3) for a single article.
  * Called when the user opens a specific article. ~3-7 KB per article.
  */
-export async function loadArticleBody(articleId: string, section: ArticleSectionName = 'frontaliere'): Promise<void> {
- if (isCantonSection(section)) {
-  // Canton bodies are intentionally recovered from the corpus-owned static
-  // article HTML by runtimeArticleResolution. They are not bundled in the
-  // site, so importing a guessed Vite chunk would create a false empty body.
-  return;
- }
+export type ArticleBodyLoadResult =
+ | { status: 'legacy' }
+ | { status: 'loaded' | 'missing' }
+ | { status: 'error'; reason: 'network' | 'invalid' | 'revision'; authoritative: boolean };
+
+export async function loadArticleBody(
+ articleId: string,
+ section: ArticleSectionName = 'frontaliere',
+): Promise<ArticleBodyLoadResult> {
  const locale = currentLocale;
+ const apiLocales: ArticleBodyApiLocale[] = locale === 'it' ? ['it'] : ['it', locale];
+ const requestGenerations = beginArticleBodyRequest(section, articleId, apiLocales);
+ const { loadArticleBodyApi } = await import('./articleBodyApi');
+ const apiResult = await loadArticleBodyApi(section, articleId, apiLocales);
+ if (apiResult.status === 'error') {
+  if (apiResult.authoritative) {
+   mergeAuthoritativeArticleApiDocuments({
+    status: 'missing',
+    documents: apiResult.locales.map((apiLocale) => ({ locale: apiLocale, id: articleId, status: 'missing' })),
+   }, section, requestGenerations);
+  }
+  // A valid legacy manifest returns `legacy` above. Network, revision, and
+  // malformed-manifest failures stay visible as retryable errors even before
+  // this tab has observed the capability; otherwise an outage on first visit
+  // would silently show compiled content with an unknown revision.
+  return { status: 'error', reason: apiResult.reason, authoritative: apiResult.authoritative };
+ }
+ if (apiResult.status === 'loaded' || apiResult.status === 'missing') {
+  mergeAuthoritativeArticleApiDocuments(apiResult, section, requestGenerations);
+  return { status: apiResult.status };
+ }
+
+ if (isCantonSection(section)) {
+  // Before the body API is published, canton bodies are recovered from the
+  // corpus-owned static article HTML by runtimeArticleResolution. They are not
+  // bundled in the site, so importing a guessed Vite chunk would be a false
+  // empty body.
+  return { status: 'legacy' };
+ }
  const key = `${section}:${locale}:${articleId}`;
  const itKey = `${section}:it:${articleId}`;
 
@@ -295,6 +403,7 @@ export async function loadArticleBody(articleId: string, section: ArticleSection
 
  localeTick++;
  listeners.forEach(fn => fn(currentLocale));
+ return { status: 'legacy' };
 }
 
 /**
@@ -309,6 +418,28 @@ export function getLoadedArticleBody(articleId: string): Readonly<Record<string,
  const prefix = `blog.article.${articleId}.`;
  const bodyKey = /^body\d+$/;
  const result: Record<string, string> = {};
+ const currentArticles = apiArticleTranslations.get(currentLocale);
+ const italianArticles = apiArticleTranslations.get('it');
+ let apiDocument: Translations | null | undefined;
+ let apiOwnsArticle = false;
+ if (currentArticles?.has(articleId)) {
+  apiOwnsArticle = true;
+  apiDocument = currentArticles.get(articleId);
+  if (apiDocument === null && currentLocale !== 'it' && italianArticles?.has(articleId)) {
+   apiDocument = italianArticles.get(articleId);
+  }
+ } else if (currentLocale !== 'it' && italianArticles?.has(articleId)) {
+  apiOwnsArticle = true;
+  apiDocument = italianArticles.get(articleId);
+ }
+ if (apiOwnsArticle) {
+  for (const [key, value] of Object.entries(apiDocument ?? {})) {
+   if (!key.startsWith(prefix)) continue;
+   const field = key.slice(prefix.length);
+   if (bodyKey.test(field) && value) result[field] = value;
+  }
+  return result;
+ }
  const merge = (translations?: Translations): void => {
   for (const [key, value] of Object.entries(translations ?? {})) {
    if (!key.startsWith(prefix)) continue;
@@ -487,7 +618,10 @@ export function t(key: string, paramsOrFallback?: string | Record<string, string
  const fallback = typeof paramsOrFallback === 'string' ? paramsOrFallback : undefined;
  const params = typeof paramsOrFallback === 'object' ? paramsOrFallback : undefined;
  let translation: string | undefined;
- if (currentLocale === 'it') {
+ const authoritative = authoritativeArticleTranslation(key);
+ if (authoritative.handled) {
+ translation = authoritative.value;
+ } else if (currentLocale === 'it') {
  translation = itTranslations[key] || loadedLocales['it']?.[key];
  } else {
  translation = loadedLocales[currentLocale]?.[key] || itTranslations[key] || loadedLocales['it']?.[key];
