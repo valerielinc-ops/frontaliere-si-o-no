@@ -330,4 +330,3 @@ export function renderRegionalJobGuidance(opts: RegionalJobGuidanceOptions): str
     `<details class="s-01GpQM"><summary class="s-qAjSfB">${locale === 'it' ? 'Domande frequenti sulla ricerca lavoro' : 'Questions fréquentes sur la recherche d’emploi'}</summary><div class="s-4vhLHi">${faq}</div></details>` +
     `</section>`;
 }
-
