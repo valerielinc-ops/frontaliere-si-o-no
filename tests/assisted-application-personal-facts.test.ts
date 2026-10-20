@@ -101,7 +101,6 @@ describe('what a CV says of the person in its own words', () => {
   });
 
   it('infers only a form of address from an unambiguous first name in the candidate’s locale', () => {
-    expect(salutationGenderFromName('Luigi Saggese', 'it')).toBe('m');
     expect(salutationGenderFromName('Luca Example', 'it')).toBe('m');
     expect(salutationGenderFromName('Maria Luisa', 'it')).toBe('f');
     expect(salutationGenderFromName('Andrea', 'it')).toBe('m');
@@ -132,23 +131,22 @@ describe('what the CV says is not asked again', () => {
   });
 
   it('uses an unambiguous first name for the form of address and leaves an ambiguous one unknown', () => {
-    const luigi = { locale: 'it', fullName: 'Luigi Saggese', email: 'luigi@example.com' };
-    const supported = candidateWithEdits({ order: luigi, draft: draftOf('Luigi Saggese'), flow: {} });
+    const luca = { locale: 'it', fullName: 'Luca Example', email: 'test@example.com' };
+    const supported = candidateWithEdits({ order: luca, draft: draftOf('Luca Example'), flow: {} });
     expect(supported.personal.salutation).toBe('Signor');
     expect(salutationQuestion({ channel, questions: [], answers: supported.answers, locale: 'it' })).toBeNull();
 
-    const ambiguous = candidateWithEdits({ order: { ...luigi, fullName: 'Alex Morgan' }, draft: draftOf('Alex Morgan'), flow: {} });
+    const ambiguous = candidateWithEdits({ order: { ...luca, fullName: 'Alex Morgan' }, draft: draftOf('Alex Morgan'), flow: {} });
     expect(ambiguous.personal.salutation).toBe('');
     expect(salutationQuestion({ channel, questions: [], answers: ambiguous.answers, locale: 'en' })).toMatchObject({ id: 'salutation' });
 
-    const luca = { locale: 'it', fullName: 'Luca Example', email: 'luca@example.com' };
-    const lucaSupported = candidateWithEdits({ order: { ...luca, applicantName: luca.fullName }, draft: draftOf('Luca Example'), flow: {} });
-    expect(lucaSupported.personal.salutation).toBe('Signor');
-    expect(salutationQuestion({ channel, questions: [], answers: lucaSupported.answers, locale: 'it' })).toBeNull();
+    const applicantNamedLuca = candidateWithEdits({ order: { ...luca, applicantName: luca.fullName }, draft: draftOf('Luca Example'), flow: {} });
+    expect(applicantNamedLuca.personal.salutation).toBe('Signor');
+    expect(salutationQuestion({ channel, questions: [], answers: applicantNamedLuca.answers, locale: 'it' })).toBeNull();
 
-    const lucaAmbiguous = candidateWithEdits({ order: { ...luca, fullName: 'Alex Morgan', applicantName: 'Alex Morgan' }, draft: draftOf('Alex Morgan'), flow: {} });
-    expect(lucaAmbiguous.personal.salutation).toBe('');
-    expect(salutationQuestion({ channel, questions: [], answers: lucaAmbiguous.answers, locale: 'en' })).toMatchObject({ id: 'salutation' });
+    const applicantNamedAlex = candidateWithEdits({ order: { ...luca, fullName: 'Alex Morgan', applicantName: 'Alex Morgan' }, draft: draftOf('Alex Morgan'), flow: {} });
+    expect(applicantNamedAlex.personal.salutation).toBe('');
+    expect(salutationQuestion({ channel, questions: [], answers: applicantNamedAlex.answers, locale: 'en' })).toMatchObject({ id: 'salutation' });
 
     const normalizedOrder = { locale: 'it', fullName: 'Luca Example' };
     const normalizedDraft = { profile: { fullName: '' }, factSources: { text: '' }, questions: [], formAnswers: [] };

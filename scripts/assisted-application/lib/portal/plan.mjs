@@ -62,6 +62,7 @@ export const PLAN_SCHEMA = OBJ({
 });
 
 const LANGUAGE_NAMES = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
+const MULTI_LANGUAGE_CONNECTOR_RE = /[,;\/|+&-]|\b(?:and|or|und|oder|et|ou|e|o|y|en|of|och|og|si|sau|sowie|samt|plus)\b|\b(?:as well as|along with|together with|in addition to|ainsi que|de meme que|oltre a|cosi come|asi como|insieme a|bem como)\b/i;
 
 export function planSystemPrompt(candidateLocale) {
   return `You fill one page of an online job application form on behalf of a candidate who gave Frontaliere Ticino the mandate to apply for this job. You receive the form fields and the candidate's data. Return one action per field.
@@ -335,7 +336,8 @@ export function evidenceSupports(question, answer, evidence) {
     const asked = languageCodesIn(question);
     // A conjunction or list may include an unrecognized language name, so one
     // recognized code is not enough to prove the question asks about one language.
-    if (asked.length !== 1 || /[,;\/|+&-]|\b(?:and|or|und|oder|et|ou|e|o|y|en|of|och|og|si|sau)\b/i.test(question)) return false;
+    const normalizedQuestion = String(question || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ß/g, 'ss');
+    if (asked.length !== 1 || MULTI_LANGUAGE_CONNECTOR_RE.test(normalizedQuestion)) return false;
     const parts = quote.split(/[;,|\/\n+]|\s[-–—]\s|\s+(?:and|or|und|et|e|y)\s+/i)
       .filter((part) => {
         const languages = languageCodesIn(part);

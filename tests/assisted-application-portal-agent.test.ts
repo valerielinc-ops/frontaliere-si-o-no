@@ -222,7 +222,7 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       questions: [expect.objectContaining({ question: 'German C2?' })],
     });
 
-    const connectors = ['and', 'or', 'und', 'oder', 'et', 'ou', 'e', 'o', 'y', 'en', 'of', 'och', 'og', 'si', 'sau', '&', ';', ',', '/', '+', '-'];
+    const connectors = ['and', 'or', 'und', 'oder', 'et', 'ou', 'e', 'o', 'y', 'en', 'of', 'och', 'og', 'si', 'și', 'sau', 'sowie', 'samt', 'plus', '&', ';', ',', '/', '+', '-', 'as well as', 'along with', 'together with', 'in addition to', 'ainsi que', 'de même que', 'oltre a', 'così come', 'insieme a', 'así como', 'bem como'];
     for (const connector of connectors) {
       const questionWithUnknownLanguage = `Do you speak German ${connector} Xhosa at C2?`;
       const unrecognizedLanguageEvidence = guardAgentStep(turn('act', [act({

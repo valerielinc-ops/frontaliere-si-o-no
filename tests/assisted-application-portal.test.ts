@@ -909,7 +909,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     }, [proficiency], candidate);
     expect(mixedEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: proficiency.id })]);
 
-    const connectors = ['and', 'or', 'und', 'oder', 'et', 'ou', 'e', 'o', 'y', 'en', 'of', 'och', 'og', 'si', 'sau', '&', ';', ',', '/', '+', '-'];
+    const connectors = ['and', 'or', 'und', 'oder', 'et', 'ou', 'e', 'o', 'y', 'en', 'of', 'och', 'og', 'si', 'și', 'sau', 'sowie', 'samt', 'plus', '&', ';', ',', '/', '+', '-', 'as well as', 'along with', 'together with', 'in addition to', 'ainsi que', 'de même que', 'oltre a', 'così come', 'insieme a', 'así como', 'bem como'];
     for (const connector of connectors) {
       const multipleLanguages = {
         id: 'two-languages', kind: 'select', label: `Do you speak German ${connector} Xhosa at C2?`, required: true,
