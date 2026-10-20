@@ -35,7 +35,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fnv1a32Mod } from './fnv1a.mjs';
-import { shardFileName, listShardFilesIn } from './shard-file-naming.mjs';
+import { shardFileName, listShardFilesIn, SHARD_FILE_RE } from './shard-file-naming.mjs';
 import { writeShardFileIfChanged, writeFileAtomic } from './atomic-shard-write.mjs';
 
 /** Legacy single-file location (kept for read-fallback during/after migration). */
@@ -133,6 +133,96 @@ export function readCompatPaths(rootDir = process.cwd()) {
     /* nothing on disk */
   }
   return { paths: [] };
+}
+
+/**
+ * Read the accumulator for a destructive rewrite. Unlike readCompatPaths(),
+ * this fails closed if a shard or its manifest is missing, corrupt, or
+ * inconsistent: a partial read must never be written back as the new set.
+ */
+export function readCompatPathsStrict(rootDir = process.cwd()) {
+  const dir = path.resolve(rootDir, COMPAT_SHARD_DIR);
+  let shardNames;
+  try {
+    shardNames = fs.readdirSync(dir).filter((name) => SHARD_FILE_RE.test(name)).sort();
+  } catch (err) {
+    if (err?.code !== 'ENOENT') {
+      throw new Error(`[compat-paths-store] cannot list shards: ${err?.message ?? err}`);
+    }
+
+    const legacyFile = path.resolve(rootDir, COMPAT_LEGACY_FILE);
+    let legacy;
+    try {
+      legacy = JSON.parse(fs.readFileSync(legacyFile, 'utf-8'));
+    } catch (legacyErr) {
+      if (legacyErr?.code === 'ENOENT') return { paths: [] };
+      throw new Error(`[compat-paths-store] cannot read legacy accumulator: ${legacyErr?.message ?? legacyErr}`);
+    }
+    if (!legacy || typeof legacy !== 'object' || Array.isArray(legacy) || !Array.isArray(legacy.paths)
+      || legacy.paths.some((p) => typeof p !== 'string')) {
+      throw new Error('[compat-paths-store] invalid legacy accumulator; refusing destructive rewrite');
+    }
+    const { paths: legacyPaths, ...meta } = legacy;
+    delete meta.shardCount;
+    delete meta.totalPaths;
+    return { ...meta, paths: [...new Set(legacyPaths)] };
+  }
+
+  const expectedShardNames = Array.from({ length: COMPAT_SHARD_COUNT }, (_, i) => shardFileName(i));
+  const shardNameSet = new Set(shardNames);
+  const missingShards = expectedShardNames.filter((name) => !shardNameSet.has(name));
+  if (shardNames.length !== COMPAT_SHARD_COUNT || missingShards.length > 0) {
+    throw new Error(
+      `[compat-paths-store] incomplete shard set (${shardNames.length}/${COMPAT_SHARD_COUNT}); `
+      + `missing: ${missingShards.slice(0, 5).join(', ') || '(unexpected shard names)'}`,
+    );
+  }
+
+  let meta;
+  try {
+    meta = JSON.parse(fs.readFileSync(compatManifestFile(rootDir), 'utf-8'));
+  } catch (err) {
+    throw new Error(`[compat-paths-store] cannot read shard manifest: ${err?.message ?? err}`);
+  }
+  if (!meta || typeof meta !== 'object' || Array.isArray(meta)
+    || meta.shardCount !== COMPAT_SHARD_COUNT
+    || !Number.isSafeInteger(meta.totalPaths) || meta.totalPaths < 0) {
+    throw new Error('[compat-paths-store] invalid shard manifest; refusing destructive rewrite');
+  }
+
+  const seen = new Set();
+  const paths = [];
+  for (const name of shardNames) {
+    const file = path.join(dir, name);
+    let shard;
+    try {
+      shard = JSON.parse(fs.readFileSync(file, 'utf-8'));
+    } catch (err) {
+      throw new Error(`[compat-paths-store] cannot read ${name}: ${err?.message ?? err}`);
+    }
+    if (!shard || typeof shard !== 'object' || Array.isArray(shard) || !Array.isArray(shard.paths)
+      || shard.paths.some((p) => typeof p !== 'string')) {
+      throw new Error(`[compat-paths-store] invalid ${name}; refusing destructive rewrite`);
+    }
+    for (const p of shard.paths) {
+      if (!seen.has(p)) {
+        seen.add(p);
+        paths.push(p);
+      }
+    }
+  }
+
+  if (paths.length !== meta.totalPaths) {
+    throw new Error(
+      `[compat-paths-store] manifest declares ${meta.totalPaths} paths, `
+      + `but complete shards contain ${paths.length}; refusing destructive rewrite`,
+    );
+  }
+
+  delete meta.paths;
+  delete meta.shardCount;
+  delete meta.totalPaths;
+  return { ...meta, paths };
 }
 
 /**
