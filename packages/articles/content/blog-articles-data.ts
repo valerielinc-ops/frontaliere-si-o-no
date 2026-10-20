@@ -45633,6 +45633,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'indagine-disparita-salariali-frontalieri',
+ category: 'pratico',
+ date: '2026-10-20T10:53:09.319Z',
+ image: '/images/blog/article-indagine-disparita-salariali-frontalieri.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
