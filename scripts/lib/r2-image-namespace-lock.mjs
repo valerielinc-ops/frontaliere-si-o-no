@@ -299,24 +299,27 @@ export async function acquireImageNamespaceLock(
 
   const owner = randomUUID();
   const leaseId = randomUUID();
-  const deadline = now() + timeoutMs;
+  const acquiredAt = now();
+  const deadline = acquiredAt + timeoutMs;
+  // Keep the exact payload stable across retries. If an earlier conditional
+  // PUT is still in flight, a later 409/404 must still be recognizable as the
+  // same acquisition when that write becomes visible.
+  const lease = {
+    namespace,
+    owner,
+    leaseId,
+    acquiredAt,
+    expiresAt: acquiredAt + leaseMs,
+  };
 
   while (now() <= deadline) {
     throwIfAborted(signal);
-    const acquiredAt = now();
-    const lease = {
-      namespace,
-      owner,
-      leaseId,
-      acquiredAt,
-      expiresAt: acquiredAt + leaseMs,
-    };
     let currentAfterWrite;
     let created;
     try {
       created = await putLease(request, namespace, lease, { name: 'if-none-match', value: '*' });
     } catch (error) {
-      if (error?.r2Status !== undefined) throw error;
+      if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
       const reconciled = await reconcileAmbiguousLeaseWrite(request, namespace, lease, error);
       if (reconciled.lease) {
         onLeaseWritten(reconciled.lease);
@@ -337,6 +340,14 @@ export async function acquireImageNamespaceLock(
       ? await readCurrentLease(request, namespace)
       : currentAfterWrite;
     throwIfAborted(signal);
+    if (leaseMatches(current, lease)) {
+      if (!current.etag) {
+        throw new Error(`[r2-image-namespace-lock] ${namespace} acquisition could not be confirmed with an ETag`);
+      }
+      const recoveredLease = { ...lease, etag: current.etag };
+      onLeaseWritten(recoveredLease);
+      return recoveredLease;
+    }
     if (!current) {
       await waitForRetry(Math.min(100, Math.max(0, deadline - now())), sleep, signal);
       continue;
@@ -349,7 +360,7 @@ export async function acquireImageNamespaceLock(
       try {
         replaced = await putLease(request, namespace, lease, { name: 'if-match', value: current.etag });
       } catch (error) {
-        if (error?.r2Status !== undefined) throw error;
+        if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
         const reconciled = await reconcileAmbiguousLeaseWrite(request, namespace, lease, error);
         if (reconciled.lease) {
           onLeaseWritten(reconciled.lease);

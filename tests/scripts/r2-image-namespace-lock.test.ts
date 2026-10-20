@@ -82,8 +82,8 @@ describe('r2-image-namespace-lock', () => {
     expect(() => parseImageNamespaces('blog,unknown')).toThrow('unknown namespace');
   });
 
-  it('normalizes weak S3 ETags used by image namespace leases', () => {
-    expect(normalizeS3MatchEtag('W/"image-etag"')).toBe('"image-etag"');
+  it('refuses weak S3 ETags for image namespace compare-and-swap', () => {
+    expect(normalizeS3MatchEtag('W/"image-etag"')).toBeUndefined();
   });
 
   it('retries an image namespace acquisition after an HTTP 409 contention response', async () => {
@@ -129,6 +129,76 @@ describe('r2-image-namespace-lock', () => {
 
     expect(leases[0]).toMatchObject({ namespace: 'blog', etag: 'image-lease-1' });
     expect(objects.get(imageNamespaceLockKey('blog'))?.payload.owner).toBe(leases[0].owner);
+    await releaseImageNamespaceLeases(leases, { request });
+  });
+
+  it.each([408, 500])('reconciles an image lease committed before an HTTP %s response', async (status) => {
+    const { request: baseRequest, objects } = fakeR2();
+    let failAfterCommit = true;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (failAfterCommit && input.method === 'PUT' && input.headers?.['if-none-match'] === '*') {
+        failAfterCommit = false;
+        await baseRequest(input);
+        return response(status, 'response failed after commit');
+      }
+      return baseRequest(input);
+    };
+
+    const leases = await acquireImageNamespaceLeases(['blog'], {
+      request,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    });
+
+    expect(leases[0]).toMatchObject({ namespace: 'blog', etag: 'image-lease-1' });
+    expect(objects.get(imageNamespaceLockKey('blog'))?.payload).toMatchObject({
+      leaseId: leases[0].leaseId,
+      expiresAt: leases[0].expiresAt,
+    });
+    await releaseImageNamespaceLeases(leases, { request });
+  });
+
+  it('recognizes a delayed image lease after retries return 409 and negative reads', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    const bodies: string[] = [];
+    let puts = 0;
+    let gets = 0;
+    let pending: { key: string; body: string; headers: Record<string, string> } | undefined;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (input.method === 'PUT' && input.headers?.['if-none-match'] === '*') {
+        puts += 1;
+        bodies.push(input.body ?? '');
+        if (puts === 1) {
+          pending = { key: input.key, body: input.body ?? '', headers: input.headers ?? {} };
+          throw new Error('socket timeout while write remains pending');
+        }
+        if (puts === 2) return response(409);
+        if (puts === 3) {
+          await baseRequest({ method: 'PUT', ...pending! });
+          return response(409);
+        }
+      }
+      if (input.method === 'GET' && gets < 2) {
+        gets += 1;
+        return response(404);
+      }
+      return baseRequest(input);
+    };
+
+    const leases = await acquireImageNamespaceLeases(['blog'], {
+      request,
+      timeoutMs: 1_000,
+      pollMs: 1,
+      sleep: async () => {},
+    });
+
+    expect(puts).toBe(3);
+    expect(new Set(bodies).size).toBe(1);
+    expect(leases[0]).toMatchObject({ namespace: 'blog', etag: 'image-lease-1' });
+    expect(objects.get(imageNamespaceLockKey('blog'))?.payload).toMatchObject({
+      leaseId: leases[0].leaseId,
+      expiresAt: leases[0].expiresAt,
+    });
     await releaseImageNamespaceLeases(leases, { request });
   });
 

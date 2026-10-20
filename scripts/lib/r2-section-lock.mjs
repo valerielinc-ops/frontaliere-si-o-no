@@ -80,7 +80,9 @@ export function isLockPayload(value) {
       && ARTICLE_SECTIONS.includes(value.section)
       && Number.isFinite(value.acquiredAt)
       && Number.isFinite(value.expiresAt)
-      && value.expiresAt > value.acquiredAt,
+      && value.expiresAt > value.acquiredAt
+      && (value.leaseId === undefined
+        || (typeof value.leaseId === 'string' && value.leaseId.length > 0)),
   );
 }
 
@@ -168,7 +170,10 @@ function signRequest({ endpoint, bucket, accessKeyId, secretAccessKey, now, meth
 
 export function normalizeS3MatchEtag(value) {
   if (typeof value !== 'string') return value;
-  return value.trim().replace(/^W\//u, '');
+  const etag = value.trim();
+  // If-Match requires strong comparison. Never turn a weak validator into a
+  // strong one; callers treat undefined as an unsafe CAS and fail closed.
+  return etag.startsWith('W/') ? undefined : etag;
 }
 
 function readHeader(response, name) {
@@ -271,6 +276,7 @@ function lockMatches(current, payload) {
     current
       && current.payload.owner === payload.owner
       && current.payload.section === payload.section
+      && current.payload.leaseId === payload.leaseId
       && current.payload.acquiredAt === payload.acquiredAt
       && current.payload.expiresAt === payload.expiresAt,
   );
@@ -322,6 +328,7 @@ export async function acquireSectionLock(
   const deadline = startedAt + timeoutMs;
   const payload = {
     owner,
+    leaseId: randomUUID(),
     section,
     acquiredAt: startedAt,
     expiresAt: startedAt + leaseMs,
@@ -333,7 +340,7 @@ export async function acquireSectionLock(
     try {
       created = await putLock(request, section, payload, { name: 'if-none-match', value: '*' });
     } catch (error) {
-      if (error?.r2Status !== undefined) throw error;
+      if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
       const reconciled = await reconcileAmbiguousLockWrite(request, section, payload, error);
       if (reconciled.lock) return reconciled.lock;
       currentAfterWrite = reconciled.current;
@@ -345,6 +352,12 @@ export async function acquireSectionLock(
     const current = currentAfterWrite === undefined
       ? await readCurrentLock(request, section)
       : currentAfterWrite;
+    if (lockMatches(current, payload)) {
+      if (!current.etag) {
+        throw new Error(`[r2-section-lock] ${section} acquisition could not be confirmed with an ETag`);
+      }
+      return { section, owner, key: lockKey(section), etag: current.etag };
+    }
     if (!current) {
       await sleep(100);
       continue;
@@ -357,7 +370,7 @@ export async function acquireSectionLock(
       try {
         replacement = await putLock(request, section, payload, { name: 'if-match', value: current.etag });
       } catch (error) {
-        if (error?.r2Status !== undefined) throw error;
+        if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
         const reconciled = await reconcileAmbiguousLockWrite(request, section, payload, error);
         if (reconciled.lock) return reconciled.lock;
       }

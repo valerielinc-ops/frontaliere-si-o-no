@@ -105,8 +105,8 @@ describe('r2-section-lock', () => {
     });
   });
 
-  it('normalizes weak S3 ETags before using them as match conditions', () => {
-    expect(normalizeS3MatchEtag(' W/"etag-1" ')).toBe('"etag-1"');
+  it('refuses weak S3 ETags as match conditions', () => {
+    expect(normalizeS3MatchEtag(' W/"etag-1" ')).toBeUndefined();
     expect(normalizeS3MatchEtag('"etag-1"')).toBe('"etag-1"');
     expect(normalizeS3MatchEtag(undefined)).toBeUndefined();
   });
@@ -156,6 +156,102 @@ describe('r2-section-lock', () => {
     expect(lock).toMatchObject({ owner: 'owner-ambiguous', etag: 'etag-1' });
     expect(objects.get(lockKey('frontaliere'))?.payload.owner).toBe('owner-ambiguous');
     await releaseSectionLock('frontaliere', { owner: lock.owner, request });
+  });
+
+  it.each([408, 500])('reconciles a section lock committed before an HTTP %s response', async (status) => {
+    const { request: baseRequest, objects } = fakeR2();
+    let failAfterCommit = true;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (failAfterCommit && input.method === 'PUT' && input.headers?.['if-none-match'] === '*') {
+        failAfterCommit = false;
+        await baseRequest(input);
+        return response(status, 'response failed after commit');
+      }
+      return baseRequest(input);
+    };
+
+    const lock = await acquireSectionLock('frontaliere', {
+      owner: 'owner-http-500',
+      request,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    });
+
+    expect(lock).toMatchObject({ owner: 'owner-http-500', etag: 'etag-1' });
+    expect(objects.get(lockKey('frontaliere'))?.payload.leaseId).toEqual(expect.any(String));
+    await releaseSectionLock('frontaliere', { owner: lock.owner, request });
+  });
+
+  it('recognizes a delayed section lock after retries return 409 and negative reads', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    const bodies: string[] = [];
+    let puts = 0;
+    let gets = 0;
+    let pending: { key: string; body: string; headers: Record<string, string> } | undefined;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (input.method === 'PUT' && input.headers?.['if-none-match'] === '*') {
+        puts += 1;
+        bodies.push(input.body ?? '');
+        if (puts === 1) {
+          pending = { key: input.key, body: input.body ?? '', headers: input.headers ?? {} };
+          throw new Error('socket timeout while write remains pending');
+        }
+        if (puts === 2) return response(409);
+        if (puts === 3) {
+          await baseRequest({ method: 'PUT', ...pending! });
+          return response(409);
+        }
+      }
+      if (input.method === 'GET' && gets < 2) {
+        gets += 1;
+        return response(404);
+      }
+      return baseRequest(input);
+    };
+
+    const lock = await acquireSectionLock('frontaliere', {
+      owner: 'owner-delayed',
+      request,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    });
+
+    expect(puts).toBe(3);
+    expect(new Set(bodies).size).toBe(1);
+    expect(lock.owner).toBe('owner-delayed');
+    expect(objects.get(lockKey('frontaliere'))?.payload).toMatchObject({
+      owner: 'owner-delayed',
+      leaseId: expect.any(String),
+    });
+    await releaseSectionLock('frontaliere', { owner: lock.owner, request });
+  });
+
+  it('does not mistake another same-owner acquisition for its ambiguous section lock', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    let firstPut = true;
+    let secondPut = true;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (input.method === 'PUT' && input.headers?.['if-none-match'] === '*') {
+        if (firstPut) {
+          firstPut = false;
+          await baseRequest(input);
+          throw new Error('first response lost after commit');
+        }
+        if (secondPut) {
+          secondPut = false;
+          await baseRequest(input);
+          throw new Error('second response lost after conflict');
+        }
+      }
+      return baseRequest(input);
+    };
+    const options = { owner: 'same-owner', request, now: () => 1_000, timeoutMs: 0 };
+
+    const first = await acquireSectionLock('frontaliere', options);
+    await expect(acquireSectionLock('frontaliere', options)).rejects.toThrow('timed out');
+    expect(objects.get(lockKey('frontaliere'))?.payload.leaseId).toEqual(expect.any(String));
+    expect(first.owner).toBe('same-owner');
+    await releaseSectionLock('frontaliere', { owner: first.owner, request });
   });
 
   it('serializes concurrent same-section publishes so both hubs retain their client IDs', async () => {
