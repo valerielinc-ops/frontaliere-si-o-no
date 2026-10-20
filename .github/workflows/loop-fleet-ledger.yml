@@ -66,6 +66,7 @@ jobs:
             /data/loop-fleet/loop-registry.json
             /data/loop-fleet/ledger/
             /scripts/ci/merge-loop-fleet-ledger.mjs
+            /scripts/ci/benchmark-loop-fleet-ledger.mjs
             /scripts/lib/canonical-json-digest.mjs
             /scripts/lib/loop-fleet-ledger-files.mjs
             /scripts/ci/mint-app-token.mjs
@@ -171,6 +172,37 @@ jobs:
             exit 1
           fi
 
+      - name: Initialize trusted ledger benchmark
+        env:
+          BENCHMARK_DIR: ${{ runner.temp }}/loop-fleet-ledger-benchmark
+          BENCHMARK_CONTEXT: ${{ runner.temp }}/loop-fleet-ledger-benchmark/context.json
+          SOURCE_LOOP: ${{ steps.source.outputs.loop }}
+          SOURCE_RUN_ID: ${{ steps.source.outputs.run_id }}
+          SOURCE_SHA: ${{ steps.source.outputs.sha }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$BENCHMARK_DIR"
+          node --input-type=module -e '
+            import { writeFileSync } from "node:fs";
+            const required = ["BENCHMARK_CONTEXT", "SOURCE_LOOP", "SOURCE_RUN_ID", "SOURCE_SHA"];
+            for (const name of required) {
+              if (!process.env[name]) throw new Error(name + " is missing");
+            }
+            writeFileSync(process.env.BENCHMARK_CONTEXT, JSON.stringify({
+              schema_version: 1,
+              workflow: "loop-fleet-ledger",
+              source_loop: process.env.SOURCE_LOOP,
+              source_run_id: process.env.SOURCE_RUN_ID,
+              source_sha: process.env.SOURCE_SHA,
+              ledger_branch: "ledger/loop-fleet",
+              trusted: {
+                source_provenance: "validated-main-run",
+                measurement: "ledger-worktree",
+                canonical_snapshot: "sha256",
+              },
+            }, null, 2) + "\n");
+          '
+
       - name: Prepare Firebase credentials
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -204,6 +236,7 @@ jobs:
           SOURCE_RUN_ID: ${{ steps.source.outputs.run_id }}
           SOURCE_SHA: ${{ steps.source.outputs.sha }}
           INPUT_DIR: ${{ runner.temp }}/loop-fleet-ledger-input
+          BENCHMARK_DIR: ${{ runner.temp }}/loop-fleet-ledger-benchmark
         run: |
           set -euo pipefail
           remote_timeout_seconds=90
@@ -253,10 +286,111 @@ jobs:
           git -C "$ledger_worktree" add -- data/loop-fleet/ledger/
           ledger_dir="$ledger_worktree/data/loop-fleet/ledger"
 
+          canonical_names() {
+            printf '%s\n' \
+              loop-observations.jsonl \
+              loop-decisions.jsonl \
+              loop-health-history.jsonl \
+              lifecycle-events.jsonl
+          }
+          ledger_bytes() {
+            find "$ledger_dir" -type f -name '*.jsonl' -printf '%s\n' \
+              | awk '{ total += $1 } END { print total + 0 }'
+          }
+          canonical_bytes() {
+            local total=0 name file size
+            while IFS= read -r name; do
+              file="$ledger_dir/$name"
+              if [ -f "$file" ]; then
+                size="$(stat -c '%s' "$file")"
+                total=$((total + size))
+              fi
+            done < <(canonical_names)
+            printf '%s\n' "$total"
+          }
+          canonical_snapshot() {
+            local name file
+            while IFS= read -r name; do
+              file="$ledger_dir/$name"
+              if [ -f "$file" ]; then
+                printf '%s|%s\n' "$name" "$(sha256sum "$file" | awk '{ print $1 }')"
+              else
+                printf '%s|missing\n' "$name"
+              fi
+            done < <(canonical_names)
+          }
+          canonical_changed_count() {
+            local before="$1" after="$2" count=0 name before_hash after_hash
+            while IFS= read -r name; do
+              before_hash="$(printf '%s\n' "$before" | awk -F'|' -v name="$name" '$1 == name { print $2 }')"
+              after_hash="$(printf '%s\n' "$after" | awk -F'|' -v name="$name" '$1 == name { print $2 }')"
+              if [ "$before_hash" != "$after_hash" ]; then
+                count=$((count + 1))
+              fi
+            done < <(canonical_names)
+            printf '%s\n' "$count"
+          }
+          snapshot_digest() {
+            printf '%s\n' "$1" | sha256sum | awk '{ print $1 }'
+          }
+          benchmark_started_ns="$(date +%s%N)"
+          benchmark_before_bytes="$(ledger_bytes)"
+          benchmark_before_canonical_bytes="$(canonical_bytes)"
+          benchmark_before_snapshot="$(canonical_snapshot)"
+          benchmark_before_digest="$(snapshot_digest "$benchmark_before_snapshot")"
+          canonical_rewrite_count=0
+          attempt_durations_ns=''
+          write_benchmark() {
+            local status="$1" after_bytes="$2" after_canonical_bytes="$3" after_snapshot="$4" finished_ns="$5"
+            BENCHMARK_STATUS="$status" \
+              BENCHMARK_BYTES_AFTER="$after_bytes" \
+              BENCHMARK_CANONICAL_BYTES_AFTER="$after_canonical_bytes" \
+              BENCHMARK_CANONICAL_DIGEST_AFTER="$(snapshot_digest "$after_snapshot")" \
+              BENCHMARK_DURATION_NS="$((finished_ns - benchmark_started_ns))" \
+              BENCHMARK_ATTEMPT_DURATIONS_NS="$attempt_durations_ns" \
+              BENCHMARK_CANONICAL_REWRITES="$canonical_rewrite_count" \
+              BENCHMARK_BYTES_BEFORE="$benchmark_before_bytes" \
+              BENCHMARK_CANONICAL_BYTES_BEFORE="$benchmark_before_canonical_bytes" \
+              BENCHMARK_CANONICAL_DIGEST_BEFORE="$benchmark_before_digest" \
+              BENCHMARK_OUTPUT="$BENCHMARK_DIR/ledger-append.json" \
+              node --input-type=module -e '
+                import { readFileSync, writeFileSync } from "node:fs";
+                const context = JSON.parse(readFileSync(process.env.BENCHMARK_DIR + "/context.json", "utf8"));
+                const durations = (process.env.BENCHMARK_ATTEMPT_DURATIONS_NS || "")
+                  .trim()
+                  .split(/\s+/u)
+                  .filter(Boolean)
+                  .map((value) => Number(value) / 1e6);
+                const durationNs = Number(process.env.BENCHMARK_DURATION_NS);
+                if (!Number.isFinite(durationNs) || durationNs < 0 || durations.some((value) => !Number.isFinite(value) || value < 0)) {
+                  throw new Error("benchmark duration is invalid");
+                }
+                const benchmark = {
+                  ...context,
+                  workflow_run_id: process.env.GITHUB_RUN_ID,
+                  status: process.env.BENCHMARK_STATUS,
+                  recorded_at: new Date().toISOString(),
+                  bytes_before: Number(process.env.BENCHMARK_BYTES_BEFORE),
+                  bytes_after: Number(process.env.BENCHMARK_BYTES_AFTER),
+                  canonical_bytes_before: Number(process.env.BENCHMARK_CANONICAL_BYTES_BEFORE),
+                  canonical_bytes_after: Number(process.env.BENCHMARK_CANONICAL_BYTES_AFTER),
+                  canonical_digest_before: process.env.BENCHMARK_CANONICAL_DIGEST_BEFORE,
+                  canonical_digest_after: process.env.BENCHMARK_CANONICAL_DIGEST_AFTER,
+                  canonical_rewrite_count: Number(process.env.BENCHMARK_CANONICAL_REWRITES),
+                  append_duration_ms: durationNs / 1e6,
+                  attempt_durations_ms: durations,
+                };
+                writeFileSync(process.env.BENCHMARK_OUTPUT, JSON.stringify(benchmark, null, 2) + "\n");
+              '
+          }
+
           for attempt in 1 2 3 4 5 6 7 8 9 10; do
             # Re-apply the validated batch against the current tip every
             # attempt. The merge helper is idempotent by recordId and fails
             # closed on conflicting duplicates.
+            attempt_before_bytes="$(ledger_bytes)"
+            attempt_before_snapshot="$(canonical_snapshot)"
+            attempt_started_ns="$(date +%s%N)"
             node scripts/ci/merge-loop-fleet-ledger.mjs \
               --loop "$SOURCE_LOOP" \
               --run-id "$SOURCE_RUN_ID" \
@@ -265,10 +399,32 @@ jobs:
               --ledger-dir "$ledger_dir" \
               --shard-id "run-${SOURCE_RUN_ID}" \
               --registry data/loop-fleet/loop-registry.json
+            attempt_finished_ns="$(date +%s%N)"
+            attempt_after_bytes="$(ledger_bytes)"
+            attempt_after_snapshot="$(canonical_snapshot)"
+            attempt_rewrites="$(canonical_changed_count "$attempt_before_snapshot" "$attempt_after_snapshot")"
+            canonical_rewrite_count=$((canonical_rewrite_count + attempt_rewrites))
+            attempt_durations_ns="$attempt_durations_ns $((attempt_finished_ns - attempt_started_ns))"
+            if [ "$attempt_rewrites" -gt 0 ]; then
+              write_benchmark \
+                canonical-rewrite-detected \
+                "$attempt_after_bytes" \
+                "$(canonical_bytes)" \
+                "$attempt_after_snapshot" \
+                "$attempt_finished_ns"
+              echo "::error::canonical ledger bytes changed during append; refusing durable persistence (canonical_rewrite_count=$canonical_rewrite_count)"
+              exit 1
+            fi
 
             if git -C "$ledger_worktree" diff --quiet -- data/loop-fleet/ledger \
                 && [ -z "$(git -C "$ledger_worktree" ls-files --others --exclude-standard data/loop-fleet/ledger)" ] \
                 && git -C "$ledger_worktree" diff --cached --quiet; then
+              write_benchmark \
+                already-present \
+                "$attempt_after_bytes" \
+                "$(canonical_bytes)" \
+                "$attempt_after_snapshot" \
+                "$(date +%s%N)"
               echo 'Source run already present in the durable ledger; nothing to append.'
               exit 0
             fi
@@ -280,6 +436,14 @@ jobs:
               exit 1
             fi
             if bounded_remote git -C "$ledger_worktree" -c pack.window=0 -c pack.threads=1 push --no-thin origin "HEAD:refs/heads/$ledger_branch"; then
+              final_after_bytes="$(ledger_bytes)"
+              final_after_snapshot="$(canonical_snapshot)"
+              write_benchmark \
+                appended \
+                "$final_after_bytes" \
+                "$(canonical_bytes)" \
+                "$final_after_snapshot" \
+                "$(date +%s%N)"
               exit 0
             fi
             if bounded_remote git fetch --no-tags --depth=1 --filter=blob:limit=1g origin "$ledger_branch"; then
@@ -301,6 +465,90 @@ jobs:
           done
           echo "::error::could not append the validated batch to $ledger_branch after 10 attempts"
           exit 1
+
+      - name: Aggregate trusted before-after ledger benchmark
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BENCHMARK_DIR: ${{ runner.temp }}/loop-fleet-ledger-benchmark
+        run: |
+          set -euo pipefail
+          if [ ! -s "$BENCHMARK_DIR/ledger-append.json" ]; then
+            echo "- Trusted ledger benchmark unavailable: the append step did not emit a valid per-run record." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          history_dir="$BENCHMARK_DIR/history"
+          run_list="$BENCHMARK_DIR/completed-runs.json"
+          run_ids="$BENCHMARK_DIR/previous-run-ids.txt"
+          mkdir -p "$history_dir"
+          : > "$run_ids"
+          set +e
+          timeout --signal=TERM --kill-after=10s 120s \
+            gh run list \
+              --repo "$GITHUB_REPOSITORY" \
+              --workflow loop-fleet-ledger.yml \
+              --status completed \
+              --limit 30 \
+              --json databaseId,createdAt,conclusion > "$run_list"
+          run_list_status=$?
+          set -e
+          if [ "$run_list_status" -ne 0 ]; then
+            echo "::warning::could not list prior ledger benchmark runs; publishing the current trusted sample only"
+            echo "- Historical benchmark discovery: unavailable (status $run_list_status)." >> "$GITHUB_STEP_SUMMARY"
+          else
+            node --input-type=module -e '
+              import { readFileSync, writeFileSync } from "node:fs";
+              const current = String(process.env.GITHUB_RUN_ID);
+              const runs = JSON.parse(readFileSync(process.argv[1], "utf8"))
+                .filter((run) => String(run.databaseId || "") !== current)
+                .sort((left, right) => Date.parse(right.createdAt || "") - Date.parse(left.createdAt || ""))
+                .slice(0, 20);
+              writeFileSync(process.argv[2], runs.map((run) => String(run.databaseId)).join("\n") + (runs.length ? "\n" : ""));
+            ' "$run_list" "$run_ids"
+          fi
+          download_failures=0
+          while IFS= read -r run_id; do
+            [ -n "$run_id" ] || continue
+            target="$history_dir/$run_id"
+            mkdir -p "$target"
+            set +e
+            timeout --signal=TERM --kill-after=10s 120s \
+              gh run download "$run_id" \
+                --repo "$GITHUB_REPOSITORY" \
+                --name "loop-fleet-ledger-benchmark-$run_id" \
+                --dir "$target" >/dev/null 2>&1
+            download_status=$?
+            set -e
+            if [ "$download_status" -ne 0 ]; then
+              download_failures=$((download_failures + 1))
+              echo "::warning::prior ledger benchmark artifact for run $run_id was unavailable (status $download_status)"
+            fi
+          done < "$run_ids"
+          if [ "$download_failures" -gt 0 ]; then
+            echo "- Historical benchmark artifact downloads unavailable: $download_failures." >> "$GITHUB_STEP_SUMMARY"
+          fi
+          node scripts/ci/benchmark-loop-fleet-ledger.mjs \
+            --current "$BENCHMARK_DIR/ledger-append.json" \
+            --history-dir "$history_dir" \
+            --output "$BENCHMARK_DIR/benchmark-summary.json" \
+            --summary "$GITHUB_STEP_SUMMARY"
+          post_change_append_p95_ms="$(node --input-type=module -e '
+            import { readFileSync } from "node:fs";
+            const summary = JSON.parse(readFileSync(process.argv[1], "utf8"));
+            process.stdout.write(String(summary.post_change_append_p95_ms ?? "pending"));
+          ' "$BENCHMARK_DIR/benchmark-summary.json")"
+          echo "::notice::post_change_append_p95_ms=$post_change_append_p95_ms"
+
+      - name: Upload trusted ledger benchmark
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: loop-fleet-ledger-benchmark-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/loop-fleet-ledger-benchmark/ledger-append.json
+            ${{ runner.temp }}/loop-fleet-ledger-benchmark/benchmark-summary.json
+          retention-days: 90
+          if-no-files-found: warn
 
       - name: Cleanup Firebase credentials
         if: always()
