@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 690,
-  "generatedAt": "2026-10-20T05:06:40.961Z",
+  "assetCount": 691,
+  "generatedAt": "2026-10-20T05:42:12.708Z",
   "assets": [
     {
       "schema": 1,
@@ -29432,6 +29432,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic architectural illustration with a Swiss flag; no text, signage, logos, people, or event-specific documentary cues."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-scuola-inoltre-ventanni-formazione-carcere",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "66e574154b71c41119e2b933122fcd3d5e959f493c592127493350ab12f71862",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "cb4743dcea8998e4508196bdf9061296f0ed1ab2a224bfb7b0160e9a5178a42e",
+      "bytes": 120338,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-20T05:19:11.391Z",
+      "verifiedAt": "2026-10-20T05:19:31.377Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-scuola-inoltre-ventanni-formazione-carcere.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of a modern school building in a Ticino-like lakeside setting, with no readable text, logos, or identifiable people."
       }
     }
   ]
