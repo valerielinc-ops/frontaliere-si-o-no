@@ -659,7 +659,14 @@ export async function releaseImageNamespaceLeases(leases, options = {}) {
     }
   }
   if (errors.length) {
-    const messages = errors.map((error) => (error instanceof Error ? error.message : String(error)));
+    const describe = (error) => {
+      const message = error instanceof Error ? error.message : String(error);
+      const nested = error instanceof AggregateError
+        ? [...error.errors].map(describe).filter(Boolean)
+        : [];
+      return nested.length ? [message, ...nested].join('; ') : message;
+    };
+    const messages = errors.map(describe);
     throw new AggregateError(errors, messages.join('; '), { cause: errors[0] });
   }
   return released;
