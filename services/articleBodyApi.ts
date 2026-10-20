@@ -113,6 +113,11 @@ function isLocale(value: unknown): value is ArticleBodyApiLocale {
   return typeof value === 'string' && API_LOCALES.includes(value as ArticleBodyApiLocale);
 }
 
+function isArticleId(value: unknown): value is string {
+  // `index` names the locale index document itself and cannot name a payload.
+  return typeof value === 'string' && value !== 'index' && ARTICLE_ID_RE.test(value);
+}
+
 function isCount(value: unknown): value is number {
   return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0;
 }
@@ -271,7 +276,7 @@ function parseIndex(value: unknown, section: string, locale: ArticleBodyApiLocal
   let available = 0;
   let missing = 0;
   for (const [id, rawEntry] of Object.entries(value.entries)) {
-    if (!ARTICLE_ID_RE.test(id) || !isRecord(rawEntry)) {
+    if (!isArticleId(id) || !isRecord(rawEntry)) {
       throw new ArticleBodyApiError('invalid', 'Voce dell’indice articoli non valida.');
     }
     if (rawEntry.status === 'missing' && Object.keys(rawEntry).length === 1) {
@@ -498,7 +503,7 @@ export async function loadArticleBodyApi(
   id: string,
   locales: readonly ArticleBodyApiLocale[],
 ): Promise<ArticleBodyApiResult> {
-  if (!SECTION_RE.test(section) || !ARTICLE_ID_RE.test(id)
+  if (!SECTION_RE.test(section) || !isArticleId(id)
     || locales.length === 0 || locales.some((locale) => !isLocale(locale))) {
     return { status: 'error', reason: 'invalid', authoritative: hasActiveCapability(), locales: [] };
   }

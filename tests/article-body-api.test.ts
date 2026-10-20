@@ -32,7 +32,10 @@ async function revision(locale: ArticleBodyApiLocale, translations: Record<strin
 
 function manifest(availableCount = 1, missingCount = 0) {
   const locales = Object.fromEntries(['it', 'en', 'de', 'fr'].map((code) => [code, {
-    index: `bodies/frontaliere/${code}/index.json`, expected: 1, available: availableCount, missing: missingCount,
+    index: `bodies/frontaliere/${code}/index.json`,
+    expected: availableCount + missingCount,
+    available: availableCount,
+    missing: missingCount,
   }]));
   return {
     commit: 'abc1234',
@@ -128,6 +131,35 @@ describe('published article body API', () => {
     });
     expect(calls.some((url) => url.includes(`?revision=${hash}`))).toBe(true);
     expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
+
+  it('rejects the reserved index identity in requests and published indexes', async () => {
+    const invalidIdFetch = installFetch(() => { throw new Error('reserved id must not reach fetch'); });
+    const invalidIdResult = await loadArticleBodyApi('frontaliere', 'index', ['it']);
+    expect(invalidIdResult).toMatchObject({ status: 'error', reason: 'invalid' });
+    expect(invalidIdFetch).not.toHaveBeenCalled();
+
+    resetArticleBodyApiForTests();
+    const hash = await revision('it');
+    const calls: string[] = [];
+    installFetch((url) => {
+      calls.push(url.toString());
+      if (url.pathname.endsWith('/manifest.json')) return response(manifest(1, 1));
+      if (url.pathname.endsWith('/index.json')) {
+        const valid = index('it', hash);
+        return response({
+          ...valid,
+          expectedCount: 2,
+          missingCount: 1,
+          entries: { ...valid.entries, index: { status: 'missing' } },
+        });
+      }
+      throw new Error('invalid index entry must not reach payload fetch');
+    });
+    const indexResult = await loadArticleBodyApi('frontaliere', ARTICLE_ID, ['it']);
+    expect(indexResult).toMatchObject({ status: 'error', reason: 'invalid', authoritative: true });
+    expect(calls.filter((url) => new URL(url).pathname.endsWith('/index.json'))).toHaveLength(2);
+    expect(calls.some((url) => new URL(url).searchParams.has('revision'))).toBe(false);
   });
 
   it('does not permanently cache a legitimate missing row', async () => {
