@@ -380,7 +380,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
       fr: 'De 50.000 à 150.000 CHF: comment le net d\'un frontalier change',
     },
     descriptions: {
-      it: 'Analisi della progressione fiscale per frontalieri dal CHF 50\'000 al CHF 150\'000 lordi. Come aumenta la pressione fiscale e quanto resta netto a ogni fascia.',
+      it: 'Progressione fiscale dei frontalieri da CHF 50\'000 a 150\'000 lordi: pressione fiscale e stipendio netto per fascia.',
       en: 'Tax progression analysis for cross-border workers from CHF 50,000 to CHF 150,000 gross. How tax pressure increases and what remains net.',
       de: 'Steuerprogression-Analyse für Grenzgänger von CHF 50.000 bis CHF 150.000 brutto.',
       fr: 'Analyse de la progression fiscale pour frontaliers de CHF 50.000 à CHF 150.000 bruts.',

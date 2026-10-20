@@ -3420,10 +3420,10 @@ interface DetailCopy {
  * floor (`roleBudget >= 12`, build-plugins/shared/titleSuffix.ts) — below
  * it the title collapses to a useless `…`/2-3 word stub while 20+ chars of
  * region boilerplate squat in the SERP. Under the tighter 60-char event cap,
- * if its first meaningful suffix would leave less than half of the event
- * title, a shorter suffix may preserve the full title. Otherwise it keeps the
- * most descriptive meaningful suffix and truncates the title. Date, region
- * and brand remain optional under budget pressure.
+ * if its first meaningful suffix leaves only the minimum title fragment, a
+ * shorter suffix may preserve the full title. Otherwise it keeps the most
+ * descriptive meaningful suffix and truncates the title. Date, region and
+ * brand remain optional under budget pressure.
  */
 const MIN_DETAIL_TITLE_BUDGET = 12;
 
@@ -3465,8 +3465,8 @@ const MIN_DETAIL_TITLE_BUDGET = 12;
  * chars, 15 past the new event cap on its own) previously clamped the budget
  * to 1 and emitted `'…' + suffix`, pushing the output beyond the old
  * 66-character cap. A candidate that preserves the complete event title wins
- * when the best meaningful suffix would keep under half of it and the locale
- * allows that candidate's brand status. Otherwise, the first candidate
+ * when the best meaningful suffix leaves only the minimum title fragment and
+ * the locale allows that candidate's brand status. Otherwise, the first candidate
  * leaving at least {@link MIN_DETAIL_TITLE_BUDGET} escaped chars is the
  * fallback. Region and brand are boilerplate (brand is
  * droppable per the `buildTitleWithBrand` policy, region is recoverable from
@@ -3512,8 +3512,8 @@ function eventDetailMetaTitle(
       return candidates;
     })
     : suffixes.map((suffix) => ({ suffix }));
-  // Keep the most descriptive suffix unless it leaves less than half of the
-  // title. In that near-zero case, prefer a later candidate that fits the
+  // Keep the most descriptive suffix unless it leaves only the minimum
+  // title fragment. In that near-zero case, prefer a later candidate that fits the
   // complete event title; the cascade reaches a place-only fallback first.
   const rawTitleBudget = esc(rawTitle).length;
   const firstMeaningful = suffixCandidates.find(
@@ -3526,7 +3526,7 @@ function eventDetailMetaTitle(
     ({ suffix }) => (!preferBrandSuffix || /\s\|\s/.test(suffix))
       && EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length >= rawTitleBudget,
   );
-  const preserveCompleteTitle = !firstMeaningful || firstMeaningfulBudget * 2 < rawTitleBudget;
+  const preserveCompleteTitle = !firstMeaningful || firstMeaningfulBudget <= MIN_DETAIL_TITLE_BUDGET;
   let suffix = (preserveCompleteTitle ? completeTitleCandidate?.suffix : undefined)
     ?? firstMeaningful?.suffix
     ?? suffixCandidates[suffixCandidates.length - 1]?.suffix
@@ -3596,7 +3596,7 @@ function eventDetailHeading(rawTitle: string, dateToken: string, comune: string)
  * full (comune + region + brand) → drop the region parenthetical → bare
  * comune — consumed by {@link eventDetailMetaTitle}, which prefers the first
  * candidate that preserves the complete event title if its first meaningful
- * option would retain under half the title, then falls back to the first
+ * option leaves only the minimum title fragment, then falls back to the first
  * candidate leaving at least {@link MIN_DETAIL_TITLE_BUDGET} chars. Every
  * candidate embeds the comune (the never-dropped
  * local-SEO token), mirroring the `composePlaceTitle` candidate contract. */

@@ -6487,7 +6487,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  guidaCompleta: {
  title: 'Lavoro frontaliere Svizzera 2026: permesso G, tasse e netto',
- description: 'Lavoro frontaliere Svizzera-Italia 2026: permesso G, tassazione Nuovo Accordo, stipendio netto, AVS/LPP, LAMal e dichiarazione redditi in un\'unica guida.',
+ description: 'Guida lavoro frontaliere Svizzera-Italia 2026: permesso G, Nuovo Accordo, netto, AVS/LPP, LAMal e dichiarazione dei redditi.',
  keywords: 'lavoro frontaliere svizzera 2026, guida completa frontaliere, permesso G svizzera, nuovo accordo frontalieri, imposta alla fonte ticino, frontaliere italia svizzera, lavorare in svizzera dall italia, tassazione frontalieri 2026, assicurazione LAMal frontalieri, pendolare svizzera italia',
  ogTitle: 'Guida Completa al Lavoro Frontaliere in Svizzera 2026',
  ogDescription: 'La guida definitiva per frontalieri Svizzera-Italia: permessi, tasse, previdenza, sanità, trasporti e dichiarazione dei redditi. Aggiornata 2026.',

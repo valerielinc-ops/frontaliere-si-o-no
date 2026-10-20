@@ -72,7 +72,7 @@ const GUIDE_LOCALE_SEO: Record<GuideSeoLocale, Record<GuideSeoSection, GuideLoca
     },
     firstDay: {
       title: 'Leitfaden Erster Tag als Grenzgänger',
-      description: 'Leitfaden für den ersten Tag als Grenzgänger: Checkliste mit allen Schritten, von der G-Bewilligung über die AIRE-Anmeldung bis zum Schweizer Bankkonto.',
+      description: 'Erster Tag als Grenzgänger: Checkliste zu G-Bewilligung, AIRE-Anmeldung und Schweizer Bankkonto.',
     },
     permits: {
       title: 'Arbeitsbewilligungen in der Schweiz',
