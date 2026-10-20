@@ -37,14 +37,15 @@ const API = 'https://www.job-room.ch/jobadservice/api/jobAdvertisements/_search'
  */
 
 /**
- * @param {{ cantons?: string[], onlineSince?: number, maxPages?: number, pageSize?: number, fetchImpl?: typeof fetch, sleepImpl?: (ms:number) => Promise<unknown>, lookupImpl?: any }} [opts]
- * @returns {Promise<{ employers: SecoEmployer[], adCount: number, hostHistogram: Record<string, number>, outcome: 'complete'|'partial'|'unavailable'|'malformed', errorCode: string|null, pagesRead: number }>}
+ * @param {{ cantons?: string[], onlineSince?: number, startPage?: number, maxPages?: number, pageSize?: number, fetchImpl?: typeof fetch, sleepImpl?: (ms:number) => Promise<unknown>, lookupImpl?: any }} [opts]
+ * @returns {Promise<{ employers: SecoEmployer[], adCount: number, hostHistogram: Record<string, number>, outcome: 'complete'|'partial'|'unavailable'|'malformed', errorCode: string|null, pagesRead: number, nextPage: number }>}
  */
 export async function fetchSecoEmployers(opts = {}) {
   const cantons = opts.cantons || ['TI'];
   const onlineSince = opts.onlineSince ?? 30;
   const maxPages = opts.maxPages ?? 20;
   const pageSize = opts.pageSize ?? 100;
+  const startPage = Number.isSafeInteger(opts.startPage) && opts.startPage >= 0 ? opts.startPage : 0;
 
   /** @type {Map<string, SecoEmployer>} */
   const employers = new Map();
@@ -53,14 +54,16 @@ export async function fetchSecoEmployers(opts = {}) {
   let adCount = 0;
   let pagesRead = 0;
   let malformedRows = 0;
-  const finish = (outcome = 'complete', errorCode = null) => ({
-    employers: [...employers.values()], adCount, hostHistogram, outcome, errorCode, pagesRead,
+  let nextPage = startPage;
+  const finish = (outcome = 'complete', errorCode = null, cursorPage = 0) => ({
+    employers: [...employers.values()], adCount, hostHistogram, outcome, errorCode, pagesRead, nextPage: cursorPage,
   });
-  const failedOutcome = (failure, code) => (pagesRead > 0 || employers.size > 0)
-    ? finish('partial', code)
-    : finish(failure, code);
+  const failedOutcome = (failure, code, cursorPage) => (pagesRead > 0 || employers.size > 0)
+    ? finish('partial', code, cursorPage)
+    : finish(failure, code, cursorPage);
 
-  for (let page = 0; page < maxPages; page++) {
+  for (let page = startPage; page < startPage + maxPages; page++) {
+    nextPage = page;
     let res;
     try {
       res = await politeFetch(`${API}?page=${page}&size=${pageSize}&sort=date_desc`, {
@@ -84,13 +87,14 @@ export async function fetchSecoEmployers(opts = {}) {
         lookupImpl: opts.lookupImpl,
       });
     } catch {
-      return failedOutcome('unavailable', 'network_error');
+      return failedOutcome('unavailable', 'network_error', page);
     }
-    if (!res.ok) return failedOutcome('unavailable', `http_${res.status}`);
+    if (!res.ok) return failedOutcome('unavailable', `http_${res.status}`, page);
     let batch;
-    try { batch = JSON.parse(res.body); } catch { return failedOutcome('malformed', 'malformed_json'); }
-    if (!Array.isArray(batch)) return failedOutcome('malformed', 'unexpected_payload');
+    try { batch = JSON.parse(res.body); } catch { return failedOutcome('malformed', 'malformed_json', page); }
+    if (!Array.isArray(batch)) return failedOutcome('malformed', 'unexpected_payload', page);
     pagesRead++;
+    nextPage = page + 1;
     if (!batch.length) return malformedRows ? finish('partial', 'malformed_records') : finish();
 
     for (const row of batch) {
@@ -133,7 +137,7 @@ export async function fetchSecoEmployers(opts = {}) {
       : finish();
   }
 
-  if (pagesRead >= maxPages && malformedRows) return finish('partial', 'malformed_records');
-  if (pagesRead >= maxPages) return finish('partial', 'page_limit_reached');
+  if (pagesRead >= maxPages && malformedRows) return finish('partial', 'malformed_records', nextPage);
+  if (pagesRead >= maxPages) return finish('partial', 'page_limit_reached', nextPage);
   return malformedRows ? finish('partial', 'malformed_records') : finish();
 }

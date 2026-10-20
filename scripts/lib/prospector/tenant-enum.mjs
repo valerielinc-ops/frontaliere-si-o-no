@@ -197,6 +197,8 @@ export async function enumerateViaCertSpotter(platformDomain, opts = {}) {
 
 /** Infrastructure subdomains every vendor has and no employer is. */
 const INFRA_LABELS = /^(www|dev|test|staging|stage|preprod|next|main|portal|api|app|admin|cdn|static|assets|mail|webmail|smtp|imap|ftp|vpn|git|ci|build|docs|blog|help|support|status|monitor|grafana|sso|auth|login|demo|sandbox|tfs\d*|ns\d*|mx\d*|autodiscover|sites|home|devops)$/i;
+const MAX_RETRY_HOSTS = 500;
+const MAX_RETRY_ATTEMPTS = 4;
 
 /**
  * Turn an employer name into the tenant ids a vendor would have handed it.
@@ -430,13 +432,14 @@ export function employerNameFromPage(html = '', host = '', links = []) {
  * Full enumeration for one platform.
  *
  * @param {import('./platform-registry.mjs').Platform} platform
- * @param {{ nameSeeds?: string[], maxProbe?: number, useCommonCrawl?: boolean, useCertSpotter?: boolean, fetcher?: typeof politeFetch }} [opts]
- * @returns {Promise<{ platform: string, discovered: string[], probed: any[], live: any[], byMethod: Record<string, number>, outcome: 'complete'|'partial'|'unavailable'|'malformed', sourceOutcomes: Record<string, { outcome: string, items: number, errorCode: string|null }>, probeLimitReached: boolean }>}
+ * @param {{ nameSeeds?: string[], maxProbe?: number, probeOffset?: number, retryHosts?: { host: string, attempts: number }[], useCommonCrawl?: boolean, useCertSpotter?: boolean, fetcher?: typeof politeFetch }} [opts]
+ * @returns {Promise<{ platform: string, discovered: string[], probed: any[], live: any[], retryHosts: { host: string, attempts: number }[], byMethod: Record<string, number>, outcome: 'complete'|'partial'|'unavailable'|'malformed', sourceOutcomes: Record<string, { outcome: string, items: number, errorCode: string|null }>, probeLimitReached: boolean, nextProbeOffset: number }>}
  */
 export async function enumerateTenants(platform, opts = {}) {
   const domain = platform.domain;
   const byMethod = {};
   const found = new Map();
+  const previousRetries = [];
   const sourceOutcomes = {
     commoncrawl: { outcome: 'skipped', items: 0, errorCode: null },
     certspotter: { outcome: 'skipped', items: 0, errorCode: null },
@@ -508,18 +511,74 @@ export async function enumerateTenants(platform, opts = {}) {
   }
   for (const sample of platform.hostSamples || []) add(sample, 'known');
 
+  // A failed transient probe is retried in a small rotating queue on the next
+  // run. Without this, a host in a 20k slug list could wait ~100 daily runs
+  // before the normal discovery window reached it again.
+  const retrySeen = new Set();
+  for (const retry of (Array.isArray(opts.retryHosts) ? opts.retryHosts : []).slice(0, MAX_RETRY_HOSTS)) {
+    const host = normalizeHost(retry?.host);
+    const attempts = Number(retry?.attempts);
+    if (!host || !Number.isSafeInteger(attempts) || attempts < 1 || attempts >= MAX_RETRY_ATTEMPTS || retrySeen.has(host)) continue;
+    retrySeen.add(host);
+    previousRetries.push({ host, attempts });
+    if (!found.has(host)) found.set(host, 'retry');
+  }
+
   // Probe in order of EVIDENCE, not insertion order. A slug probe is a guess
   // and there can be tens of thousands of them (20'215 in one measured run);
   // a host seen in the web index or in a certificate log is a host that exists.
   // Left unordered, the probe budget is spent entirely on guesses and a vendor
   // whose tenants are all already known scores zero.
-  const METHOD_RANK = { known: 0, commoncrawl: 1, certspotter: 2, pathprobe: 3, slugprobe: 4 };
-  const hosts = [...found.keys()]
-    .sort((a, b) => (METHOD_RANK[found.get(a)] ?? 9) - (METHOD_RANK[found.get(b)] ?? 9))
-    .slice(0, opts.maxProbe ?? 300);
-  const probeLimitReached = found.size > hosts.length;
+  const METHOD_RANK = { retry: -1, known: 0, commoncrawl: 1, certspotter: 2, pathprobe: 3, slugprobe: 4 };
+  const rankedHosts = [...found.keys()]
+    .sort((a, b) => (METHOD_RANK[found.get(a)] ?? 9) - (METHOD_RANK[found.get(b)] ?? 9)
+      || a.localeCompare(b));
+  const maxProbe = Math.min(MAX_RETRY_HOSTS, Math.max(0, Math.floor(Number(opts.maxProbe ?? 300) || 0)));
+  const normalRetryBatchLimit = Math.min(previousRetries.length, 50, Math.ceil(maxProbe * 0.25));
+  // Reserve enough probe slots for the existing queue to absorb every new
+  // transient failure from this run. When the queue is nearly full, retries
+  // temporarily use more of the probe budget instead of evicting untried hosts.
+  const retryBatchNeededForCapacity = Math.max(0, previousRetries.length + maxProbe - MAX_RETRY_HOSTS);
+  const retryBatchLimit = Math.min(previousRetries.length, Math.max(normalRetryBatchLimit, retryBatchNeededForCapacity));
+  const retryBatch = previousRetries.slice(0, retryBatchLimit);
+  const normalHosts = rankedHosts.filter((host) => !retrySeen.has(host));
+  const probeOffset = normalHosts.length
+    ? Math.max(0, Math.floor(Number(opts.probeOffset) || 0)) % normalHosts.length
+    : 0;
+  const normalLimit = Math.max(0, maxProbe - retryBatch.length);
+  const normalProbeHosts = Array.from({ length: Math.min(normalLimit, normalHosts.length) }, (_, index) =>
+    normalHosts[(probeOffset + index) % normalHosts.length]);
+  const hosts = [...retryBatch.map(({ host }) => host), ...normalProbeHosts];
+  const nextProbeOffset = normalHosts.length
+    ? (probeOffset + normalProbeHosts.length) % normalHosts.length
+    : probeOffset;
+  const probeLimitReached = previousRetries.length > retryBatch.length
+    || normalHosts.length > normalProbeHosts.length;
   const probed = (await mapPool(hosts, CONCURRENCY, (h) => probeTenant(h, { paths, fetcher: opts.fetcher }))).filter(Boolean);
   for (const p of probed) p.method = found.get(p.host);
+  const probedByHost = new Map(probed.map((result) => [result.host, result]));
+  const retryByHost = new Map(previousRetries.map((retry) => [retry.host, retry]));
+  const retriedFailures = [];
+  for (const retry of retryBatch) {
+    const result = probedByHost.get(retry.host);
+    if (!result) {
+      retriedFailures.push(retry);
+    } else if (result.retryable && !result.live && retry.attempts + 1 < MAX_RETRY_ATTEMPTS) {
+      retriedFailures.push({ host: retry.host, attempts: retry.attempts + 1 });
+    }
+  }
+  const newTransientFailures = [];
+  for (const result of probed) {
+    if (!result.retryable || result.live || retryByHost.has(result.host)) continue;
+    newTransientFailures.push({ host: result.host, attempts: 1 });
+  }
+  // The adaptive retry budget above leaves enough room for every result from
+  // this run while retaining all previous retries that were not probed.
+  const currentFailures = [...new Map([...retriedFailures, ...newTransientFailures]
+    .map((retry) => [retry.host, retry])).values()];
+  const retainedOlderRetries = previousRetries.slice(retryBatch.length);
+  const boundedRetryHosts = [...new Map([...currentFailures, ...retainedOlderRetries]
+    .map((retry) => [retry.host, retry])).values()].slice(0, MAX_RETRY_HOSTS);
   const retryableProbeFailures = probed.filter((result) => result.retryable).length;
   const blockedProbeFailures = probed.filter((result) => result.blocked).length;
   const incompleteProbeCount = retryableProbeFailures + blockedProbeFailures;
@@ -548,9 +607,11 @@ export async function enumerateTenants(platform, opts = {}) {
     discovered: hosts,
     probed,
     live: probed.filter((p) => p.live),
+    retryHosts: boundedRetryHosts,
     byMethod,
     outcome,
     sourceOutcomes,
     probeLimitReached,
+    nextProbeOffset,
   };
 }

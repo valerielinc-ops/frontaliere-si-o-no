@@ -24,7 +24,14 @@
  *   node scripts/prospect-expand.mjs --platform=example.com
  *   node scripts/prospect-expand.mjs --platforms=2 --max-probe=200
  */
-import { loadRegistry, saveRegistry, enumerablePlatforms, recordExpansionAttempt, recordExpansionResult } from './lib/prospector/platform-registry.mjs';
+import {
+  loadRegistry,
+  saveRegistry,
+  enumerablePlatforms,
+  enumerablePathTenantPlatforms,
+  recordExpansionAttempt,
+  recordExpansionResult,
+} from './lib/prospector/platform-registry.mjs';
 import { loadCandidates, saveCandidates, upsertCandidate, setStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
 import { enumerateTenants } from './lib/prospector/tenant-enum.mjs';
 import { loadCoverage, isCovered } from './lib/prospector/coverage.mjs';
@@ -36,13 +43,14 @@ const argv = process.argv.slice(2);
 // e' un flag diverso, e' nessun flag, e la corsa scrive davvero.
 assertKnownFlags(argv, {
   booleans: ['dry-run'],
-  valued: ['platform', 'platforms', 'max-probe'],
+  valued: ['platform', 'platforms', 'shared-platforms', 'max-probe'],
 });
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
 const flag = (n) => argv.includes(`--${n}`);
 
 const onlyPlatform = arg('platform', '');
 const maxPlatforms = Number(arg('platforms', 3));
+const maxSharedPlatforms = Number(arg('shared-platforms', 1));
 const maxProbe = Number(arg('max-probe', 250));
 const dryRun = flag('dry-run');
 
@@ -52,7 +60,10 @@ const coverage = loadCoverage();
 
 const targets = onlyPlatform
   ? [registry.platforms[registrableDomain(onlyPlatform)]].filter(Boolean)
-  : enumerablePlatforms(registry).slice(0, maxPlatforms);
+  : [
+    ...enumerablePlatforms(registry).slice(0, maxPlatforms),
+    ...enumerablePathTenantPlatforms(registry).slice(0, maxSharedPlatforms),
+  ].filter((platform, index, all) => all.findIndex((item) => item.domain === platform.domain) === index);
 
 if (!targets.length) {
   console.log('Nessuna piattaforma confermata da espandere. Serve prima uno stadio TRACE.');
@@ -83,7 +94,12 @@ for (const platform of targets) {
   recordExpansionAttempt(platform, expansionAt);
   let res;
   try {
-    res = await enumerateTenants(platform, { nameSeeds: seeds, maxProbe });
+    res = await enumerateTenants(platform, {
+      nameSeeds: seeds,
+      maxProbe,
+      probeOffset: platform.expansionProbeOffset || 0,
+      retryHosts: platform.expansionRetryHosts || [],
+    });
   } catch (err) {
     recordExpansionResult(platform, { outcome: 'unavailable' }, expansionAt);
     console.log(`${platform.domain}: enumerazione fallita — ${(err instanceof Error ? err.message : String(err)).slice(0, 120)}`);

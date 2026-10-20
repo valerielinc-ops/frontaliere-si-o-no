@@ -40,6 +40,7 @@ import { registrableDomain, sameOrg } from './lib/prospector/registrable.mjs';
 import { CANTONS } from './lib/prospector/config.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 import { appendDiscoveryHealth, recordDiscoverySourceOutcome, startDiscoveryHealthRun } from './lib/prospector/source-health.mjs';
+import { loadSecoPageCursors, saveSecoPageCursors } from './lib/prospector/sources/seco-page-cursors.mjs';
 
 const argv = process.argv.slice(2);
 // `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
@@ -82,6 +83,7 @@ const discoveryHealthRun = startDiscoveryHealthRun();
 const coverage = loadCoverage();
 const store = loadCandidates();
 const registry = loadRegistry();
+const secoPageCursors = sources.includes('seco') ? loadSecoPageCursors() : null;
 
 console.log('═══ Prospector · DISCOVER ═══');
 console.log(`cantoni: ${cantons.join(',')}  sorgenti: ${sources.join(',')}  finestra SECO: ${days}g`);
@@ -154,17 +156,32 @@ if (sources.includes('seco')) {
     // un timeout sul quinto butterebbe via i quattro gia' raccolti e i venti
     // ancora da fare.
     let employers; let adCount; let hostHistogram; let outcome; let errorCode;
+    const savedCursor = secoPageCursors?.cantons[canton];
+    const startPage = savedCursor?.onlineSinceDays === days ? savedCursor.nextPage : 0;
+    let nextPage = startPage;
     try {
-      ({ employers, adCount, hostHistogram, outcome, errorCode } = await fetchSecoEmployers({ cantons: [canton], onlineSince: days }));
+      ({ employers, adCount, hostHistogram, outcome, errorCode, nextPage } = await fetchSecoEmployers({
+        cantons: [canton],
+        onlineSince: days,
+        startPage,
+      }));
     } catch (err) {
       recordSourceOutcome('seco', { outcome: 'unavailable', errorCode: 'source_exception' });
       console.log(`SECO ${canton}: non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
       continue;
     }
+    if (secoPageCursors) {
+      secoPageCursors.cantons[canton] = {
+        nextPage,
+        onlineSinceDays: days,
+        updatedAt: new Date().toISOString(),
+      };
+    }
     const filedBefore = perSource.seco || 0;
     for (const e of employers) {
       file({
         name: e.name,
+        secoEmployerName: e.name,
         city: e.city,
         zip: e.zip,
         canton,
@@ -255,7 +272,10 @@ if (sources.includes('osm')) {
 if (sources.includes('web')) {
   let sweep = { collection: null, pagesRead: [], totalPages: 0, employers: [], outcome: 'unavailable', errorCode: 'source_exception' };
   try {
-    sweep = await sweepSwissCareerPages({ pages });
+    // DISCOVER --dry-run promises that no persistent state changes. Common
+    // Crawl owns its cursor and channel-health files, so suppress those writes
+    // at the source boundary too.
+    sweep = await sweepSwissCareerPages({ pages, persist: !dryRun });
   } catch (err) {
     recordSourceOutcome('web', { outcome: 'unavailable', errorCode: 'source_exception' });
     sweep.outcome = null;
@@ -311,6 +331,7 @@ if (dryRun) {
 } else {
   saveCandidates(store);
   saveRegistry(registry);
+  if (secoPageCursors) saveSecoPageCursors(secoPageCursors);
   try { appendDiscoveryHealth(discoveryHealthRun); } catch {
     console.error('::warning::Telemetria discovery non aggiornata; lo storico corrotto o non scrivibile e\' stato preservato.');
   }

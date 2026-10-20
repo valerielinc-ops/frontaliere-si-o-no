@@ -3243,6 +3243,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   const payload = {
     crawlerKey,
     assembledAt: new Date().toISOString(),
+    runId: process.env.GITHUB_RUN_ID ? String(process.env.GITHUB_RUN_ID) : null,
     jobs: finalJobs,
   };
   writeJson(slicePath, payload, { housekeepingProof: options.housekeepingProof || null });

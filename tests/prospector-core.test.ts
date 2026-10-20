@@ -14,11 +14,12 @@ import { fetch as undiciFetch } from 'undici';
 import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath, stripPublicSuffix } from '../scripts/lib/prospector/registrable.mjs';
 import { clearPoliteFetchStateForTests, parseRobots, robotsAllows } from '../scripts/lib/prospector/polite-fetch.mjs';
 import {
-  loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
+  loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms, enumerablePathTenantPlatforms,
   sharedHostPlatforms, listingPathHints, recordExpansionAttempt, recordExpansionResult,
 } from '../scripts/lib/prospector/platform-registry.mjs';
 import {
   hasRecentSecoDemand,
+  parseTraceLimit,
   prioritizeTraceCandidates,
   TRACE_SECO_FRESHNESS_DAYS,
 } from '../scripts/lib/prospector/trace-priority.mjs';
@@ -212,6 +213,15 @@ describe('platform registry', () => {
     expect(sharedHostPlatforms(r).map((p) => p.domain)).toContain('board.example');
   });
 
+  it('schedules only shared-host vendors with tenant ids in the path for slug probing', () => {
+    const r = emptyRegistry();
+    observePlatform(r, { tenantHost: 'apply.refline.example', employerDomain: 'alpha.ch', path: '/alpha/jobs' });
+    observePlatform(r, { tenantHost: 'apply.refline.example', employerDomain: 'beta.ch', path: '/beta/jobs' });
+
+    expect(enumerablePlatforms(r).map((platform) => platform.domain)).not.toContain('refline.example');
+    expect(enumerablePathTenantPlatforms(r).map((platform) => platform.domain)).toContain('refline.example');
+  });
+
   it('learns a listing path only when several employers share it', () => {
     const r = emptyRegistry();
     observePlatform(r, { tenantHost: 'a.ats.example', employerDomain: 'alpha.ch', path: '/Vacancies/1/Description' });
@@ -259,6 +269,8 @@ describe('platform registry', () => {
       discovered: ['tenant-a.ats.example'],
       live: [],
       probeLimitReached: true,
+      nextProbeOffset: 7,
+      retryHosts: [{ host: 'tenant-retry.example', attempts: 1 }],
       sourceOutcomes: {
         commoncrawl: { outcome: 'complete', items: 1 },
         certspotter: { outcome: 'unavailable', items: 0, errorCode: 'http_503' },
@@ -275,10 +287,22 @@ describe('platform registry', () => {
         certspotter: { outcome: 'unavailable', items: 0, errorCode: 'http_503' },
       },
     });
+    expect(r.platforms['never.example'].expansionProbeOffset).toBe(7);
+    expect(r.platforms['never.example'].expansionRetryHosts).toEqual([
+      { host: 'tenant-retry.example', attempts: 1 },
+    ]);
   });
 });
 
 describe('priorità della coda TRACE', () => {
+  it('rejects malformed or excessive workflow budgets before queue selection', () => {
+    expect(parseTraceLimit('750')).toBe(750);
+    expect(parseTraceLimit(undefined, 40)).toBe(40);
+    for (const value of ['abc', '-1', '1201', '1.5']) {
+      expect(() => parseTraceLimit(value)).toThrow(/--limit must be an integer/);
+    }
+  });
+
   it('ordina URL carriere, dominio e annunci SECO recenti senza riusare conteggi vecchi', () => {
     const now = Date.now();
     const ranked = prioritizeTraceCandidates([

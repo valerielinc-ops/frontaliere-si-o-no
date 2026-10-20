@@ -35,6 +35,28 @@ describe('SuccessFactors client', () => {
     expect(detectSuccessFactorsKind('https://jobdetails.nestle.com/job/Orbe-Test/123/')).toBe('html-jobreq');
   });
 
+  it('fails closed when the OData page limit ends on a full page', async () => {
+    const results = Array.from({ length: 100 }, (_, index) => ({
+      jobReqId: `req-${index}`,
+      jobTitle: 'Engineer',
+      location: 'Zurich, CH',
+    }));
+    const fetchMock = vi.fn(async () => new Response(JSON.stringify({ d: { results } }), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const collect = async () => {
+      const jobs = [];
+      for await (const job of fetchSuccessFactorsJobs(
+        'https://api4.successfactors.com/odata/v2/JobRequisitionLocale',
+        { maxPages: 1, minDelayMs: 0, company: 'Swiss Re' },
+      )) jobs.push(job);
+      return jobs;
+    };
+
+    await expect(collect()).rejects.toThrow(/incomplete OData snapshot.*maxPages=1 exhausted on a full page/);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
   it('paginates server-rendered jobs2web search pages with startrow', async () => {
     const fetchMock = vi
       .fn()
@@ -253,6 +275,25 @@ describe('SuccessFactors client', () => {
     }
 
     expect(jobs).toHaveLength(10);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('fails closed when maxPages is exhausted on a full page without an end signal', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(fullSearchPage(12001), { status: 200 }))
+      .mockResolvedValueOnce(new Response(fullSearchPage(12011), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const collect = async () => {
+      const jobs = [];
+      for await (const job of fetchSuccessFactorsJobs(
+        'https://www.swissre.com/careers/jobSearch.html',
+        { maxPages: 2, minDelayMs: 0, company: 'Swiss Re' },
+      )) jobs.push(job);
+      return jobs;
+    };
+
+    await expect(collect()).rejects.toThrow(/maxPages=2 exhausted on a full page without a source end signal/);
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 

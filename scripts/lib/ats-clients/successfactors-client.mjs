@@ -600,6 +600,7 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
   if (kind === 'odata-api') {
     const tenant = tenantOverride || extractTenantFromHost(careerUrl);
     let skip = 0;
+    let fullPageAtLimit = false;
     for (let page = 0; page < maxPages; page++) {
       const url = buildSuccessFactorsApiUrl(tenant, 'odata-api', {
         top: DEFAULT_PAGE_SIZE,
@@ -661,8 +662,15 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
         if (matchesLocation(job.location)) yield job;
       }
       if (items.length < DEFAULT_PAGE_SIZE) break;
+      if (page === maxPages - 1) fullPageAtLimit = true;
       skip += DEFAULT_PAGE_SIZE;
       await sleep(minDelayMs);
+    }
+    if (fullPageAtLimit) {
+      throw new Error(
+        `[successfactors-client] incomplete OData snapshot for ${tenant}: ` +
+          `maxPages=${maxPages} exhausted on a full page without a source end signal`,
+      );
     }
     return;
   }
@@ -705,6 +713,7 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
     // is a SPA — we accept a single page and parse what we can.
     const seenJobIds = new Set();
     let declaredTotal = null;
+    let fullPageAtLimit = false;
     let pageUrl = careerUrl;
     for (let page = 0; page < maxPages; page++) {
       let rows = [];
@@ -773,6 +782,7 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
       }
       if (declaredTotal !== null && seenJobIds.size >= declaredTotal) return;
       if (rows.length < 10) return;
+      if (page === maxPages - 1) fullPageAtLimit = true;
       // Past the declared total some tenants keep serving a full page of
       // unrelated results (jobdetails.nestle.com: 110 Swiss results, then the
       // same Qiryat Gat page at startrow=5000 and 50000). A page that adds no
@@ -782,6 +792,13 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
       if (declaredTotal && buildJobs2WebNextStartrow(page) >= declaredTotal) return;
       if (page < maxPages - 1 && minDelayMs > 0) await sleep(minDelayMs);
       pageUrl = nextPageUrl || buildJobs2WebPageUrl(careerUrl, page + 1);
+    }
+    if (fullPageAtLimit) {
+      throw new Error(
+        `[successfactors-client] incomplete jobs2web snapshot for ${careerUrl}: ` +
+          `maxPages=${maxPages} exhausted on a full page without a source end signal ` +
+          `(parsed ${seenJobIds.size} distinct rows${declaredTotal === null ? '' : ` of declared ${declaredTotal}`})`,
+      );
     }
     if (declaredTotal !== null && seenJobIds.size < declaredTotal) {
       throw new Error(

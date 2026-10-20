@@ -27,6 +27,7 @@ export const PROSPECTOR_PATHS = Object.freeze({
   platforms: 'data/prospector/platforms.json',
   validation: 'data/prospector/validation.json',
   webChannelHealth: 'data/prospector/web-channel-health.json',
+  secoPageCursors: 'data/prospector/seco-page-cursors.json',
 });
 
 const MISSING = Symbol('missing');
@@ -198,7 +199,7 @@ function mergeCandidate(upstream, local) {
       && (!Number.isFinite(localSecoAt) || upstreamSecoAt > localSecoAt)
       ? upstream
       : local;
-    for (const field of ['adCount', 'sampleTitles', 'applyHosts']) {
+    for (const field of ['adCount', 'sampleTitles', 'applyHosts', 'secoEmployerName']) {
       if (hasOwn(secoWinner, field)) merged[field] = clone(secoWinner[field]);
       else delete merged[field];
     }
@@ -256,6 +257,55 @@ function mergePlatform(upstream, local, base = {}) {
   }
   if (upstream.expansionAttempts !== undefined || local.expansionAttempts !== undefined) {
     merged.expansionAttempts = mergeCounter(upstream.expansionAttempts, local.expansionAttempts, base.expansionAttempts);
+  }
+  const upstreamExpandedAt = Date.parse(String(upstream.lastExpandedAt || ''));
+  const localExpandedAt = Date.parse(String(local.lastExpandedAt || ''));
+  const latestExpansionFirst = Number.isFinite(upstreamExpandedAt)
+    && (!Number.isFinite(localExpandedAt) || upstreamExpandedAt > localExpandedAt)
+    ? [upstream, local]
+    : [local, upstream];
+  if (upstream.expansionProbeOffset !== undefined || local.expansionProbeOffset !== undefined) {
+    const latestOffset = latestExpansionFirst.find((platform) => Number.isSafeInteger(platform.expansionProbeOffset)
+      && platform.expansionProbeOffset >= 0)?.expansionProbeOffset;
+    if (latestOffset !== undefined) merged.expansionProbeOffset = latestOffset;
+  }
+  if (Array.isArray(upstream.expansionRetryHosts) || Array.isArray(local.expansionRetryHosts)) {
+    const preferred = latestExpansionFirst.map((platform) => platform.expansionRetryHosts);
+    const baseRetries = new Map((Array.isArray(base.expansionRetryHosts) ? base.expansionRetryHosts : [])
+      .filter((entry) => typeof entry?.host === 'string' && Number.isSafeInteger(entry.attempts) && entry.attempts >= 1)
+      .map((entry) => [entry.host, entry]));
+    const sideRetries = [upstream.expansionRetryHosts, local.expansionRetryHosts].map((entries) => new Map(
+      (Array.isArray(entries) ? entries : [])
+        .filter((entry) => typeof entry?.host === 'string' && Number.isSafeInteger(entry.attempts) && entry.attempts >= 1)
+        .map((entry) => [entry.host, entry]),
+    ));
+    const retained = new Map();
+    const hosts = new Set([...baseRetries.keys(), ...sideRetries.flatMap((entries) => [...entries.keys()])]);
+    for (const host of hosts) {
+      const baseEntry = baseRetries.get(host);
+      const entries = sideRetries.map((side) => side.get(host)).filter(Boolean);
+      if (!entries.length) continue;
+      if (!baseEntry || entries.length === 2 || entries.some((entry) => entry.attempts !== baseEntry.attempts)) {
+        retained.set(host, { host, attempts: Math.max(...entries.map((entry) => entry.attempts)) });
+      }
+      // If one writer removed a base retry after a successful probe and the
+      // other left it untouched, the removal is meaningful. A changed retry
+      // entry above wins because it records a new transient failure.
+    }
+    // Preserve the complete queue order from the newest run first. Add changes
+    // from the older branch only into remaining capacity; this keeps unprobed
+    // pending entries from being evicted just to retain a stale side's tail.
+    const ordered = [];
+    const queued = new Set();
+    for (const entries of preferred) {
+      for (const entry of Array.isArray(entries) ? entries : []) {
+        const retry = retained.get(entry?.host);
+        if (!retry || queued.has(retry.host)) continue;
+        queued.add(retry.host);
+        ordered.push(retry);
+      }
+    }
+    merged.expansionRetryHosts = ordered.filter((entry) => entry.attempts < 4).slice(0, 500);
   }
   if (upstream.discoveredAt || local.discoveredAt) merged.discoveredAt = oldest(upstream.discoveredAt, local.discoveredAt);
   if (upstream.lastExpandedAt || local.lastExpandedAt) merged.lastExpandedAt = newest(upstream.lastExpandedAt, local.lastExpandedAt);
@@ -363,6 +413,20 @@ function mergeChannelHealth(base, upstream, local) {
   return merged;
 }
 
+function mergeSecoPageCursors(base, upstream, local) {
+  const result = documentMeta(base, upstream, local, new Set(['version', 'updatedAt', 'cantons']));
+  result.version = Math.max(Number(base?.version) || 1, Number(upstream?.version) || 1, Number(local?.version) || 1);
+  result.updatedAt = newest(base?.updatedAt, upstream?.updatedAt, local?.updatedAt);
+  result.cantons = mergeMap(base?.cantons, upstream?.cantons, local?.cantons, (upstreamValue, localValue) => {
+    const upstreamAt = Date.parse(String(upstreamValue?.updatedAt || ''));
+    const localAt = Date.parse(String(localValue?.updatedAt || ''));
+    return Number.isFinite(upstreamAt) && (!Number.isFinite(localAt) || upstreamAt > localAt)
+      ? clone(upstreamValue)
+      : clone(localValue);
+  });
+  return result;
+}
+
 function mergeCrawlerDocument(base, upstream, local) {
   return mergeThreeWay(base, upstream, local, (upstreamValue, localValue) => {
     const merged = { ...clone(upstreamValue), ...clone(localValue) };
@@ -405,6 +469,19 @@ function ensureShape(target, value) {
   if (target === PROSPECTOR_PATHS.validation && (!isObject(value) || !Array.isArray(value.reports))) {
     throw new Error(`${target}: expected an object with a reports array`);
   }
+  if (target === PROSPECTOR_PATHS.secoPageCursors && (!isObject(value) || !isObject(value.cantons))) {
+    throw new Error(`${target}: expected an object with a cantons map`);
+  }
+  if (target === PROSPECTOR_PATHS.secoPageCursors) {
+    for (const [canton, cursor] of Object.entries(value.cantons)) {
+      if (!/^[A-Z]{2}$/.test(canton) || !isObject(cursor)
+        || !Number.isSafeInteger(cursor.nextPage) || cursor.nextPage < 0
+        || !Number.isSafeInteger(cursor.onlineSinceDays) || cursor.onlineSinceDays < 1
+        || typeof cursor.updatedAt !== 'string') {
+        throw new Error(`${target}: invalid cursor for ${canton}`);
+      }
+    }
+  }
   if (target === PROSPECTOR_PATHS.webChannelHealth && !Array.isArray(value)) {
     throw new Error(`${target}: expected an array`);
   }
@@ -421,6 +498,7 @@ function mergePath(target, base, upstream, local) {
   if (target === PROSPECTOR_PATHS.platforms) return mergePlatformsDocument(base, upstream, local);
   if (target === PROSPECTOR_PATHS.validation) return mergeValidationDocument(base, upstream, local);
   if (target === PROSPECTOR_PATHS.webChannelHealth) return mergeChannelHealth(base, upstream, local);
+  if (target === PROSPECTOR_PATHS.secoPageCursors) return mergeSecoPageCursors(base, upstream, local);
   if (CRAWLER_PATH.test(target)) return mergeCrawlerDocument(base, upstream, local);
   throw new Error(`unsupported Prospector conflict: ${target}`);
 }

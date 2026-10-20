@@ -17,6 +17,14 @@ import { politeFetch } from './polite-fetch.mjs';
 import { registrableDomain } from './registrable.mjs';
 import { textOf } from './extract.mjs';
 
+function retryableResponse(response) {
+  if (response?.policyBlocked || response?.blockedByRobots) return false;
+  const status = Number(response?.status) || 0;
+  return status === 0 || status === 401 || status === 403 || status === 408
+    || status === 425 || status === 429 || status >= 500
+    || Boolean(response?.transportError);
+}
+
 const STOPWORDS = /^(sa|ag|sagl|gmbh|srl|sarl|spa|ltd|inc|llc|di|e|the|of|und|et|il|lo|la|le|gli|der|die|das|les|des|del|della|dei|group|gruppo|holding|swiss|suisse|svizzera|schweiz|ticino|succursale|filiale|societa|società|cooperativa|fondazione|associazione|studio|ristorante|hotel|garage|azienda|centro|casa)$/;
 
 /**
@@ -101,19 +109,35 @@ export function verifyOwnership(html, employer) {
 /**
  * @param {{ name: string, city?: string, zip?: string }} employer
  * @param {{ minScore?: number }} [opts]
- * @returns {Promise<{ domain: string|null, score: number, evidence: string[], tried: number }>}
+ * @returns {Promise<{ domain: string|null, score: number, evidence: string[], tried: number, retryable: boolean, failureStatuses: number[] }>}
  */
 export async function resolveDomain(employer, opts = {}) {
   const minScore = opts.minScore ?? 3;
   const guesses = domainGuesses(employer.name);
-  let best = { domain: null, score: 0, evidence: [], tried: 0 };
+  let best = { domain: null, score: 0, evidence: [], tried: 0, retryable: false, failureStatuses: [] };
   for (const g of guesses) {
     best.tried++;
-    const res = await politeFetch(`https://${g}/`);
-    if (!res.ok || res.body.length < 400) continue;
+    let res;
+    try {
+      res = await politeFetch(`https://${g}/`, opts);
+    } catch {
+      res = { ok: false, status: 0, body: '', transportError: 'network' };
+    }
+    if (!res.ok) {
+      best.failureStatuses.push(Number(res.status) || 0);
+      if (retryableResponse(res)) best.retryable = true;
+      continue;
+    }
+    if (res.body.length < 400) continue;
     const v = verifyOwnership(res.body, employer);
     if (v.score > best.score) {
-      best = { domain: registrableDomain(new URL(res.url).hostname), score: v.score, evidence: v.evidence, tried: best.tried };
+      best = {
+        ...best,
+        domain: registrableDomain(new URL(res.url).hostname),
+        score: v.score,
+        evidence: v.evidence,
+        tried: best.tried,
+      };
     }
     if (best.score >= minScore + 1) break; // decisive, stop paying for more probes
   }

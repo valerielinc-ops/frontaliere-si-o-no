@@ -37,7 +37,7 @@ import { registrableDomain } from './lib/prospector/registrable.mjs';
 import { mapPool } from './lib/prospector/polite-fetch.mjs';
 import { CONCURRENCY } from './lib/prospector/config.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
-import { prioritizeTraceCandidates } from './lib/prospector/trace-priority.mjs';
+import { parseTraceLimit, prioritizeTraceCandidates } from './lib/prospector/trace-priority.mjs';
 import { attributableTraceHosts, traceCandidate } from './lib/prospector/trace-candidate.mjs';
 
 const argv = process.argv.slice(2);
@@ -47,7 +47,7 @@ assertKnownFlags(argv, { booleans: ['dry-run'], valued: ['key', 'limit', 'source
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
 const flag = (n) => argv.includes(`--${n}`);
 
-const limit = Number(arg('limit', 40));
+const limit = parseTraceLimit(arg('limit', undefined), 40);
 const onlyKey = arg('key', '');
 const onlySource = arg('source', '');
 const dryRun = flag('dry-run');

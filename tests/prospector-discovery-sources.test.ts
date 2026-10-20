@@ -6,6 +6,7 @@ import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-
 import { careerPagesOnIndexPage, loadCursor, planCommonCrawlPages, sweepSwissCareerPages } from '../scripts/lib/prospector/sources/commoncrawl-careers.mjs';
 import { fetchOsmBusinesses } from '../scripts/lib/prospector/sources/osm-overpass.mjs';
 import { fetchSecoEmployers } from '../scripts/lib/prospector/sources/seco-jobroom.mjs';
+import { loadSecoPageCursors, saveSecoPageCursors } from '../scripts/lib/prospector/sources/seco-page-cursors.mjs';
 
 function response(url: string, status: number, body = '') {
   return {
@@ -67,6 +68,47 @@ describe('Prospector discovery source outcomes', () => {
 
     expect(result).toMatchObject({ outcome: 'partial', errorCode: 'http_503', pagesRead: 1, adCount: 1 });
     expect(result.employers.map(({ name }) => name)).toEqual(['Example Sagl']);
+  });
+
+  it('resumes SECO pagination from its saved page and returns the next cursor', async () => {
+    const pages: number[] = [];
+    const row = {
+      jobAdvertisement: {
+        jobContent: {
+          company: { name: 'Example Sagl', city: 'Lugano' },
+          jobDescriptions: [{ title: 'Techniker' }],
+        },
+      },
+    };
+    const result = await fetchSecoEmployers({
+      cantons: ['TI'],
+      startPage: 4,
+      pageSize: 1,
+      maxPages: 2,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        pages.push(page);
+        return response(String(url), 200, JSON.stringify([row]));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(pages).toEqual([4, 5]);
+    expect(result).toMatchObject({ outcome: 'partial', errorCode: 'page_limit_reached', pagesRead: 2, nextPage: 6 });
+  });
+
+  it('loads and saves per-canton SECO page cursors without sharing mutable defaults', () => {
+    dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-seco-cursors-'));
+    const cursorFile = path.join(dir, 'seco-page-cursors.json');
+    expect(loadSecoPageCursors(cursorFile)).toEqual({ version: 1, updatedAt: null, cantons: {} });
+    const state = { version: 1, updatedAt: null, cantons: { TI: { nextPage: 3, onlineSinceDays: 30, updatedAt: '2026-10-19T03:00:00.000Z' } } };
+    saveSecoPageCursors(state, cursorFile);
+    expect(loadSecoPageCursors(cursorFile)).toMatchObject({
+      cantons: { TI: { nextPage: 3, onlineSinceDays: 30 } },
+      updatedAt: expect.any(String),
+    });
+    expect(loadSecoPageCursors(path.join(dir, 'other.json')).cantons).toEqual({});
   });
 
   it('marks SECO rows without an employer name as malformed source data', async () => {
@@ -153,9 +195,85 @@ describe('Prospector discovery source outcomes', () => {
     expect(result).toMatchObject({
       businesses: expect.any(Array),
       outcome: 'partial',
-      errorCode: 'result_limit_reached',
+      errorCode: 'partition_result_limit_reached',
     });
     expect(result.businesses).toHaveLength(2);
+  });
+
+  it('recovers a capped Overpass union through tag partitions and deduplicates employers', async () => {
+    const row = (name: string, host: string, tag: string) => ({
+      tags: { name, website: `https://${host}`, [tag]: 'yes' },
+    });
+    const initial = [row('Alpha AG', 'alpha.example', 'office'), row('Beta AG', 'beta.example', 'shop'), row('Epsilon AG', 'epsilon.example', 'amenity')];
+    const queries: string[] = [];
+    const result = await fetchOsmBusinesses('TI', {
+      limit: 3,
+      fetchImpl: async (url, init) => {
+        const form = new URLSearchParams(String(init?.body || ''));
+        const query = form.get('data') || '';
+        const requestIndex = queries.length;
+        queries.push(query);
+        let elements = initial;
+        if (requestIndex === 0) {
+          elements = initial;
+        } else if (query.includes('["office"]') && !query.includes('["shop"]')) {
+          elements = [row('Alpha AG', 'alpha.example', 'office'), row('Gamma AG', 'gamma.example', 'office')];
+        } else if (query.includes('["shop"]') && !query.includes('["amenity"]')) {
+          elements = [row('Beta AG', 'beta.example', 'shop'), row('Delta AG', 'delta.example', 'shop')];
+        } else if (query.includes('["healthcare"]') || query.includes('["tourism"]') || query.includes('["amenity"]')) {
+          elements = [];
+        }
+        return response(String(url), 200, JSON.stringify({ elements }));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(queries).toHaveLength(6);
+    expect(result).toMatchObject({ outcome: 'complete', errorCode: null });
+    expect(result.businesses.map(({ domain }) => domain).sort()).toEqual([
+      'alpha.example', 'beta.example', 'delta.example', 'epsilon.example', 'gamma.example',
+    ]);
+  });
+
+  it('splits an individually capped Overpass family into narrower name ranges', async () => {
+    const row = (name: string, host: string) => ({ tags: { name, website: `https://${host}`, office: 'yes' } });
+    const alpha = row('Alpha AG', 'alpha.example');
+    const beta = row('Beta AG', 'beta.example');
+    const gamma = row('Gamma AG', 'gamma.example');
+    const delta = row('Delta AG', 'delta.example');
+    let request = 0;
+    const queries: string[] = [];
+    const result = await fetchOsmBusinesses('ZH', {
+      limit: 3,
+      fetchImpl: async (url, init) => {
+        const query = new URLSearchParams(String(init?.body || '')).get('data') || '';
+        queries.push(query);
+        const index = request++;
+        let elements: any[] = [];
+        const hasNamePartition = query.includes('["name"~"^') || query.includes('["name"!~"^');
+        if (index === 0 || (query.includes('["website"]["office"]') && !query.includes('["shop"]') && !hasNamePartition)) {
+          elements = [alpha, beta, gamma];
+        } else if (query.includes('["name"~"^[A-M]",i]')) {
+          elements = [alpha, beta, gamma];
+        } else if (query.includes('["name"~"^[N-Z]",i]')) {
+          elements = [delta];
+        } else if (query.includes('["name"~"^[A-F]",i]')) {
+          elements = [alpha, beta];
+        } else if (query.includes('["name"~"^[G-M]",i]')) {
+          elements = [gamma];
+        }
+        return response(String(url), 200, JSON.stringify({ elements }));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(queries.length).toBeGreaterThan(8);
+    expect(result).toMatchObject({ outcome: 'complete', errorCode: null });
+    expect(result.businesses.map(({ domain }) => domain).sort()).toEqual([
+      'alpha.example', 'beta.example', 'delta.example', 'gamma.example',
+    ]);
   });
 
   it('marks an empty HTTP 200 Common Crawl page malformed instead of checkpointing it', async () => {
@@ -284,5 +402,28 @@ describe('Prospector discovery source outcomes', () => {
     expect(recovered).toMatchObject({ outcome: 'complete', pagesRead: [0], failedPages: [], coverageRate: 1 });
     expect(recovered.employers).toEqual([{ host: 'example.ch', url: 'https://example.ch/jobs/careers' }]);
     expect(loadCursor(cursorFile).sweptPages).toEqual([0]);
+  });
+
+  it('does not write Common Crawl cursor or health state when persistence is disabled', async () => {
+    dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-commoncrawl-dry-run-'));
+    const cursorFile = path.join(dir, 'cursor.json');
+    const healthFile = path.join(dir, 'health.json');
+    await sweepSwissCareerPages({
+      collection: 'CC-MAIN-test',
+      pages: 1,
+      persist: false,
+      cursorFile,
+      healthFile,
+      fetchImpl: async (input) => {
+        const url = String(input);
+        if (url.includes('showNumPages=true')) return response(url, 200, '{"pages":1}');
+        return response(url, 200, '{"url":"https://example.ch/jobs/careers"}\n');
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(fs.existsSync(cursorFile)).toBe(false);
+    expect(fs.existsSync(healthFile)).toBe(false);
   });
 });

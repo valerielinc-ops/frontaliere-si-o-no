@@ -31,11 +31,12 @@ function fingerprint(ids) {
   return createHash('sha256').update(ids.join('\n')).digest('hex').slice(0, 24);
 }
 
-/** Persist hashed stable identities so later comparisons do not expose full URL inventories. */
-export function createValidationSnapshot(rows, observedAt = new Date().toISOString()) {
+/** Persist hashed identities and the workflow run that observed them. */
+export function createValidationSnapshot(rows, observedAt = new Date().toISOString(), runId = null) {
   const ids = idsFor(rows);
   return {
     observedAt,
+    runId: runId ? String(runId) : null,
     rowCount: Array.isArray(rows) ? rows.length : 0,
     uniqueIdentityCount: ids.length,
     ids,
@@ -43,12 +44,14 @@ export function createValidationSnapshot(rows, observedAt = new Date().toISOStri
   };
 }
 
-/** Compare validation and public crawler output only when their timestamps align. */
+/** Compare exact run matches, and label close cross-run counts as estimates. */
 export function comparePublicationSnapshots(validationSnapshot, publishedSlice) {
   const base = {
     classification: 'unmeasured',
     validationAt: validationSnapshot?.observedAt || null,
     publishedAt: publishedSlice?.assembledAt || null,
+    validationRunId: validationSnapshot?.runId || null,
+    publishedRunId: publishedSlice?.runId || null,
     validationCount: Number(validationSnapshot?.rowCount) || 0,
     publishedCount: Array.isArray(publishedSlice?.jobs) ? publishedSlice.jobs.length : 0,
     shared: null,
@@ -79,6 +82,16 @@ export function comparePublicationSnapshots(validationSnapshot, publishedSlice) 
   };
   if (deltaMs > ALIGNMENT_WINDOW_MS) {
     return { ...base, ...counts, classification: 'near_time_delta', reason: 'snapshots_more_than_6h_apart' };
+  }
+  const sameRun = base.validationRunId && base.publishedRunId
+    && base.validationRunId === base.publishedRunId;
+  if (!sameRun) {
+    return {
+      ...base,
+      ...counts,
+      classification: 'time_aligned_estimate',
+      reason: base.validationRunId && base.publishedRunId ? 'run_id_mismatch' : 'run_id_missing',
+    };
   }
   return {
     ...base,

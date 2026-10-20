@@ -71,6 +71,7 @@ const RETRYABLE_TRACE_REASON_RX = /(?:sito|dominio|pagina|rete|host|dns|timeout|
 const STAGE_RETRY_DELAYS_DAYS = [1, 3, 7, 14, 30];
 const DOMAIN_RETRY_FRESH_OBSERVATION_AFTER = 4;
 const SECO_SIGNAL_FIELDS = new Set(['adCount', 'sampleTitles', 'applyHosts']);
+const SECO_IDENTITY_FIELDS = new Set(['secoEmployerName']);
 const TRACE_RETRY_EVIDENCE_FIELDS = ['name', 'domain', 'careersUrl', 'city', 'zip', 'country'];
 const TRACE_RETRY_DISCOVERY_SOURCES = new Set(['own', 'seco', 'osm', 'web']);
 const TRACE_RETRY_EVIDENCE_FIELDS_BY_SOURCE = new Map([
@@ -467,7 +468,7 @@ export function upsertCandidate(store, incoming, source) {
     };
     recordSourceObservation(candidate, source, now);
     if (source !== 'seco') {
-      for (const field of SECO_SIGNAL_FIELDS) delete candidate[field];
+      for (const field of [...SECO_SIGNAL_FIELDS, ...SECO_IDENTITY_FIELDS]) delete candidate[field];
     }
     store.candidates[key] = candidate;
     return { key, created: true };
@@ -476,6 +477,10 @@ export function upsertCandidate(store, incoming, source) {
     if (v === undefined || v === null || v === '') continue;
     if (k === 'status' || k === 'sources' || k === 'sourceSeenAt') continue;
     if (SECO_SIGNAL_FIELDS.has(k)) {
+      if (source === 'seco') existing[k] = v;
+      continue;
+    }
+    if (SECO_IDENTITY_FIELDS.has(k)) {
       if (source === 'seco') existing[k] = v;
       continue;
     }

@@ -9,6 +9,7 @@
  */
 
 export const TRACE_SECO_FRESHNESS_DAYS = 30;
+export const TRACE_LIMIT_MAX = 1200;
 const TRACE_SECO_FRESHNESS_MS = TRACE_SECO_FRESHNESS_DAYS * 86_400_000;
 const TRACE_BUCKETS = Object.freeze([
   { key: 'careersUrl', weight: 5, matches: (candidate) => Boolean(candidate?.careersUrl) },
@@ -16,6 +17,19 @@ const TRACE_BUCKETS = Object.freeze([
   { key: 'recentSeco', weight: 2, matches: (candidate, now) => hasRecentSecoDemand(candidate, now) },
   { key: 'fallback', weight: 1, matches: () => true },
 ]);
+
+/** Parse a user-supplied budget before it reaches the queue allocator. */
+export function parseTraceLimit(rawValue, fallback = 40) {
+  const raw = rawValue === undefined ? String(fallback) : String(rawValue);
+  if (!/^\d+$/.test(raw)) {
+    throw new Error(`--limit must be an integer between 0 and ${TRACE_LIMIT_MAX}`);
+  }
+  const value = Number(raw);
+  if (!Number.isSafeInteger(value) || value < 0 || value > TRACE_LIMIT_MAX) {
+    throw new Error(`--limit must be an integer between 0 and ${TRACE_LIMIT_MAX}`);
+  }
+  return value;
+}
 
 /**
  * @param {Record<string, any>} candidate

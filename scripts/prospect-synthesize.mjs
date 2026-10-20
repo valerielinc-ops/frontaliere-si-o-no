@@ -32,6 +32,7 @@ import {
 import { synthesizeSpec, isExpectedSynthesisError } from './lib/prospector/synthesize.mjs';
 import { PROSPECTOR_DIR } from './lib/prospector/config.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
+import { prioritizeSynthesisCandidates } from './lib/prospector/synthesis-schedule.mjs';
 
 const argv = process.argv.slice(2);
 // `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
@@ -48,11 +49,10 @@ const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
 const store = loadCandidates();
 const queue = onlyKey
   ? [store.candidates[onlyKey]].filter(Boolean)
-  : byStatus(store, 'traced')
-    .filter((candidate) => isSynthesisRetryDue(candidate))
-    // Most vacancies first: the point of a new crawler is the ads it adds.
-    .sort((a, b) => (b.vacancyCount || 0) - (a.vacancyCount || 0))
-    .slice(0, limit);
+  : prioritizeSynthesisCandidates(
+    byStatus(store, 'traced').filter((candidate) => isSynthesisRetryDue(candidate)),
+    limit,
+  );
 
 console.log('═══ Prospector · SYNTHESIZE ═══');
 console.log(`da sintetizzare: ${queue.length} candidati tracciati\n`);
