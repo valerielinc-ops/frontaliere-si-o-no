@@ -42,7 +42,9 @@ function parseCandidateApplication(value: unknown): CandidateAssistedApplication
   if (value.source !== 'single' && value.source !== 'concierge') return null;
   if (typeof value.status !== 'string' || !CANDIDATE_STATUSES.has(value.status as AssistedApplicationCandidateStatus)) return null;
   if (typeof value.requiresCvUpload !== 'boolean') return null;
-  if (value.updatedAt !== null && (typeof value.updatedAt !== 'string' || Number.isNaN(Date.parse(value.updatedAt)))) return null;
+  const updatedAt = value.updatedAt;
+  if (updatedAt !== null && typeof updatedAt !== 'string') return null;
+  if (typeof updatedAt === 'string' && Number.isNaN(Date.parse(updatedAt))) return null;
 
   return {
     orderId: value.orderId,
@@ -50,7 +52,7 @@ function parseCandidateApplication(value: unknown): CandidateAssistedApplication
     companyName: value.companyName,
     source: value.source,
     status: value.status as AssistedApplicationCandidateStatus,
-    updatedAt: value.updatedAt,
+    updatedAt,
     requiresCvUpload: value.requiresCvUpload,
   };
 }
