@@ -261,6 +261,22 @@ describe('approval flow', () => {
     expect(step.flow).toMatchObject({ heldSince: again, heldNudges: 0, reminderAt: again + HELD_REMINDERS_AFTER_MS[0] });
   });
 
+  it('hands an unidentifiable portal question to owner takeover', () => {
+    const step = transition(
+      { state: 'submitting', round: 1, heldBy: [], dispatch: { mode: 'submit', attempts: 1 } },
+      { type: 'submit_needs_candidate', questions: [{ id: undefined }], documents: [] },
+      { draft: cleanDraft, nowMs: T0 },
+    );
+    expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal_needs_candidate'] });
+    expect(step.effects).toEqual([{
+      type: 'email',
+      kind: 'owner_takeover',
+      reason: 'portal:portal_needs_candidate',
+      stage: 'submit',
+      attempts: 1,
+    }]);
+  });
+
   it('retries once without a candidate email when the portal repeats questions that already have answers', () => {
     const submitting = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
     const event = { type: 'submit_needs_candidate', questions: ['work_permit'] };

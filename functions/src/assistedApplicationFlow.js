@@ -645,7 +645,25 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         ...eventDocuments.map((id) => `document:${id}`),
       ];
       next.heldSince = null;
-      if (next.heldBy.length) waitForCandidate(next, nowMs);
+      if (!next.heldBy.length) {
+        // A portal signal without an identifiable question or document cannot
+        // produce an actionable candidate wait. Keep the submission visible to
+        // the owner instead of sending a candidate-action email for an empty
+        // hold.
+        next.state = 'owner_takeover';
+        next.deadlineAt = null;
+        next.reminderAt = null;
+        next.heldBy = ['portal_needs_candidate'];
+        effects = [{
+          type: 'email',
+          kind: 'owner_takeover',
+          reason: 'portal:portal_needs_candidate',
+          stage: 'submit',
+          attempts,
+        }];
+        break;
+      }
+      waitForCandidate(next, nowMs);
       effects = [{ type: 'email', kind: 'candidate_action_needed' }];
       break;
     }
