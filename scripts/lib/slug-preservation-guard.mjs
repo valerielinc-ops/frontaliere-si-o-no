@@ -315,12 +315,14 @@ function activeSlugs(job) {
  * published: make room by dropping the newest unindexed entry this write
  * introduced.
  *
- * @param {boolean} [mustPreserve] true when the slug was active before this write
+ * @param {Set<string>} [protectedActiveSlugs] active slugs that must survive this write
  * @returns {{ next: string[], outcome: 'present'|'restored'|'cap-trim' }}
  */
-function bankPreservingHistory(slug, bucket, prior, cap, gscEvidence, mustPreserve = false) {
+function bankPreservingHistory(slug, bucket, prior, cap, gscEvidence, protectedActiveSlugs = new Set()) {
+  const mustPreserve = protectedActiveSlugs.has(normalize(slug));
   const isGscIndexed = (value) => !gscEvidence.complete
     || gscEvidence.slugs.has(normalize(value).normalize('NFC'));
+  const isProtectedActive = (value) => protectedActiveSlugs.has(normalize(value));
   if (bucket.includes(slug)) return { next: bucket, outcome: 'present' };
   // Oldest-first position: a rescued slug is older than whatever is banked.
   if (bucket.length < cap) return { next: [slug, ...bucket], outcome: 'restored' };
@@ -330,9 +332,11 @@ function bankPreservingHistory(slug, bucket, prior, cap, gscEvidence, mustPreser
   // evidence; if every entry is protected, let the proven route overflow the
   // soft cap. Current-GSC status is not required for an active route: the
   // active field itself proves that this URL was served before this write.
+  // Protect every such route together so later recaptures cannot evict an
+  // active route restored earlier in the same write.
   if (prior.length >= cap) {
     if (!mustPreserve && !isGscIndexed(slug)) return { next: bucket, outcome: 'cap-trim' };
-    const victimIndex = bucket.findIndex((candidate) => !isGscIndexed(candidate));
+    const victimIndex = bucket.findIndex((candidate) => !isGscIndexed(candidate) && !isProtectedActive(candidate));
     if (victimIndex < 0) return { next: [slug, ...bucket], outcome: 'restored' };
     const next = bucket.slice();
     next.splice(victimIndex, 1);
@@ -346,6 +350,7 @@ function bankPreservingHistory(slug, bucket, prior, cap, gscEvidence, mustPreser
   for (let i = bucket.length - 1; i >= 0; i--) {
     if (priorSet.has(bucket[i])) continue; // proven history — never sacrificed
     if (isGscIndexed(bucket[i])) continue;
+    if (isProtectedActive(bucket[i])) continue;
     const next = bucket.slice();
     next.splice(i, 1);
     return { next: [slug, ...next], outcome: 'restored' };
@@ -361,7 +366,7 @@ function bankPreservingHistory(slug, bucket, prior, cap, gscEvidence, mustPreser
  * destination bucket was already full BEFORE this write and the slug has no
  * current GSC evidence and was not an active route, or 'present' when already there.
  */
-function recapture(job, slug, locale, beforeJob, gscEvidence, mustPreserve = false) {
+function recapture(job, slug, locale, beforeJob, gscEvidence, protectedActiveSlugs = new Set()) {
   const norm = normalize(slug);
   if (!norm) return 'present';
 
@@ -369,7 +374,7 @@ function recapture(job, slug, locale, beforeJob, gscEvidence, mustPreserve = fal
     // Unattributed legacy entry → flat array only.
     if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
     const { next, outcome } = bankPreservingHistory(
-      norm, job.previousSlugs, priorBucket(beforeJob, null), GUARD_LEGACY_CAP, gscEvidence, mustPreserve,
+      norm, job.previousSlugs, priorBucket(beforeJob, null), GUARD_LEGACY_CAP, gscEvidence, protectedActiveSlugs,
     );
     job.previousSlugs = next;
     if (outcome === 'cap-trim') {
@@ -389,7 +394,7 @@ function recapture(job, slug, locale, beforeJob, gscEvidence, mustPreserve = fal
     ? job.previousSlugsByLocale[locale]
     : [];
   const banked = bankPreservingHistory(
-    norm, bucket, priorBucket(beforeJob, locale), GUARD_PER_LOCALE_CAP, gscEvidence, mustPreserve,
+    norm, bucket, priorBucket(beforeJob, locale), GUARD_PER_LOCALE_CAP, gscEvidence, protectedActiveSlugs,
   );
   job.previousSlugsByLocale[locale] = banked.next;
 
@@ -407,7 +412,7 @@ function recapture(job, slug, locale, beforeJob, gscEvidence, mustPreserve = fal
   // previousSlugsByLocale still emit the redirect.
   if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
   const mirrored = bankPreservingHistory(
-    norm, job.previousSlugs, priorBucket(beforeJob, null), GUARD_LEGACY_CAP, gscEvidence, mustPreserve,
+    norm, job.previousSlugs, priorBucket(beforeJob, null), GUARD_LEGACY_CAP, gscEvidence, protectedActiveSlugs,
   );
   job.previousSlugs = mirrored.next;
   return 'restored';
@@ -470,6 +475,11 @@ export function preserveSlugHistory(filePath, nextValue, opts = {}) {
     if (beforeSlugs.size === 0) continue;
     const afterSlugs = reachableSlugs(job);
     const beforeActiveSlugs = activeSlugs(before);
+    const protectedActiveSlugs = new Set(
+      [...beforeActiveSlugs].filter((slug) => (
+        !afterSlugs.has(slug) && !denylist.has(denylistKey(base, slug))
+      )),
+    );
 
     for (const [slug, locale] of beforeSlugs) {
       if (afterSlugs.has(slug)) continue;
@@ -478,7 +488,7 @@ export function preserveSlugHistory(filePath, nextValue, opts = {}) {
       // The evidence snapshot can be several megabytes, so load it lazily and
       // only after a real candidate loss has been found in this write.
       gscEvidence ??= loadGscIndexedSlugEvidence(root);
-      const outcome = recapture(job, slug, locale, before, gscEvidence, beforeActiveSlugs.has(slug));
+      const outcome = recapture(job, slug, locale, before, gscEvidence, protectedActiveSlugs);
       if (outcome === 'restored') {
         restored++;
         touched.add(key);

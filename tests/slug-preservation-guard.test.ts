@@ -248,6 +248,51 @@ describe('slug-preservation-guard (issue #5157)', () => {
     }
   });
 
+  it('does not evict a restored active route while recapturing later GSC history', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-preservation-active-before-gsc-history-'));
+    const dataDir = path.join(root, 'data');
+    fs.mkdirSync(dataDir, { recursive: true });
+    const activeSlug = 'active-before-later-gsc-history';
+    const indexedHistorySlug = 'indexed-history-captured-later';
+    const priorHistory = [indexedHistorySlug, ...Array.from(
+      { length: GUARD_PER_LOCALE_CAP - 1 }, (_, i) => `prior-history-${i}`,
+    )];
+    const nextHistory = [...priorHistory.slice(1), 'new-history-entry'];
+    fs.writeFileSync(path.join(dataDir, 'gsc-job-urls.json'), '[]');
+    fs.writeFileSync(path.join(dataDir, 'gsc-orphan-job-slugs.json'), JSON.stringify([indexedHistorySlug]));
+    const previousValue = {
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { en: activeSlug },
+        previousSlugsByLocale: { en: priorHistory },
+      }],
+    };
+    const next = {
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { en: 'replacement-route' },
+        previousSlugsByLocale: { en: nextHistory },
+      }],
+    };
+
+    try {
+      const result = preserveSlugHistory(SLICE, next, {
+        previousValue,
+        denylist: new Set(),
+        root,
+      });
+
+      expect(next.jobs[0].previousSlugsByLocale.en).toContain(activeSlug);
+      expect(next.jobs[0].previousSlugsByLocale.en).toContain(indexedHistorySlug);
+      expect(next.jobs[0].previousSlugsByLocale.en).toHaveLength(GUARD_PER_LOCALE_CAP);
+      expect(result.restored).toBe(2);
+      expect(result.capTrimmed).toBe(0);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      _resetGscIndexedSlugsCache();
+    }
+  });
+
   it('overflows rather than dropping an active route when every history slot is GSC-protected', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-preservation-active-protected-history-'));
     const dataDir = path.join(root, 'data');
