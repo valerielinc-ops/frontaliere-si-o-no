@@ -172,11 +172,16 @@ function parseLeaseContext(value) {
         || !Number.isFinite(lease.expiresAt)) {
       throw new Error('[r2-image-namespace-lock] lease context contains an invalid lease');
     }
+    const etag = lease.etag === undefined ? undefined : normalizeS3MatchEtag(lease.etag);
+    if (lease.etag !== undefined && !etag) {
+      throw new Error(`[r2-image-namespace-lock] lease context has no strong ETag for ${lease.namespace}`);
+    }
     return {
       namespace: lease.namespace,
       owner: lease.owner,
       leaseId: lease.leaseId,
       expiresAt: lease.expiresAt,
+      ...(etag ? { etag } : {}),
     };
   });
   const namespaces = leases.map(({ namespace }) => namespace);
@@ -573,12 +578,13 @@ export async function releaseImageNamespaceLock(
     if (current) {
       if (leaseMatches(current, normalized)) {
         if (Number.isFinite(current.payload.releasedAt)) return true;
-        if (!current.etag) {
+        const matchEtag = current.etag ?? normalizeS3MatchEtag(normalized.etag);
+        if (!matchEtag) {
           throw new Error(`[r2-image-namespace-lock] lock ${namespace} has no ETag; refusing an unsafe release`);
         }
         lastAttempt = {
           payload: tombstonePayload(current.payload, now),
-          condition: { name: 'if-match', value: current.etag },
+          condition: { name: 'if-match', value: matchEtag },
         };
       } else {
         const staleCondition = matchingStaleWriteCondition(

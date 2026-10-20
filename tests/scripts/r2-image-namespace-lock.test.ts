@@ -378,6 +378,26 @@ globalThis.fetch = async (url) => {
     ))).toBe(true);
   });
 
+  it('keeps the acquire ETag in the serialized context when a GET omits it', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    const leases = await acquireImageNamespaceLeases(['blog'], {
+      request: baseRequest,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    });
+    const context = JSON.parse(serializeImageLeaseContext(leases));
+    expect(context.leases[0].etag).toBe(leases[0].etag);
+
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      const result = await baseRequest(input);
+      if (input.method === 'GET') return response(result.status, await result.text());
+      return result;
+    };
+
+    await expect(releaseImageNamespaceLeases(context.leases, { request })).resolves.toEqual(['blog']);
+    expect(objects.get(imageNamespaceLockKey('blog'))?.payload.releasedAt).toEqual(expect.any(Number));
+  });
+
   it('shares one timeout across namespaces and releases the first lease if the remaining budget expires', async () => {
     const { request: baseRequest, calls, objects } = fakeR2();
     let now = 1_000;

@@ -463,13 +463,26 @@ function leaseIdForSection(section, options = {}) {
   return undefined;
 }
 
+function leaseForSection(section, options = {}) {
+  if (!Array.isArray(options.locks)) return undefined;
+  return options.locks.find((lock) => lock?.section === section);
+}
+
 /**
  * Extend a lease only if the exact lock read above is still present. A late
  * heartbeat must never revive a lease that another owner already replaced.
  */
 export async function renewSectionLock(
   section,
-  { owner, leaseId, request = createR2Request(), now = Date.now, leaseMs = LOCK_LEASE_MS } = {},
+  {
+    owner,
+    leaseId,
+    lock,
+    onRenewed = () => {},
+    request = createR2Request(),
+    now = Date.now,
+    leaseMs = LOCK_LEASE_MS,
+  } = {},
 ) {
   asString(owner, 'owner');
   asString(leaseId, 'leaseId');
@@ -498,6 +511,8 @@ export async function renewSectionLock(
     console.log(`[r2-section-lock] ${section} changed before renewal; leaving it intact`);
     return false;
   }
+  if (lock) lock.etag = replacement.etag;
+  await onRenewed({ section, owner, leaseId, etag: replacement.etag });
   return true;
 }
 
@@ -506,7 +521,8 @@ export async function renewSectionLocks(sections, options = {}) {
   const normalized = parseSections(sections.join(','));
   for (const section of normalized) {
     const leaseId = leaseIdForSection(section, options);
-    if (!(await renewSectionLock(section, { ...options, leaseId }))) return false;
+    const lock = leaseForSection(section, options);
+    if (!(await renewSectionLock(section, { ...options, leaseId, lock }))) return false;
   }
   return true;
 }
@@ -538,6 +554,7 @@ export async function renewSectionLocksUntilStopped(
     leaseId,
     leaseIds,
     locks,
+    onRenewed = () => {},
     request = createR2Request(),
     now = Date.now,
     leaseMs = LOCK_LEASE_MS,
@@ -565,6 +582,7 @@ export async function renewSectionLocksUntilStopped(
       leaseId,
       leaseIds,
       locks,
+      onRenewed,
       request,
       now,
       leaseMs,
@@ -577,6 +595,7 @@ export async function renewSectionLocksUntilStopped(
         leaseId,
         leaseIds,
         locks,
+        onRenewed,
         request,
         now,
         leaseMs,
@@ -592,7 +611,7 @@ export async function renewSectionLocksUntilStopped(
 
 export async function releaseSectionLock(
   section,
-  { owner, leaseId, request = createR2Request() } = {},
+  { owner, leaseId, etag, request = createR2Request() } = {},
 ) {
   asString(owner, 'owner');
   asString(leaseId, 'leaseId');
@@ -604,13 +623,14 @@ export async function releaseSectionLock(
     console.log(`[r2-section-lock] ${section} is owned by another run; leaving it intact`);
     return false;
   }
-  if (!current.etag) {
+  const matchEtag = current.etag ?? normalizeS3MatchEtag(etag);
+  if (!matchEtag) {
     throw new Error(`[r2-section-lock] lock ${section} has no ETag; refusing an unsafe release`);
   }
   const response = await request({
     method: 'DELETE',
     key: lockKey(section),
-    headers: { 'if-match': current.etag },
+    headers: { 'if-match': matchEtag },
   });
   if (response.status === 404 || response.status === 409 || response.status === 412) return false;
   if (response.status < 200 || response.status >= 300) {
@@ -629,6 +649,7 @@ export async function releaseSectionLocks(locks, options = {}) {
         ...options,
         owner: lock.owner,
         leaseId: lock.leaseId,
+        etag: lock.etag,
       })) released.push(lock.section);
     } catch (error) {
       firstError ??= error;
@@ -673,7 +694,11 @@ function writeSectionLeaseFile(file, owner, locks) {
       `${JSON.stringify({
         version: SECTION_LEASE_FILE_VERSION,
         owner,
-        locks: locks.map(({ section, leaseId }) => ({ section, leaseId })),
+        locks: locks.map(({ section, leaseId, etag }) => ({
+          section,
+          leaseId,
+          ...(etag ? { etag } : {}),
+        })),
       })}\n`,
       { encoding: 'utf8', mode: 0o600 },
     );
@@ -709,7 +734,17 @@ function readSectionLeaseFile(file, owner, sections, { allowMissing = false } = 
     if (!lock || typeof lock.leaseId !== 'string' || lock.leaseId.length === 0) {
       throw new Error(`[r2-section-lock] lease context file has no leaseId for ${section}`);
     }
-    return { section, owner, leaseId: lock.leaseId, key: lockKey(section) };
+    const etag = lock.etag === undefined ? undefined : normalizeS3MatchEtag(lock.etag);
+    if (lock.etag !== undefined && !etag) {
+      throw new Error(`[r2-section-lock] lease context file has no strong ETag for ${section}`);
+    }
+    return {
+      section,
+      owner,
+      leaseId: lock.leaseId,
+      key: lockKey(section),
+      ...(etag ? { etag } : {}),
+    };
   });
 }
 
@@ -757,6 +792,7 @@ async function main(args = process.argv.slice(2), env = process.env) {
         owner,
         locks,
         request,
+        onRenewed: () => writeSectionLeaseFile(leaseFile, owner, locks),
         intervalMs,
         initialDelayMs,
       });
