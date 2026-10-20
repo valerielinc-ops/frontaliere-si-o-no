@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-10-20T09:18:02.119Z",
+  "assembledAt": "2026-10-20T21:16:23.071Z",
   "jobs": [
     {
       "id": "spital-sts-6b06021ab08b",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2425bdbe-06b6-4676-9124-a101e1c624ea/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:17:56.449Z",
+      "crawledAt": "2026-10-20T21:16:18.981Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7d1c6902-2bd5-493b-acf6-44d3ec72c4c3/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:17:55.974Z",
+      "crawledAt": "2026-10-20T21:16:18.536Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/4d61a5c9-146f-429b-9f9a-3123a4279ecc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:17:55.464Z",
+      "crawledAt": "2026-10-20T21:16:18.101Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -260,7 +260,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7c5e571c-823b-467d-8386-a2a8e2947e3e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:17:54.969Z",
+      "crawledAt": "2026-10-20T21:16:17.644Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -334,7 +334,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7b4dc00f-29d4-4e26-baa0-4346080c57d2/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:17:54.554Z",
+      "crawledAt": "2026-10-20T21:16:17.194Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -400,7 +400,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6ebd8ce3-5397-446f-879b-00878d7b3e8a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:17:54.113Z",
+      "crawledAt": "2026-10-20T21:16:16.748Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -473,7 +473,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/16756454-c7a4-4597-95b1-07a55ff3bd39/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:17:53.663Z",
+      "crawledAt": "2026-10-20T21:16:16.304Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -524,9 +524,9 @@
     },
     {
       "id": "spital-sts-c4c395441242",
-      "slug": "infermiere-a-diplomato-a-in-medicina-spital-sts-thun",
+      "slug": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-in-medicina-spital-sts-thun",
+        "it": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
         "en": "registered-nurse-medicine-spital-sts-thun",
         "de": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
         "fr": "infirmiere-infirmier-diplomee-diplome-en-medecine-spital-sts-thun"
@@ -553,7 +553,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/86f24237-a339-46ca-baf6-0e076f12a645/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:17:53.208Z",
+      "crawledAt": "2026-10-20T21:16:15.863Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -573,11 +573,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
+        "infermiere-a-diplomato-a-in-medicina-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
+          "infermiere-a-diplomato-a-in-medicina-spital-sts-thun"
         ]
       },
       "firstSeenAt": "2026-09-11T23:11:23.158Z",
@@ -627,7 +627,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2d87aba8-03a5-4d9e-a9ac-09488ee5f8bc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:17:52.792Z",
+      "crawledAt": "2026-10-20T21:16:15.429Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -707,7 +707,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/933e431f-6eef-4f55-9c1f-32a157b02780/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:17:52.360Z",
+      "crawledAt": "2026-10-20T21:16:15.005Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -756,82 +756,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "spital-sts-66c6323510a7",
-      "slug": "assistente-di-reparto-economia-domestica-incl-servizio-e-contatto-con-il-paziente-spital-sts-thun",
-      "slugByLocale": {
-        "it": "assistente-di-reparto-economia-domestica-incl-servizio-e-contatto-con-il-paziente-spital-sts-thun",
-        "en": "ward-assistant-housekeeping-incl-service-and-patient-contact-spital-sts-thun",
-        "de": "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun",
-        "fr": "assistant-e-de-service-d-entretien-menager-service-et-contact-avec-les-patients-inclus-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Stationsassistent/-in Hauswirtschaft inkl. Service und Patientenkontakt",
-      "titleByLocale": {
-        "it": "Assistente di reparto Economia domestica incl. servizio e contatto con il paziente",
-        "en": "Ward assistant housekeeping incl. service and patient contact",
-        "de": "Stationsassistent/-in Hauswirtschaft inkl. Service und Patientenkontakt",
-        "fr": "Assistant (e) de service d'entretien ménager, service et contact avec les patients inclus"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nIn dieser Funktion bist du hauptsächlich zuständig für die hauswirtschaftlichen, administrativen und logistischen Abläufe auf der Geburtenabteilung. Zudem unterstützt du die Hebammen und Pflegefachpersonen bei ihrer Arbeit mit den Wöchnerinnen und deren Neugeborenen.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Spannender und abwechslungsreicher Spitalalltag\n\n• Einsätze auf der Wochenbett- und Geburtenstation\n\n• Motiviertes und eingespieltes Team\n\n• Frei wählbares Ferien- und Pensionskassenmodell\n\nSo wirst du Teil unseres Teams\n\n• Berufserfahrung in einem Bereich, in welchem auf verschiedene Bedürfnisse von Menschen eingegangen wurde\n\n• Motivation, sich einzubringen und Verantwortung zu übernehmen\n\n• Bereit im Schichtbetrieb (Früh-, Mittel- und Spätdienst) und an den Wochenenden zu arbeiten\n\n• Flexibles denken und handeln",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nIn questo ruolo, si è principalmente responsabili per i processi domestici, amministrativi e logistici nel reparto nascita. Inoltre, supporta le ostetriche e le infermiere nel loro lavoro con i neonati e i loro neonati.\n\nEntrata immediata o di accordo\n\nTi sta aspettando.\n\n• Eccitante e variata vita quotidiana dell'ospedale\n\n• Assegnazioni presso la stazione di nascita e post-partum\n\n• Team motivato ed esperto\n\n• Modello gratuito per le vacanze e i fondi pensione\n\nDiventa parte del nostro team\n\n• Esperienza professionale in una zona in cui sono state affrontate diverse esigenze di persone\n\n• Motivazione per farsi coinvolgere e assumersi la responsabilità\n\n• Pronto a lavorare a turni (servizio iniziale, medio e tardivo) e nei fine settimana\n\n• pensiero flessibile e recitazione",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nIn this role, you are mainly responsible for the domestic, administrative and logistical processes in the birth department. In addition, you support the midwives and nurses in their work with the newborns and their newborns.\n\nEntry by immediate or by agreement\n\nThis is waiting for you\n\n• Exciting and varied hospital everyday life\n\n• Assignments at the postpartum and birth station\n\n• Motivated and experienced team\n\n• Freely selectable holiday and pension fund model\n\nBecome part of our team\n\n• Professional experience in an area where different needs of people have been addressed\n\n• Motivation to get involved and take responsibility\n\n• Ready to work in shifts (early, medium and late service) and on weekends\n\n• Flexible thinking and acting",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nIn dieser Funktion bist du hauptsächlich zuständig für die hauswirtschaftlichen, administrativen und logistischen Abläufe auf der Geburtenabteilung. Zudem unterstützt du die Hebammen und Pflegefachpersonen bei ihrer Arbeit mit den Wöchnerinnen und deren Neugeborenen.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Spannender und abwechslungsreicher Spitalalltag\n\n• Einsätze auf der Wochenbett- und Geburtenstation\n\n• Motiviertes und eingespieltes Team\n\n• Frei wählbares Ferien- und Pensionskassenmodell\n\nSo wirst du Teil unseres Teams\n\n• Berufserfahrung in einem Bereich, in welchem auf verschiedene Bedürfnisse von Menschen eingegangen wurde\n\n• Motivation, sich einzubringen und Verantwortung zu übernehmen\n\n• Bereit im Schichtbetrieb (Früh-, Mittel- und Spätdienst) und an den Wochenenden zu arbeiten\n\n• Flexibles denken und handeln",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nDans ce rôle, vous êtes principalement responsable des processus domestiques, administratifs et logistiques dans le département des naissances. De plus, vous aidez les sages-femmes et les infirmières à travailler avec les nouveau-nés et leurs nouveau-nés.\n\nEntrée immédiate ou par accord\n\nÇa vous attend.\n\n• La vie quotidienne des hôpitaux est passionnante et variée\n\n• Affectations à la station postnatale\n\n• Équipe motivée et expérimentée\n\n• Modèle de caisse de vacances et de retraite librement sélectionnable\n\nDevenez membre de notre équipe\n\n• Expérience professionnelle dans un domaine où différents besoins des personnes ont été satisfaits\n\n• Motivation à s'impliquer et à assumer la responsabilité\n\n• Prêt à travailler par quarts (début, moyenne et tardive) et le week-end\n\n• Souplesse de pensée et d'action"
-      },
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/486bc6b8-d20d-4e0d-b7df-d4092e3fe49d/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-19T09:16:43.978Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/486bc6b8-d20d-4e0d-b7df-d4092e3fe49d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stationsassistent-in-hauswirtschaft-inkl-service-e-patientenkontakt-spital-sts-thun",
-        "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stationsassistent-in-hauswirtschaft-inkl-service-e-patientenkontakt-spital-sts-thun",
-          "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:19:31.681Z",
-      "salaryMin": 67500,
-      "salaryMax": 84500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67500,
-          "maxValue": 84500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
