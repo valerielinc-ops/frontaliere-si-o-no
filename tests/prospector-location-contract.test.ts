@@ -586,6 +586,27 @@ describe('prospector location and identity contract', () => {
     expect(politeFetch).not.toHaveBeenCalled();
   });
 
+  it('does not infer an ATS platform from a direct career URL with unknown ownership', async () => {
+    const seed = 'https://jobs.vendor.example/openings';
+    const listing = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Platform Engineer',
+      url: `${seed}/platform-engineer`,
+      description: DESCRIPTION,
+      jobLocation: { address: { addressLocality: 'Zürich', addressCountry: 'CH' } },
+    })}</script>`;
+    politeFetch.mockResolvedValue({ ok: true, status: 200, body: listing, url: seed });
+
+    const { spec } = await synthesizeSpec({
+      careersUrl: seed,
+      domain: 'employer.example',
+      name: 'Employer',
+      selfHosted: null,
+    });
+
+    expect(spec).toMatchObject({ companyHost: 'jobs.vendor.example', platform: '' });
+  });
+
   it('applies reviewed Umantis listing canton overrides during synthesis validation', async () => {
     const seed = 'https://recruitingapp-1154.umantis.com/Jobs/1';
     const vacancyUrl = 'https://recruitingapp-1154.umantis.com/Vacancies/1/Description/1';

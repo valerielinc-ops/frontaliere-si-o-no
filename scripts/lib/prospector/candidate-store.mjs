@@ -68,6 +68,19 @@ export const MAX_REJECTED_TOMBSTONES = 10_000;
  */
 const RETRYABLE_TRACE_REASON_RX = /(?:sito|dominio|pagina|rete|host|dns|timeout|http|fetch).*(?:irraggiungibile|non risolto|non raggiungibile|tempor|errore|blocc|timeout)|(?:irraggiungibile|non raggiungibile|timeout)/i;
 const TRACE_RETRY_DELAYS_DAYS = [1, 3, 7, 14, 30];
+const DOMAIN_RETRY_FRESH_OBSERVATION_AFTER = 4;
+const SECO_SIGNAL_FIELDS = new Set(['adCount', 'sampleTitles', 'applyHosts']);
+const TRACE_RETRY_EVIDENCE_FIELDS = ['name', 'domain', 'careersUrl', 'city', 'zip', 'country'];
+const TRACE_RETRY_DISCOVERY_SOURCES = new Set(['own', 'seco', 'osm', 'web']);
+const TRACE_RETRY_EVIDENCE_FIELDS_BY_SOURCE = new Map([
+  ['own', new Set()],
+  ['seco', new Set(['name', 'domain', 'city', 'zip', 'country'])],
+  ['osm', new Set(['name', 'domain', 'city', 'country'])],
+  // Common Crawl's company label is only a host fragment; its actionable
+  // evidence is the employer host and careers URL.
+  ['web', new Set(['domain', 'careersUrl', 'country'])],
+]);
+const TRACE_EVIDENCE_SNAPSHOT_VERSION = 2;
 
 const EMPTY = { version: STORE_VERSION, updatedAt: null, candidates: {}, rejectedTombstones: {} };
 const TOMBSTONE_COUNTS = new WeakMap();
@@ -75,6 +88,83 @@ const TOMBSTONE_COUNTS = new WeakMap();
 /** @param {unknown} value */
 function isObjectMap(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+/** @param {Record<string, any>} candidate */
+function recordSourceObservation(candidate, source, at) {
+  const current = isObjectMap(candidate.sourceSeenAt) ? candidate.sourceSeenAt : {};
+  candidate.sourceSeenAt = { ...current, [source]: at };
+}
+
+/**
+ * Snapshot only evidence TRACE can use to resolve or directly visit an
+ * employer. Source timestamps are intentionally excluded: recurring discovery
+ * runs must not make an identical name/location guess look newly actionable.
+ *
+ * @param {Record<string, any>} candidate
+ * @returns {Record<string, any>}
+ */
+function traceEvidenceSnapshot(candidate) {
+  const evidence = Object.fromEntries(TRACE_RETRY_EVIDENCE_FIELDS.map((field) => [
+    field,
+    normalizeTraceEvidenceField(field, candidate?.[field]),
+  ]));
+  const sourceSeenAt = isObjectMap(candidate?.sourceSeenAt) ? Object.keys(candidate.sourceSeenAt) : [];
+  evidence.version = TRACE_EVIDENCE_SNAPSHOT_VERSION;
+  evidence.sources = [...new Set([
+    ...(Array.isArray(candidate?.sources) ? candidate.sources : []),
+    ...sourceSeenAt,
+  ].filter((source) => TRACE_RETRY_DISCOVERY_SOURCES.has(source)))].sort();
+  return evidence;
+}
+
+/** @param {string} field @param {unknown} rawValue */
+function normalizeTraceEvidenceField(field, rawValue) {
+  const value = String(rawValue ?? '').trim().replace(/\s+/g, ' ');
+  if (field === 'domain') return value ? registrableDomain(value) : '';
+  if (field === 'careersUrl') {
+    if (!value) return '';
+    try {
+      const url = new URL(value);
+      url.hash = '';
+      // URL canonicalizes scheme/host while preserving case-sensitive path
+      // and query components, which may distinguish a different careers page.
+      return url.toString();
+    } catch {
+      return value;
+    }
+  }
+  return value.toLowerCase();
+}
+
+/** @param {unknown} value */
+function isTraceEvidenceSnapshot(value) {
+  if (!isObjectMap(value)
+    || value.version !== TRACE_EVIDENCE_SNAPSHOT_VERSION
+    || !TRACE_RETRY_EVIDENCE_FIELDS.every((field) => typeof value[field] === 'string')
+    || !Array.isArray(value.sources)
+    || !value.sources.every((source) => typeof source === 'string' && TRACE_RETRY_DISCOVERY_SOURCES.has(source))) {
+    return false;
+  }
+  const canonicalSources = [...new Set(value.sources)].sort();
+  return TRACE_RETRY_EVIDENCE_FIELDS.every((field) => value[field] === normalizeTraceEvidenceField(field, value[field]))
+    && JSON.stringify(value.sources) === JSON.stringify(canonicalSources);
+}
+
+/**
+ * @param {Record<string, any>} candidate
+ * @param {Record<string, any>} snapshot
+ */
+function matchesTraceEvidenceSnapshot(candidate, snapshot) {
+  const current = traceEvidenceSnapshot(candidate);
+  return TRACE_RETRY_EVIDENCE_FIELDS.every((field) => current[field] === snapshot[field])
+    && JSON.stringify(current.sources) === JSON.stringify([...snapshot.sources].sort());
+}
+
+/** @param {Record<string, any>} candidate */
+function hasExhaustedDomainResolution(candidate) {
+  return Number(candidate?.traceAttempts) >= DOMAIN_RETRY_FRESH_OBSERVATION_AFTER
+    && String(candidate?.reason || '') === 'dominio non risolto';
 }
 
 /** @param {ReturnType<typeof loadCandidates>} store */
@@ -194,6 +284,15 @@ export function isRetryableTraceReason(reason = '') {
  * @returns {boolean}
  */
 export function isTraceRetryDue(candidate, now = Date.now()) {
+  if (hasExhaustedDomainResolution(candidate)) {
+    const lastEvidence = candidate?.traceLastEvidenceSnapshot;
+    // Old or malformed records have no trustworthy baseline. Fail closed until
+    // a discovery upsert saves their pre-merge evidence, then compare incoming
+    // evidence structurally so JSON property order cannot wake an identical
+    // retry.
+    return isTraceEvidenceSnapshot(lastEvidence)
+      && !matchesTraceEvidenceSnapshot(candidate, lastEvidence);
+  }
   const at = Date.parse(String(candidate?.traceRetryAt || ''));
   return !Number.isFinite(at) || at <= now;
 }
@@ -216,6 +315,7 @@ export function scheduleTraceRetry(candidate, reason, now = Date.now()) {
     traceAttempts: attempts + 1,
     traceLastAttemptAt: attemptedAt,
     traceRetryAt: new Date(now + delayDays * 86_400_000).toISOString(),
+    traceLastEvidenceSnapshot: traceEvidenceSnapshot(candidate),
   };
 }
 
@@ -230,16 +330,19 @@ export function scheduleTraceRetry(candidate, reason, now = Date.now()) {
  * @param {string} key
  * @param {Record<string, any>} [incoming]
  * @param {string|null} [ledgerFile]
+ * @param {string} [source]
  * @returns {Record<string, any>|null}
  */
-export function reviveRetryableDeadCandidate(store, key, incoming = {}, ledgerFile = LEDGER_PATH) {
+export function reviveRetryableDeadCandidate(store, key, incoming = {}, ledgerFile = LEDGER_PATH, source = '') {
   const candidate = store.candidates[key];
   if (!candidate || candidate.status !== 'dead') return candidate || null;
-  const hasNewCareerUrl = Boolean(incoming?.careersUrl)
+  const sourceEvidenceFields = TRACE_RETRY_EVIDENCE_FIELDS_BY_SOURCE.get(source);
+  const hasNewCareerUrl = sourceEvidenceFields?.has('careersUrl')
+    && Boolean(incoming?.careersUrl)
     && String(incoming.careersUrl) !== String(candidate.careersUrl || '');
   if (candidate.traceRetryable !== true && !hasNewCareerUrl) return candidate;
   const revived = setStatus(store, key, 'new', {
-    ...incoming,
+    ...(hasNewCareerUrl ? { careersUrl: incoming.careersUrl } : {}),
     reason: 'riscontro dopo una nuova scoperta',
     traceRetryAt: null,
   }, ledgerFile);
@@ -285,8 +388,21 @@ export function upsertCandidate(store, incoming, source) {
     rememberRejected(store, existing);
     return { key, created: false };
   }
+  if (existing && !Array.isArray(existing.sources)) existing.sources = [];
+  const sourcePreviouslySeen = Boolean(existing && (
+    existing.sources.includes(source)
+    || (isObjectMap(existing.sourceSeenAt) && Object.prototype.hasOwnProperty.call(existing.sourceSeenAt, source))
+  ));
+  // Legacy exhausted domain guesses have no evidence baseline. Save the
+  // pre-upsert snapshot before merging, so an unchanged rediscovery cannot
+  // wake the same failed guess merely by refreshing sourceSeenAt.
+  if (existing && hasExhaustedDomainResolution(existing)
+    && !isTraceEvidenceSnapshot(existing.traceLastEvidenceSnapshot)) {
+    existing.traceLastEvidenceSnapshot = traceEvidenceSnapshot(existing);
+  }
+  if (existing) recordSourceObservation(existing, source, now);
   if (!existing) {
-    store.candidates[key] = {
+    const candidate = {
       key,
       status: 'new',
       sources: [source],
@@ -294,11 +410,26 @@ export function upsertCandidate(store, incoming, source) {
       updatedAt: now,
       ...incoming,
     };
+    recordSourceObservation(candidate, source, now);
+    if (source !== 'seco') {
+      for (const field of SECO_SIGNAL_FIELDS) delete candidate[field];
+    }
+    store.candidates[key] = candidate;
     return { key, created: true };
   }
   for (const [k, v] of Object.entries(incoming)) {
     if (v === undefined || v === null || v === '') continue;
-    if (k === 'status' || k === 'sources') continue;
+    if (k === 'status' || k === 'sources' || k === 'sourceSeenAt') continue;
+    if (SECO_SIGNAL_FIELDS.has(k)) {
+      if (source === 'seco') existing[k] = v;
+      continue;
+    }
+    const sourceEvidenceFields = TRACE_RETRY_EVIDENCE_FIELDS_BY_SOURCE.get(source);
+    if (TRACE_RETRY_EVIDENCE_FIELDS.includes(k)) {
+      const empty = existing[k] === undefined || existing[k] === '' || existing[k] === null;
+      if (empty || (sourcePreviouslySeen && sourceEvidenceFields?.has(k))) existing[k] = v;
+      continue;
+    }
     if (existing[k] === undefined || existing[k] === '' || existing[k] === null) existing[k] = v;
   }
   if (!existing.sources.includes(source)) existing.sources.push(source);

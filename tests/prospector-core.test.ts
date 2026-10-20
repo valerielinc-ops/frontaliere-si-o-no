@@ -8,7 +8,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, expect, expectTypeOf, it } from 'vitest';
+import { describe, expect, expectTypeOf, it, vi } from 'vitest';
 import { fetch as undiciFetch } from 'undici';
 import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath, stripPublicSuffix } from '../scripts/lib/prospector/registrable.mjs';
 import { clearPoliteFetchStateForTests, parseRobots, robotsAllows } from '../scripts/lib/prospector/polite-fetch.mjs';
@@ -16,7 +16,11 @@ import {
   loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
   sharedHostPlatforms, listingPathHints, recordExpansionAttempt,
 } from '../scripts/lib/prospector/platform-registry.mjs';
-import { prioritizeTraceCandidates } from '../scripts/lib/prospector/trace-priority.mjs';
+import {
+  hasRecentSecoDemand,
+  prioritizeTraceCandidates,
+  TRACE_SECO_FRESHNESS_DAYS,
+} from '../scripts/lib/prospector/trace-priority.mjs';
 import { pathTemplate, extractByTemplate, extractJsonLd, extractDetailFields, extractMicrodata, renderedWorkplaceLabelValues, renderedPostalAddressCandidates, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
 import { cleanAnchorText, extractLinks, isCareerLink, externalAtsLinks, isDistinctCareerSurface } from '../scripts/lib/prospector/careers-trail.mjs';
 import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from '../scripts/lib/prospector/tenant-enum.mjs';
@@ -60,6 +64,7 @@ import {
 } from '../scripts/lib/prospector/subdivision-inventory.mjs';
 import { constPrefix, pascalIdentifier } from '../scripts/lib/crawler-identifier.mjs';
 import { fetchFollowingValidatedRedirects, fetchHtml } from '../scripts/lib/crawler-template.mjs';
+import { attributableTraceHosts, traceCandidate } from '../scripts/lib/prospector/trace-candidate.mjs';
 
 const emptyRegistry = () => loadRegistry('/prospector/does-not-exist.json');
 
@@ -217,20 +222,207 @@ describe('platform registry', () => {
 });
 
 describe('priorità della coda TRACE', () => {
-  it('porta davanti i datori con annunci attivi e conserva FIFO tra i pari', () => {
+  it('ordina URL carriere, dominio e annunci SECO recenti senza riusare conteggi vecchi', () => {
+    const now = Date.now();
     const ranked = prioritizeTraceCandidates([
-      { key: 'osm-domain', domain: 'map-employer.ch', adCount: 0, firstSeenAt: '2026-08-21T00:00:00Z' },
-      { key: 'seco-new', adCount: 1, firstSeenAt: '2026-09-14T00:00:00Z' },
-      { key: 'seco-old', adCount: 1, firstSeenAt: '2026-08-21T00:00:00Z' },
-      { key: 'seco-domain', domain: 'active-employer.ch', adCount: 1, firstSeenAt: '2026-09-14T00:00:00Z' },
-    ], 4);
+      {
+        key: 'z-stale-seco', adCount: 40,
+        sourceSeenAt: { seco: new Date(now - (TRACE_SECO_FRESHNESS_DAYS + 1) * 86_400_000).toISOString() },
+        firstSeenAt: new Date(now - 90 * 86_400_000).toISOString(),
+      },
+      {
+        key: 'legacy-count-only', adCount: 100,
+        firstSeenAt: new Date(now - 40 * 86_400_000).toISOString(),
+      },
+      {
+        key: 'recent-seco', adCount: 1,
+        sourceSeenAt: { seco: new Date(now - 2 * 86_400_000).toISOString() },
+        firstSeenAt: new Date(now - 20 * 86_400_000).toISOString(),
+      },
+      { key: 'known-domain', domain: 'map-employer.ch', firstSeenAt: new Date(now - 30 * 86_400_000).toISOString() },
+      { key: 'direct-careers', careersUrl: 'https://jobs.employer.ch/openings', firstSeenAt: new Date(now).toISOString() },
+    ], 5, now);
 
     expect(ranked.map((c) => c.key)).toEqual([
-      'seco-domain',
-      'seco-old',
-      'seco-new',
-      'osm-domain',
+      'direct-careers',
+      'known-domain',
+      'recent-seco',
+      'z-stale-seco',
+      'legacy-count-only',
     ]);
+  });
+
+  it('uses an explicit SECO freshness window and ignores apply hosts as employer domains', () => {
+    const now = Date.now();
+    const fresh = {
+      key: 'fresh-seco',
+      adCount: 2,
+      sourceSeenAt: { seco: new Date(now - TRACE_SECO_FRESHNESS_DAYS * 86_400_000).toISOString() },
+    };
+    const stale = {
+      key: 'stale-seco',
+      adCount: 2,
+      sourceSeenAt: { seco: new Date(now - (TRACE_SECO_FRESHNESS_DAYS + 1) * 86_400_000).toISOString() },
+    };
+    expect(hasRecentSecoDemand(fresh, now)).toBe(true);
+    expect(hasRecentSecoDemand(stale, now)).toBe(false);
+
+    const sameFirstSeenAt = new Date(now - 100 * 86_400_000).toISOString();
+    const ranked = prioritizeTraceCandidates([
+      { key: 'z-apply-host-only', applyHosts: ['jobs.vendor.example'], firstSeenAt: sameFirstSeenAt },
+      { key: 'a-name-only', firstSeenAt: sameFirstSeenAt },
+      fresh,
+    ], 3, now);
+    expect(ranked.map((candidate) => candidate.key)).toEqual([
+      'fresh-seco',
+      'a-name-only',
+      'z-apply-host-only',
+    ]);
+    expect(prioritizeTraceCandidates([
+      { key: 'z-apply-host-only', applyHosts: ['jobs.vendor.example'], firstSeenAt: sameFirstSeenAt },
+      { key: 'a-name-only', firstSeenAt: sameFirstSeenAt },
+      fresh,
+    ], 1, now).map((candidate) => candidate.key)).toEqual(['fresh-seco']);
+  });
+
+  it('allocates a 5/3/2/1 batch across direct careers, domains, recent SECO and fallback leads', () => {
+    const now = Date.now();
+    const direct = Array.from({ length: 7 }, (_, i) => ({
+      key: `careers-${i}`,
+      careersUrl: `https://jobs-${i}.example/openings`,
+      firstSeenAt: new Date(now - i * 60_000).toISOString(),
+    }));
+    const domains = Array.from({ length: 5 }, (_, i) => ({
+      key: `domain-${i}`,
+      domain: `employer-${i}.example`,
+      firstSeenAt: new Date(now - i * 60_000).toISOString(),
+    }));
+    const seco = Array.from({ length: 4 }, (_, i) => ({
+      key: `seco-${i}`,
+      adCount: i + 1,
+      sourceSeenAt: { seco: new Date(now - (i + 1) * 86_400_000).toISOString() },
+      firstSeenAt: new Date(now - 20 * 86_400_000).toISOString(),
+    }));
+    const fallback = [
+      {
+        key: 'stale-seco',
+        adCount: 80,
+        sourceSeenAt: { seco: new Date(now - (TRACE_SECO_FRESHNESS_DAYS + 1) * 86_400_000).toISOString() },
+      },
+      { key: 'apply-host-only', applyHosts: ['jobs.vendor.example'] },
+      { key: 'name-only' },
+    ];
+
+    const ranked = prioritizeTraceCandidates([...direct, ...domains, ...seco, ...fallback], 11, now);
+    expect(ranked.filter((candidate) => candidate.careersUrl)).toHaveLength(5);
+    expect(ranked.filter((candidate) => !candidate.careersUrl && candidate.domain)).toHaveLength(3);
+    expect(ranked.filter((candidate) => !candidate.careersUrl && !candidate.domain
+      && hasRecentSecoDemand(candidate, now))).toHaveLength(2);
+    expect(ranked.filter((candidate) => !candidate.careersUrl && !candidate.domain
+      && !hasRecentSecoDemand(candidate, now))).toHaveLength(1);
+    expect(ranked.filter((candidate) => candidate.key.startsWith('seco-')).map((candidate) => candidate.key))
+      .toEqual(['seco-0', 'seco-1']);
+  });
+
+  it('redistributes an empty careers bucket across domain, recent SECO and fallback buckets', () => {
+    const now = Date.now();
+    const domains = Array.from({ length: 12 }, (_, i) => ({
+      key: `domain-${i}`,
+      domain: `employer-${i}.example`,
+    }));
+    const seco = Array.from({ length: 12 }, (_, i) => ({
+      key: `seco-${i}`,
+      adCount: 1,
+      sourceSeenAt: { seco: new Date(now - (i + 1) * 86_400_000).toISOString() },
+    }));
+    const fallback = Array.from({ length: 12 }, (_, i) => ({ key: `fallback-${i}` }));
+
+    const ranked = prioritizeTraceCandidates([...domains, ...seco, ...fallback], 12, now);
+    expect(ranked.filter((candidate) => candidate.domain)).toHaveLength(6);
+    expect(ranked.filter((candidate) => !candidate.domain && hasRecentSecoDemand(candidate, now)))
+      .toHaveLength(4);
+    expect(ranked.filter((candidate) => !candidate.domain && !hasRecentSecoDemand(candidate, now)))
+      .toHaveLength(2);
+  });
+
+  it('does not synthesize or attribute a supplied careers URL without employer identity', async () => {
+    const candidate = {
+      key: 'direct-careers-only',
+      name: 'Employer without a known domain',
+      careersUrl: 'https://jobs.employer.example/openings',
+    };
+    const resolveDomain = vi.fn(async () => ({ domain: null, score: 0, evidence: [], tried: 0 }));
+    const traceCareers = vi.fn();
+    const traceFromCareersUrl = vi.fn(async (careersUrl: string, domain: string|null) => ({
+      domain,
+      reachable: true,
+      careersUrls: [careersUrl],
+      externalHosts: [{
+        host: 'tenant.ats-vendor.example',
+        url: 'https://tenant.ats-vendor.example/jobs',
+        text: 'Open positions',
+        score: 9,
+        vacancyCount: 2,
+      }],
+      failureStatuses: [200],
+      retryable: false,
+      selfHosted: false,
+      via: ['known-careers-url'],
+    }));
+
+    const result = await traceCandidate(candidate, { resolveDomain, traceCareers, traceFromCareersUrl });
+
+    expect(resolveDomain).toHaveBeenCalledWith({ name: candidate.name, city: undefined, zip: undefined });
+    expect(traceCareers).not.toHaveBeenCalled();
+    expect(traceFromCareersUrl).toHaveBeenCalledWith(candidate.careersUrl, null);
+    expect(result).toMatchObject({ verdict: 'retry', reason: 'dominio non risolto', domain: null });
+    expect(attributableTraceHosts(result)).toEqual([]);
+  });
+
+  it('keeps direct URL ownership unknown when its host differs from the resolved employer', async () => {
+    const candidate = {
+      key: 'ats-url-with-resolved-employer',
+      name: 'Employer with an ATS career URL',
+      domain: 'employer.example',
+      careersUrl: 'https://jobs.vendor.example/openings',
+    };
+    const result = await traceCandidate(candidate, {
+      traceFromCareersUrl: async (careersUrl: string, domain: string|null) => ({
+        domain,
+        reachable: true,
+        careersUrls: [careersUrl],
+        externalHosts: [],
+        failureStatuses: [200],
+        retryable: false,
+        selfHosted: true,
+        via: ['known-careers-url'],
+      }),
+    });
+
+    expect(result).toMatchObject({ verdict: 'traced', domain: 'employer.example', selfHosted: null });
+  });
+
+  it('uses the redirected careers URL when deciding whether a trail is self-hosted', async () => {
+    const candidate = {
+      key: 'redirected-careers-url',
+      name: 'Employer with a redirected career URL',
+      domain: 'employer.example',
+      careersUrl: 'https://careers.employer.example/openings',
+    };
+    const result = await traceCandidate(candidate, {
+      traceFromCareersUrl: async (careersUrl: string, domain: string|null) => ({
+        domain,
+        reachable: true,
+        careersUrls: ['https://jobs.vendor.example/openings'],
+        externalHosts: [],
+        failureStatuses: [200],
+        retryable: false,
+        selfHosted: true,
+        via: ['known-careers-url'],
+      }),
+    });
+
+    expect(result).toMatchObject({ verdict: 'traced', domain: 'employer.example', selfHosted: null });
   });
 });
 
