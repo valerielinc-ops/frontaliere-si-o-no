@@ -92,6 +92,21 @@ describe('decideLatestPublish', () => {
       lastSuccessfulDeployment: deployment(SHA_OLD, '2026-10-20T09:00:00Z'),
     })).toMatchObject({ action: 'skip', reason: 'attempt-cap' });
   });
+
+  it('counts a failed publish from run_name when GitHub returns a generic display title', () => {
+    const failed = Array.from({ length: DEFAULT_MAX_PUBLISH_ATTEMPTS }, (_, index) => ({
+      id: index + 30,
+      status: 'completed',
+      conclusion: 'failure',
+      display_title: 'Publish to GitHub Pages',
+      run_name: `Publish Pages build 2 @ ${SHA_LATEST}`,
+    }));
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: failed,
+      lastSuccessfulDeployment: deployment(SHA_OLD, '2026-10-20T09:00:00Z'),
+    })).toMatchObject({ action: 'skip', reason: 'attempt-cap' });
+  });
 });
 
 describe('Pages publish queue wiring', () => {
@@ -106,6 +121,11 @@ describe('Pages publish queue wiring', () => {
     expect(request).toContain('deployments: read');
     expect(request).toContain("APP_TOKEN_REQUEST_DEPLOYMENTS_READ: 'true'");
     expect(request).toContain('APP_TOKEN_DEPLOYMENTS_READ');
+  });
+
+  it('passes the minted App token to the reconciler at shell runtime', () => {
+    expect(request).toContain('GH_TOKEN="$APP_TOKEN" node scripts/ci/request-latest-publish.mjs');
+    expect(request).not.toMatch(/GH_TOKEN:.*env\.APP_TOKEN/);
   });
 
   it('maps the raw publish run name before counting source-linked attempts', () => {

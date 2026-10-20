@@ -61,9 +61,13 @@ function successfulBuilds(builds) {
 }
 
 function sourceRunIdFromTitle(run) {
-  const title = text(run?.displayTitle || run?.display_title || run?.runName || run?.run_name);
-  const match = title.match(/\bbuild\s+(?:#\s*)?(\d+)\b/i);
-  return match ? Number(match[1]) : null;
+  const buildIdFromTitle = (title) => {
+    const match = text(title).match(/\bbuild\s+(?:#\s*)?(\d+)\b/i);
+    return match ? Number(match[1]) : null;
+  };
+  const displayTitleId = buildIdFromTitle(run?.displayTitle ?? run?.display_title);
+  if (displayTitleId !== null) return displayTitleId;
+  return buildIdFromTitle(run?.runName ?? run?.run_name);
 }
 
 function publishRunBelongsTo(run, candidate) {
