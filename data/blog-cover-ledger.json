@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 688,
+      "5": 689,
       "6": 5054
     },
-    "publishedCovers": 7425,
+    "publishedCovers": 7426,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -201778,6 +201778,39 @@
         "provider": "openai-codex",
         "assetId": "article-ricorso-federale-espulsione-zugo",
         "imageUrl": "/images/blog/article-ricorso-federale-espulsione-zugo.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-scuola-inoltre-ventanni-formazione-carcere": {
+      "cover": "/images/blog/article-scuola-inoltre-ventanni-formazione-carcere.webp",
+      "hash": "cb4743dcea8998e4508196bdf9061296f0ed1ab2a224bfb7b0160e9a5178a42e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "scuola-inoltre-ventanni-formazione-carcere",
+          "category": "novita",
+          "date": "2026-10-20T05:19:31.938Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-scuola-inoltre-ventanni-formazione-carcere.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-scuola-inoltre-ventanni-formazione-carcere",
+        "imageUrl": "/images/blog/article-scuola-inoltre-ventanni-formazione-carcere.webp",
         "evidence": "generated-engine-record"
       }
     }

@@ -13524,6 +13524,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.schianto-auto-moto-appiano-gentile.title': 'Collision à Appiano Gentile : une voiture contre une moto, un blessé grave',
     'blog.article.schianto-auto-moto-appiano-gentile.excerpt': 'Accident à l’aube du 19 octobre à Appiano Gentile Une voiture et une moto se percutent peu après 6 heures Trois personnes impliquées, dont une dans un état grave Ambulances mobilisées',
     'blog.article.schianto-auto-moto-appiano-gentile.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.scuola-inoltre-ventanni-formazione-carcere.title': 'Scuola InOltre : vingt ans de formation dans les prisons cantonales',
+    'blog.article.scuola-inoltre-ventanni-formazione-carcere.excerpt': 'La Scuola InOltre fête ses vingt ans en 2026 Active depuis 2006 dans les établissements pénitentiaires cantonaux En juin attestations remises à une trentaine de détenues et à près de 230',
+    'blog.article.scuola-inoltre-ventanni-formazione-carcere.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

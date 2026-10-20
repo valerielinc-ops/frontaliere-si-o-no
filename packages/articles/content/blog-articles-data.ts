@@ -45623,6 +45623,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'scuola-inoltre-ventanni-formazione-carcere',
+ category: 'novita',
+ date: '2026-10-20T05:19:31.938Z',
+ image: '/images/blog/article-scuola-inoltre-ventanni-formazione-carcere.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

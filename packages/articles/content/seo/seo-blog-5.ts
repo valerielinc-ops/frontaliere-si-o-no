@@ -112333,6 +112333,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scuola-inoltre-ventanni-formazione-carcere': {
+    title: 'Scuola InOltre: vent’anni di formazione nelle carceri cantonali',
+    description: 'La Scuola InOltre compie vent’anni nel 2026 Attiva dal 2006 nelle Strutture carcerarie cantonali A giugno attestati a una trentina di detenute e quasi 230',
+    keywords: 'frontalieri, ticino, svizzera, italia, scuola, inoltre, vent, anni',
+    ogTitle: 'Scuola InOltre: 20 anni di formazione dietro le sbarre in Ticino',
+    ogDescription: 'La Scuola InOltre compie vent’anni nel 2026 Attiva dal 2006 nelle Strutture carcerarie cantonali A giugno attestati a una trentina di detenute e quasi 230',
+    canonicalPath: '/articoli-frontaliere/scuola-inoltre-ventanni-formazione-carcere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scuola InOltre: vent’anni di formazione nelle carceri cantonali",
+      "description": "La Scuola InOltre compie vent’anni nel 2026 Attiva dal 2006 nelle Strutture carcerarie cantonali A giugno attestati a una trentina di detenute e quasi 230",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-scuola-inoltre-ventanni-formazione-carcere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-20T05:19:32+00:00",
+      "dateModified": "2026-10-20T05:19:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scuola-inoltre-ventanni-formazione-carcere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
