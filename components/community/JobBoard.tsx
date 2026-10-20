@@ -8517,6 +8517,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  }
  }
+ // Close the outer jobsLoading guard after the nested loading branches.
  }
 
  const authPendingNoticeJsx = authNotice?.kind === 'pending' ? (
