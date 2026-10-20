@@ -3876,20 +3876,6 @@
       "legalEntity": "Media Markt Muri Bern",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "gestionnaire-de-magasins-100-h-f-d-mediamarkt-gumligen",
-        "store-manager-100-m-w-d-mediamarkt-gumligen-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gestionnaire-de-magasins-100-h-f-d-mediamarkt-gumligen",
-          "store-manager-100-m-w-d-mediamarkt-gumligen-ch"
-        ],
-        "fr": [
-          "gestionnaire-de-magasins-100-h-f-d-mediamarkt-gumligen"
-        ]
-      },
-      "firstSeenAt": "2026-10-05T21:57:57.181Z",
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -3902,6 +3888,20 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
+      },
+      "firstSeenAt": "2026-10-05T21:57:57.181Z",
+      "previousSlugs": [
+        "gestionnaire-de-magasins-100-h-f-d-mediamarkt-gumligen",
+        "store-manager-100-m-w-d-mediamarkt-gumligen-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-de-magasins-100-h-f-d-mediamarkt-gumligen",
+          "store-manager-100-m-w-d-mediamarkt-gumligen-ch"
+        ],
+        "fr": [
+          "gestionnaire-de-magasins-100-h-f-d-mediamarkt-gumligen"
+        ]
       }
     },
     {

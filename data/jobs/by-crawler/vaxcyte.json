@@ -244,7 +244,7 @@
           "senior-manager-quality-assurance-vaxcyte-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-22T23:49:52.547Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -258,7 +258,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "vaxcyte-fb837ce9abee",
@@ -396,7 +397,6 @@
         "canton": "VS",
         "location": "Visp"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-19T21:15:11.762Z",
       "previousSlugsByLocale": {
         "it": [

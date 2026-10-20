@@ -985,7 +985,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-089121ced8b2",
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -4358,7 +4357,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",

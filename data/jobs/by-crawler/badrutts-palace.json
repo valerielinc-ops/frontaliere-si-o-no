@@ -125,25 +125,6 @@
       "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/6165453-food-receiver-m-f-d",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "food-receiver-m-f-d-badrutts-palace-ch",
-        "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "lebensmittelempfanger-m-w-d-badrutt-s-palace-hotel-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "food-receiver-m-f-d-badrutts-palace-ch"
-        ],
-        "de": [
-          "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz",
-          "lebensmittelempfanger-m-w-d-badrutt-s-palace-hotel-st-moritz"
-        ],
-        "fr": [
-          "food-receiver-m-f-d-badrutts-palace-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-19T21:33:29.664Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -157,7 +138,25 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-10-19T21:33:29.664Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "food-receiver-m-f-d-badrutts-palace-ch"
+        ],
+        "de": [
+          "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "lebensmittelempfanger-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        ],
+        "fr": [
+          "food-receiver-m-f-d-badrutts-palace-ch"
+        ]
+      },
+      "previousSlugs": [
+        "food-receiver-m-f-d-badrutts-palace-ch",
+        "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "lebensmittelempfanger-m-w-d-badrutt-s-palace-hotel-st-moritz"
+      ]
     },
     {
       "id": "badrutts-palace-a71a288a5a6f",
