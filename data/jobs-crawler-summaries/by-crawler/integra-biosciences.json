@@ -1,30 +1,31 @@
 {
   "key": "integra-biosciences",
   "label": "INTEGRA Biosciences",
-  "generatedAt": "2026-10-19T21:52:07.272Z",
-  "total": 10,
+  "generatedAt": "2026-10-20T09:35:09.722Z",
+  "total": 9,
   "discovered": null,
   "parsed": 9,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 10,
+  "written": 9,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 3,
-  "durationMs": 21526,
-  "avgDurationMs": 21526,
+  "durationMs": 19172,
+  "avgDurationMs": 19172,
   "durationHistory": [
-    21526
+    19172
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "integra-biosciences-fdee4ba08ec5",
-      "slug": "it-system-engineer-m-w-d-100-integra-biosciences-ch",
+      "slug": "it-system-ingegnere-m-w-d-100-integra-biosciences-zizers",
       "company": "INTEGRA Biosciences",
       "companyKey": "integra-biosciences",
       "companyDomain": "integra-biosciences.com",
@@ -34,7 +35,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/346/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:51:52.886Z",
+      "crawledAt": "2026-10-20T09:34:56.020Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -55,22 +56,19 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-19T21:51:52.886Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-19T21:51:52.886Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "integra-biosciences-bdf83c146301",
       "slug": "mechanical-design-ingegnere-m-w-d-100-integra-biosciences-zizers",
@@ -83,7 +81,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/345/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:51:51.258Z",
+      "crawledAt": "2026-10-20T09:34:54.350Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -129,7 +127,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/344/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:51:48.955Z",
+      "crawledAt": "2026-10-20T09:34:52.929Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -175,7 +173,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/343/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:51:47.293Z",
+      "crawledAt": "2026-10-20T09:34:51.671Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -221,7 +219,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/331/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:51:43.778Z",
+      "crawledAt": "2026-10-20T09:34:48.272Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -268,7 +266,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/330/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:51:42.134Z",
+      "crawledAt": "2026-10-20T09:34:46.632Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -301,7 +299,9 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "integra-biosciences-dcc8891fa8d4",
       "slug": "mechanical-design-ingegnere-product-care-m-w-d-80-100-integra-biosciences-zizers",
@@ -351,7 +351,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "integra-biosciences-b9b574fd8a20",
@@ -365,7 +364,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/341/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:51:45.733Z",
+      "crawledAt": "2026-10-20T09:34:49.859Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -411,7 +410,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/329/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T21:51:40.545Z",
+      "crawledAt": "2026-10-20T09:34:44.787Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -457,7 +456,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/326/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T21:51:38.532Z",
+      "crawledAt": "2026-10-20T09:34:43.469Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -492,5 +491,5 @@
       }
     }
   ],
-  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
+  "codeCommit": "a1bd59ecfe0dd8e9073ead0a9cb11e2d39e2c95a"
 }
