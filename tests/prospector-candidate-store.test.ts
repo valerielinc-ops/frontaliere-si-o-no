@@ -9,12 +9,14 @@ import { describe, expect, it } from 'vitest';
 import {
   loadCandidates,
   MAX_REJECTED_TOMBSTONES,
+  isSynthesisRetryDue,
   isTraceRetryDue,
   pruneTerminal,
   reopenRejectedCandidate,
   requeuePromotedCandidate,
   reviveRetryableDeadCandidate,
   scheduleTraceRetry,
+  scheduleSynthesisRetry,
   saveCandidates,
   setStatus,
   upsertCandidate,
@@ -643,5 +645,64 @@ describe('prospector candidate store — retryable trace failures', () => {
     expect(store.candidates[key].name).toBe('Employer AG');
     expect(store.candidates[key].careersUrl).toBe(newCareersUrl);
     expect(store.candidates[key].sources).toContain('web');
+  });
+});
+
+describe('prospector candidate store — retryable synthesis failures', () => {
+  it('keeps a transient synthesis failure traced until its bounded retry time', () => {
+    const key = 'temporary-synthesis.example';
+    const candidate = { key, status: 'traced', synthesisAttempts: 0 };
+    const store = storeWith({ [key]: candidate });
+    const now = Date.parse('2026-10-20T12:00:00.000Z');
+    const patch = scheduleSynthesisRetry(candidate, 'sintesi fallita: seed HTTP 503', now);
+
+    setStatus(store, key, 'traced', patch, null);
+
+    expect(store.candidates[key]).toMatchObject({
+      status: 'traced',
+      reason: 'sintesi fallita: seed HTTP 503',
+      synthesisRetryable: true,
+      synthesisAttempts: 1,
+      synthesisLastAttemptAt: new Date(now).toISOString(),
+      synthesisRetryAt: new Date(now + DAY_MS).toISOString(),
+    });
+    expect(isSynthesisRetryDue(store.candidates[key], now)).toBe(false);
+    expect(isSynthesisRetryDue(store.candidates[key], Date.parse(patch.synthesisRetryAt))).toBe(true);
+
+    const nextPatch = scheduleSynthesisRetry(store.candidates[key], 'HTTP 503', now);
+    expect(nextPatch.synthesisRetryAt).toBe(new Date(now + 3 * DAY_MS).toISOString());
+  });
+
+  it('clears the old synthesis backoff when a fresh observation changes the seed URL', () => {
+    const key = 'changed-synthesis-seed.example';
+    const store = storeWith({
+      [key]: {
+        key,
+        status: 'traced',
+        sources: ['web'],
+        careersUrl: 'https://changed-synthesis-seed.example/old-jobs',
+        reason: 'sintesi fallita: seed irraggiungibile (503)',
+        synthesisRetryable: true,
+        synthesisAttempts: 5,
+        synthesisLastAttemptAt: '2026-10-19T12:00:00.000Z',
+        synthesisRetryAt: '2026-11-18T12:00:00.000Z',
+      },
+    });
+
+    upsertCandidate(store, {
+      key,
+      careersUrl: 'https://changed-synthesis-seed.example/current-jobs',
+    }, 'web');
+
+    expect(store.candidates[key]).toMatchObject({
+      status: 'traced',
+      careersUrl: 'https://changed-synthesis-seed.example/current-jobs',
+      reason: null,
+      synthesisRetryable: false,
+      synthesisAttempts: 0,
+      synthesisLastAttemptAt: null,
+      synthesisRetryAt: null,
+    });
+    expect(isSynthesisRetryDue(store.candidates[key])).toBe(true);
   });
 });
