@@ -883,6 +883,33 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(guardPlan({ actions: [], missingRequired: [] }, [field], ended).missingRequired.map((item: any) => item.fieldId)).toEqual(['employment']);
   });
 
+  it('requires language-specific evidence for ability and proficiency answers', () => {
+    const candidate = {
+      answers: {},
+      profile: { residenceCity: 'Berlin', cvText: 'German C1 / English C2' },
+      portalQuestionsAnswered: [],
+    };
+    const ability = {
+      id: 'german-speaking', kind: 'select', label: 'Do you speak?', context: 'German', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const genericEvidence = guardPlan({
+      actions: [{ fieldId: ability.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'Berlin' }],
+      missingRequired: [],
+    }, [ability], candidate);
+    expect(genericEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: ability.id })]);
+
+    const proficiency = {
+      id: 'german-c2', kind: 'select', label: 'C2?', context: 'German language proficiency', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const mixedEvidence = guardPlan({
+      actions: [{ fieldId: proficiency.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C1 / English C2' }],
+      missingRequired: [],
+    }, [proficiency], candidate);
+    expect(mixedEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: proficiency.id })]);
+  });
+
   it('derives a native language from the CV language only with contrasting language evidence', () => {
     const candidate = candidateForForm({
       identity: { name: 'Test Candidate', email: 'test@example.com' },

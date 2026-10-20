@@ -317,32 +317,38 @@ export function nativeLanguageOption(field, candidate) {
 }
 
 /**
- * The quote SUPPORTS the answer, beyond being in the data (review of #10715:
- * "Deutsch C1?" answered "Ja" with the quote "Deutsch B2"). A value must be in
- * the quote; a yes to a level needs that language at that level or higher; a
- * yes to anything countable (years, a minimum) is never read off a quote.
+ * The quote supports the answer, beyond being in the data. Language ability
+ * evidence must name one requested language and support its explicit level.
+ * Countable answers (years, a minimum) are never read off a quote.
  */
 export function evidenceSupports(question, answer, evidence) {
   const value = String(answer || '').trim().toLowerCase();
   const quote = String(evidence || '').toLowerCase();
   if (!value || !quote) return false;
-  if (!YES_RE.test(value)) return quote.includes(value);
   const required = levelsIn(question);
-  // A generic ability question ("Do you speak German?") needs the
-  // candidate's own answer or an explicit language list, not an arbitrary
-  // quote such as a city name elsewhere in the CV. Quotes may support a
-  // proficiency answer only when the form asks for a level.
-  if (isLanguageAbilityQuestion(question) && !required.length) return false;
-  if (required.length) {
-    // Levels read only where the quote names the language asked: "Deutsch B2;
-    // Englisch C2" holds no German C2 (second review of #10715).
+  if (isLanguageAbilityQuestion(question)) {
+    // Generic ability questions ("Do you speak German?") need the
+    // candidate's own answer or an explicit language list, not an arbitrary
+    // quote such as a city name elsewhere in the CV. A level quote must name
+    // the requested language and support the answer. A yes/no answer also
+    // needs an explicit minimum level in the question.
     const asked = languageCodesIn(question);
-    const parts = asked.length
-      ? quote.split(/[;,|\n]|\s[-–—]\s/).filter((part) => languageCodesIn(part).some((language) => asked.includes(language)))
-      : [quote];
+    if (asked.length !== 1) return false;
+    const parts = quote.split(/[;,|\/\n+]|\s[-–—]\s|\s+(?:and|or|und|et|e|y)\s+/i)
+      .filter((part) => {
+        const languages = languageCodesIn(part);
+        return languages.length === 1 && languages[0] === asked[0];
+      });
     const held = parts.flatMap(levelsIn);
-    return held.length > 0 && Math.max(...held) >= Math.max(...required);
+    if (!held.length) return false;
+    const strongestHeld = Math.max(...held);
+    if (YES_RE.test(value)) return required.length > 0 && strongestHeld >= Math.max(...required);
+    const answerLevels = levelsIn(value);
+    if (!answerLevels.length) return false;
+    const answerLevel = Math.max(...answerLevels);
+    return (!required.length || answerLevel >= Math.max(...required)) && strongestHeld >= answerLevel;
   }
+  if (!YES_RE.test(value)) return quote.includes(value);
   return !/\d/.test(String(question));
 }
 
@@ -1118,7 +1124,7 @@ export function guardPlan(plan, fields, candidate = null) {
     const languageAbility = isLanguageAbilityQuestion(`${field.label} ${field.context || ''}`);
     const supported = (!languageAbility && knownValues === null) || native || isInferredProfileLanguageAnswer(candidate, field, given)
       || answeredByCandidate(candidate, field.label, given, field.context)
-      || (evidenceInData(knownValues, action.evidence) && evidenceSupports(field.label, given, action.evidence));
+      || (evidenceInData(knownValues, action.evidence) && evidenceSupports(`${field.label} ${field.context || ''}`, given, action.evidence));
     if ((languageAbility || KNOCK_OUT.test(field.label))
       && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {
       ask(field);

@@ -186,6 +186,42 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       questions: [expect.objectContaining({ question })],
     });
 
+    const contextOnlyLanguage = guardAgentStep(turn('act', [act({
+      ref: 'e22', action: 'click', value: 'Yes', question: 'Do you speak?', context: 'German',
+      answer: 'Yes', source: 'profile', evidence: 'Berlin',
+    })]), {
+      answers: {}, profile: { residenceCity: 'Berlin' }, portalQuestionsAnswered: [],
+    });
+    expect(contextOnlyLanguage).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question: 'Do you speak?' })],
+    });
+
+    const wrongLanguageLevelEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e23', action: 'select', value: 'C1', question: 'German C1?', answer: 'C1',
+      source: 'profile', evidence: 'English C1',
+    })]), {
+      answers: {}, profile: { cvText: 'English C1' }, portalQuestionsAnswered: [],
+    });
+    expect(wrongLanguageLevelEvidence).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question: 'German C1?' })],
+    });
+
+    const mixedLanguageEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e24', action: 'select', value: 'Yes', question: 'German C2?', answer: 'Yes',
+      source: 'profile', evidence: 'German C1 / English C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C1 / English C2' }, portalQuestionsAnswered: [],
+    });
+    expect(mixedLanguageEvidence).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question: 'German C2?' })],
+    });
+
     const listed = {
       answers: {},
       profile: { languagesExplicitList: true, languages: [{ language: 'German', level: 'C1' }] },

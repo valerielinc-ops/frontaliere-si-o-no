@@ -355,7 +355,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
           ? answeredByCandidate(candidate, action.question, answer, context)
           : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
     const quoted = (knockOut || languageAbility) && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
-      && evidenceSupports(action.question, answer, action.evidence);
+      && evidenceSupports(`${action.question} ${context}`, answer, action.evidence);
     // «A driving licence?», with that licence among the documents attached: its «yes» is grounded by the upload,
     // as on the planner's side (plan.mjs attachedDocumentYes). Only the «yes»: any other answer is refused.
     const attached = action.source !== 'widget' && saysYes(answer) && asksAttachedDocument(candidate, action.question);
