@@ -275,8 +275,8 @@ const asksSalutation = (question) => SALUTATION_RE.test(`${question?.question ||
 /**
  * The form of address, asked on the first review when the application leaves
  * through a portal's form. umantis (2026-10-03) requires «Title: Ms / Mr /
- * Other», as most Swiss portals require «Anrede»; an explicit CV gender or an
- * unambiguous first name fills it without a question.
+ * Other», as most Swiss portals require «Anrede»; the candidate's answer or
+ * an explicit statement in the CV fills it without a question.
  * Optional: a candidate who does not answer is not held, and the portal's own
  * question then comes at submit time as before. Never for an e-mail
  * application, nor when a question already asks it, nor when the candidate
