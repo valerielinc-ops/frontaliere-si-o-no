@@ -8540,6 +8540,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rickli-ritiro-consiglio-federale.title': 'Natalie Rickli rifiuta il Consiglio federale, resta a Zurigo',
     'blog.article.rickli-ritiro-consiglio-federale.excerpt': 'Natalie Rickli rinuncia al seggio in Consiglio federale Zurigo ha bisogno di un governo cantonale stabile Il 9 dicembre sarà eletto il successore di Parmelin',
     'blog.article.rickli-ritiro-consiglio-federale.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.circolare-221-deduzione-figli-2027.title': 'Imposta alla fonte 2027: deduzione per figlio a 264 CHF',
+    'blog.article.circolare-221-deduzione-figli-2027.excerpt': 'Pubblicazione: Berna, 20 ottobre 2026 Stato della circolare: 1° gennaio 2027 Deduzione per ogni figlio: 264 CHF Valore mediano dei redditi: 5\'925 CHF al mese',
+    'blog.article.circolare-221-deduzione-figli-2027.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

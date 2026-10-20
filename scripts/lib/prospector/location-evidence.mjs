@@ -19,6 +19,13 @@ import {
   isKnownForeignSubdivision,
 } from './subdivision-inventory.mjs';
 
+export const JOB_LOCATION_CLASS_TOKENS = new Set([
+  'job-location', 'job_location', 'job-detail-location', 'job_detail_location',
+  'job-region', 'job_region', 'job-detail-region', 'job_detail_region',
+  'vacancy-location', 'vacancy_location', 'vacancy-detail-location', 'vacancy_detail_location',
+  'vacancy-region', 'vacancy_region', 'vacancy-detail-region', 'vacancy_detail_region',
+]);
+
 /**
  * Structured location evidence selected by the shared resolver. Known address
  * fields are normalised to strings; vendor-specific fields survive the spread.

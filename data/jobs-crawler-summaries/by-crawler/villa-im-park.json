@@ -1,25 +1,25 @@
 {
   "key": "villa-im-park",
   "label": "Privatklinik Villa im Park",
-  "generatedAt": "2026-10-19T21:17:19.278Z",
-  "total": 2,
+  "generatedAt": "2026-10-20T21:16:02.159Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 2,
+  "written": 1,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5159,
-  "avgDurationMs": 5159,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3256,
+  "avgDurationMs": 3256,
   "durationHistory": [
-    5159
+    3256
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152345671-dipl-experte-expertin-anasthesiepflege-nds-hf-50-100-",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:17:04.243Z",
+      "crawledAt": "2026-10-20T21:15:49.573Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Rothrist",
@@ -67,8 +67,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "villa-im-park-2e1ad74d807b",
       "slug": "apprendistato-per-assistente-alla-salute-2027-privatklinik-villa-im-park-rothrist",
@@ -114,5 +113,6 @@
       }
     }
   ],
-  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
+  "unchangedJobs": [],
+  "codeCommit": "5d413b0550f3391711b8d8bf8b472520011f35e5"
 }

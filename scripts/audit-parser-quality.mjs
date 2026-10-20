@@ -27,7 +27,10 @@ import {
   selectDetailStructuredRecords,
 } from './lib/prospector/extract.mjs';
 import { decodeEntities as decodeScrapedHtmlEntities } from './lib/prospector/entities.mjs';
-import { resolveSourceBackedSwissGeography } from './lib/prospector/location-evidence.mjs';
+import {
+  JOB_LOCATION_CLASS_TOKENS,
+  resolveSourceBackedSwissGeography,
+} from './lib/prospector/location-evidence.mjs';
 import { readAttr, readVacancySummaryLocation } from './lib/html-attr.mjs';
 import {
   canonicalSwissCityName,
@@ -35,6 +38,7 @@ import {
   isCantonOnlyLabel,
   isKnownSwissMunicipality,
   normalizeCantonCode,
+  normalizeSwissCantonCode,
   swissMunicipalityCantons,
 } from './lib/target-swiss-locations.mjs';
 import { isLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
@@ -415,6 +419,12 @@ function canonicalLocationTokens(value) {
   return tokens.filter((token, index) => index === 0 || token !== tokens[index - 1]);
 }
 
+function cantonLabelCode(value) {
+  const tokens = canonicalLocationTokens(value);
+  if (tokens.length !== 1 || /\d/.test(normalizePlace(value))) return '';
+  return normalizeSwissCantonCode(value) || normalizeSwissCantonCode(tokens[0]);
+}
+
 function tokensEqual(left, right) {
   return left.length === right.length && left.every((token, index) => token === right[index]);
 }
@@ -585,10 +595,12 @@ export function sourceLocationMatches(published, source) {
   const right = canonicalLocationTokens(source);
   if (!left.length || !right.length) return false;
   if (tokensEqual(left, right)) return true;
+  const publishedCanton = cantonLabelCode(published);
+  const sourceCanton = cantonLabelCode(source);
+  if (publishedCanton && publishedCanton === sourceCanton) return true;
 
   const publishedCandidates = plainText(published).split(/[|;,>:]+|\s+-\s+/).map((part) => part.trim()).filter(Boolean);
   const sourceCandidates = plainText(source).split(/[|;,>:]+|\s+-\s+/).map((part) => part.trim()).filter(Boolean);
-  const publishedMunicipality = municipalityKeyWithDescriptor(published);
   for (const publishedCandidate of publishedCandidates) {
     const publishedTokens = canonicalLocationTokens(publishedCandidate);
     if (!publishedTokens.length) continue;
@@ -599,6 +611,13 @@ export function sourceLocationMatches(published, source) {
       const publishedHasPostalCode = /\b\d{4,5}\b/.test(publishedCandidate);
       const candidateHasPostalCode = /\b\d{4,5}\b/.test(rawSourceCandidate);
       const sourceMunicipality = municipalityKeyWithDescriptor(rawSourceCandidate);
+      // A slash-separated value such as `Biel / Solothurn / Mittelland` is a
+      // multi-site region, not one municipality whose embedded token can match
+      // a rendered single-site field. Keep the component-level comparisons
+      // below, but do not let the gazetteer pick one token from the aggregate.
+      const publishedMunicipality = /\//.test(publishedCandidate)
+        ? ''
+        : municipalityKeyWithDescriptor(publishedCandidate);
       const trailingRegion = sourceIndex > 0 && !candidateHasPostalCode
         && precededByOtherLocality(sourceCandidates, sourceIndex, sourceMunicipality);
       // In structured `city, canton` values, a published city must not pass only
@@ -623,12 +642,6 @@ export function sourceLocationMatches(published, source) {
 }
 
 const VOID_HTML_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
-const JOB_LOCATION_CLASS_TOKENS = new Set([
-  'job-location', 'job_location', 'job-detail-location', 'job_detail_location',
-  'job-region', 'job_region', 'job-detail-region', 'job_detail_region',
-  'vacancy-location', 'vacancy_location', 'vacancy-detail-location', 'vacancy_detail_location',
-  'vacancy-region', 'vacancy_region', 'vacancy-detail-region', 'vacancy_detail_region',
-]);
 const JOB_DETAIL_SCOPE_CLASS_TOKENS = new Set([
   'job-detail', 'job_detail', 'job-details', 'job_details', 'job-posting', 'job_posting',
   'vacancy-detail', 'vacancy_detail', 'vacancy-details', 'vacancy_details',
@@ -1004,6 +1017,9 @@ function visibleFieldMatchesLocation(field, location) {
   const targetTokens = canonicalLocationTokens(location);
   if (!value || !targetTokens.length) return false;
   if (sourceLocationMatches(location, value)) return true;
+  const locationCanton = cantonLabelCode(location);
+  const valueCanton = cantonLabelCode(value);
+  if (locationCanton && locationCanton === valueCanton) return true;
   const haystack = ` ${aliasedPlaceTokens(value).join(' ')} `;
   return haystack.includes(` ${targetTokens.join(' ')} `);
 }
@@ -1014,6 +1030,9 @@ function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLoca
     || !publishedLocation) return false;
   const visibleFields = [
     ...(Array.isArray(detail?.workplaceLabels) ? detail.workplaceLabels : []),
+    ...(locationEvidence === 'jsonld' && Array.isArray(detail?.renderedJobLocationFields)
+      ? detail.renderedJobLocationFields
+      : []),
     ...(Array.isArray(detail?.headingSublineFields) ? detail.headingSublineFields : []),
     ...(Array.isArray(detail?.headingIntroFields) ? detail.headingIntroFields : []),
     detail?.title,

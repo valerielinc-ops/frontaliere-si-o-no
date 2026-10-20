@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-20T09:14:07.486Z",
+  "generatedAt": "2026-10-20T21:12:57.290Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 12,
-  "durationMs": 7802,
-  "avgDurationMs": 7802,
+  "durationMs": 7516,
+  "avgDurationMs": 7516,
   "durationHistory": [
-    7802
+    7516
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -54,48 +54,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Leiter/in Forschungsgruppe Klima und Landwirtschaft",
-      "slug": "responsabile-del-gruppo-di-ricerca-sul-clima-e-l-agricoltura-agroscope-zurich-geplant-arbeitsort-ab-2028-posieux",
-      "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-forschungsgruppe-klima-und-landwirtschaft/248679d2-32b0-4585-843f-19b0b8b19347",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20374",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Zürich, Geplant Arbeitsort ab 2028 : Posieux",
-      "addressLocality": "Zürich, Geplant Arbeitsort ab 2028 : Posieux",
-      "postalCode": "8001",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-22T22:00:00Z",
-      "validThrough": "2026-10-24",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-409d96ebb7a1",
-      "salaryMin": 147000,
-      "salaryMax": 244000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-26T13:53:09.416Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/leiter-in-forschungsgruppe-klima-und-landwirtschaft/248679d2-32b0-4585-843f-19b0b8b19347",
-      "datePosted": "2026-09-22T22:00:00Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Lernende/r Pferdefachmann/-frau EFZ, Orientierung Klassiches Reiten",
@@ -569,5 +528,5 @@
       }
     }
   ],
-  "codeCommit": "a1bd59ecfe0dd8e9073ead0a9cb11e2d39e2c95a"
+  "codeCommit": "5d413b0550f3391711b8d8bf8b472520011f35e5"
 }

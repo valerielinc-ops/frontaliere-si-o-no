@@ -2869,6 +2869,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'water-summit-zurich-2024': { it: 'water-summit-zurich-2024', en: 'eureau-water-summit-in-zurich-60-untreated-water', de: 'wasser-gipfel-zuerich-2024', fr: 'sommet-eau-zurich-2024' },
  'accordo-commercio-elettronico-omc': { it: 'accordo-commercio-elettronico-omc', en: 'e-commerce-agreement-wto', de: 'e-commerce-abkommen-wto', fr: 'accord-commerce-electronique-omc' },
  'rickli-ritiro-consiglio-federale': { it: 'rickli-ritiro-consiglio-federale', en: 'rickli-withdraws-federal-council', de: 'rickli-zieht-sich-rat-federal', fr: 'rickli-retire-council-federal' },
+ 'circolare-221-deduzione-figli-2027': { it: 'circolare-221-deduzione-figli-2027', en: 'circular-221-child-deduction-2027', de: 'rundschreiben-221-kinderabzug-2027', fr: 'circulaire-221-deduction-enfant-2027' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

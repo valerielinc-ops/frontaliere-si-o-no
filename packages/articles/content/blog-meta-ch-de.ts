@@ -8540,6 +8540,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rickli-ritiro-consiglio-federale.title': 'Natalie Rickli lehnt den Bundesrat ab, bleibt in Zürich',
     'blog.article.rickli-ritiro-consiglio-federale.excerpt': 'Natalie Rickli verzichtet auf Sitz im Bundesrat Zürich braucht eine stabile Kantonsregierung Am 9.',
     'blog.article.rickli-ritiro-consiglio-federale.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.circolare-221-deduzione-figli-2027.title': 'Quellensteuer 2027: Abzug pro Kind auf 264 CHF',
+    'blog.article.circolare-221-deduzione-figli-2027.excerpt': 'Veröffentlichung: Bern, 20.',
+    'blog.article.circolare-221-deduzione-figli-2027.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
