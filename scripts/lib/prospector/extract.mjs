@@ -1231,13 +1231,20 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   );
   const requestedTitleIdentity = vacancyTitleIdentity(opts.recordTitle);
   const renderedTitleIdentity = vacancyTitleIdentity(renderedTitle);
+  const pageIdentity = canonicalIdentityUrl(pageUrl);
+  const requestedRecordIdentity = canonicalIdentityUrl(opts.recordUrl);
   // A stale JobPosting node must not lend its location to another vacancy.
   // When the rendered H1 independently confirms the requested listing title,
   // however, the rendered detail body is still source-backed evidence for that
   // same vacancy. Physioswiss serves exactly this shape: JSON-LD says
-  // "Header", while the detail H1 and address name the selected posting.
+  // "Header", while the detail H1 and address name the selected posting. A
+  // redirect to a different detail URL cannot satisfy this fallback on title
+  // alone.
   const renderedTitleConfirmsRequestedRecord = Boolean(
-    requestedTitleIdentity
+    pageIdentity
+      && requestedRecordIdentity
+      && requestedRecordIdentity === pageIdentity
+      && requestedTitleIdentity
       && renderedTitleIdentity
       && renderedTitleIdentity === requestedTitleIdentity,
   );

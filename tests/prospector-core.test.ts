@@ -484,6 +484,7 @@ describe('vacancy extraction', () => {
   it('keeps rendered geography when stale structured data disagrees with the confirmed H1', () => {
     const recordTitle = 'Dipl. Physiotherapeut/-in (40-100%)';
     const pageUrl = 'https://physioswiss.ch/stelleninserate/157790/dipl-physiotherapeut-in-40-100/';
+    const recordUrl = pageUrl.replace(/\/$/, '');
     const html = `<main><h1>${recordTitle}</h1><div class="job-location">9000 St. Gallen</div>`
       + '<div class="vacancy-description"><p>Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen für das Team.</p></div>'
       + `<script type="application/ld+json">${JSON.stringify({
@@ -494,7 +495,7 @@ describe('vacancy extraction', () => {
       })}</script></main>`;
 
     const detail = extractRuntimeDetailFields({}, html, pageUrl, {
-      recordUrl: pageUrl,
+      recordUrl,
       recordTitle,
     });
 
@@ -502,6 +503,24 @@ describe('vacancy extraction', () => {
     expect(detail.locationCandidates).toEqual([
       expect.objectContaining({ location: '9000 St. Gallen' }),
     ]);
+  });
+
+  it('does not use rendered geography after a detail redirect changes record identity', () => {
+    const html = '<h1>Physiotherapist</h1>'
+      + '<script type="application/ld+json">'
+      + JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Header',
+        url: 'https://example.test/jobs/other/',
+      })
+      + '</script><div class="location">Lugano</div>';
+    const detail = extractDetailFields(html, 'https://example.test/jobs/final/', {
+      recordUrl: 'https://example.test/jobs/requested/',
+      recordTitle: 'Physiotherapist',
+    });
+
+    expect(detail.location).toBe('');
+    expect(detail.locationCandidates).toEqual([]);
   });
 
   // jobs.admin.ch/agroscope (#7711). Il luogo di lavoro vero sta solo in un
