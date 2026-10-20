@@ -1213,11 +1213,11 @@ async function uploadThroughDialog(page, trigger, file) {
 }
 
 /**
- * Before a page is planned: its closed sections opened, and the CV put in a
- * dialog's file input when the page has no file field of its own. A page is
- * done only once the action is seen to work (more fields in sight, the file
- * in); a failed try is tried again, at most MAX_SECTION_TRIES per page.
- * @returns {Promise<{snapshot: object, cv?: 'uploaded'|'uploaded_unconfirmed'|'unavailable'}>}
+ * Before a page is planned: its closed sections opened, and the CV attached
+ * through its file field or upload control. A page is done only once the
+ * action is seen to work (more fields in sight, the file in); a failed try is
+ * tried again, at most MAX_SECTION_TRIES per page.
+ * @returns {Promise<{snapshot: object, cv?: 'uploaded'|'uploaded_unconfirmed'|'unavailable', cvFieldKey?: string}>}
  */
 export async function openFormSections(page, snapshot, { files = {}, done = new Set(), tries = new Map() } = {}) {
   let current = snapshot;
@@ -1267,21 +1267,50 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const cvFile = Array.isArray(files.cv) ? files.cv[0] : files.cv;
   const cvKey = `cv|${where}`;
   let cv;
-  while (cvFile && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
-    const namedTriggerButton = uploadButtonFor(current, 'cv');
-    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page) && ownAccountForm(current)
-      ? successFactorsIconButtonFor(current, 'cv')
-      : null;
-    const triggerButton = namedTriggerButton || iconTriggerButton;
-    const trigger = iconTriggerButton && !namedTriggerButton
-      ? { snapshot: triggerButton }
-      : iconUploadAllowedForPage(page, triggerButton, 'cv', current) && triggerButton
-        ? locatorFor(page, triggerButton)
+  let cvFieldKey;
+  while (cvFile && !done.has(cvKey)) {
+    if (!attempt(cvKey)) break;
+    const cvField = current.fields.find(isCvFileField);
+    if (cvField) {
+      // File inputs are often rendered as optional or hidden behind a visible
+      // upload tile. Do not leave this to the model: it can skip an optional
+      // field even though the portal requires the CV at final validation.
+      const input = locatorFor(page, cvField);
+      const paths = documentPaths(files, 'cv');
+      const multiple = paths.length > 1 && await input.evaluate((element) => Boolean(element.multiple)).catch(() => false);
+      const selectedPaths = multiple ? paths : paths.slice(0, 1);
+      const [result] = await applyActions(page, current.fields, [{
+        fieldId: cvField.id,
+        action: 'upload',
+        value: '',
+        document: 'cv',
+        source: 'documents',
+        evidence: '',
+      }], files, { pause: async () => {} });
+      if (result?.ok && selectedPaths.length) {
+        const received = await uploadReceipt(page, input, selectedPaths, { acceptedResponse: result.uploadAccepted === true });
+        cv = received ? 'uploaded' : 'uploaded_unconfirmed';
+      } else {
+        cv = 'unavailable';
+      }
+    } else {
+      const namedTriggerButton = uploadButtonFor(current, 'cv');
+      const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page) && ownAccountForm(current)
+        ? successFactorsIconButtonFor(current, 'cv')
         : null;
-    const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
-    if (!trigger || !visible || !attempt(cvKey)) break;
-    cv = await uploadThroughDialog(page, trigger, cvFile);
+      const triggerButton = namedTriggerButton || iconTriggerButton;
+      const trigger = iconTriggerButton && !namedTriggerButton
+        ? { snapshot: triggerButton }
+        : iconUploadAllowedForPage(page, triggerButton, 'cv', current) && triggerButton
+          ? locatorFor(page, triggerButton)
+          : null;
+      const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
+      if (!trigger || !visible) break;
+      cv = await uploadThroughDialog(page, trigger, cvFile);
+    }
     current = await extractFields(page);
+    const uploadedCvField = current.fields.find(isCvFileField);
+    if (cv !== 'unavailable' && uploadedCvField) cvFieldKey = `${page.url()}|${uploadedCvField.label || uploadedCvField.id}`;
     // A file that went in, confirmed or not, never goes in twice.
     if (cv !== 'unavailable') done.add(cvKey);
   }
@@ -1308,6 +1337,7 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   return {
     snapshot: current,
     ...(cv ? { cv } : {}),
+    ...(cvFieldKey ? { cvFieldKey } : {}),
     ...(coverLetter ? { coverLetter } : {}),
   };
 }
@@ -2231,6 +2261,7 @@ export async function submitViaPortal(ctx) {
           if (opened.cv === 'uploaded') {
             record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
             noteUpload('cv');
+            if (opened.cvFieldKey) uploaded.add(opened.cvFieldKey);
           }
           if (opened.cv !== 'uploaded') return await handoff('cv_upload_failed');
         }
