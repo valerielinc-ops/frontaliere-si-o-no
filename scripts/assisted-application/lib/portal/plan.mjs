@@ -77,7 +77,7 @@ export function candidateRules(candidateLocale) {
 - Swiss work permit, work authorisation, residence status, visa or sponsorship: swissStatus.statement is the candidate's own statement of their Swiss status today (null: the candidate did not choose one; then only what profile.workPermit states). Choose the option, or write the value, that says exactly that status, never one that says more (a permit pending, to be requested or not needed); never answer whether the candidate needs a permit, a visa or sponsorship, and never infer a status from the nationality, the address or the place of birth. When no option says it, the field is missing (required) or skipped (optional).
 - Nationality or citizenship: only profile.nationality, choosing the option that names the same country (italiana = Italien = Italy); never from the address, the languages or the place of birth.
 - Age-threshold questions (for example, "under 26" / "meno di 26 anni"): derive the yes/no answer only from an explicit profile.dateOfBirth, calculated against today's date. If the date of birth is absent or invalid, put the required question in missingRequired; never infer age from education, dates of study, the name or the current year.
-- Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). If profile.languagesExplicitList is true, an absent language means the candidate does not speak it only when the form asks about current ability or proficiency in that specific language; answer "no" or "no knowledge" there. Absence does not say whether the candidate is willing, interested, or plans to learn or use that language. For those intent questions, use an explicit prior answer only; when missing, put required fields in missingRequired and skip optional fields. If a listed language explicitly says "no knowledge" or equivalent, answer no rather than yes. If the language is listed but its level is missing, do not invent the level. evidence is "" for every other field.
+- Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). If profile.languagesExplicitList is true and every entry is individually recognized as a complete language entry, an absent language means the candidate does not speak it only when the form asks about current ability or proficiency in that specific language; answer "no" or "no knowledge" there. Ambiguous or unrecognized entries keep absence unknown. Absence does not say whether the candidate is willing, interested, or plans to learn or use that language. For those intent questions, use an explicit prior answer only; when missing, put required fields in missingRequired and skip optional fields. If a listed language explicitly says "no knowledge" or equivalent, answer no rather than yes. If the language is listed but its level is missing, do not invent the level. evidence is "" for every other field.
 - Native language: an explicitly native/mother-tongue entry is sufficient. When profile.cvLanguage identifies the language the CV is written in, and the profile also lists at least one different language with an explicit level while giving no conflicting level for cvLanguage, treat cvLanguage as native/mother tongue for that language's level questions. Do not infer a native language from the CV language alone, and do not infer any other level.
 - Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given. For a date field, use a full calendar date only. Never type an ongoing or partial-period marker such as "ad oggi", "2015", "present" or "current" into a date field; leave the end blank. Do not invent an end date for an ongoing or overlapping CV entry; if the portal requires a full end date and the candidate did not state one, put it in missingRequired.
 - Current school or university: when profile.currentEducation.institution is non-empty, answer a current-school question from it. If the portal offers no matching institution but has an "Other/Autre/Andere" choice, select that choice; if it then exposes a text field for the name, fill the institution exactly as written. Never infer a current school from a completed or undated education entry.
@@ -661,18 +661,19 @@ function localizedNoLanguage(language) {
 
 function languageAnswerForField(candidate, field) {
   const label = String(field?.label || '');
-  if (!isLanguageAbilityQuestion(label)) return null;
-  const codes = languageCodesIn(label);
+  const question = `${label} ${String(field?.context || '')}`.trim();
+  if (!isLanguageAbilityQuestion(question)) return null;
+  const codes = languageCodesIn(question);
   if (codes.length !== 1) return null;
   const entries = explicitLanguageEntries(candidate?.profile);
   if (!entries.length) return null;
   const code = codes[0];
   const entry = explicitLanguageEntry(candidate?.profile, code);
-  const absent = !entry && languageExplicitlyAbsent(candidate?.profile, label);
+  const absent = !entry && languageExplicitlyAbsent(candidate?.profile, question);
   if (!entry && !absent) return null;
   const options = Array.isArray(field?.options) ? field.options : [];
   const optionLabel = (option) => String(option?.label ?? option ?? '').trim();
-  const language = formLanguage(label, candidate);
+  const language = formLanguage(question, candidate);
   const requiredLevel = CEFR_RE.exec(label)?.[1]?.toLowerCase() || '';
   const levelQuestion = Boolean(requiredLevel) || LANGUAGE_PROFICIENCY_QUESTION_RE.test(label);
   const levelField = levelQuestion || LANGUAGE_KNOWLEDGE_FIELD_RE.test(label);
@@ -1109,10 +1110,12 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
-    const supported = knownValues === null || native || isInferredProfileLanguageAnswer(candidate, field, given)
+    const languageAbility = isLanguageAbilityQuestion(`${field.label} ${field.context || ''}`);
+    const supported = (!languageAbility && knownValues === null) || native || isInferredProfileLanguageAnswer(candidate, field, given)
       || answeredByCandidate(candidate, field.label, given, field.context)
-      || (evidenceInData(knownValues, action.evidence) && evidenceSupports(field.label, given, action.evidence));
-    if (KNOCK_OUT.test(field.label) && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {
+      || (!languageAbility && evidenceInData(knownValues, action.evidence) && evidenceSupports(field.label, given, action.evidence));
+    if ((languageAbility || KNOCK_OUT.test(field.label))
+      && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {
       ask(field);
       continue;
     }

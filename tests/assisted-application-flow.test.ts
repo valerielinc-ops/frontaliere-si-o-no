@@ -278,6 +278,20 @@ describe('approval flow', () => {
     expect(repeated.effects).toEqual([{ type: 'email', kind: 'candidate_action_needed' }]);
   });
 
+  it('hands off when a portal question has no usable ID instead of asking the candidate to answer nothing', () => {
+    const submitting = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+    const step = transition(submitting, { type: 'submit_needs_candidate', questions: [{ id: undefined }] }, { draft: cleanDraft, nowMs: T0 });
+
+    expect(step.flow).toMatchObject({
+      state: 'owner_takeover',
+      heldBy: ['portal:portal_needs_candidate'],
+      portalAutoRetryCount: 0,
+      portalAutoRetryAt: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0],
+    });
+    expect(step.effects).toContainEqual(expect.objectContaining({ type: 'email', kind: 'owner_takeover' }));
+    expect(step.effects).not.toContainEqual(expect.objectContaining({ type: 'email', kind: 'candidate_action_needed' }));
+  });
+
   it('still asks the candidate when an existing answer is missing or a document is requested', () => {
     const submitting = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
     const question = { type: 'submit_needs_candidate', questions: ['work_permit'] };
