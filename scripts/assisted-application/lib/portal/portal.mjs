@@ -776,6 +776,7 @@ const documentContextRe = (terms) => new RegExp(
 const CV_DOCUMENT_CONTEXT_RE = documentContextRe(CV_DOCUMENT_TERMS);
 const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe(COVER_LETTER_DOCUMENT_TERMS);
 const CV_FILE_FIELD_RE = CV_DOCUMENT_CONTEXT_RE;
+const uploadedPortalFieldKey = (url, field) => `${url}|${field?.label || field?.id || ''}`;
 
 const isFileField = (field) => field?.kind === 'file' || field?.inputType === 'file';
 const isCvFileField = (field) => {
@@ -1310,7 +1311,7 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
     }
     current = await extractFields(page);
     const uploadedCvField = current.fields.find(isCvFileField);
-    if (cv !== 'unavailable' && uploadedCvField) cvFieldKey = `${page.url()}|${uploadedCvField.label || uploadedCvField.id}`;
+    if (cv !== 'unavailable' && uploadedCvField) cvFieldKey = uploadedPortalFieldKey(page.url(), uploadedCvField);
     // A file that went in, confirmed or not, never goes in twice.
     if (cv !== 'unavailable') done.add(cvKey);
   }
@@ -2417,7 +2418,9 @@ export async function submitViaPortal(ctx) {
         if (unclear) agentHint = 'unclear_fields';
         // A file already uploaded on this page is not uploaded again when the
         // page is planned a second time (Personio empties the input after the upload).
-        const uploadKey = (fieldId) => `${page.url()}|${snapshot.fields.find((field) => field.id === fieldId)?.label || fieldId}`;
+        const uploadKey = (fieldId) => uploadedPortalFieldKey(
+          page.url(), snapshot.fields.find((field) => field.id === fieldId) || { id: fieldId },
+        );
         const actions = plan.actions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
         const plannedUrl = page.url();
         // Choices first: one of them may redraw the form (on Workday the name and address fields follow the
