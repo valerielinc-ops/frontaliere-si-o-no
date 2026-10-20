@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 681,
+      "5": 687,
       "6": 5054
     },
-    "publishedCovers": 7418,
+    "publishedCovers": 7424,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -201547,6 +201547,204 @@
         "provider": "openai-codex",
         "assetId": "article-proporz-gran-consiglio-appenzello",
         "imageUrl": "/images/blog/article-proporz-gran-consiglio-appenzello.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-cdhr-contributo-differenziale-2025": {
+      "cover": "/images/blog/article-cdhr-contributo-differenziale-2025.webp",
+      "hash": "82675046e9a6c76c03e78ba05f237db0c700a7384d8c3bff40fc749f73747e27",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "cdhr-contributo-differenziale-2025",
+          "category": "fiscale",
+          "date": "2026-10-20T02:03:43.122Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cdhr-contributo-differenziale-2025.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cdhr-contributo-differenziale-2025",
+        "imageUrl": "/images/blog/article-cdhr-contributo-differenziale-2025.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-corridoio-linea-wynigen": {
+      "cover": "/images/blog/article-corridoio-linea-wynigen.webp",
+      "hash": "86ebecb666dac91cc0bb974abedbf52f7873ec593e6c1dd4651b0352e65dcea5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "corridoio-linea-wynigen",
+          "category": "novita",
+          "date": "2026-10-20T02:20:36.757Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-corridoio-linea-wynigen.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-corridoio-linea-wynigen",
+        "imageUrl": "/images/blog/article-corridoio-linea-wynigen.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lucerna-bilancio-budget-2027": {
+      "cover": "/images/blog/article-lucerna-bilancio-budget-2027.webp",
+      "hash": "a209a046f789997a91de00249b95413102f9605ff5018038e5482d67127de961",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "lucerna-bilancio-budget-2027",
+          "category": "fiscale",
+          "date": "2026-10-20T00:16:43.132Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lucerna-bilancio-budget-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lucerna-bilancio-budget-2027",
+        "imageUrl": "/images/blog/article-lucerna-bilancio-budget-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lucerna-finanze-sessione-ottobre": {
+      "cover": "/images/blog/article-lucerna-finanze-sessione-ottobre.webp",
+      "hash": "b8593324cb79489060c0887eb336e493cd8c63a583fd1dfe552c42dc83d0e769",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "lucerna-finanze-sessione-ottobre",
+          "category": "fiscale",
+          "date": "2026-10-20T00:56:42.893Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lucerna-finanze-sessione-ottobre.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lucerna-finanze-sessione-ottobre",
+        "imageUrl": "/images/blog/article-lucerna-finanze-sessione-ottobre.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lucerna-forensic-nurses-violenza": {
+      "cover": "/images/blog/article-lucerna-forensic-nurses-violenza.webp",
+      "hash": "dabfe9d67c60356531d9f73b0fbeadc28bdcf28b66b57304db80eb7ac71856df",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "lucerna-forensic-nurses-violenza",
+          "category": "novita",
+          "date": "2026-10-19T23:59:14.540Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lucerna-forensic-nurses-violenza.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-19",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lucerna-forensic-nurses-violenza",
+        "imageUrl": "/images/blog/article-lucerna-forensic-nurses-violenza.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-ricorso-federale-espulsione-zugo": {
+      "cover": "/images/blog/article-ricorso-federale-espulsione-zugo.webp",
+      "hash": "6750e4f0385cefc9cbf605fcdc3eac96297a6f01fc375d7a9c2d71967beb925a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zg",
+          "id": "ricorso-federale-espulsione-zugo",
+          "category": "pratico",
+          "date": "2026-10-20T02:44:35.163Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ricorso-federale-espulsione-zugo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-ricorso-federale-espulsione-zugo",
+        "imageUrl": "/images/blog/article-ricorso-federale-espulsione-zugo.webp",
         "evidence": "generated-engine-record"
       }
     }
