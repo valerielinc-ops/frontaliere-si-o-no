@@ -61042,6 +61042,228 @@
           "notes": "Generic synthetic editorial illustration of a modern school building in a Ticino-like lakeside setting, with no readable text, logos, or identifiable people."
         }
       }
+    },
+    "generated:article-beringen-vbsh-fermate-chiuse": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-20T06:40:49.216Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-20",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-beringen-vbsh-fermate-chiuse",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "7e169119eabf03ea9e0fe2b456b105bda4801ef4a953c9ae15650a4fd91fa369",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "ae89e0b089faf858afc0a7926e2f09b558f5e879b9811d9c0aba1d40f4a2b5c9",
+        "bytes": 152576,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-20T06:40:49.216Z",
+        "verifiedAt": "2026-10-20T06:41:00.362Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-beringen-vbsh-fermate-chiuse.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of an empty bus stop and temporary road barrier; no readable text, logos, people, or identifiable event shown."
+        }
+      }
+    },
+    "generated:article-soletta-parlamento-budget-2027-inchiesta-soh": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-20T06:12:48.081Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-20",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-soletta-parlamento-budget-2027-inchiesta-soh",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "1a3ece032ec3635d7c2c2f778a1cb77f11ae34ef1ec4887f09f048f687256d18",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "492da45c7c72d0eab55d50f7c80ed599e3e05326bb9735d308f8f00c7c922d13",
+        "bytes": 181584,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-20T06:12:48.081Z",
+        "verifiedAt": "2026-10-20T06:13:06.226Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-soletta-parlamento-budget-2027-inchiesta-soh.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Synthetic photorealistic architectural illustration matching the Solothurn government subject; no people, readable text, logos, or specific event."
+        }
+      }
+    },
+    "generated:article-svp-sciaffusa-candidati-2027": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-20T06:05:06.871Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-20",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-svp-sciaffusa-candidati-2027",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "97368e66aba66980fdb7a8b5a385fc3afa6f8bce16299d1c0ddf598d6b5040d6",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "bdee3bbd023bb6c1d5d551b1292c36694321e0fa066ca2899e682fb891431e2b",
+        "bytes": 188984,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-20T06:05:06.871Z",
+        "verifiedAt": "2026-10-20T06:05:14.758Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-svp-sciaffusa-candidati-2027.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic architectural illustration of a municipal-style building in Schaffhausen; no text, logos, people, or event-specific cues."
+        }
+      }
     }
   },
   "covers": {
@@ -100679,6 +100901,18 @@
     },
     "article-scuola-inoltre-ventanni-formazione-carcere": {
       "file": "generated:article-scuola-inoltre-ventanni-formazione-carcere",
+      "modified": "resized"
+    },
+    "article-beringen-vbsh-fermate-chiuse": {
+      "file": "generated:article-beringen-vbsh-fermate-chiuse",
+      "modified": "resized"
+    },
+    "article-soletta-parlamento-budget-2027-inchiesta-soh": {
+      "file": "generated:article-soletta-parlamento-budget-2027-inchiesta-soh",
+      "modified": "resized"
+    },
+    "article-svp-sciaffusa-candidati-2027": {
+      "file": "generated:article-svp-sciaffusa-candidati-2027",
       "modified": "resized"
     }
   }
