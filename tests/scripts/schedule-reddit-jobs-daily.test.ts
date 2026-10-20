@@ -307,6 +307,26 @@ describe('run() — DRY_RUN', () => {
 // ── run() — real (mocked network) ─────────────────────────
 
 describe('run() — real posting', () => {
+  it('aborts before posting and preserves a corrupt ledger', async () => {
+    const tmp = setupTmp({ jobs: [makeJob('A', 1)] });
+    const ledgerPath = join(tmp, 'data', 'reddit-posted-jobs.json');
+    const corrupt = '{ not json';
+    writeFileSync(ledgerPath, corrupt, 'utf8');
+    const fetchSpy = makeFetchMock();
+
+    await expect(run({
+      env: { ...CREDS, REDDIT_JOB_VOLUME: '1', REDDIT_POST_DELAY_MS: '0' },
+      now: NOW,
+      repoRoot: tmp,
+      fetchImpl: fetchSpy as unknown as typeof fetch,
+      log: () => {},
+      warn: () => {},
+    })).rejects.toThrow(/social posted ledger/i);
+
+    expect(fetchSpy).not.toHaveBeenCalled();
+    expect(readFileSync(ledgerPath, 'utf8')).toBe(corrupt);
+  });
+
   it('posts up to volume and writes ledger entries with subreddit + redditPostId', async () => {
     const tmp = setupTmp({ jobs: [makeJob('A', 1), makeJob('B', 2), makeJob('C', 3)] });
     const fetchSpy = makeFetchMock();

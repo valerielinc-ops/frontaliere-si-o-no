@@ -33,8 +33,9 @@ export async function traceCandidate(candidate, deps = {}) {
     ? await traceFromUrl(candidate.careersUrl, domain)
     : await trace(domain);
   if (!trail.reachable) {
-    const retryable = trail.retryable
-      || (trail.failureStatuses || []).some(isRetryableTraceStatus);
+    const retryable = typeof trail.retryable === 'boolean'
+      ? trail.retryable
+      : (trail.failureStatuses || []).some(isRetryableTraceStatus);
     return {
       c: candidate,
       domain,

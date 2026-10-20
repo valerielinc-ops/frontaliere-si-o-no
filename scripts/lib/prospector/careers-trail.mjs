@@ -39,6 +39,17 @@ export function isRetryableTraceStatus(status) {
     || code === 425 || code === 429 || code >= 500;
 }
 
+function isRetryableTraceResponse(response) {
+  return !response?.policyBlocked
+    && !response?.blockedByRobots
+    && isRetryableTraceStatus(response?.status);
+}
+
+function recordTraceResponse(result, response) {
+  result.failureStatuses.push(Number(response?.status) || 0);
+  if (isRetryableTraceResponse(response)) result.retryable = true;
+}
+
 /**
  * Detect a JavaScript-only career surface before the vacancy extractor gives
  * it a zero score. These pages intentionally contain no server-rendered job
@@ -271,17 +282,44 @@ function hasCareerToken(value = '') {
  * level deep, which is where most WordPress/Wix sites keep the page sitemap.
  *
  * @param {string} origin
+ * @param {{ onFailure?: (outcome: { status: number, retryable: boolean, blockedByRobots: boolean, policyBlocked: boolean }) => void }} [opts]
  * @returns {Promise<string[]>}
  */
-export async function careersFromSitemap(origin) {
+export async function careersFromSitemap(origin, { onFailure } = {}) {
   const found = [];
   const seen = new Set();
   /** @param {string} url @param {number} depth */
   const read = async (url, depth) => {
     if (depth > 1 || seen.has(url) || found.length >= 8) return;
     seen.add(url);
-    const res = await politeFetch(url, { accept: 'application/xml,text/xml,*/*' });
-    if (!res.ok || !res.body.includes('<')) return;
+    let res;
+    try {
+      res = await politeFetch(url, { accept: 'application/xml,text/xml,*/*' });
+    } catch {
+      onFailure?.({ status: 0, retryable: true, blockedByRobots: false, policyBlocked: false });
+      return;
+    }
+    if (!res?.ok) {
+      const status = Number(res?.status) || 0;
+      const blockedByRobots = Boolean(res?.blockedByRobots);
+      const policyBlocked = Boolean(res?.policyBlocked);
+      onFailure?.({
+        status,
+        blockedByRobots,
+        policyBlocked,
+        retryable: !blockedByRobots && !policyBlocked && isRetryableTraceStatus(status),
+      });
+      return;
+    }
+    if (typeof res.body !== 'string' || !/<(?:urlset|sitemapindex)\b/i.test(res.body)) {
+      onFailure?.({
+        status: Number(res.status) || 0,
+        retryable: true,
+        blockedByRobots: false,
+        policyBlocked: false,
+      });
+      return;
+    }
     const locs = [...res.body.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/gi)].map((m) => m[1]);
     const isIndex = /<sitemapindex/i.test(res.body);
     for (const loc of locs) {
@@ -473,7 +511,7 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
     via: ['known-careers-url'],
   };
   const page = await politeFetch(careersUrl);
-  result.failureStatuses.push(Number(page.status) || 0);
+  recordTraceResponse(result, page);
   const jsSurface = page.ok && isJavascriptCareerSurface(page.body);
   if (!page.ok || (page.body.length < 300 && !jsSurface)) {
     // A short body is not itself a transient verdict: a small 404 page is a
@@ -481,7 +519,6 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
     // 200 ATS shell is a third case: it is a valid careers surface even when
     // hydration has left the server response under the byte threshold. Carry
     // the HTTP classification explicitly so TRACE cannot revive the former.
-    result.retryable = isRetryableTraceStatus(page.status);
     return result;
   }
   result.reachable = true;
@@ -497,7 +534,6 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
   }
   result.externalHosts = checked.filter((c) => c.verified);
   result.rejectedHosts = checked.filter((c) => !c.verified).map((c) => ({ host: c.host, score: c.score, aggregator: c.aggregator || false }));
-  result.retryable = result.failureStatuses.some(isRetryableTraceStatus);
   result.selfHosted = result.externalHosts.length === 0;
   return result;
 }
@@ -528,13 +564,12 @@ export async function traceCareers(domain, opts = {}) {
   };
 
   let home = await politeFetch(`https://${domain}/`);
-  result.failureStatuses.push(Number(home.status) || 0);
+  recordTraceResponse(result, home);
   if (!home.ok) {
     home = await politeFetch(`https://www.${domain}/`);
-    result.failureStatuses.push(Number(home.status) || 0);
+    recordTraceResponse(result, home);
   }
   if (!home.ok || home.body.length < 300) {
-    result.retryable = result.failureStatuses.some(isRetryableTraceStatus);
     return result;
   }
   result.reachable = true;
@@ -567,10 +602,9 @@ export async function traceCareers(domain, opts = {}) {
     .map((link) => link.url))];
   for (const url of relatedCareerUrls.slice(0, maxCareerPages)) {
     const page = await politeFetch(url);
-    result.failureStatuses.push(Number(page.status) || 0);
+    recordTraceResponse(result, page);
     const jsSurface = page.ok && isJavascriptCareerSurface(page.body);
     if (!page.ok || (page.body.length < 300 && !jsSurface)) {
-      if (isRetryableTraceStatus(page.status)) result.retryable = true;
       continue;
     }
     result.careersUrls.push(page.url);
@@ -590,7 +624,12 @@ export async function traceCareers(domain, opts = {}) {
   }
   if (candidates.length) result.via.push('homepage-link');
   if (!candidates.length) {
-    const sm = await careersFromSitemap(origin);
+    const sm = await careersFromSitemap(origin, {
+      onFailure: ({ status, retryable }) => {
+        result.failureStatuses.push(status);
+        if (retryable) result.retryable = true;
+      },
+    });
     if (sm.length) { candidates.push(...sm); result.via.push('sitemap'); }
   }
   if (!candidates.length) {
@@ -622,11 +661,10 @@ export async function traceCareers(domain, opts = {}) {
     if (seen.has(key)) continue;
     seen.add(key);
     const page = await politeFetch(url);
-    result.failureStatuses.push(Number(page.status) || 0);
+    recordTraceResponse(result, page);
     if (!page.ok) continue;
     const jsSurface = isJavascriptCareerSurface(page.body);
     if (page.body.length < 300 && !jsSurface) {
-      if (isRetryableTraceStatus(page.status)) result.retryable = true;
       continue;
     }
     if (!isDistinctCareerSurface(home.body, page.body, page.url, home.url)) continue;
@@ -646,8 +684,6 @@ export async function traceCareers(domain, opts = {}) {
   }
   result.externalHosts = checked.filter((c) => c.verified);
   result.rejectedHosts = checked.filter((c) => !c.verified).map((c) => ({ host: c.host, score: c.score, aggregator: c.aggregator || false }));
-  result.retryable = result.retryable || result.failureStatuses.some(isRetryableTraceStatus);
-
   // No third-party host anywhere, but a careers page exists -> the employer
   // publishes on its own site and needs a bespoke crawler rather than a family one.
   result.selfHosted = result.careersUrls.length > 0 && result.externalHosts.length === 0;

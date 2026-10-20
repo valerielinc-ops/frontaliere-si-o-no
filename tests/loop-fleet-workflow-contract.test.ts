@@ -653,7 +653,10 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('git -C "$ledger_worktree" ls-tree -r --name-only HEAD');
     expect(source).toContain('--ledger-dir "$ledger_dir"');
     expect(source).toContain('Validate source run provenance');
+    expect(source).toContain('--json event,headBranch,headSha,status,conclusion');
     expect(source).toContain('source_branch');
+    expect(source).toContain("source_status=$(jq -r '.status // \"\"' <<<\"$source_run\")");
+    expect(source).toContain('[ "$source_status" != \'completed\' ]');
     expect(source).toContain("!= 'main'");
     expect(source).not.toMatch(/contents:\s*write/u);
     expect(source).not.toContain('pull-requests: read');

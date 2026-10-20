@@ -197,6 +197,12 @@ registro dei vendor, `crawlers/` le spec generate, `validation.json` il report d
 qualità. I candidati in stato terminale oltre i 90 giorni vengono potati, così la
 coda non cresce senza limite.
 
+`platforms.json` conserva anche `lastExpansion`, con esito, numero di host
+scoperti e tenant vivi, limite sonde raggiunto e stato separato di Common Crawl
+e CertSpotter. Un enumeratore vuoto ma riuscito (`complete`) resta distinguibile
+da una fonte non disponibile o da una risposta malformata; `partial` segnala
+copertura incompleta senza cancellare i risultati già raccolti.
+
 ## Trappole misurate
 
 - **DNS wildcard**: su molte piattaforme `qualsiasi-cosa.vendor.com` risolve.

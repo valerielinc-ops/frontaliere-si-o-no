@@ -14,7 +14,7 @@
  * place-id lookup, API run loops) stays in the per-channel scripts.
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createCantonResolvers, AGGREGATE_KEY } from '../../build-plugins/shared/cantonResolvers.mjs';
@@ -516,20 +516,21 @@ export function withUtm(url, { source, medium, campaign, content } = {}) {
 // ── Posted-jobs ledger I/O ──────────────────────────────────
 
 /**
- * Read a posted-jobs ledger from `filePath`. Returns
- * `{schemaVersion:1, posted:[]}` on missing file, malformed JSON, or shape
- * mismatch — never throws. Channel-agnostic: each scheduler passes its own
- * ledger path.
+ * Read a posted-jobs ledger from `filePath`. A missing file is a first run;
+ * malformed, schema-invalid, or unreadable ledgers throw so callers cannot
+ * lose deduplication state and republish old content.
  *
  * @param {string} filePath
  */
 export function loadLedger(filePath) {
+  let raw;
   try {
-    if (!existsSync(filePath)) return parseLedger('');
-    return parseLedger(readFileSync(filePath, 'utf-8'));
-  } catch {
-    return parseLedger('');
+    raw = readFileSync(filePath, 'utf-8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return { schemaVersion: 1, posted: [] };
+    throw new Error(`Cannot read social posted ledger at ${filePath}`, { cause: error });
   }
+  return parseLedger(raw);
 }
 
 /**

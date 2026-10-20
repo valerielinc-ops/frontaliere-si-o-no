@@ -366,7 +366,9 @@ async function fetchJobs(url = process.env.APPLICATION_CONCIERGE_JOB_INDEX_URL |
     const response = await fetch(url, { signal: controller.signal, headers: { accept: 'application/json' } });
     if (!response.ok) throw new Error(`job_index_http_${response.status}`);
     const value = await response.json();
-    return Array.isArray(value) ? value : Array.isArray(value?.jobs) ? value.jobs : [];
+    if (Array.isArray(value)) return value;
+    if (value && typeof value === 'object' && !Array.isArray(value) && Array.isArray(value.jobs)) return value.jobs;
+    throw new Error('job_index_invalid_shape');
   } finally {
     clearTimeout(timer);
   }

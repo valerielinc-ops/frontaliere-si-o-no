@@ -42,6 +42,7 @@ import { registrableDomain, normalizeHost, sameOrg } from './registrable.mjs';
  * @property {number} tenantCount
  * @property {string} [lastExpandedAt]               last enumeration attempt
  * @property {number} [expansionAttempts]            number of enumeration attempts
+ * @property {{ at: string, outcome: string, discoveredHosts: number, liveTenants: number, probeLimitReached: boolean, sources: Record<string, { outcome: string, items: number, errorCode: string|null }> }} [lastExpansion]
  * @property {string} discoveredAt
  * @property {string} [note]
  */
@@ -261,6 +262,40 @@ export function matchPlatform(registry, host) {
 export function recordExpansionAttempt(platform, at = new Date().toISOString()) {
   platform.lastExpandedAt = at;
   platform.expansionAttempts = (Number(platform.expansionAttempts) || 0) + 1;
+  return platform;
+}
+
+/**
+ * Persist bounded outcome metadata for the latest tenant enumeration. Raw
+ * response bodies, URLs, and tenant identities stay out of this health record.
+ *
+ * @param {Platform} platform
+ * @param {{ outcome?: string, discovered?: string[], live?: any[], probeLimitReached?: boolean, sourceOutcomes?: Record<string, { outcome?: string, items?: number, errorCode?: string|null }> }} result
+ * @param {string} [at]
+ * @returns {Platform}
+ */
+export function recordExpansionResult(platform, result = {}, at = new Date().toISOString()) {
+  const allowed = new Set(['complete', 'partial', 'unavailable', 'malformed']);
+  const outcome = allowed.has(result.outcome) ? result.outcome : 'unavailable';
+  const sources = {};
+  for (const [name, source] of Object.entries(result.sourceOutcomes || {})) {
+    const sourceOutcome = source?.outcome;
+    if (sourceOutcome === 'skipped') continue;
+    const code = String(source?.errorCode || '');
+    sources[name] = {
+      outcome: allowed.has(sourceOutcome) ? sourceOutcome : 'unavailable',
+      items: Number.isFinite(Number(source?.items)) ? Math.max(0, Math.floor(Number(source.items))) : 0,
+      errorCode: /^[a-z0-9_.-]{1,60}$/i.test(code) ? code : null,
+    };
+  }
+  platform.lastExpansion = {
+    at,
+    outcome,
+    discoveredHosts: Array.isArray(result.discovered) ? result.discovered.length : 0,
+    liveTenants: Array.isArray(result.live) ? result.live.length : 0,
+    probeLimitReached: result.probeLimitReached === true,
+    sources,
+  };
   return platform;
 }
 

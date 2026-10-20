@@ -1477,14 +1477,21 @@ function getWeeklyFact(locale = 'it') {
   return localeFacts[weekIndex % localeFacts.length];
 }
 
-function loadLocalJobsData() {
+export function loadLocalJobsData({
+  jobsPath = fileURLToPath(new URL('../data/jobs.json', import.meta.url)),
+  slicesDirPath = fileURLToPath(new URL('../data/jobs/by-crawler/', import.meta.url)),
+  statsPath = fileURLToPath(new URL('../data/jobs-stats.json', import.meta.url)),
+} = {}) {
   let jobs = [];
   let jobStats = {};
+  let primaryError = null;
 
   // Primary: read assembled data/jobs.json
   try {
-    jobs = JSON.parse(fs.readFileSync(new URL('../data/jobs.json', import.meta.url), 'utf8'));
-  } catch {
+    jobs = JSON.parse(fs.readFileSync(jobsPath, 'utf8'));
+    if (!Array.isArray(jobs)) throw new Error('data/jobs.json must contain an array');
+  } catch (error) {
+    primaryError = error;
     // Fallback: assemble from per-crawler slices (handles CI when assembly step failed)
     //
     // The missing directory is reported explicitly. Before #6776 this path read
@@ -1498,29 +1505,35 @@ function loadLocalJobsData() {
     // An EXISTING but empty directory stays silent on purpose: that is a
     // legitimate state (every slice pruned) and not the same failure.
     try {
-      const slicesDir = new URL('../data/jobs/by-crawler/', import.meta.url);
-      const slicesDirPath = fileURLToPath(slicesDir);
       const { state, files: sliceFiles } = readSliceDirectory(slicesDirPath);
       if (state === 'missing') {
-        console.warn(`⚠️  Local jobs load failed (both jobs.json and slices): crawler slice directory missing at ${slicesDirPath}`);
-      } else {
-        for (const file of sliceFiles) {
-          const slice = JSON.parse(fs.readFileSync(new URL(file, slicesDir), 'utf8'));
-          // The slices also hold agency jobs held out of publication until their
-          // titles are translated; the assembled data/jobs.json never does.
-          if (Array.isArray(slice.jobs)) jobs.push(...excludeHeldFromPublication(slice.jobs));
-        }
-        if (jobs.length > 0) {
-          console.warn(`⚠️  data/jobs.json missing — loaded ${jobs.length} jobs from ${sliceFiles.length} crawler slices`);
-        }
+        throw new Error(`crawler slice directory missing at ${slicesDirPath}`);
       }
-    } catch (e2) {
-      console.warn('⚠️  Local jobs load failed (both jobs.json and slices):', e2.message);
+      for (const file of sliceFiles) {
+        let slice;
+        try {
+          slice = JSON.parse(fs.readFileSync(path.join(slicesDirPath, file), 'utf8'));
+        } catch (error) {
+          throw new Error(`cannot read crawler slice ${file}`, { cause: error });
+        }
+        if (!slice || typeof slice !== 'object' || Array.isArray(slice) || !Array.isArray(slice.jobs)) {
+          throw new Error(`invalid crawler slice shape in ${file}`);
+        }
+        // The slices also hold agency jobs held out of publication until their
+        // titles are translated; the assembled data/jobs.json never does.
+        jobs.push(...excludeHeldFromPublication(slice.jobs));
+      }
+      console.warn(`⚠️  data/jobs.json unavailable (${primaryError.message}) — loaded ${jobs.length} jobs from ${sliceFiles.length} crawler slices`);
+    } catch (fallbackError) {
+      throw new Error(
+        `Local jobs load incomplete: jobs.json failed (${primaryError.message}); crawler-slice fallback failed (${fallbackError.message})`,
+        { cause: fallbackError },
+      );
     }
   }
 
   try {
-    jobStats = JSON.parse(fs.readFileSync(new URL('../data/jobs-stats.json', import.meta.url), 'utf8'));
+    jobStats = JSON.parse(fs.readFileSync(statsPath, 'utf8'));
   } catch {
     // stats are optional
   }

@@ -175,11 +175,22 @@ describe('orphan reconciliation report — history series', () => {
     expect(doc!.entries[doc!.entries.length - 1].at).toBe(`row-${HISTORY_MAX_ROWS + 24}`);
   });
 
-  it('starts a fresh series instead of throwing on a corrupt history file', () => {
+  it('preserves a corrupt history file and refuses to overwrite it', () => {
     const root = mkRepo();
     fs.mkdirSync(path.join(root, 'data'), { recursive: true });
-    fs.writeFileSync(path.join(root, HISTORY_FILE), '{ not json');
-    const doc = appendHistory({ at: 'x', orphanSlugs: 1 }, root);
-    expect(doc.entries.length).toBe(1);
+    const file = path.join(root, HISTORY_FILE);
+    fs.writeFileSync(file, '{ not json');
+    expect(() => appendHistory({ at: 'x', orphanSlugs: 1 }, root)).toThrow(/Malformed orphan reconciliation history/);
+    expect(fs.readFileSync(file, 'utf-8')).toBe('{ not json');
+  });
+
+  it('refuses a schema-invalid history without replacing it', () => {
+    const root = mkRepo();
+    fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+    const invalid = JSON.stringify({ version: 1, generatedAt: 'x', entries: [{ orphanSlugs: 5 }] });
+    const file = path.join(root, HISTORY_FILE);
+    fs.writeFileSync(file, invalid);
+    expect(() => appendHistory({ at: 'y', orphanSlugs: 6 }, root)).toThrow(/Invalid orphan reconciliation history shape/);
+    expect(fs.readFileSync(file, 'utf-8')).toBe(invalid);
   });
 });

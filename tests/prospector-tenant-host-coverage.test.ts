@@ -134,4 +134,18 @@ describe('tenant host coverage after discovery', () => {
     expect(res.checks.tenantFree).toBe(false);
     expect(res.reasons.join(' ')).toMatch(/recruitingapp-2998\.umantis\.com e' gia' letto dal crawler bethesda-spital/);
   });
+
+  it.each([
+    ['malformed JSON', '{ not json'],
+    ['non-array root', '{"companies":[]}'],
+    ['invalid entry', '[{"key":"valid-key"}]'],
+  ])('fails closed when the crawler-company coverage source has %s', (_label, contents) => {
+    const file = path.join(root, 'data', 'crawler-companies-auto.json');
+    fs.writeFileSync(file, contents, 'utf8');
+    try {
+      expect(() => loadCoverage(root)).toThrow(/crawler-company coverage source/);
+    } finally {
+      fs.rmSync(file, { force: true });
+    }
+  });
 });

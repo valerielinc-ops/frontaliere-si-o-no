@@ -8,6 +8,10 @@ vi.mock('node:child_process', () => {
         && String(args[1]).includes('/runs?status=success&event=schedule')) {
         return JSON.stringify({ workflow_runs: [] });
       }
+      if (cmd === 'gh' && args[0] === 'api'
+        && String(args[1]).includes('/actions/runs?status=startup_failure')) {
+        return JSON.stringify({ workflow_runs: [] });
+      }
       return execFileSync(cmd, args, ...rest);
     },
   };
@@ -209,6 +213,43 @@ describe('observation window — completion time, not start time', () => {
       (call) => call[0] === 'gh' && call[1][0] === 'api'
         && call[1][1].includes(`/runs/${observable.id}/jobs`),
     )).toBe(true);
+  });
+});
+
+describe('run-list pagination integrity', () => {
+  it('fails the scan when the first runs page is unreadable', async () => {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] !== 'api') return '';
+      if (args[1].includes('/runs?status=success&event=schedule')) {
+        return JSON.stringify({ workflow_runs: [] });
+      }
+      if (args[1].includes('actions/runs?status=cancelled')) throw new Error('API unavailable');
+      return JSON.stringify({ workflow_runs: [] });
+    });
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await expect(main()).rejects.toThrow(/risposta runs cancelled non leggibile \(page=1\)/);
+  });
+
+  it('fails the scan when a later runs page is unreadable instead of returning a partial list', async () => {
+    const firstPage = Array.from({ length: 100 }, (_, index) => runFixture(index + 1));
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] !== 'api') return '';
+      if (args[1].includes('/runs?status=success&event=schedule')) {
+        return JSON.stringify({ workflow_runs: [] });
+      }
+      if (args[1].includes('actions/runs?status=cancelled')) {
+        const query = new URLSearchParams(args[1].split('?')[1]);
+        if (query.get('page') === '1') {
+          return JSON.stringify({ total_count: 200, workflow_runs: firstPage });
+        }
+        throw new Error('later page unavailable');
+      }
+      return JSON.stringify({ workflow_runs: [] });
+    });
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await expect(main()).rejects.toThrow(/risposta runs cancelled non leggibile \(page=2\)/);
   });
 });
 

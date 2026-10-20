@@ -29,7 +29,7 @@
  * longer RC value in CI logs (isTrivialSecret), and a masked "publish" would
  * turn every log line containing that word into `***`.
  */
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 import { instagramEngagementMechanic } from './instagram-engagement.mjs';
@@ -156,35 +156,56 @@ export function emptyQueue() {
   return { schemaVersion: QUEUE_SCHEMA_VERSION, pending: [] };
 }
 
-/** Parse queue JSON text; anything malformed reads as an empty queue. */
+/** Parse queue JSON text. Invalid data throws so queued posts cannot be lost on the next write. */
 export function parseQueue(raw) {
+  if (raw === null || raw === undefined) return emptyQueue();
+  let parsed;
   try {
-    const parsed = typeof raw === 'string' ? JSON.parse(raw) : raw;
-    if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.pending)) return emptyQueue();
-    return { schemaVersion: QUEUE_SCHEMA_VERSION, pending: parsed.pending.filter((e) => e && typeof e === 'object') };
+    parsed = typeof raw === 'string' ? JSON.parse(raw) : raw;
   } catch {
-    return emptyQueue();
+    throw new Error('Malformed social publish queue JSON');
   }
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)
+    || (parsed.schemaVersion !== undefined && parsed.schemaVersion !== QUEUE_SCHEMA_VERSION)
+    || !Array.isArray(parsed.pending)
+    || parsed.pending.some((entry) => !entry || typeof entry !== 'object' || Array.isArray(entry)
+      || typeof entry.id !== 'string' || !entry.id.trim())) {
+    throw new Error('Invalid social publish queue shape');
+  }
+  return { schemaVersion: QUEUE_SCHEMA_VERSION, pending: parsed.pending };
 }
 
 /**
- * Parse ledger JSON text (data/<channel>-posted.json); malformed → empty.
- * The one ledger parser: loadLedger in social-post-utils.mjs reads the file
- * and delegates here.
+ * Parse ledger JSON text (data/<channel>-posted.json). Invalid data throws:
+ * a false-empty ledger would erase deduplication state and can repost content.
  */
 export function parseLedger(raw) {
+  if (raw === null || raw === undefined) return { schemaVersion: 1, posted: [] };
+  let parsed;
   try {
-    const parsed = typeof raw === 'string' ? JSON.parse(raw) : raw;
-    if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.posted)) return { schemaVersion: 1, posted: [] };
-    return { schemaVersion: Number(parsed.schemaVersion) || 1, posted: parsed.posted };
+    parsed = typeof raw === 'string' ? JSON.parse(raw) : raw;
   } catch {
-    return { schemaVersion: 1, posted: [] };
+    throw new Error('Malformed social posted ledger JSON');
   }
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)
+    || (parsed.schemaVersion !== undefined && parsed.schemaVersion !== 1)
+    || !Array.isArray(parsed.posted)
+    || parsed.posted.some((entry) => !entry || typeof entry !== 'object' || Array.isArray(entry)
+      || typeof entry.id !== 'string' || !entry.id.trim())) {
+    throw new Error('Invalid social posted ledger shape');
+  }
+  return { schemaVersion: 1, posted: parsed.posted };
 }
 
 export function loadQueue(filePath) {
-  if (!existsSync(filePath)) return emptyQueue();
-  return parseQueue(readFileSync(filePath, 'utf8'));
+  let raw;
+  try {
+    raw = readFileSync(filePath, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return emptyQueue();
+    throw new Error(`Cannot read social publish queue at ${filePath}`, { cause: error });
+  }
+  return parseQueue(raw);
 }
 
 export function saveQueue(filePath, queue) {
@@ -314,7 +335,6 @@ export function dropPending(queue, { channel, kind }) {
  */
 export function dequeuePosts(filePath, { channel, kind, queueId = null }) {
   assertChannel(channel);
-  if (!existsSync(filePath)) return emptyQueue();
   const current = loadQueue(filePath);
   const next = queueId
     ? {
@@ -363,7 +383,8 @@ export function isPublishedForKindDay(ledger, { kind, day } = {}) {
  * site's CDN. Oldest first.
  *
  * @param {{ pending: object[] }} queue
- * @param {{ channel: string, now?: number|Date, ledger?: object,
+ * @param {{ channel: string, now?: number|Date,
+ *   ledger?: string|null|{ schemaVersion?: number, posted: object[] },
  *   blockedIds?: Set<string>, blockedLedgerKeys?: Set<string> }} opts
  */
 export function selectNextPending(queue, { channel, now = Date.now(), ledger = null, blockedIds = new Set(), blockedLedgerKeys = new Set() }) {

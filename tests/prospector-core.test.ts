@@ -15,7 +15,7 @@ import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath,
 import { clearPoliteFetchStateForTests, parseRobots, robotsAllows } from '../scripts/lib/prospector/polite-fetch.mjs';
 import {
   loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
-  sharedHostPlatforms, listingPathHints, recordExpansionAttempt,
+  sharedHostPlatforms, listingPathHints, recordExpansionAttempt, recordExpansionResult,
 } from '../scripts/lib/prospector/platform-registry.mjs';
 import {
   hasRecentSecoDemand,
@@ -253,6 +253,27 @@ describe('platform registry', () => {
     expect(r.platforms['never.example']).toMatchObject({
       lastExpandedAt: '2026-09-15T03:00:00Z',
       expansionAttempts: 1,
+    });
+    recordExpansionResult(r.platforms['never.example'], {
+      outcome: 'partial',
+      discovered: ['tenant-a.ats.example'],
+      live: [],
+      probeLimitReached: true,
+      sourceOutcomes: {
+        commoncrawl: { outcome: 'complete', items: 1 },
+        certspotter: { outcome: 'unavailable', items: 0, errorCode: 'http_503' },
+      },
+    }, '2026-09-15T03:00:00Z');
+    expect(r.platforms['never.example'].lastExpansion).toEqual({
+      at: '2026-09-15T03:00:00Z',
+      outcome: 'partial',
+      discoveredHosts: 1,
+      liveTenants: 0,
+      probeLimitReached: true,
+      sources: {
+        commoncrawl: { outcome: 'complete', items: 1, errorCode: null },
+        certspotter: { outcome: 'unavailable', items: 0, errorCode: 'http_503' },
+      },
     });
   });
 });

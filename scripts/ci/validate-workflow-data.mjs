@@ -104,7 +104,7 @@ function validateDate(value, field, errors, nowMs) {
 }
 
 function validateNonNegativeInteger(value, field, errors) {
-  if (!Number.isInteger(value) || value < 0) add(errors, field, 'intero non negativo richiesto');
+  if (!Number.isSafeInteger(value) || value < 0) add(errors, field, 'intero non negativo sicuro richiesto');
 }
 
 function validateNullableNonNegativeInteger(value, field, errors) {
@@ -329,11 +329,17 @@ function relativeRepositoryPath(root, file) {
   return relative;
 }
 
-function readHeadFile(root, relative) {
+export function readHeadFile(root, relative) {
   try {
-    return execFileSync('git', ['show', `HEAD:${relative}`], { cwd: root, encoding: 'utf8' });
-  } catch {
-    return null;
+    return execFileSync('git', ['show', `HEAD:${relative}`], {
+      cwd: root,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+  } catch (error) {
+    const stderr = String(error?.stderr ?? '');
+    if (error?.status === 128 && /fatal: path .+ does not exist in 'HEAD'/u.test(stderr)) return null;
+    throw new Error(`Impossibile leggere il baseline HEAD:${relative}`, { cause: error });
   }
 }
 

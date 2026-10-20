@@ -224,6 +224,9 @@ describe('loop-fleet-ledger-reconcile', () => {
       run: { runId: '123', sha: SHA },
       ledgerFiles: ['loop-observations.jsonl', 'loop-decisions.jsonl', 'loop-health-history.jsonl', 'lifecycle-events.jsonl'],
     });
+    const execution = { loopId: 'L0', runId: '123', sha: SHA };
+    writeJsonl(root, 'loop-observations.jsonl', [{ recordType: 'observation', loopId: 'L0', recordId: 'observation-1', execution }]);
+    writeJsonl(root, 'loop-decisions.jsonl', [{ recordType: 'decision', loopId: 'L0', recordId: 'decision-1', execution }]);
     writeJsonl(root, 'loop-health-history.jsonl', [{ recordId: 'health-1', loopId: 'L0', execution: { loopId: 'L0', runId: '123', sha: SHA } }]);
     expect(missingEvidenceRecordIds(root, ledger, { loopId: 'L0', runId: '123', sha: SHA })).toMatchObject({
       ok: false,
@@ -241,11 +244,94 @@ describe('loop-fleet-ledger-reconcile', () => {
       lifecycleEventTypes: ['candidate', 'owner_assigned'],
       ledgerFiles: ['loop-observations.jsonl', 'loop-decisions.jsonl', 'loop-health-history.jsonl', 'lifecycle-events.jsonl'],
     });
+    const execution = { loopId: 'L0', runId: '123', sha: SHA };
+    writeJsonl(root, 'loop-observations.jsonl', [{ recordType: 'observation', loopId: 'L0', recordId: 'observation-1', execution }]);
+    writeJsonl(root, 'loop-decisions.jsonl', [{ recordType: 'decision', loopId: 'L0', recordId: 'decision-1', execution }]);
     writeJsonl(root, 'loop-health-history.jsonl', [{ recordId: 'health-1', loopId: 'L0', execution: { loopId: 'L0', runId: '123', sha: SHA } }]);
     writeJsonl(root, 'lifecycle-events.jsonl', [{ eventType: 'candidate' }]);
     expect(missingEvidenceRecordIds(root, ledger, { loopId: 'L0', runId: '123', sha: SHA })).toMatchObject({
       ok: false,
       reason: 'lifecycle evidence does not match the current-contract summary',
+    });
+  });
+
+  it.each([
+    ['observation', 'loop-observations.jsonl'],
+    ['decision', 'loop-decisions.jsonl'],
+  ])('does not treat a current-contract artifact as durable when %s evidence is absent', (type, missingFile) => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-reconcile-missing-current-evidence-'));
+    const input = path.join(root, 'input');
+    const ledger = path.join(root, 'ledger');
+    fs.mkdirSync(input);
+    fs.mkdirSync(ledger);
+    const execution = { loopId: 'L0', runId: '123', sha: SHA };
+    const recordSet = {
+      observation: { recordType: 'observation', loopId: 'L0', recordId: 'observation-1', execution },
+      decision: { recordType: 'decision', loopId: 'L0', recordId: 'decision-1', execution },
+      health: { recordType: 'health', loopId: 'L0', recordId: 'health-1', execution },
+      lifecycle: { recordType: 'lifecycle-event', loopId: 'L0', recordId: 'lifecycle-1', eventType: 'candidate', execution },
+    };
+    writeJson(input, 'loop-fleet-evidence.json', {
+      loopId: 'L0',
+      run: { runId: '123', sha: SHA },
+      ledgerFiles: ['loop-observations.jsonl', 'loop-decisions.jsonl', 'loop-health-history.jsonl', 'lifecycle-events.jsonl'],
+      lifecycleEventTypes: ['candidate'],
+    });
+    for (const [recordType, fileName] of Object.entries({
+      observation: 'loop-observations.jsonl',
+      decision: 'loop-decisions.jsonl',
+      health: 'loop-health-history.jsonl',
+      lifecycle: 'lifecycle-events.jsonl',
+    })) {
+      if (fileName !== missingFile) writeJsonl(input, fileName, [recordSet[recordType as keyof typeof recordSet]]);
+      writeJsonl(ledger, fileName, [recordSet[recordType as keyof typeof recordSet]]);
+    }
+
+    expect(missingEvidenceRecordIds(input, ledger, { loopId: 'L0', runId: '123', sha: SHA })).toMatchObject({
+      ok: false,
+      reason: `${type} evidence is missing from a current-contract artifact`,
+      missing: [],
+    });
+  });
+
+  it.each([
+    ['observation', 'loop-observations.jsonl'],
+    ['decision', 'loop-decisions.jsonl'],
+  ])('does not treat a written %s evidence file as durable when it is empty', (type, emptyFile) => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-reconcile-empty-current-evidence-'));
+    const input = path.join(root, 'input');
+    const ledger = path.join(root, 'ledger');
+    fs.mkdirSync(input);
+    fs.mkdirSync(ledger);
+    const execution = { loopId: 'L0', runId: '123', sha: SHA };
+    const recordSet = {
+      observation: { recordType: 'observation', loopId: 'L0', recordId: 'observation-1', execution },
+      decision: { recordType: 'decision', loopId: 'L0', recordId: 'decision-1', execution },
+      health: { recordType: 'health', loopId: 'L0', recordId: 'health-1', execution },
+      lifecycle: { recordType: 'lifecycle-event', loopId: 'L0', recordId: 'lifecycle-1', eventType: 'candidate', execution },
+    };
+    writeJson(input, 'loop-fleet-evidence.json', {
+      loopId: 'L0',
+      run: { runId: '123', sha: SHA },
+      evidenceComplete: true,
+      written: { observation: true, decision: true },
+      ledgerFiles: ['loop-observations.jsonl', 'loop-decisions.jsonl', 'loop-health-history.jsonl', 'lifecycle-events.jsonl'],
+      lifecycleEventTypes: ['candidate'],
+    });
+    for (const [recordType, fileName] of Object.entries({
+      observation: 'loop-observations.jsonl',
+      decision: 'loop-decisions.jsonl',
+      health: 'loop-health-history.jsonl',
+      lifecycle: 'lifecycle-events.jsonl',
+    })) {
+      writeJsonl(input, fileName, fileName === emptyFile ? [] : [recordSet[recordType as keyof typeof recordSet]]);
+      writeJsonl(ledger, fileName, [recordSet[recordType as keyof typeof recordSet]]);
+    }
+
+    expect(missingEvidenceRecordIds(input, ledger, { loopId: 'L0', runId: '123', sha: SHA })).toMatchObject({
+      ok: false,
+      reason: `${type} evidence is empty although the summary marks it written`,
+      missing: [],
     });
   });
 

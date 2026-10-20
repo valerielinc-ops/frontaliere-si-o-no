@@ -41,16 +41,24 @@ function readStage(stage) {
   return gitShowStage(stage, TARGET);
 }
 
-function parseOrEmpty(label, raw) {
+function parseStage(label, raw) {
+  let parsed;
   try {
-    const parsed = JSON.parse(raw);
-    if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) return parsed;
-    process.stderr.write(`[resolve-winners] ${label} version is not a JSON object; treating as empty\n`);
-    return {};
-  } catch (err) {
-    process.stderr.write(`[resolve-winners] ${label} JSON parse failed: ${err.message}\n`);
-    return {};
+    parsed = JSON.parse(raw);
+  } catch (error) {
+    throw new Error(`[resolve-winners] ${label} JSON parse failed`, { cause: error });
   }
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new Error(`[resolve-winners] ${label} version is not a JSON object`);
+  }
+  for (const [key, entry] of Object.entries(parsed)) {
+    if (!key || !entry || typeof entry !== 'object' || Array.isArray(entry)
+        || typeof entry.winnerJobIdentifier !== 'string' || !entry.winnerJobIdentifier
+        || typeof entry.winnerCanonical !== 'string' || !entry.winnerCanonical) {
+      throw new Error(`[resolve-winners] ${label} version has an invalid winner entry for ${JSON.stringify(key)}`);
+    }
+  }
+  return parsed;
 }
 
 const conflicted = execFileSync('git', ['diff', '--name-only', '--diff-filter=U'], { encoding: 'utf-8' })
@@ -76,8 +84,8 @@ if (conflicted.length > 1) {
 
 // During rebase: stage 2 = upstream (the file on origin/main), stage 3 =
 // our local commit (the freshly computed file being replayed). See readStage.
-const upstream = parseOrEmpty('upstream', readStage(2));
-const local = parseOrEmpty('local', readStage(3));
+const upstream = parseStage('upstream', readStage(2));
+const local = parseStage('local', readStage(3));
 
 // Union: start from upstream, overlay local (freshest compute wins on collision).
 // Result is sorted on write to match `saveWinners()` in services/previousSlugWinners.ts.
