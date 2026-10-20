@@ -15,6 +15,9 @@ export const CREATE_CONSULTING_CHECKOUT_URL = `${FUNCTIONS_BASE}/createConsultin
 /** Stripe Checkout Session creation for the €1.99 assisted-application flow. */
 export const CREATE_ASSISTED_APPLICATION_CHECKOUT_URL = `${FUNCTIONS_BASE}/createAssistedApplicationCheckout`;
 
+/** Authenticated, candidate-safe list of paid assisted applications and their current status. */
+export const MY_ASSISTED_APPLICATIONS_URL = `${FUNCTIONS_BASE}/myAssistedApplications`;
+
 /** Stripe/SumUp Checkout for the €39.99, 30-day application concierge. */
 export const CREATE_APPLICATION_CONCIERGE_CHECKOUT_URL = `${FUNCTIONS_BASE}/createApplicationConciergeCheckout`;
 

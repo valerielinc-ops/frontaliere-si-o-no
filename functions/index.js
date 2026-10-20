@@ -79,6 +79,7 @@ import {
   runConsultingPaidNoticeSweep,
 } from './src/consultingCore.js';
 import { handleCreateAssistedApplicationCheckout } from './src/assistedApplicationCheckout.js';
+import { handleListMyAssistedApplications } from './src/assistedApplicationCandidateStatus.js';
 import {
   handleAssistedApplicationSumUpWebhook,
   runAssistedApplicationSumUpReconciliation,
@@ -463,6 +464,31 @@ export const manageAssistedApplicationAdmin = onRequest(
       res.status(status).json(body);
     } catch (error) {
       console.error('[manageAssistedApplicationAdmin]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Candidate-safe list of the signed-in user's paid assisted applications.
+export const myAssistedApplications = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://www.frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleListMyAssistedApplications(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[myAssistedApplications]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
     }
   },
