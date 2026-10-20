@@ -13,6 +13,7 @@
 import {
   FUEL_INDEX_TERMINAL_SLUGS as SHARED_FUEL_INDEX_TERMINAL_SLUGS,
   FUEL_SECTION_SLUG as SHARED_FUEL_SECTION_SLUG,
+  FUEL_TODAY_SLUG as SHARED_FUEL_TODAY_SLUG,
   FUEL_ZONES as SHARED_FUEL_ZONES,
 } from './shared/fuelRouteSlugs.mjs';
 
@@ -61,12 +62,8 @@ export const FUEL_SECTION_SLUG: Record<FuelDailyLocale, Record<FuelType, string>
   SHARED_FUEL_SECTION_SLUG as Record<FuelDailyLocale, Record<FuelType, string>>;
 
 /** "Today" keyword per locale. */
-export const FUEL_TODAY_SLUG: Record<FuelDailyLocale, string> = {
-  it: 'oggi',
-  en: 'today',
-  de: 'heute',
-  fr: 'aujourd-hui',
-};
+export const FUEL_TODAY_SLUG: Record<FuelDailyLocale, string> =
+  SHARED_FUEL_TODAY_SLUG as Record<FuelDailyLocale, string>;
 
 /** Locale prefix for non-IT URLs. */
 export const FUEL_LOCALE_PREFIX: Record<FuelDailyLocale, string> = {
