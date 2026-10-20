@@ -985,13 +985,22 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // Same evidence as the #5945 filtered-empty counts, stated directly instead
   // of derived: the run fetched and parsed fine, its own filter kept nothing.
   const filteredEmptyOutcome = fetchOutcome === 'filtered_empty' && lastObservedJobs === 0;
+  // A non-transport early exit never observed a publishable source result. The
+  // crawler template keeps the historical `selector_miss` outcome on this
+  // receipt for compatibility, but that label is not evidence of a fetch-
+  // boundary selector miss. Keep the receipt on the corroborated abort path;
+  // otherwise one fail-closed detail/listing extraction abort immediately
+  // marks a healthy crawler broken while its previous slice is still valid.
+  const unobservedNonTransportAbort =
+    abortedRun && abortKind !== 'connection-level-fetch';
   // A PROVEN break, on the run's own report. Waiting three days to say "0 jobs"
   // adds nothing here: the cause is already known and named. A soft transport
   // abort is intentionally excluded and uses the ordinary empty-streak gate.
   const fetchFailed =
     (CRAWLER_FETCH_FAILURE_OUTCOMES.has(fetchOutcome) || abortKind === 'connection-level-fetch') &&
     lastObservedJobs === 0 &&
-    !transientTransportAbort;
+    !transientTransportAbort &&
+    !unobservedNonTransportAbort;
 
   // A fetch failure, process-exit receipt, or parser-positive zero-output
   // receipt cancels every empty-ok signal, including a manual
