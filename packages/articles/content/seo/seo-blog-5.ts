@@ -112489,6 +112489,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-interrogazione-wicht-clausola-regionale': {
+    title: 'Lugano: interrogazione su clausola salvaguardia e frontalieri',
+    description: 'Omar Wicht interroga il Municipio di Lugano Clausola regionale approvata a settembre 2026 Limiti temporanei all\'immigrazione tra le misure previste',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, interrogazione, clausola, salvaguardia',
+    ogTitle: 'Lugano: interrogazione su clausola salvaguardia e frontalieri',
+    ogDescription: 'Omar Wicht interroga il Municipio di Lugano Clausola regionale approvata a settembre 2026 Limiti temporanei all\'immigrazione tra le misure previste Possibile',
+    canonicalPath: '/articoli-frontaliere/interrogazione-wicht-clausola-regionale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano: interrogazione su clausola salvaguardia e frontalieri",
+      "description": "Omar Wicht interroga il Municipio di Lugano Clausola regionale approvata a settembre 2026 Limiti temporanei all'immigrazione tra le misure previste",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-interrogazione-wicht-clausola-regionale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-20T19:20:37+00:00",
+      "dateModified": "2026-10-20T19:20:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/interrogazione-wicht-clausola-regionale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ricerca-cisl-frontalieri-2026': {
+    title: 'Ricerca CISL: potere d\'acquisto in calo per i frontalieri',
+    description: '1.542 risposte raccolte nel maggio 2026 31,7% oltre un\'ora e mezza negli spostamenti 87,8% considera penalizzante la «tassa sulla salute» 76,9%',
+    keywords: 'frontalieri, ticino, svizzera, italia, ricerca, cisl, potere, acquisto',
+    ogTitle: 'Ricerca CISL: potere d\'acquisto in calo per i frontalieri',
+    ogDescription: '1.542 risposte raccolte nel maggio 2026 31,7% oltre un\'ora e mezza negli spostamenti 87,8% considera penalizzante la «tassa sulla salute» 76,9% non valuta',
+    canonicalPath: '/articoli-frontaliere/ricerca-cisl-frontalieri-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ricerca CISL: potere d'acquisto in calo per i frontalieri",
+      "description": "1.542 risposte raccolte nel maggio 2026 31,7% oltre un'ora e mezza negli spostamenti 87,8% considera penalizzante la «tassa sulla salute» 76,9%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ricerca-cisl-frontalieri-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-20T19:40:20+00:00",
+      "dateModified": "2026-10-20T19:40:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ricerca-cisl-frontalieri-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

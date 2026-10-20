@@ -13535,6 +13535,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.battaglia-frontalieri-tasse-diritti.title': 'La lunga battaglia dei frontalieri: tasse, diritti e disparità',
     'blog.article.battaglia-frontalieri-tasse-diritti.excerpt': 'Circa 31 mila frontalieri nel Varesotto e 32 mila nel Comasco Varese resta esclusa dai ristorni dopo il ritorno del 4% Il 31,7% supera un\'ora e mezza di viaggio',
     'blog.article.battaglia-frontalieri-tasse-diritti.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.interrogazione-wicht-clausola-regionale.title': 'Lugano: interrogazione su clausola salvaguardia e frontalieri',
+    'blog.article.interrogazione-wicht-clausola-regionale.excerpt': 'Omar Wicht interroga il Municipio di Lugano Clausola regionale approvata a settembre 2026 Limiti temporanei all\'immigrazione tra le misure previste Possibile',
+    'blog.article.interrogazione-wicht-clausola-regionale.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.ricerca-cisl-frontalieri-2026.title': 'Ricerca CISL: potere d\'acquisto in calo per i frontalieri',
+    'blog.article.ricerca-cisl-frontalieri-2026.excerpt': '1.542 risposte raccolte nel maggio 2026 31,7% oltre un\'ora e mezza negli spostamenti 87,8% considera penalizzante la «tassa sulla salute» 76,9% non valuta',
+    'blog.article.ricerca-cisl-frontalieri-2026.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;
