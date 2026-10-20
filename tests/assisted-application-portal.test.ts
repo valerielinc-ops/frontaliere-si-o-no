@@ -1042,6 +1042,28 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     }, [alsoUnknownLanguage], { ...candidate, profile: { cvText: 'German C2' } });
     expect(partialAlsoEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: alsoUnknownLanguage.id })]);
 
+    const proficiencyWithContext = {
+      id: 'proficiency-context-unknown-language', kind: 'select',
+      label: 'What is your German level and your proficiency in Xhosa?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const partialProficiencyContext = guardPlan({
+      actions: [{ fieldId: proficiencyWithContext.id, action: 'select', value: 'C2', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [proficiencyWithContext], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialProficiencyContext.missingRequired).toEqual([expect.objectContaining({ fieldId: proficiencyWithContext.id })]);
+
+    const shortLanguageCode = {
+      id: 'short-language-code-target', kind: 'select',
+      label: 'Do you speak German and zh at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialShortLanguageCode = guardPlan({
+      actions: [{ fieldId: shortLanguageCode.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [shortLanguageCode], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialShortLanguageCode.missingRequired).toEqual([expect.objectContaining({ fieldId: shortLanguageCode.id })]);
+
     const singleLanguageModifiers = {
       id: 'single-language-modifiers', kind: 'select',
       label: 'What is your German level: conversational or professional?', required: true,

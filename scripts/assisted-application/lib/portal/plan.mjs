@@ -385,14 +385,19 @@ const LANGUAGE_TARGET_QUALIFIERS = new Set([
   'geschrieben', 'gesprochen', 'mundlich', 'schriftlich',
 ]);
 
-function isPotentialLanguageTarget(value) {
+function isPotentialLanguageTarget(value, knownLanguageCodes = []) {
   const words = String(value || '').match(/[\p{L}][\p{L}\p{M}'-]*/gu) || [];
   for (const word of words) {
     const lower = word.toLowerCase();
     const normalized = lower.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     if (LANGUAGE_TARGET_ARTICLES.has(lower) || LANGUAGE_TARGET_QUALIFIERS.has(normalized)) continue;
-    if (word.length < 3) return false;
-    return !LANGUAGE_TARGET_STOP_WORDS.has(normalized);
+    if (LANGUAGE_TARGET_STOP_WORDS.has(normalized)) continue;
+    const languageCode = languageCodeOf(word);
+    if (languageCode) {
+      if (knownLanguageCodes.includes(languageCode)) continue;
+      return true;
+    }
+    if (word.length >= 3) return true;
   }
   return false;
 }
@@ -411,13 +416,15 @@ function hasMultipleLanguageTargets(question) {
     const connector = match[0].trim().toLowerCase();
     const before = text.slice(0, match.index);
     const after = text.slice(match.index + match[0].length).trimStart();
-    if (languageCodesIn(before).length > 0 && isPotentialLanguageTarget(after)) return true;
+    const beforeLanguageCodes = languageCodesIn(before);
+    const afterLanguageCodes = languageCodesIn(after);
+    if (beforeLanguageCodes.length > 0 && isPotentialLanguageTarget(after, beforeLanguageCodes)) return true;
 
     // Reverse order: an unknown language can precede the recognized one.
     // Common prepositions are excluded so "Level of German" stays monolingual.
     if (ambiguousPrepositions.has(connector) || !strictListConnectors.has(connector)) continue;
     const previousTarget = /([\p{L}][\p{L}\p{M}'-]*)\s*$/u.exec(before.trim())?.[1] || '';
-    if (previousTarget && isPotentialLanguageTarget(previousTarget) && languageCodesIn(after).length > 0) return true;
+    if (previousTarget && isPotentialLanguageTarget(previousTarget, afterLanguageCodes) && afterLanguageCodes.length > 0) return true;
   }
 
   const pairedLanguagePatterns = [

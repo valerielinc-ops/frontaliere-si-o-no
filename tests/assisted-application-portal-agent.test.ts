@@ -332,6 +332,28 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: alsoUnknownLanguage })],
     });
 
+    const proficiencyWithContext = 'What is your German level and your proficiency in Xhosa?';
+    const partialProficiencyContext = guardAgentStep(turn('act', [act({
+      ref: 'e35', action: 'select', value: 'C2', question: proficiencyWithContext, answer: 'C2',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialProficiencyContext).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: proficiencyWithContext })],
+    });
+
+    const shortLanguageCode = 'Do you speak German and zh at C2?';
+    const partialShortLanguageCode = guardAgentStep(turn('act', [act({
+      ref: 'e36', action: 'select', value: 'Yes', question: shortLanguageCode, answer: 'Yes',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialShortLanguageCode).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: shortLanguageCode })],
+    });
+
     const singleLanguageModifiers = 'What is your German level: conversational or professional?';
     const supportedModifierEvidence = guardAgentStep(turn('act', [act({
       ref: 'e33', action: 'select', value: 'C2', question: singleLanguageModifiers, answer: 'C2',
