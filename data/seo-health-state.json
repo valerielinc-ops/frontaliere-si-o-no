@@ -1,24 +1,7 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-10-19T09:59:32.241Z",
-  "findings": {
-    "sitemap-fetch-error|https://frontaliereticino.ch/sitemap-articles-canton-ne.xml": {
-      "code": "sitemap-fetch-error",
-      "url": "https://frontaliereticino.ch/sitemap-articles-canton-ne.xml",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-10-19T09:59:32.241Z",
-      "lastSeenAt": "2026-10-19T09:59:32.241Z",
-      "detail": null
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch:2087/login/": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch:2087/login/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-10-19T09:59:32.241Z",
-      "lastSeenAt": "2026-10-19T09:59:32.241Z",
-      "detail": "edge=503 count=1 live=503 surface=other"
-    }
-  },
-  "cleanRuns": 0,
+  "lastRunAt": "2026-10-20T09:30:50.922Z",
+  "findings": {},
+  "cleanRuns": 1,
   "lastActionable": false
 }
