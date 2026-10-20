@@ -215,9 +215,9 @@ function buildPage(
       <p style="${LEDE_STYLE}">${esc(copy.bridgeText(label))}</p>
     </header>
     ${renderStatGrid([
-      { label: copy.inventory, value: jobs.length.toLocaleString(locale), tone: 'base' },
-      { label: copy.employers, value: employers.toLocaleString(locale), tone: 'base' },
-      { label: copy.updated, value: dateStamp, tone: 'base' },
+      { label: copy.inventory, value: jobs.length.toLocaleString(locale), tone: 'neutral' },
+      { label: copy.employers, value: employers.toLocaleString(locale), tone: 'neutral' },
+      { label: copy.updated, value: dateStamp, tone: 'neutral' },
     ])}
     <section class="max-w-3xl mx-auto px-4 py-6">
       <a href="${esc(sectionRoot)}" style="font-weight:700;display:inline-flex;min-height:44px;align-items:center">${esc(copy.allJobs)} →</a>
@@ -258,7 +258,7 @@ function buildPage(
     ${renderStatGrid([
       { label: copy.inventory, value: jobs.length.toLocaleString(locale), tone: 'success' },
       { label: copy.employers, value: employers.toLocaleString(locale), tone: 'accent' },
-      { label: copy.currentOpenings, value: cards.length.toLocaleString(locale), tone: 'base' },
+      { label: copy.currentOpenings, value: cards.length.toLocaleString(locale), tone: 'neutral' },
     ])}
     <section class="max-w-3xl mx-auto px-4 py-6">
       <h2 class="s-CqexyJ">${esc(copy.jobsHeading)}</h2>
