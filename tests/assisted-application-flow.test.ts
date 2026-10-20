@@ -261,6 +261,50 @@ describe('approval flow', () => {
     expect(step.flow).toMatchObject({ heldSince: again, heldNudges: 0, reminderAt: again + HELD_REMINDERS_AFTER_MS[0] });
   });
 
+  it('hands an unidentifiable portal question to owner takeover', () => {
+    const step = transition(
+      { state: 'submitting', round: 1, heldBy: [], dispatch: { mode: 'submit', attempts: 1 } },
+      { type: 'submit_needs_candidate', questions: [{ id: undefined }], documents: [] },
+      { draft: cleanDraft, nowMs: T0 },
+    );
+    expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal_needs_candidate'] });
+    expect(step.effects).toEqual([{
+      type: 'email',
+      kind: 'owner_takeover',
+      reason: 'portal:portal_needs_candidate',
+      stage: 'submit',
+      attempts: 1,
+    }]);
+  });
+
+  it('retries once without a candidate email when the portal repeats questions that already have answers', () => {
+    const submitting = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+    const event = { type: 'submit_needs_candidate', questions: ['work_permit'] };
+    const retry = transition(submitting, event, { draft: cleanDraft, answers: { work_permit: 'G' }, nowMs: T0 });
+    expect(retry.flow).toMatchObject({ state: 'submitting', heldBy: [], heldSince: null });
+    expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
+
+    const negativeAnswer = transition(submitting, { ...event, questions: ['can_work_in_switzerland'] }, {
+      draft: cleanDraft, answers: { can_work_in_switzerland: false }, nowMs: T0,
+    });
+    expect(negativeAnswer.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
+
+    const repeated = transition({ ...submitting, dispatch: { ...submitting.dispatch, attempts: 2 } }, event, { draft: cleanDraft, answers: { work_permit: 'G' }, nowMs: T0 });
+    expect(repeated.flow).toMatchObject({ state: 'needs_candidate_action', heldBy: ['question:work_permit'], heldSince: T0 });
+    expect(repeated.effects).toEqual([{ type: 'email', kind: 'candidate_action_needed' }]);
+  });
+
+  it('still asks the candidate when an existing answer is missing or a document is requested', () => {
+    const submitting = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+    const question = { type: 'submit_needs_candidate', questions: ['work_permit'] };
+    const missing = transition(submitting, question, { draft: cleanDraft, answers: {}, nowMs: T0 });
+    expect(missing.flow).toMatchObject({ state: 'needs_candidate_action', heldBy: ['question:work_permit'] });
+    expect(missing.effects).toEqual([{ type: 'email', kind: 'candidate_action_needed' }]);
+
+    const document = transition(submitting, { ...question, documents: ['certificate'] }, { draft: cleanDraft, answers: { work_permit: 'G' }, nowMs: T0 });
+    expect(document.flow).toMatchObject({ state: 'needs_candidate_action', heldBy: ['question:work_permit', 'document:certificate'] });
+  });
+
   // Rolex 2026-10-02: school reports and the EVA test results go with the application.
   it('holds the send until each required document is uploaded: nothing else lifts the hold', () => {
     const draft = { ...cleanDraft, requiredDocuments: [

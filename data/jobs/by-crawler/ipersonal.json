@@ -615,12 +615,12 @@
     },
     {
       "id": "ipersonal-5d9dd439b16b",
-      "slug": "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b",
+      "slug": "infermiere-a-diplomato-a-hf-medipersonal-fahrni-b",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b",
-        "it": "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b",
-        "en": "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b",
-        "fr": "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b"
+        "it": "infermiere-a-diplomato-a-hf-medipersonal-fahrni-b",
+        "en": "diploma-qualified-nurse-hf-medipersonal-fahrni-b",
+        "fr": "infirmiere-infirmier-diplome-e-hf-medipersonal-fahrni-b"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -664,21 +664,25 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b-thun-bern",
-          "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b-thun"
+          "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b-thun",
+          "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b"
         ],
         "en": [
-          "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b-thun-bern"
+          "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b-thun-bern",
+          "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b"
         ],
         "de": [
           "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b-thun-bern"
         ],
         "fr": [
-          "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b-thun-bern"
+          "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b-thun-bern",
+          "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b-thun-bern",
-        "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b-thun"
+        "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b-thun",
+        "dipl-pflegefachfrau-mann-hf-medipersonal-fahrni-b"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -831,12 +835,12 @@
     },
     {
       "id": "ipersonal-c642cff5a6c9",
-      "slug": "dipl-expertin-experte-nds-notfallpflege-medipersonal-wilen-b",
+      "slug": "dipl-expert-expert-nds-emergency-care-medipersonal-wilen-b",
       "slugByLocale": {
         "de": "dipl-expertin-experte-nds-notfallpflege-medipersonal-wilen-b",
-        "it": "dipl-expertin-experte-nds-notfallpflege-medipersonal-wilen-b",
-        "en": "dipl-expertin-experte-nds-notfallpflege-medipersonal-wilen-b",
-        "fr": "dipl-expertin-experte-nds-notfallpflege-medipersonal-wilen-b"
+        "it": "dipl-expert-expert-nds-emergency-care-medipersonal-wilen-b",
+        "en": "dipl-expert-expert-nds-emergency-care-medipersonal-wilen-b",
+        "fr": "dipl-expert-expert-snd-soins-d-urgence-medipersonal-wilen-b"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -893,14 +897,22 @@
       "firstSeenAt": "2026-10-20T09:13:01.066Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-nds-notfallpflege-medipersonal-wilen-b-wil-thurgau"
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-wilen-b-wil-thurgau",
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-wilen-b"
         ],
         "de": [
           "dipl-expertin-experte-nds-notfallpflege-medipersonal-wilen-b-wil-thurgau"
+        ],
+        "en": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-wilen-b"
+        ],
+        "fr": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-wilen-b"
         ]
       },
       "previousSlugs": [
-        "dipl-expertin-experte-nds-notfallpflege-medipersonal-wilen-b-wil-thurgau"
+        "dipl-expertin-experte-nds-notfallpflege-medipersonal-wilen-b-wil-thurgau",
+        "dipl-expertin-experte-nds-notfallpflege-medipersonal-wilen-b"
       ]
     },
     {

@@ -883,6 +883,239 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(guardPlan({ actions: [], missingRequired: [] }, [field], ended).missingRequired.map((item: any) => item.fieldId)).toEqual(['employment']);
   });
 
+  it('requires language-specific evidence for ability and proficiency answers', () => {
+    const candidate = {
+      answers: {},
+      profile: { residenceCity: 'Berlin', cvText: 'German C1 / English C2' },
+      portalQuestionsAnswered: [],
+    };
+    const ability = {
+      id: 'german-speaking', kind: 'select', label: 'Do you speak?', context: 'German', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const genericEvidence = guardPlan({
+      actions: [{ fieldId: ability.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'Berlin' }],
+      missingRequired: [],
+    }, [ability], candidate);
+    expect(genericEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: ability.id })]);
+
+    const proficiency = {
+      id: 'german-c2', kind: 'select', label: 'C2?', context: 'German language proficiency', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const mixedEvidence = guardPlan({
+      actions: [{ fieldId: proficiency.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C1 / English C2' }],
+      missingRequired: [],
+    }, [proficiency], candidate);
+    expect(mixedEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: proficiency.id })]);
+
+    const connectors = ['and', 'or', 'nor', 'und', 'oder', 'et', 'ou', 'e', 'o', 'y', 'en', 'of', 'och', 'og', 'si', 'și', 's\u0326i', 'sau', 'sowie', 'samt', 'plus', 'ni', 'né', 'noch', 'nem', '&', ';', ',', '/', '+', '-', '–', '—', 'as well as', 'along with', 'together with', 'in addition to', 'ainsi que', 'de même que', 'oltre a', 'così come', 'insieme a', 'así como', 'bem como'];
+    for (const connector of connectors) {
+      for (const language of ['Xhosa', 'xhosa']) {
+        const multipleLanguages = {
+          id: 'two-languages', kind: 'select', label: `Do you speak German ${connector} ${language} at C2?`, required: true,
+          options: [{ label: 'Yes' }, { label: 'No' }],
+        };
+        const partialEvidence = guardPlan({
+          actions: [{ fieldId: multipleLanguages.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+          missingRequired: [],
+        }, [multipleLanguages], { ...candidate, profile: { cvText: 'German C2' } });
+        expect(partialEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: multipleLanguages.id })]);
+      }
+    }
+
+    const pairedLanguage = {
+      id: 'paired-languages', kind: 'select', label: 'Sprichst du sowohl Deutsch als auch xhosa auf C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const pairedPartialEvidence = guardPlan({
+      actions: [{ fieldId: pairedLanguage.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'Deutsch C2' }],
+      missingRequired: [],
+    }, [pairedLanguage], { ...candidate, profile: { cvText: 'Deutsch C2' } });
+    expect(pairedPartialEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: pairedLanguage.id })]);
+
+    const neitherNorLanguage = {
+      id: 'neither-nor-languages', kind: 'select', label: 'Do you speak neither German nor xhosa at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialNeitherNorEvidence = guardPlan({
+      actions: [{ fieldId: neitherNorLanguage.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [neitherNorLanguage], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialNeitherNorEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: neitherNorLanguage.id })]);
+
+    const explicitSingleLanguage = {
+      ...candidate,
+      profile: { languagesExplicitList: true, languages: [{ language: 'German', level: 'C2' }] },
+    };
+    const explicitMultiLanguage = {
+      id: 'explicit-two-languages', kind: 'select', label: 'Do you speak German and Xhosa at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialExplicitList = guardPlan({
+      actions: [{ fieldId: explicitMultiLanguage.id, action: 'select', value: 'Yes', source: 'profile' }],
+      missingRequired: [],
+    }, [explicitMultiLanguage], explicitSingleLanguage);
+    expect(partialExplicitList.missingRequired).toEqual([expect.objectContaining({ fieldId: explicitMultiLanguage.id })]);
+
+    const pairedEnglish = {
+      id: 'paired-english-languages', kind: 'select', label: 'Do you speak not only German but also xhosa at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const englishPairPartialEvidence = guardPlan({
+      actions: [{ fieldId: pairedEnglish.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [pairedEnglish], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(englishPairPartialEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: pairedEnglish.id })]);
+
+    const reversedLanguageOrder = {
+      id: 'reversed-two-languages', kind: 'select', label: 'Parlez-vous xhosa et allemand au niveau C2 ?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const reversedPartialEvidence = guardPlan({
+      actions: [{ fieldId: reversedLanguageOrder.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'allemand C2' }],
+      missingRequired: [],
+    }, [reversedLanguageOrder], { ...candidate, profile: { cvText: 'allemand C2' } });
+    expect(reversedPartialEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: reversedLanguageOrder.id })]);
+
+    const emDashReverseOrder = {
+      id: 'em-dash-reversed-two-languages', kind: 'select', label: 'Parlez-vous xhosa — allemand au niveau C2 ?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialEmDashEvidence = guardPlan({
+      actions: [{ fieldId: emDashReverseOrder.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'allemand C2' }],
+      missingRequired: [],
+    }, [emDashReverseOrder], { ...candidate, profile: { cvText: 'allemand C2' } });
+    expect(partialEmDashEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: emDashReverseOrder.id })]);
+
+    const singleLanguageQuestions = [
+      { question: 'What is your knowledge of German at C2?', evidence: 'German C2' },
+      { question: 'Level of German at C2?', evidence: 'German C2' },
+      { question: 'Level of German at C2 or higher?', evidence: 'German C2' },
+      { question: 'What is your German level, particularly in writing?', evidence: 'German C2' },
+      { question: 'What is your German level: C2 or at least B2?', evidence: 'German C2' },
+      { question: 'Can you speak English and use it?', evidence: 'English C2' },
+      { question: 'Can you read English and write it at C2 level?', evidence: 'English C2' },
+      { question: 'Can you read English and do it at C2 level?', evidence: 'English C2' },
+      { question: 'Quel est votre niveau d’anglais et de compétence orale ?', evidence: 'English C2' },
+      { question: 'Quel est votre niveau en allemand au C2?', evidence: 'German C2' },
+      { question: 'Niveau en allemand C2', evidence: 'German C2' },
+      { question: 'Qual è il livello di tedesco?', evidence: 'German C2' },
+    ];
+    for (const { question, evidence } of singleLanguageQuestions) {
+      const singleLanguage = {
+        id: 'single-language', kind: 'select', label: question, required: true,
+        options: [{ label: 'C2' }],
+      };
+      const supportedEvidence = guardPlan({
+        actions: [{ fieldId: singleLanguage.id, action: 'select', value: 'C2', source: 'profile', evidence }],
+        missingRequired: [],
+      }, [singleLanguage], { ...candidate, profile: { cvText: evidence } });
+      expect(supportedEvidence.actions).toEqual([expect.objectContaining({ fieldId: singleLanguage.id, value: 'C2' })]);
+      expect(supportedEvidence.missingRequired).toEqual([]);
+    }
+
+    const spokenOrWrittenItalian = {
+      id: 'italian-spoken-or-written', kind: 'select',
+      label: 'Qual è il livello di italiano parlato o scritto?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const supportedModeEvidence = guardPlan({
+      actions: [{ fieldId: spokenOrWrittenItalian.id, action: 'select', value: 'C2', source: 'profile', evidence: 'Italian C2' }],
+      missingRequired: [],
+    }, [spokenOrWrittenItalian], { ...candidate, profile: { cvText: 'Italian C2' } });
+    expect(supportedModeEvidence.actions).toEqual([expect.objectContaining({ fieldId: spokenOrWrittenItalian.id, value: 'C2' })]);
+    expect(supportedModeEvidence.missingRequired).toEqual([]);
+
+    const advancedUnknownLanguage = {
+      id: 'advanced-unknown-language', kind: 'select', label: 'Do you speak German and advanced xhosa at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialAdvancedEvidence = guardPlan({
+      actions: [{ fieldId: advancedUnknownLanguage.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [advancedUnknownLanguage], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialAdvancedEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: advancedUnknownLanguage.id })]);
+
+    const alsoUnknownLanguage = {
+      id: 'also-unknown-language', kind: 'select', label: 'Do you speak German and also Xhosa at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialAlsoEvidence = guardPlan({
+      actions: [{ fieldId: alsoUnknownLanguage.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [alsoUnknownLanguage], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialAlsoEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: alsoUnknownLanguage.id })]);
+
+    const proficiencyWithContext = {
+      id: 'proficiency-context-unknown-language', kind: 'select',
+      label: 'What is your German level and your proficiency in Xhosa?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const partialProficiencyContext = guardPlan({
+      actions: [{ fieldId: proficiencyWithContext.id, action: 'select', value: 'C2', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [proficiencyWithContext], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialProficiencyContext.missingRequired).toEqual([expect.objectContaining({ fieldId: proficiencyWithContext.id })]);
+
+    const shortLanguageCode = {
+      id: 'short-language-code-target', kind: 'select',
+      label: 'Do you speak German and zh at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialShortLanguageCode = guardPlan({
+      actions: [{ fieldId: shortLanguageCode.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [shortLanguageCode], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialShortLanguageCode.missingRequired).toEqual([expect.objectContaining({ fieldId: shortLanguageCode.id })]);
+
+    const ambiguousLanguageCode = {
+      id: 'ambiguous-language-code-target', kind: 'select',
+      label: 'Do you speak English and de at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialAmbiguousLanguageCode = guardPlan({
+      actions: [{ fieldId: ambiguousLanguageCode.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'English C2' }],
+      missingRequired: [],
+    }, [ambiguousLanguageCode], { ...candidate, profile: { cvText: 'English C2' } });
+    expect(partialAmbiguousLanguageCode.missingRequired).toEqual([expect.objectContaining({ fieldId: ambiguousLanguageCode.id })]);
+
+    const frenchDePreposition = {
+      id: 'french-de-preposition', kind: 'select',
+      label: 'Quel est votre niveau d’anglais et de compétence orale ?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const supportedFrenchDePreposition = guardPlan({
+      actions: [{ fieldId: frenchDePreposition.id, action: 'select', value: 'C2', source: 'profile', evidence: 'English C2' }],
+      missingRequired: [],
+    }, [frenchDePreposition], { ...candidate, profile: { cvText: 'English C2' } });
+    expect(supportedFrenchDePreposition.actions).toEqual([expect.objectContaining({ fieldId: frenchDePreposition.id, value: 'C2' })]);
+    expect(supportedFrenchDePreposition.missingRequired).toEqual([]);
+
+    const atLeastUnknownLanguage = {
+      id: 'at-least-unknown-language', kind: 'select',
+      label: 'What is your German level and at least Xhosa?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const partialAtLeastUnknownLanguage = guardPlan({
+      actions: [{ fieldId: atLeastUnknownLanguage.id, action: 'select', value: 'C2', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [atLeastUnknownLanguage], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialAtLeastUnknownLanguage.missingRequired).toEqual([expect.objectContaining({ fieldId: atLeastUnknownLanguage.id })]);
+
+    const singleLanguageModifiers = {
+      id: 'single-language-modifiers', kind: 'select',
+      label: 'What is your German level: conversational or professional?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const supportedModifierEvidence = guardPlan({
+      actions: [{ fieldId: singleLanguageModifiers.id, action: 'select', value: 'C2', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [singleLanguageModifiers], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(supportedModifierEvidence.actions).toEqual([expect.objectContaining({ fieldId: singleLanguageModifiers.id, value: 'C2' })]);
+    expect(supportedModifierEvidence.missingRequired).toEqual([]);
+  });
+
   it('derives a native language from the CV language only with contrasting language evidence', () => {
     const candidate = candidateForForm({
       identity: { name: 'Test Candidate', email: 'test@example.com' },
@@ -1160,6 +1393,7 @@ describe('portal runner helpers', () => {
       portalQuestionsAnswered: [],
     };
     const repeatEmail = { id: 'email-again', kind: 'text', label: 'E-Mail-Adresse erneut eingeben: *', required: true, options: [] };
+    const email = { id: 'email', kind: 'text', label: 'E-Mail-Adresse', required: true, options: [] };
     const street = { id: 'street-name', kind: 'text', label: 'Street Name', context: 'My Information', required: true, options: [] };
     const postcode = { id: 'postcode', kind: 'text', label: 'Postcode', context: 'My Information', required: true, options: [] };
     const country = { id: 'residence-country', kind: 'select', label: 'Land/Region des Wohnorts:*', required: true, options: [{ label: '- Bitte auswählen -' }, { label: 'Schweiz' }, { label: 'Italien' }] };
@@ -1178,6 +1412,7 @@ describe('portal runner helpers', () => {
       .toEqual({ value: '6830', source: 'identity' });
     expect(candidateAnswerForField(candidate, { label: 'Nazione (di residenza)', context: flattenedPersonalContext, options: [{ label: 'Svizzera' }, { label: 'Italia' }] }))
       .toEqual({ value: 'Svizzera', source: 'identity' });
+    expect(candidateAnswerForField(candidate, email)).toEqual({ value: candidate.identity.email, source: 'identity' });
     expect(candidateAnswerForField(candidate, repeatEmail)).toBeNull();
     expect(candidateAnswerForField(candidate, street)).toEqual({ value: 'Via Esempio', source: 'identity' });
     expect(candidateAnswerForField(candidate, postcode)).toEqual({ value: '6830', source: 'identity' });
@@ -1479,7 +1714,8 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     // «Ja» answers another question of the candidate: the substring rule read it as backing this one.
     for (const permitStatus of ['none', 'permit_b']) {
       const guarded = guardPlan({ actions: [select('p1', 'Ja', 'answers')], missingRequired: [] }, [yesNo], candidate({ permitStatus }, { portal_fuehrerschein: 'Ja' }));
-      expect([permitStatus, guarded.actions, guarded.missingRequired.map((item: any) => item.fieldId)]).toEqual([permitStatus, [], ['p1']]);
+      const expected = permitStatus === 'none' ? select('p1', 'Nein') : select('p1', 'Ja');
+      expect([permitStatus, guarded.actions, guarded.missingRequired]).toEqual([permitStatus, [expected], []]);
     }
     // The candidate's own answer to this very question.
     const answered = candidate({ permitStatus: 'none' }, { portal_bewilligung: 'Ja' }, [{ id: 'portal_bewilligung', question }]);
@@ -1497,7 +1733,8 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
   it('keeps a nationality only when it names the one the candidate gave, Swiss for the status «swiss»', () => {
     const field = { id: 'n1', kind: 'select', label: 'Nationalität', required: true, options: [{ label: 'Italien' }, { label: 'Deutschland' }, { label: 'Schweiz' }] };
     expect(guardPlan({ actions: [select('n1', 'Italien', 'profile')], missingRequired: [] }, [field], candidate({ nationality: 'italiana' })).actions).toEqual([select('n1', 'Italien', 'profile')]);
-    expect(guardPlan({ actions: [select('n1', 'Deutschland', 'profile')], missingRequired: [] }, [field], candidate({ nationality: 'italiana' })).missingRequired.map((item: any) => item.fieldId)).toEqual(['n1']);
+    expect(guardPlan({ actions: [select('n1', 'Deutschland', 'profile')], missingRequired: [] }, [field], candidate({ nationality: 'italiana' })))
+      .toEqual({ actions: [select('n1', 'Italien', 'profile')], missingRequired: [] });
     expect(guardPlan({ actions: [select('n1', 'Schweiz', 'profile')], missingRequired: [] }, [field], candidate({ permitStatus: 'swiss' })).actions).toEqual([select('n1', 'Schweiz', 'profile')]);
   });
 
