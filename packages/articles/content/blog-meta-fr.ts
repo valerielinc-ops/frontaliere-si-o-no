@@ -13542,6 +13542,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ricerca-cisl-frontalieri-2026.title': 'Étude de la CISL : baisse du pouvoir d\'achat des travailleurs frontaliers',
     'blog.article.ricerca-cisl-frontalieri-2026.excerpt': '1.542 réponses recueillies en mai 2026 31,7% plus d\'une heure et demie dans les déplacements 87,8% considère la « taxe sur la santé » pénalisante 76,9% n\'évalue pas',
     'blog.article.ricerca-cisl-frontalieri-2026.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.ville-ponti-frontalieri-confronto.title': 'Travailleurs frontaliers, aux Ville Ponti le débat sur le travail',
+    'blog.article.ville-ponti-frontalieri-confronto.excerpt': '24 octobre : colloque aux Ville Ponti de Varese À 10 heures, la recherche sur les travailleurs frontaliers Deux tables rondes sur l’économie et les institutions Conclusions',
+    'blog.article.ville-ponti-frontalieri-confronto.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

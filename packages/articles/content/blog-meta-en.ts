@@ -13540,6 +13540,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ricerca-cisl-frontalieri-2026.title': 'CISL research: declining purchasing power for cross-border workers',
     'blog.article.ricerca-cisl-frontalieri-2026.excerpt': '1.542 responses collected in May 2026 31,7% over an hour and a half commuting 87,8% considers the «health tax» penalizing 76,9% does not assess',
     'blog.article.ricerca-cisl-frontalieri-2026.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.ville-ponti-frontalieri-confronto.title': 'Cross-border workers: discussion on employment at Ville Ponti',
+    'blog.article.ville-ponti-frontalieri-confronto.excerpt': 'October 24: conference at the Ville Ponti in Varese At 10, the research on cross-border workers Two round tables on the economy and institutions Conclusions',
+    'blog.article.ville-ponti-frontalieri-confronto.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

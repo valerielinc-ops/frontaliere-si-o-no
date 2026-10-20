@@ -45691,6 +45691,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ville-ponti-frontalieri-confronto',
+ category: 'novita',
+ date: '2026-10-20T21:30:48.699Z',
+ image: '/images/blog/article-canton-san-gallo-stabile-ricerca-lavoro-cala-disoccupazione.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

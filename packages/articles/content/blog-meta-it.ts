@@ -13541,6 +13541,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ricerca-cisl-frontalieri-2026.title': 'Ricerca CISL: potere d\'acquisto in calo per i frontalieri',
     'blog.article.ricerca-cisl-frontalieri-2026.excerpt': '1.542 risposte raccolte nel maggio 2026 31,7% oltre un\'ora e mezza negli spostamenti 87,8% considera penalizzante la «tassa sulla salute» 76,9% non valuta',
     'blog.article.ricerca-cisl-frontalieri-2026.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.ville-ponti-frontalieri-confronto.title': 'Frontalieri, alle Ville Ponti il confronto sul lavoro',
+    'blog.article.ville-ponti-frontalieri-confronto.excerpt': '24 ottobre: convegno alle Ville Ponti di Varese Alle 10 la ricerca sui lavoratori frontalieri Due tavole rotonde su economia e istituzioni Conclusioni',
+    'blog.article.ville-ponti-frontalieri-confronto.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

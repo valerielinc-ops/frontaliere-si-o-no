@@ -13539,6 +13539,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ricerca-cisl-frontalieri-2026.title': 'CISL-Studie: Kaufkraft der Grenzgänger sinkt',
     'blog.article.ricerca-cisl-frontalieri-2026.excerpt': '1.542 im Mai 2026 gesammelte Antworten 31,7% mehr als eineinhalb Stunden unterwegs 87,8% halten die «Gesundheitssteuer» für nachteilig 76,9% ziehen nicht in Betracht',
     'blog.article.ricerca-cisl-frontalieri-2026.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.ville-ponti-frontalieri-confronto.title': 'Grenzgänger: In den Ville Ponti wird über Arbeit diskutiert',
+    'blog.article.ville-ponti-frontalieri-confronto.excerpt': '24. Oktober: Konferenz in den Ville Ponti in Varese Um 10 Uhr die Forschung zu Grenzgängern Zwei Podiumsdiskussionen zu Wirtschaft und Institutionen Schlussfolgerungen',
+    'blog.article.ville-ponti-frontalieri-confronto.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;
