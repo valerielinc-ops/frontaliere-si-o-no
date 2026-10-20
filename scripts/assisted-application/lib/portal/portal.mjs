@@ -425,6 +425,10 @@ export function hasApplicationSurface(snapshot) {
   return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome));
 }
 
+export function needsPortalOptionRead(snapshot = {}) {
+  return snapshot.fields?.some((field) => field.kind === 'listbox' || field.selectLike) || false;
+}
+
 /** A SuccessFactors page resumed between account creation and OTP submission. */
 export function isOtpVerificationPage(snapshot, host, account) {
   if (!account || account.verifiedAt || !usesOtpAccountCreation(host) || hasApplicationForm(snapshot)) return false;
@@ -2106,7 +2110,7 @@ export async function submitViaPortal(ctx) {
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job) === 'match' || namedByItsData;
     ({ page, snapshot } = await openApplicationForm(context, page, snapshot));
-    if (snapshot.fields.some((field) => field.kind === 'listbox')) snapshot = await extractFields(page);
+    if (needsPortalOptionRead(snapshot)) snapshot = await extractFields(page);
     // The form must be the posting's: an address that lands on a list of jobs
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
