@@ -300,6 +300,8 @@ _R2_IMAGE_LEASE_ACTIVE=1
 _R2_IMAGE_LEASE_TIMEOUT_PID=
 _R2_IMAGE_LEASE_RELEASE_ALLOWED=1
 _R2_IMAGE_LEASE_SIGNAL_HANDLER=_image_lease_signal
+image_lease_owned_here=0
+image_lease_context="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT:-}"
 
 _release_image_namespace_lease() {
   [ "${image_lease_owned_here:-0}" -eq 1 ] || return 0
@@ -333,7 +335,10 @@ _image_lease_signal() {
   exit "$exit_status"
 }
 
-image_lease_owned_here=0
+trap _image_lease_exit_cleanup EXIT
+trap '_image_lease_signal 130' INT
+trap '_image_lease_signal 143' TERM
+
 if [ -n "$image_namespace" ]; then
   _R2_IMAGE_LEASE_ACTIVE=1
   if [ ! -f "$image_lease_cli" ]; then
@@ -341,7 +346,6 @@ if [ -n "$image_namespace" ]; then
     exit 0
   fi
 
-  image_lease_context="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT:-}"
   if [ -z "$image_lease_context" ]; then
     image_lease_context="$(node "$image_lease_cli" acquire --namespace "$image_namespace")" || {
       echo "::warning::[cdn-upload] could not acquire $image_namespace lease — skipping upload of $cdn_key"
@@ -355,10 +359,6 @@ if [ -n "$image_namespace" ]; then
     image_lease_owned_here=1
   fi
 fi
-
-trap _image_lease_exit_cleanup EXIT
-trap '_image_lease_signal 130' INT
-trap '_image_lease_signal 143' TERM
 
 if [ -n "$image_namespace" ]; then
   if ! node "$image_lease_cli" verify --namespace "$image_namespace" --context "$image_lease_context" >/dev/null; then

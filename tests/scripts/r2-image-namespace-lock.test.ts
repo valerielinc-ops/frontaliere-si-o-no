@@ -86,6 +86,14 @@ describe('r2-image-namespace-lock', () => {
     expect(normalizeS3MatchEtag('W/"image-etag"')).toBeUndefined();
   });
 
+  it('installs lease cleanup traps before acquisition can be interrupted', () => {
+    const uploadScript = readFileSync(resolve(import.meta.dirname, '../../scripts/lib/upload-cdn-file.sh'), 'utf8');
+    const cleanupTrap = uploadScript.indexOf('trap _image_lease_exit_cleanup EXIT');
+    const acquire = uploadScript.indexOf('node "$image_lease_cli" acquire --namespace "$image_namespace"');
+    expect(cleanupTrap).toBeGreaterThanOrEqual(0);
+    expect(acquire).toBeGreaterThan(cleanupTrap);
+  });
+
   it('retries an image namespace acquisition after an HTTP 409 contention response', async () => {
     const { request: baseRequest, objects } = fakeR2();
     let conflict = true;
