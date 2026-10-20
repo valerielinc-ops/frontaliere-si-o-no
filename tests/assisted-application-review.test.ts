@@ -82,6 +82,78 @@ describe('candidate review API', () => {
     }
   });
 
+  it('omits a stale required language question when the complete CV language list proves absence', async () => {
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+      profile: { fullName: 'Maria Rossi', email: 'maria@example.com', location: 'Como', languages: [
+        { language: 'English', level: 'C1' },
+        { language: 'Italian', level: 'C2' },
+        { language: 'French', level: 'B2' },
+        { language: 'Spanish', level: 'C1' },
+      ] },
+      factSources: { text: 'Languages\nEnglish C1\nItalian C2\nFrench B2\nSpanish C1' },
+      questions: [{
+        id: 'german_level',
+        question: 'Do you speak German? If so, how would you describe your proficiency level?',
+        required: true,
+        type: 'text',
+      }],
+    }));
+    const { body } = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(body.questions).toEqual([]);
+    expect(body.can.approve).toBe(true);
+  });
+
+  it('shows an equivalent question once and carries its existing answer across changed ids', async () => {
+    const first = {
+      id: 'german_level', question: 'Qual è il tuo livello di tedesco?', type: 'choice',
+      options: ['A1', 'A2', 'B1', 'B2'], required: true,
+    };
+    const second = {
+      id: 'german_proficiency', question: 'Do you speak German? If so, how would you describe your proficiency level?', type: 'choice',
+      options: ['A1', 'A2', 'B1', 'B2'], required: true,
+    };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ answers: { german_level: 'B1' } }, { merge: true });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+      profile: { fullName: 'Maria Rossi', email: 'maria@example.com', location: 'Como', languages: [] },
+      questions: [first, second],
+    }));
+    const { body } = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(body.questions).toHaveLength(1);
+    expect(body.questions[0]).toMatchObject({ id: 'german_level', required: true });
+    expect(body.answers).toEqual({ german_level: 'B1' });
+    expect(body.can.approve).toBe(true);
+  });
+
+  it('keeps a candidate answer when the next draft gives the same question a new id', async () => {
+    const first = {
+      id: 'german_level', question: 'Qual è il tuo livello di tedesco?', type: 'choice',
+      options: ['A1', 'A2', 'B1', 'B2'], required: true,
+    };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+      profile: { fullName: 'Maria Rossi', email: 'maria@example.com', location: 'Como', languages: [] },
+      questions: [first],
+    }));
+    const saved = await handleAssistedApplicationReview({
+      method: 'POST', body: { t: token(), action: 'answers', answers: { german_level: 'B1' } },
+    }, deps());
+    expect(saved).toMatchObject({ status: 200, body: { ok: true } });
+    const flow = await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').get();
+    expect(Object.values(flow.data()?.questionAnswers || {})).toContain('B1');
+
+    const nextQuestion = {
+      id: 'german_skill_level', question: 'What is your German proficiency level?', type: 'choice',
+      options: ['A1', 'A2', 'B1', 'B2'], required: true,
+    };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+      profile: { fullName: 'Maria Rossi', email: 'maria@example.com', location: 'Como', languages: [] },
+      questions: [nextQuestion],
+    }));
+    const { body } = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(body.questions).toMatchObject([{ id: 'german_skill_level' }]);
+    expect(body.answers).toEqual({ german_skill_level: 'B1' });
+    expect(body.can.approve).toBe(true);
+  });
+
   // Owner decision 2026-10-08: the candidate's three rounds are the drafts they were shown. An order stood at
   // «round 3» with the page saying no new version was left, and its candidate had seen that one draft only.
   it('counts the new versions left from the drafts the candidate was shown, not from the round\'s number', async () => {

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T17:28:37.181Z",
+  "generatedAt": "2026-10-20T20:26:19.533Z",
   "totalEvents": 14630,
   "events": [
     {
@@ -373634,7 +373634,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Boudry, la manifestazione riguarda il profumo di cioccolato che per decenni si diffondeva a Neuchâtel con il vento da ovest. L’odore proveniva dalla fabbrica di cioccolato Suchard di Serrières, all’ingresso della città.",
+      "descriptionByLocale": {
+        "it": "A Boudry, la manifestazione riguarda il profumo di cioccolato che per decenni si diffondeva a Neuchâtel con il vento da ovest. L’odore proveniva dalla fabbrica di cioccolato Suchard di Serrières, all’ingresso della città.",
+        "en": "The Boudry event recalls the chocolate scent that spread through Neuchâtel for decades when the wind came from the west. The smell came from the Suchard chocolate factory in Serrières, at the entrance to the city.",
+        "de": "In Boudry erinnert die Veranstaltung an den Schokoladenduft, der sich über Jahrzehnte bei Westwind in Neuenburg verbreitete. Er ging von der Suchard-Schokoladenfabrik in Serrières am Eingang der Stadt aus.",
+        "fr": "À Boudry, la manifestation revient sur l’odeur de chocolat qui se diffusait à Neuchâtel pendant plusieurs décennies sous l’effet du vent d’ouest. Elle la relie à la chocolaterie Suchard de Serrières, implantée à l’entrée de la ville."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AiUMMKD",
@@ -382421,7 +382429,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento «2000er Party» si svolge a Zurigo. La scheda indica MySwitzerland come organizzatore e Zurich nel ruolo di performer.",
+      "descriptionByLocale": {
+        "it": "L’evento «2000er Party» si svolge a Zurigo. La scheda indica MySwitzerland come organizzatore e Zurich nel ruolo di performer.",
+        "en": "The “2000er Party” event takes place in Zurich. The listing identifies MySwitzerland as the organizer and Zurich as the performer.",
+        "de": "Die Veranstaltung «2000er Party» findet in Zürich statt. In den Veranstaltungsangaben werden MySwitzerland als Organisator und Zurich als Performer genannt.",
+        "fr": "L’événement « 2000er Party » a lieu à Zurich. La fiche mentionne MySwitzerland comme organisateur et Zurich dans le rôle de performer."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3e145130c2184606972eccd8e60e6687",

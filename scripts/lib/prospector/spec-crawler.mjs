@@ -793,7 +793,7 @@ const DEFAULT_PAGINATION_MIN_COVERAGE = 0.95;
  * would make a source mutation look like a valid empty board.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
- * @returns {{ url: string, method: 'GET', params: Record<string, string>, pageParam: string, maxPages: number }|null}
+ * @returns {{ url: string, method: 'GET', params: Record<string, string>, pageParam: string, maxPages: number, responseFormat: 'json'|'jsonp', responseHtmlField: string, responseMaxPagesField: string, responseMaxNumPages: number|null }|null}
  */
 function configuredListingEndpoint(spec) {
   if (spec?.listingEndpoint == null) return null;
@@ -816,12 +816,27 @@ function configuredListingEndpoint(spec) {
   }
   const pageParam = String(raw.pageParam || 'page').trim() || 'page';
   const maxPages = Number(raw.maxPages);
+  const responseFormat = String(raw.responseFormat || 'json').trim().toLowerCase();
+  if (!['json', 'jsonp'].includes(responseFormat)) {
+    throw new Error(`[prospector:${spec.companyKey}] listingEndpoint responseFormat must be json or jsonp`);
+  }
+  const responseHtmlField = String(
+    raw.responseHtmlField || (responseFormat === 'jsonp' ? 'HTML' : 'html'),
+  ).trim();
+  const responseMaxPagesField = String(raw.responseMaxPagesField || 'max_num_pages').trim();
+  const responseMaxNumPages = Number(raw.responseMaxNumPages);
   return {
     url: raw.url,
     method: 'GET',
     params,
     pageParam,
     maxPages: Number.isInteger(maxPages) && maxPages > 0 ? maxPages : DEFAULT_PAGINATION_MAX_PAGES,
+    responseFormat,
+    responseHtmlField: responseHtmlField || (responseFormat === 'jsonp' ? 'HTML' : 'html'),
+    responseMaxPagesField: responseMaxPagesField || 'max_num_pages',
+    responseMaxNumPages: Number.isInteger(responseMaxNumPages) && responseMaxNumPages > 0
+      ? responseMaxNumPages
+      : null,
   };
 }
 
@@ -840,25 +855,37 @@ function listingEndpointUrl(endpoint, page) {
 /**
  * @param {string} body
  * @param {string} companyKey
+ * @param {{ responseFormat?: 'json'|'jsonp', responseHtmlField?: string, responseMaxPagesField?: string, responseMaxNumPages?: number|null }} endpoint
  * @returns {{ html: string, maxNumPages: number }}
  */
-function parseListingEndpointResponse(body, companyKey) {
+function parseListingEndpointResponse(body, companyKey, endpoint = {}) {
   let payload;
+  const rawBody = String(body || '');
   try {
-    payload = JSON.parse(body);
+    if (endpoint.responseFormat === 'jsonp') {
+      const match = /^\s*[A-Za-z_$][\w$]*\s*\(([\s\S]*)\)\s*;?\s*$/.exec(rawBody);
+      if (!match) throw new Error('JSONP wrapper missing');
+      payload = JSON.parse(match[1]);
+    } else {
+      payload = JSON.parse(rawBody);
+    }
   } catch (error) {
     throw new Error(
-      `[prospector:${companyKey}] listingEndpoint returned non-JSON content: ${error?.message || error}`,
+      `[prospector:${companyKey}] listingEndpoint returned invalid ${endpoint.responseFormat === 'jsonp' ? 'JSONP' : 'JSON'} content: ${error?.message || error}`,
     );
   }
-  const maxNumPages = payload?.max_num_pages;
-  if (!payload || typeof payload.html !== 'string'
+  const html = payload?.[endpoint.responseHtmlField || 'html'];
+  const announcedMaxNumPages = payload?.[endpoint.responseMaxPagesField || 'max_num_pages'];
+  const maxNumPages = announcedMaxNumPages == null
+    ? endpoint.responseMaxNumPages
+    : announcedMaxNumPages;
+  if (!payload || typeof html !== 'string'
     || !Number.isInteger(maxNumPages) || maxNumPages < 0) {
     throw new Error(
-      `[prospector:${companyKey}] listingEndpoint response is missing html/max_num_pages`,
+      `[prospector:${companyKey}] listingEndpoint response is missing ${endpoint.responseHtmlField || 'html'}/${endpoint.responseMaxPagesField || 'max_num_pages'}`,
     );
   }
-  return { html: payload.html, maxNumPages: Math.max(1, maxNumPages) };
+  return { html, maxNumPages: Math.max(1, maxNumPages) };
 }
 
 /**
@@ -1319,7 +1346,9 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         try {
           response = await fetchRuntimePage(endpointUrl, validateUrl, runtime, {
             method: listingEndpoint.method,
-            accept: 'application/json',
+            accept: listingEndpoint.responseFormat === 'jsonp'
+              ? 'application/javascript'
+              : 'application/json',
             headers: {
               Referer: endpointSeed,
               'X-Requested-With': 'XMLHttpRequest',
@@ -1334,7 +1363,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         try {
           return {
             endpointUrl,
-            response: parseListingEndpointResponse(response.body, spec.companyKey),
+            response: parseListingEndpointResponse(response.body, spec.companyKey, listingEndpoint),
           };
         } catch (error) {
           throw markSpecListingFailure(error, bySlug.size);

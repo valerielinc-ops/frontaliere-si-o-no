@@ -28,6 +28,7 @@
  */
 
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
+import { candidateWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
 
 export const OWNER_REVIEW_MS = 60 * 60 * 1000;
 export const CANDIDATE_REVIEW_MS = 12 * 60 * 60 * 1000;
@@ -133,7 +134,7 @@ export function factCheckAcknowledged(draft, factCheck = draft?.factCheck) {
  * @param {object} draft the AI draft (ai_drafts/current)
  * @param {Record<string,string>} answers candidate answers by question id
  */
-export function evaluateRedFlags(draft, answers = {}, documents = {}) {
+export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAnswers = {}) {
   const owner = [];
   // A flag the owner explicitly acknowledged in the queue no longer holds.
   const acknowledged = (flag) => Boolean(draft?.acknowledgedFlags?.[flag]);
@@ -147,8 +148,9 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}) {
   if ((!draft?.channel || draft.channel.type === 'unknown') && !acknowledged('channel_unknown')) owner.push('channel_unknown');
   // career-ops Block G "Suspicious": the owner looks at the posting first.
   if (draft?.legitimacy?.tier === 'suspicious' && !acknowledged('legitimacy')) owner.push('legitimacy');
-  const candidate = (draft?.questions || [])
-    .filter((question) => question.required && !String(answers?.[question.id] ?? '').trim())
+  const { profile, answers: candidateAnswers } = candidateWithEdits({ order: {}, draft, flow: { answers, questionAnswers } });
+  const candidate = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers)
+    .filter((question) => question.required && !String(candidateAnswers?.[question.id] ?? '').trim())
     .map((question) => question.id);
   // A required document (school reports, a test result…) the candidate has not given yet.
   return { owner, candidate, documents: openRequiredDocuments(draft, documents) };
@@ -320,7 +322,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
   const current = base(flow);
   const state = current.state;
   const next = { ...current };
-  const flags = evaluateRedFlags(draft, answers, documents);
+  const flags = evaluateRedFlags(draft, answers, documents, flow?.questionAnswers);
   const ignore = (why) => ({ flow: current, effects: [], ignored: why });
   if (TERMINAL_STATES.has(state) && !STOPPED_EXITS.has(event.type)) return ignore('terminal');
 
@@ -401,6 +403,18 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
           next.postingExpiredAt = nowMs;
           effects = [{ type: 'email', kind: 'owner_posting_expired', since: current.heldSince || nowMs }];
         }
+        break;
+      }
+      // A legacy question can become answerable from a complete CV list after
+      // the draft was shown. Release that review on its next scheduled tick;
+      // the original review link remains valid and no duplicate email is sent.
+      if (
+        state === 'candidate_review'
+        && current.heldBy.length > 0
+        && current.heldBy.every((held) => /^(question|document):/.test(String(held)))
+        && candidateHolds(flags).length === 0
+      ) {
+        effects = enterCandidateReview(next, flags, nowMs, { resend: false });
         break;
       }
       if (waitsForCandidate(current) && reminder && nowMs >= reminder) {

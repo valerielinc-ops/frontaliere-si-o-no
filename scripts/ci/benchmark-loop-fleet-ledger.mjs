@@ -132,6 +132,13 @@ function windowDetails(values) {
  * Compare the newest three trusted appends with the preceding three appends
  * of the same loop and contract. A single window is enough to publish a p95;
  * two windows are required before claiming a latency regression.
+ *
+ * The p95 is deliberately retained as a descriptive metric, but it is not a
+ * sufficient alarm on its own when a window contains only three observations:
+ * nearest-rank p95 is then the maximum, so one slow hosted runner can make an
+ * otherwise healthy window look regressed. The failure verdict therefore also
+ * requires every sample in the post-change window to clear the same 10%
+ * threshold against the preceding p95.
  */
 export function buildLedgerBenchmarkSummary(current, history = []) {
   const currentValue = validateLedgerBenchmark(current, 'current ledger benchmark');
@@ -153,7 +160,8 @@ export function buildLedgerBenchmarkSummary(current, history = []) {
     : null;
   const latencyRegressionOver10Pct = latencyRegressionPct === null
     ? null
-    : latencyRegressionPct > 10;
+    : afterValues.length === REQUIRED_COMPARABLE_RUNS
+      && afterValues.every((value) => value.append_duration_ms > preChangeP95 * 1.1);
   const rewriteFindings = family
     .filter((value) => value.canonical_rewrite_count > 0)
     .map((value) => ({
@@ -230,7 +238,7 @@ function summaryMarkdown(summary, invalidHistoryCount) {
     `- Source loop: \u0060${summary.source_loop}\u0060; comparable appends: ${summary.comparable_run_count}/${summary.required_comparable_runs} required`,
     `- Before-window append p95: **${formatMetric(summary.pre_change_append_p95_ms, ' ms')}**`,
     `- After-window append p95: **${formatMetric(summary.post_change_append_p95_ms, ' ms')}**`,
-    `- Latency regression over 10%: **${summary.latency_regression_over_10pct === null ? 'pending baseline' : summary.latency_regression_over_10pct ? 'YES' : 'no'}**`,
+    `- Sustained latency regression over 10%: **${summary.latency_regression_over_10pct === null ? 'pending baseline' : summary.latency_regression_over_10pct ? 'YES' : 'no'}**`,
     `- Canonical rewrites: **${summary.canonical_rewrite_count}**`,
   ];
   if (invalidHistoryCount > 0) lines.push(`- Invalid historical benchmark artifacts ignored: ${invalidHistoryCount}`);

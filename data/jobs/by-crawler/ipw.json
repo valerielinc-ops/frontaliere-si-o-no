@@ -1914,12 +1914,12 @@
     },
     {
       "id": "ipw-2dac03219564",
-      "slug": "leiterin-leiter-controlling-integrierte-psychiatrie-winterthur-ipw-winterthur",
+      "slug": "testa-capo-di-controllo-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "leiterin-leiter-controlling-ipw-winterthur",
-        "it": "leiterin-leiter-controlling-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "leiterin-leiter-controlling-ipw-winterthur",
-        "fr": "leiterin-leiter-controlling-ipw-winterthur"
+        "it": "testa-capo-di-controllo-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "head-head-of-controlling-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "tete-chef-de-controle-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -1970,11 +1970,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-controlling-ipw-winterthur",
+          "leiterin-leiter-controlling-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        ],
+        "en": [
+          "leiterin-leiter-controlling-ipw-winterthur"
+        ],
+        "fr": [
           "leiterin-leiter-controlling-ipw-winterthur"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-controlling-ipw-winterthur"
+        "leiterin-leiter-controlling-ipw-winterthur",
+        "leiterin-leiter-controlling-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,

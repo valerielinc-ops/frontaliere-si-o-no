@@ -361,7 +361,7 @@
       "slug": "capolavoro-di-gruppo-di-notte-m-f-x-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
         "it": "capolavoro-di-gruppo-di-notte-m-f-x-cartier-manufacture-villars-sur-glane",
-        "en": "head-of-the-machining-group-night-shift-m-f-x-cartier-manufacture-villars-sur-glane",
+        "en": "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane",
         "de": "chef-de-gruppe-usinage-equipe-de-nuit-m-w-x-cartier-manufacture-villars-sur-glane",
         "fr": "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
       },
@@ -407,14 +407,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
+        "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane",
+        "head-of-the-machining-group-night-shift-m-f-x-cartier-manufacture-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
         ],
         "en": [
-          "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
+          "head-of-the-machining-group-night-shift-m-f-x-cartier-manufacture-villars-sur-glane"
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:32.379Z",
@@ -1546,7 +1547,7 @@
       "slug": "apprendista-operatore-di-orologeria-afp-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
         "it": "apprendista-operatore-di-orologeria-afp-cartier-manufacture-villars-sur-glane",
-        "en": "apprentice-watch-operator-afp-cartier-manufacture-villars-sur-glane",
+        "en": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
         "de": "anwendende-operateur-en-horlogerie-afp-cartier-manufacture-villars-sur-glane",
         "fr": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
       },
@@ -1592,14 +1593,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
+        "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
+        "apprentice-watch-operator-afp-cartier-manufacture-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
         ],
         "en": [
-          "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
+          "apprentice-watch-operator-afp-cartier-manufacture-villars-sur-glane"
         ]
       },
       "firstSeenAt": "2026-09-10T23:17:41.067Z",
@@ -4347,7 +4349,6 @@
         ]
       },
       "firstSeenAt": "2026-10-16T09:31:45.666Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -4827,7 +4828,6 @@
         ]
       },
       "firstSeenAt": "2026-10-08T21:30:11.527Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -6014,7 +6014,7 @@
       "slug": "check-per-industrializzazione-nuovi-prodotti-m-f-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
         "it": "check-per-industrializzazione-nuovi-prodotti-m-f-jaeger-lecoultre-le-sentier",
-        "en": "chef-de-projets-industrialisation-nouveaux-produits-m-w-d-jaeger-lecoultre-le-sentier",
+        "en": "check-for-industrialization-new-products-m-f-jaeger-lecoultre-le-sentier",
         "de": "kontrolle-der-industrie-neue-erzeugnisse-m-w-jaeger-lecoultre-le-sentier",
         "fr": "chef-de-projets-industrialisation-nouveaux-produits-h-f-richemont-le-sentier"
       },
@@ -6062,7 +6062,7 @@
       "previousSlugs": [
         "chef-de-projets-industrialisation-nouveaux-produits-h-f-richemont-le-sentier",
         "chef-de-projets-industrialisation-nouveaux-produits-h-f-jaeger-lecoultre-le-sentier",
-        "check-for-industrialization-new-products-m-f-jaeger-lecoultre-le-sentier"
+        "chef-de-projets-industrialisation-nouveaux-produits-m-w-d-jaeger-lecoultre-le-sentier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6071,7 +6071,7 @@
         ],
         "en": [
           "chef-de-projets-industrialisation-nouveaux-produits-h-f-jaeger-lecoultre-le-sentier",
-          "check-for-industrialization-new-products-m-f-jaeger-lecoultre-le-sentier"
+          "chef-de-projets-industrialisation-nouveaux-produits-m-w-d-jaeger-lecoultre-le-sentier"
         ],
         "de": [
           "chef-de-projets-industrialisation-nouveaux-produits-h-f-richemont-le-sentier"
@@ -7687,9 +7687,9 @@
     },
     {
       "id": "richemont-c63b44d13a6e",
-      "slug": "prototypiste-cartier-manufacture-le-cret-du-locle",
+      "slug": "prototipismo-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
-        "it": "prototypiste-cartier-manufacture-le-cret-du-locle",
+        "it": "prototipismo-cartier-manufacture-le-cret-du-locle",
         "en": "prototypist-cartier-manufacture-le-cret-du-locle",
         "de": "prototyp-cartier-manufacture-le-cret-du-locle",
         "fr": "prototypiste-richemont-le-cret-du-locle"
@@ -7737,12 +7737,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "prototypiste-richemont-le-cret-du-locle",
-        "prototipismo-cartier-manufacture-le-cret-du-locle"
+        "prototypiste-cartier-manufacture-le-cret-du-locle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "prototypiste-richemont-le-cret-du-locle",
-          "prototipismo-cartier-manufacture-le-cret-du-locle"
+          "prototypiste-cartier-manufacture-le-cret-du-locle"
         ],
         "en": [
           "prototypiste-richemont-le-cret-du-locle"
@@ -8081,9 +8081,9 @@
     },
     {
       "id": "richemont-3c40bce03d73",
-      "slug": "hospitality-trainee-richemont-villars-sur-glane",
+      "slug": "ospitalita-richemont-villars-sur-glane",
       "slugByLocale": {
-        "it": "hospitality-trainee-richemont-villars-sur-glane",
+        "it": "ospitalita-richemont-villars-sur-glane",
         "en": "hospitality-trainee-richemont-villars-sur-glane",
         "de": "hospitality-auszubildender-richemont-villars-sur-glane",
         "fr": "hospitality-apprenti-richemont-villars-sur-glane"
@@ -8130,11 +8130,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ospitalita-richemont-villars-sur-glane"
+        "hospitality-trainee-richemont-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ospitalita-richemont-villars-sur-glane"
+          "hospitality-trainee-richemont-villars-sur-glane"
         ]
       },
       "salaryMin": 57500,
@@ -8768,7 +8768,6 @@
         ]
       },
       "firstSeenAt": "2026-10-19T21:27:11.155Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -13505,8 +13504,7 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-associate-van-cleef-arpels-zurich",
-          "sales-associate-richemont-zurich",
-          "vendite-van-cleef-arpels-zurich"
+          "sales-associate-richemont-zurich"
         ],
         "fr": [
           "sales-associate-richemont-zurich-t0sdvd"
@@ -13521,8 +13519,7 @@
       "previousSlugs": [
         "sales-associate-richemont-zurich-t0sdvd",
         "sales-associate-van-cleef-arpels-zurich",
-        "sales-associate-richemont-zurich",
-        "vendite-van-cleef-arpels-zurich"
+        "sales-associate-richemont-zurich"
       ],
       "firstSeenAt": "2026-08-19T21:42:09.964Z",
       "salaryMin": 83000,
@@ -14403,7 +14400,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T08:47:23.636Z",
-      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 87500,
       "salarySource": "estimated",
@@ -15714,12 +15710,12 @@
     },
     {
       "id": "richemont-df810ac075d9",
-      "slug": "concepteur-constructeur-mouvement-richemont-le-sentier",
+      "slug": "costruttore-marca-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
         "fr": "concepteur-constructeur-mouvement-richemont-le-sentier",
-        "it": "concepteur-constructeur-mouvement-richemont-le-sentier",
-        "en": "concepteur-constructeur-mouvement-richemont-le-sentier",
-        "de": "concepteur-constructeur-mouvement-richemont-le-sentier"
+        "it": "costruttore-marca-jaeger-lecoultre-le-sentier",
+        "en": "manufacturer-manufacturer-movement-jaeger-lecoultre-le-sentier",
+        "de": "hersteller-herstellerbewegung-jaeger-lecoultre-le-sentier"
       },
       "company": "Jaeger-LeCoultre",
       "companyKey": "richemont",
@@ -15776,16 +15772,30 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "concepteur-constructeur-mouvement-richemont-le-sentier"
+        ],
+        "en": [
+          "concepteur-constructeur-mouvement-richemont-le-sentier"
+        ],
+        "de": [
+          "concepteur-constructeur-mouvement-richemont-le-sentier"
+        ]
+      },
+      "previousSlugs": [
+        "concepteur-constructeur-mouvement-richemont-le-sentier"
+      ]
     },
     {
       "id": "richemont-c92d84a43ed8",
-      "slug": "regional-marketing-intern-richemont-meyrin",
+      "slug": "regional-marketing-tirocinante-cartier-meyrin",
       "slugByLocale": {
         "en": "regional-marketing-intern-richemont-meyrin",
-        "it": "regional-marketing-intern-richemont-meyrin",
-        "de": "regional-marketing-intern-richemont-meyrin",
-        "fr": "regional-marketing-intern-richemont-meyrin"
+        "it": "regional-marketing-tirocinante-cartier-meyrin",
+        "de": "regional-marketing-praktikant-cartier-meyrin",
+        "fr": "regional-marketing-stagiaire-cartier-meyrin"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -15844,7 +15854,21 @@
         }
       },
       "postalCode": "1217",
-      "firstSeenAt": "2026-10-20T15:20:54.323Z"
+      "firstSeenAt": "2026-10-20T15:20:54.323Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regional-marketing-intern-richemont-meyrin"
+        ],
+        "de": [
+          "regional-marketing-intern-richemont-meyrin"
+        ],
+        "fr": [
+          "regional-marketing-intern-richemont-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "regional-marketing-intern-richemont-meyrin"
+      ]
     }
   ]
 }

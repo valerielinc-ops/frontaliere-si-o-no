@@ -1254,12 +1254,12 @@
     },
     {
       "id": "hilti-21636-en",
-      "slug": "it-product-owner-subscription-selling-m-f-x-hilti-ch",
+      "slug": "proprietario-del-prodotto-it-abbonamento-vendita-m-f-x-hilti-buchs-st-gallen",
       "slugByLocale": {
         "en": "it-product-owner-subscription-selling-m-f-x-hilti-ch",
-        "it": "it-product-owner-subscription-selling-m-f-x-hilti-ch",
-        "de": "it-product-owner-subscription-selling-m-f-x-hilti-ch",
-        "fr": "it-product-owner-subscription-selling-m-f-x-hilti-ch"
+        "it": "proprietario-del-prodotto-it-abbonamento-vendita-m-f-x-hilti-buchs-st-gallen",
+        "de": "it-product-owner-abonnementverkauf-m-w-x-hilti-buchs-st-gallen",
+        "fr": "proprietaire-du-produit-it-vente-par-abonnement-h-f-x-hilti-buchs-st-gallen"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -1317,7 +1317,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T15:08:12.700Z"
+      "firstSeenAt": "2026-10-20T15:08:12.700Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-product-owner-subscription-selling-m-f-x-hilti-ch"
+        ],
+        "de": [
+          "it-product-owner-subscription-selling-m-f-x-hilti-ch"
+        ],
+        "fr": [
+          "it-product-owner-subscription-selling-m-f-x-hilti-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-product-owner-subscription-selling-m-f-x-hilti-ch"
+      ]
     }
   ]
 }

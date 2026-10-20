@@ -30,7 +30,7 @@ import { renderCvDocx, renderLetterDocx } from './assistedApplicationDocx.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { applyCvLineChoices, checkTailoredCvFacts, cvChoicesOf, ownChoiceTexts } from './assistedApplicationTailoredCv.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
-import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, planCandidateEdits, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
+import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, planCandidateEdits, questionsForCandidate, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
 import { talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
@@ -286,8 +286,9 @@ export function sendReviewResponse(res, { status, body, file }) {
 export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, nowMs = Date.now() }) {
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
-  const answers = { ...(flow?.answers || {}) };
-  const questions = (draft?.questions || []).map((question) => {
+  const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow });
+  const answers = { ...candidateAnswers };
+  const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, flow?.questionAnswers).map((question) => {
     const view = questionView(question, nowMs);
     if (question.id !== 'work_permit') return view;
     const { options, value } = permitQuestionView(view.options, answers.work_permit);
@@ -302,7 +303,6 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
   const locale = order?.locale || 'it';
   // With what the candidate changed on this page (assistedApplicationCandidateEdits.js).
   const formAnswers = formAnswersWithEdits({ order, draft, flow });
-  const { profile } = candidateWithEdits({ order, draft, flow });
   const stale = round !== current;
   const ready = Boolean(draft && draft.status === 'ready' && Number(draft.round) === current);
   return {
@@ -408,8 +408,9 @@ async function loadAll(db, orderId) {
  * failure refuses the whole save with a message per field.
  * @param {object} [stored] the answers as stored: one kept unchanged is not checked again
  */
-export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it', stored = {}) {
-  const allowed = new Map((draft?.questions || []).map((question) => [question.id, question]));
+export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it', stored = {}, questionAnswers = {}) {
+  const { profile, answers } = candidateWithEdits({ order: {}, draft, flow: { answers: stored, questionAnswers } });
+  const allowed = new Map(questionsForCandidate(draft?.questions, profile, answers, questionAnswers).map((question) => [question.id, question]));
   const todayIso = zurichToday(nowMs);
   const out = {};
   const fields = {};
@@ -790,7 +791,7 @@ export async function handleAssistedApplicationReview(req, deps) {
       return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
     }
     if (action === 'answers') {
-      const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it', flow.answers || {});
+      const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it', flow.answers || {}, flow.questionAnswers || {});
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
       // The questions are dynamic (one set per posting), so the fixed rules
       // above cannot catch placeholders or answers of the wrong kind. The
