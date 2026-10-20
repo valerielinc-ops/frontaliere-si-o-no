@@ -126,7 +126,6 @@ jobs:
           DEPLOY_BUILT_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || '' }}
           DEPLOY_RETRY_ATTEMPT: ${{ inputs.retry_attempt || '0' }}
           DEPLOY_RETRY_REASON: ${{ inputs.retry_reason || '' }}
-          APP_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || '' }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
@@ -138,12 +137,12 @@ jobs:
 
       - name: Reconcile the latest successful Pages publish
         env:
-          APP_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || '' }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+          GH_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || '' }}
         run: |
           set -euo pipefail
-          if [[ "${APP_TOKEN_ACTIONS:-false}" != 'true' || -z "${APP_TOKEN:-}" ]]; then
+          if [[ "${APP_TOKEN_ACTIONS:-false}" != 'true' || -z "${GH_TOKEN:-}" ]]; then
             echo '::warning::Pages publish reconciliation skipped: App token with actions:write is unavailable'
             exit 0
           fi
-          GH_TOKEN="$APP_TOKEN" node scripts/ci/request-latest-publish.mjs
+          node scripts/ci/request-latest-publish.mjs

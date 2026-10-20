@@ -20,6 +20,7 @@ const API = 'https://api.github.com';
 const BUILD_WORKFLOW = 'deploy.yml';
 const PUBLISH_WORKFLOW = 'deploy-publish.yml';
 const BRANCH = 'main';
+const RUN_LISTING_WINDOW_DAYS = 35;
 const LIVE_STATUSES = new Set(['queued', 'in_progress', 'waiting', 'requested', 'pending', 'action_required']);
 const ACTIVE_DEPLOYMENT_STATES = new Set(['queued', 'pending', 'in_progress', 'waiting']);
 export const DEFAULT_MAX_PUBLISH_ATTEMPTS = 3;
@@ -184,7 +185,9 @@ function mapPublish(run) {
 }
 
 async function listWorkflowRuns(repo, workflow) {
-  const payload = await ghJson(`/repos/${repo}/actions/workflows/${workflow}/runs?branch=${BRANCH}&${createdSinceQuery(35)}&per_page=100`);
+  const payload = await ghJson(
+    `/repos/${repo}/actions/workflows/${workflow}/runs?branch=${BRANCH}&${createdSinceQuery(RUN_LISTING_WINDOW_DAYS)}&per_page=100`,
+  );
   if (!Array.isArray(payload?.workflow_runs)) throw new Error(`${workflow} run listing is malformed`);
   return payload.workflow_runs;
 }
