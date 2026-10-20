@@ -78,6 +78,54 @@ function parseDelimited(text) {
   };
 }
 
+/**
+ * MIMIT `dtComu` values are commonly Italian `dd/mm/yyyy HH:mm:ss` strings,
+ * which JavaScript parses inconsistently across runtimes. Keep a valid
+ * observation date in an unambiguous ISO form; unknown source values stay
+ * unknown rather than being replaced with the extraction date.
+ */
+function normalizeItalyObservationDate(value) {
+  const source = String(value || '').trim();
+  if (!source) return null;
+
+  const italianDate = source.match(/^(\d{2})\/(\d{2})\/(\d{4})(?:\s+(\d{2}):(\d{2})(?::(\d{2}))?)?$/);
+  if (italianDate) {
+    const [, dayText, monthText, yearText, hourText, minuteText, secondText] = italianDate;
+    const day = Number(dayText);
+    const month = Number(monthText);
+    const year = Number(yearText);
+    const date = new Date(Date.UTC(year, month - 1, day));
+    if (date.getUTCFullYear() !== year || date.getUTCMonth() !== month - 1 || date.getUTCDate() !== day) return null;
+    if (hourText !== undefined && (Number(hourText) > 23 || Number(minuteText) > 59 || Number(secondText ?? '0') > 59)) return null;
+    return `${yearText}-${monthText}-${dayText}`;
+  }
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(source)) {
+    const date = new Date(`${source}T00:00:00.000Z`);
+    return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === source ? source : null;
+  }
+
+  const isoTimestamp = source.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2})(?:\.(\d{1,3}))?)?(Z|([+-])(\d{2}):(\d{2}))$/);
+  if (!isoTimestamp) return null;
+  const [, yearText, monthText, dayText, hourText, minuteText, secondText, , zone, , offsetHourText, offsetMinuteText] = isoTimestamp;
+  const year = Number(yearText);
+  const month = Number(monthText);
+  const day = Number(dayText);
+  const hour = Number(hourText);
+  const minute = Number(minuteText);
+  const second = Number(secondText ?? '0');
+  const date = new Date(Date.UTC(year, month - 1, day));
+  if (date.getUTCFullYear() !== year || date.getUTCMonth() !== month - 1 || date.getUTCDate() !== day) return null;
+  if (hour > 23 || minute > 59 || second > 59) return null;
+  if (zone !== 'Z') {
+    const offsetHour = Number(offsetHourText);
+    const offsetMinute = Number(offsetMinuteText);
+    if (offsetHour > 14 || offsetMinute > 59 || (offsetHour === 14 && offsetMinute !== 0)) return null;
+  }
+  const timestamp = Date.parse(source);
+  return Number.isFinite(timestamp) ? new Date(timestamp).toISOString() : null;
+}
+
 async function fetchText(url, retries = 3) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
@@ -230,7 +278,7 @@ async function fetchSwissStations() {
   return out;
 }
 
-function buildItalyStations(municipalities, stationsRows, pricesRows) {
+export function buildItalyStations(municipalities, stationsRows, pricesRows) {
   const municipalityIndex = new Map();
   for (const municipality of municipalities) {
     municipalityIndex.set(`${normalizeText(municipality.name)}:${municipality.province}`, municipality);
@@ -278,14 +326,21 @@ function buildItalyStations(municipalities, stationsRows, pricesRows) {
         lng: station.lng,
         priceEur: null,
         dieselPriceEur: null,
+        benzinaUpdatedAt: null,
+        dieselUpdatedAt: null,
         isSelf,
         updatedAt: row.dtComu || null,
         municipalityKey: `${station.municipalityName}:${station.province}`,
       };
       entryByKey.set(key, entry);
     }
-    if (desc === 'Benzina') entry.priceEur = price;
-    else entry.dieselPriceEur = price;
+    if (desc === 'Benzina') {
+      entry.priceEur = price;
+      entry.benzinaUpdatedAt = normalizeItalyObservationDate(row.dtComu);
+    } else {
+      entry.dieselPriceEur = price;
+      entry.dieselUpdatedAt = normalizeItalyObservationDate(row.dtComu);
+    }
     if (row.dtComu) entry.updatedAt = row.dtComu;
   }
 

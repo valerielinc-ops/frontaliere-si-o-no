@@ -45,6 +45,10 @@ function fuelViewUrl(state: FuelViewState): string | null { if (typeof window ==
 function isFinitePrice(value: unknown): value is number { return typeof value === 'number' && Number.isFinite(value); }
 function inputNumber(value: string): number | null { if (!value.trim()) return null; const parsed = Number(value); return Number.isFinite(parsed) ? parsed : Number.NaN; }
 function italyStationPrice(station: FuelStationItaly, fuelType: FuelType): number | null { const value = fuelType === 'diesel' ? station.dieselPriceEur : station.priceEur; return isFinitePrice(value) ? value : null; }
+export function italyStationObservationDate(station: FuelStationItaly, fuelType: FuelType): string | null {
+ const value = fuelType === 'diesel' ? station.dieselUpdatedAt : station.benzinaUpdatedAt;
+ return typeof value === 'string' && value.trim() ? value : null;
+}
 function swissStationPrice(station: FuelStationSwitzerland, fuelType: FuelType, currency: 'CHF' | 'EUR'): number | null { const value = fuelType === 'diesel' ? currency === 'CHF' ? station.dieselPriceChf : station.dieselPriceEur : currency === 'CHF' ? station.sp95PriceChf : station.sp95PriceEur; return isFinitePrice(value) ? value : null; }
 function compareFuelPrices(italyPrice: number | null, swissPrice: number | null): FuelRowView['comparison'] {
  if (italyPrice == null || swissPrice == null) return { cheaperCountry: 'NO_DATA', priceDeltaEur: null, saving50LEur: null };
@@ -546,7 +550,7 @@ export default function FuelPriceStats() {
   const swissPriceChf = view.swiss.minPriceChf;
   const italianInCurrency = convertFuelPrice(italianPriceEur, 'EUR', tripCurrency, datedExchangeRate);
   const swissInCurrency = convertFuelPrice(swissPriceChf, 'CHF', tripCurrency, datedExchangeRate);
-  const italyDate = italianStation?.updatedAt || data.sources.italy.priceSnapshotDate;
+  const italyDate = italianStation ? italyStationObservationDate(italianStation, fuelType) : null;
   const swissDate = fuelType === 'diesel'
    ? swissStation?.dieselUpdatedAt || swissStation?.updatedAt || data.sources.switzerland.latestObservedUpdate
    : swissStation?.updatedAt || data.sources.switzerland.latestObservedUpdate;

@@ -13,7 +13,12 @@ export interface FuelStationItaly {
  lng: number | null;
  priceEur: number;
  dieselPriceEur?: number | null;
+ /** MIMIT observation date for Benzina; absent in legacy cached datasets. */
+ benzinaUpdatedAt?: string | null;
+ /** MIMIT observation date for Gasolio; absent in legacy cached datasets. */
+ dieselUpdatedAt?: string | null;
  isSelf: boolean;
+ /** Legacy MIMIT row timestamp; it may refer to either fuel. */
  updatedAt: string | null;
 }
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildFuelViewSearch, datasetFreshness, fuelRowView, fuelRowViewWithExchangeRate, pageForSelectedRow, parseFuelViewState, type FuelRowViewFactory, type FuelType, type FuelViewState } from '../components/pages/FuelPriceStats';
+import { buildFuelViewSearch, datasetFreshness, fuelRowView, fuelRowViewWithExchangeRate, italyStationObservationDate, pageForSelectedRow, parseFuelViewState, type FuelRowViewFactory, type FuelType, type FuelViewState } from '../components/pages/FuelPriceStats';
 import type { FuelPricesDataset, FuelStationItaly, FuelStationSwitzerland, MunicipalityFuelRow } from '../services/fuelPricesService';
 
 type IsAny<T> = 0 extends (1 & T) ? true : false;
@@ -44,6 +44,14 @@ function dataset(overrides: Partial<FuelPricesDataset> = {}): FuelPricesDataset 
 }
 
 describe('fuel comparison view model', () => {
+  it('uses only the selected Italian fuel observation date', () => {
+    const station = { ...IT, benzinaUpdatedAt: '2026-09-07', dieselUpdatedAt: '2026-09-08' };
+    expect(italyStationObservationDate(station, 'benzina')).toBe('2026-09-07');
+    expect(italyStationObservationDate(station, 'diesel')).toBe('2026-09-08');
+    expect(italyStationObservationDate(IT, 'benzina')).toBeNull();
+    expect(italyStationObservationDate(IT, 'diesel')).toBeNull();
+  });
+
   it('keeps the diesel projection behind the typed row-view contract', () => {
     const project: FuelRowViewFactory = fuelRowView;
     const view = project(row(), 'diesel');

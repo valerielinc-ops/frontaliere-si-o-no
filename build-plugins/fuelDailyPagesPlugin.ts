@@ -322,6 +322,11 @@ interface SwissStation {
 interface MunicipalityRow {
   municipality?: string;
   province?: string;
+  italy?: {
+    cheapestStation?: ItalianCityStation | null;
+    stations?: ItalianCityStation[];
+    nearbyStations?: ItalianCityStation[];
+  };
   swiss?: {
     cheapestStation?: SwissStation | null;
     cheapestDieselStation?: SwissStation | null;
@@ -3375,9 +3380,14 @@ interface ItalianCityStation {
   priceEur?: number;
   /** Gasolio price (EUR/L) — populated since the MIMIT-diesel ingestion. */
   dieselPriceEur?: number | null;
+  /** MIMIT observation date for Benzina; missing in legacy cached datasets. */
+  benzinaUpdatedAt?: string | null;
+  /** MIMIT observation date for Gasolio; missing in legacy cached datasets. */
+  dieselUpdatedAt?: string | null;
   isSelf?: boolean;
   lat?: number;
   lng?: number;
+  /** Legacy MIMIT row timestamp; it may refer to either fuel. */
   updatedAt?: string;
 }
 
@@ -3388,6 +3398,25 @@ function italianStationPriceForFuel(
 ): number | null {
   const p = fuel === 'diesel' ? s.dieselPriceEur : s.priceEur;
   return typeof p === 'number' && Number.isFinite(p) ? p : null;
+}
+
+/** Read only the date attached to this fuel's MIMIT row. Legacy `updatedAt`
+ * can point at either fuel and therefore cannot safely describe this price. */
+function italianStationObservationAt(
+  s: ItalianCityStation,
+  fuel: FuelType,
+): string | null {
+  const value = fuel === 'diesel' ? s.dieselUpdatedAt : s.benzinaUpdatedAt;
+  return typeof value === 'string' && value.trim() ? value : null;
+}
+
+function formatFuelObservationDate(value: string | null | undefined, locale: FuelDailyLocale): string | null {
+  if (!value) return null;
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) return null;
+  return new Intl.DateTimeFormat(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-GB', {
+    timeZone: 'Europe/Rome', day: '2-digit', month: '2-digit', year: 'numeric',
+  }).format(date);
 }
 
 /** Collect Italian stations per curated city.
@@ -3812,25 +3841,20 @@ function renderItalianCityPage(opts: {
       </aside>`
     : '';
 
-  const formatCityObservation = (value: string | null | undefined): string | null => {
-    if (!value) return null;
-    const date = new Date(value);
-    if (!Number.isFinite(date.getTime())) return value;
-    return new Intl.DateTimeFormat(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-GB', {
-      timeZone: 'Europe/Rome', day: '2-digit', month: '2-digit', year: 'numeric',
-    }).format(date);
-  };
   const stationMetaCopy = ({
     it: { self: 'Self-service', served: 'Servito', observed: 'Prezzo rilevato' },
     en: { self: 'Self-service', served: 'Attended', observed: 'Price observed' },
     de: { self: 'Selbstbedienung', served: 'Bedienung', observed: 'Preis erfasst' },
     fr: { self: 'Libre-service', served: 'Avec service', observed: 'Prix relevé' },
   })[locale];
-  const formatItalianStationMeta = (s: ItalianCityStation): string => [
-    s.address || '—',
-    s.isSelf === true ? stationMetaCopy.self : s.isSelf === false ? stationMetaCopy.served : '',
-    formatCityObservation(s.updatedAt) ? `${stationMetaCopy.observed}: ${formatCityObservation(s.updatedAt)}` : '',
-  ].filter(Boolean).join(' · ');
+  const formatItalianStationMeta = (s: ItalianCityStation): string => {
+    const observationDate = formatFuelObservationDate(italianStationObservationAt(s, fuel), locale);
+    return [
+      s.address || '—',
+      s.isSelf === true ? stationMetaCopy.self : s.isSelf === false ? stationMetaCopy.served : '',
+      observationDate ? `${stationMetaCopy.observed}: ${observationDate}` : '',
+    ].filter(Boolean).join(' · ');
+  };
   const cityTripCalculatorHtml = minPrice !== null
     ? renderFuelTripCalculatorMarkup({
         locale,
@@ -3840,10 +3864,10 @@ function renderItalianCityPage(opts: {
         referencePrice: minPrice,
         alternativePrice: crossBorder?.chPriceEur ?? null,
         referenceSource: cheapest?.stationName ? `MIMIT · ${cheapest.stationName}` : 'MIMIT',
-        referenceDate: formatCityObservation(cheapest?.updatedAt),
+        referenceDate: cheapest ? formatFuelObservationDate(italianStationObservationAt(cheapest, fuel), locale) : null,
         alternativeSource: crossBorder ? `TCS · ${crossBorder.swissStation.name || crossBorder.swissStation.brand || 'station'}` : null,
-        alternativeDate: crossBorder ? formatCityObservation(fuel === 'diesel' ? crossBorder.swissStation.dieselUpdatedAt || crossBorder.swissStation.updatedAt : crossBorder.swissStation.updatedAt) : null,
-        exchangeRateDate: crossBorder ? formatCityObservation(crossBorder.exchangeRateDate) : null,
+        alternativeDate: crossBorder ? formatFuelObservationDate(fuel === 'diesel' ? crossBorder.swissStation.dieselUpdatedAt || crossBorder.swissStation.updatedAt : crossBorder.swissStation.updatedAt, locale) : null,
+        exchangeRateDate: crossBorder ? formatFuelObservationDate(crossBorder.exchangeRateDate, locale) : null,
         copy: fuelTripCopy(locale),
       })
     : '';
@@ -5064,7 +5088,7 @@ function renderItalianStationPage(opts: {
       <dt class="s-bovPrI">${esc(copy.infoBrand)}</dt><dd class="s-q3nqK4">${esc(ctx.brandDisplay)}</dd>
       <dt class="s-bovPrI">${esc(copy.infoAddress)}</dt><dd class="s-q3nqK4">${esc(ctx.station.address ?? '—')}, ${esc(cityName)} (${esc(ctx.cityEntry.province)})</dd>
       ${typeof ctx.station.isSelf === 'boolean' ? `<dt class="s-bovPrI">${esc(copy.infoSelfService)}</dt><dd class="s-q3nqK4">${ctx.station.isSelf ? 'Self-service' : (locale === 'it' ? 'Servito' : locale === 'de' ? 'Bedient' : locale === 'fr' ? 'Servi' : 'Served')}</dd>` : ''}
-      ${ctx.station.updatedAt ? `<dt class="s-bovPrI">${esc(copy.infoUpdated)}</dt><dd class="s-q3nqK4">${esc(String(ctx.station.updatedAt).slice(0, 10))}</dd>` : ''}
+      ${italianStationObservationAt(ctx.station, fuel) ? `<dt class="s-bovPrI">${esc(copy.infoUpdated)}</dt><dd class="s-q3nqK4">${esc(formatFuelObservationDate(italianStationObservationAt(ctx.station, fuel), locale) || '')}</dd>` : ''}
     </dl>
   </section>
   <section class="s-ziawP1" aria-labelledby="itStationContext">

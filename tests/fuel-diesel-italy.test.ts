@@ -45,9 +45,9 @@ const DATASET = {
       province: 'CO',
       italy: {
         stations: [
-          { id: 'd1', brand: 'Eni', stationName: 'Eni Como', address: 'Via del Dos 14, 22100 Como', priceEur: 1.919, dieselPriceEur: 1.829, isSelf: true, lat: 45.81, lng: 9.08 },
-          { id: 'd2', brand: 'Q8', stationName: 'Q8 Como', address: 'Via Varesina 128, 22100 Como', priceEur: 1.939, dieselPriceEur: 1.799, isSelf: true, lat: 45.80, lng: 9.07 },
-          { id: 'b1', brand: 'Shell', stationName: 'Shell Como', address: 'Viale Rosselli 19, 22100 Como', priceEur: 1.959, dieselPriceEur: null, isSelf: true, lat: 45.79, lng: 9.06 },
+          { id: 'd1', brand: 'Eni', stationName: 'Eni Como', address: 'Via del Dos 14, 22100 Como', priceEur: 1.919, dieselPriceEur: 1.829, benzinaUpdatedAt: '2026-05-10', dieselUpdatedAt: '2026-05-11', updatedAt: '2026-05-17', isSelf: true, lat: 45.81, lng: 9.08 },
+          { id: 'd2', brand: 'Q8', stationName: 'Q8 Como', address: 'Via Varesina 128, 22100 Como', priceEur: 1.939, dieselPriceEur: 1.799, benzinaUpdatedAt: '2026-05-12', dieselUpdatedAt: '2026-05-13', updatedAt: '2026-05-17', isSelf: true, lat: 45.80, lng: 9.07 },
+          { id: 'b1', brand: 'Shell', stationName: 'Shell Como', address: 'Viale Rosselli 19, 22100 Como', priceEur: 1.959, dieselPriceEur: null, benzinaUpdatedAt: '2026-05-14', updatedAt: '2026-05-17', isSelf: true, lat: 45.79, lng: 9.06 },
         ],
       },
       swiss: {
@@ -93,6 +93,35 @@ describe('diesel Italian city pages — real diesel prices + clickable stations'
   it('diesel page links per-station detail pages (clickable, not a dead table)', () => {
     const html = pages['/prezzi-diesel/italia/como/oggi/']!;
     expect(countAnchors(html, '/prezzi-diesel/italia/como/stazioni/')).toBeGreaterThanOrEqual(2);
+  });
+
+  it('renders the observation date belonging to each fuel, not the legacy row timestamp', () => {
+    const diesel = pages['/prezzi-diesel/italia/como/oggi/']!;
+    const benzina = pages['/prezzi-benzina/italia/como/oggi/']!;
+    expect(benzina).toContain('10/05/2026');
+    expect(benzina).toContain('12/05/2026');
+    expect(benzina).not.toContain('11/05/2026');
+    expect(diesel).toContain('11/05/2026');
+    expect(diesel).toContain('13/05/2026');
+    expect(diesel).not.toContain('10/05/2026');
+    expect(diesel).not.toContain('17/05/2026');
+  });
+
+  it('leaves Italian observation date unknown when a legacy cache only has ambiguous updatedAt', () => {
+    const legacyDataset = structuredClone(DATASET) as {
+      municipalities: Array<{ italy?: { stations?: Array<Record<string, unknown>> } }>;
+    };
+    for (const municipality of legacyDataset.municipalities) {
+      for (const station of municipality.italy?.stations ?? []) {
+        delete station.benzinaUpdatedAt;
+        delete station.dieselUpdatedAt;
+        station.updatedAt = '2025-01-01';
+      }
+    }
+    const legacyPages = generateFuelItalianCityPages({ dataset: legacyDataset as never, today: TODAY });
+    const diesel = legacyPages['/prezzi-diesel/italia/como/oggi/']!;
+    expect(diesel).not.toContain('01/01/2025');
+    expect(diesel).toContain('Data del prezzo iniziale: data non disponibile');
   });
 
   it('excludes the benzina-only station from the diesel page but keeps it on benzina', () => {
