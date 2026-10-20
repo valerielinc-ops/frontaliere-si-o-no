@@ -337,9 +337,8 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
 /**
  * Keep portal answers usable when an ATS changes a question's wording or
  * regenerates its field id between account creation and the application form.
- * Exact ids win; a canonical topic is only used for the small set of fields
- * whose meaning is unambiguous (address, nationality, permit, birth date and
- * current school).
+ * Exact ids win; canonical topics match well-defined candidate facts and
+ * retain distinctions such as salary period/currency and language modality.
  */
 function portalAnswersForQuestions(questions, answers) {
   const items = questions.map((question) => ({ question, answer: String(answers[question.id] ?? '').trim() }))
@@ -1105,8 +1104,8 @@ export async function acceptPrivacyStatement(page, snapshot) {
 // pressed on it only meets the portal's validation. Its CV goes in through
 // «Lebenslauf hochladen», a dialog whose file input exists only once open.
 export const EXPAND_ALL_RE = /^(alle abschnitte einblenden|alle einblenden|expand all( sections)?|show all( sections)?|mostra tutte le sezioni|espandi tutt[eo]( le sezioni)?|afficher toutes les sections|tout afficher|développer tout)$/i;
-export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
-export const COVER_LETTER_UPLOAD_RE = /((cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione))\s+(hochladen|upload(en)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione)))/i;
+export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|attach(?:ed)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|attach(?:ed)?|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(a |an |the |your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
+export const COVER_LETTER_UPLOAD_RE = /((cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione))\s+(hochladen|upload(en)?|attach(?:ed)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|attach(?:ed)?|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(a |an |the |your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione)))/i;
 const ICON_ONLY_BUTTON_RE = /^[^\p{L}\p{N}]{1,12}$/u;
 // JavaScript's `\b` is ASCII-only and treats `_` as a word character. Document
 // labels can contain accents and filenames commonly use underscores, so only
@@ -2106,6 +2105,7 @@ export async function submitViaPortal(ctx) {
     // The passwords this run typed into application forms that create their own account, by host.
     const ownPasswords = new Map();
     const uploaded = new Set();
+    const privacyAcceptedPages = new Set();
     // How often a page was planned again because a choice redrew it, by address.
     const redraws = new Map();
     // How often a page was loaded again because the portal asked for it, by address.
@@ -2228,10 +2228,11 @@ export async function submitViaPortal(ctx) {
         snapshot = opened.snapshot;
         if (opened.cv) {
           evidence.steps.at(-1).cv = opened.cv;
-          if (opened.cv !== 'unavailable') {
+          if (opened.cv === 'uploaded') {
             record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
             noteUpload('cv');
           }
+          if (opened.cv !== 'uploaded') return await handoff('cv_upload_failed');
         }
         if (opened.coverLetter) {
           evidence.steps.at(-1).coverLetter = opened.coverLetter;
@@ -2248,7 +2249,8 @@ export async function submitViaPortal(ctx) {
           evidence.postingMatch = await formMatch();
           if (evidence.postingMatch === 'mismatch') return await handoff('posting_mismatch');
         }
-        await openSections();
+        const sectionsResult = await openSections();
+        if (sectionsResult) return sectionsResult;
       }
       // The form asks for its account's password itself (umantis): no login
       // page to get through, the password is typed with the rest of the form.
@@ -2310,7 +2312,8 @@ export async function submitViaPortal(ctx) {
         evidence.postingMatch = await formMatch();
         if (evidence.postingMatch === 'mismatch') return await handoff('posting_mismatch');
       }
-      await openSections();
+      const sectionsResult = await openSections();
+      if (sectionsResult) return sectionsResult;
       const profile = await fillProfileSections(page, snapshot, {
         candidate: ctx.candidate,
         candidateLocale: ctx.candidateLocale,
@@ -2524,6 +2527,31 @@ export async function submitViaPortal(ctx) {
           // only when nothing required is left empty on the page.
           if (!submit && !next && !advance && agent.submitRef) {
             if (!await requiredLeftEmpty(page)) finalByAgent = await submitLocator(page, agent.submitRef);
+          }
+        }
+      }
+      // SuccessFactors' required data privacy statement is a link to a dialog,
+      // not an ordinary checkbox. Accept only the application-specific notice,
+      // and do it before either Next or the final submission.
+      const privacyPage = page.url();
+      if (!privacyAcceptedPages.has(privacyPage)) {
+        const privacy = await acceptPrivacyStatement(page, after);
+        if (privacy === 'unavailable') {
+          evidence.steps.at(-1).privacy = 'unavailable';
+          return await handoff('privacy_not_accepted');
+        }
+        if (privacy === 'accepted') {
+          evidence.steps.at(-1).privacy = 'accepted';
+          privacyAcceptedPages.add(privacyPage);
+          privacyAcceptedPages.add(page.url());
+          after = await extractFields(page, NAVIGATION);
+          ({ submit, next } = pageControls(after.buttons, known, page.url()));
+          advance = null;
+          finalByAgent = null;
+          if (!submit && !next) {
+            snapshot = after;
+            step -= 1;
+            continue;
           }
         }
       }

@@ -525,6 +525,17 @@ const PERSONAL_ADDRESS_CONTEXT_RE = /\b(?:my\s+information|personal\s+(?:informa
 const EXPLICIT_RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
 const EMPLOYMENT_CONTEXT_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
+const PREFERRED_WORKLOAD_RE = /\b(?:workload|work(?:ing)? percentage|employment percentage|employment level|pensum|carico di lavoro|percentuale di lavoro|grado di occupazione|tasso di occupazione|taux d['’]activit[ée]|pourcentage de travail)\b/i;
+const CURRENT_WORKLOAD_RE = /\b(?:current|currently|present|actual|attuale|attualmente|derzeit|zurzeit|actuel(?:le)?|gegenw(?:ä|ae)rtig)\b/i;
+const START_DATE_QUESTION_RE = /\b(?:earliest|possible|when can you start|available to start|start(?:ing)? date|date of starting|date you can start|begin(?:ning)? of employment|entry date|date d['’]entr[ée]e|date de prise de fonction|data di inizio|data di assunzione|eintrittsdatum|fr(?:ü|ueh)estm(?:ö|oe)glicher start)\b/i;
+const AVAILABILITY_QUESTION_RE = /\b(?:availability|available for work|disponibilit[àa]|verf(?:ü|ue)gbarkeit|disponibilit[ée])\b/i;
+const NOTICE_PERIOD_QUESTION_RE = /\b(?:notice period|notice time|period of notice|preavviso|d['’]lai de pr(?:é|e)avis|k(?:ü|ue)ndigungsfrist|notice required)\b/i;
+const CRIMINAL_RECORD_QUESTION_RE = /\b(?:criminal record|police record|casellario giudiziale|casier judiciaire|strafregister|polizeiliches f(?:ü|ue)hrungszeugnis)\b/i;
+const CRIMINAL_CERTIFICATE_QUESTION_RE = /\b(?:certificate|extract|certificat|attest|auszug|certificato|provide|present|obtain|submit|bring|furnish|fornire|r[eé]cuperer)\b/i;
+const SALARY_UNIT_RE = /\b(?:annual(?:ly)?|per year|yearly|annually|annuel(?:le)?|annuel(?:lement)?|annua(?:le)?|annuo|annua|annui|annue|all['’]anno|pro jahr|jährlich|jaehrlich)\b/i;
+const MONTHLY_SALARY_RE = /\b(?:monthly|per month|a month|par mois|mensuel(?:le)?|al mese|mensile|pro monat|monatlich)\b/i;
+const HOURLY_SALARY_RE = /\b(?:hourly|per hour|an hour|par heure|horaire|all['’]ora|pro stunde|stündlich|stundlich)\b/i;
+const SALARY_CURRENCY_RE = /\b(CHF|EUR|USD|GBP|CAD|AUD)\b|Fr\.?\s*(?:CHF)?/i;
 // Some ATS forms label the candidate's residence field only «CAP». A bare
 // label is safe only when field extraction supplies the surrounding residence
 // section; the label alone is also used by work-history forms.
@@ -566,6 +577,37 @@ export function addressQuestionTopic(text, context = '') {
 /** A stable topic for portal questions whose wording/field id varies by ATS or language. */
 export function questionTopic(label, context = '') {
   const text = questionFromLabel(label);
+  const languageText = `${text} ${String(context || '')}`.trim();
+  const languageCode = languageQuestionCode(text) || languageQuestionCode(context);
+  if (languageCode) {
+    const threshold = /\b(?:at least|minimum|min(?:imum)? level|required level|mindestens|au moins|almeno|mínimo|minimum)\b/i.test(languageText)
+      ? CEFR_RE.exec(languageText)?.[1]?.toLowerCase() || ''
+      : '';
+    const modality = /\b(?:written|schriftlich|écrit|ecrit|scritto|scritta)\b/i.test(languageText) ? 'written'
+      : /\b(?:oral|spoken|mündlich|muendlich|parlato|parlata|parlé|parlee)\b/i.test(languageText) ? 'spoken' : '';
+    const kind = threshold
+      ? `threshold:${threshold}`
+      : LANGUAGE_PROFICIENCY_QUESTION_RE.test(languageText) ? 'proficiency' : 'ability';
+    return `language:${languageCode}:${modality}:${kind}`;
+  }
+  const titleInPersonalDetails = /^\s*(?:title|titel|titre|titolo)\s*$/i.test(text)
+    && /\b(?:personal (?:information|details|data)|contact details|candidate details|dati personali|pers(?:ö|oe)nliche (?:daten|angaben)|coordonn[ée]es personnelles)\b/i.test(context)
+    && !/\b(?:job|position|role|degree|qualification|education|experience|lavoro|posizione|ruolo|laurea|formazione|studium)\b/i.test(context);
+  if (SALUTATION_FIELD_RE.test(text) || titleInPersonalDetails) return 'salutation';
+  if (PREFERRED_WORKLOAD_RE.test(languageText) && !CURRENT_WORKLOAD_RE.test(text)) return 'preferred_workload';
+  if (NOTICE_PERIOD_QUESTION_RE.test(languageText)) return 'notice_period';
+  if (START_DATE_QUESTION_RE.test(languageText) && !/\b(?:education|school|university|degree|experience|employment history|work history|scuola|formazione|studi|esperienza|educazione|ausbildung|schule|studium|exp[ée]rience|formation)\b/i.test(context)) return 'start_date';
+  if (AVAILABILITY_QUESTION_RE.test(languageText) && !CURRENT_WORKLOAD_RE.test(text)) return 'availability';
+  if (CRIMINAL_RECORD_QUESTION_RE.test(languageText)) {
+    return CRIMINAL_CERTIFICATE_QUESTION_RE.test(languageText) ? 'criminal_record_certificate' : 'criminal_record_status';
+  }
+  if (SALARY_FIELD_RE.test(languageText)) {
+    const period = HOURLY_SALARY_RE.test(languageText) ? 'hourly'
+      : MONTHLY_SALARY_RE.test(languageText) ? 'monthly'
+        : SALARY_UNIT_RE.test(languageText) ? 'annual' : 'unspecified';
+    const currency = SALARY_CURRENCY_RE.exec(languageText)?.[1]?.toUpperCase() || (SALARY_CURRENCY_RE.test(languageText) ? 'CHF' : 'unspecified');
+    return `salary_expectation:${period}:${currency}`;
+  }
   if (isCivilStatusField(text)) return 'civil_status';
   if (isNationalityField(text)) return 'nationality';
   if (isPermitField(text) && asksHeldStatus(text)) return 'permit';
@@ -659,6 +701,10 @@ function comparableContext(context) {
   return String(context || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
+function topicNeedsMatchingContext(topic) {
+  return /^(?:address|address_street|address_house_number|residence_|current_school$)/.test(topic);
+}
+
 function equivalentAnswer(question, left, right, context = '') {
   const a = comparableAnswer(left);
   const b = comparableAnswer(right);
@@ -685,6 +731,18 @@ function equivalentAnswer(question, left, right, context = '') {
     const rightBoolean = booleanAnswer(right);
     return leftBoolean !== null && leftBoolean === rightBoolean;
   }
+  if (topic.startsWith('language:')) {
+    const leftNoLanguage = isNoLanguageAnswer(left);
+    const rightNoLanguage = isNoLanguageAnswer(right);
+    if (leftNoLanguage || rightNoLanguage) return leftNoLanguage && rightNoLanguage;
+    const leftBoolean = booleanAnswer(left);
+    const rightBoolean = booleanAnswer(right);
+    if (leftBoolean !== null || rightBoolean !== null) return leftBoolean !== null && leftBoolean === rightBoolean;
+    const leftLevel = CEFR_RE.exec(String(left))?.[1]?.toLowerCase() || '';
+    const rightLevel = CEFR_RE.exec(String(right))?.[1]?.toLowerCase() || '';
+    if (leftLevel || rightLevel) return Boolean(leftLevel && rightLevel && leftLevel === rightLevel);
+    return NATIVE_LEVEL_RE.test(String(left).trim()) && NATIVE_LEVEL_RE.test(String(right).trim());
+  }
   // «Marié» and «Married (Switzerland)» are one status; an option that offers two holds either.
   if (topic === 'civil_status') {
     const leftCode = civilStatusCode(left);
@@ -706,24 +764,32 @@ function recordedAnswerForQuestion(candidate, question, context = '') {
   const normalized = comparableAnswer(questionFromLabel(question));
   const normalizedContextQuestion = comparableAnswer(questionFromLabel(context));
   const requestedContext = comparableContext(context);
+  const topic = questionTopic(question, context);
   const sameContext = (item) => comparableContext(item.context) === requestedContext;
   const exact = items.find((item) => {
     const itemQuestion = comparableAnswer(questionFromLabel(item.question));
+    const itemTopic = questionTopic(item.question, item.context);
     return (sameContext(item) && itemQuestion === normalized)
+      || (itemQuestion === normalized && topic && itemTopic === topic && !topicNeedsMatchingContext(topic))
       // Some portals expose a short field label plus the full question as
       // context. Reuse an answer recorded under that exact full question.
       || (!String(item.context || '').trim() && normalizedContextQuestion && itemQuestion === normalizedContextQuestion);
   });
   if (exact) return String(exact.answer).trim();
-  const topic = questionTopic(question, context);
   if (!topic) return '';
   // An answer id is only a slug, not proof that the candidate answered the
   // full question currently on the page.  For sensitive topics, reusing a
   // slug with the same broad topic can turn an answer to another question
   // (for example a driving licence's "Ja") into a work-permit answer.
-  const semantic = items.find((item) => sameContext(item)
-    && questionTopic(item.question, item.context) === topic
-    && (!['permit', 'nationality'].includes(topic) || item.source !== 'answer-id'));
+  const semantic = items.find((item) => {
+    const itemTopic = questionTopic(item.question, item.context);
+    const sameLanguage = topic.startsWith('language:') && itemTopic.startsWith('language:')
+      && topic.split(':')[1] === itemTopic.split(':')[1]
+      && isNoLanguageAnswer(item.answer);
+    const sameTopic = itemTopic === topic && (!topicNeedsMatchingContext(topic) || sameContext(item));
+    return (sameTopic || sameLanguage)
+      && (!['permit', 'nationality'].includes(topic) || item.source !== 'answer-id');
+  });
   return semantic ? String(semantic.answer).trim() : '';
 }
 
@@ -737,6 +803,44 @@ function optionForAnswer(field, answer) {
   const exact = options.find((option) => comparableAnswer(option.label) === comparableAnswer(answer));
   if (exact) return exact.label;
   const topic = questionTopic(field.label, field.context);
+  if (topic.startsWith('language:')) {
+    if (isNoLanguageAnswer(answer)) {
+      const matches = options.filter((option) => isNoLanguageAnswer(option.label) || booleanAnswer(option.label) === false);
+      if (matches.length === 1) return matches[0].label;
+    }
+    const answerBoolean = booleanAnswer(answer);
+    if (answerBoolean !== null) {
+      const matches = options.filter((option) => booleanAnswer(option.label) === answerBoolean);
+      if (matches.length === 1) return matches[0].label;
+    }
+    const answerLevel = CEFR_RE.exec(String(answer))?.[1]?.toLowerCase() || '';
+    if (answerLevel) {
+      const matches = options.filter((option) => CEFR_RE.exec(option.label)?.[1]?.toLowerCase() === answerLevel);
+      if (matches.length === 1) return matches[0].label;
+    }
+    if (NATIVE_LEVEL_RE.test(String(answer).trim())) {
+      const matches = options.filter((option) => NATIVE_LEVEL_RE.test(option.label.trim()));
+      if (matches.length === 1) return matches[0].label;
+    }
+  }
+  if (topic === 'criminal_record_certificate' || topic === 'criminal_record_status') {
+    const answerBoolean = booleanAnswer(answer);
+    const affirmative = /^(?:yes|ja|oui|s[iì]|able to (?:provide|submit)|i can (?:provide|submit)|can (?:provide|submit))\b/i;
+    const negative = /^(?:no|nein|non|non|not able to (?:provide|submit)|i cannot (?:provide|submit)|cannot (?:provide|submit))\b/i;
+    const matches = options.filter((option) => {
+      const label = String(option.label || '').trim();
+      return booleanAnswer(label) === answerBoolean
+        || (answerBoolean === true && affirmative.test(label))
+        || (answerBoolean === false && negative.test(label));
+    });
+    if (answerBoolean !== null && matches.length === 1) return matches[0].label;
+  }
+  if (topic === 'preferred_workload') {
+    const percentage = (value) => /^\s*(\d+(?:[.,]\d+)?)\s*%?\s*$/.exec(String(value || ''))?.[1]?.replace(',', '.') || '';
+    const answerPercentage = percentage(answer);
+    const matches = options.filter((option) => answerPercentage && percentage(option.label) === answerPercentage);
+    if (matches.length === 1) return matches[0].label;
+  }
   if (topic === 'nationality') {
     const answerCode = nationalityOf(answer)?.code;
     const match = options.find((option) => answerCode && nationalityOf(option.label)?.code === answerCode);
@@ -761,13 +865,17 @@ function optionForAnswer(field, answer) {
   return '';
 }
 
-const NO_LANGUAGE_OPTION_RE = /^(?:none|no (?:knowledge|proficiency|skills?)|no language skills|not applicable|keine (?:sprach)?kenntnisse|aucune (?:connaissance|comp[eé]tence)|nessun[ae] conoscenz[ae]|nessun livello|non parl[oa])$/i;
+const NO_LANGUAGE_OPTION_RE = /^(?:none|no (?:knowledge|proficiency|skills?)|no language skills|not applicable|i do not speak (?:this |the )?language|i don['’]t speak (?:this |the )?language|ich spreche (?:diese |die )?sprache nicht|je ne parle pas (?:cette |la )langue|non parlo (?:questa )?lingua|keine (?:sprach)?kenntnisse|aucune (?:connaissance|comp[eé]tence)|nessun[ae] conoscenz[ae]|nessun livello|non parl[oa])$/i;
+
+function isNoLanguageAnswer(value) {
+  return NO_LANGUAGE_OPTION_RE.test(comparableAnswer(value));
+}
 const FIRST_NAME_FIELD_RE = /\b(?:first name|given name|forename|vorname|pr[ée]nom|nome|nombre)\b/i;
 const LAST_NAME_FIELD_RE = /\b(?:last name|surname|family name|nachname|nom de famille|cognome|apellido)\b/i;
 const FULL_NAME_FIELD_RE = /^\s*(?:full name|complete name|vollst[äa]ndiger name|nome completo|nom complet)\s*$/i;
 const NON_CANDIDATE_NAME_RE = /\b(?:company|employer|organisation|organization|school|institution|university|azienda|datore|scuola|istituto|universit|entreprise|employeur|école|arbeitgeber|unternehmen|firma|reference|referee|emergency|contact person|supervisor|manager|recruiter|interviewer)\b/i;
-const AVAILABILITY_FIELD_RE = /availability|available to start|when can you start|notice period|k(?:ü|ue)ndigungsfrist|pr[ée]avis|preavviso|d[ée]lai de pr[ée]avis/i;
-const SALARY_FIELD_RE = /salary expectation|expected salary|desired salary|salary desired|pretese salarial|pr[ée]tentions salariales|lohnvorstellung|r[eé]mun[ée]ration souhait[ée]e|retribuzione desiderata|salario esperado/i;
+const AVAILABILITY_FIELD_RE = /availability|available for work|available to start|when can you start|earliest (?:possible )?start|possible start date|date you can start|starting date|data di inizio|data di assunzione|eintrittsdatum|notice period|k(?:ü|ue)ndigungsfrist|pr[ée]avis|preavviso|d[ée]lai de pr[ée]avis|disponibilit[àa]|verf(?:ü|ue)gbarkeit|disponibilit[ée]/i;
+const SALARY_FIELD_RE = /salary expectation|expected salary|desired salary|salary desired|salary requirement|expected annual compensation|wage expectation|aspettativ\w+ salarial\w+|retribuzione desiderat\w+|salario desiderat\w+|pretese salarial|pr[ée]tentions salariales|salaire souhait[ée]|lohnvorstellung|gehaltsvorstellung|r[eé]mun[ée]ration souhait[ée]e|salario esperado|expectativa salarial/i;
 const YES_NO_LANGUAGE_QUESTION_RE = /\b(?:do you|does the candidate|are you|can you|speak|spoken|parl\w*|sprech\w*|parlez|parli|connaiss\w*|kenntnis\w*|communicat\w*)\b/i;
 const LANGUAGE_PROFICIENCY_QUESTION_RE = /\b(?:level|niveau|livello|proficien(?:cy|t)|fluen(?:t|cy)|how well|wie gut|quel niveau|quel point|native|mother tongue|langue maternelle|madrelingua|muttersprache|written|oral|mündlich|schriftlich|écrit)\b/i;
 const LANGUAGE_KNOWLEDGE_FIELD_RE = /\b(?:knowledge|kenntnis\w*|conoscenz\w*|connaiss\w*|language skills?)\b/i;
@@ -873,7 +981,7 @@ function isYesNoPermitQuestion(label) {
   return /\b(?:do you|does the candidate|are you|hold|have|hast du|haben sie|hältst|halten sie|avez[- ]vous|détenez|detenez|avez|hai|detieni|possiedi|è in possesso|in possesso)\b/i.test(String(label || ''));
 }
 
-const SALUTATION_FIELD_RE = /\b(?:anrede|salutation|appellativo|civilit[ée]|form of address)\b/i;
+const SALUTATION_FIELD_RE = /\b(?:anrede|salutation|appellativo|civilit[ée]|form of address|how (?:would|should) you like to be addressed|how should you be addressed in (?:your )?application|how do you want to be addressed|how would you like us to address you|preferred form of address|come vuoi essere indicat[oa] (?:nei|negli) moduli(?: di candidatura)?|wie m(?:ö|oe)chten sie angesprochen werden|comment souhaitez[- ]vous (?:être|etre) appel[ée]e?|comment devons[- ]nous vous appeler)\b/i;
 const SALUTATION_KIND = {
   m: /^(?:mr|mister|herr|signor(?:e)?|sig|monsieur|m)$/i,
   f: /^(?:mrs|ms|miss|frau|signora|sig ?ra|madame|mme|mademoiselle)$/i,
@@ -945,8 +1053,11 @@ export function candidateAnswerForField(candidate, field) {
       const other = field.options.find((option) => OTHER_OPTION_RE.test(String(option.label || '')));
       if (other) return { value: other.label, source: 'answers' };
     }
-    if (['birth_date', 'nationality'].includes(topic) || AVAILABILITY_FIELD_RE.test(String(field?.label || '')) || SALARY_FIELD_RE.test(String(field?.label || ''))) {
-      return { value: field?.options?.length ? optionForAnswer(field, previous) : previous, source: 'answers' };
+    if (['birth_date', 'nationality', 'start_date', 'availability', 'preferred_workload', 'criminal_record_certificate', 'criminal_record_status'].includes(topic)
+      || topic.startsWith('salary_expectation:') || AVAILABILITY_FIELD_RE.test(String(field?.label || '')) || SALARY_FIELD_RE.test(String(field?.label || ''))) {
+      const value = ['start_date', 'availability'].includes(topic) ? normalizeDateAnswer(field, previous)
+        : field?.options?.length ? optionForAnswer(field, previous) : previous;
+      return value ? { value, source: 'answers' } : null;
     }
     if (topic === 'permit' || LANGUAGE_LEVEL_RE.test(String(field?.label || ''))) return null;
   }
@@ -977,7 +1088,7 @@ export function candidateAnswerForField(candidate, field) {
     const value = availability && (field?.options?.length ? optionForAnswer(field, availability) : availability);
     if (value) return { value, source: candidate?.answers?.availability ? 'answers' : 'profile' };
   }
-  if (SALARY_FIELD_RE.test(label)) {
+  if (topic.startsWith('salary_expectation:') || SALARY_FIELD_RE.test(label)) {
     const salary = String(candidate?.answers?.salary_expectation || '').trim();
     const value = salary && (field?.options?.length ? optionForAnswer(field, salary) : salary);
     if (value) return { value, source: 'answers' };
