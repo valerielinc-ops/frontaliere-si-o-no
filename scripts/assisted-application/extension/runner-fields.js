@@ -117,8 +117,11 @@
         || /\*/.test(pseudo.replace(/["']/g, ''));
     };
     if ([...labels].some(marker)) return true;
-    return [...labels].some((label) => [...(label.parentElement?.children || [])]
-      .some((sibling) => sibling !== label && marker(sibling)));
+    return [...labels].some((label) => ['previousSibling', 'nextSibling'].some((direction) => {
+      let sibling = label[direction];
+      while (sibling?.nodeType === 3 && !clean(sibling.textContent)) sibling = sibling[direction];
+      return Boolean(sibling && marker(sibling));
+    }));
   };
   const SITE_SEARCH_TEXT_RE = /\b(?:search|suche|suchen|find(?:en)?|recherche|rechercher|cerca|buscar|busca|query)\b/i;
   const hasSiteSearchIdentity = (element) => [
