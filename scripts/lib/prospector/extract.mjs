@@ -24,6 +24,7 @@ import { decodeEntities } from './entities.mjs';
 import { readAttr, scanHtmlTags } from '../html-attr.mjs';
 import {
   evaluateSourceBackedSwissGeography,
+  JOB_LOCATION_CLASS_TOKENS,
   locationEvidenceCandidates,
   schemaJobLocationCandidates,
 } from './location-evidence.mjs';
@@ -1503,13 +1504,6 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
  * a node pair no class name marks and no structured record carries.
  */
 const WORKPLACE_LABEL_RX = /^(?:arbeitsorte?|lieux? de travail|luog(?:o|hi) di lavoro)\s*:?\s*/i;
-
-const JOB_LOCATION_CLASS_TOKENS = new Set([
-  'job-location', 'job_location', 'job-detail-location', 'job_detail_location',
-  'job-region', 'job_region', 'job-detail-region', 'job_detail_region',
-  'vacancy-location', 'vacancy_location', 'vacancy-detail-location', 'vacancy_detail_location',
-  'vacancy-region', 'vacancy_region', 'vacancy-detail-region', 'vacancy_detail_region',
-]);
 
 /**
  * Rendered, vacancy-scoped location fields that can be more precise than a

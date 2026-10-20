@@ -27,7 +27,10 @@ import {
   selectDetailStructuredRecords,
 } from './lib/prospector/extract.mjs';
 import { decodeEntities as decodeScrapedHtmlEntities } from './lib/prospector/entities.mjs';
-import { resolveSourceBackedSwissGeography } from './lib/prospector/location-evidence.mjs';
+import {
+  JOB_LOCATION_CLASS_TOKENS,
+  resolveSourceBackedSwissGeography,
+} from './lib/prospector/location-evidence.mjs';
 import { readAttr, readVacancySummaryLocation } from './lib/html-attr.mjs';
 import {
   canonicalSwissCityName,
@@ -615,8 +618,8 @@ export function sourceLocationMatches(published, source) {
       const publishedMunicipality = /\//.test(publishedCandidate)
         ? ''
         : municipalityKeyWithDescriptor(publishedCandidate);
-    const trailingRegion = sourceIndex > 0 && !candidateHasPostalCode
-      && precededByOtherLocality(sourceCandidates, sourceIndex, sourceMunicipality);
+      const trailingRegion = sourceIndex > 0 && !candidateHasPostalCode
+        && precededByOtherLocality(sourceCandidates, sourceIndex, sourceMunicipality);
       // In structured `city, canton` values, a published city must not pass only
       // because it equals the trailing canton (Zürich vs Winterthur, Zürich).
       // A canton name that no earlier candidate contradicts is the locality
@@ -639,12 +642,6 @@ export function sourceLocationMatches(published, source) {
 }
 
 const VOID_HTML_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
-const JOB_LOCATION_CLASS_TOKENS = new Set([
-  'job-location', 'job_location', 'job-detail-location', 'job_detail_location',
-  'job-region', 'job_region', 'job-detail-region', 'job_detail_region',
-  'vacancy-location', 'vacancy_location', 'vacancy-detail-location', 'vacancy_detail_location',
-  'vacancy-region', 'vacancy_region', 'vacancy-detail-region', 'vacancy_detail_region',
-]);
 const JOB_DETAIL_SCOPE_CLASS_TOKENS = new Set([
   'job-detail', 'job_detail', 'job-details', 'job_details', 'job-posting', 'job_posting',
   'vacancy-detail', 'vacancy_detail', 'vacancy-details', 'vacancy_details',
