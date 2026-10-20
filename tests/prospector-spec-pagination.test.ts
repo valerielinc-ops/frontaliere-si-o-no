@@ -130,6 +130,33 @@ describe('spec.pagination', () => {
     ]);
   });
 
+  it('legge un endpoint JSONP con HTML maiuscolo e limite di pagina revisionato', async () => {
+    const endpoint = `${ORIGIN}/easypublish/widget`;
+    const endpointPage = `${endpoint}?callback=frontaliere_callback&page=1`;
+    const listingHtml = `<article><h3><a href="${ORIGIN}/job/role-1">Role 1 a Lugano</a></h3></article>`;
+    const { rows, fetched } = await collect(specWith({
+      seedUrls: [`${ORIGIN}/careers`],
+      detailTemplate: '/job/*',
+      listingEndpoint: {
+        url: endpoint,
+        params: { callback: 'frontaliere_callback' },
+        responseFormat: 'jsonp',
+        responseHtmlField: 'HTML',
+        responseMaxNumPages: 1,
+        maxPages: 1,
+      },
+    }), {
+      [`${ORIGIN}/careers`]: '<html><title>Careers</title></html>',
+      [endpointPage]: `frontaliere_callback(${JSON.stringify({ HTML: listingHtml })})`,
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Role 1 a Lugano',
+      url: `${ORIGIN}/job/role-1`,
+    })]);
+    expect(fetched.filter((url) => !url.endsWith('/robots.txt'))).toEqual([endpointPage]);
+  });
+
   it('preserva un outcome undefined presente quando aggrega pagine miste', async () => {
     const seed = `${ORIGIN}/`;
     const secondPage = `${ORIGIN}/?sf_paged=2`;
