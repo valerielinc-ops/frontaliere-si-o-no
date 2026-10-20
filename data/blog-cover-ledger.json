@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 693,
+      "5": 695,
       "6": 5054
     },
-    "publishedCovers": 7430,
+    "publishedCovers": 7432,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -201943,6 +201943,72 @@
         "provider": "openai-codex",
         "assetId": "article-schleitheim-scooter-incidente-2026",
         "imageUrl": "/images/blog/article-schleitheim-scooter-incidente-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-axenstrasse-chiusa-quattro-notti": {
+      "cover": "/images/blog/article-axenstrasse-chiusa-quattro-notti.webp",
+      "hash": "42b83b9ff70b53e641edd13d3d674fa791e7044912c3fbe3faeeedd558d7ef97",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "axenstrasse-chiusa-quattro-notti",
+          "category": "pratico",
+          "date": "2026-10-20T09:56:09.960Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-axenstrasse-chiusa-quattro-notti.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-axenstrasse-chiusa-quattro-notti",
+        "imageUrl": "/images/blog/article-axenstrasse-chiusa-quattro-notti.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-frontalieri-ticino-indagine-salari-2026": {
+      "cover": "/images/blog/article-frontalieri-ticino-indagine-salari-2026.webp",
+      "hash": "c42a398c328e3fadbf56dcd01d9fa9f9eccaca6dec6b2800dea818a5285e6958",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ti",
+          "id": "frontalieri-ticino-indagine-salari-2026",
+          "category": "novita",
+          "date": "2026-10-20T10:00:10.896Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-frontalieri-ticino-indagine-salari-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-frontalieri-ticino-indagine-salari-2026",
+        "imageUrl": "/images/blog/article-frontalieri-ticino-indagine-salari-2026.webp",
         "evidence": "generated-engine-record"
       }
     }
