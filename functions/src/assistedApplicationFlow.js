@@ -606,17 +606,67 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       next.heldBy = [];
       effects = [{ type: 'mark_submitted' }];
       break;
-    case 'submit_needs_candidate':
+    case 'submit_needs_candidate': {
       if (state !== 'submitting') return ignore('not_submitting');
+      // Portal adapters return question IDs as strings; submit.mjs returns
+      // objects with an `id`. Normalize both shapes before persisting the hold.
+      const questionIds = [...new Set((Array.isArray(event.questions) ? event.questions : []).map((question) => {
+        const id = typeof question === 'string' ? question : question?.id;
+        return typeof id === 'string' || typeof id === 'number' ? String(id).trim() : '';
+      }).filter(Boolean))];
+      const eventDocuments = Array.isArray(event.documents) ? event.documents : [];
+      const attempts = Number(flow?.dispatch?.attempts) || 1;
+      // An unidentifiable question gives the candidate nothing they can act
+      // on. Treat it as an unsupported portal stop so the owner can retry
+      // after the runner or portal changes, instead of sending a blank request.
+      if (questionIds.length === 0 && eventDocuments.length === 0) {
+        next.state = 'owner_takeover';
+        next.deadlineAt = null;
+        next.reminderAt = null;
+        next.heldBy = ['portal_needs_candidate'];
+        next.heldSince = null;
+        effects = [{
+          type: 'email',
+          kind: 'owner_takeover',
+          reason: 'portal:portal_needs_candidate',
+          stage: 'submit',
+          attempts,
+        }];
+        break;
+      }
+      const answersAlreadyExist = questionIds.length > 0 && questionIds.every((id) => {
+        if (!Object.prototype.hasOwnProperty.call(answers || {}, id)) return false;
+        const answer = answers?.[id];
+        return typeof answer === 'boolean'
+          || (typeof answer === 'number' && Number.isFinite(answer))
+          || (typeof answer === 'string' && answer.trim().length > 0)
+          || (Array.isArray(answer) && answer.some((value) => String(value ?? '').trim().length > 0));
+      });
+      // A portal can report a validation step as a candidate question even
+      // after the runner filled it from an answer already saved in the flow.
+      // Retry once without sending an unnecessary candidate-action notice;
+      // if the portal still asks, hand it to the candidate as usual.
+      if (
+        answersAlreadyExist
+        && eventDocuments.length === 0
+        && candidateHolds(flags).length === 0
+        && roundWasSent(flow, current.round)
+        && attempts < 2
+      ) {
+        effects = enterSubmitting(next, 'existing_candidate_answers');
+        effects[0].attempts = attempts + 1;
+        break;
+      }
       next.state = 'needs_candidate_action';
       next.heldBy = [
-        ...(event.questions || []).map((question) => `question:${question.id}`),
-        ...(event.documents || []).map((id) => `document:${id}`),
+        ...questionIds.map((id) => `question:${id}`),
+        ...eventDocuments.map((id) => `document:${id}`),
       ];
       next.heldSince = null;
-      if (next.heldBy.length) waitForCandidate(next, nowMs);
+      waitForCandidate(next, nowMs);
       effects = [{ type: 'email', kind: 'candidate_action_needed' }];
       break;
+    }
     case 'submit_failed': {
       if (state !== 'submitting') return ignore('not_submitting');
       // Safe to run again: the submission guard (scripts/assisted-application/
