@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mueller-frauenfeld-e1018c6fad0b",
-      "slug": "baumaschinenmechaniker-efz-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch",
+      "slug": "meccanico-di-macchine-edili-efz-m-f-mueller-frauenfeld-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "baumaschinenmechaniker-efz-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "it": "baumaschinenmechaniker-efz-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "en": "baumaschinenmechaniker-efz-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "fr": "baumaschinenmechaniker-efz-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        "it": "meccanico-di-macchine-edili-efz-m-f-mueller-frauenfeld-frauenfeld-thurgau",
+        "en": "construction-machinery-mechanic-efz-m-f-mueller-frauenfeld-frauenfeld-thurgau",
+        "fr": "mecanicien-des-machines-de-construction-efz-h-f-mueller-frauenfeld-frauenfeld-thurgau"
       },
       "company": "mueller-frauenfeld",
       "companyKey": "mueller-frauenfeld",
@@ -68,16 +68,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:24:58.719Z"
+      "firstSeenAt": "2026-10-20T09:24:58.719Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baumaschinenmechaniker-efz-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "en": [
+          "baumaschinenmechaniker-efz-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "fr": [
+          "baumaschinenmechaniker-efz-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ]
+      },
+      "previousSlugs": [
+        "baumaschinenmechaniker-efz-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch"
+      ]
     },
     {
       "id": "mueller-frauenfeld-d70547edd44a",
-      "slug": "kauffrau-kaufmann-efz-frauenfeld-thurgau-mueller-frauenfeld-ch",
+      "slug": "impiegata-impiegato-di-commercio-efz-mueller-frauenfeld-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "kauffrau-kaufmann-efz-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "it": "kauffrau-kaufmann-efz-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "en": "kauffrau-kaufmann-efz-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "fr": "kauffrau-kaufmann-efz-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        "it": "impiegata-impiegato-di-commercio-efz-mueller-frauenfeld-frauenfeld-thurgau",
+        "en": "commercial-businessman-efz-mueller-frauenfeld-frauenfeld-thurgau",
+        "fr": "homme-d-affaires-commercial-efz-mueller-frauenfeld-frauenfeld-thurgau"
       },
       "company": "mueller-frauenfeld",
       "companyKey": "mueller-frauenfeld",
@@ -136,16 +150,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:24:58.719Z"
+      "firstSeenAt": "2026-10-20T09:24:58.719Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kauffrau-kaufmann-efz-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "en": [
+          "kauffrau-kaufmann-efz-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "fr": [
+          "kauffrau-kaufmann-efz-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kauffrau-kaufmann-efz-frauenfeld-thurgau-mueller-frauenfeld-ch"
+      ]
     },
     {
       "id": "mueller-frauenfeld-6bf4b1a2ec8b",
-      "slug": "baufuhrer-specializzazione-gleis-genio-civile-m-w-d-mueller-frauenfeld",
+      "slug": "capo-cantiere-specializzazione-costruzione-di-binari-lavori-di-genio-civile-m-f-mueller-frauenfeld-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "baufuhrer-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "it": "baufuhrer-specializzazione-gleis-genio-civile-m-w-d-mueller-frauenfeld",
-        "en": "baufuhrer-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "fr": "baufuhrer-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        "it": "capo-cantiere-specializzazione-costruzione-di-binari-lavori-di-genio-civile-m-f-mueller-frauenfeld-frauenfeld-thurgau",
+        "en": "construction-manager-specializing-in-track-civil-engineering-m-f-mueller-frauenfeld-frauenfeld-thurgau",
+        "fr": "directeur-de-construction-specialise-dans-la-voie-genie-civil-h-f-mueller-frauenfeld-frauenfeld-thurgau"
       },
       "company": "mueller-frauenfeld",
       "companyKey": "mueller-frauenfeld",
@@ -193,11 +221,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "baufuhrer-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch",
+          "baufuhrer-specializzazione-gleis-genio-civile-m-w-d-mueller-frauenfeld"
+        ],
+        "en": [
+          "baufuhrer-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "fr": [
           "baufuhrer-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch"
         ]
       },
       "previousSlugs": [
-        "baufuhrer-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        "baufuhrer-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch",
+        "baufuhrer-specializzazione-gleis-genio-civile-m-w-d-mueller-frauenfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -216,12 +252,12 @@
     },
     {
       "id": "mueller-frauenfeld-99372c5668e8",
-      "slug": "bau-landmaschinen-nutzfahrzeugmechaniker-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch",
+      "slug": "costruzione-macchine-agricole-veicolo-commerciale-meccanico-m-f-d-mueller-frauenfeld-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "bau-landmaschinen-nutzfahrzeugmechaniker-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "it": "bau-landmaschinen-nutzfahrzeugmechaniker-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "en": "bau-landmaschinen-nutzfahrzeugmechaniker-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "fr": "bau-landmaschinen-nutzfahrzeugmechaniker-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        "it": "costruzione-macchine-agricole-veicolo-commerciale-meccanico-m-f-d-mueller-frauenfeld-frauenfeld-thurgau",
+        "en": "construction-agricultural-machinery-commercial-vehicle-mechanic-m-f-d-mueller-frauenfeld-frauenfeld-thurgau",
+        "fr": "construction-machines-agricoles-mecanicien-de-vehicules-commerciaux-h-f-d-mueller-frauenfeld-frauenfeld-thurgau"
       },
       "company": "mueller-frauenfeld",
       "companyKey": "mueller-frauenfeld",
@@ -280,16 +316,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:24:58.717Z"
+      "firstSeenAt": "2026-10-20T09:24:58.717Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bau-landmaschinen-nutzfahrzeugmechaniker-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "en": [
+          "bau-landmaschinen-nutzfahrzeugmechaniker-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "fr": [
+          "bau-landmaschinen-nutzfahrzeugmechaniker-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bau-landmaschinen-nutzfahrzeugmechaniker-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+      ]
     },
     {
       "id": "mueller-frauenfeld-85ffeb7ca5d6",
-      "slug": "junior-baufuhrer-apprendista-specializzazione-gleis-genio-civile-m-w-d-mueller-frauenfeld",
+      "slug": "capo-cantiere-junior-trainee-specializzazione-costruzione-di-binari-lavori-di-genio-civile-m-f-mueller-frauenfeld",
       "slugByLocale": {
         "de": "junior-baufuhrer-trainee-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller",
-        "it": "junior-baufuhrer-apprendista-specializzazione-gleis-genio-civile-m-w-d-mueller-frauenfeld",
-        "en": "junior-baufuhrer-trainee-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller",
-        "fr": "junior-baufuhrer-trainee-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller"
+        "it": "capo-cantiere-junior-trainee-specializzazione-costruzione-di-binari-lavori-di-genio-civile-m-f-mueller-frauenfeld",
+        "en": "junior-builder-trainee-specialty-track-civil-engineering-m-f-mueller-frauenfeld-frauenfeld-thurgau",
+        "fr": "conducteur-trice-de-travaux-junior-stagiaire-specialisation-construction-de-voies-genie-civil-h-f-mueller-frauenfeld"
       },
       "company": "mueller-frauenfeld",
       "companyKey": "mueller-frauenfeld",
@@ -337,11 +387,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "junior-baufuhrer-trainee-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller",
+          "junior-baufuhrer-apprendista-specializzazione-gleis-genio-civile-m-w-d-mueller-frauenfeld"
+        ],
+        "en": [
+          "junior-baufuhrer-trainee-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller"
+        ],
+        "fr": [
           "junior-baufuhrer-trainee-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller"
         ]
       },
       "previousSlugs": [
-        "junior-baufuhrer-trainee-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller"
+        "junior-baufuhrer-trainee-fachrichtung-gleis-tiefbau-m-w-frauenfeld-thurgau-mueller",
+        "junior-baufuhrer-apprendista-specializzazione-gleis-genio-civile-m-w-d-mueller-frauenfeld"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -360,12 +418,12 @@
     },
     {
       "id": "mueller-frauenfeld-13a6bfffa913",
-      "slug": "sicherheitswarter-sicherheitschef-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch",
+      "slug": "protezione-testa-di-sicurezza-m-f-mueller-frauenfeld-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "sicherheitswarter-sicherheitschef-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "it": "sicherheitswarter-sicherheitschef-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "en": "sicherheitswarter-sicherheitschef-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "fr": "sicherheitswarter-sicherheitschef-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        "it": "protezione-testa-di-sicurezza-m-f-mueller-frauenfeld-frauenfeld-thurgau",
+        "en": "security-guards-head-of-security-m-f-mueller-frauenfeld-frauenfeld-thurgau",
+        "fr": "gardes-de-securite-chef-de-la-securite-h-f-mueller-frauenfeld-frauenfeld-thurgau"
       },
       "company": "mueller-frauenfeld",
       "companyKey": "mueller-frauenfeld",
@@ -424,16 +482,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:24:58.716Z"
+      "firstSeenAt": "2026-10-20T09:24:58.716Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sicherheitswarter-sicherheitschef-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "en": [
+          "sicherheitswarter-sicherheitschef-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "fr": [
+          "sicherheitswarter-sicherheitschef-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sicherheitswarter-sicherheitschef-m-w-frauenfeld-thurgau-mueller-frauenfeld-ch"
+      ]
     },
     {
       "id": "mueller-frauenfeld-521fb662ef29",
-      "slug": "fahrleitungsmonteur-bahnprojekte-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch",
+      "slug": "progetti-ferroviari-m-f-d-80-100-mueller-frauenfeld-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "fahrleitungsmonteur-bahnprojekte-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "it": "fahrleitungsmonteur-bahnprojekte-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "en": "fahrleitungsmonteur-bahnprojekte-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "fr": "fahrleitungsmonteur-bahnprojekte-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        "it": "progetti-ferroviari-m-f-d-80-100-mueller-frauenfeld-frauenfeld-thurgau",
+        "en": "railway-projects-m-f-d-80-100-mueller-frauenfeld-frauenfeld-thurgau",
+        "fr": "projets-ferroviaires-h-f-d-80-100-mueller-frauenfeld-frauenfeld-thurgau"
       },
       "company": "mueller-frauenfeld",
       "companyKey": "mueller-frauenfeld",
@@ -492,16 +564,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:24:58.715Z"
+      "firstSeenAt": "2026-10-20T09:24:58.715Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fahrleitungsmonteur-bahnprojekte-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "en": [
+          "fahrleitungsmonteur-bahnprojekte-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "fr": [
+          "fahrleitungsmonteur-bahnprojekte-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fahrleitungsmonteur-bahnprojekte-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch"
+      ]
     },
     {
       "id": "mueller-frauenfeld-78a7d24987c1",
-      "slug": "sachverstandiger-fahrleitungsanlagen-80-100-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch",
+      "slug": "impianti-di-catenaria-esperti-80-100-m-f-d-mueller-frauenfeld-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "sachverstandiger-fahrleitungsanlagen-80-100-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "it": "sachverstandiger-fahrleitungsanlagen-80-100-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "en": "sachverstandiger-fahrleitungsanlagen-80-100-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "fr": "sachverstandiger-fahrleitungsanlagen-80-100-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        "it": "impianti-di-catenaria-esperti-80-100-m-f-d-mueller-frauenfeld-frauenfeld-thurgau",
+        "en": "expert-catenary-installations-80-100-m-f-d-mueller-frauenfeld-frauenfeld-thurgau",
+        "fr": "installations-catenaires-expertes-80-100-h-f-d-mueller-frauenfeld-frauenfeld-thurgau"
       },
       "company": "mueller-frauenfeld",
       "companyKey": "mueller-frauenfeld",
@@ -560,16 +646,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:24:58.713Z"
+      "firstSeenAt": "2026-10-20T09:24:58.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachverstandiger-fahrleitungsanlagen-80-100-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "en": [
+          "sachverstandiger-fahrleitungsanlagen-80-100-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "fr": [
+          "sachverstandiger-fahrleitungsanlagen-80-100-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachverstandiger-fahrleitungsanlagen-80-100-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+      ]
     },
     {
       "id": "mueller-frauenfeld-a1bc1d1f22ed",
-      "slug": "strategischer-einkauf-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch",
+      "slug": "acquisto-strategico-m-f-d-80-100-mueller-frauenfeld-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "strategischer-einkauf-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "it": "strategischer-einkauf-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "en": "strategischer-einkauf-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "fr": "strategischer-einkauf-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        "it": "acquisto-strategico-m-f-d-80-100-mueller-frauenfeld-frauenfeld-thurgau",
+        "en": "strategic-purchasing-m-f-d-80-100-mueller-frauenfeld-frauenfeld-thurgau",
+        "fr": "achat-strategique-h-f-d-80-100-mueller-frauenfeld-frauenfeld-thurgau"
       },
       "company": "mueller-frauenfeld",
       "companyKey": "mueller-frauenfeld",
@@ -628,16 +728,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:24:58.712Z"
+      "firstSeenAt": "2026-10-20T09:24:58.712Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategischer-einkauf-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "en": [
+          "strategischer-einkauf-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "fr": [
+          "strategischer-einkauf-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strategischer-einkauf-m-w-d-80-100-frauenfeld-thurgau-mueller-frauenfeld-ch"
+      ]
     },
     {
       "id": "mueller-frauenfeld-bc137754dace",
-      "slug": "gleisbauer-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch",
+      "slug": "tracciatore-m-f-d-mueller-frauenfeld-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "gleisbauer-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "it": "gleisbauer-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "en": "gleisbauer-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch",
-        "fr": "gleisbauer-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        "it": "tracciatore-m-f-d-mueller-frauenfeld-frauenfeld-thurgau",
+        "en": "track-builder-m-f-d-mueller-frauenfeld-frauenfeld-thurgau",
+        "fr": "constructeur-de-piste-h-f-d-mueller-frauenfeld-frauenfeld-thurgau"
       },
       "company": "mueller-frauenfeld",
       "companyKey": "mueller-frauenfeld",
@@ -696,7 +810,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:24:58.708Z"
+      "firstSeenAt": "2026-10-20T09:24:58.708Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gleisbauer-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "en": [
+          "gleisbauer-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ],
+        "fr": [
+          "gleisbauer-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gleisbauer-m-w-d-frauenfeld-thurgau-mueller-frauenfeld-ch"
+      ]
     }
   ]
 }

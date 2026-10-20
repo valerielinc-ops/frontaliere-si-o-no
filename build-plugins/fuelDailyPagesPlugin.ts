@@ -2081,7 +2081,7 @@ function renderArchive(inp: ArchiveInputs): string {
   // two strings collide. Differentiate the H1 so audit:h1-title-duplicates
   // accepts the page (baseline 0).
   h1 = differentiateH1FromTitle(h1, title, locale);
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = intro;
@@ -3140,7 +3140,7 @@ function renderStationPage(opts: {
   // Guarantee H1 ≠ <title> after brand-strip — see Italian-station branch
   // for the full rationale (audit:h1-title-duplicates ratchet baseline 0).
   h1 = differentiateH1FromTitle(h1, title, locale);
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = intro;
@@ -3873,7 +3873,7 @@ function renderItalianCityPage(opts: {
   const title = clampSiteSuffix(fitHeadingToTitleBudget(h1, dateStamp, 60, true), 'Frontaliere Ticino', 66);
   // Differentiate H1 ↔ <title> after brand drop. See station-detail branch.
   h1 = differentiateH1FromTitle(h1, title, locale);
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = intro;
@@ -4881,7 +4881,7 @@ function renderItalianStationPage(opts: {
   // helper appends a locale-aware narrative tag so the
   // `audit:h1-title-duplicates` ratchet (baseline 0) accepts the page.
   h1 = differentiateH1FromTitle(h1, title, locale);
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = intro;

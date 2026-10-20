@@ -9,6 +9,7 @@ import { buildFactIndex, checkGeneratedFacts, withPermitClaims } from './assiste
 import { sanitizeValidation } from './lib/answerRules.js';
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, isPermitField, permitLabel, permitOptions } from './lib/permitStatus.js';
 import { letterPlaceDate, letterSubject } from './assistedApplicationAiPrompts.js';
+import { languageExplicitlyAbsent } from './lib/languageFacts.js';
 import { SALUTATIONS } from './lib/personalFacts.js';
 
 export const LETTER_FILE_LABEL = {
@@ -27,9 +28,14 @@ export function cleanBlock(value, max = 4000) {
 }
 
 const list = (value, max) => (Array.isArray(value) ? value.slice(0, max) : []);
+const MAX_PROFILE_LANGUAGES = 40;
 
 /** Lengths the schemas no longer enforce are capped here. */
-export function sanitizeProfile(raw) {
+export function sanitizeProfile(raw, { legacy = false } = {}) {
+  const rawLanguages = Array.isArray(raw?.languages) ? raw.languages : [];
+  const languagesListTruncated = raw?.languagesListTruncated === true
+    || rawLanguages.length > MAX_PROFILE_LANGUAGES
+    || (legacy && raw?.languagesListTruncated === undefined);
   return {
     fullName: clean(raw?.fullName, 200),
     email: clean(raw?.email, 320),
@@ -49,7 +55,11 @@ export function sanitizeProfile(raw) {
     summary: cleanBlock(raw?.summary, 1500),
     workPermit: clean(raw?.workPermit, 200),
     availability: clean(raw?.availability, 200),
-    languages: list(raw?.languages, 12).map((item) => ({ language: clean(item?.language, 60), level: clean(item?.level, 60) })).filter((item) => item.language),
+    languages: list(rawLanguages, MAX_PROFILE_LANGUAGES).map((item) => ({ language: clean(item?.language, 60), level: clean(item?.level, 60) })).filter((item) => item.language),
+    languagesListTruncated,
+    languagesExplicitList: raw?.languagesExplicitList === true
+      && !languagesListTruncated
+      && rawLanguages.length <= MAX_PROFILE_LANGUAGES,
     skills: list(raw?.skills, 40).map((item) => clean(item, 120)).filter(Boolean),
     experience: list(raw?.experience, 15).map((item) => ({
       role: clean(item?.role, 200),
@@ -225,6 +235,9 @@ export function ensureRequiredQuestions(questions, { requirements, profile, answ
   });
   const result = [];
   for (const item of questions) {
+    // A complete explicit CV language list can establish absence. Ambiguous
+    // entries keep the question open for the candidate.
+    if (languageExplicitlyAbsent(profile, item.question)) continue;
     if (asksPermit(item)) {
       if (!result.some((other) => other.id === 'work_permit')) result.push(permitQuestion(item.source || 'match'));
       continue;
@@ -261,13 +274,14 @@ const asksSalutation = (question) => SALUTATION_RE.test(`${question?.question ||
 /**
  * The form of address, asked on the first review when the application leaves
  * through a portal's form. umantis (2026-10-03) requires «Title: Ms / Mr /
- * Other», as most Swiss portals require «Anrede»; it is never guessed from the
- * first name, so it used to come back as a second round at submit time.
+ * Other», as most Swiss portals require «Anrede»; the candidate's answer, an
+ * explicit statement in the CV, or an unambiguous locale-aware first name
+ * fills it without a question. Ambiguous names stay blank.
  * Optional: a candidate who does not answer is not held, and the portal's own
  * question then comes at submit time as before. Never for an e-mail
- * application, nor when a question already asks it, nor when the candidate
- * has said it: by an answer, or in their CV's own words («Né le», «Mariée»:
- * lib/personalFacts.js; `answers.salutation` then holds it, see
+ * application, nor when a question already asks it, nor when a value is
+ * already known from their answer, their CV's own words («Né le», «Mariée»)
+ * or an unambiguous first name (`answers.salutation` then holds it, see
  * candidateWithEdits). Nor when they corrected the field on the review page
  * (`corrected`), even to nothing: asked again, the question would bring an
  * older answer back in place of what they chose.
@@ -328,7 +342,11 @@ export function sanitizeDocuments(raw) {
  * candidate's own address.
  */
 export function candidateIdentity(order, profile) {
-  const name = clean(order?.applicantName, 200) || clean(profile?.fullName, 200);
+  // Some callers already have the normalized profile-shaped `fullName` on
+  // the order object (notably the review/runner boundary). Keep the persisted
+  // applicantName as the primary source, but do not silently discard that
+  // normalized name before falling back to the draft profile.
+  const name = clean(order?.applicantName, 200) || clean(order?.fullName, 200) || clean(profile?.fullName, 200);
   const alias = order?.candidateAlias?.active ? clean(order.candidateAlias.address, 320) : '';
   const email = alias || clean(order?.applicantEmail, 320) || clean(profile?.email, 320) || clean(order?.customerEmail, 320);
   const phone = clean(order?.applicantPhone, 80) || clean(profile?.phone, 80);

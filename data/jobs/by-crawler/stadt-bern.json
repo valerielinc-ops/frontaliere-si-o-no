@@ -2033,7 +2033,7 @@
       "slug": "educatore-trice-sociale-jolly-stadt-bern-bern",
       "slugByLocale": {
         "it": "educatore-trice-sociale-jolly-stadt-bern-bern",
-        "en": "springer-in-sozialpadagogik-stadt-bern",
+        "en": "relief-social-pedagogue-stadt-bern-bern",
         "de": "springer-in-sozialpadagogik-stadt-bern-bern",
         "fr": "remplacant-e-en-pedagogie-sociale-stadt-bern-bern"
       },
@@ -2081,7 +2081,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "springer-in-sozialpadagogik-stadt-bern-bern",
-        "relief-social-pedagogue-stadt-bern-bern"
+        "springer-in-sozialpadagogik-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2089,7 +2089,7 @@
         ],
         "en": [
           "springer-in-sozialpadagogik-stadt-bern-bern",
-          "relief-social-pedagogue-stadt-bern-bern"
+          "springer-in-sozialpadagogik-stadt-bern"
         ],
         "fr": [
           "springer-in-sozialpadagogik-stadt-bern-bern"
@@ -2764,12 +2764,12 @@
     },
     {
       "id": "stadt-bern-f85ce2927471",
-      "slug": "co-schulleiter-in-zyklus-1-stadt-bern-bern",
+      "slug": "co-dirigente-scolastico-a-ciclo-1-stadt-bern-bern",
       "slugByLocale": {
         "de": "co-schulleiter-in-zyklus-1-stadt-bern-bern",
-        "it": "co-schulleiter-in-zyklus-1-stadt-bern-bern",
-        "en": "co-schulleiter-in-zyklus-1-stadt-bern-bern",
-        "fr": "co-schulleiter-in-zyklus-1-stadt-bern-bern"
+        "it": "co-dirigente-scolastico-a-ciclo-1-stadt-bern-bern",
+        "en": "co-principal-cycle-1-stadt-bern-bern",
+        "fr": "co-directeur-rice-d-ecole-cycle-1-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2828,16 +2828,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:11:57.256Z"
+      "firstSeenAt": "2026-10-20T09:11:57.256Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-schulleiter-in-zyklus-1-stadt-bern-bern"
+        ],
+        "en": [
+          "co-schulleiter-in-zyklus-1-stadt-bern-bern"
+        ],
+        "fr": [
+          "co-schulleiter-in-zyklus-1-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "co-schulleiter-in-zyklus-1-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-ca086beed6c1",
-      "slug": "tierpfleger-in-specializzazione-wildtierpflege-stadt-bern",
+      "slug": "addetto-a-alla-cura-degli-animali-specializzazione-nella-cura-degli-animali-selvatici-stadt-bern-bern",
       "slugByLocale": {
         "de": "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern",
-        "it": "tierpfleger-in-specializzazione-wildtierpflege-stadt-bern",
-        "en": "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern",
-        "fr": "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern"
+        "it": "addetto-a-alla-cura-degli-animali-specializzazione-nella-cura-degli-animali-selvatici-stadt-bern-bern",
+        "en": "animal-caretaker-specialization-in-wildlife-care-stadt-bern-bern",
+        "fr": "soigneur-euse-animalier-ere-specialisation-en-soins-aux-animaux-sauvages-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2885,11 +2899,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern",
+          "tierpfleger-in-specializzazione-wildtierpflege-stadt-bern"
+        ],
+        "en": [
+          "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern"
+        ],
+        "fr": [
           "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
-        "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern"
+        "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern",
+        "tierpfleger-in-specializzazione-wildtierpflege-stadt-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

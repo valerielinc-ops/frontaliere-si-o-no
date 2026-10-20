@@ -2436,7 +2436,7 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // Phase 3A: clamp brand suffix only when it fits the 60-char SERP budget.
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = introLong;
@@ -2878,7 +2878,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   });
 
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = introLong;
@@ -3109,7 +3109,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
   });
 
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
-  // No 180-char pre-cut: clampMetaDescription (160) always won, so this only
+  // No 180-char pre-cut: clampMetaDescription (150) always won, so this only
   // handed it a string already broken mid-word. Let it do the clause-aware cut.
   const description = intro;
 

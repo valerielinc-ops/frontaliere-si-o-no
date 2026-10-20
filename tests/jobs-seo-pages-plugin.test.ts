@@ -4,12 +4,14 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   JOB_SEO_LOCALES,
+  buildReservedHubSlugs,
   pickSearchLandingFallbackJobs,
   capSearchStatsLandingTitle,
   deriveJobCanton,
   deriveJobAddressLocality,
   deriveJobStreetAddress,
 } from '../build-plugins/jobsSeoPagesPlugin';
+import { HUB_SLUG_BY_LOCALE } from '../build-plugins/seoHubsData';
 import { TITLE_MAX_CHARS, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared/titleSuffix';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -40,6 +42,18 @@ describe('jobsSeoPagesPlugin search landing fallback', () => {
 
     expect(fallback).toEqual([{ slug: 'ricerca-infermiere' }]);
     expect(JOB_SEO_LOCALES).toEqual(['it', 'en', 'de', 'fr']);
+  });
+});
+
+describe('jobsSeoPagesPlugin reserved hub slugs', () => {
+  it('protects every localized canton hub slug from stale expired-job fallbacks', () => {
+    const reserved = buildReservedHubSlugs();
+
+    for (const locale of JOB_SEO_LOCALES) {
+      for (const slug of Object.values(HUB_SLUG_BY_LOCALE[locale])) {
+        expect(reserved.has(slug), `${locale}/${slug}`).toBe(true);
+      }
+    }
   });
 });
 

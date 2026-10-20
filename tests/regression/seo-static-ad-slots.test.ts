@@ -228,7 +228,8 @@ describe('SEO SSG-family end-of-content multiplex (#4485)', () => {
     { file: 'build-plugins/employerProfilePagesPlugin.ts', count: 1 },
     { file: 'build-plugins/salaryProfessionCantonPages.ts', count: 1 },
     { file: 'build-plugins/professionCantonLandings.ts', count: 1 },
-    { file: 'build-plugins/healthFacilitiesPlugin.ts', count: 1 },
+    // The indexable facility directory hub and facility details each emit one.
+    { file: 'build-plugins/healthFacilitiesPlugin.ts', count: 2 },
     // Issue #4528 (rollout part 2 of #4485) — preexisting SSG families.
     // professionCityLandings.ts and salaryStatsChCantonPages.ts excluded:
     // both already modified by in-flight PR #4525 (overlap-file guard).

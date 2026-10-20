@@ -1126,7 +1126,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     },
   });
 
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = titles.description;

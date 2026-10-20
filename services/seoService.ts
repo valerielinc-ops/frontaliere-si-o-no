@@ -1998,7 +1998,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  const metaDescription = serpVariant.description;
  const metaOgTitle = metaTitle;
  // <meta name="description"> + og:description are clamped to the SERP snippet
- // budget (≤160 char, word-aware). The full `metaDescription` is kept for the
+ // budget (≤150 char, word-aware). The full `metaDescription` is kept for the
  // JSON-LD `description` clones below (schema has no length cap). Same clamp
  // runs in the static emit (build-plugins/htmlTemplate.ts) so the JS-rendered
  // DOM and the static HTML expose an identical, non-truncated snippet.
