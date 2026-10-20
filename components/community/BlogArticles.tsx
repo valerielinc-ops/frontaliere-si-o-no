@@ -53,6 +53,37 @@ import {
 // offline placement observer can use the same rules.
 export { isAdStraddleBlock, isTableBlock } from '@/services/adPlacement';
 
+const ARTICLE_BODY_LOAD_COPY: Record<Locale, { loading: string; missing: string; failed: string; unavailable: string; retry: string }> = {
+ it: {
+  loading: 'Caricamento del testo dell’articolo.',
+  missing: 'Il testo di questo articolo non è disponibile al momento.',
+  failed: 'Non è stato possibile caricare il testo. Riprova.',
+  unavailable: 'Non è stato possibile trovare questo articolo nell’indice aggiornato. Riprova.',
+  retry: 'Riprova',
+ },
+ en: {
+  loading: 'Loading article text.',
+  missing: 'The text for this article is not available right now.',
+  failed: 'The article text could not be loaded. Try again.',
+  unavailable: 'This article was not found in the latest index. Try again.',
+  retry: 'Try again',
+ },
+ de: {
+  loading: 'Artikeltext wird geladen.',
+  missing: 'Der Text dieses Artikels ist derzeit nicht verfügbar.',
+  failed: 'Der Artikeltext konnte nicht geladen werden. Bitte erneut versuchen.',
+  unavailable: 'Dieser Artikel wurde im aktuellen Verzeichnis nicht gefunden. Bitte erneut versuchen.',
+  retry: 'Erneut versuchen',
+ },
+ fr: {
+  loading: 'Chargement du texte de l’article.',
+  missing: 'Le texte de cet article est indisponible pour le moment.',
+  failed: 'Impossible de charger le texte. Réessayez.',
+  unavailable: 'Cet article est introuvable dans l’index actuel. Réessayez.',
+  retry: 'Réessayer',
+ },
+};
+
 import { Analytics } from '@/services/analytics';
 import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User, List, ChevronDown, RefreshCw, Bookmark as BookmarkIcon, Printer, ThumbsUp, ThumbsDown, MessageSquareMore, HelpCircle } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -1155,9 +1186,9 @@ interface BlogArticlesProps {
  deferUntilCantonTopicReady?: boolean;
  /** Stable article key whose static fallback remains visible until takeover. */
  articleReadyKey?: string;
- /** Complete the static article → React handoff after the article body paints. */
+ /** Complete the static article → React handoff after the verified body or its loading/error state paints. */
  onArticleReady?: (key: string) => void;
- /** Keep both the hub and the article skeleton out of the static fallback flow. */
+ /** Replace a cold static article snapshot with a loading state while its body revision is checked. */
  deferUntilArticleReady?: boolean;
 }
 
@@ -1268,7 +1299,24 @@ function BlogArticlesContent({
  const { t } = useTranslation();
  const [locale] = useLocale();
  const [blogReady, setBlogReady] = useState(false);
- const [bodyReady, setBodyReady] = useState(false);
+ const bodyRequestKey = selectedArticle ? `${section}:${locale}:${selectedArticle}` : null;
+ const [readyBodyKey, setReadyBodyKey] = useState<string | null>(null);
+ const bodyReady = !!bodyRequestKey && readyBodyKey === bodyRequestKey;
+ const [bodyLoadIssueState, setBodyLoadIssueState] = useState<{
+  key: string;
+  issue: 'missing' | 'error';
+  handoff: boolean;
+ } | null>(null);
+ const bodyLoadIssue = bodyLoadIssueState?.key === bodyRequestKey ? bodyLoadIssueState : null;
+ const [bodyRetry, setBodyRetry] = useState(0);
+ const [registryRetry, setRegistryRetry] = useState(0);
+ const registryAttemptKey = `${section}:${locale}:${registryRetry}`;
+ const [registryAttemptState, setRegistryAttemptState] = useState<{
+  key: string;
+  status: 'pending' | 'complete';
+ } | null>(null);
+ const registryAttemptComplete = registryAttemptState?.key === registryAttemptKey
+  && registryAttemptState.status === 'complete';
  // FRO-314: Articles data loaded dynamically to reduce TBT on mobile
  const [articles, setArticles] = useState<Article[]>([]);
  const [cantonRuntimeIds, setCantonRuntimeIds] = useState<ReadonlySet<string>>(new Set());
@@ -1348,6 +1396,9 @@ function BlogArticlesContent({
  // every article href below is canonical by construction (the slug map no
  // longer preloads unconditionally at App mount — #3528/#3532).
  useEffect(() => {
+ let cancelled = false;
+ const requestRegistryKey = `${section}:${locale}:${registryRetry}`;
+ setRegistryAttemptState({ key: requestRegistryKey, status: 'pending' });
  // The frontaliere registry is READ FROM THE STATIC IMPORT above, not fetched.
  // It used to be loaded through a second, dynamic import() of the very same module,
  // which bought nothing: the `export { ARTICLES }` re-export above already makes it
@@ -1375,7 +1426,7 @@ function BlogArticlesContent({
  const articleDataPromise: Promise<{ data: Article[]; overlay: OverlayArticle[] }> = isCanton
   ? cantonOverlayPromise.then((overlay) => ({
    overlay,
-   data: mergeOverlay([], overlay, getLocale()).articles.map(articleFromOverlay),
+   data: overlay.map(articleFromOverlay),
   }))
   : (section === 'svizzera'
    ? resilientImport(() => import('@/data/swiss-articles-data'), m => Array.isArray(m.SWISS_ARTICLES)).then(m => ({ data: m.SWISS_ARTICLES, overlay: [] }))
@@ -1390,7 +1441,9 @@ function BlogArticlesContent({
  isCanton ? Promise.resolve() : preloadBlogData().catch(() => {}),
  articleDataPromise,
  ]).then(async ([, , payload]) => {
+ if (cancelled) return;
  const { data, overlay } = payload;
+ if (isCanton) mergeOverlay([], overlay, getLocale());
  // Articles the router already resolved at runtime (issue #4974 item 3).
  // This component mounts only AFTER that resolution — the article page
  // stays on the shard's static HTML until then — so by the time we get
@@ -1423,12 +1476,14 @@ function BlogArticlesContent({
    if (entry.slug) learnRuntimeCantonSlugs(section, entry.id, { [locale]: entry.slug });
   }
   const pairs = await publishedSlugsForIds(section, knownIds).catch(() => []);
+  if (cancelled) return;
   for (const [id, slugs] of pairs) {
    learnRuntimeCantonSlugs(section, id, slugs);
   }
   setCantonRuntimeIds(new Set(seededArticles.map(article => article.id)));
   setArticles(listArticles);
   setBlogReady(true);
+  setRegistryAttemptState({ key: requestRegistryKey, status: 'complete' });
   return;
  }
 
@@ -1452,8 +1507,12 @@ function BlogArticlesContent({
    '',
  );
  void fetchArticleOverlay(section, getLocale(), data.length, bundledNewest || undefined).then(async (overlay) => {
+   if (cancelled) return;
    const { articles: merged, added } = mergeOverlay(seededArticles, overlay, getLocale());
-   if (added === 0) return;
+   if (added === 0) {
+    setRegistryAttemptState({ key: requestRegistryKey, status: 'complete' });
+    return;
+   }
 
    // Teach the router these articles' slugs BEFORE the cards paint.
    // `buildPath` falls back to the raw id when it has no slug, so a card for
@@ -1484,40 +1543,59 @@ function BlogArticlesContent({
    }
    if (locale !== 'it' && needSlug.length > 0) {
      const pairs = await publishedSlugsForIds(section, needSlug).catch(() => []);
+     if (cancelled) return;
      for (const [id, slugs] of pairs) learn(id, slugs);
    }
 
    setArticles(merged);
- }).catch(() => {});
- }).catch(() => {});
- }, [section, locale]);
+   setRegistryAttemptState({ key: requestRegistryKey, status: 'complete' });
+ }).catch(() => {
+  if (cancelled) return;
+  setRegistryAttemptState({ key: requestRegistryKey, status: 'complete' });
+ });
+ }).catch(() => {
+  if (cancelled) return;
+  setRegistryAttemptState({ key: requestRegistryKey, status: 'complete' });
+ });
+ return () => { cancelled = true; };
+ }, [section, locale, registryRetry]);
 
  // Lazy-load article BODY when a specific article is selected
  useEffect(() => {
- if (!selectedArticle) { setBodyReady(false); return; }
+ if (!selectedArticle) { setReadyBodyKey(null); setBodyLoadIssueState(null); return; }
  let cancelled = false;
  const bodyLocale = getLocale();
- setBodyReady(false);
+ const requestBodyKey = `${section}:${locale}:${selectedArticle}`;
+ setReadyBodyKey(null);
+ setBodyLoadIssueState(null);
  // The section's cover credits (P14), started with the body so they have
  // normally landed by `bodyReady`. One request per section per session;
  // fail-open (services/imageCredits.ts).
  void fetchImageCredits(section);
- loadArticleBody(selectedArticle, section).then(async () => {
+ loadArticleBody(selectedArticle, section).then(async (result) => {
  if (cancelled) return;
+ if (result?.status === 'error') {
+  setBodyLoadIssueState({ key: requestBodyKey, issue: 'error', handoff: true });
+  return;
+ }
+ const bodySource = result?.status ?? 'legacy';
+ if (bodySource === 'missing') {
+  setBodyLoadIssueState({ key: requestBodyKey, issue: 'missing', handoff: true });
+  return;
+ }
  // The body chunks are compiled in, so an article published after this
  // build has none: `loadBlogBodyChunk` resolves to null, `bodyReady` flips
  // true and the article renders with a title and nothing under it. That is
  // reachable from the LIST too — the overlay puts the card there, and
  // clicking it used to open an empty article.
  //
- // The corpus API publishes metadata, slugs, sitemaps and feeds but not
- // bodies, so rather than invent an endpoint we re-read the page the shard
- // is already serving for this exact URL and recover the body from its
- // static HTML. Existing punctuation-only placeholders also need recovery.
+ // If the API manifest explicitly reports legacy mode, re-read the page the
+ // shard is already serving for this exact URL and recover its static body.
+ // Existing punctuation-only placeholders also need recovery in that mode.
  // Direct arrivals reuse the URL-bound clone; client navigation costs one request,
  // and returns [] on every failure — in which case nothing is merged and
  // the render is exactly what it is today.
- if (needsArticleBodyRecovery(collectArticleBodySegments(selectedArticle, translate))) {
+ if (bodySource === 'legacy' && needsArticleBodyRecovery(collectArticleBodySegments(selectedArticle, translate))) {
  const route = section === 'svizzera'
  ? { activeTab: 'blog' as const, blogSection: 'svizzera' as const, swissArticle: selectedArticle }
  : isCantonArticleSection(section)
@@ -1527,11 +1605,18 @@ function BlogArticlesContent({
  if (cancelled) return;
  publishRuntimeArticleBody(selectedArticle, bodyLocale, parts);
  }
- if (!cancelled) setBodyReady(true);
- }).catch(() => {});
+ if (bodySource === 'legacy'
+  && needsArticleBodyRecovery(collectArticleBodySegments(selectedArticle, translate))) {
+  setBodyLoadIssueState({ key: requestBodyKey, issue: 'missing', handoff: false });
+  return;
+ }
+ if (!cancelled) setReadyBodyKey(requestBodyKey);
+ }).catch(() => {
+  if (!cancelled) setBodyLoadIssueState({ key: requestBodyKey, issue: 'error', handoff: false });
+ });
  trackArticleView(selectedArticle);
  return () => { cancelled = true; };
- }, [selectedArticle, section, locale]);
+ }, [selectedArticle, section, locale, bodyRetry]);
 
  // Admin-set byline reassignment (see AdminPanel "Redazione" section), CSR-only.
  const [articleAuthorOverride, setArticleAuthorOverride] = useState<ArticleAuthorOverride | null>(null);
@@ -1685,7 +1770,7 @@ function BlogArticlesContent({
   // historical bundle's client-generated variant.
   return;
  }
- if (!selectedArticle || articles.length === 0) return;
+ if (!selectedArticle || articles.length === 0 || !bodyReady) return;
  const article = articles.find(a => a.id === selectedArticle);
  if (!article) return;
  const title = t(`blog.article.${article.id}.title`);
@@ -1847,7 +1932,7 @@ function BlogArticlesContent({
  if (existing) existing.remove();
  document.getElementById(faqScriptId)?.remove();
  };
- }, [selectedArticle, articles, locale, t, articleAuthorOverride, imageCredit, section]);
+ }, [selectedArticle, articles, locale, t, articleAuthorOverride, imageCredit, section, bodyReady]);
 
  const handleResponsiveImageError = useCallback((imagePath: string) => {
  setImageFallbackMap(prev => (prev[imagePath] ? prev : { ...prev, [imagePath]: true }));
@@ -2027,19 +2112,24 @@ function BlogArticlesContent({
  const articleBodyForHandoff = selectedArticle && bodyReady
   ? collectArticleBodySegments(selectedArticle, t)
   : [];
- const articleReadyForStaticTakeover = isStaticArticleReadyForTakeover({
-  deferUntilReady: deferUntilArticleReady,
-  blogReady,
-  bodyReady,
-  articlePresent: !!selectedArticleObj,
-  title: articleTitleForHandoff,
-  titleKey: articleTitleKey,
-  bodySegmentCount: articleBodyForHandoff.length,
- });
+ const retryStateReady = bodyLoadIssue?.handoff === true
+  && blogReady
+  && !!selectedArticleObj;
+ const articleReadyForStaticTakeover = (deferUntilArticleReady && !!selectedArticle)
+  || retryStateReady
+  || isStaticArticleReadyForTakeover({
+   deferUntilReady: deferUntilArticleReady,
+   blogReady,
+   bodyReady,
+   articlePresent: !!selectedArticleObj,
+   title: articleTitleForHandoff,
+   titleKey: articleTitleKey,
+   bodySegmentCount: articleBodyForHandoff.length,
+  });
 
- // Signal only after the real article DOM has committed. App.tsx then clears
- // the static-owner key and hides the sibling in the same pre-paint cycle, so
- // the static article and the SPA article never exchange through a blank frame.
+ // Signal after the React loading, retry, or verified article DOM has
+ // committed. App.tsx then clears the static-owner key and hides the sibling
+ // in the same pre-paint cycle.
  useLayoutEffect(() => {
   if (!articleReadyForStaticTakeover || !articleReadyKey) return;
   onArticleReady?.(articleReadyKey);
@@ -2185,13 +2275,53 @@ function BlogArticlesContent({
  return d.toLocaleDateString(localeMap[locale] ?? 'it-IT', { day: 'numeric', month: 'long', year: 'numeric', ...(sourceDate.length === 10 ? { timeZone: 'UTC' } : {}) });
  };
 
- // During the static article handoff neither the hub list nor a loading
- // skeleton is a valid substitute. If the body never becomes renderable, this
- // remains null indefinitely and the static fallback remains the owner.
+ const renderArticleResolutionRetry = (message: string) => (
+  <div className="max-w-3xl mx-auto min-h-[60vh] p-4 flex items-center justify-center">
+   <section className="w-full rounded-xl border border-edge bg-surface p-6 text-center" role="alert" aria-live="assertive">
+    <p className="text-primary">{message}</p>
+    <button
+     type="button"
+     className="mt-4 rounded-lg bg-accent-strong px-4 py-2 font-semibold text-on-accent hover:bg-accent-strong-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong focus-visible:ring-offset-2"
+     onClick={() => {
+      setBodyLoadIssueState(null);
+      setReadyBodyKey(null);
+      setBodyRetry((value) => value + 1);
+      setRegistryRetry((value) => value + 1);
+     }}
+    >
+     {ARTICLE_BODY_LOAD_COPY[locale].retry}
+    </button>
+   </section>
+  </div>
+ );
+
+ // During the static article handoff, replace the snapshot with a neutral
+ // loading state immediately, then keep the retry state visible on failure.
  if (deferUntilArticleReady && !articleReadyForStaticTakeover) return null;
 
  // ── Loading blog translations ──────────────────────
  if (!blogReady) {
+ if (selectedArticle) {
+  const copy = ARTICLE_BODY_LOAD_COPY[locale];
+  if (!selectedArticleObj && (bodyLoadIssue || registryAttemptComplete)) {
+   const message = bodyLoadIssue
+    ? (bodyLoadIssue.issue === 'missing' ? copy.missing : copy.failed)
+    : copy.unavailable;
+   return renderArticleResolutionRetry(message);
+  }
+  return (
+   <div className="max-w-3xl mx-auto min-h-[60vh] p-4 space-y-4" role="status" aria-busy="true">
+    <span className="sr-only">{copy.loading}</span>
+    <div className="rounded-2xl overflow-hidden bg-surface-raised animate-pulse h-48 sm:h-64 md:h-80" />
+    <div className="space-y-3">
+     <div className="h-6 bg-surface-raised rounded animate-pulse w-3/4" />
+     <div className="h-4 bg-surface-raised rounded animate-pulse w-full" />
+     <div className="h-4 bg-surface-raised rounded animate-pulse w-5/6" />
+     <div className="h-4 bg-surface-raised rounded animate-pulse w-2/3" />
+    </div>
+   </div>
+  );
+ }
  return (
  <div className="min-h-[80vh] space-y-6 p-4">
  {/* Skeleton hero card */}
@@ -2211,7 +2341,26 @@ function BlogArticlesContent({
  // ── Single Article View ──────────────────────────────
  if (selectedArticle) {
  const article = selectedArticleObj;
- if (!article) return null;
+ if (!article) {
+  const copy = ARTICLE_BODY_LOAD_COPY[locale];
+  if (bodyLoadIssue || registryAttemptComplete) {
+   const issueMessage = bodyLoadIssue
+    ? (bodyLoadIssue.issue === 'missing' ? copy.missing : copy.failed)
+    : copy.unavailable;
+   return renderArticleResolutionRetry(issueMessage);
+  }
+  return (
+   <div className="max-w-3xl mx-auto min-h-[60vh] p-4 space-y-4" role="status" aria-busy="true">
+    <span className="sr-only">{copy.loading}</span>
+    <div className="rounded-2xl overflow-hidden bg-surface-raised animate-pulse h-48 sm:h-64 md:h-80" />
+    <div className="space-y-3">
+     <div className="h-6 bg-surface-raised rounded animate-pulse w-3/4" />
+     <div className="h-4 bg-surface-raised rounded animate-pulse w-full" />
+     <div className="h-4 bg-surface-raised rounded animate-pulse w-5/6" />
+    </div>
+   </div>
+  );
+ }
  const { authorSlug: effectiveAuthorSlug, authorName: effectiveAuthorName } = mergeArticleByline(articleAuthorOverride, article);
  // The disclosure below is the only place on the page that states HOW an
  // article came to exist, so it splits on the article's own provenance:
@@ -2224,8 +2373,30 @@ function BlogArticlesContent({
 
  // Wait for article body translations to load
  if (!bodyReady) {
+ const copy = ARTICLE_BODY_LOAD_COPY[locale];
+ if (bodyLoadIssue) {
+  return (
+   <div className="max-w-3xl mx-auto min-h-[60vh] p-4 flex items-center justify-center">
+    <section className="w-full rounded-xl border border-edge bg-surface p-6 text-center" role="alert" aria-live="assertive">
+    <p className="text-primary">{bodyLoadIssue.issue === 'missing' ? copy.missing : copy.failed}</p>
+     <button
+      type="button"
+      className="mt-4 rounded-lg bg-accent-strong px-4 py-2 font-semibold text-on-accent hover:bg-accent-strong-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong focus-visible:ring-offset-2"
+      onClick={() => {
+       setBodyLoadIssueState(null);
+       setReadyBodyKey(null);
+       setBodyRetry((value) => value + 1);
+      }}
+     >
+      {copy.retry}
+     </button>
+    </section>
+   </div>
+  );
+ }
  return (
- <div className="max-w-3xl xlc:max-w-none mx-auto min-h-[80vh] p-4 space-y-4">
+ <div className="max-w-3xl xlc:max-w-none mx-auto min-h-[80vh] p-4 space-y-4" role="status" aria-busy="true">
+ <span className="sr-only">{copy.loading}</span>
  <div className="rounded-2xl bg-surface-raised animate-pulse h-48 sm:h-64 md:h-80" />
  <div className="space-y-3">
  <div className="h-6 bg-surface-raised rounded animate-pulse w-3/4" />
