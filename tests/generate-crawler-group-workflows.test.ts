@@ -1688,8 +1688,8 @@ describe('push-contention class (exit 42) in generated steps', () => {
   });
 });
 
-describe('#9667 — token-bound retry class on the group-batch commit step', () => {
-  it('retries exit 42/44 in the same generation and fails closed after the bounded budget', () => {
+describe('#9667/#9886 — token-bound retry class on the group-batch commit step', () => {
+  it('retries exit 42/44/46 in the same generation and fails closed after the bounded budget', () => {
     const WORKFLOWS_DIR = path.resolve(import.meta.dirname, '../.github/workflows');
     const files = fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f));
     expect(files.length).toBeGreaterThan(0);
@@ -1708,8 +1708,10 @@ describe('#9667 — token-bound retry class on the group-batch commit step', () 
       expect(commitStep.run).toContain('retrying the same generation');
       expect(commitStep.run).toContain('same-generation retry budget exhausted');
       // ...as must the cross-repository lease convoy (exit 44), while the
-      // exhausted retryable branch still propagates the non-zero status.
+      // receipt-write failure (exit 46), while the exhausted retryable branch
+      // still propagates the non-zero status.
       expect(commitStep.run).toContain('[ "$git_commit_exit" -ne 44 ]');
+      expect(commitStep.run).toContain('[ "$git_commit_exit" -ne 46 ]');
       // Exit 45 is deliberately absent from the retry predicate: the generic
       // non-retryable branch annotates the step and propagates it unchanged.
       expect(commitStep.run).not.toContain('[ "$git_commit_exit" -ne 45 ]');
