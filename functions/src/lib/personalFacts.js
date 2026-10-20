@@ -111,8 +111,8 @@ export function salutationFor(gender, locale = 'it') {
   return gender === 'm' ? options[0] : gender === 'f' ? options[1] : '';
 }
 
-const COMMON_FEMININE_NAMES = new Set(`anna maria sara sofia sophia elena helena laura carla clara alessandra alice emma julia giulia francesca chiara martina elisa alessia federica valentina silvia paola monica nicole daniela isabella beatrice roberta serena bianca aurora camilla cristina michela margherita arianna veronica teresa valeria angela barbara eva nina linda melanie nadine sandra sophie elisabeth`.split(' '));
-const COMMON_MASCULINE_NAMES = new Set(`marco luca matteo mattia lorenzo giovanni francesco paolo davide david daniel thomas michael peter martin stefan patrick markus lukas lucas jonas simon riccardo filippo fabio fabrizio roberto alberto enrico giulio christian christoph bruno oliver olivier nicolas niklaus hans reto urs`.split(' '));
+const COMMON_FEMININE_NAMES = new Set(`anna maria sara sofia sophia elena helena laura carla clara alessandra alice emma julia giulia francesca chiara martina elisa alessia federica valentina silvia paola monica nicole daniela isabella beatrice roberta serena bianca aurora camilla cristina michela margherita arianna veronica teresa valeria valerie angela barbara eva nina linda melanie nadine sandra sophie elisabeth aline amelie celine christine claudia fabienne florence julie lea lena nathalie patricia sabrina sylvie`.split(' '));
+const COMMON_MASCULINE_NAMES = new Set(`marco luca matteo mattia lorenzo giovanni francesco paolo davide david daniel thomas michael peter martin stefan patrick markus lukas lucas jonas simon riccardo filippo fabio fabrizio roberto alberto enrico giulio christian christoph bruno oliver olivier nicolas niklaus hans reto urs alain alexandre andre antoine bernard dominic eric frederic georges jean luc marc pascal philippe sandro sven yves`.split(' '));
 const LOCALE_NAME_GENDERS = {
   it: {
     m: new Set(`andrea nicola gabriele simone daniele michele rosario`.split(' ')),
