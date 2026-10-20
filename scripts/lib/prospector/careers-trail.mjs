@@ -457,8 +457,8 @@ export async function verifyAtsHost(candidate, minScore = 3) {
  * the index saw and a plain fetch does not.
  *
  * @param {string} careersUrl
- * @param {string} employerDomain
- * @returns {Promise<Awaited<ReturnType<typeof traceCareers>>>}
+ * @param {string|null} employerDomain
+ * @returns {Promise<Omit<Awaited<ReturnType<typeof traceCareers>>, 'domain'> & { domain: string|null }>}
  */
 export async function traceFromCareersUrl(careersUrl, employerDomain) {
   const result = {

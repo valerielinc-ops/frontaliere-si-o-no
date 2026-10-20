@@ -197,6 +197,87 @@ describe('prospector candidate store — rejected tombstones (#6903)', () => {
   });
 });
 
+describe('prospector candidate source observations', () => {
+  it('timestamps new and existing sources while only fresh SECO data replaces SECO signals', () => {
+    const key = 'seco-employer.ch';
+    const oldObservation = new Date(Date.now() - DAY_MS).toISOString();
+    const store = storeWith({
+      [key]: {
+        key,
+        name: 'SECO Employer',
+        status: 'new',
+        sources: ['seco'],
+        sourceSeenAt: { seco: oldObservation },
+        adCount: 2,
+        sampleTitles: ['Old listing'],
+        applyHosts: ['old.jobs-board.example'],
+        reason: 'previous trace note',
+        traceAttempts: 4,
+      },
+    });
+
+    upsertCandidate(store, {
+      key,
+      adCount: 70,
+      sampleTitles: ['OSM payload'],
+      applyHosts: ['osm.jobs-board.example'],
+      reason: 'must not replace trace note',
+    }, 'osm');
+    expect(store.candidates[key]).toMatchObject({
+      status: 'new',
+      adCount: 2,
+      sampleTitles: ['Old listing'],
+      applyHosts: ['old.jobs-board.example'],
+      reason: 'previous trace note',
+      traceAttempts: 4,
+    });
+    expect(Date.parse(store.candidates[key].sourceSeenAt.osm)).toBeGreaterThan(Date.parse(oldObservation));
+
+    upsertCandidate(store, {
+      key,
+      adCount: 80,
+      sampleTitles: ['Web payload'],
+      applyHosts: ['web.jobs-board.example'],
+    }, 'web');
+    expect(store.candidates[key]).toMatchObject({
+      adCount: 2,
+      sampleTitles: ['Old listing'],
+      applyHosts: ['old.jobs-board.example'],
+    });
+    expect(store.candidates[key].sourceSeenAt.web).toBeTruthy();
+
+    upsertCandidate(store, {
+      key,
+      adCount: 5,
+      sampleTitles: ['New listing A', 'New listing B'],
+      applyHosts: ['apply.new-board.example'],
+    }, 'seco');
+    expect(store.candidates[key]).toMatchObject({
+      adCount: 5,
+      sampleTitles: ['New listing A', 'New listing B'],
+      applyHosts: ['apply.new-board.example'],
+      status: 'new',
+      reason: 'previous trace note',
+      traceAttempts: 4,
+    });
+    expect(Date.parse(store.candidates[key].sourceSeenAt.seco)).toBeGreaterThan(Date.parse(oldObservation));
+
+    const createdKey = 'web-employer.ch';
+    expect(upsertCandidate(store, {
+      key: createdKey,
+      name: 'Web Employer',
+      adCount: 9,
+      sampleTitles: ['Unverified web listing signal'],
+      applyHosts: ['board.example'],
+    }, 'web'))
+      .toEqual({ key: createdKey, created: true });
+    expect(store.candidates[createdKey].sourceSeenAt.web).toBeTruthy();
+    expect(store.candidates[createdKey]).not.toHaveProperty('adCount');
+    expect(store.candidates[createdKey]).not.toHaveProperty('sampleTitles');
+    expect(store.candidates[createdKey]).not.toHaveProperty('applyHosts');
+  });
+});
+
 describe('prospector candidate store — retryable trace failures', () => {
   it('schedules bounded retry metadata without changing a candidate out of new', () => {
     const candidate = { key: 'temporary.example', status: 'new', traceAttempts: 0 };
@@ -209,9 +290,75 @@ describe('prospector candidate store — retryable trace failures', () => {
       traceAttempts: 1,
       traceLastAttemptAt: new Date(now).toISOString(),
       traceRetryAt: new Date(now + DAY_MS).toISOString(),
+      traceLastEvidenceSnapshot: { domain: '', careersUrl: '', sources: [] },
     });
     expect(isTraceRetryDue({ ...candidate, ...patch }, now)).toBe(false);
     expect(isTraceRetryDue({ ...candidate, ...patch }, Date.parse(patch.traceRetryAt))).toBe(true);
+  });
+
+  it('does not unlock repeated identical domain guesses when source timestamps refresh', () => {
+    const now = Date.now();
+    const lastAttemptAt = new Date(now - DAY_MS).toISOString();
+    const retryAt = new Date(now + 30 * DAY_MS).toISOString();
+    const key = 'unresolved-employer';
+    const store = storeWith({
+      [key]: {
+        key,
+        name: 'Unresolved Employer',
+        status: 'new',
+        sourceSeenAt: { osm: lastAttemptAt },
+        reason: 'dominio non risolto',
+        traceRetryable: true,
+        traceAttempts: 4,
+        traceLastAttemptAt: lastAttemptAt,
+        traceRetryAt: retryAt,
+      },
+    });
+
+    expect(isTraceRetryDue(store.candidates[key], now)).toBe(false);
+
+    upsertCandidate(store, { key, name: 'Internal phase payload' }, 'tenant:vendor.example');
+    expect(store.candidates[key].sourceSeenAt['tenant:vendor.example']).toBeTruthy();
+    expect(isTraceRetryDue(store.candidates[key], now)).toBe(false);
+
+    upsertCandidate(store, {
+      key,
+      name: 'Unresolved Employer',
+    }, 'osm');
+    expect(Date.parse(store.candidates[key].sourceSeenAt.osm)).toBeGreaterThan(Date.parse(lastAttemptAt));
+    expect(isTraceRetryDue(store.candidates[key], now)).toBe(false);
+
+    upsertCandidate(store, {
+      key,
+      name: 'Unresolved Employer',
+      careersUrl: 'https://careers.unresolved-employer.example/jobs',
+    }, 'osm');
+    expect(isTraceRetryDue(store.candidates[key], now)).toBe(true);
+  });
+
+  it('unlocks an exhausted domain guess when another trusted source corroborates it', () => {
+    const now = Date.now();
+    const lastAttemptAt = now - DAY_MS;
+    const key = 'corroborated-employer';
+    const candidate = {
+      key,
+      name: 'Corroborated Employer',
+      city: 'Lugano',
+      status: 'new',
+      sources: ['seco'],
+      traceAttempts: 4,
+      reason: 'dominio non risolto',
+    };
+    const store = storeWith({
+      [key]: {
+        ...candidate,
+        ...scheduleTraceRetry(candidate, 'dominio non risolto', lastAttemptAt),
+      },
+    });
+
+    expect(isTraceRetryDue(store.candidates[key], now)).toBe(false);
+    upsertCandidate(store, { key, name: candidate.name, city: candidate.city }, 'osm');
+    expect(isTraceRetryDue(store.candidates[key], now)).toBe(true);
   });
 
   it('reopens an old unreachable verdict when a discovery source sees it again', () => {

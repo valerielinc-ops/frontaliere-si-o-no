@@ -235,6 +235,11 @@ export async function synthesizeSpec(candidate, runtime = {}) {
   }
 
   const host = normalizeHost(new URL(res.url).hostname);
+  const hostDomain = registrableDomain(host);
+  const employerDomain = registrableDomain(candidate.domain || '');
+  const inferredPlatform = candidate.selfHosted === undefined
+    ? (hostDomain === employerDomain ? '' : hostDomain)
+    : (candidate.selfHosted === false && hostDomain !== employerDomain ? hostDomain : '');
   const listingNeedsDetail = vacancies.some(
     (vacancy) => !resolveDetailOrListingSwissGeography({}, vacancy).geography
       || !isSufficientVacancyDescription(vacancy.description),
@@ -244,7 +249,7 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     companyKey: crawlerKeyFor(candidate),
     companyName: candidate.name || tenantLabel(host) || host,
     companyHost: host,
-    platform: candidate.platform || (registrableDomain(host) === registrableDomain(candidate.domain || '') ? '' : registrableDomain(host)),
+    platform: candidate.platform || inferredPlatform,
     mode: /** @type {'jsonld'|'microdata'|'template'} */ (via),
     seedUrls: [res.url],
     detailTemplate: commonUrlTemplate(vacancies.map((v) => v.url)) || undefined,
