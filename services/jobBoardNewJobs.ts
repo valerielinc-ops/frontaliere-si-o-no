@@ -12,7 +12,14 @@ export function getJobBoardNewnessTimestampMs(job: JobBoardNewnessFields): numbe
   const raw = job.firstSeenAt || job.crawledAt || job.postedDate;
   if (!raw) return null;
 
-  const timestamp = Date.parse(String(raw));
+  let timestamp: number;
+  if (typeof raw === 'number') {
+    timestamp = raw;
+  } else if (raw instanceof Date) {
+    timestamp = raw.getTime();
+  } else {
+    timestamp = Date.parse(String(raw));
+  }
   return Number.isFinite(timestamp) ? timestamp : null;
 }
 

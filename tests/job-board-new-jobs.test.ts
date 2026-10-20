@@ -36,6 +36,18 @@ describe('job board return-visit newness', () => {
     expect(isJobBoardNewSinceVisit({ firstSeenAt: '2026-10-20T09:00:00.000Z' }, NOW + 1, NOW)).toBe(false);
   });
 
+  it('accepts numeric epoch milliseconds and Date values, while rejecting invalid and future numbers', () => {
+    expect(isJobBoardNewSinceVisit(
+      { firstSeenAt: 1_700_000_000_000 },
+      1_699_999_999_000,
+      1_700_000_001_000,
+    )).toBe(true);
+    expect(isJobBoardNewSinceVisit({ firstSeenAt: new Date(NOW - 1) }, LAST_VISIT, NOW)).toBe(true);
+    expect(isJobBoardNewSinceVisit({ firstSeenAt: Number.NaN }, LAST_VISIT, NOW)).toBe(false);
+    expect(isJobBoardNewSinceVisit({ firstSeenAt: NOW + 1 }, LAST_VISIT, NOW)).toBe(false);
+    expect(isJobBoardNewSinceVisit({ firstSeenAt: '1700000000000' }, LAST_VISIT, NOW)).toBe(false);
+  });
+
   it('counts only new jobs inside the already-filtered context', () => {
     const contextResults = [
       { id: 'nurse-lugano-part-time-new', firstSeenAt: '2026-10-20T09:00:00.000Z' },
