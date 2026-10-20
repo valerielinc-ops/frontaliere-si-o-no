@@ -8547,16 +8547,11 @@ ${staticAnalyticsHtml}
  const catJobs = byCat.get(catKey) ?? [];
  if (catJobs.length < 3) continue;
  // Sort like the global one to preserve consistent feed ordering.
- catJobs.sort((a: any, b: any) => {
- const da = firstParsableMs(b.crawledAt, b.datePosted);
- const db = firstParsableMs(a.crawledAt, a.datePosted);
- if (da !== db) return da - db;
- return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
- });
- const catTotalPages = Math.min(CATEGORY_LISTING_MAX_PAGES, Math.ceil(catJobs.length / CATEGORY_LISTING_PAGE_SIZE));
+ const sortedCantonCatJobs = sortCategoryListingJobs(catJobs);
+ const catTotalPages = Math.min(CATEGORY_LISTING_MAX_PAGES, Math.ceil(sortedCantonCatJobs.length / CATEGORY_LISTING_PAGE_SIZE));
  for (let catPage = 1; catPage <= catTotalPages; catPage++) {
  const catStart = (catPage - 1) * CATEGORY_LISTING_PAGE_SIZE;
- const catPageJobs = catJobs.slice(catStart, catStart + CATEGORY_LISTING_PAGE_SIZE);
+ const catPageJobs = sortedCantonCatJobs.slice(catStart, catStart + CATEGORY_LISTING_PAGE_SIZE);
  if (catPageJobs.length === 0) break;
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
@@ -8569,8 +8564,8 @@ ${staticAnalyticsHtml}
  const catCanonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${catFullSlug}`.replace(/\/+/g, '/'));
  const catCanonicalUrl = `${BASE_URL}${catCanonicalPath}`;
  const catLabel = catLabels[catKey][locale];
- const catUniqueCompanies = [...new Set(catJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
- const catUniqueLocations = [...new Set(catJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
+ const catUniqueCompanies = [...new Set(sortedCantonCatJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
+ const catUniqueLocations = [...new Set(sortedCantonCatJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
  const catPrimaryTitle = buildRoleHubTitle({
  locale,
  roleDisplay: `${catLabel} ${cDisplay}`,
