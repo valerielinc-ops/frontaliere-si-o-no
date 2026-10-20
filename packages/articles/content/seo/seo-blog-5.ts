@@ -112294,6 +112294,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-schianto-auto-moto-appiano-gentile': {
+    title: 'Schianto ad Appiano Gentile: auto contro moto, un ferito grave',
+    description: 'Incidente all’alba del 19 ottobre ad Appiano Gentile Auto e moto si scontrano poco dopo le 6 Tre persone coinvolte, una in condizioni gravi Attivati ambulanze',
+    keywords: 'frontalieri, ticino, svizzera, italia, schianto, appiano, gentile, auto',
+    ogTitle: 'Schianto ad Appiano Gentile: auto contro moto, un ferito grave',
+    ogDescription: 'Incidente all’alba del 19 ottobre ad Appiano Gentile Auto e moto si scontrano poco dopo le 6 Tre persone coinvolte, una in condizioni gravi Attivati ambulanze',
+    canonicalPath: '/articoli-frontaliere/schianto-auto-moto-appiano-gentile/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Schianto ad Appiano Gentile: auto contro moto, un ferito grave",
+      "description": "Incidente all’alba del 19 ottobre ad Appiano Gentile Auto e moto si scontrano poco dopo le 6 Tre persone coinvolte, una in condizioni gravi Attivati ambulanze",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-caslano-colombera-incidente-moto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-20T03:38:16+00:00",
+      "dateModified": "2026-10-20T03:38:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/schianto-auto-moto-appiano-gentile/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
