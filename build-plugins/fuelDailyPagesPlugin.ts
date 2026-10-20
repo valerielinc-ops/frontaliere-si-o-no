@@ -1,5 +1,15 @@
 import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { fuelObservation } from './shared/fuelObservation';
+import {
+  convertFuelPrice,
+  datedFuelExchangeRate,
+  renderFuelTripCalculatorMarkup,
+  type FuelTripCalculatorCopy,
+} from './shared/fuelTripCalculator';
+import itFuelDailyTranslations from '../services/locales/it-fuel-daily';
+import enFuelDailyTranslations from '../services/locales/en-fuel-daily';
+import deFuelDailyTranslations from '../services/locales/de-fuel-daily';
+import frFuelDailyTranslations from '../services/locales/fr-fuel-daily';
 /**
  * Vite build plugin — emits daily-fresh static HTML for fuel price pages
  * (diesel + benzina) in 4 locales × (1 regional + 5 Ticino zones) × 2 fuels.
@@ -314,6 +324,7 @@ interface MunicipalityRow {
   province?: string;
   swiss?: {
     cheapestStation?: SwissStation | null;
+    cheapestDieselStation?: SwissStation | null;
     nearbyStations?: SwissStation[];
   };
 }
@@ -330,6 +341,49 @@ interface FuelPricesDataset {
     };
   };
   municipalities?: MunicipalityRow[];
+}
+
+const FUEL_DAILY_TRIP_TRANSLATIONS: Record<FuelDailyLocale, Record<string, string>> = {
+  it: itFuelDailyTranslations,
+  en: enFuelDailyTranslations,
+  de: deFuelDailyTranslations,
+  fr: frFuelDailyTranslations,
+};
+
+function fuelTripCopy(locale: FuelDailyLocale): FuelTripCalculatorCopy {
+  const translations = FUEL_DAILY_TRIP_TRANSLATIONS[locale];
+  const get = (key: string) => translations[`fuelDaily.trip.${key}`] ?? '';
+  return {
+    title: get('title'),
+    description: get('description'),
+    assumptionNote: get('assumptionNote'),
+    referencePrice: get('referencePrice'),
+    alternativePrice: get('alternativePrice'),
+    liters: get('liters'),
+    additionalRoundTripKm: get('additionalRoundTripKm'),
+    roundTripHint: get('roundTripHint'),
+    vehicleCostPerKm: get('vehicleCostPerKm'),
+    otherTripCosts: get('otherTripCosts'),
+    monthlyTrips: get('monthlyTrips'),
+    optional: get('optional'),
+    resultTitle: get('resultTitle'),
+    gross: get('gross'),
+    tripCosts: get('tripCosts'),
+    net: get('net'),
+    monthlyNet: get('monthlyNet'),
+    breakEvenKm: get('breakEvenKm'),
+    breakEvenLiters: get('breakEvenLiters'),
+    breakEvenUnavailable: get('breakEvenUnavailable'),
+    incomplete: get('incomplete'),
+    invalid: get('invalid'),
+    positiveMeaning: get('positiveMeaning'),
+    currency: get('currency'),
+    sourceLabel: get('sourceLabel'),
+    dateLabel: get('dateLabel'),
+    dateUnavailable: get('dateUnavailable'),
+    fxLabel: get('fxLabel'),
+    noDatedFx: get('noDatedFx'),
+  };
 }
 
 interface HistorySnapshot {
@@ -358,7 +412,7 @@ interface HistorySnapshot {
 
 interface ZonePrice {
   avg: number | null;
-  minStations: Array<{ name: string; brand: string; address: string; priceChf: number; slug: string }>;
+  minStations: Array<{ name: string; brand: string; address: string; priceChf: number; slug: string; observedAt: string | null }>;
 }
 
 // Each fuel is optional: never infer a diesel price from petrol.
@@ -447,18 +501,20 @@ function topCheapest(stations: SwissStation[], fuel: FuelType, limit = 3): Swiss
 
 function computeZonePrice(stations: SwissStation[], fuel: FuelType): ZonePrice {
   const prices: number[] = [];
-  const stationPrices: Array<{ name: string; brand: string; address: string; priceChf: number; slug: string }> = [];
+  const stationPrices: Array<{ name: string; brand: string; address: string; priceChf: number; slug: string; observedAt: string | null }> = [];
   for (const s of stations) {
     const p = pricesFromStation(s);
     const price = p?.[fuel];
     if (price === null || price === undefined) continue;
     prices.push(price);
+    const observedAt = fuel === 'diesel' ? s.dieselUpdatedAt ?? s.updatedAt : s.updatedAt;
     stationPrices.push({
       name: String(s.name || s.brand || '—').trim(),
       brand: String(s.brand || '').trim(),
       address: String(s.address || '').trim(),
       priceChf: price,
       slug: buildStationSlug({ brand: s.brand, name: s.name, address: s.address }),
+      observedAt: typeof observedAt === 'string' && Number.isFinite(Date.parse(observedAt)) ? observedAt : null,
     });
   }
   const top3 = stationPrices.sort((a, b) => a.priceChf - b.priceChf).slice(0, 3);
@@ -1584,28 +1640,12 @@ function renderPage(inp: PageInputs): string {
   const range = `${formatPrice(observation.min, locale)}–${formatPrice(observation.max, locale)}`;
   const shortArea = zone ? zoneLabel : 'Ticino';
   const exchangeRate = dataset.sources?.exchangeRate;
-  const rawRateDate = exchangeRate?.rateDate;
-  const parsedRateDate = typeof rawRateDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(rawRateDate)
-    ? new Date(`${rawRateDate}T00:00:00.000Z`)
-    : null;
-  const rateDate = parsedRateDate && Number.isFinite(parsedRateDate.getTime())
-    && parsedRateDate.toISOString().slice(0, 10) === rawRateDate
-    ? rawRateDate
-    : null;
-  const eurPerChf = exchangeRate?.eurPerChf;
-  const chfPerEur = exchangeRate?.chfPerEur;
-  const exchangeRateSourceUrl = exchangeRate?.sourceUrl;
-  const hasDatedEcbRate = exchangeRate?.provider === 'ECB'
-    && rateDate !== null
-    && typeof eurPerChf === 'number' && Number.isFinite(eurPerChf) && eurPerChf > 0
-    && typeof chfPerEur === 'number' && Number.isFinite(chfPerEur) && chfPerEur > 0
-    && typeof exchangeRateSourceUrl === 'string'
-    && exchangeRateSourceUrl.startsWith('https://www.ecb.europa.eu/');
-  const datedEurPerChf = typeof eurPerChf === 'number' && hasDatedEcbRate ? eurPerChf : null;
-  const datedChfPerEur = typeof chfPerEur === 'number' && hasDatedEcbRate ? chfPerEur : null;
-  const datedEcbSourceUrl = typeof exchangeRateSourceUrl === 'string' && hasDatedEcbRate ? exchangeRateSourceUrl : null;
-  const rateDateStamp = hasDatedEcbRate
-    ? formatFuelDateDisplay(new Date(`${rateDate}T12:00:00.000Z`))
+  const datedExchangeRate = datedFuelExchangeRate(exchangeRate);
+  const datedEurPerChf = datedExchangeRate?.eurPerChf ?? null;
+  const datedChfPerEur = datedExchangeRate?.chfPerEur ?? null;
+  const datedEcbSourceUrl = datedExchangeRate?.sourceUrl ?? null;
+  const rateDateStamp = datedExchangeRate
+    ? formatFuelDateDisplay(new Date(`${datedExchangeRate.rateDate}T12:00:00.000Z`))
     : null;
   const eurEquivalent = avg !== null && datedEurPerChf !== null ? Number((avg * datedEurPerChf).toFixed(3)) : null;
   const eurEquivalentFmt = eurEquivalent === null ? null : formatPrice(eurEquivalent, locale);
@@ -1688,6 +1728,22 @@ function renderPage(inp: PageInputs): string {
         })
         .join('')}</ol>`
     : `<p class="s-gWHXua">${esc(copy.trendEmpty)}</p>`;
+  const regionalTripCalculatorHtml = !zone && avg !== null
+    ? renderFuelTripCalculatorMarkup({
+        locale,
+        fuel,
+        currency: 'CHF',
+        id: `${locale}-${fuel}-regional-trip`,
+        referencePrice: avg,
+        alternativePrice: top3[0]?.priceChf ?? null,
+        referenceSource: ({ it: 'TCS · media campione', en: 'TCS · sample average', de: 'TCS · Stichprobenmittel', fr: 'TCS · moyenne de l’échantillon' })[locale],
+        referenceDate: observationStamp,
+        alternativeSource: top3[0] ? `TCS · ${top3[0].name || top3[0].brand || 'station'}` : null,
+        alternativeDate: top3[0]?.observedAt ? formatFuelDateDisplay(new Date(top3[0].observedAt)) : null,
+        showExchangeRateNote: false,
+        copy: fuelTripCopy(locale),
+      })
+    : '';
 
   // Trend table: last 7 days from history
   const trendRows: Array<{ date: string; price: number | null }> = [];
@@ -1875,6 +1931,7 @@ function renderPage(inp: PageInputs): string {
     <h2 id="top3" class="s-h2">${esc(copy.top3Label(fuelLabel, whereLabel))}</h2>
     ${stationsHtml}
   </section>
+  ${regionalTripCalculatorHtml}
   ${DRIVEBY_AD_SNIPPET}
   <section class="s-ziawP1" aria-labelledby="trend7">
     <h2 id="trend7" class="s-h2">${esc(copy.trendLabel(fuelLabel, whereLabel))}</h2>
@@ -3504,63 +3561,58 @@ const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
   },
 };
 
-/** Copy for the "verdict + value badge" banner on Italian city pages. */
+/** Copy for the sampled minimum-price banner on Italian city pages. */
 interface ItalianCityVerdictCopy {
   readonly aria: (city: string) => string;
   readonly cheapestHeading: (city: string) => string;
   readonly cheapestBadge: string;
   readonly priciestBadge: string;
-  readonly flagIt: string;
-  readonly flagCh: string;
-  readonly itWins: (saving: string, delta: string) => string;
-  readonly chWins: (zone: string, saving: string, delta: string) => string;
-  readonly same: string;
+  readonly grossComparison: (amount: string, direction: string) => string;
+  readonly lowerItaly: string;
+  readonly lowerSwitzerland: string;
+  readonly equal: string;
 }
 
 const IT_CITY_VERDICT_COPY: Record<FuelDailyLocale, ItalianCityVerdictCopy> = {
   it: {
-    aria: (c) => `Verdetto convenienza carburante a ${c}: Italia o Svizzera oggi`,
-    cheapestHeading: (c) => `La più conveniente oggi a ${c}`,
-    cheapestBadge: 'Più conveniente',
-    priciestBadge: 'Più cara',
-    flagIt: '🇮🇹',
-    flagCh: '🇨🇭',
-    itWins: (saving, delta) => `Oggi conviene fare il pieno in Italia: ~${saving} € risparmiati su un pieno da 50 L (${delta} €/L in meno della stazione svizzera più vicina).`,
-    chWins: (zone, saving, delta) => `Oggi conviene fare il pieno in Svizzera, zona ${zone}: ~${saving} € risparmiati su 50 L (${delta} €/L in meno del prezzo italiano).`,
-    same: 'Oggi Italia e Svizzera sono quasi pari: la differenza non ripaga la coda al valico.',
+    aria: (c) => `Prezzo minimo di carburante rilevato a ${c}`,
+    cheapestHeading: (c) => `Prezzo minimo rilevato a ${c}`,
+    cheapestBadge: 'Minimo del campione',
+    priciestBadge: 'Massimo del campione',
+    grossComparison: (amount, direction) => `Differenza lorda sui prezzi del campione: ${amount} € su 50 L, a favore di ${direction}. Non include il tragitto né altri costi.`,
+    lowerItaly: 'il prezzo minimo rilevato in questa città',
+    lowerSwitzerland: 'il prezzo svizzero confrontato',
+    equal: 'i prezzi del campione sono uguali',
   },
   en: {
-    aria: (c) => `Fuel value verdict in ${c}: Italy or Switzerland today`,
-    cheapestHeading: (c) => `Cheapest pump in ${c} today`,
-    cheapestBadge: 'Best value',
-    priciestBadge: 'Priciest',
-    flagIt: '🇮🇹',
-    flagCh: '🇨🇭',
-    itWins: (saving, delta) => `Fill up in Italy today: ~€${saving} saved on a 50 L tank (${delta} €/L below the nearest Swiss station).`,
-    chWins: (zone, saving, delta) => `Fill up in Switzerland today, ${zone} zone: ~€${saving} saved on 50 L (${delta} €/L below the Italian price).`,
-    same: 'Italy and Switzerland are near-even today: the gap won’t repay the border queue.',
+    aria: (c) => `Lowest observed fuel price in ${c}`,
+    cheapestHeading: (c) => `Lowest observed price in ${c}`,
+    cheapestBadge: 'Sample minimum',
+    priciestBadge: 'Sample maximum',
+    grossComparison: (amount, direction) => `Gross difference between sampled prices: €${amount} for 50 L, in favour of ${direction}. Route and other costs are excluded.`,
+    lowerItaly: 'the lowest price observed in this city',
+    lowerSwitzerland: 'the Swiss price compared',
+    equal: 'the sampled prices are equal',
   },
   de: {
-    aria: (c) => `Tank-Verdikt in ${c}: Italien oder Schweiz heute`,
-    cheapestHeading: (c) => `Günstigste Tankstelle in ${c} heute`,
-    cheapestBadge: 'Bester Preis',
-    priciestBadge: 'Teuerste',
-    flagIt: '🇮🇹',
-    flagCh: '🇨🇭',
-    itWins: (saving, delta) => `Heute in Italien tanken: ~${saving} € gespart bei 50 L (${delta} €/L unter der nächsten Schweizer Tankstelle).`,
-    chWins: (zone, saving, delta) => `Heute in der Schweiz tanken, Zone ${zone}: ~${saving} € gespart bei 50 L (${delta} €/L unter dem italienischen Preis).`,
-    same: 'Italien und Schweiz sind heute fast gleichauf: die Differenz lohnt die Grenzwartezeit nicht.',
+    aria: (c) => `Niedrigster erfasster Kraftstoffpreis in ${c}`,
+    cheapestHeading: (c) => `Niedrigster erfasster Preis in ${c}`,
+    cheapestBadge: 'Tiefster Stichprobenpreis',
+    priciestBadge: 'Höchster Stichprobenpreis',
+    grossComparison: (amount, direction) => `Bruttopreisdifferenz in der Stichprobe: ${amount} € für 50 L zugunsten von ${direction}. Fahrt und weitere Kosten sind nicht enthalten.`,
+    lowerItaly: 'dem niedrigsten in dieser Stadt erfassten Preis',
+    lowerSwitzerland: 'dem verglichenen Schweizer Preis',
+    equal: 'die erfassten Preise sind gleich',
   },
   fr: {
-    aria: (c) => `Verdict carburant à ${c} : Italie ou Suisse aujourd’hui`,
-    cheapestHeading: (c) => `La station la moins chère à ${c} aujourd’hui`,
-    cheapestBadge: 'Meilleur prix',
-    priciestBadge: 'La plus chère',
-    flagIt: '🇮🇹',
-    flagCh: '🇨🇭',
-    itWins: (saving, delta) => `Faites le plein en Italie aujourd’hui : ~${saving} € économisés sur 50 L (${delta} €/L sous la station suisse la plus proche).`,
-    chWins: (zone, saving, delta) => `Faites le plein en Suisse aujourd’hui, zone ${zone} : ~${saving} € économisés sur 50 L (${delta} €/L sous le prix italien).`,
-    same: 'Italie et Suisse sont quasi à égalité aujourd’hui : l’écart ne rembourse pas la file à la frontière.',
+    aria: (c) => `Prix de carburant le plus bas relevé à ${c}`,
+    cheapestHeading: (c) => `Prix le plus bas relevé à ${c}`,
+    cheapestBadge: 'Minimum de l’échantillon',
+    priciestBadge: 'Maximum de l’échantillon',
+    grossComparison: (amount, direction) => `Écart brut entre les prix relevés : ${amount} € pour 50 L, en faveur de ${direction}. Le trajet et les autres coûts ne sont pas inclus.`,
+    lowerItaly: 'du prix le plus bas relevé dans cette ville',
+    lowerSwitzerland: 'du prix suisse comparé',
+    equal: 'les prix relevés sont égaux',
   },
 };
 
@@ -3657,10 +3709,7 @@ function renderItalianCityPage(opts: {
    * per-station price coverage for this city.
    */
   stationContexts?: ItalianStationContext[];
-  /**
-   * Cross-border verdict (cheapest IT pump vs cheapest Swiss station near the
-   * city, both in EUR/L). Drives the "Italy or Switzerland today?" banner.
-   */
+  /** Gross-only same-currency comparison of sampled pump prices, when a dated ECB rate exists. */
   crossBorder?: CityCrossBorder | null;
   /**
    * Daily snapshot history. When provided AND fuel === 'benzina', the
@@ -3731,29 +3780,23 @@ function renderItalianCityPage(opts: {
       })()
     : '';
 
-  // ── "Verdict + value badge" redesign ───────────────────────────
-  // Make the page instantly scannable for the commuter audience: a top
-  // verdict banner ("fill up in Italy or Switzerland today?") plus a
-  // colour-coded, badge'd station list so the cheapest pump pops at a glance.
+  // Show the lowest sampled pump price, not a route recommendation.
   const verdictCopy = IT_CITY_VERDICT_COPY[locale];
   const cheapest = sortedStations[0] ?? null;
   const priciest = sortedStations.length > 3 ? sortedStations[sortedStations.length - 1] : null;
-  const fmtEuro = (n: number): string => n.toLocaleString(locale === 'it' ? 'it-IT' : locale, {
+  const fmtEuro = (n: number): string => n.toLocaleString(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-GB', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
 
   const crossBorderLine = (() => {
     if (!crossBorder) return '';
-    const saving = fmtEuro(crossBorder.saving50LEur);
-    const delta = formatPrice(Math.abs(crossBorder.deltaEur), locale);
-    if (crossBorder.cheaper === 'IT') {
-      return `<p class="s-itVerdictLine" style="margin:0;font-size:14px"><span style="color:var(--color-success);font-weight:700">${esc(verdictCopy.flagIt)}</span> ${esc(verdictCopy.itWins(saving, delta))}</p>`;
-    }
-    if (crossBorder.cheaper === 'CH') {
-      return `<p class="s-itVerdictLine" style="margin:0;font-size:14px"><span style="color:var(--color-accent);font-weight:700">${esc(verdictCopy.flagCh)}</span> ${esc(verdictCopy.chWins(nearestZoneLabel, saving, delta))}</p>`;
-    }
-    return `<p class="s-itVerdictLine" style="margin:0;font-size:14px;color:var(--color-subtle)">${esc(verdictCopy.same)}</p>`;
+    const direction = crossBorder.cheaper === 'IT'
+      ? verdictCopy.lowerItaly
+      : crossBorder.cheaper === 'CH'
+        ? verdictCopy.lowerSwitzerland
+        : verdictCopy.equal;
+    return `<p class="s-itVerdictLine" style="margin:0;font-size:14px;color:var(--color-subtle)">${esc(verdictCopy.grossComparison(fmtEuro(crossBorder.grossDifference50LEur), direction))}</p>`;
   })();
 
   const verdictBannerHtml = cheapest
@@ -3767,6 +3810,42 @@ function renderItalianCityPage(opts: {
         </div>
         ${crossBorderLine}
       </aside>`
+    : '';
+
+  const formatCityObservation = (value: string | null | undefined): string | null => {
+    if (!value) return null;
+    const date = new Date(value);
+    if (!Number.isFinite(date.getTime())) return value;
+    return new Intl.DateTimeFormat(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-GB', {
+      timeZone: 'Europe/Rome', day: '2-digit', month: '2-digit', year: 'numeric',
+    }).format(date);
+  };
+  const stationMetaCopy = ({
+    it: { self: 'Self-service', served: 'Servito', observed: 'Prezzo rilevato' },
+    en: { self: 'Self-service', served: 'Attended', observed: 'Price observed' },
+    de: { self: 'Selbstbedienung', served: 'Bedienung', observed: 'Preis erfasst' },
+    fr: { self: 'Libre-service', served: 'Avec service', observed: 'Prix relevé' },
+  })[locale];
+  const formatItalianStationMeta = (s: ItalianCityStation): string => [
+    s.address || '—',
+    s.isSelf === true ? stationMetaCopy.self : s.isSelf === false ? stationMetaCopy.served : '',
+    formatCityObservation(s.updatedAt) ? `${stationMetaCopy.observed}: ${formatCityObservation(s.updatedAt)}` : '',
+  ].filter(Boolean).join(' · ');
+  const cityTripCalculatorHtml = minPrice !== null
+    ? renderFuelTripCalculatorMarkup({
+        locale,
+        fuel,
+        currency: 'EUR',
+        id: `${locale}-${fuel}-${entry.slug}-trip`,
+        referencePrice: minPrice,
+        alternativePrice: crossBorder?.chPriceEur ?? null,
+        referenceSource: cheapest?.stationName ? `MIMIT · ${cheapest.stationName}` : 'MIMIT',
+        referenceDate: formatCityObservation(cheapest?.updatedAt),
+        alternativeSource: crossBorder ? `TCS · ${crossBorder.swissStation.name || crossBorder.swissStation.brand || 'station'}` : null,
+        alternativeDate: crossBorder ? formatCityObservation(fuel === 'diesel' ? crossBorder.swissStation.dieselUpdatedAt || crossBorder.swissStation.updatedAt : crossBorder.swissStation.updatedAt) : null,
+        exchangeRateDate: crossBorder ? formatCityObservation(crossBorder.exchangeRateDate) : null,
+        copy: fuelTripCopy(locale),
+      })
     : '';
 
   // Top-station listing. When per-station detail pages exist for this city +
@@ -3794,7 +3873,7 @@ function renderItalianCityPage(opts: {
               logoAlt: s.brand || s.stationName,
               iconSvg: logoUrl ? undefined : ICON_FUEL_SVG,
               title: s.stationName || s.brand || '—',
-              subtitle: s.address || '—',
+              subtitle: formatItalianStationMeta(s),
               metric: `${typeof s.priceEur === 'number' ? formatPrice(s.priceEur, locale) : '—'} ${copy.currency}`,
               metricTone: toneFor(s),
             });
@@ -3818,7 +3897,7 @@ function renderItalianCityPage(opts: {
             const weight = s === cheapest ? '700' : '400';
             return `<tr>
             <td class="s-tcl">${esc(s.stationName || s.brand || '—')}${s === cheapest ? `<span style="color:var(--color-success);font-weight:700"> · ${esc(verdictCopy.cheapestBadge)}</span>` : ''}</td>
-            <td class="s-tcl" style="color:var(--color-subtle)">${esc(s.address || '—')}</td>
+            <td class="s-tcl" style="color:var(--color-subtle)">${esc(formatItalianStationMeta(s))}</td>
             <td class="s-tcl" style="text-align:right;font-variant-numeric:tabular-nums;color:${tone};font-weight:${weight}">${typeof s.priceEur === 'number' ? formatPrice(s.priceEur, locale) + ' EUR' : '—'}</td>
           </tr>`;
           })
@@ -3903,6 +3982,7 @@ function renderItalianCityPage(opts: {
     </div>
   </section>
   ${verdictBannerHtml}
+  ${cityTripCalculatorHtml}
   <section class="s-ziawP1" aria-labelledby="itCityTable">
     <h2 id="itCityTable" class="s-h2">${esc(copy.tableTitle(entry.display))}</h2>
     ${stationListHtml}
@@ -4067,22 +4147,18 @@ export function generateFuelStationPages(opts: {
 }
 
 /**
- * Cross-border verdict for a city page: compares today's cheapest Italian
- * pump (for the requested fuel) against the cheapest Swiss station near the
- * same municipality, both already expressed in EUR/L by the dataset pipeline.
+ * Gross price comparison for a city page. The Swiss station's CHF price is
+ * converted only with a dated ECB rate; trip costs are intentionally excluded.
  */
 interface CityCrossBorder {
   readonly chPriceEur: number;
   readonly itPriceEur: number;
+  readonly swissStation: SwissStation;
   /** chPriceEur − itPriceEur (positive ⇒ Italy cheaper). */
   readonly deltaEur: number;
-  readonly saving50LEur: number;
+  readonly grossDifference50LEur: number;
   readonly cheaper: 'IT' | 'CH' | 'SAME';
-}
-
-interface DatasetSwissPriced {
-  readonly sp95PriceEur?: number | null;
-  readonly dieselPriceEur?: number | null;
+  readonly exchangeRateDate: string;
 }
 
 function collectCityCrossBorder(
@@ -4092,21 +4168,13 @@ function collectCityCrossBorder(
   itPriceEur: number | null,
 ): CityCrossBorder | null {
   if (itPriceEur === null) return null;
-  const priceOf = (s: DatasetSwissPriced): number | null => {
-    const raw = fuel === 'diesel' ? s.dieselPriceEur : s.sp95PriceEur;
-    return typeof raw === 'number' && Number.isFinite(raw) ? raw : null;
-  };
-  let chPriceEur: number | null = null;
+  const rate = datedFuelExchangeRate(dataset.sources?.exchangeRate);
+  if (!rate) return null;
+  let cheapest: { station: SwissStation; priceEur: number } | null = null;
   for (const row of dataset.municipalities ?? []) {
     if (!row.municipality) continue;
     if (row.municipality.toLowerCase() !== entry.matchKey) continue;
-    const swiss = (row as unknown as {
-      swiss?: {
-        cheapestStation?: DatasetSwissPriced;
-        cheapestDieselStation?: DatasetSwissPriced;
-        nearbyStations?: DatasetSwissPriced[];
-      };
-    }).swiss;
+    const swiss = row.swiss;
     if (!swiss) continue;
     // `cheapestStation`/`nearbyStations` are ranked + truncated by sp95
     // (benzina), so the genuinely diesel-cheapest pump can be absent from
@@ -4115,26 +4183,29 @@ function collectCityCrossBorder(
     // still fold in nearbyStations + cheapestStation as a fallback for
     // datasets emitted before that field existed; Math.min keeps the true
     // minimum regardless of which sources are present.
-    const candidates: DatasetSwissPriced[] = [
+    const candidates: SwissStation[] = [
       ...(fuel === 'diesel' && swiss.cheapestDieselStation ? [swiss.cheapestDieselStation] : []),
       ...(Array.isArray(swiss.nearbyStations) ? swiss.nearbyStations : []),
       ...(swiss.cheapestStation ? [swiss.cheapestStation] : []),
     ];
     for (const c of candidates) {
-      const p = priceOf(c);
-      if (p !== null) chPriceEur = chPriceEur === null ? p : Math.min(chPriceEur, p);
+      const priceChf = fuel === 'diesel' ? c.dieselPriceChf : c.sp95PriceChf;
+      const priceEur = convertFuelPrice(typeof priceChf === 'number' ? priceChf : null, 'CHF', 'EUR', rate);
+      if (priceEur !== null && (!cheapest || priceEur < cheapest.priceEur)) cheapest = { station: c, priceEur };
     }
   }
-  if (chPriceEur === null) return null;
-  const deltaEur = Number((chPriceEur - itPriceEur).toFixed(3));
+  if (!cheapest) return null;
+  const deltaEur = Number((cheapest.priceEur - itPriceEur).toFixed(3));
   const cheaper: CityCrossBorder['cheaper'] =
     Math.abs(deltaEur) < 0.005 ? 'SAME' : deltaEur > 0 ? 'IT' : 'CH';
   return {
-    chPriceEur,
+    chPriceEur: cheapest.priceEur,
     itPriceEur,
+    swissStation: cheapest.station,
     deltaEur,
-    saving50LEur: Number((Math.abs(deltaEur) * 50).toFixed(2)),
+    grossDifference50LEur: Number((Math.abs(deltaEur) * 50).toFixed(2)),
     cheaper,
+    exchangeRateDate: rate.rateDate,
   };
 }
 

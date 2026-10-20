@@ -204,6 +204,33 @@ describe('fuel-daily page generation — content quality', () => {
     expect(trend7).toBeGreaterThan(driveby);
   });
 
+  it('renders the shared same-currency calculator on regional petrol and diesel pages with known sample prices', () => {
+    const petrol = pages['/prezzi-benzina/oggi/'];
+    const diesel = pages['/prezzi-diesel/oggi/'];
+
+    expect(petrol).toContain('data-fuel-trip-calculator');
+    expect(petrol).toContain('data-currency=CHF');
+    expect(petrol).toContain('TCS · media campione');
+    expect(petrol).toContain('value=1.78');
+    expect(diesel).toContain('data-fuel="diesel"');
+    expect(diesel).toContain('data-currency=CHF');
+    expect(diesel).toContain('data-fuel-trip-field="additionalRoundTripKm"');
+
+    const undatedDatasetPage = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-daily-undated-test', dataset: DATASET, today, history: [] })['/prezzi-benzina/oggi/'];
+    expect(undatedDatasetPage).toContain('Data del prezzo iniziale: data non disponibile');
+
+    const datedDataset = {
+      ...DATASET,
+      municipalities: DATASET.municipalities.map((municipality) => ({
+        ...municipality,
+        swiss: { ...municipality.swiss, nearbyStations: municipality.swiss.nearbyStations.map((station) => station.id === 'c1' ? { ...station, updatedAt: '2026-04-18T06:00:00.000Z', dieselUpdatedAt: '2026-04-19T06:00:00.000Z' } : station) },
+      })),
+    };
+    const datedPages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-daily-dated-test', dataset: datedDataset, today, history: [] });
+    expect(datedPages['/prezzi-benzina/oggi/']).toContain('Data del prezzo iniziale: 18.04.2026');
+    expect(datedPages['/prezzi-diesel/oggi/']).toContain('Data del prezzo iniziale: 19.04.2026');
+  });
+
   it('keeps history-rich daily pages above the production text/HTML floor', async () => {
     const history = Array.from({ length: 180 }, (_, index) => {
       const date = new Date(today.getTime() - (179 - index) * 86_400_000);

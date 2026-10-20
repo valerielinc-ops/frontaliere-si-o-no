@@ -32,6 +32,13 @@ const TODAY = new Date('2026-05-18T06:00:00Z');
 // one is benzina-only (must be dropped from diesel pages).
 const DATASET = {
   generatedAt: TODAY.toISOString(),
+  sources: { exchangeRate: {
+    provider: 'ECB',
+    sourceUrl: 'https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html',
+    rateDate: '2026-05-15',
+    chfPerEur: 1,
+    eurPerChf: 1,
+  } },
   municipalities: [
     {
       municipality: 'Como',
@@ -49,12 +56,12 @@ const DATASET = {
         // outside the sp95 top-5 and is persisted separately as
         // `cheapestDieselStation`. The verdict must use THAT, not the diesel
         // price of the benzina-cheapest pump (2.327) nor the nearby min (1.950).
-        cheapestStation: { id: 'ch1', name: 'Silo', brand: 'Migrol', address: 'Chiasso', sp95PriceEur: 2.009, dieselPriceEur: 2.327 },
+        cheapestStation: { id: 'ch1', name: 'Silo', brand: 'Migrol', address: 'Chiasso', sp95PriceChf: 2.009, sp95PriceEur: 2.009, dieselPriceChf: 2.327, dieselPriceEur: 2.327 },
         nearbyStations: [
-          { id: 'ch1', name: 'Silo', brand: 'Migrol', address: 'Chiasso', sp95PriceEur: 2.009, dieselPriceEur: 2.327 },
-          { id: 'ch2', name: 'Coop', brand: 'Coop', address: 'Maslianico', sp95PriceEur: 2.099, dieselPriceEur: 1.950 },
+          { id: 'ch1', name: 'Silo', brand: 'Migrol', address: 'Chiasso', sp95PriceChf: 2.009, sp95PriceEur: 2.009, dieselPriceChf: 2.327, dieselPriceEur: 2.327 },
+          { id: 'ch2', name: 'Coop', brand: 'Coop', address: 'Maslianico', sp95PriceChf: 2.099, sp95PriceEur: 2.099, dieselPriceChf: 1.950, dieselPriceEur: 1.950 },
         ],
-        cheapestDieselStation: { id: 'ch3', name: 'Tamoil', brand: 'Tamoil', address: 'Vacallo', sp95PriceEur: 2.180, dieselPriceEur: 1.870 },
+        cheapestDieselStation: { id: 'ch3', name: 'Tamoil', brand: 'Tamoil', address: 'Vacallo', sp95PriceChf: 2.180, sp95PriceEur: 2.180, dieselPriceChf: 1.870, dieselPriceEur: 1.870 },
       },
     },
   ],
@@ -98,11 +105,11 @@ describe('diesel Italian city pages — real diesel prices + clickable stations'
   it('renders the cross-border verdict banner using the true CH diesel minimum', () => {
     const html = pages['/prezzi-diesel/italia/como/oggi/']!;
     expect(html).toContain('s-itVerdict');
-    // Italy is cheaper for diesel (IT 1.799 vs true CH diesel min 1.870).
-    expect(html).toMatch(/conviene fare il pieno in Italia/);
-    // Saving uses cheapestDieselStation (|1.870−1.799|×50 = 3.55), NOT the
+    // The gross sample difference uses cheapestDieselStation (|1.870−1.799|×50 = 3.55), NOT the
     // sp95-truncated nearby min (|1.950−1.799|×50 = 7.55) nor the benzina-
     // cheapest pump's diesel (|2.327−1.799|×50 = 26.40).
+    expect(html).toContain('Differenza lorda sui prezzi del campione: 3,55 € su 50 L');
+    expect(html).not.toMatch(/conviene fare il pieno in Italia/i);
     expect(html).toContain('3,55');
     expect(html).not.toContain('7,55');
     expect(html).not.toContain('26,40');
@@ -113,6 +120,7 @@ describe('diesel Italian city pages — real diesel prices + clickable stations'
     // + cheapestDieselStation: only `cheapestStation` carries the CH diesel price.
     const fallbackDataset = {
       generatedAt: TODAY.toISOString(),
+      sources: DATASET.sources,
       municipalities: [
         {
           municipality: 'Como',
@@ -123,7 +131,7 @@ describe('diesel Italian city pages — real diesel prices + clickable stations'
             ],
           },
           swiss: {
-            cheapestStation: { id: 'ch1', name: 'Silo', brand: 'Migrol', address: 'Chiasso', sp95PriceEur: 2.009, dieselPriceEur: 1.900 },
+            cheapestStation: { id: 'ch1', name: 'Silo', brand: 'Migrol', address: 'Chiasso', sp95PriceChf: 2.009, sp95PriceEur: 2.009, dieselPriceChf: 1.900, dieselPriceEur: 1.900 },
           },
         },
       ],
@@ -131,8 +139,9 @@ describe('diesel Italian city pages — real diesel prices + clickable stations'
     const fbPages = generateFuelItalianCityPages({ dataset: fallbackDataset, today: TODAY });
     const html = fbPages['/prezzi-diesel/italia/como/oggi/']!;
     expect(html).toContain('s-itVerdict');
-    // IT 1.799 < CH cheapestStation diesel 1.900 → IT wins, |1.900−1.799|×50 = 5.05.
-    expect(html).toMatch(/conviene fare il pieno in Italia/);
+    // IT 1.799 < CH cheapestStation diesel 1.900 → sample gross difference = 5.05.
+    expect(html).toContain('Differenza lorda sui prezzi del campione: 5,05 € su 50 L');
+    expect(html).not.toMatch(/conviene fare il pieno in Italia/i);
     expect(html).toContain('5,05');
   });
 });

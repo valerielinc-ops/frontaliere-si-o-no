@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildFuelViewSearch, datasetFreshness, fuelRowView, pageForSelectedRow, parseFuelViewState, type FuelRowViewFactory, type FuelType, type FuelViewState } from '../components/pages/FuelPriceStats';
+import { buildFuelViewSearch, datasetFreshness, fuelRowView, fuelRowViewWithExchangeRate, pageForSelectedRow, parseFuelViewState, type FuelRowViewFactory, type FuelType, type FuelViewState } from '../components/pages/FuelPriceStats';
 import type { FuelPricesDataset, FuelStationItaly, FuelStationSwitzerland, MunicipalityFuelRow } from '../services/fuelPricesService';
 
 type IsAny<T> = 0 extends (1 & T) ? true : false;
@@ -55,6 +55,31 @@ describe('fuel comparison view model', () => {
     const state: FuelViewState = { fuelType: 'diesel', search: 'Como centro', province: 'CO', sortKey: 'swiss', selectedKey: 'Como|CO', homeMunicipalityKey: 'Como|CO', tankLiters: 65, costPerKmEur: 0.23, page: 3 };
     expect(parseFuelViewState(`?${buildFuelViewSearch(state)}`)).toEqual(state);
     expect(buildFuelViewSearch({ ...state, fuelType: 'benzina', search: '', province: 'ALL', sortKey: 'saving', selectedKey: null, homeMunicipalityKey: '', tankLiters: 50, costPerKmEur: 0.18, page: 1 })).toBe('');
+  });
+
+  it('uses the same trip defaults when the URL has no liters or vehicle-cost values', () => {
+    expect(parseFuelViewState('')).toMatchObject({ tankLiters: 50, costPerKmEur: 0.18 });
+    expect(parseFuelViewState('?liters=&cost=%20')).toMatchObject({ tankLiters: 50, costPerKmEur: 0.18 });
+  });
+
+  it('hydrates and serializes the existing liters and car-cost share parameters', () => {
+    expect(parseFuelViewState('?liters=80&cost=0.3')).toMatchObject({ tankLiters: 80, costPerKmEur: 0.3 });
+    expect(parseFuelViewState('?liters=0&cost=0')).toMatchObject({ tankLiters: 0, costPerKmEur: 0 });
+    expect(buildFuelViewSearch({ ...parseFuelViewState(''), tankLiters: 80, costPerKmEur: 0.3 })).toBe('liters=80&cost=0.3');
+    expect(parseFuelViewState('?liters=150&cost=1.2')).toMatchObject({ tankLiters: 150, costPerKmEur: 1.2 });
+    expect(buildFuelViewSearch({ ...parseFuelViewState(''), tankLiters: 150, costPerKmEur: 1.2 })).toBe('liters=150&cost=1.2');
+  });
+
+  it('uses the same dated-FX validated view for aggregate and detail renderers', () => {
+    const stale = fuelRowViewWithExchangeRate(row(), 'benzina', null);
+    expect(stale.swiss.minPriceEur).toBeNull();
+    expect(stale.comparison.cheaperCountry).toBe('NO_DATA');
+
+    const dated = fuelRowViewWithExchangeRate(row(), 'benzina', {
+      provider: 'ECB', sourceUrl: 'https://www.ecb.europa.eu/rates', rateDate: '2026-09-09', chfPerEur: 1, eurPerChf: 1,
+    });
+    expect(dated.swiss.minPriceEur).toBe(2.1);
+    expect(dated.comparison.cheaperCountry).toBe('IT');
   });
 
   it('moves a selected municipality onto the visible page when a shared URL is stale', () => {

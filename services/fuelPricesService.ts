@@ -90,7 +90,7 @@ export interface FuelPricesDataset {
  sources: {
  italy: { provider: string; priceSnapshotDate: string | null; stationsUrl: string; pricesUrl: string; };
  switzerland: { provider: string; providerUrl: string; stationCount: number; latestObservedUpdate: string | null; dieselStationCount?: number; dieselCoveragePct?: number; };
- exchangeRate: { provider: string; sourceUrl: string; chfPerEur: number; eurPerChf: number; };
+ exchangeRate: { provider: string; sourceUrl: string; rateDate?: string | null; chfPerEur: number; eurPerChf: number; };
  };
  summary: {
  municipalityCount: number;
