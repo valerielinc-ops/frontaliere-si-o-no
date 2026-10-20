@@ -16,7 +16,8 @@
  *   validated   -> extraction graded against the live page
  *   promoted    -> graded good; eligible for the promotion gate
  *   promoting   -> shipped into an OPEN promotion PR, not merged yet
- *   production  -> passed the promotion gate and shipped as a real crawler
+ *   awaiting_first_crawl -> promotion PR merged; waiting for a fresh non-empty jobs slice
+ *   production  -> first fresh public jobs slice verified after the merge
  *   rejected    -> measured and dismissed, with a reason
  *
  * The ledger records every transition so a later run can answer "why is this
@@ -28,7 +29,7 @@ import { CANDIDATES_PATH, LEDGER_PATH } from './config.mjs';
 import { registrableDomain } from './registrable.mjs';
 import { normalizeCompanyName } from './coverage.mjs';
 
-/** @typedef {'new'|'resolved'|'traced'|'dead'|'synthesized'|'validated'|'promoted'|'promoting'|'production'|'rejected'} CandidateStatus */
+/** @typedef {'new'|'resolved'|'traced'|'dead'|'synthesized'|'validated'|'promoted'|'promoting'|'awaiting_first_crawl'|'production'|'rejected'} CandidateStatus */
 
 /**
  * Stable key for an employer. Domain when we have one — it is the only truly
@@ -252,13 +253,24 @@ function normalizeStore(raw) {
  * @param {string} [file]
  */
 export function loadCandidates(file = CANDIDATES_PATH) {
+  let rawText;
   try {
-    const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
-    if (!raw?.candidates) return structuredClone(EMPTY);
-    return normalizeStore(raw);
-  } catch {
-    return structuredClone(EMPTY);
+    rawText = fs.readFileSync(file, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return structuredClone(EMPTY);
+    throw new Error(`Cannot read Prospector candidate store at ${file}`, { cause: error });
   }
+
+  let raw;
+  try {
+    raw = JSON.parse(rawText);
+  } catch (error) {
+    throw new Error(`Malformed Prospector candidate store at ${file}`, { cause: error });
+  }
+  if (!isObjectMap(raw) || !isObjectMap(raw.candidates)) {
+    throw new Error(`Invalid Prospector candidate store shape at ${file}`);
+  }
+  return normalizeStore(raw);
 }
 
 /**
@@ -437,7 +449,7 @@ export function upsertCandidate(store, incoming, source) {
   return { key, created: false };
 }
 
-const ORDER = ['rejected', 'dead', 'new', 'resolved', 'traced', 'synthesized', 'validated', 'promoted', 'promoting', 'production'];
+const ORDER = ['rejected', 'dead', 'new', 'resolved', 'traced', 'synthesized', 'validated', 'promoted', 'promoting', 'awaiting_first_crawl', 'production'];
 
 /**
  * @param {ReturnType<typeof loadCandidates>} store

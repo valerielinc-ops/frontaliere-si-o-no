@@ -27,7 +27,7 @@ giù come conseguenza.
 L'economia: un estrattore di famiglia per un vendor costa come un crawler per
 una sola azienda, e rende ogni tenant che quel vendor ha.
 
-## I cinque stadi
+## I sei stadi
 
 | stadio | script | cosa fa |
 |---|---|---|
@@ -50,6 +50,18 @@ una sola azienda, e rende ogni tenant che quel vendor ha.
 | `web` | indice Common Crawl | pagine carriere di **tutto il web svizzero** | ~11 datori per pagina d'indice, su 1.223 pagine |
 
 Nessuna richiede chiave o quota.
+
+DISCOVER registra per fonte `complete`, `partial`, `unavailable` o `malformed`.
+Un risultato parziale resta utilizzabile e non viene contato come outage totale.
+Lo storico separa i record ricevuti dai nuovi candidati davvero inseriti in
+coda; il report tratta i record senza outcome come `legacy/unknown`.
+
+Il budget predefinito di Common Crawl è 40 pagine per run e quello OSM è 3
+cantoni per run. Common Crawl usa una permutazione dell'intero intervallo della
+collection, riprova per prime le pagine fallite e conserva la copertura per
+collection. Con 1.230 pagine, 40 per run completano un passaggio in circa 31
+run. TRACE è salito da 300 a 450 candidati al giorno; la pausa minima per host
+e la concorrenza restano invariate.
 
 ## Aggregatori: esclusi per costruzione
 
@@ -77,14 +89,19 @@ vedi `docs/CRAWLERS.md#aggregator-sourced-crawlers--the-data-can-be-genuine-and-
 Il monitor di salute esistente conta le righe tornate. Un parser che restituisce
 dodici righe di menu gira benissimo e pubblica dodici offerte finte.
 `prospect-validate.mjs` scarica la pagina di **dettaglio** che il datore serve e
-misura sei cose indipendenti:
+misura le condizioni indipendenti del contratto qualità corrente (v3):
 
 - `reachable` — l'URL che pubblicheremmo risolve;
 - `titleMatch` — il titolo è davvero quello della pagina;
 - `contentful` — la pagina ha prosa vera, non uno scheletro renderizzato lato client;
 - `distinct` — i titoli del listing differiscono fra loro;
 - `sourceBackedLocation` — la località pubblicata è provata dalla fonte;
-- `jobLike` — la prosa legge come un annuncio di lavoro.
+- `jobLikeEvidence` — la descrizione pubblicata legge come un annuncio oppure
+  una `JobPosting` strutturata prova titolo, datore e un campo occupazionale;
+  una pagina non leggibile resta senza prova e non passa il gate;
+- `employerIdentity` — nome strutturato, dominio aziendale o host tenant
+  conferma il datore atteso; un mismatch esplicito resta retryable e richiede
+  triage.
 
 Per le spec generate, VALIDATE passa dalla stessa trasformazione in memoria del
 runtime pubblicato: enumera la listing, arricchisce i dettagli, sceglie il titolo
@@ -100,16 +117,25 @@ non vuota senza output per drop inattesi azzera la stabilità anche se il parser
 mantiene la propria tolleranza sui piccoli inventari. I filtri dichiarati e
 verificabili, come le sedi estere allowlistate, restano separati dai drop
 inattesi; il report espone anche il denominatore effettivo usato dalla soglia di
-incompletezza. `jobLike` usa la descrizione pubblicata e il titolo viene
+incompletezza. La prova semantica usa la descrizione pubblicata o una
+`JobPosting` strutturata con titolo e identità coerenti; il titolo estratto viene
 confrontato solo con la sua fonte registrata (listing o dettaglio strutturato).
 
 Le pagine giudicate sono un campione, non il conteggio totale: l'algoritmo
-`utc-cyclic-strata-v1` registra giorno, identità, indice e strato, ripete la
-stessa selezione nello stesso giorno e ruota il punto di partenza ogni giorno
-UTC. Gli inventari piccoli vengono censiti per intero. Il budget conserva una
-quota per i candidati con una sola giornata buona, così possono ottenere la
-seconda osservazione distinta mentre nuovi candidati continuano a entrare nel
-giro.
+`utc-cyclic-strata-anomaly-v2` registra giorno, identità, indice e strato,
+ripete la stessa selezione nello stesso giorno e ruota il punto di partenza ogni
+giorno UTC. Gli inventari piccoli vengono censiti per intero; per gli inventari
+grandi o con esiti deboli il campione cresce fino a 8 pagine. Gli URL che hanno
+prodotto anomalie vengono ricontrollati prima della rotazione. Le osservazioni
+includono la versione del contratto qualità e solo prove v3 correnti entrano
+nel gate; il report separa tally misurato, verdict conservativo e completezza
+dello snapshot.
+
+VALIDATE salva un confronto fra gli identificativi URL della snapshot osservata
+e la slice pubblicata, conservando hash degli identificativi invece delle liste
+di URL complete. Solo snapshot distanti al massimo 6 ore possono risultare
+`matched` o `different_snapshot`; distanze maggiori sono `near_time_delta` e non
+vengono presentate come annunci persi.
 
 Su un lotto di 44 crawler generati: **34 promossi, 7 deboli, 1 respinto**. I due
 difetti trovati — titoli non corrispondenti, e titoli tutti uguali — sono
@@ -117,7 +143,7 @@ esattamente quelli che un controllo per conteggio non vede.
 
 ## Chiusura del loop: promozione senza passi umani
 
-Un crawler validato entra in produzione da solo. È difendibile solo perché la
+Un crawler validato entra nel ciclo di produzione da solo. È difendibile solo perché la
 decisione non è «il punteggio è alto», ma la congiunzione in
 `scripts/lib/prospector/promotion-gate.mjs`:
 
@@ -129,20 +155,25 @@ decisione non è «il punteggio è alto», ma la congiunzione in
 | titoli che combaciano | ≥ 80% | cluster che ha agganciato un archivio news |
 | titoli distinti | ≥ 80% | un selettore su un elemento ricorrente |
 | pagine con prosa | ≥ 75% | listing renderizzati lato client |
+| prova semantica di annuncio | ≥ 75% | contenuto editoriale o dettaglio opaco |
+| identità del datore confermata | ≥ 75%, senza mismatch | risultati appartenenti a un'altra azienda |
 | **validazioni buone** | **≥ 2, su ≥ 2 giorni distinti** | **markup A/B, cookie wall al secondo giro, settimana vuota** |
 | annunci rispetto al massimo osservato | ≥ 50% | un listing che sta collassando |
 | chiave crawler | libera | collisione con un crawler esistente |
-| tetto per giro | 10 | una pipeline non presidiata che ne aggiunge 400 |
+| tetto per giro | 15 | contenere l'impatto di una promozione automatica |
 
 La condizione vincolante è quella sulla **stabilità**: non è soddisfacibile da
 una singola run, per quanto buona sembri. Un crawler sintetizzato e graduato
 stamattina non è promuovibile oggi pomeriggio.
 
-Cosa significa «entrare in produzione»: lo stesso `scaffold-crawler.mjs` di ogni
-crawler scritto a mano, sul tier `prospected` — parser, runner, test unitario e
-voce in `data/crawler-manifest.json`, con i gruppi di workflow rigenerati. Il
-risultato è indistinguibile da un crawler scaffoldato a mano, salvo che la
-conoscenza specifica del datore sta in una spec invece che nel codice.
+Cosa significa «entrare nel ciclo di produzione»: lo stesso
+`scaffold-crawler.mjs` di ogni crawler scritto a mano, sul tier `prospected` —
+parser, runner, test unitario e voce in `data/crawler-manifest.json`, con i
+gruppi di workflow rigenerati. Dopo il merge il candidato resta
+`awaiting_first_crawl`: passa a `production` solo quando esiste una slice `jobs`
+fresca, con almeno un annuncio e timestamp non precedente al merge. Dopo 48 ore
+senza un primo output valido, PROMOTE emette un warning con owner e prossima
+azione.
 
 La PR che apre viaggia poi sul **ciclo autonomo che questo repo già usa**:
 `tests` verde → `pr-review-loop` → auto-merge su `## LGTM`. «Nessun passo umano»

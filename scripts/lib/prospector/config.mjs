@@ -37,6 +37,7 @@ export const CANDIDATES_PATH = path.join(PROSPECTOR_DIR, 'candidates.json');
 export const LEDGER_PATH = path.join(PROSPECTOR_DIR, 'ledger.jsonl');
 export const VALIDATION_PATH = path.join(PROSPECTOR_DIR, 'validation.json');
 export const WEB_CHANNEL_HEALTH_PATH = path.join(PROSPECTOR_DIR, 'web-channel-health.json');
+export const SOURCE_HEALTH_PATH = path.join(PROSPECTOR_DIR, 'discovery-health.json');
 
 /**
  * Identifying UA. Reuses the crawler-wide override so a single env var

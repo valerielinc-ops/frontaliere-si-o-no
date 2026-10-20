@@ -43,7 +43,7 @@ import {
   GATE_DEFAULTS,
   passesSourceBackedLocationRate,
 } from '../scripts/lib/prospector/promotion-gate.mjs';
-import { alignCandidateQualityContractVersion } from '../scripts/lib/prospector/quality-contract.mjs';
+import { alignCandidateQualityContractVersion, CURRENT_QUALITY_CONTRACT_VERSION } from '../scripts/lib/prospector/quality-contract.mjs';
 import { createSpecUrlPolicy, geographyFieldsForDecision, needsDetailEnrichment, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import {
   constantPostalLocations,
@@ -1681,7 +1681,7 @@ describe('quality grading', () => {
     clearPoliteFetchStateForTests();
     try {
       const report = await gradeExtraction(
-        { companyKey: 'acme', seedUrls: [url] },
+        { companyKey: 'acme', companyName: 'Acme', companyHost: 'employer.example', seedUrls: [url] },
         [{
           title: 'Software Engineer',
           url,
@@ -1812,6 +1812,7 @@ describe('promotion gate', () => {
   /** A candidate graded good on `days` distinct days. */
   const graded = (days, over = {}) => ({
     status: 'promoted',
+    qualityContractVersion: CURRENT_QUALITY_CONTRACT_VERSION,
     crawlerKey: 'acme',
     vacancyCount: 6,
     mode: 'template',
@@ -1820,6 +1821,7 @@ describe('promotion gate', () => {
     validationHistory: Array.from({ length: days }, (_, i) => ({
       at: `2026-08-${String(10 + i).padStart(2, '0')}T03:00:00Z`,
       verdict: 'good',
+      qualityContractVersion: CURRENT_QUALITY_CONTRACT_VERSION,
       score: 0.97,
       sampled: 4,
       reachableRate: 1,
@@ -1828,6 +1830,12 @@ describe('promotion gate', () => {
       locationSourceRate: 1,
       distinctRate: 1,
       jobLikeRate: 1,
+      jobLikeEvidenceRate: 1,
+      jobLikeEvidenceMeasured: 4,
+      employerIdentityRate: 1,
+      employerIdentityMatchCount: 4,
+      employerIdentityMismatchCount: 0,
+      employerIdentityUnknownCount: 0,
       logoFound: true,
       vacancyCount: 6,
     })),
@@ -1866,8 +1874,8 @@ describe('promotion gate', () => {
 
   it('stamps a non-default spec quality contract on an in-flight candidate', () => {
     const candidate = { status: 'promoting' };
-    expect(alignCandidateQualityContractVersion(candidate, { qualityContractVersion: 2 })).toBe(2);
-    expect(candidate.qualityContractVersion).toBe(2);
+    expect(alignCandidateQualityContractVersion(candidate, { qualityContractVersion: 2 })).toBe(CURRENT_QUALITY_CONTRACT_VERSION);
+    expect(candidate.qualityContractVersion).toBe(CURRENT_QUALITY_CONTRACT_VERSION);
   });
 
   it('ships a candidate proven on two distinct days', () => {
@@ -1901,7 +1909,7 @@ describe('promotion gate', () => {
   // un annuncio di lavoro; questa quinta lo chiede.
   it('rifiuta un listing che estrae contenuto promozionale, per quanto coerente', () => {
     const promo = graded(2);
-    promo.validationHistory.forEach((h) => { h.jobLikeRate = 0; h.score = 0.83; });
+    promo.validationHistory.forEach((h) => { h.jobLikeRate = 0; h.jobLikeEvidenceRate = 0; h.score = 0.83; });
     const res = evaluatePromotion(promo);
     expect(res.passed).toBe(false);
     expect(res.checks.jobLike).toBe(false);
@@ -1913,7 +1921,7 @@ describe('promotion gate', () => {
     // esattamente il buco: i candidati gia' in coda sono stati graduati dal
     // gate cieco, e la prossima validazione fornisce il dato.
     const legacy = graded(2);
-    legacy.validationHistory.forEach((h) => { delete h.jobLikeRate; });
+    legacy.validationHistory.forEach((h) => { delete h.jobLikeEvidenceRate; });
     const res = evaluatePromotion(legacy);
     expect(res.passed).toBe(false);
     expect(res.checks.jobLike).toBe(false);
@@ -2205,10 +2213,24 @@ describe('promotion gate', () => {
   });
 
   it('non punisce un datore che pubblica gli annunci in PDF', () => {
-    // `null` = misurato, byte illeggibili. Diverso da assente.
+    // PDF senza testo: la descrizione è illeggibile ma una JobPosting strutturata
+    // ha già fornito la prova semantica alternativa.
     const pdf = graded(2);
-    pdf.validationHistory.forEach((h) => { h.jobLikeRate = null; });
+    pdf.validationHistory.forEach((h) => { h.jobLikeRate = null; h.jobLikeEvidenceRate = 1; });
     expect(evaluatePromotion(pdf).checks.jobLike).toBe(true);
+  });
+
+  it('blocks opaque details without semantic proof and explicit employer identity mismatches', () => {
+    const opaque = graded(2);
+    opaque.validationHistory.forEach((entry) => { entry.jobLikeEvidenceRate = 0; });
+    expect(evaluatePromotion(opaque).checks.jobLike).toBe(false);
+
+    const mismatch = graded(2);
+    mismatch.validationHistory.forEach((entry) => {
+      entry.employerIdentityRate = 0.75;
+      entry.employerIdentityMismatchCount = 1;
+    });
+    expect(evaluatePromotion(mismatch).checks.employerIdentity).toBe(false);
   });
 
   it('refuses two gradings that landed on the SAME day', () => {

@@ -46,17 +46,15 @@ export const GATE_DEFAULTS = {
    * il 2026-09-05 su anker-swiss.ch: 3 pagine su 4 nel campione, 279 annunci
    * pubblicabili con localita' vera (Rheinfelden AG, Wettingen AG, Dietikon
    * ZH) e descrizioni da ~3 KB, bloccati dalla quarta pagina. Allineata a
-   * `minContentful` e `minJobLike`: sono la stessa domanda posta su tre campi
+   * `minContentful` e `minJobLikeEvidence`: sono la stessa domanda posta su tre campi
    * diversi della stessa pagina.
    */
   minLocationSourceRate: 0.75,
   minDistinct: 0.8,
-  /**
-   * Quota delle pagine di dettaglio che devono leggere come annuncio di lavoro.
-   * Allineata a `minContentful`: sono la stessa domanda posta sul testo — uno
-   * chiede che ci sia prosa, l'altro che quella prosa sia un annuncio.
-   */
-  minJobLike: 0.75,
+  /** A structured JobPosting can supply semantic proof for opaque details. */
+  minJobLikeEvidence: 0.75,
+  /** Most sampled pages must prove the expected employer identity. */
+  minEmployerIdentityRate: 0.75,
   minVacancies: 1,
   /** Two gradings, on two distinct days. */
   minRuns: 2,
@@ -64,7 +62,7 @@ export const GATE_DEFAULTS = {
   /** A listing may shrink between runs, but not collapse. */
   minVacancyRetention: 0.5,
   /** How many may enter production in one run. */
-  maxPerRun: 10,
+  maxPerRun: 15,
 };
 
 /**
@@ -270,14 +268,21 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   //   assente -> validazione anteriore al controllo, MAI misurata: blocca, e la
   //              prossima validazione fornisce il dato. Trattare "non misurato"
   //              come "passato" e' esattamente il buco che stiamo chiudendo.
-  //   null    -> misurata ma illeggibile (annunci in PDF): non blocca.
+  //   null    -> legacy report senza prova semantica: blocca.
   //   numero  -> confronto con la soglia.
-  const jobLikeRate = latest.jobLikeRate;
+  const jobLikeEvidenceRate = latest.jobLikeEvidenceRate;
   mark('jobLike',
-    jobLikeRate === null || Number(jobLikeRate) >= g.minJobLike,
-    jobLikeRate === undefined
-      ? 'nessuna misura semantica nell\'ultima validazione: e\' anteriore al controllo jobLike, serve una nuova validazione'
-      : `solo il ${Math.round(Number(jobLikeRate) * 100)}% delle pagine di dettaglio legge come annuncio di lavoro, serve ${Math.round(g.minJobLike * 100)}%`);
+    typeof jobLikeEvidenceRate === 'number' && jobLikeEvidenceRate >= g.minJobLikeEvidence,
+    jobLikeEvidenceRate === undefined
+      ? 'nessuna prova semantica sufficiente nell\'ultima validazione: serve una nuova validazione'
+      : `solo il ${Math.round(Number(jobLikeEvidenceRate) * 100)}% dei campioni ha prova semantica sufficiente di annuncio di lavoro, serve ${Math.round(g.minJobLikeEvidence * 100)}%`);
+
+  mark('employerIdentity',
+    Number(latest.employerIdentityMismatchCount || 0) === 0
+      && Number(latest.employerIdentityRate || 0) >= g.minEmployerIdentityRate,
+    Number(latest.employerIdentityMismatchCount || 0) > 0
+      ? `${latest.employerIdentityMismatchCount} campione/i riportano un datore diverso: da riesaminare e riprovare`
+      : `identita' confermata sul ${Math.round(Number(latest.employerIdentityRate || 0) * 100)}% del campione, serve ${Math.round(g.minEmployerIdentityRate * 100)}%`);
 
   // Logo aziendale obbligatorio, stessa disciplina di jobLike qui sopra: senza
   // nessuno che guarda, un crawler che entra in produzione senza un logo
@@ -344,15 +349,15 @@ function normalizeAuthorLogin(login) {
  * non lo nota e lo chiude — vanificando l'auto-riparazione descritta sopra
  * (follow-up #6305 item 3).
  *
- * @param {{ number: number|string, createdAt?: string, title?: string, headRefName?: string, author?: { login?: string } }[]} openPrs
+ * @param {{ number: number|string, createdAt?: string, title?: string, url?: string, headRefName?: string, author?: { login?: string } }[]} openPrs
  * @param {string} [prefix]
  * @param {string} [expectedAuthor]
- * @returns {{ number: string, createdAt: string, title: string }|null}
+ * @returns {{ number: string, createdAt: string, title: string, url: string }|null}
  */
 export function findOpenPromotionPr(openPrs = [], prefix = 'prospector/promote-', expectedAuthor = PROMOTION_BOT_LOGIN) {
   const candidates = (openPrs || []).filter((r) => String(r?.headRefName || '').startsWith(prefix));
   const hit = candidates.find((r) => normalizeAuthorLogin(r?.author?.login) === expectedAuthor);
-  if (hit) return { number: String(hit.number), createdAt: hit.createdAt || '', title: hit.title || '' };
+  if (hit) return { number: String(hit.number), createdAt: hit.createdAt || '', title: hit.title || '', url: hit.url || '' };
   const impostor = candidates[0];
   if (impostor) {
     // Stesso prefisso, autore diverso: segnala esplicitamente invece di
