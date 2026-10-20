@@ -74,8 +74,19 @@ export function isSeniorenzentrumEngelhofJob(job) {
   return (
     key === SENIORENZENTRUM_ENGELHOF_KEY
     || company.includes(normalize(SENIORENZENTRUM_ENGELHOF_COMPANY_NAME))
-    || isTrustedDomain(job?.url || '')
+    || isEngelhofIdentityDomain(job?.url || '')
   );
+}
+
+function isEngelhofIdentityDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === SENIORENZENTRUM_ENGELHOF_COMPANY_DOMAIN
+      || host.endsWith('.' + SENIORENZENTRUM_ENGELHOF_COMPANY_DOMAIN)
+      || host === EMPLOYER_BOARD_HOST;
+  } catch {
+    return false;
+  }
 }
 
 export function isTrustedDomain(rawUrl = '') {

@@ -108,6 +108,11 @@ describe('Seniorenzentrum Engelhof crawler parser', () => {
 
       expect(isSeniorenzentrumEngelhofJob({ companyKey: SENIORENZENTRUM_ENGELHOF_KEY })).toBe(true);
       expect(isSeniorenzentrumEngelhofJob({ url: sourceListing.url })).toBe(true);
+      expect(isSeniorenzentrumEngelhofJob({
+        companyKey: 'other-company',
+        company: 'Other employer',
+        url: 'https://www.sozjobs.ch/job/other/J123456/partnerDetail/easypublish/widgetid/1',
+      })).toBe(false);
       expect(isSeniorenzentrumEngelhofJob({ companyKey: 'other', url: 'https://other.example/job/1' })).toBe(false);
     });
   });
