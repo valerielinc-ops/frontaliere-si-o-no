@@ -615,11 +615,24 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         return typeof id === 'string' || typeof id === 'number' ? String(id).trim() : '';
       }).filter(Boolean))];
       const eventDocuments = Array.isArray(event.documents) ? event.documents : [];
+      const attempts = Number(flow?.dispatch?.attempts) || 1;
       // An unidentifiable question gives the candidate nothing they can act
       // on. Treat it as an unsupported portal stop so the owner can retry
       // after the runner or portal changes, instead of sending a blank request.
       if (questionIds.length === 0 && eventDocuments.length === 0) {
-        return transition(flow, { type: 'submit_handoff', reason: 'portal_needs_candidate' }, { draft, answers, documents, nowMs });
+        next.state = 'owner_takeover';
+        next.deadlineAt = null;
+        next.reminderAt = null;
+        next.heldBy = ['portal_needs_candidate'];
+        next.heldSince = null;
+        effects = [{
+          type: 'email',
+          kind: 'owner_takeover',
+          reason: 'portal:portal_needs_candidate',
+          stage: 'submit',
+          attempts,
+        }];
+        break;
       }
       const answersAlreadyExist = questionIds.length > 0 && questionIds.every((id) => {
         if (!Object.prototype.hasOwnProperty.call(answers || {}, id)) return false;
@@ -629,7 +642,6 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
           || (typeof answer === 'string' && answer.trim().length > 0)
           || (Array.isArray(answer) && answer.some((value) => String(value ?? '').trim().length > 0));
       });
-      const attempts = Number(flow?.dispatch?.attempts) || 1;
       // A portal can report a validation step as a candidate question even
       // after the runner filled it from an answer already saved in the flow.
       // Retry once without sending an unnecessary candidate-action notice;
@@ -651,24 +663,6 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         ...eventDocuments.map((id) => `document:${id}`),
       ];
       next.heldSince = null;
-      if (!next.heldBy.length) {
-        // A portal signal without an identifiable question or document cannot
-        // produce an actionable candidate wait. Keep the submission visible to
-        // the owner instead of sending a candidate-action email for an empty
-        // hold.
-        next.state = 'owner_takeover';
-        next.deadlineAt = null;
-        next.reminderAt = null;
-        next.heldBy = ['portal_needs_candidate'];
-        effects = [{
-          type: 'email',
-          kind: 'owner_takeover',
-          reason: 'portal:portal_needs_candidate',
-          stage: 'submit',
-          attempts,
-        }];
-        break;
-      }
       waitForCandidate(next, nowMs);
       effects = [{ type: 'email', kind: 'candidate_action_needed' }];
       break;
