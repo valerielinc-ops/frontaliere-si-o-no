@@ -14,6 +14,7 @@
 import fs from 'node:fs';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { githubApiHeaders } from '../lib/githubApiHeaders.mjs';
+import { createdSinceQuery } from './lib/run-listing-window.mjs';
 
 const API = 'https://api.github.com';
 const BUILD_WORKFLOW = 'deploy.yml';
@@ -183,7 +184,7 @@ function mapPublish(run) {
 }
 
 async function listWorkflowRuns(repo, workflow) {
-  const payload = await ghJson(`/repos/${repo}/actions/workflows/${workflow}/runs?branch=${BRANCH}&per_page=100`);
+  const payload = await ghJson(`/repos/${repo}/actions/workflows/${workflow}/runs?branch=${BRANCH}&${createdSinceQuery(35)}&per_page=100`);
   if (!Array.isArray(payload?.workflow_runs)) throw new Error(`${workflow} run listing is malformed`);
   return payload.workflow_runs;
 }

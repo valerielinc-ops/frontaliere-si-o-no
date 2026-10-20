@@ -126,6 +126,7 @@ jobs:
           DEPLOY_BUILT_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || '' }}
           DEPLOY_RETRY_ATTEMPT: ${{ inputs.retry_attempt || '0' }}
           DEPLOY_RETRY_REASON: ${{ inputs.retry_reason || '' }}
+          APP_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || '' }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
@@ -137,6 +138,7 @@ jobs:
 
       - name: Reconcile the latest successful Pages publish
         env:
+          APP_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || '' }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
