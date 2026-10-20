@@ -2392,6 +2392,7 @@ export async function submitViaPortal(ctx) {
         const automaticCvUpload = cvField && documentPaths(ctx.files, 'cv').length
           ? {
               fieldId: cvField.id,
+              ref: cvField.ref,
               action: 'upload',
               value: '',
               document: 'cv',
