@@ -1,9 +1,9 @@
 {
   "key": "agat",
   "label": "AGAT ! Placements fixes et temporaires SA",
-  "generatedAt": "2026-10-19T21:53:53.995Z",
+  "generatedAt": "2026-10-20T09:31:50.931Z",
   "total": 7,
-  "discovered": null,
+  "discovered": 8,
   "parsed": 7,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
@@ -19,10 +19,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 12919,
-  "avgDurationMs": 12919,
+  "durationMs": 12379,
+  "avgDurationMs": 12379,
   "durationHistory": [
-    12919
+    12379
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "url": "https://www.agat-job.com/post/ma%C3%A7on-q-a-b-100",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:53:41.543Z",
+      "crawledAt": "2026-10-20T09:31:38.791Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -79,7 +79,7 @@
       "url": "https://www.agat-job.com/post/installateur-%C3%A9lectricien-cfc-f-h-d%C3%A9pannage-et-bricole",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:53:41.542Z",
+      "crawledAt": "2026-10-20T09:31:38.789Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -122,7 +122,7 @@
       "url": "https://www.agat-job.com/post/charpentier-cfc-100-1",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:53:41.551Z",
+      "crawledAt": "2026-10-20T09:31:38.797Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -161,7 +161,7 @@
       "url": "https://www.agat-job.com/post/machiniste-h-f-m1-m2",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:53:41.549Z",
+      "crawledAt": "2026-10-20T09:31:38.796Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -200,7 +200,7 @@
       "url": "https://www.agat-job.com/post/monteur-%C3%A9lectricien-cfc-f-h",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:53:41.548Z",
+      "crawledAt": "2026-10-20T09:31:38.794Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -239,7 +239,7 @@
       "url": "https://www.agat-job.com/post/paysagiste-100-1",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:53:41.547Z",
+      "crawledAt": "2026-10-20T09:31:38.793Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -278,7 +278,7 @@
       "url": "https://www.agat-job.com/post/installateur-sanitaire-exp%C3%A9riment%C3%A9",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:53:41.545Z",
+      "crawledAt": "2026-10-20T09:31:38.792Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -305,5 +305,5 @@
       }
     }
   ],
-  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
+  "codeCommit": "a1bd59ecfe0dd8e9073ead0a9cb11e2d39e2c95a"
 }

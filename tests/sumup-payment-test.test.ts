@@ -16,7 +16,6 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   getRemoteConfigValue: vi.fn(),
 }));
 vi.mock('../functions/src/sumupAssistedApplicationCore.js', () => ({
-  ASSISTED_APPLICATION_PRICE_EUR_CENTS: 199,
   SUMUP_ENVIRONMENTS: { SANDBOX: 'sandbox' },
   createSumUpPaymentTestCheckout: (...args: unknown[]) => mocks.createCheckout(...args),
   retrieveSumUpCheckout: (...args: unknown[]) => mocks.retrieveCheckout(...args),

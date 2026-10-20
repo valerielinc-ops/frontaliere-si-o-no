@@ -1,86 +1,7 @@
 {
   "crawlerKey": "rh-expert-ch",
-  "assembledAt": "2026-10-19T21:45:46.617Z",
+  "assembledAt": "2026-10-20T09:39:43.451Z",
   "jobs": [
-    {
-      "id": "rh-expert-ch-01943f816aae",
-      "slug": "cucina-aiuto-immersioni-rh-expert-geneve-01943f81",
-      "slugByLocale": {
-        "it": "cucina-aiuto-immersioni-rh-expert-geneve-01943f81",
-        "en": "kitchen-help-diving-rh-expert-geneve-01943f81",
-        "de": "kuchenhilfe-tauchen-rh-expert-geneve-01943f81",
-        "fr": "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
-      },
-      "slugDisambiguator": "01943f81",
-      "company": "RH-Expert",
-      "companyKey": "rh-expert-ch",
-      "companyDomain": "rh-expert.ch",
-      "title": "Aide de cuisine / Plongeur",
-      "titleByLocale": {
-        "it": "Cucina Aiuto / Immersioni",
-        "en": "Kitchen Help / Diving",
-        "de": "Küchenhilfe / Tauchen",
-        "fr": "Aide de cuisine / Plongeur"
-      },
-      "description": "Nettoyage de la vaisselle\n• Nettoyage du matériel de cuisine\n• Mise en place (épluchages, taillage...)\n• Expérience au même poste de 2 années minimum.\n• Excellente gestion du stress.\n• Très bons sens de l’organisation.\n• Rapide, polyvalent et ponctuel.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en fonction de vos capacités.\n• Horaires : Continus.\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
-      "descriptionByLocale": {
-        "it": "Pulizia dei piatti\n• Pulizia di attrezzature da cucina\n• Impostazione (aratura, taglio...)\n• Esperienza nella stessa posizione minima di 2 anni.\n• Ottima gestione dello stress.\n• Molto buon senso di organizzazione.\n• Veloce, versatile e puntuale.\n• Vi offriamo:\n• Lavoro a lungo termine con uno stipendio basato sulle tue capacità.\n• Orario: continuo.\n• Tipo di contratto: Temporaneo.\n• Inizio: Immediatamente o da concordare.",
-        "en": "Cleaning of dishes\n• Cleaning of kitchen equipment\n• Setting up (plowning, cutting...)\n• Experience in the same 2 year minimum position.\n• Excellent stress management.\n• Very good sense of organization.\n• Fast, versatile and punctual.\n• We offer you:\n• Long-term work with a salary based on your abilities.\n• Hours : Continuous.\n• Type of contract: Temporary.\n• Start: Immediately or to be agreed.",
-        "de": "Reinigung von Geschirr\n• Reinigung von Küchengeräten\n• Einrichtung (Pflanzen, Schneiden...)\n• Erfahrung in der gleichen 2-jährigen Mindestposition.\n• Ausgezeichnetes Stressmanagement.\n• Sehr guter Organisationssinn.\n• Schnell, vielseitig und pünktlich.\n• Wir bieten Ihnen:\n• Langfristige Arbeit mit einem Gehalt, das auf Ihren Fähigkeiten basiert.\n• Stunden: Kontinuierlich.\n• Art des Vertrags: Befristet.\n• Start: Sofort oder noch zu vereinbaren.",
-        "fr": "Nettoyage de la vaisselle\n• Nettoyage du matériel de cuisine\n• Mise en place (épluchages, taillage...)\n• Expérience au même poste de 2 années minimum.\n• Excellente gestion du stress.\n• Très bons sens de l’organisation.\n• Rapide, polyvalent et ponctuel.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en fonction de vos capacités.\n• Horaires : Continus.\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir."
-      },
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://rh-expert.ch/fr/offres-demploi/plongeur",
-      "source": "RH-Expert Official Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:45:41.174Z",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "employmentType": "OTHER",
-      "contract": "other",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://rh-expert.ch/fr/offres-demploi/plongeur",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
-        ],
-        "en": [
-          "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
-        ],
-        "de": [
-          "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
-        ]
-      },
-      "firstSeenAt": "2026-10-19T09:28:20.836Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1201",
-      "addressLocality": "Genève"
-    },
     {
       "id": "rh-expert-ch-da98a8bcd394",
       "slug": "lingerie-rh-expert-geneve-da98a8bc",
@@ -113,7 +34,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/lingere-repasseuse",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:45:41.174Z",
+      "crawledAt": "2026-10-20T09:39:38.441Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -161,38 +82,38 @@
       "addressLocality": "Genève"
     },
     {
-      "id": "rh-expert-ch-b2e914707ce6",
-      "slug": "ragazzo-ex-officio-rh-expert-geneve-b2e91470",
+      "id": "rh-expert-ch-01943f816aae",
+      "slug": "cucina-aiuto-immersioni-rh-expert-geneve-01943f81",
       "slugByLocale": {
-        "it": "ragazzo-ex-officio-rh-expert-geneve-b2e91470",
-        "en": "boy-ex-officio-rh-expert-geneve-b2e91470",
-        "de": "junge-ex-officio-rh-expert-geneve-b2e91470",
-        "fr": "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+        "it": "cucina-aiuto-immersioni-rh-expert-geneve-01943f81",
+        "en": "kitchen-help-diving-rh-expert-geneve-01943f81",
+        "de": "kuchenhilfe-tauchen-rh-expert-geneve-01943f81",
+        "fr": "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
       },
-      "slugDisambiguator": "b2e91470",
+      "slugDisambiguator": "01943f81",
       "company": "RH-Expert",
       "companyKey": "rh-expert-ch",
       "companyDomain": "rh-expert.ch",
-      "title": "Garçon d'office",
+      "title": "Aide de cuisine / Plongeur",
       "titleByLocale": {
-        "it": "Ragazzo ex officio",
-        "en": "Boy ex officio",
-        "de": "Junge ex officio",
-        "fr": "Garçon d'office"
+        "it": "Cucina Aiuto / Immersioni",
+        "en": "Kitchen Help / Diving",
+        "de": "Küchenhilfe / Tauchen",
+        "fr": "Aide de cuisine / Plongeur"
       },
-      "description": "Maintien propre de l'office\n• Nettoyage de la verrerie et entretien du petit matériel\n• Aide sur les differents preparatifs d'office ( beurrier, sucrier, pain etc ... )\n• Respect des normes d'hygiene HACCP\n• Expérience confirmée en restauration ou hôtellerie au poste similaire est un atout.\n• Esprit d'equipe, rigueur, dynamisme, autonomie et organisation.\n• Flexibilité et disponibilité.\n• Excellente présentation, souriant et avenant.\n• Nous vous proposons :\n• Un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
+      "description": "Nettoyage de la vaisselle\n• Nettoyage du matériel de cuisine\n• Mise en place (épluchages, taillage...)\n• Expérience au même poste de 2 années minimum.\n• Excellente gestion du stress.\n• Très bons sens de l’organisation.\n• Rapide, polyvalent et ponctuel.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en fonction de vos capacités.\n• Horaires : Continus.\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
       "descriptionByLocale": {
-        "it": "Manutenzione propria dell'Ufficio\n• Pulizia di vetreria e manutenzione di piccole attrezzature\n• Aiuto alla preparazione diversa ex officio (burro, zucchero, pane, ecc.)\n• Rispetto degli standard di igiene HACCP\n• L'esperienza confermata nella ristorazione o nella sistemazione al posto simile è un bene.\n• Spirito di squadra, rigore, dinamismo, autonomia e organizzazione.\n• Flessibilità e disponibilità.\n• Ottima presentazione, sorridente e amichevole.\n• Vi offriamo:\n• Uno stipendio in linea con la legislazione vigente (CCNT).\n• Tipo di contratto: Temporaneo.\n• Inizio: Immediatamente o da concordare.",
-        "en": "Own maintenance of the Office\n• Cleaning of glassware and maintenance of small equipment\n• Aid on the different preparation ex officio (butter, sugar, bread etc. )\n• Compliance with HACCP hygiene standards\n• Experience confirmed in catering or hoteling at the similar post is an asset.\n• Team spirit, rigor, dynamism, autonomy and organization.\n• Flexibility and availability.\n• Excellent presentation, smiling and friendly.\n• We offer you:\n• A salary in line with current legislation (CCNT).\n• Type of contract: Temporary.\n• Start: Immediately or to be agreed.",
-        "de": "Eigene Instandhaltung des Amtes\n• Reinigung von Glaswaren und Wartung von Kleingeräten\n• Beihilfen für die verschiedenen Zubereitungen von Amts wegen (Butter, Zucker, Brot usw.)\n• Einhaltung der HACCP-Hygienenormen\n• Erfahrung bestätigt in Catering oder Hoteling an der ähnlichen Stelle ist ein Vermögenswert.\n• Teamgeist, Strenge, Dynamik, Autonomie und Organisation.\n• Flexibilität und Verfügbarkeit.\n• Hervorragende Präsentation, lächelnd und freundlich.\n• Wir bieten Ihnen:\n• Ein Gehalt im Einklang mit der geltenden Gesetzgebung (CCNT).\n• Art des Vertrags: Befristet.\n• Start: Sofort oder noch zu vereinbaren.",
-        "fr": "Maintien propre de l'office\n• Nettoyage de la verrerie et entretien du petit matériel\n• Aide sur les differents preparatifs d'office ( beurrier, sucrier, pain etc ... )\n• Respect des normes d'hygiene HACCP\n• Expérience confirmée en restauration ou hôtellerie au poste similaire est un atout.\n• Esprit d'equipe, rigueur, dynamisme, autonomie et organisation.\n• Flexibilité et disponibilité.\n• Excellente présentation, souriant et avenant.\n• Nous vous proposons :\n• Un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir."
+        "it": "Pulizia dei piatti\n• Pulizia di attrezzature da cucina\n• Impostazione (aratura, taglio...)\n• Esperienza nella stessa posizione minima di 2 anni.\n• Ottima gestione dello stress.\n• Molto buon senso di organizzazione.\n• Veloce, versatile e puntuale.\n• Vi offriamo:\n• Lavoro a lungo termine con uno stipendio basato sulle tue capacità.\n• Orario: continuo.\n• Tipo di contratto: Temporaneo.\n• Inizio: Immediatamente o da concordare.",
+        "en": "Cleaning of dishes\n• Cleaning of kitchen equipment\n• Setting up (plowning, cutting...)\n• Experience in the same 2 year minimum position.\n• Excellent stress management.\n• Very good sense of organization.\n• Fast, versatile and punctual.\n• We offer you:\n• Long-term work with a salary based on your abilities.\n• Hours : Continuous.\n• Type of contract: Temporary.\n• Start: Immediately or to be agreed.",
+        "de": "Reinigung von Geschirr\n• Reinigung von Küchengeräten\n• Einrichtung (Pflanzen, Schneiden...)\n• Erfahrung in der gleichen 2-jährigen Mindestposition.\n• Ausgezeichnetes Stressmanagement.\n• Sehr guter Organisationssinn.\n• Schnell, vielseitig und pünktlich.\n• Wir bieten Ihnen:\n• Langfristige Arbeit mit einem Gehalt, das auf Ihren Fähigkeiten basiert.\n• Stunden: Kontinuierlich.\n• Art des Vertrags: Befristet.\n• Start: Sofort oder noch zu vereinbaren.",
+        "fr": "Nettoyage de la vaisselle\n• Nettoyage du matériel de cuisine\n• Mise en place (épluchages, taillage...)\n• Expérience au même poste de 2 années minimum.\n• Excellente gestion du stress.\n• Très bons sens de l’organisation.\n• Rapide, polyvalent et ponctuel.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en fonction de vos capacités.\n• Horaires : Continus.\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir."
       },
       "location": "Genève",
       "canton": "GE",
-      "url": "https://rh-expert.ch/fr/offres-demploi/garcon-doffice",
+      "url": "https://rh-expert.ch/fr/offres-demploi/plongeur",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:45:41.173Z",
+      "crawledAt": "2026-10-20T09:39:38.440Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,102 +126,24 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://rh-expert.ch/fr/offres-demploi/garcon-doffice",
+      "applyUrl": "https://rh-expert.ch/fr/offres-demploi/plongeur",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+        "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+          "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
         ],
         "en": [
-          "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+          "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
         ],
         "de": [
-          "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+          "aide-de-cuisine-plongeur-geneve-rh-expert-ch-01943f81"
         ]
       },
-      "firstSeenAt": "2026-10-19T09:28:20.834Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1201",
-      "addressLocality": "Genève"
-    },
-    {
-      "id": "rh-expert-ch-d2b0f2fcec23",
-      "slug": "hunter-bagger-varier-rh-expert-geneve-d2b0f2fc",
-      "slugByLocale": {
-        "it": "hunter-bagger-varier-rh-expert-geneve-d2b0f2fc",
-        "en": "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc",
-        "de": "jager-bagger-variator-rh-expert-geneve-d2b0f2fc",
-        "fr": "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc"
-      },
-      "slugDisambiguator": "d2b0f2fc",
-      "company": "RH-Expert",
-      "companyKey": "rh-expert-ch",
-      "companyDomain": "rh-expert.ch",
-      "title": "Chasseur/Bagagiste/Voiturier",
-      "titleByLocale": {
-        "it": "Hunter/Bagger/Varier",
-        "en": "Hunter/Bagger/Varier",
-        "de": "Jäger/Bagger/Variator",
-        "fr": "Chasseur/Bagagiste/Voiturier"
-      },
-      "description": "• Bonne maitrise du français et de l'anglais\n• Sens du détail et de l’organisation\n• Rapidité, efficacité\n• Assurer l'accueil des clients dès leur arrivée\n• Decharcher les bagages, les monter en chambre\n• Garer la voiture des clients dans le parking de l'hôtel\n• Effectuer les courses des clients sous la responsabilité du Concierge\n• Respect des standards de qualité de l'hôtel\n• Travail soigné et rapide\n• Expérience de minimum 2 ans dans un hôtel de minimum 4 étoiles\n• Etre disponible et motivé\n• posseder le permis de conduire\n• Connaissances imperatives de l'anglais\n• Nous vous proposons :\n• Type de contrat : Temporaire moyen et long terme\n• Entrée en fonction : de suite ou à convenir",
-      "descriptionByLocale": {
-        "it": "• Buona padronanza di inglese e francese\n• Senso di dettaglio e organizzazione\n• Velocità, efficacia\n• Assicurare la ricezione del cliente all'arrivo\n• Spoglia i bagagli, portali in camera\n• Parcheggiare l'auto degli ospiti nel parcheggio dell'hotel\n• Eseguire le gare dei clienti sotto la responsabilità del Concierge\n• Rispetto degli standard di qualità dell'hotel\n• Lavoro attento e rapido\n• Esperienza minima 2 anni in un hotel minimo 4 stelle\n• Essere disponibili e motivati\n• possedere la patente di guida\n• Conoscenza essenziale dell'inglese\n• Vi offriamo:\n• Tipo di contratto: medio e lungo termine\n• Entrata in ufficio: immediatamente o da concordare",
-        "en": "• Good mastery of English and French\n• Sense of detail and organization\n• Speed, effectiveness\n• Ensure customer reception upon arrival\n• Undress the luggage, get them into the room\n• Park the guests' car in the hotel parking lot\n• Carrying out the customer races under the responsibility of the Concierge\n• Compliance with hotel quality standards\n• Careful and rapid work\n• Minimum experience 2 years in a 4 star minimum hotel\n• Being available and motivated\n• possess the driving licence\n• Essential knowledge of English\n• We offer you:\n• Contract Type: Medium and Long Term Temporary\n• Entry into office: immediately or to be agreed",
-        "de": "• Gute Beherrschung von Englisch und Französisch\n• Sinn für Detail und Organisation\n• Geschwindigkeit, Wirksamkeit\n• Sicherstellen des Kundenempfangs bei der Ankunft\n• Ziehen Sie das Gepäck aus, bringen Sie es in den Raum\n• Parken Sie das Auto der Gäste auf dem Hotelparkplatz\n• Durchführung der Kundenrennen unter der Verantwortung des Concierge\n• Einhaltung der Hotelqualitätsstandards\n• Sorgfältige und schnelle Arbeit\n• Mindesterfahrung 2 Jahre in einem 4-Sterne-Minimumhotel\n• Zur Verfügung stehen und motiviert sein\n• im Besitz des Führerscheins\n• Grundlegende Englischkenntnisse\n• Wir bieten Ihnen:\n• Art des Vertrags: mittel- und langfristig befristet\n• Amtsantritt: sofort oder noch zu vereinbaren",
-        "fr": "• Bonne maitrise du français et de l'anglais\n• Sens du détail et de l’organisation\n• Rapidité, efficacité\n• Assurer l'accueil des clients dès leur arrivée\n• Decharcher les bagages, les monter en chambre\n• Garer la voiture des clients dans le parking de l'hôtel\n• Effectuer les courses des clients sous la responsabilité du Concierge\n• Respect des standards de qualité de l'hôtel\n• Travail soigné et rapide\n• Expérience de minimum 2 ans dans un hôtel de minimum 4 étoiles\n• Etre disponible et motivé\n• posseder le permis de conduire\n• Connaissances imperatives de l'anglais\n• Nous vous proposons :\n• Type de contrat : Temporaire moyen et long terme\n• Entrée en fonction : de suite ou à convenir"
-      },
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://rh-expert.ch/fr/offres-demploi/chasseurbagagistevoiturier-35",
-      "source": "RH-Expert Official Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:45:41.172Z",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "employmentType": "OTHER",
-      "contract": "other",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://rh-expert.ch/fr/offres-demploi/chasseurbagagistevoiturier-35",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc",
-        "chasseur-bagagiste-voiturier-rh-expert-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc"
-        ],
-        "de": [
-          "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc",
-          "chasseur-bagagiste-voiturier-rh-expert-geneve"
-        ]
-      },
-      "firstSeenAt": "2026-10-19T09:28:20.832Z",
+      "firstSeenAt": "2026-10-19T09:28:20.836Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -349,7 +192,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/shift-leader-receptionniste",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:45:41.172Z",
+      "crawledAt": "2026-10-20T09:39:38.439Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -428,7 +271,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/chefs-de-rang-hf-hotel-5",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:45:41.172Z",
+      "crawledAt": "2026-10-20T09:39:38.439Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -459,6 +302,85 @@
         ]
       },
       "firstSeenAt": "2026-10-19T09:28:20.833Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1201",
+      "addressLocality": "Genève"
+    },
+    {
+      "id": "rh-expert-ch-b2e914707ce6",
+      "slug": "ragazzo-ex-officio-rh-expert-geneve-b2e91470",
+      "slugByLocale": {
+        "it": "ragazzo-ex-officio-rh-expert-geneve-b2e91470",
+        "en": "boy-ex-officio-rh-expert-geneve-b2e91470",
+        "de": "junge-ex-officio-rh-expert-geneve-b2e91470",
+        "fr": "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+      },
+      "slugDisambiguator": "b2e91470",
+      "company": "RH-Expert",
+      "companyKey": "rh-expert-ch",
+      "companyDomain": "rh-expert.ch",
+      "title": "Garçon d'office",
+      "titleByLocale": {
+        "it": "Ragazzo ex officio",
+        "en": "Boy ex officio",
+        "de": "Junge ex officio",
+        "fr": "Garçon d'office"
+      },
+      "description": "Maintien propre de l'office\n• Nettoyage de la verrerie et entretien du petit matériel\n• Aide sur les differents preparatifs d'office ( beurrier, sucrier, pain etc ... )\n• Respect des normes d'hygiene HACCP\n• Expérience confirmée en restauration ou hôtellerie au poste similaire est un atout.\n• Esprit d'equipe, rigueur, dynamisme, autonomie et organisation.\n• Flexibilité et disponibilité.\n• Excellente présentation, souriant et avenant.\n• Nous vous proposons :\n• Un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir.",
+      "descriptionByLocale": {
+        "it": "Manutenzione propria dell'Ufficio\n• Pulizia di vetreria e manutenzione di piccole attrezzature\n• Aiuto alla preparazione diversa ex officio (burro, zucchero, pane, ecc.)\n• Rispetto degli standard di igiene HACCP\n• L'esperienza confermata nella ristorazione o nella sistemazione al posto simile è un bene.\n• Spirito di squadra, rigore, dinamismo, autonomia e organizzazione.\n• Flessibilità e disponibilità.\n• Ottima presentazione, sorridente e amichevole.\n• Vi offriamo:\n• Uno stipendio in linea con la legislazione vigente (CCNT).\n• Tipo di contratto: Temporaneo.\n• Inizio: Immediatamente o da concordare.",
+        "en": "Own maintenance of the Office\n• Cleaning of glassware and maintenance of small equipment\n• Aid on the different preparation ex officio (butter, sugar, bread etc. )\n• Compliance with HACCP hygiene standards\n• Experience confirmed in catering or hoteling at the similar post is an asset.\n• Team spirit, rigor, dynamism, autonomy and organization.\n• Flexibility and availability.\n• Excellent presentation, smiling and friendly.\n• We offer you:\n• A salary in line with current legislation (CCNT).\n• Type of contract: Temporary.\n• Start: Immediately or to be agreed.",
+        "de": "Eigene Instandhaltung des Amtes\n• Reinigung von Glaswaren und Wartung von Kleingeräten\n• Beihilfen für die verschiedenen Zubereitungen von Amts wegen (Butter, Zucker, Brot usw.)\n• Einhaltung der HACCP-Hygienenormen\n• Erfahrung bestätigt in Catering oder Hoteling an der ähnlichen Stelle ist ein Vermögenswert.\n• Teamgeist, Strenge, Dynamik, Autonomie und Organisation.\n• Flexibilität und Verfügbarkeit.\n• Hervorragende Präsentation, lächelnd und freundlich.\n• Wir bieten Ihnen:\n• Ein Gehalt im Einklang mit der geltenden Gesetzgebung (CCNT).\n• Art des Vertrags: Befristet.\n• Start: Sofort oder noch zu vereinbaren.",
+        "fr": "Maintien propre de l'office\n• Nettoyage de la verrerie et entretien du petit matériel\n• Aide sur les differents preparatifs d'office ( beurrier, sucrier, pain etc ... )\n• Respect des normes d'hygiene HACCP\n• Expérience confirmée en restauration ou hôtellerie au poste similaire est un atout.\n• Esprit d'equipe, rigueur, dynamisme, autonomie et organisation.\n• Flexibilité et disponibilité.\n• Excellente présentation, souriant et avenant.\n• Nous vous proposons :\n• Un salaire en correspondance avec la législation en vigueur (CCNT).\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir."
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://rh-expert.ch/fr/offres-demploi/garcon-doffice",
+      "source": "RH-Expert Official Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-20T09:39:38.439Z",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "employmentType": "OTHER",
+      "contract": "other",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://rh-expert.ch/fr/offres-demploi/garcon-doffice",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+        ],
+        "en": [
+          "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+        ],
+        "de": [
+          "garcon-d-office-geneve-rh-expert-ch-b2e91470"
+        ]
+      },
+      "firstSeenAt": "2026-10-19T09:28:20.834Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -507,7 +429,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/portier-detage-valet-de-chambre-5",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:45:41.171Z",
+      "crawledAt": "2026-10-20T09:39:38.438Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -555,12 +477,92 @@
       "addressLocality": "Genève"
     },
     {
+      "id": "rh-expert-ch-d2b0f2fcec23",
+      "slug": "hunter-bagger-varier-rh-expert-geneve-d2b0f2fc",
+      "slugByLocale": {
+        "it": "hunter-bagger-varier-rh-expert-geneve-d2b0f2fc",
+        "en": "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc",
+        "de": "chasseur-bagagiste-voiturier-rh-expert-geneve-d2b0f2fc",
+        "fr": "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc"
+      },
+      "slugDisambiguator": "d2b0f2fc",
+      "company": "RH-Expert",
+      "companyKey": "rh-expert-ch",
+      "companyDomain": "rh-expert.ch",
+      "title": "Chasseur/Bagagiste/Voiturier",
+      "titleByLocale": {
+        "it": "Hunter/Bagger/Varier",
+        "en": "Hunter/Bagger/Varier",
+        "de": "Jäger/Bagger/Variator",
+        "fr": "Chasseur/Bagagiste/Voiturier"
+      },
+      "description": "• Bonne maitrise du français et de l'anglais\n• Sens du détail et de l’organisation\n• Rapidité, efficacité\n• Assurer l'accueil des clients dès leur arrivée\n• Decharcher les bagages, les monter en chambre\n• Garer la voiture des clients dans le parking de l'hôtel\n• Effectuer les courses des clients sous la responsabilité du Concierge\n• Respect des standards de qualité de l'hôtel\n• Travail soigné et rapide\n• Expérience de minimum 2 ans dans un hôtel de minimum 4 étoiles\n• Etre disponible et motivé\n• posseder le permis de conduire\n• Connaissances imperatives de l'anglais\n• Nous vous proposons :\n• Type de contrat : Temporaire moyen et long terme\n• Entrée en fonction : de suite ou à convenir",
+      "descriptionByLocale": {
+        "it": "• Buona padronanza di inglese e francese\n• Senso di dettaglio e organizzazione\n• Velocità, efficacia\n• Assicurare la ricezione del cliente all'arrivo\n• Spoglia i bagagli, portali in camera\n• Parcheggiare l'auto degli ospiti nel parcheggio dell'hotel\n• Eseguire le gare dei clienti sotto la responsabilità del Concierge\n• Rispetto degli standard di qualità dell'hotel\n• Lavoro attento e rapido\n• Esperienza minima 2 anni in un hotel minimo 4 stelle\n• Essere disponibili e motivati\n• possedere la patente di guida\n• Conoscenza essenziale dell'inglese\n• Vi offriamo:\n• Tipo di contratto: medio e lungo termine\n• Entrata in ufficio: immediatamente o da concordare",
+        "en": "• Good mastery of English and French\n• Sense of detail and organization\n• Speed, effectiveness\n• Ensure customer reception upon arrival\n• Undress the luggage, get them into the room\n• Park the guests' car in the hotel parking lot\n• Carrying out the customer races under the responsibility of the Concierge\n• Compliance with hotel quality standards\n• Careful and rapid work\n• Minimum experience 2 years in a 4 star minimum hotel\n• Being available and motivated\n• possess the driving licence\n• Essential knowledge of English\n• We offer you:\n• Contract Type: Medium and Long Term Temporary\n• Entry into office: immediately or to be agreed",
+        "de": "• Gute Beherrschung von Englisch und Französisch\n• Sinn für Detail und Organisation\n• Geschwindigkeit, Wirksamkeit\n• Sicherstellen des Kundenempfangs bei der Ankunft\n• Ziehen Sie das Gepäck aus, bringen Sie es in den Raum\n• Parken Sie das Auto der Gäste auf dem Hotelparkplatz\n• Durchführung der Kundenrennen unter der Verantwortung des Concierge\n• Einhaltung der Hotelqualitätsstandards\n• Sorgfältige und schnelle Arbeit\n• Mindesterfahrung 2 Jahre in einem 4-Sterne-Minimumhotel\n• Zur Verfügung stehen und motiviert sein\n• im Besitz des Führerscheins\n• Grundlegende Englischkenntnisse\n• Wir bieten Ihnen:\n• Art des Vertrags: mittel- und langfristig befristet\n• Amtsantritt: sofort oder noch zu vereinbaren",
+        "fr": "• Bonne maitrise du français et de l'anglais\n• Sens du détail et de l’organisation\n• Rapidité, efficacité\n• Assurer l'accueil des clients dès leur arrivée\n• Decharcher les bagages, les monter en chambre\n• Garer la voiture des clients dans le parking de l'hôtel\n• Effectuer les courses des clients sous la responsabilité du Concierge\n• Respect des standards de qualité de l'hôtel\n• Travail soigné et rapide\n• Expérience de minimum 2 ans dans un hôtel de minimum 4 étoiles\n• Etre disponible et motivé\n• posseder le permis de conduire\n• Connaissances imperatives de l'anglais\n• Nous vous proposons :\n• Type de contrat : Temporaire moyen et long terme\n• Entrée en fonction : de suite ou à convenir"
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://rh-expert.ch/fr/offres-demploi/chasseurbagagistevoiturier-35",
+      "source": "RH-Expert Official Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-20T09:39:38.438Z",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "employmentType": "OTHER",
+      "contract": "other",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://rh-expert.ch/fr/offres-demploi/chasseurbagagistevoiturier-35",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc",
+        "chasseur-bagagiste-voiturier-rh-expert-geneve",
+        "jager-bagger-variator-rh-expert-geneve-d2b0f2fc"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc"
+        ],
+        "de": [
+          "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc",
+          "chasseur-bagagiste-voiturier-rh-expert-geneve",
+          "jager-bagger-variator-rh-expert-geneve-d2b0f2fc"
+        ]
+      },
+      "firstSeenAt": "2026-10-19T09:28:20.832Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1201",
+      "addressLocality": "Genève"
+    },
+    {
       "id": "rh-expert-ch-5eb41985c071",
       "slug": "casalinga-rh-expert-geneve-5eb41985",
       "slugByLocale": {
         "it": "casalinga-rh-expert-geneve-5eb41985",
         "en": "housewife-rh-expert-geneve-5eb41985",
-        "de": "hausfrau-rh-expert-geneve-5eb41985",
+        "de": "femme-de-chambre-rh-expert-geneve-5eb41985",
         "fr": "femme-de-chambre-geneve-rh-expert-ch-5eb41985"
       },
       "slugDisambiguator": "5eb41985",
@@ -586,7 +588,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/test-2",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:45:41.169Z",
+      "crawledAt": "2026-10-20T09:39:38.436Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -604,7 +606,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "femme-de-chambre-geneve-rh-expert-ch-5eb41985",
-        "femme-de-chambre-rh-expert-geneve"
+        "femme-de-chambre-rh-expert-geneve",
+        "hausfrau-rh-expert-geneve-5eb41985"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -615,7 +618,8 @@
         ],
         "de": [
           "femme-de-chambre-geneve-rh-expert-ch-5eb41985",
-          "femme-de-chambre-rh-expert-geneve"
+          "femme-de-chambre-rh-expert-geneve",
+          "hausfrau-rh-expert-geneve-5eb41985"
         ]
       },
       "firstSeenAt": "2026-10-19T09:28:20.829Z",
@@ -667,7 +671,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/maitre-dhotel",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-19T21:45:41.168Z",
+      "crawledAt": "2026-10-20T09:39:38.435Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
