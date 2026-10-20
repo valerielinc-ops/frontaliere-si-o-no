@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-20T09:44:39.558Z",
+  "updatedAt": "2026-10-20T09:45:18.611Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -234653,13 +234653,13 @@
     },
     "csem.ch": {
       "key": "csem.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "osm",
         "web"
       ],
       "firstSeenAt": "2026-08-22T04:08:26.074Z",
-      "updatedAt": "2026-10-20T06:43:51.245Z",
+      "updatedAt": "2026-10-20T09:45:17.829Z",
       "name": "CSEM Landquart",
       "domain": "csem.ch",
       "city": "Landquart",
@@ -234927,7 +234927,8 @@
         }
       ],
       "promotionPr": "14139",
-      "promotionBranch": "prospector/promote-2026-10-20"
+      "promotionBranch": "prospector/promote-2026-10-20",
+      "promotedAt": "2026-10-20T07:22:54Z"
     },
     "csf-wunderle@schaffhausen": {
       "key": "csf-wunderle@schaffhausen",
@@ -416277,12 +416278,12 @@
     },
     "hans-eisenring@oensingen": {
       "key": "hans-eisenring@oensingen",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:29:29.715Z",
-      "updatedAt": "2026-10-20T06:43:51.245Z",
+      "updatedAt": "2026-10-20T09:45:18.182Z",
       "name": "Hans Eisenring AG",
       "city": "Oensingen",
       "zip": "4702",
@@ -416568,7 +416569,8 @@
       },
       "promotionPr": "14139",
       "promotionBranch": "prospector/promote-2026-10-20",
-      "qualityContractVersion": 2
+      "qualityContractVersion": 2,
+      "promotedAt": "2026-10-20T07:22:54Z"
     },
     "hans-eisenring@sirnach": {
       "key": "hans-eisenring@sirnach",
@@ -644522,13 +644524,13 @@
     },
     "mueller-frauenfeld.ch": {
       "key": "mueller-frauenfeld.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "web",
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.295Z",
-      "updatedAt": "2026-10-20T06:43:51.245Z",
+      "updatedAt": "2026-10-20T09:45:18.588Z",
       "name": "mueller-frauenfeld",
       "domain": "mueller-frauenfeld.ch",
       "careersUrl": "https://www.mueller-frauenfeld.ch/de/karriere/freie-stellen.html",
@@ -644800,7 +644802,8 @@
         "web": "2026-10-20T05:20:15.922Z"
       },
       "promotionPr": "14139",
-      "promotionBranch": "prospector/promote-2026-10-20"
+      "promotionBranch": "prospector/promote-2026-10-20",
+      "promotedAt": "2026-10-20T07:22:54Z"
     },
     "mueller-garage.ch": {
       "key": "mueller-garage.ch",
