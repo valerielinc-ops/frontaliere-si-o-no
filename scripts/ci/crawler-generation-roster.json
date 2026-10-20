@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 646,
+  "crawlerCount": 649,
   "groups": {
     "10": [
       "atec-personal",
@@ -212,6 +212,7 @@
       "kispi-sg",
       "lastminute-com",
       "matterhorn-gotthard-bahn",
+      "mueller-frauenfeld",
       "recruitingapp-1154",
       "rehaklinik-hasliberg",
       "senevita",
@@ -296,6 +297,7 @@
       "goline",
       "grace-la-margna",
       "gz-dielsdorf",
+      "hanseisenring",
       "hfr-hopital-fribourgeois",
       "integra-biosciences",
       "klinik-susenberg",
@@ -323,6 +325,7 @@
       "bcvs",
       "buergenstock-hotels",
       "clinique-de-la-plaine",
+      "csem",
       "georg-fischer",
       "givaudan",
       "hrc",
@@ -845,6 +848,7 @@
     "csc-costruzioni": "data/jobs/by-crawler/csc-costruzioni.json",
     "csd-engineers": "data/jobs/by-crawler/csd-engineers.json",
     "cseb": "data/jobs/by-crawler/cseb.json",
+    "csem": "data/jobs/by-crawler/csem.json",
     "csl-behring": "data/jobs/by-crawler/csl-behring.json",
     "css-versicherung": "data/jobs/by-crawler/css-versicherung.json",
     "csvm-mustair": "data/jobs/by-crawler/csvm-mustair.json",
@@ -947,6 +951,7 @@
     "gzo-wetzikon": "data/jobs/by-crawler/gzo-wetzikon.json",
     "h-ju-hopital-du-jura": "data/jobs/by-crawler/h-ju-hopital-du-jura.json",
     "hamilton-bonaduz-ag": "data/jobs/by-crawler/hamilton-bonaduz-ag.json",
+    "hanseisenring": "data/jobs/by-crawler/hanseisenring.json",
     "has-healthcare": "data/jobs/by-crawler/has-healthcare.json",
     "heineken-ch": "data/jobs/by-crawler/heineken-ch.json",
     "helsana": "data/jobs/by-crawler/helsana.json",
@@ -1098,6 +1103,7 @@
     "moncucco": "data/jobs/by-crawler/moncucco.json",
     "msc-cargo": "data/jobs/by-crawler/msc-cargo.json",
     "mtic-group": "data/jobs/by-crawler/mtic-group.json",
+    "mueller-frauenfeld": "data/jobs/by-crawler/mueller-frauenfeld.json",
     "mueller-steinmaur": "data/jobs/by-crawler/mueller-steinmaur.json",
     "my": "data/jobs/by-crawler/my.json",
     "nant": "data/jobs/by-crawler/nant.json",
@@ -1346,5 +1352,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:813f571abd8a9d0f856046595f867ee1b01ab301d3c211e7c67ad3157a0456fc"
+  "digest": "sha256:8dca9f1911a12818d8ecf5840ef840c525172b4980a0aad58a21c8e2f7218a95"
 }

@@ -4,20 +4,20 @@
   "generatorSha256": "d1bec3573c57c7427ab937613b53317917f819f808dcce752f42f1989248f85f",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "0845125a1f8e4edd10aad8d0cc2e3e1ec65d4b5f",
+  "sourceCommit": "696a1e766101afbf2b8dace8c90bd240100787dd",
   "artifactObservation": {
     "generatorSha256": "d1bec3573c57c7427ab937613b53317917f819f808dcce752f42f1989248f85f",
     "sourceRef": "main",
-    "sourceCommit": "0845125a1f8e4edd10aad8d0cc2e3e1ec65d4b5f"
+    "sourceCommit": "696a1e766101afbf2b8dace8c90bd240100787dd"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 646,
+  "crawlerCount": 649,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:813f571abd8a9d0f856046595f867ee1b01ab301d3c211e7c67ad3157a0456fc",
+    "rosterDigest": "sha256:8dca9f1911a12818d8ecf5840ef840c525172b4980a0aad58a21c8e2f7218a95",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -185,6 +185,7 @@
     "scripts/update-cs-bregaglia-jobs.mjs",
     "scripts/update-csd-engineers-jobs.mjs",
     "scripts/update-cseb-jobs.mjs",
+    "scripts/update-csem-jobs.mjs",
     "scripts/update-csl-behring-jobs.mjs",
     "scripts/update-css-versicherung-jobs.mjs",
     "scripts/update-csvm-mustair-jobs.mjs",
@@ -262,6 +263,7 @@
     "scripts/update-gz-dielsdorf-jobs.mjs",
     "scripts/update-gzo-wetzikon-jobs.mjs",
     "scripts/update-h-ju-hopital-du-jura-jobs.mjs",
+    "scripts/update-hanseisenring-jobs.mjs",
     "scripts/update-heineken-ch-jobs.mjs",
     "scripts/update-helsana-jobs.mjs",
     "scripts/update-helvetia-jobs.mjs",
@@ -387,6 +389,7 @@
     "scripts/update-molecular-partners-jobs.mjs",
     "scripts/update-moncucco-jobs.mjs",
     "scripts/update-msc-cargo-jobs.mjs",
+    "scripts/update-mueller-frauenfeld-jobs.mjs",
     "scripts/update-mueller-steinmaur-jobs.mjs",
     "scripts/update-my-jobs.mjs",
     "scripts/update-nant-jobs.mjs",
@@ -1216,8 +1219,8 @@
     {
       "file": "crawler-group-16.yml",
       "sourceLogic": "crawler-group-16-logic.yml",
-      "sourceSha256": "3ce744a43e244361580dfc6b3b3d47d906efd2f2e77e3b6fd92fdfc23b347b36",
-      "artifactSha256": "89dc7c6236bd566dbd2f767e52e24bb368e337eee2dea3b105247c85562e974e",
+      "sourceSha256": "f599d8bc96b6d47736c815ef3e5a16e803d458e6c1887c0ec38702410be384b2",
+      "artifactSha256": "3b688a931359681d255c6e759e702258061fd60272b5fe6ddf64c75b26a20402",
       "generatorSha256": "d1bec3573c57c7427ab937613b53317917f819f808dcce752f42f1989248f85f",
       "members": [
         "ksgr",
@@ -1248,7 +1251,8 @@
         "adullam",
         "buersten-technik",
         "matterhorn-gotthard-bahn",
-        "deillon-delley-architectes"
+        "deillon-delley-architectes",
+        "mueller-frauenfeld"
       ]
     },
     {
@@ -1332,8 +1336,8 @@
     {
       "file": "crawler-group-19.yml",
       "sourceLogic": "crawler-group-19-logic.yml",
-      "sourceSha256": "8158d4c01e6a1ef46eeb243f1a9be60845a28502c75afbb719db07a7337f6a99",
-      "artifactSha256": "35a3b78b8ba504f05aa4fcaa86625347d2c9c5e5409438e926ab98793c46e0e5",
+      "sourceSha256": "a6a2d2d78c5714ceb767c5027cbd536b012f015be7d8b7f7b15cb57a598a677e",
+      "artifactSha256": "e92ccf068fff1b82925df4c6dcd5bbfc0037cd14ec91c0d46c8e8c0564dee1f4",
       "generatorSha256": "d1bec3573c57c7427ab937613b53317917f819f808dcce752f42f1989248f85f",
       "members": [
         "migros",
@@ -1364,14 +1368,15 @@
         "vereinaklosters",
         "unibe",
         "convit",
-        "agat"
+        "agat",
+        "hanseisenring"
       ]
     },
     {
       "file": "crawler-group-20.yml",
       "sourceLogic": "crawler-group-20-logic.yml",
-      "sourceSha256": "5edd0b18005205037207c07cfe81c176800f2166c1cb342ee3b24d1b5bb4ba77",
-      "artifactSha256": "48577d5d1cd47d9396c67bfc6a533bd5ebe764ca97f35c16f0b238442abbc7e2",
+      "sourceSha256": "590b986c7dbd4be5737fee99294012317e3a316c4de412717df8dd48c04646c8",
+      "artifactSha256": "aef03d8464ac68e61adcdb4bcf18e40dc88bade56b231f3eec43a31582b510c4",
       "generatorSha256": "d1bec3573c57c7427ab937613b53317917f819f808dcce752f42f1989248f85f",
       "members": [
         "ottos",
@@ -1402,7 +1407,8 @@
         "arxada",
         "adus-klinik",
         "ist",
-        "proman-fleurier"
+        "proman-fleurier",
+        "csem"
       ]
     },
     {
