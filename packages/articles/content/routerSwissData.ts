@@ -2868,6 +2868,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lenu-referendum-firme-valide': { it: 'lenu-referendum-firme-valide', en: 'nuclear-law-referendum-successful', de: 'kernenergiegesetz-referendum-erfolgreich', fr: 'referendum-loi-energie-nucleaire-reussi' },
  'water-summit-zurich-2024': { it: 'water-summit-zurich-2024', en: 'eureau-water-summit-in-zurich-60-untreated-water', de: 'wasser-gipfel-zuerich-2024', fr: 'sommet-eau-zurich-2024' },
  'accordo-commercio-elettronico-omc': { it: 'accordo-commercio-elettronico-omc', en: 'e-commerce-agreement-wto', de: 'e-commerce-abkommen-wto', fr: 'accord-commerce-electronique-omc' },
+ 'rickli-ritiro-consiglio-federale': { it: 'rickli-ritiro-consiglio-federale', en: 'rickli-withdraws-federal-council', de: 'rickli-zieht-sich-rat-federal', fr: 'rickli-retire-council-federal' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

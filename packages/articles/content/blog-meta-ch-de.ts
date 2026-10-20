@@ -8537,6 +8537,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.accordo-commercio-elettronico-omc.title': 'Elektronischer Handel: Schweiz leitet Konsultation zum ACE ein',
     'blog.article.accordo-commercio-elettronico-omc.excerpt': 'Konsultation am 14.',
     'blog.article.accordo-commercio-elettronico-omc.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.rickli-ritiro-consiglio-federale.title': 'Natalie Rickli lehnt den Bundesrat ab, bleibt in Zürich',
+    'blog.article.rickli-ritiro-consiglio-federale.excerpt': 'Natalie Rickli verzichtet auf Sitz im Bundesrat Zürich braucht eine stabile Kantonsregierung Am 9.',
+    'blog.article.rickli-ritiro-consiglio-federale.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "9c5449abad2d401ebb4d703df8efdac0b3e817ee",
+  "commit": "0818ab085ba8d8a7eeee142fb07fa9a645647d8b",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -30624,6 +30624,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic architectural illustration with a Swiss flag; no text, signage, logos, people, or event-specific documentary cues."
+      }
+    },
+    "/images/blog/article-rickli-ritiro-consiglio-federale.webp": {
+      "schema": 1,
+      "assetId": "article-rickli-ritiro-consiglio-federale",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "bc396370c72207e41b07903f8b6ea7cb8fdb3833c51471c97f7bc38e309a1396",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "008b294179f5c23c73a6e6b4171d85f1a48727a68011cca5f8fee6eded423cce",
+      "bytes": 163244,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-20T03:15:52.500Z",
+      "verifiedAt": "2026-10-20T03:16:00.780Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-rickli-ritiro-consiglio-federale.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original synthetic editorial illustration of Zurich architecture and the Swiss flag; no readable text, logos, identifiable people, or specific real event."
       }
     },
     "/images/places/lugano-view.webp": {
