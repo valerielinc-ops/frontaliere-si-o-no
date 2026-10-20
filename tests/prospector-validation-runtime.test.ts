@@ -91,6 +91,8 @@ describe('Prospector production validation', () => {
       .toBe('Senior Engineer');
     expect(rawDetailTitleEvidence('<meta content="Senior Engineer" name="og:title">').rawOpenGraphTitle)
       .toBe('Senior Engineer');
+    expect(rawDetailTitleEvidence('<meta property="og:title" content="Senior > Engineer">').rawOpenGraphTitle)
+      .toBe('Senior > Engineer');
   });
 
   it('keeps a valid listing title when the detail H1 is generic chrome', () => {

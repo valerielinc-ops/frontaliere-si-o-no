@@ -27,6 +27,40 @@ function readHtmlAttribute(tag, attributeName) {
 }
 
 /**
+ * Extract meta tags while treating `>` inside a quoted attribute as content.
+ *
+ * @param {string} html
+ * @returns {string[]}
+ */
+function metaTagsFromHtml(html) {
+  const source = String(html);
+  const tags = [];
+  const openingTag = /<meta\b/gi;
+  let match;
+  while ((match = openingTag.exec(source))) {
+    const start = match.index;
+    let quote = '';
+    let end = start + match[0].length;
+    let closed = false;
+    for (; end < source.length; end++) {
+      const character = source[end];
+      if (quote) {
+        if (character === quote) quote = '';
+      } else if (character === '"' || character === "'") {
+        quote = character;
+      } else if (character === '>') {
+        closed = true;
+        end++;
+        break;
+      }
+    }
+    if (closed) tags.push(source.slice(start, end));
+    openingTag.lastIndex = end;
+  }
+  return tags;
+}
+
+/**
  * Read title evidence directly from the raw detail-page markup. These signals
  * remain independent of the crawler's structured-detail extractor and its
  * final output title.
@@ -38,7 +72,7 @@ export function rawDetailTitleEvidence(html = '') {
   const source = String(html);
   const h1 = /<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(source)?.[1] || '';
   let openGraphTitle = '';
-  for (const tag of source.match(/<meta\b[^>]*>/gi) || []) {
+  for (const tag of metaTagsFromHtml(source)) {
     const property = readHtmlAttribute(tag, 'property').toLowerCase();
     const name = readHtmlAttribute(tag, 'name').toLowerCase();
     if (property !== 'og:title' && name !== 'og:title') continue;
