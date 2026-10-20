@@ -43,6 +43,9 @@ describe('language facts stay conservative when a CV entry or question is ambigu
     expect(candidateAnswerForField({ profile }, {
       kind: 'select', label: 'German', context: question, options: ['Yes', 'No'],
     })).toEqual({ value: 'No', source: 'profile' });
+    expect(candidateAnswerForField({ profile }, {
+      kind: 'text', label: 'German', context: 'German proficiency level', options: [],
+    })).toEqual({ value: 'No knowledge', source: 'profile' });
 
     const understand = 'Can you understand German?';
     expect(isLanguageAbilityQuestion(understand)).toBe(true);

@@ -674,10 +674,10 @@ function languageAnswerForField(candidate, field) {
   const options = Array.isArray(field?.options) ? field.options : [];
   const optionLabel = (option) => String(option?.label ?? option ?? '').trim();
   const language = formLanguage(question, candidate);
-  const requiredLevel = CEFR_RE.exec(label)?.[1]?.toLowerCase() || '';
-  const levelQuestion = Boolean(requiredLevel) || LANGUAGE_PROFICIENCY_QUESTION_RE.test(label);
-  const levelField = levelQuestion || LANGUAGE_KNOWLEDGE_FIELD_RE.test(label);
-  const nativeQuestion = NATIVE_LANGUAGE_QUESTION_RE.test(label);
+  const requiredLevel = CEFR_RE.exec(question)?.[1]?.toLowerCase() || '';
+  const levelQuestion = Boolean(requiredLevel) || LANGUAGE_PROFICIENCY_QUESTION_RE.test(question);
+  const levelField = levelQuestion || LANGUAGE_KNOWLEDGE_FIELD_RE.test(question);
+  const nativeQuestion = NATIVE_LANGUAGE_QUESTION_RE.test(question);
 
   if (absent) {
     const no = options.find((option) => booleanAnswer(optionLabel(option)) === false || NO_LANGUAGE_OPTION_RE.test(comparableAnswer(optionLabel(option))));
@@ -701,7 +701,7 @@ function languageAnswerForField(candidate, field) {
     if (options.length) return null;
     if (field?.kind === 'text' || field?.kind === 'textarea') {
       if (levelField) return { value: localizedNoLanguage(language), source: 'profile' };
-      if (YES_NO_LANGUAGE_QUESTION_RE.test(label)) return { value: localizedBoolean(false, language), source: 'profile' };
+      if (YES_NO_LANGUAGE_QUESTION_RE.test(question)) return { value: localizedBoolean(false, language), source: 'profile' };
     }
     return null;
   }
@@ -733,7 +733,7 @@ function languageAnswerForField(candidate, field) {
     if (!statedLevelCode) return null;
     return { value: localizedBoolean(CEFR.indexOf(statedLevelCode) >= CEFR.indexOf(requiredLevel), language), source: 'profile' };
   }
-  return YES_NO_LANGUAGE_QUESTION_RE.test(label)
+  return YES_NO_LANGUAGE_QUESTION_RE.test(question)
     ? { value: localizedBoolean(true, language), source: 'profile' }
     : null;
 }
