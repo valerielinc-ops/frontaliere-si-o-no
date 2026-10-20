@@ -3147,12 +3147,12 @@
     },
     {
       "id": "srg-ssr-083d06b23832",
-      "slug": "mediensprecher-in-srg-ssr-zurich",
+      "slug": "portavoce-dei-media-srg-ssr-zurich",
       "slugByLocale": {
         "de": "mediensprecher-in-srg-ssr-zurich",
-        "it": "mediensprecher-in-srg-ssr-zurich",
-        "en": "mediensprecher-in-srg-ssr-zurich",
-        "fr": "mediensprecher-in-srg-ssr-zurich"
+        "it": "portavoce-dei-media-srg-ssr-zurich",
+        "en": "media-spokesperson-srg-ssr-zurich",
+        "fr": "porte-parole-des-medias-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3232,7 +3232,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-20T09:14:14.080Z"
+      "firstSeenAt": "2026-10-20T09:14:14.080Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mediensprecher-in-srg-ssr-zurich"
+        ],
+        "en": [
+          "mediensprecher-in-srg-ssr-zurich"
+        ],
+        "fr": [
+          "mediensprecher-in-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "mediensprecher-in-srg-ssr-zurich"
+      ]
     }
   ]
 }

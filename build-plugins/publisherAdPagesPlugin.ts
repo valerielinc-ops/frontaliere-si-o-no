@@ -28,7 +28,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildJobPostingSchema } from './shared/jobPostingSchema';
-import { composeSerpJobTitle, truncateHeadline } from './shared/titleSuffix';
+import { composeSerpJobTitle, META_DESCRIPTION_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { WriteCollector } from './batchWrite';
 import {
@@ -492,8 +492,11 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
           // bodies are user-submitted and contain emoji; a raw slice can split a
           // pair and leave a lone surrogate (� in the SERP snippet). It also adds
           // the word-boundary + dangling-clause peel the raw slice lacked, so the
-          // snippet stops on a content word instead of mid-word at char 160.
-          const metaDesc = truncateHeadline(localizedDescription(rec, locale).replace(/\s+/g, ' '), 160);
+          // snippet stops on a content word instead of mid-word at the shared cap.
+          const metaDesc = truncateHeadline(
+            localizedDescription(rec, locale).replace(/\s+/g, ' '),
+            META_DESCRIPTION_MAX_CHARS,
+          );
 
           const html = buildSeoPageHtml({
             locale,

@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr-spital",
         "it": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-notfall-befristet-per-1-jahr-spital-limmattal-schlieren",
-        "en": "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr-spital",
-        "fr": "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr-spital"
+        "en": "nursing-assistant-srk-health-and-social-care-assistant-emergency-fixed-term-for-1-year-spital-limmattal-schlieren",
+        "fr": "auxiliaire-de-sante-crs-assistant-e-en-sante-et-social-urgences-a-duree-determinee-pour-1-an-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -56,6 +56,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr-spital"
+        ],
+        "en": [
+          "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr-spital"
+        ],
+        "fr": [
           "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr-spital"
         ]
       },
@@ -1862,7 +1868,7 @@
       "slug": "performance-manager-50-80-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "performance-manager-50-80-spital-limmattal-schlieren",
-        "en": "performance-manager-50-80-spital-limmattal-schlieren",
+        "en": "leistungsmanager-in-50-80-spital-limmattal-schlieren",
         "de": "leistungsmanager-in-50-80-spital-limmattal-ch",
         "fr": "gestionnaire-de-performance-50-80-spital-limmattal-schlieren"
       },
@@ -1923,9 +1929,6 @@
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ],
         "fr": [
-          "leistungsmanager-in-50-80-spital-limmattal-schlieren"
-        ],
-        "en": [
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ]
       },

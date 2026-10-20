@@ -1714,7 +1714,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  permits: {
  title: 'Permesso G Svizzera 2026: Requisiti, Costi e Durata 5 Anni',
- description: 'Permesso G frontalieri 2026: residenza principale all’estero, contratto svizzero e rientro almeno settimanale. Confronta requisiti e costi con B, C e L.',
+ description: 'Permesso G 2026 per frontalieri: residenza all’estero, contratto svizzero e rientro almeno settimanale. Requisiti e costi a confronto con B, C e L.',
  keywords: 'permesso g svizzera, permesso b svizzera, permesso c svizzera, permesso l svizzera, permesso frontaliere requisiti, permesso dimora svizzera, documenti permesso lavoro svizzera',
  ogTitle: 'Permessi Lavoro Svizzera | Guida G, B, C, L per Frontalieri',
  ogDescription: 'Permesso G: residenza principale all’estero, contratto CH e rientro almeno settimanale. Permesso B: dimora in Svizzera. Confronta G, B, C e L con requisiti, documenti e costi aggiornati 2026.',
@@ -2182,7 +2182,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  'car-cost': {
  title: 'Costo Auto Pendolare Frontaliere Ticino 2026 | Tabelle',
- description: 'Calcola i costi reali del pendolarismo come frontaliere: benzina, autostrada, usura auto, parcheggio, abbonamenti treno e bus transfrontalieri. Confronta.',
+ description: 'Calcola i costi del pendolarismo da frontaliere: benzina, autostrada, usura auto, parcheggio, treno e bus transfrontalieri. Confronta le opzioni.',
  keywords: 'costi pendolarismo frontaliere, spese viaggio frontaliere, benzina frontaliere, autostrada svizzera costi, parcheggio dogana, treno frontalieri, bus transfrontaliero',
  ogTitle: 'Costi Pendolarismo Frontaliere | Calcolo Spese Viaggio',
  ogDescription: '🚗 Calcola quanto spendi di pendolarismo: auto, treno, bus. Confronta le opzioni per risparmiare!',
@@ -3272,7 +3272,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  firstDay: {
  title: 'Primo Giorno da Frontaliere 2026: Checklist Permesso G e AIRE',
- description: 'Primo giorno da frontaliere 2026: checklist interattiva con ogni passaggio, permesso G, iscrizione AIRE, conto bancario svizzero e assicurazione LAMal.',
+ description: 'Primo giorno da frontaliere 2026: checklist passo passo con permesso G, iscrizione AIRE, conto bancario svizzero e assicurazione LAMal.',
  keywords: 'primo giorno frontaliere, checklist frontaliere, guida frontaliere passo passo, permesso G procedura, AIRE iscrizione, conto bancario svizzero, assicurazione LAMal',
  ogTitle: 'Primo Giorno da Frontaliere | Checklist Interattiva',
  ogDescription: '🚀 Checklist gamificata per il primo giorno da frontaliere: tutti i passaggi da seguire passo per passo.',
@@ -6487,7 +6487,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  guidaCompleta: {
  title: 'Lavoro frontaliere Svizzera 2026: permesso G, tasse e netto',
- description: 'Lavoro frontaliere Svizzera-Italia 2026: permesso G, tassazione Nuovo Accordo, stipendio netto, AVS/LPP, LAMal e dichiarazione redditi in un\'unica guida.',
+ description: 'Guida lavoro frontaliere Svizzera-Italia 2026: permesso G, Nuovo Accordo, netto, AVS/LPP, LAMal e dichiarazione dei redditi.',
  keywords: 'lavoro frontaliere svizzera 2026, guida completa frontaliere, permesso G svizzera, nuovo accordo frontalieri, imposta alla fonte ticino, frontaliere italia svizzera, lavorare in svizzera dall italia, tassazione frontalieri 2026, assicurazione LAMal frontalieri, pendolare svizzera italia',
  ogTitle: 'Guida Completa al Lavoro Frontaliere in Svizzera 2026',
  ogDescription: 'La guida definitiva per frontalieri Svizzera-Italia: permessi, tasse, previdenza, sanità, trasporti e dichiarazione dei redditi. Aggiornata 2026.',
@@ -7089,7 +7089,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  'tassa-salute-frontalieri': {
  title: 'Tassa Salute Frontalieri 2026: Importo, Chi Paga e Regole',
  h1: 'Tassa salute frontalieri 2026 — importo, chi paga, norme e applicazione regionale',
- description: 'Tassa salute frontalieri 2026: chi paga il contributo SSN, come si calcola il 3–6% sul salario netto e perché importi e scadenze dipendono dalla Regione.',
+ description: 'Tassa salute frontalieri 2026: contributo SSN, calcolo del 3–6% sul salario netto e scadenze regionali.',
  keywords: 'tassa salute frontalieri, contributo sanitario SSN, vecchi frontalieri, salario netto, quota regionale',
  ogTitle: 'Tassa Salute Frontalieri 2026 — Importo e Chi Paga',
  ogDescription: 'Contributo SSN per frontalieri: chi è interessato, importo 3–6%, diritto d’opzione e attuazione regionale.',

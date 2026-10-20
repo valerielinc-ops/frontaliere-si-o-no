@@ -2,7 +2,7 @@
  * SEO meta description templates for job-board listing pages (F3a — Job
  * Page CTR Optimization).
  *
- * Returns descriptions in the 140-160 visible-character range that Google
+ * Returns descriptions in the 140-150 visible-character range that Google
  * uses to render SERP snippets. Each description includes:
  *
  *   1. keyword match (primary query e.g. "offerte di lavoro in Ticino")
@@ -10,10 +10,10 @@
  *   3. specific dynamic number (live count from `data/jobs.json`)
  *   4. complete CTA: reading is open, signing in to apply is free
  *
- * All outputs are validated at 140-160 code-points (see
+ * All outputs are validated at 140-150 code-points (see
  * {@link isValidMetaLength}). Helpers auto-pad with a generic qualifier
  * when a combination falls below 140, and trim descriptive text on word
- * boundaries while reserving the complete CTA inside the 160-char budget.
+ * boundaries while reserving the complete CTA inside the 150-char budget.
  *
  * Visible length is measured via `[...s].length` (code points) because
  * Google counts visible characters, not UTF-16 code units.
@@ -25,7 +25,7 @@ import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mj
 /** Minimum visible meta-description length (Google SERP floor). */
 export const META_MIN_CHARS = 140;
 /** Maximum visible meta-description length (Google SERP ceiling). */
-export const META_MAX_CHARS = 160;
+export const META_MAX_CHARS = 150;
 
 export function visibleLength(s: string): number {
   return [...s].length;
@@ -83,7 +83,7 @@ function finalize(desc: string, qualifier: string): string {
 /**
  * Public wrapper over the internal pad-to-min / trim-to-max pipeline so other
  * SEO emitters (e.g. the thin canton sub-hubs in
- * `build-plugins/seoHubsPlugin.ts`) can produce 140-160 char descriptions
+ * `build-plugins/seoHubsPlugin.ts`) can produce 140-150 char descriptions
  * without duplicating the length logic. `base` is the keyword-rich sentence;
  * `qualifier` is a short clause appended only when `base` falls below 140.
  */
@@ -116,6 +116,13 @@ function finalizeJobHubMeta(base: string, locale: JobPageLocale): string {
   if (visibleLength(`${prefix} ${cta}`) < META_MIN_CHARS) {
     const padded = `${prefix} ${qualifier}`;
     if (visibleLength(`${padded} ${cta}`) <= META_MAX_CHARS) prefix = padded;
+  }
+  const description = `${prefix} ${cta}`;
+  if (visibleLength(description) < META_MIN_CHARS) {
+    const freshness = { it: 'Oggi.', en: 'Today.', de: 'Heute.', fr: 'À jour.' }[locale];
+    if (visibleLength(`${prefix} ${freshness} ${cta}`) <= META_MAX_CHARS) {
+      prefix = `${prefix} ${freshness}`;
+    }
   }
   return `${prefix} ${cta}`;
 }
@@ -230,7 +237,7 @@ interface CantonHubArgs {
 }
 
 /**
- * 140-160 char meta description for the per-canton job-board landing pages
+ * 140-150 char meta description for the per-canton job-board landing pages
  * emitted by jobsSeoPagesPlugin. These previously shipped a ~50-char thin
  * lede ("Pagina indice del job board per il cantone X.") that GSC flagged as
  * "Description too short" (issue #2996). Mirrors {@link buildCityHubMeta}:
