@@ -8,6 +8,9 @@
     "https://pantr.ch/jobs/"
   ],
   "detailTemplate": "/jobs/*/",
+  "pagination": {
+    "maxPages": 20
+  },
   "detailEnrichment": true,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 8,
