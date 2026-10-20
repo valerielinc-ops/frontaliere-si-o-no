@@ -134,8 +134,9 @@ jobs:
         # URLs; any the resolver can't map would break the committed-snapshot
         # test → main red → drain frozen. The resolver uses committed static
         # registries, so do not assemble the ~400 MB crawler-slice corpus here;
-        # this writer only needs the compatibility-store prune.
-        run: npx --no-install tsx scripts/prune-404-compat-paths.ts
+        # this writer only needs the compatibility-store prune. Fail closed if
+        # the resolver cannot load instead of opening a PR with an unvalidated set.
+        run: PRUNE_404_STRICT=1 npx --no-install tsx scripts/prune-404-compat-paths.ts
 
       - name: Open pull request with 404 compatibility updates
         if: inputs.dry_run != true && inputs.dry_run != 'true'
