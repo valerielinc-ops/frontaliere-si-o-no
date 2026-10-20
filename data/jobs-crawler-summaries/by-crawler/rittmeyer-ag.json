@@ -1,7 +1,7 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-10-19T21:44:18.782Z",
+  "generatedAt": "2026-10-20T09:36:13.565Z",
   "total": 11,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 15996,
-  "avgDurationMs": 15996,
+  "durationMs": 10616,
+  "avgDurationMs": 10616,
   "durationHistory": [
-    15996
+    10616
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,7 +48,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:43:53.324Z",
+      "crawledAt": "2026-10-20T09:35:57.291Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -90,7 +90,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:43:54.588Z",
+      "crawledAt": "2026-10-20T09:35:57.882Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -132,7 +132,7 @@
       "firstSeenAt": "2026-10-01T09:27:19.173Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:43:55.761Z",
+      "crawledAt": "2026-10-20T09:35:58.475Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "firstSeenAt": "2026-09-26T14:26:58.217Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:43:56.904Z",
+      "crawledAt": "2026-10-20T09:35:58.929Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -216,7 +216,7 @@
       "firstSeenAt": "2026-09-11T23:25:37.393Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:43:58.051Z",
+      "crawledAt": "2026-10-20T09:35:59.414Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -258,7 +258,7 @@
       "firstSeenAt": "2026-09-04T23:12:55.553Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:43:59.162Z",
+      "crawledAt": "2026-10-20T09:36:00.216Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -300,7 +300,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:44:00.256Z",
+      "crawledAt": "2026-10-20T09:36:01.051Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -342,7 +342,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:44:01.405Z",
+      "crawledAt": "2026-10-20T09:36:01.867Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -384,7 +384,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:44:02.537Z",
+      "crawledAt": "2026-10-20T09:36:02.698Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -426,7 +426,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:44:03.651Z",
+      "crawledAt": "2026-10-20T09:36:03.554Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -471,7 +471,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:44:04.768Z",
+      "crawledAt": "2026-10-20T09:36:04.386Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -481,5 +481,5 @@
       }
     }
   ],
-  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
+  "codeCommit": "a1bd59ecfe0dd8e9073ead0a9cb11e2d39e2c95a"
 }
