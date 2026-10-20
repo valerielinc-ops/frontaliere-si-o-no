@@ -486,7 +486,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
       fr: 'Le coût caché du change CHF-EUR sur le salaire net',
     },
     descriptions: {
-      it: 'Come il tasso di cambio CHF-EUR impatta sullo stipendio reale dei frontalieri. Strategie per minimizzare le perdite: Wise, Fineco e banche convenzionate.',
+      it: 'Come il cambio CHF-EUR incide sul netto dei frontalieri. Strategie per ridurre le perdite: Wise, Fineco e banche convenzionate.',
       en: 'How the CHF-EUR exchange rate impacts cross-border workers\' real salary. Strategies to minimize losses: Wise, Fineco and partner banks.',
       de: 'Wie der CHF-EUR Wechselkurs das reale Gehalt von Grenzgängern beeinflusst. Strategien zur Minimierung von Verlusten.',
       fr: 'Comment le taux de change CHF-EUR impacte le salaire réel des frontaliers. Stratégies pour minimiser les pertes.',

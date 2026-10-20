@@ -84,7 +84,7 @@ const GUIDE_LOCALE_SEO: Record<GuideSeoLocale, Record<GuideSeoSection, GuideLoca
     },
     unemployment: {
       title: 'Arbeitslosigkeit: Schweiz und Italien',
-      description: 'Arbeitslosigkeit für Grenzgänger in der Schweiz: wann das Dokument PD U1 nötig ist, wie man italienisches NASpI beantragt, Beträge 2026 und Schritte danach.',
+      description: 'Arbeitslosigkeit in der Schweiz für Grenzgänger: PD U1, NASpI in Italien, Beträge 2026 und nächste Schritte.',
     },
     carTransfer: {
       title: 'Auto in die Schweiz überführen',
@@ -100,7 +100,7 @@ const GUIDE_LOCALE_SEO: Record<GuideSeoLocale, Record<GuideSeoSection, GuideLoca
     },
     'border-map': {
       title: 'Grenzkarte Italien-Schweiz',
-      description: 'Interaktive Grenzkarte Italien-Schweiz: 9 Tessiner Übergänge (Chiasso, Brogeda, Gaggiolo, Ponte Tresa) mit Live-Wartezeiten, Webcams und Nachbargemeinden.',
+      description: 'Grenzkarte Italien-Schweiz mit 9 Tessiner Übergängen, Live-Wartezeiten und Webcams: Chiasso, Brogeda, Gaggiolo und Ponte Tresa.',
     },
   },
   fr: {
@@ -110,7 +110,7 @@ const GUIDE_LOCALE_SEO: Record<GuideSeoLocale, Record<GuideSeoSection, GuideLoca
     },
     firstDay: {
       title: 'Guide Premier Jour de Frontalier',
-      description: 'Guide du premier jour de frontalier : checklist de toutes les étapes, du permis G à l\'inscription AIRE jusqu\'à l\'ouverture du compte bancaire suisse.',
+      description: 'Checklist du premier jour de frontalier : permis G, inscription AIRE et compte bancaire suisse.',
     },
     permits: {
       title: 'Permis de Travail en Suisse',
@@ -118,11 +118,11 @@ const GUIDE_LOCALE_SEO: Record<GuideSeoLocale, Record<GuideSeoSection, GuideLoca
     },
     border: {
       title: 'Trafic frontière Chiasso & temps d’attente',
-      description: 'Trafic en temps réel à la douane de Chiasso : temps d\'attente à Brogeda A2, Chiasso Strada et Ponte Chiasso, webcams BAZG et passages alternatifs du Tessin.',
+      description: 'Trafic en direct à Chiasso : attentes à Brogeda A2, Chiasso Strada et Ponte Chiasso, webcams BAZG et autres passages du Tessin.',
     },
     unemployment: {
       title: 'Chômage : Suisse et Italie',
-      description: 'Chômage des frontaliers en Suisse : quand le document PD U1 est requis, comment demander la NASpI en Italie, montants 2026 et démarches après licenciement.',
+      description: 'Chômage frontalier en Suisse : PD U1, NASpI en Italie, montants 2026 et démarches après licenciement.',
     },
     carTransfer: {
       title: 'Transférer sa voiture en Suisse',
@@ -138,7 +138,7 @@ const GUIDE_LOCALE_SEO: Record<GuideSeoLocale, Record<GuideSeoSection, GuideLoca
     },
     'border-map': {
       title: 'Carte frontière Italie-Suisse',
-      description: 'Carte interactive de la frontière Italie-Suisse : 9 passages tessinois (Chiasso, Brogeda, Gaggiolo, Ponte Tresa) avec temps d\'attente, webcams et communes.',
+      description: 'Carte de la frontière Italie-Suisse : 9 passages tessinois, attentes en direct et webcams à Chiasso, Brogeda, Gaggiolo et Ponte Tresa.',
     },
   },
 };
