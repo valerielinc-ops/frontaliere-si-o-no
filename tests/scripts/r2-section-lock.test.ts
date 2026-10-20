@@ -122,9 +122,15 @@ describe('r2-section-lock', () => {
       },
     );
 
-    await request({ method: 'GET', key: lockKey('frontaliere') });
+    await request({
+      method: 'GET',
+      key: lockKey('frontaliere'),
+      headers: { 'Accept-Encoding': 'gzip' },
+    });
 
-    expect(seen?.init.headers).toMatchObject({ 'accept-encoding': 'identity' });
+    const encodingHeaders = Object.entries(seen?.init.headers ?? {})
+      .filter(([name]) => name.toLowerCase() === 'accept-encoding');
+    expect(encodingHeaders).toEqual([['accept-encoding', 'identity']]);
   });
 
   it('refuses weak S3 ETags as match conditions', () => {

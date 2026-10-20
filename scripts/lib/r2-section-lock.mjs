@@ -229,7 +229,16 @@ export function createR2Request(env = process.env, { fetchImpl = globalThis.fetc
     // response is compressed. Weak validators are not safe for the If-Match
     // CAS used by the lease protocol, so metadata reads must stay unencoded.
     const requestHeaders = method === 'GET' || method === 'HEAD'
-      ? { 'accept-encoding': 'identity', ...headers }
+      ? {
+        // The identity encoding is part of the CAS safety contract, not a
+        // caller preference. Remove every spelling before adding one
+        // canonical header so a mixed-case override cannot produce a weak
+        // ETag or duplicate signed headers.
+        ...Object.fromEntries(
+          Object.entries(headers).filter(([name]) => name.toLowerCase() !== 'accept-encoding'),
+        ),
+        'accept-encoding': 'identity',
+      }
       : headers;
     const signed = signRequest({ ...config, now: now(), method, key, body, headers: requestHeaders });
     const response = await fetchImpl(signed.url, {
