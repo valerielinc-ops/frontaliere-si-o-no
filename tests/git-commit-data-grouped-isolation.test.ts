@@ -123,11 +123,11 @@ function deferGroupCommit(
   });
 }
 
-function commitGroup(repoDir: string, runnerTemp: string) {
+function commitGroup(repoDir: string, runnerTemp: string, envOverrides: Record<string, string> = {}) {
   return spawnSync(BASH_BIN, [SCRIPT_PATH, '--group-batch', 'batch update'], {
     cwd: repoDir,
     encoding: 'utf8',
-    env: groupEnv(repoDir, runnerTemp),
+    env: { ...groupEnv(repoDir, runnerTemp), ...envOverrides },
   });
 }
 
@@ -915,6 +915,72 @@ exec ${JSON.stringify(process.execPath)} "$@"
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
       rmSync(otherDir, { recursive: true, force: true });
+    }
+  });
+
+  it('fails the batch after a published tree loses receipt output, then heals it on the same-token retry', () => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-receipt-retry-'));
+    const shimDir = mkdtempSync(join(tmpdir(), 'gcd-node-receipt-shim-'));
+    const failureMarker = join(shimDir, 'failed-once');
+    const githubOutput = join(runnerTemp, 'github-output.txt');
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[]\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"a1"}]\n');
+      expect(deferGroupCommit(repoDir, runnerTemp, 'a').status).toBe(0);
+
+      writeFileSync(failureMarker, '0\n');
+      writeFileSync(
+        join(shimDir, 'node'),
+        `#!/bin/bash
+for arg in "$@"; do
+  if [ "$arg" = "--batch-receipts" ] && [ "$(cat ${JSON.stringify(failureMarker)})" = "0" ]; then
+    printf 'synthetic receipt write failure\\n' >&2
+    printf '1\\n' > ${JSON.stringify(failureMarker)}
+    exit 1
+  fi
+done
+exec ${JSON.stringify(process.execPath)} "$@"
+`,
+      );
+      chmodSync(join(shimDir, 'node'), 0o755);
+
+      const firstBatch = commitGroup(repoDir, runnerTemp, {
+        PATH: `${shimDir}${delimiter}${process.env.PATH ?? ''}`,
+        GITHUB_OUTPUT: githubOutput,
+      });
+      const firstOutput = `${firstBatch.stdout}${firstBatch.stderr}`;
+      expect(firstBatch.status, firstOutput).toBe(46);
+      expect(firstOutput).toContain('delivery receipt failed');
+
+      execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
+      expect(execFileSync('git', ['show', 'origin/main:data/jobs/by-crawler/a.json'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      })).toContain('a1');
+      const published = execFileSync('git', ['rev-parse', 'origin/main'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      }).trim();
+      const receiptPath = join(runnerTemp, 'crawler-generation', 'receipts', 'a.json');
+      expect(existsSync(receiptPath)).toBe(false);
+
+      const retry = commitGroup(repoDir, runnerTemp, { GITHUB_OUTPUT: githubOutput });
+      expect(retry.status, `${retry.stdout}${retry.stderr}`).toBe(0);
+      expect(JSON.parse(readFileSync(receiptPath, 'utf8'))).toMatchObject({
+        crawlerId: 'a',
+        outcome: 'noop',
+      });
+      expect(readFileSync(githubOutput, 'utf8')).toBe(`has_changes=true\nfinal_commit=${published}\n`);
+    } finally {
+      rmSync(shimDir, { recursive: true, force: true });
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
     }
   });
 

@@ -32,15 +32,22 @@ const TODAY = new Date('2026-05-18T06:00:00Z');
 // one is benzina-only (must be dropped from diesel pages).
 const DATASET = {
   generatedAt: TODAY.toISOString(),
+  sources: { exchangeRate: {
+    provider: 'ECB',
+    sourceUrl: 'https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html',
+    rateDate: '2026-05-15',
+    chfPerEur: 1,
+    eurPerChf: 1,
+  } },
   municipalities: [
     {
       municipality: 'Como',
       province: 'CO',
       italy: {
         stations: [
-          { id: 'd1', brand: 'Eni', stationName: 'Eni Como', address: 'Via del Dos 14, 22100 Como', priceEur: 1.919, dieselPriceEur: 1.829, isSelf: true, lat: 45.81, lng: 9.08 },
-          { id: 'd2', brand: 'Q8', stationName: 'Q8 Como', address: 'Via Varesina 128, 22100 Como', priceEur: 1.939, dieselPriceEur: 1.799, isSelf: true, lat: 45.80, lng: 9.07 },
-          { id: 'b1', brand: 'Shell', stationName: 'Shell Como', address: 'Viale Rosselli 19, 22100 Como', priceEur: 1.959, dieselPriceEur: null, isSelf: true, lat: 45.79, lng: 9.06 },
+          { id: 'd1', brand: 'Eni', stationName: 'Eni Como', address: 'Via del Dos 14, 22100 Como', priceEur: 1.919, dieselPriceEur: 1.829, benzinaUpdatedAt: '2026-05-10', dieselUpdatedAt: '2026-05-11', updatedAt: '2026-05-17', isSelf: true, lat: 45.81, lng: 9.08 },
+          { id: 'd2', brand: 'Q8', stationName: 'Q8 Como', address: 'Via Varesina 128, 22100 Como', priceEur: 1.939, dieselPriceEur: 1.799, benzinaUpdatedAt: '2026-05-12', dieselUpdatedAt: '2026-05-13', updatedAt: '2026-05-17', isSelf: true, lat: 45.80, lng: 9.07 },
+          { id: 'b1', brand: 'Shell', stationName: 'Shell Como', address: 'Viale Rosselli 19, 22100 Como', priceEur: 1.959, dieselPriceEur: null, benzinaUpdatedAt: '2026-05-14', updatedAt: '2026-05-17', isSelf: true, lat: 45.79, lng: 9.06 },
         ],
       },
       swiss: {
@@ -49,12 +56,12 @@ const DATASET = {
         // outside the sp95 top-5 and is persisted separately as
         // `cheapestDieselStation`. The verdict must use THAT, not the diesel
         // price of the benzina-cheapest pump (2.327) nor the nearby min (1.950).
-        cheapestStation: { id: 'ch1', name: 'Silo', brand: 'Migrol', address: 'Chiasso', sp95PriceEur: 2.009, dieselPriceEur: 2.327 },
+        cheapestStation: { id: 'ch1', name: 'Silo', brand: 'Migrol', address: 'Chiasso', sp95PriceChf: 2.009, sp95PriceEur: 2.009, dieselPriceChf: 2.327, dieselPriceEur: 2.327 },
         nearbyStations: [
-          { id: 'ch1', name: 'Silo', brand: 'Migrol', address: 'Chiasso', sp95PriceEur: 2.009, dieselPriceEur: 2.327 },
-          { id: 'ch2', name: 'Coop', brand: 'Coop', address: 'Maslianico', sp95PriceEur: 2.099, dieselPriceEur: 1.950 },
+          { id: 'ch1', name: 'Silo', brand: 'Migrol', address: 'Chiasso', sp95PriceChf: 2.009, sp95PriceEur: 2.009, dieselPriceChf: 2.327, dieselPriceEur: 2.327 },
+          { id: 'ch2', name: 'Coop', brand: 'Coop', address: 'Maslianico', sp95PriceChf: 2.099, sp95PriceEur: 2.099, dieselPriceChf: 1.950, dieselPriceEur: 1.950 },
         ],
-        cheapestDieselStation: { id: 'ch3', name: 'Tamoil', brand: 'Tamoil', address: 'Vacallo', sp95PriceEur: 2.180, dieselPriceEur: 1.870 },
+        cheapestDieselStation: { id: 'ch3', name: 'Tamoil', brand: 'Tamoil', address: 'Vacallo', sp95PriceChf: 2.180, sp95PriceEur: 2.180, dieselPriceChf: 1.870, dieselPriceEur: 1.870 },
       },
     },
   ],
@@ -88,6 +95,35 @@ describe('diesel Italian city pages — real diesel prices + clickable stations'
     expect(countAnchors(html, '/prezzi-diesel/italia/como/stazioni/')).toBeGreaterThanOrEqual(2);
   });
 
+  it('renders the observation date belonging to each fuel, not the legacy row timestamp', () => {
+    const diesel = pages['/prezzi-diesel/italia/como/oggi/']!;
+    const benzina = pages['/prezzi-benzina/italia/como/oggi/']!;
+    expect(benzina).toContain('10/05/2026');
+    expect(benzina).toContain('12/05/2026');
+    expect(benzina).not.toContain('11/05/2026');
+    expect(diesel).toContain('11/05/2026');
+    expect(diesel).toContain('13/05/2026');
+    expect(diesel).not.toContain('10/05/2026');
+    expect(diesel).not.toContain('17/05/2026');
+  });
+
+  it('leaves Italian observation date unknown when a legacy cache only has ambiguous updatedAt', () => {
+    const legacyDataset = structuredClone(DATASET) as {
+      municipalities: Array<{ italy?: { stations?: Array<Record<string, unknown>> } }>;
+    };
+    for (const municipality of legacyDataset.municipalities) {
+      for (const station of municipality.italy?.stations ?? []) {
+        delete station.benzinaUpdatedAt;
+        delete station.dieselUpdatedAt;
+        station.updatedAt = '2025-01-01';
+      }
+    }
+    const legacyPages = generateFuelItalianCityPages({ dataset: legacyDataset as never, today: TODAY });
+    const diesel = legacyPages['/prezzi-diesel/italia/como/oggi/']!;
+    expect(diesel).not.toContain('01/01/2025');
+    expect(diesel).toContain('Data del prezzo iniziale: data non disponibile');
+  });
+
   it('excludes the benzina-only station from the diesel page but keeps it on benzina', () => {
     const diesel = pages['/prezzi-diesel/italia/como/oggi/']!;
     const benzina = pages['/prezzi-benzina/italia/como/oggi/']!;
@@ -98,11 +134,11 @@ describe('diesel Italian city pages — real diesel prices + clickable stations'
   it('renders the cross-border verdict banner using the true CH diesel minimum', () => {
     const html = pages['/prezzi-diesel/italia/como/oggi/']!;
     expect(html).toContain('s-itVerdict');
-    // Italy is cheaper for diesel (IT 1.799 vs true CH diesel min 1.870).
-    expect(html).toMatch(/conviene fare il pieno in Italia/);
-    // Saving uses cheapestDieselStation (|1.870−1.799|×50 = 3.55), NOT the
+    // The gross sample difference uses cheapestDieselStation (|1.870−1.799|×50 = 3.55), NOT the
     // sp95-truncated nearby min (|1.950−1.799|×50 = 7.55) nor the benzina-
     // cheapest pump's diesel (|2.327−1.799|×50 = 26.40).
+    expect(html).toContain('Differenza lorda sui prezzi del campione: 3,55 € su 50 L');
+    expect(html).not.toMatch(/conviene fare il pieno in Italia/i);
     expect(html).toContain('3,55');
     expect(html).not.toContain('7,55');
     expect(html).not.toContain('26,40');
@@ -113,6 +149,7 @@ describe('diesel Italian city pages — real diesel prices + clickable stations'
     // + cheapestDieselStation: only `cheapestStation` carries the CH diesel price.
     const fallbackDataset = {
       generatedAt: TODAY.toISOString(),
+      sources: DATASET.sources,
       municipalities: [
         {
           municipality: 'Como',
@@ -123,7 +160,7 @@ describe('diesel Italian city pages — real diesel prices + clickable stations'
             ],
           },
           swiss: {
-            cheapestStation: { id: 'ch1', name: 'Silo', brand: 'Migrol', address: 'Chiasso', sp95PriceEur: 2.009, dieselPriceEur: 1.900 },
+            cheapestStation: { id: 'ch1', name: 'Silo', brand: 'Migrol', address: 'Chiasso', sp95PriceChf: 2.009, sp95PriceEur: 2.009, dieselPriceChf: 1.900, dieselPriceEur: 1.900 },
           },
         },
       ],
@@ -131,8 +168,9 @@ describe('diesel Italian city pages — real diesel prices + clickable stations'
     const fbPages = generateFuelItalianCityPages({ dataset: fallbackDataset, today: TODAY });
     const html = fbPages['/prezzi-diesel/italia/como/oggi/']!;
     expect(html).toContain('s-itVerdict');
-    // IT 1.799 < CH cheapestStation diesel 1.900 → IT wins, |1.900−1.799|×50 = 5.05.
-    expect(html).toMatch(/conviene fare il pieno in Italia/);
+    // IT 1.799 < CH cheapestStation diesel 1.900 → sample gross difference = 5.05.
+    expect(html).toContain('Differenza lorda sui prezzi del campione: 5,05 € su 50 L');
+    expect(html).not.toMatch(/conviene fare il pieno in Italia/i);
     expect(html).toContain('5,05');
   });
 });
