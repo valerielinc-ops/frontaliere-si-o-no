@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schulthess-klinik",
-  "assembledAt": "2026-10-20T09:16:31.556Z",
+  "assembledAt": "2026-10-20T21:12:46.818Z",
   "jobs": [
     {
       "id": "schulthess-klinik-a99e53145433",
@@ -34,7 +34,7 @@
       "url": "https://job.schulthess-klinik.ch/job-vacancies/director-of-research/5436004d-b4fd-4783-a9f4-3412327ae7cb",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T09:16:25.620Z",
+      "crawledAt": "2026-10-20T21:12:41.433Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation/d4e72e6d-3527-417c-a433-f6b297abf3b9",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:16:25.616Z",
+      "crawledAt": "2026-10-20T21:12:41.430Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-fuer-die-bettenstationen/815a04d2-89e2-4018-9b7c-1cc368677341",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:16:25.613Z",
+      "crawledAt": "2026-10-20T21:12:41.428Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -238,6 +238,235 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:37:56.882Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "schulthess-klinik-e39332fa355e",
+      "slug": "senior-cloud-system-ingegnere-schulthess-klinik-zurich",
+      "slugByLocale": {
+        "it": "senior-cloud-system-ingegnere-schulthess-klinik-zurich",
+        "en": "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
+        "de": "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
+        "fr": "senior-cloud-system-ingenieur-schulthess-klinik-zurich"
+      },
+      "company": "Schulthess Klinik",
+      "companyKey": "schulthess-klinik",
+      "companyDomain": "schulthess-klinik.ch",
+      "title": "Senior Cloud & System Engineer",
+      "titleByLocale": {
+        "it": "Senior Cloud & System Ingegnere",
+        "en": "Senior Cloud & Systems Engineer",
+        "de": "Senior Cloud & System Ingenieur",
+        "fr": "Senior Cloud & System Ingénieur"
+      },
+      "description": "Aufgaben:\n• Konzeption und Implementierung von Microsoft-Technologien (Azure, M365, Windows Server, Hyper-V, Security, Netzwerk, Backup etc.)\n\n• Betrieb, Weiterentwicklung und Stabilisierung unserer bestehenden On-Premises-Infrastruktur (Windows Server, VMware, Storage, Netzwerk, Security, Backup)\n\n• Verantwortung für die Architektur und Umsetzung von komplexen IT-Infrastrukturprojekten\n\n• Entwicklung und Implementierung von Azure-Ressourcen: Unterstützung beim Aufbau und Betrieb einer Azure-Betriebsplattform\n\n• Sicherstellen, dass alle Projekte qualitativ hochwertig, im Zeit- und Kostenrahmen umgesetzt werden\n\n• Kontinuierliche Optimierung unserer IT-Prozesse, Architekturen und Automatisierungen\n\n• Durchführung von stufengerechten Präsentationen und technischen Workshops\n\n• Zusammenarbeit: Enge Kooperation mit Entwicklung, DevOps, SecOps, Application Management und zur Integration von Anwendungen und Diensten\n\nAnforderungen:\n• Du hast eine abgeschlossene Informatik-Ausbildung oder gleichwertige Berufserfahrung (mindestens 5 Jahre im Cloud Engineering oder System Engineering).\n\n• Du hast idealerweise eine höhere Weiterbildung in Informatik absolviert oder verfügst über einschlägige Zertifizierungen.\n\n• Du bringst tiefgehendes technisches Know-how in Microsoft- und Cloud-Technologien mit – insbesondere in M365, Azure, Windows Server, Netzwerktechnologien und Security.\n\n• Du hast Erfahrung mit hybriden IT-Umgebungen (z. B. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, Firewalls) arbeitest selbstständig, denkst unternehmerisch und übernimmst gerne Verantwortung.\n\n• Du begeisterst Dich für Innovation, Automatisierung und digitale Transformation.\n\n• Du kommunizierst sicher auf Deutsch und Englisch, sowohl mündlich als auch schriftlich.\n\nWir bieten:\n• Flexible Arbeitszeiten/-modelle\n\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Concezione e implementazione di tecnologie Microsoft (Azure, M365, Windows Server, Hyper-V, Sicurezza, Rete, Backup, ecc.)\n\n• Operazione, sviluppo e stabilizzazione della nostra infrastruttura on-premises esistente (Windows Server, VMware, Storage, Network, Security, Backup)\n\n• Responsabilità per l'architettura e l'implementazione di complessi progetti infrastrutturali IT\n\n• Sviluppare e implementare risorse Azure: contribuire a costruire e gestire una piattaforma operativa Azure\n\n• Assicurarsi che tutti i progetti siano di alta qualità, nel tempo e nel budget\n\n• Ottimizzazione continua dei nostri processi IT, architetture e automazione\n\n• Condurre presentazioni passo per passo e workshop tecnici\n\n• Collaborazione: stretta collaborazione con lo sviluppo, DevOps, SecOps, gestione delle applicazioni e integrazione di applicazioni e servizi\n\nRequisiti\n• Hai completato un'educazione informatica o un'esperienza professionale equivalente (almeno 5 anni in ingegneria cloud o ingegneria del sistema).\n\n• Idealmente, hai completato un'istruzione superiore in informatica o hai certificazioni rilevanti.\n\n• Porti un know-how tecnico approfondito nelle tecnologie Microsoft e cloud – soprattutto in M365, Azure, Windows Server, tecnologie di rete e sicurezza.\n\n• Hai esperienza con ambienti IT ibridi (ad esempio VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, firewall) lavorare in modo indipendente, pensare imprenditoriale e come assumersi la responsabilità.\n\n• Sei appassionato di innovazione, automazione e trasformazione digitale.\n\n• Siete sicuri di comunicare in tedesco e inglese, sia verbalmente che per iscritto.\n\nOffriamo:\n• Ore/modelli di lavoro flessibili\n\n• 40 settimana oraria\n\n• Possibilità di ufficio\n\n• Prestazioni sociali interessanti e numerosi vantaggi\n\n• Spirito di squadra\n\n• Equilibrio di vita / Amica della famiglia\n\nLa Schulthes Clinic di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
+        "en": "Tasks:\n• Conception and implementation of Microsoft technologies (Azure, M365, Windows Server, Hyper-V, Security, Network, Backup, etc.)\n\n• Operation, development and stabilization of our existing on-premises infrastructure (Windows Server, VMware, Storage, Network, Security, Backup)\n\n• Responsibility for the architecture and implementation of complex IT infrastructure projects\n\n• Developing and implementing Azure resources: helping to build and operate an Azure operating platform\n\n• Ensure that all projects are of high quality, on time and on budget\n\n• Continuous optimization of our IT processes, architectures and automations\n\n• Conducting step-by-step presentations and technical workshops\n\n• Collaboration: Close cooperation with development, DevOps, SecOps, application management and integration of applications and services\n\nRequirements\n• You have completed a computer science education or equivalent professional experience (at least 5 years in cloud engineering or system engineering).\n\n• Ideally, you have completed a higher education in computer science or have relevant certifications.\n\n• You bring in-depth technical know-how in Microsoft and cloud technologies – especially in M365, Azure, Windows Server, network technologies and security.\n\n• You have experience with hybrid IT environments (e.g. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, firewalls) work independently, think entrepreneurially and like to take responsibility.\n\n• You are passionate about innovation, automation and digital transformation.\n\n• You are sure to communicate in German and English, both verbally and in writing.\n\nWe offer:\n• Flexible working hours/models\n\n• 40 hourly week\n\n• Possibility for home office\n\n• Attractive social benefits and numerous benefits\n\n• Team spirit\n\n• Work-Life Balance / Family Friendliness\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
+        "de": "Aufgaben:\n• Konzeption und Implementierung von Microsoft-Technologien (Azure, M365, Windows Server, Hyper-V, Security, Netzwerk, Backup etc.)\n\n• Betrieb, Weiterentwicklung und Stabilisierung unserer bestehenden On-Premises-Infrastruktur (Windows Server, VMware, Storage, Netzwerk, Security, Backup)\n\n• Verantwortung für die Architektur und Umsetzung von komplexen IT-Infrastrukturprojekten\n\n• Entwicklung und Implementierung von Azure-Ressourcen: Unterstützung beim Aufbau und Betrieb einer Azure-Betriebsplattform\n\n• Sicherstellen, dass alle Projekte qualitativ hochwertig, im Zeit- und Kostenrahmen umgesetzt werden\n\n• Kontinuierliche Optimierung unserer IT-Prozesse, Architekturen und Automatisierungen\n\n• Durchführung von stufengerechten Präsentationen und technischen Workshops\n\n• Zusammenarbeit: Enge Kooperation mit Entwicklung, DevOps, SecOps, Application Management und zur Integration von Anwendungen und Diensten\n\nAnforderungen:\n• Du hast eine abgeschlossene Informatik-Ausbildung oder gleichwertige Berufserfahrung (mindestens 5 Jahre im Cloud Engineering oder System Engineering).\n\n• Du hast idealerweise eine höhere Weiterbildung in Informatik absolviert oder verfügst über einschlägige Zertifizierungen.\n\n• Du bringst tiefgehendes technisches Know-how in Microsoft- und Cloud-Technologien mit – insbesondere in M365, Azure, Windows Server, Netzwerktechnologien und Security.\n\n• Du hast Erfahrung mit hybriden IT-Umgebungen (z. B. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, Firewalls) arbeitest selbstständig, denkst unternehmerisch und übernimmst gerne Verantwortung.\n\n• Du begeisterst Dich für Innovation, Automatisierung und digitale Transformation.\n\n• Du kommunizierst sicher auf Deutsch und Englisch, sowohl mündlich als auch schriftlich.\n\nWir bieten:\n• Flexible Arbeitszeiten/-modelle\n\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "fr": "Tâches :\n• Conception et mise en œuvre des technologies Microsoft (Azure, M365, Windows Server, Hyper-V, Sécurité, Réseau, Sauvegarde, etc.)\n\n• Fonctionnement, développement et stabilisation de notre infrastructure existante sur site (Windows Server, VMware, Stockage, Réseau, Sécurité, Sauvegarde)\n\n• Responsabilité de l'architecture et de la mise en œuvre de projets d'infrastructure informatique complexes\n\n• Développement et mise en œuvre des ressources Azure : aider à construire et à exploiter une plateforme d'exploitation Azure\n\n• Veiller à ce que tous les projets soient de haute qualité, dans les délais et sur le budget\n\n• Optimisation continue de nos processus, architectures et automatisations informatiques\n\n• Présentations et ateliers techniques étape par étape\n\n• Collaboration: Coopération étroite avec le développement, DevOps, SecOps, gestion des applications et intégration des applications et des services\n\nExigences\n• Vous avez suivi une formation en informatique ou une expérience professionnelle équivalente (au moins 5 ans en génie du cloud ou en génie système).\n\n• Idéalement, vous avez terminé des études supérieures en informatique ou avez obtenu des certifications pertinentes.\n\n• Vous apportez un savoir-faire technique approfondi dans les technologies Microsoft et Cloud – en particulier dans M365, Azure, Windows Server, les technologies réseau et la sécurité.\n\n• Vous avez de l'expérience avec des environnements informatiques hybrides (p. ex. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, pare-feu) fonctionnent de manière indépendante, réfléchissent de manière entrepreneuriale et aiment prendre des responsabilités.\n\n• Vous êtes passionné par l'innovation, l'automatisation et la transformation numérique.\n\n• Vous êtes sûr de communiquer en allemand et en anglais, à la fois verbalement et par écrit.\n\nNous offrons:\n• Durée/modèles de travail flexibles\n\n• 40 semaines horaires\n\n• Possibilité de bureau à domicile\n\n• Prestations sociales attractives et nombreuses prestations\n\n• Esprit d'équipe\n\n• Équilibre travail-vie personnelle / Amabilité familiale\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.schulthess-klinik.ch/offene-stellen/senior-cloud-system-engineer/9be11ac1-1153-4e3f-a0ce-23e312012c61",
+      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-20T21:12:41.426Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Lengghalde 2",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1831",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:12:09.926Z",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 121500,
+          "maxValue": 206500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "schulthess-klinik-64b48f2b6b3b",
+      "slug": "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-zurich",
+      "slugByLocale": {
+        "it": "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-zurich",
+        "en": "med-practice-assistant-med-practice-assistant-rheumatology-rehabilitation-schulthess-klinik-zurich",
+        "de": "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
+        "fr": "med-assistant-de-pratique-med-assistant-de-pratique-rheumatology-rehabilitation-schulthess-klinik-zurich"
+      },
+      "company": "Schulthess Klinik",
+      "companyKey": "schulthess-klinik",
+      "companyDomain": "schulthess-klinik.ch",
+      "title": "Med. Praxisassistentin / Med. Praxisassistent Rheumatologie & Rehabilitation",
+      "titleByLocale": {
+        "it": "Med. assistente pratica / Med. Assistente di pratica Rheumatology & Rehabilitation",
+        "en": "Med. practice assistant / Med. Practice assistant Rheumatology & Rehabilitation",
+        "de": "Med. Praxisassistentin / Med. Praxisassistent Rheumatologie & Rehabilitation",
+        "fr": "Med. assistant de pratique / Med. assistant de pratique Rheumatology & Rehabilitation"
+      },
+      "description": "Aufgaben:\n• Sprechstundenorganisation und Terminplanung\n\n• Empfang und Betreuung der Patienten\n\n• Erstellen von Arztberichten (Hintergrundspracherkennung), erfassen von deren Leistungen nach TARDOC und Falldatenpflege\n\n• Freundliche telefonische Auskünfte und Weiterleitungen an die zuständige Instanz\n\n• Blutentnahmen, Injektionen, Infusionen\n\n• Knochendichtemessungen (Röntgenschein erforderlich oder Bereitschaft, diesen zu erlangen)\n\n• Instruktion von Patienten zur selbständigen Medikamentenapplikation\n\nAnforderungen:\n• Ausbildung als Medizinische/r Praxisassistent/in\n\n• Freude am Erstellen von Arztberichten und sichere Anwendung der medizinischen Terminologie\n\n• Hohe Motivation für administrative Tätigkeiten\n\n• Dienstleistungsorientiert und Freude am direkten Patientenkontakt\n\n• Sehr gute und stilsichere Deutschkenntnisse, Kenntnisse in Englisch von Vorteil\n\n• Zur Erweiterung unseres Teams freuen wir uns auf eine freundliche, teamfähige und selbstständige Persönlichkeit\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Trainingsmöglichkeiten\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Organizzazione delle ore di ufficio e pianificazione\n\n• Ricezione e cura dei pazienti\n\n• Preparazione di relazioni mediche (riconoscimento vocale di base), registrazione dei loro servizi secondo TARDOC e manutenzione dei dati di caso\n\n• Informazioni telefoniche amichevoli e invio all'autorità competente\n\n• Campionamento del sangue, iniezioni, infusioni\n\n• Misurazioni di densità di ossa (a raggi X richiesto o disponibilità per ottenerlo)\n\n• Istruzione dei pazienti per applicazione indipendente della droga\n\nRequisiti\n• Formazione come assistente medico/pratico\n\n• Godetevi la creazione di rapporti medici e l'applicazione sicura della terminologia medica\n\n• Alta motivazione per le attività amministrative\n\n• Servizio orientato e godimento del contatto diretto del paziente\n\n• Conoscenza molto buona ed elegante del tedesco, la conoscenza in inglese è vantaggioso\n\n• Per espandere il nostro team, non vediamo l'ora di una personalità amichevole, responsabile del team e indipendente\n\nOffriamo:\n• 40 settimana oraria\n\n• Prestazioni sociali interessanti e numerosi vantaggi\n\n• Spirito di squadra\n\n• Opportunità di formazione\n\n• Cibo economico nel ristorante del personale\n\nLa clinica Schulthess di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
+        "en": "Tasks:\n• Office hours organisation and scheduling\n\n• Reception and care of patients\n\n• Preparation of medical reports (background speech recognition), recording of their services according to TARDOC and case data maintenance\n\n• Friendly telephone information and forwarding to the competent authority\n\n• Blood sampling, injections, infusions\n\n• Bone density measurements (X-ray required or readiness to obtain it)\n\n• Instruction of patients for independent drug application\n\nRequirements\n• Training as medical/practice assistant\n\n• Enjoy the creation of medical reports and safe application of medical terminology\n\n• High motivation for administrative activities\n\n• Service-oriented and enjoyment of direct patient contact\n\n• Very good and stylish knowledge of German, knowledge in English is advantageous\n\n• To expand our team, we look forward to a friendly, team-capable and independent personality\n\nWe offer:\n• 40 hourly week\n\n• Attractive social benefits and numerous benefits\n\n• Team spirit\n\n• Training opportunities\n\n• Cheap food in the staff restaurant\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
+        "de": "Aufgaben:\n• Sprechstundenorganisation und Terminplanung\n\n• Empfang und Betreuung der Patienten\n\n• Erstellen von Arztberichten (Hintergrundspracherkennung), erfassen von deren Leistungen nach TARDOC und Falldatenpflege\n\n• Freundliche telefonische Auskünfte und Weiterleitungen an die zuständige Instanz\n\n• Blutentnahmen, Injektionen, Infusionen\n\n• Knochendichtemessungen (Röntgenschein erforderlich oder Bereitschaft, diesen zu erlangen)\n\n• Instruktion von Patienten zur selbständigen Medikamentenapplikation\n\nAnforderungen:\n• Ausbildung als Medizinische/r Praxisassistent/in\n\n• Freude am Erstellen von Arztberichten und sichere Anwendung der medizinischen Terminologie\n\n• Hohe Motivation für administrative Tätigkeiten\n\n• Dienstleistungsorientiert und Freude am direkten Patientenkontakt\n\n• Sehr gute und stilsichere Deutschkenntnisse, Kenntnisse in Englisch von Vorteil\n\n• Zur Erweiterung unseres Teams freuen wir uns auf eine freundliche, teamfähige und selbstständige Persönlichkeit\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Trainingsmöglichkeiten\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "fr": "Tâches :\n• Organisation et programmation des heures de bureau\n\n• Réception et soins des patients\n\n• Préparation de rapports médicaux (reconnaissance de la parole en arrière-plan), enregistrement de leurs services selon TARDOC et mise à jour des données de cas\n\n• Informations téléphoniques amicales et transmission à l'autorité compétente\n\n• Prélèvement sanguin, injections, perfusions\n\n• Mesure de la densité osseuse (rayons X requis ou préparation à l'obtenir)\n\n• Instruction aux patients pour l'application indépendante du médicament\n\nExigences\n• Formation en tant qu ' assistant médical et professionnel\n\n• Profitez de la création de rapports médicaux et de l'application sûre de la terminologie médicale\n\n• Une forte motivation pour les activités administratives\n\n• Orientation vers le service et jouissance des contacts directs avec le patient\n\n• Très bonne et élégante connaissance de l'allemand, la connaissance en anglais est avantageuse\n\n• Pour élargir notre équipe, nous nous réjouissons d'une personnalité amicale, capable d'équipe et indépendante\n\nNous offrons:\n• 40 semaines horaires\n\n• Prestations sociales attractives et nombreuses prestations\n\n• Esprit d'équipe\n\n• Possibilités de formation\n\n• Nourriture bon marché dans le restaurant du personnel\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/325df460-7ca5-4c5f-8931-d867bd6bd673",
+      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-20T21:12:41.421Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Lengghalde 2",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2001",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
+        "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-11T13:33:15.603Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "schulthess-klinik-bde426e543c1",
+      "slug": "hf-fh-professionale-nel-campo-della-cura-intermedia-imc-schulthess-klinik-zurich",
+      "slugByLocale": {
+        "it": "hf-fh-professionale-nel-campo-della-cura-intermedia-imc-schulthess-klinik-zurich",
+        "en": "care-professional-hf-fh-in-the-field-of-intermediate-care-imc-schulthess-klinik-zurich",
+        "de": "pflegefachperson-hf-fh-im-bereich-intermediate-care-imc-schulthess-klinik-zurich",
+        "fr": "soins-professionnels-hf-fh-dans-le-domaine-des-soins-intermediaires-imc-schulthess-klinik-zurich"
+      },
+      "company": "Schulthess Klinik",
+      "companyKey": "schulthess-klinik",
+      "companyDomain": "schulthess-klinik.ch",
+      "title": "Pflegefachperson HF/FH im Bereich Intermediate Care (IMC)",
+      "titleByLocale": {
+        "it": "HF/FH professionale nel campo della cura intermedia (IMC)",
+        "en": "Care professional HF/FH in the field of Intermediate Care (IMC)",
+        "de": "Pflegefachperson HF/FH im Bereich Intermediate Care (IMC)",
+        "fr": "Soins professionnels HF/FH dans le domaine des soins intermédiaires (IMC)"
+      },
+      "description": "Aufgaben:\n• Fachkompetente und eigenverantwortliche Betreuung von Patientinnen und Patienten in komplexen sowie instabilen Situationen im IMC- und Aufwachraumbereich\n\n• Durchführung und Überwachung einer differenzierten Schmerztherapie, Sicherstellung der neurologischen Überwachung und Durchführung spezifischer therapeutischer Massnahmen\n\n• Frühzeitiges Erkennen von klinischen Verschlechterungen und akut lebensbedrohlichen Situationen sowie Einleitung der erforderlichen Massnahmen\n\n• Erkennen und kompetentes Handeln in Notfallsituationen sowie aktive Mitarbeit im Reanimationsteam\n\n• Übernahme von Zusatzverantwortungen im Stationsalltag, beispielsweise als Schichtleitung, sowie Mitarbeit bei stationsinternen Aufgaben und Projekten\n\n• Interprofessionelle Zusammenarbeit mit Ärztinnen und Ärzten sowie weiteren beteiligten Berufsgruppen zur Sicherstellung einer hochwertigen und patientenzentrierten Versorgung\n\nAnforderungen:\n• Dipl. Pflegefachperson HF/FH mit abgeschlossener Weiterbildung in Überwachungspflege oder mit der Motivation und Bereitschaft, diese zu absolvieren\n\n• Fachkompetenz und Freude an anspruchsvollen Patientensituationen\n\n• Klare, wertschätzende und zielgerichtete Kommunikation\n\n• Bereitschaft, Verantwortung zu übernehmen und sich fachlich kontinuierlich weiterzuentwickeln\n\n• Teamgeist, Eigeninitiative und eine lösungsorientierte Arbeitsweise\n\n• Bereitschaft zur Arbeit im 3-Schichtbetrieb\n\nWir bieten:\n• 40 Stundenwoche\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Nachtschichtzulage CHF 10.-/h plus 20% Zeitgutschrift\n\n• Wochenend-, Feiertags- und Spätdienstzulage CHF 8.-/h\n\n• ZVV-BonusPass / ZVV-BonusPass Flex\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Cura competente e responsabile dei pazienti in situazioni complesse e instabili nell'area IMC e della sala di recupero\n\n• Attuazione e monitoraggio della terapia del dolore differenziata, monitoraggio neurologico e attuazione di misure terapeutiche specifiche\n\n• Rilevamento precoce del deterioramento clinico e delle situazioni di minaccia di vita acuta e avvio di misure necessarie\n\n• Identificazione e azione competente in situazioni di emergenza e partecipazione attiva al team di rianimazione\n\n• Assumendo ulteriori responsabilità nel lavoro quotidiano della stazione, ad esempio come la gestione dei turni, così come la cooperazione in compiti e progetti interni\n\n• Cooperazione interprofessionale con medici e altri gruppi professionali partecipanti per garantire una cura di alta qualità e paziente\n\nRequisiti\n• Dipl. Infermiera HF/FH con formazione completa in supervisione o con motivazione e disponibilità a completarla\n\n• Competenza e godimento di situazioni di paziente esigenti\n\n• Comunicazione chiara, apprezzativa e mirata\n\n• Volontà ad assumersi la responsabilità e sviluppare continuamente professionalmente\n\n• Spirito di squadra, iniziativa e metodo di lavoro orientato alla soluzione\n\n• Prontezza al lavoro in funzionamento a 3 turni\n\nOffriamo:\n• 40 settimana oraria\n\n• Tempo di cambio pagato o compensabile (15 min./giorno / 6.5 Venerdì/anno)\n\n• 15 minuti di pausa pagata al giorno\n\n• Assegno notturno CHF 10.-/h più il 20% di tempo di credito\n\n• Fine settimana, ferie pubbliche e assegni di servizio tardivo CHF 8.-/h\n\n• ZVV BonusPass / ZVV BonusPass Flex\n\nLa Schulthes Clinic di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
+        "en": "Tasks:\n• Competent and self-responsible care of patients in complex and unstable situations in the IMC and recovery room area\n\n• Implementation and monitoring of differentiated pain therapy, ensuring neurological monitoring and carrying out specific therapeutic measures\n\n• Early detection of clinical deterioration and acute life-threatening situations and initiation of necessary measures\n\n• Identification and competent action in emergency situations as well as active participation in the resuscitation team\n\n• Assuming additional responsibilities in the day-to-day work of the station, for example as shift management, as well as cooperation in internal tasks and projects\n\n• Interprofessional cooperation with doctors and other participating professional groups to ensure high-quality and patient-centered care\n\nRequirements\n• Dipl. Nurse HF/FH with completed training in supervision care or with the motivation and willingness to complete it\n\n• Expertise and enjoyment of demanding patient situations\n\n• Clear, appreciative and targeted communication\n\n• Willingness to take responsibility and continuously develop professionally\n\n• Team spirit, initiative and a solution-oriented working method\n\n• Readiness to work in 3-shift operation\n\nWe offer:\n• 40 hourly week\n\n• Paid or compensable changing time (15 min./day / 6.5 Fridays/year)\n\n• 15 minutes paid break per day\n\n• Night shift allowance CHF 10.-/h plus 20% time credit\n\n• Weekend, public holiday and late service allowance CHF 8.-/h\n\n• ZVV BonusPass / ZVV BonusPass Flex\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
+        "de": "Aufgaben:\n• Fachkompetente und eigenverantwortliche Betreuung von Patientinnen und Patienten in komplexen sowie instabilen Situationen im IMC- und Aufwachraumbereich\n\n• Durchführung und Überwachung einer differenzierten Schmerztherapie, Sicherstellung der neurologischen Überwachung und Durchführung spezifischer therapeutischer Massnahmen\n\n• Frühzeitiges Erkennen von klinischen Verschlechterungen und akut lebensbedrohlichen Situationen sowie Einleitung der erforderlichen Massnahmen\n\n• Erkennen und kompetentes Handeln in Notfallsituationen sowie aktive Mitarbeit im Reanimationsteam\n\n• Übernahme von Zusatzverantwortungen im Stationsalltag, beispielsweise als Schichtleitung, sowie Mitarbeit bei stationsinternen Aufgaben und Projekten\n\n• Interprofessionelle Zusammenarbeit mit Ärztinnen und Ärzten sowie weiteren beteiligten Berufsgruppen zur Sicherstellung einer hochwertigen und patientenzentrierten Versorgung\n\nAnforderungen:\n• Dipl. Pflegefachperson HF/FH mit abgeschlossener Weiterbildung in Überwachungspflege oder mit der Motivation und Bereitschaft, diese zu absolvieren\n\n• Fachkompetenz und Freude an anspruchsvollen Patientensituationen\n\n• Klare, wertschätzende und zielgerichtete Kommunikation\n\n• Bereitschaft, Verantwortung zu übernehmen und sich fachlich kontinuierlich weiterzuentwickeln\n\n• Teamgeist, Eigeninitiative und eine lösungsorientierte Arbeitsweise\n\n• Bereitschaft zur Arbeit im 3-Schichtbetrieb\n\nWir bieten:\n• 40 Stundenwoche\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Nachtschichtzulage CHF 10.-/h plus 20% Zeitgutschrift\n\n• Wochenend-, Feiertags- und Spätdienstzulage CHF 8.-/h\n\n• ZVV-BonusPass / ZVV-BonusPass Flex\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "fr": "Tâches :\n• Soins compétents et auto-responsables des patients dans des situations complexes et instables dans la zone de CIM et de la salle de récupération\n\n• Mise en œuvre et suivi d'un traitement différencié de la douleur, surveillance neurologique et mise en œuvre de mesures thérapeutiques spécifiques\n\n• Détection précoce de la détérioration clinique et des situations aiguës mettant en danger la vie et lancement des mesures nécessaires\n\n• Identification et action compétente dans les situations d'urgence et participation active à l'équipe de réanimation\n\n• Assumer des responsabilités supplémentaires dans le travail quotidien de la station, par exemple en matière de gestion des équipes, ainsi que de coopération dans les tâches et projets internes\n\n• Coopération interprofessionnelle avec les médecins et les autres groupes professionnels participants pour assurer des soins de qualité et axés sur le patient\n\nExigences\n• Dipl. Infirmière HF/FH ayant terminé sa formation en soins de supervision ou ayant la motivation et la volonté de la compléter\n\n• Expertise et jouissance des situations de patients exigeants\n\n• Communication claire, appréciée et ciblée\n\n• Volonté de prendre des responsabilités et de se développer en permanence\n\n• Esprit d'équipe, initiative et méthode de travail axée sur la solution\n\n• Préparation au travail en 3 équipes\n\nNous offrons:\n• 40 semaines horaires\n\n• Temps de changement payé ou indemnisable (15 min./jour / 6,5 vendredis/année)\n\n• 15 minutes de pause payé par jour\n\n• Indemnité de nuit CHF 10.-/h plus 20% de temps crédit\n\n• Week-end, jours fériés et service en retard CHF 8.-/h\n\n• ZVV BonusPass / ZVV BonusPass Flex\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-hf-fh-im-bereich-intermediate-care-imc/e7f5a02e-b37e-4d50-b8c3-ce008b0ebf47",
+      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-20T21:12:41.406Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Lengghalde 2",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2094",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "pflegefachperson-hf-fh-im-bereich-intermediate-care-imc-schulthess-klinik-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fh-im-bereich-intermediate-care-imc-schulthess-klinik-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-17T23:31:54.446Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -333,236 +562,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "schulthess-klinik-e39332fa355e",
-      "slug": "senior-cloud-system-ingegnere-schulthess-klinik-zurich",
-      "slugByLocale": {
-        "it": "senior-cloud-system-ingegnere-schulthess-klinik-zurich",
-        "en": "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
-        "de": "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
-        "fr": "senior-cloud-system-ingenieur-schulthess-klinik-zurich"
       },
-      "company": "Schulthess Klinik",
-      "companyKey": "schulthess-klinik",
-      "companyDomain": "schulthess-klinik.ch",
-      "title": "Senior Cloud & System Engineer",
-      "titleByLocale": {
-        "it": "Senior Cloud & System Ingegnere",
-        "en": "Senior Cloud & Systems Engineer",
-        "de": "Senior Cloud & System Ingenieur",
-        "fr": "Senior Cloud & System Ingénieur"
-      },
-      "description": "Aufgaben:\n• Konzeption und Implementierung von Microsoft-Technologien (Azure, M365, Windows Server, Hyper-V, Security, Netzwerk, Backup etc.)\n\n• Betrieb, Weiterentwicklung und Stabilisierung unserer bestehenden On-Premises-Infrastruktur (Windows Server, VMware, Storage, Netzwerk, Security, Backup)\n\n• Verantwortung für die Architektur und Umsetzung von komplexen IT-Infrastrukturprojekten\n\n• Entwicklung und Implementierung von Azure-Ressourcen: Unterstützung beim Aufbau und Betrieb einer Azure-Betriebsplattform\n\n• Sicherstellen, dass alle Projekte qualitativ hochwertig, im Zeit- und Kostenrahmen umgesetzt werden\n\n• Kontinuierliche Optimierung unserer IT-Prozesse, Architekturen und Automatisierungen\n\n• Durchführung von stufengerechten Präsentationen und technischen Workshops\n\n• Zusammenarbeit: Enge Kooperation mit Entwicklung, DevOps, SecOps, Application Management und zur Integration von Anwendungen und Diensten\n\nAnforderungen:\n• Du hast eine abgeschlossene Informatik-Ausbildung oder gleichwertige Berufserfahrung (mindestens 5 Jahre im Cloud Engineering oder System Engineering).\n\n• Du hast idealerweise eine höhere Weiterbildung in Informatik absolviert oder verfügst über einschlägige Zertifizierungen.\n\n• Du bringst tiefgehendes technisches Know-how in Microsoft- und Cloud-Technologien mit – insbesondere in M365, Azure, Windows Server, Netzwerktechnologien und Security.\n\n• Du hast Erfahrung mit hybriden IT-Umgebungen (z. B. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, Firewalls) arbeitest selbstständig, denkst unternehmerisch und übernimmst gerne Verantwortung.\n\n• Du begeisterst Dich für Innovation, Automatisierung und digitale Transformation.\n\n• Du kommunizierst sicher auf Deutsch und Englisch, sowohl mündlich als auch schriftlich.\n\nWir bieten:\n• Flexible Arbeitszeiten/-modelle\n\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Concezione e implementazione di tecnologie Microsoft (Azure, M365, Windows Server, Hyper-V, Sicurezza, Rete, Backup, ecc.)\n\n• Operazione, sviluppo e stabilizzazione della nostra infrastruttura on-premises esistente (Windows Server, VMware, Storage, Network, Security, Backup)\n\n• Responsabilità per l'architettura e l'implementazione di complessi progetti infrastrutturali IT\n\n• Sviluppare e implementare risorse Azure: contribuire a costruire e gestire una piattaforma operativa Azure\n\n• Assicurarsi che tutti i progetti siano di alta qualità, nel tempo e nel budget\n\n• Ottimizzazione continua dei nostri processi IT, architetture e automazione\n\n• Condurre presentazioni passo per passo e workshop tecnici\n\n• Collaborazione: stretta collaborazione con lo sviluppo, DevOps, SecOps, gestione delle applicazioni e integrazione di applicazioni e servizi\n\nRequisiti\n• Hai completato un'educazione informatica o un'esperienza professionale equivalente (almeno 5 anni in ingegneria cloud o ingegneria del sistema).\n\n• Idealmente, hai completato un'istruzione superiore in informatica o hai certificazioni rilevanti.\n\n• Porti un know-how tecnico approfondito nelle tecnologie Microsoft e cloud – soprattutto in M365, Azure, Windows Server, tecnologie di rete e sicurezza.\n\n• Hai esperienza con ambienti IT ibridi (ad esempio VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, firewall) lavorare in modo indipendente, pensare imprenditoriale e come assumersi la responsabilità.\n\n• Sei appassionato di innovazione, automazione e trasformazione digitale.\n\n• Siete sicuri di comunicare in tedesco e inglese, sia verbalmente che per iscritto.\n\nOffriamo:\n• Ore/modelli di lavoro flessibili\n\n• 40 settimana oraria\n\n• Possibilità di ufficio\n\n• Prestazioni sociali interessanti e numerosi vantaggi\n\n• Spirito di squadra\n\n• Equilibrio di vita / Amica della famiglia\n\nLa Schulthes Clinic di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
-        "en": "Tasks:\n• Conception and implementation of Microsoft technologies (Azure, M365, Windows Server, Hyper-V, Security, Network, Backup, etc.)\n\n• Operation, development and stabilization of our existing on-premises infrastructure (Windows Server, VMware, Storage, Network, Security, Backup)\n\n• Responsibility for the architecture and implementation of complex IT infrastructure projects\n\n• Developing and implementing Azure resources: helping to build and operate an Azure operating platform\n\n• Ensure that all projects are of high quality, on time and on budget\n\n• Continuous optimization of our IT processes, architectures and automations\n\n• Conducting step-by-step presentations and technical workshops\n\n• Collaboration: Close cooperation with development, DevOps, SecOps, application management and integration of applications and services\n\nRequirements\n• You have completed a computer science education or equivalent professional experience (at least 5 years in cloud engineering or system engineering).\n\n• Ideally, you have completed a higher education in computer science or have relevant certifications.\n\n• You bring in-depth technical know-how in Microsoft and cloud technologies – especially in M365, Azure, Windows Server, network technologies and security.\n\n• You have experience with hybrid IT environments (e.g. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, firewalls) work independently, think entrepreneurially and like to take responsibility.\n\n• You are passionate about innovation, automation and digital transformation.\n\n• You are sure to communicate in German and English, both verbally and in writing.\n\nWe offer:\n• Flexible working hours/models\n\n• 40 hourly week\n\n• Possibility for home office\n\n• Attractive social benefits and numerous benefits\n\n• Team spirit\n\n• Work-Life Balance / Family Friendliness\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
-        "de": "Aufgaben:\n• Konzeption und Implementierung von Microsoft-Technologien (Azure, M365, Windows Server, Hyper-V, Security, Netzwerk, Backup etc.)\n\n• Betrieb, Weiterentwicklung und Stabilisierung unserer bestehenden On-Premises-Infrastruktur (Windows Server, VMware, Storage, Netzwerk, Security, Backup)\n\n• Verantwortung für die Architektur und Umsetzung von komplexen IT-Infrastrukturprojekten\n\n• Entwicklung und Implementierung von Azure-Ressourcen: Unterstützung beim Aufbau und Betrieb einer Azure-Betriebsplattform\n\n• Sicherstellen, dass alle Projekte qualitativ hochwertig, im Zeit- und Kostenrahmen umgesetzt werden\n\n• Kontinuierliche Optimierung unserer IT-Prozesse, Architekturen und Automatisierungen\n\n• Durchführung von stufengerechten Präsentationen und technischen Workshops\n\n• Zusammenarbeit: Enge Kooperation mit Entwicklung, DevOps, SecOps, Application Management und zur Integration von Anwendungen und Diensten\n\nAnforderungen:\n• Du hast eine abgeschlossene Informatik-Ausbildung oder gleichwertige Berufserfahrung (mindestens 5 Jahre im Cloud Engineering oder System Engineering).\n\n• Du hast idealerweise eine höhere Weiterbildung in Informatik absolviert oder verfügst über einschlägige Zertifizierungen.\n\n• Du bringst tiefgehendes technisches Know-how in Microsoft- und Cloud-Technologien mit – insbesondere in M365, Azure, Windows Server, Netzwerktechnologien und Security.\n\n• Du hast Erfahrung mit hybriden IT-Umgebungen (z. B. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, Firewalls) arbeitest selbstständig, denkst unternehmerisch und übernimmst gerne Verantwortung.\n\n• Du begeisterst Dich für Innovation, Automatisierung und digitale Transformation.\n\n• Du kommunizierst sicher auf Deutsch und Englisch, sowohl mündlich als auch schriftlich.\n\nWir bieten:\n• Flexible Arbeitszeiten/-modelle\n\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "fr": "Tâches :\n• Conception et mise en œuvre des technologies Microsoft (Azure, M365, Windows Server, Hyper-V, Sécurité, Réseau, Sauvegarde, etc.)\n\n• Fonctionnement, développement et stabilisation de notre infrastructure existante sur site (Windows Server, VMware, Stockage, Réseau, Sécurité, Sauvegarde)\n\n• Responsabilité de l'architecture et de la mise en œuvre de projets d'infrastructure informatique complexes\n\n• Développement et mise en œuvre des ressources Azure : aider à construire et à exploiter une plateforme d'exploitation Azure\n\n• Veiller à ce que tous les projets soient de haute qualité, dans les délais et sur le budget\n\n• Optimisation continue de nos processus, architectures et automatisations informatiques\n\n• Présentations et ateliers techniques étape par étape\n\n• Collaboration: Coopération étroite avec le développement, DevOps, SecOps, gestion des applications et intégration des applications et des services\n\nExigences\n• Vous avez suivi une formation en informatique ou une expérience professionnelle équivalente (au moins 5 ans en génie du cloud ou en génie système).\n\n• Idéalement, vous avez terminé des études supérieures en informatique ou avez obtenu des certifications pertinentes.\n\n• Vous apportez un savoir-faire technique approfondi dans les technologies Microsoft et Cloud – en particulier dans M365, Azure, Windows Server, les technologies réseau et la sécurité.\n\n• Vous avez de l'expérience avec des environnements informatiques hybrides (p. ex. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, pare-feu) fonctionnent de manière indépendante, réfléchissent de manière entrepreneuriale et aiment prendre des responsabilités.\n\n• Vous êtes passionné par l'innovation, l'automatisation et la transformation numérique.\n\n• Vous êtes sûr de communiquer en allemand et en anglais, à la fois verbalement et par écrit.\n\nNous offrons:\n• Durée/modèles de travail flexibles\n\n• 40 semaines horaires\n\n• Possibilité de bureau à domicile\n\n• Prestations sociales attractives et nombreuses prestations\n\n• Esprit d'équipe\n\n• Équilibre travail-vie personnelle / Amabilité familiale\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://job.schulthess-klinik.ch/offene-stellen/senior-cloud-system-engineer/9be11ac1-1153-4e3f-a0ce-23e312012c61",
-      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:16:25.603Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Lengghalde 2",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1831",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
-        ],
-        "fr": [
-          "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:12:09.926Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 121500,
-          "maxValue": 206500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "schulthess-klinik-64b48f2b6b3b",
-      "slug": "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-zurich",
-      "slugByLocale": {
-        "it": "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-zurich",
-        "en": "med-practice-assistant-med-practice-assistant-rheumatology-rehabilitation-schulthess-klinik-zurich",
-        "de": "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
-        "fr": "med-assistant-de-pratique-med-assistant-de-pratique-rheumatology-rehabilitation-schulthess-klinik-zurich"
-      },
-      "company": "Schulthess Klinik",
-      "companyKey": "schulthess-klinik",
-      "companyDomain": "schulthess-klinik.ch",
-      "title": "Med. Praxisassistentin / Med. Praxisassistent Rheumatologie & Rehabilitation",
-      "titleByLocale": {
-        "it": "Med. assistente pratica / Med. Assistente di pratica Rheumatology & Rehabilitation",
-        "en": "Med. practice assistant / Med. Practice assistant Rheumatology & Rehabilitation",
-        "de": "Med. Praxisassistentin / Med. Praxisassistent Rheumatologie & Rehabilitation",
-        "fr": "Med. assistant de pratique / Med. assistant de pratique Rheumatology & Rehabilitation"
-      },
-      "description": "Aufgaben:\n• Sprechstundenorganisation und Terminplanung\n\n• Empfang und Betreuung der Patienten\n\n• Erstellen von Arztberichten (Hintergrundspracherkennung), erfassen von deren Leistungen nach TARDOC und Falldatenpflege\n\n• Freundliche telefonische Auskünfte und Weiterleitungen an die zuständige Instanz\n\n• Blutentnahmen, Injektionen, Infusionen\n\n• Knochendichtemessungen (Röntgenschein erforderlich oder Bereitschaft, diesen zu erlangen)\n\n• Instruktion von Patienten zur selbständigen Medikamentenapplikation\n\nAnforderungen:\n• Ausbildung als Medizinische/r Praxisassistent/in\n\n• Freude am Erstellen von Arztberichten und sichere Anwendung der medizinischen Terminologie\n\n• Hohe Motivation für administrative Tätigkeiten\n\n• Dienstleistungsorientiert und Freude am direkten Patientenkontakt\n\n• Sehr gute und stilsichere Deutschkenntnisse, Kenntnisse in Englisch von Vorteil\n\n• Zur Erweiterung unseres Teams freuen wir uns auf eine freundliche, teamfähige und selbstständige Persönlichkeit\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Trainingsmöglichkeiten\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Organizzazione delle ore di ufficio e pianificazione\n\n• Ricezione e cura dei pazienti\n\n• Preparazione di relazioni mediche (riconoscimento vocale di base), registrazione dei loro servizi secondo TARDOC e manutenzione dei dati di caso\n\n• Informazioni telefoniche amichevoli e invio all'autorità competente\n\n• Campionamento del sangue, iniezioni, infusioni\n\n• Misurazioni di densità di ossa (a raggi X richiesto o disponibilità per ottenerlo)\n\n• Istruzione dei pazienti per applicazione indipendente della droga\n\nRequisiti\n• Formazione come assistente medico/pratico\n\n• Godetevi la creazione di rapporti medici e l'applicazione sicura della terminologia medica\n\n• Alta motivazione per le attività amministrative\n\n• Servizio orientato e godimento del contatto diretto del paziente\n\n• Conoscenza molto buona ed elegante del tedesco, la conoscenza in inglese è vantaggioso\n\n• Per espandere il nostro team, non vediamo l'ora di una personalità amichevole, responsabile del team e indipendente\n\nOffriamo:\n• 40 settimana oraria\n\n• Prestazioni sociali interessanti e numerosi vantaggi\n\n• Spirito di squadra\n\n• Opportunità di formazione\n\n• Cibo economico nel ristorante del personale\n\nLa clinica Schulthess di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
-        "en": "Tasks:\n• Office hours organisation and scheduling\n\n• Reception and care of patients\n\n• Preparation of medical reports (background speech recognition), recording of their services according to TARDOC and case data maintenance\n\n• Friendly telephone information and forwarding to the competent authority\n\n• Blood sampling, injections, infusions\n\n• Bone density measurements (X-ray required or readiness to obtain it)\n\n• Instruction of patients for independent drug application\n\nRequirements\n• Training as medical/practice assistant\n\n• Enjoy the creation of medical reports and safe application of medical terminology\n\n• High motivation for administrative activities\n\n• Service-oriented and enjoyment of direct patient contact\n\n• Very good and stylish knowledge of German, knowledge in English is advantageous\n\n• To expand our team, we look forward to a friendly, team-capable and independent personality\n\nWe offer:\n• 40 hourly week\n\n• Attractive social benefits and numerous benefits\n\n• Team spirit\n\n• Training opportunities\n\n• Cheap food in the staff restaurant\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
-        "de": "Aufgaben:\n• Sprechstundenorganisation und Terminplanung\n\n• Empfang und Betreuung der Patienten\n\n• Erstellen von Arztberichten (Hintergrundspracherkennung), erfassen von deren Leistungen nach TARDOC und Falldatenpflege\n\n• Freundliche telefonische Auskünfte und Weiterleitungen an die zuständige Instanz\n\n• Blutentnahmen, Injektionen, Infusionen\n\n• Knochendichtemessungen (Röntgenschein erforderlich oder Bereitschaft, diesen zu erlangen)\n\n• Instruktion von Patienten zur selbständigen Medikamentenapplikation\n\nAnforderungen:\n• Ausbildung als Medizinische/r Praxisassistent/in\n\n• Freude am Erstellen von Arztberichten und sichere Anwendung der medizinischen Terminologie\n\n• Hohe Motivation für administrative Tätigkeiten\n\n• Dienstleistungsorientiert und Freude am direkten Patientenkontakt\n\n• Sehr gute und stilsichere Deutschkenntnisse, Kenntnisse in Englisch von Vorteil\n\n• Zur Erweiterung unseres Teams freuen wir uns auf eine freundliche, teamfähige und selbstständige Persönlichkeit\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Trainingsmöglichkeiten\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "fr": "Tâches :\n• Organisation et programmation des heures de bureau\n\n• Réception et soins des patients\n\n• Préparation de rapports médicaux (reconnaissance de la parole en arrière-plan), enregistrement de leurs services selon TARDOC et mise à jour des données de cas\n\n• Informations téléphoniques amicales et transmission à l'autorité compétente\n\n• Prélèvement sanguin, injections, perfusions\n\n• Mesure de la densité osseuse (rayons X requis ou préparation à l'obtenir)\n\n• Instruction aux patients pour l'application indépendante du médicament\n\nExigences\n• Formation en tant qu ' assistant médical et professionnel\n\n• Profitez de la création de rapports médicaux et de l'application sûre de la terminologie médicale\n\n• Une forte motivation pour les activités administratives\n\n• Orientation vers le service et jouissance des contacts directs avec le patient\n\n• Très bonne et élégante connaissance de l'allemand, la connaissance en anglais est avantageuse\n\n• Pour élargir notre équipe, nous nous réjouissons d'une personnalité amicale, capable d'équipe et indépendante\n\nNous offrons:\n• 40 semaines horaires\n\n• Prestations sociales attractives et nombreuses prestations\n\n• Esprit d'équipe\n\n• Possibilités de formation\n\n• Nourriture bon marché dans le restaurant du personnel\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/325df460-7ca5-4c5f-8931-d867bd6bd673",
-      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:16:25.600Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Lengghalde 2",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2001",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
-        "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
-          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-11T13:33:15.603Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "schulthess-klinik-bde426e543c1",
-      "slug": "hf-fh-professionale-nel-campo-della-cura-intermedia-imc-schulthess-klinik-zurich",
-      "slugByLocale": {
-        "it": "hf-fh-professionale-nel-campo-della-cura-intermedia-imc-schulthess-klinik-zurich",
-        "en": "care-professional-hf-fh-in-the-field-of-intermediate-care-imc-schulthess-klinik-zurich",
-        "de": "pflegefachperson-hf-fh-im-bereich-intermediate-care-imc-schulthess-klinik-zurich",
-        "fr": "soins-professionnels-hf-fh-dans-le-domaine-des-soins-intermediaires-imc-schulthess-klinik-zurich"
-      },
-      "company": "Schulthess Klinik",
-      "companyKey": "schulthess-klinik",
-      "companyDomain": "schulthess-klinik.ch",
-      "title": "Pflegefachperson HF/FH im Bereich Intermediate Care (IMC)",
-      "titleByLocale": {
-        "it": "HF/FH professionale nel campo della cura intermedia (IMC)",
-        "en": "Care professional HF/FH in the field of Intermediate Care (IMC)",
-        "de": "Pflegefachperson HF/FH im Bereich Intermediate Care (IMC)",
-        "fr": "Soins professionnels HF/FH dans le domaine des soins intermédiaires (IMC)"
-      },
-      "description": "Aufgaben:\n• Fachkompetente und eigenverantwortliche Betreuung von Patientinnen und Patienten in komplexen sowie instabilen Situationen im IMC- und Aufwachraumbereich\n\n• Durchführung und Überwachung einer differenzierten Schmerztherapie, Sicherstellung der neurologischen Überwachung und Durchführung spezifischer therapeutischer Massnahmen\n\n• Frühzeitiges Erkennen von klinischen Verschlechterungen und akut lebensbedrohlichen Situationen sowie Einleitung der erforderlichen Massnahmen\n\n• Erkennen und kompetentes Handeln in Notfallsituationen sowie aktive Mitarbeit im Reanimationsteam\n\n• Übernahme von Zusatzverantwortungen im Stationsalltag, beispielsweise als Schichtleitung, sowie Mitarbeit bei stationsinternen Aufgaben und Projekten\n\n• Interprofessionelle Zusammenarbeit mit Ärztinnen und Ärzten sowie weiteren beteiligten Berufsgruppen zur Sicherstellung einer hochwertigen und patientenzentrierten Versorgung\n\nAnforderungen:\n• Dipl. Pflegefachperson HF/FH mit abgeschlossener Weiterbildung in Überwachungspflege oder mit der Motivation und Bereitschaft, diese zu absolvieren\n\n• Fachkompetenz und Freude an anspruchsvollen Patientensituationen\n\n• Klare, wertschätzende und zielgerichtete Kommunikation\n\n• Bereitschaft, Verantwortung zu übernehmen und sich fachlich kontinuierlich weiterzuentwickeln\n\n• Teamgeist, Eigeninitiative und eine lösungsorientierte Arbeitsweise\n\n• Bereitschaft zur Arbeit im 3-Schichtbetrieb\n\nWir bieten:\n• 40 Stundenwoche\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Nachtschichtzulage CHF 10.-/h plus 20% Zeitgutschrift\n\n• Wochenend-, Feiertags- und Spätdienstzulage CHF 8.-/h\n\n• ZVV-BonusPass / ZVV-BonusPass Flex\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Cura competente e responsabile dei pazienti in situazioni complesse e instabili nell'area IMC e della sala di recupero\n\n• Attuazione e monitoraggio della terapia del dolore differenziata, monitoraggio neurologico e attuazione di misure terapeutiche specifiche\n\n• Rilevamento precoce del deterioramento clinico e delle situazioni di minaccia di vita acuta e avvio di misure necessarie\n\n• Identificazione e azione competente in situazioni di emergenza e partecipazione attiva al team di rianimazione\n\n• Assumendo ulteriori responsabilità nel lavoro quotidiano della stazione, ad esempio come la gestione dei turni, così come la cooperazione in compiti e progetti interni\n\n• Cooperazione interprofessionale con medici e altri gruppi professionali partecipanti per garantire una cura di alta qualità e paziente\n\nRequisiti\n• Dipl. Infermiera HF/FH con formazione completa in supervisione o con motivazione e disponibilità a completarla\n\n• Competenza e godimento di situazioni di paziente esigenti\n\n• Comunicazione chiara, apprezzativa e mirata\n\n• Volontà ad assumersi la responsabilità e sviluppare continuamente professionalmente\n\n• Spirito di squadra, iniziativa e metodo di lavoro orientato alla soluzione\n\n• Prontezza al lavoro in funzionamento a 3 turni\n\nOffriamo:\n• 40 settimana oraria\n\n• Tempo di cambio pagato o compensabile (15 min./giorno / 6.5 Venerdì/anno)\n\n• 15 minuti di pausa pagata al giorno\n\n• Assegno notturno CHF 10.-/h più il 20% di tempo di credito\n\n• Fine settimana, ferie pubbliche e assegni di servizio tardivo CHF 8.-/h\n\n• ZVV BonusPass / ZVV BonusPass Flex\n\nLa Schulthes Clinic di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
-        "en": "Tasks:\n• Competent and self-responsible care of patients in complex and unstable situations in the IMC and recovery room area\n\n• Implementation and monitoring of differentiated pain therapy, ensuring neurological monitoring and carrying out specific therapeutic measures\n\n• Early detection of clinical deterioration and acute life-threatening situations and initiation of necessary measures\n\n• Identification and competent action in emergency situations as well as active participation in the resuscitation team\n\n• Assuming additional responsibilities in the day-to-day work of the station, for example as shift management, as well as cooperation in internal tasks and projects\n\n• Interprofessional cooperation with doctors and other participating professional groups to ensure high-quality and patient-centered care\n\nRequirements\n• Dipl. Nurse HF/FH with completed training in supervision care or with the motivation and willingness to complete it\n\n• Expertise and enjoyment of demanding patient situations\n\n• Clear, appreciative and targeted communication\n\n• Willingness to take responsibility and continuously develop professionally\n\n• Team spirit, initiative and a solution-oriented working method\n\n• Readiness to work in 3-shift operation\n\nWe offer:\n• 40 hourly week\n\n• Paid or compensable changing time (15 min./day / 6.5 Fridays/year)\n\n• 15 minutes paid break per day\n\n• Night shift allowance CHF 10.-/h plus 20% time credit\n\n• Weekend, public holiday and late service allowance CHF 8.-/h\n\n• ZVV BonusPass / ZVV BonusPass Flex\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
-        "de": "Aufgaben:\n• Fachkompetente und eigenverantwortliche Betreuung von Patientinnen und Patienten in komplexen sowie instabilen Situationen im IMC- und Aufwachraumbereich\n\n• Durchführung und Überwachung einer differenzierten Schmerztherapie, Sicherstellung der neurologischen Überwachung und Durchführung spezifischer therapeutischer Massnahmen\n\n• Frühzeitiges Erkennen von klinischen Verschlechterungen und akut lebensbedrohlichen Situationen sowie Einleitung der erforderlichen Massnahmen\n\n• Erkennen und kompetentes Handeln in Notfallsituationen sowie aktive Mitarbeit im Reanimationsteam\n\n• Übernahme von Zusatzverantwortungen im Stationsalltag, beispielsweise als Schichtleitung, sowie Mitarbeit bei stationsinternen Aufgaben und Projekten\n\n• Interprofessionelle Zusammenarbeit mit Ärztinnen und Ärzten sowie weiteren beteiligten Berufsgruppen zur Sicherstellung einer hochwertigen und patientenzentrierten Versorgung\n\nAnforderungen:\n• Dipl. Pflegefachperson HF/FH mit abgeschlossener Weiterbildung in Überwachungspflege oder mit der Motivation und Bereitschaft, diese zu absolvieren\n\n• Fachkompetenz und Freude an anspruchsvollen Patientensituationen\n\n• Klare, wertschätzende und zielgerichtete Kommunikation\n\n• Bereitschaft, Verantwortung zu übernehmen und sich fachlich kontinuierlich weiterzuentwickeln\n\n• Teamgeist, Eigeninitiative und eine lösungsorientierte Arbeitsweise\n\n• Bereitschaft zur Arbeit im 3-Schichtbetrieb\n\nWir bieten:\n• 40 Stundenwoche\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\n• 15 Minuten bezahlte Pause pro Tag\n\n• Nachtschichtzulage CHF 10.-/h plus 20% Zeitgutschrift\n\n• Wochenend-, Feiertags- und Spätdienstzulage CHF 8.-/h\n\n• ZVV-BonusPass / ZVV-BonusPass Flex\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "fr": "Tâches :\n• Soins compétents et auto-responsables des patients dans des situations complexes et instables dans la zone de CIM et de la salle de récupération\n\n• Mise en œuvre et suivi d'un traitement différencié de la douleur, surveillance neurologique et mise en œuvre de mesures thérapeutiques spécifiques\n\n• Détection précoce de la détérioration clinique et des situations aiguës mettant en danger la vie et lancement des mesures nécessaires\n\n• Identification et action compétente dans les situations d'urgence et participation active à l'équipe de réanimation\n\n• Assumer des responsabilités supplémentaires dans le travail quotidien de la station, par exemple en matière de gestion des équipes, ainsi que de coopération dans les tâches et projets internes\n\n• Coopération interprofessionnelle avec les médecins et les autres groupes professionnels participants pour assurer des soins de qualité et axés sur le patient\n\nExigences\n• Dipl. Infirmière HF/FH ayant terminé sa formation en soins de supervision ou ayant la motivation et la volonté de la compléter\n\n• Expertise et jouissance des situations de patients exigeants\n\n• Communication claire, appréciée et ciblée\n\n• Volonté de prendre des responsabilités et de se développer en permanence\n\n• Esprit d'équipe, initiative et méthode de travail axée sur la solution\n\n• Préparation au travail en 3 équipes\n\nNous offrons:\n• 40 semaines horaires\n\n• Temps de changement payé ou indemnisable (15 min./jour / 6,5 vendredis/année)\n\n• 15 minutes de pause payé par jour\n\n• Indemnité de nuit CHF 10.-/h plus 20% de temps crédit\n\n• Week-end, jours fériés et service en retard CHF 8.-/h\n\n• ZVV BonusPass / ZVV BonusPass Flex\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-hf-fh-im-bereich-intermediate-care-imc/e7f5a02e-b37e-4d50-b8c3-ce008b0ebf47",
-      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:16:25.576Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Lengghalde 2",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2094",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "pflegefachperson-hf-fh-im-bereich-intermediate-care-imc-schulthess-klinik-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegefachperson-hf-fh-im-bereich-intermediate-care-imc-schulthess-klinik-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-17T23:31:54.446Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }
