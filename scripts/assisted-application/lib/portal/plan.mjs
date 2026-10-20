@@ -535,7 +535,7 @@ const CRIMINAL_CERTIFICATE_QUESTION_RE = /\b(?:certificate|extract|certificat|at
 const SALARY_UNIT_RE = /\b(?:annual(?:ly)?|per year|yearly|annually|annuel(?:le)?|annuel(?:lement)?|annua(?:le)?|annuo|annua|annui|annue|all['’]anno|pro jahr|jährlich|jaehrlich)\b/i;
 const MONTHLY_SALARY_RE = /\b(?:monthly|per month|a month|par mois|mensuel(?:le)?|al mese|mensile|pro monat|monatlich)\b/i;
 const HOURLY_SALARY_RE = /\b(?:hourly|per hour|an hour|par heure|horaire|all['’]ora|pro stunde|stündlich|stundlich)\b/i;
-const SALARY_CURRENCY_RE = /\b(CHF|EUR|USD|GBP|CAD|AUD)\b|Fr\.?\s*(?:CHF)?/i;
+const SALARY_CURRENCY_RE = /\b(CHF|EUR|USD|GBP|CAD|AUD)\b|\bFr\.?(?=\s|$|[\d.,])/i;
 // Some ATS forms label the candidate's residence field only «CAP». A bare
 // label is safe only when field extraction supplies the surrounding residence
 // section; the label alone is also used by work-history forms.
@@ -1088,7 +1088,9 @@ export function candidateAnswerForField(candidate, field) {
     const value = availability && (field?.options?.length ? optionForAnswer(field, availability) : availability);
     if (value) return { value, source: candidate?.answers?.availability ? 'answers' : 'profile' };
   }
-  if (topic.startsWith('salary_expectation:') || SALARY_FIELD_RE.test(label)) {
+  // `salary_expectation` is stored as annual gross CHF. Do not reuse it in a
+  // question with a different or unspecified unit/currency.
+  if (topic === 'salary_expectation:annual:CHF') {
     const salary = String(candidate?.answers?.salary_expectation || '').trim();
     const value = salary && (field?.options?.length ? optionForAnswer(field, salary) : salary);
     if (value) return { value, source: 'answers' };
