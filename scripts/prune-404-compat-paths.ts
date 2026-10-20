@@ -21,16 +21,13 @@ import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-stor
 // data/seo-404-compat/part-*.json. Read/write only via the store helpers.
 const ROOT = process.cwd();
 
-// Strict (fail-closed) mode. The graceful default below self-skips (exit 0)
-// when the resolver/dataset isn't available, which is correct for general
-// data-refresh workflows that prune BEFORE pushing. But the in-rebase JSON
-// 3-way merge in git-commit-data.sh runs AFTER that gate and re-introduces
-// upstream paths; if the resolver were unavailable there, a silent skip would
-// let a non-resolving path survive into the committed merge → main red (the
-// exact outage this guard prevents). Callers in that path set
-// PRUNE_404_STRICT=1 so unavailability becomes a hard failure (exit 1, abort
-// the push) instead of a silent no-op. Reuses the single resolvability source
-// rather than duplicating resolver wiring.
+// Strict (fail-closed) mode. If the resolver cannot load, the relaxed default
+// below skips validation; any caller that can commit or propose this store MUST
+// set PRUNE_404_STRICT=1. This includes workflow writers and the in-rebase JSON
+// 3-way merge in git-commit-data.sh, which can re-introduce upstream paths after
+// an earlier prune. Strict callers fail before publishing instead of silently
+// preserving an unvalidated entry. Reuses the single resolvability source rather
+// than duplicating resolver wiring.
 const STRICT = process.env.PRUNE_404_STRICT === '1';
 
 async function main(): Promise<void> {
@@ -38,10 +35,9 @@ async function main(): Promise<void> {
   // committed data/canton-url-slugs.json (since #2041 it no longer pulls in the
   // CI-assembled data/jobs.json — per-canton job paths canonicalize to the canton
   // in the URL, not via the slug→canton index). If the import fails for any
-  // reason we CANNOT validate resolvability — skip gracefully (exit 0) rather than
-  // crash, so the step is safe to add to any data-refresh workflow. In STRICT
-  // mode the same unavailability is fatal (the caller cannot tolerate an
-  // unvalidated file).
+  // reason we CANNOT validate resolvability. Callers that publish the result
+  // use STRICT mode so this becomes fatal; the relaxed skip is only for callers
+  // that may safely continue without publishing an unvalidated snapshot.
   let resolveSearchConsoleCompatTarget: (p: string) => unknown | null;
   try {
     ({ resolveSearchConsoleCompatTarget } = await import('../build-plugins/searchConsoleCompat'));
