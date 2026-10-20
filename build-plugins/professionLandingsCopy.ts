@@ -1877,6 +1877,11 @@ export function buildProfessionLandingCopy(
   };
 }
 
+/** Localized role name for compact actions such as the profession alert filter. */
+export function buildProfessionRoleLabel(locale: ProfessionLocale, id: ProfessionId): string {
+  return PROFESSION_STRINGS_BY_LOCALE[locale][id].role;
+}
+
 export function buildProfessionLandingSections(
   locale: ProfessionLocale,
   id: ProfessionId,

@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3993.title': 'Ein klarer Weg durch die Jobsuche in deiner Branche',
+ 'whatsNew.v3993.professionJourney.title': 'Vom Beruf zur Bewerbung in geführten Schritten',
+ 'whatsNew.v3993.professionJourney.desc': 'Berufs- und Branchenseiten verbinden Stellenangebote, Hinweise zur Rolle, eine Nettolohn-Schätzung, in Anzeigen genannte Arbeitgeber und Benachrichtigungen zu neuen passenden Stellen.',
  'whatsNew.v3991.title': "Passendere Stellen in deiner Nähe",
  'whatsNew.v3991.conciergeProximity.title': "Die Entfernung beeinflusst die Reihenfolge der Vorschläge",
  'whatsNew.v3991.conciergeProximity.desc': "Gib in deinem Profil deinen Wohnort oder deine Postleitzahl an, damit wir passende Stellen in deiner Nähe bevorzugen können. Die Übereinstimmung mit deinem Lebenslauf bleibt entscheidend; eine vollständige Adresse ist nicht nötig.",
