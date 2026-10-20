@@ -213,6 +213,13 @@ function sinceDate(now = Date.now()) {
   return new Date(now - 7 * 86_400_000).toISOString().slice(0, 10);
 }
 
+function activeQuotaCounts(floor) {
+  if (!floor.ok || !('activeCounts' in floor) || !floor.activeCounts) {
+    throw new Error(floor.reason || 'quota floor active counts missing');
+  }
+  return floor.activeCounts;
+}
+
 /**
  * Fetch the bounded inputs used by the pure decision. Kept injectable so the
  * accounting contract can be tested without GitHub.
@@ -252,14 +259,15 @@ export function collectRepairQuotaStats({
       runJson,
     });
     if (!floor.ok) throw new Error(floor.reason);
+    const activeCounts = activeQuotaCounts(floor);
     return {
       ok: true,
       since,
       repairRuns,
       issueFixRuns,
       queuedIssues: queued.length,
-      activeRepairLeases: floor.activeCounts.repair,
-      activeIssueFixLeases: floor.activeCounts['issue-fix'],
+      activeRepairLeases: activeCounts.repair,
+      activeIssueFixLeases: activeCounts['issue-fix'],
       floor,
     };
   } catch (error) {
@@ -408,11 +416,12 @@ export function main({
     return emit({ admit: false, held: false, reason: 'PR context missing; fail-closed' }, env);
   }
 
-  const nowSec = Math.floor(new Date(now).getTime() / 1000);
+  const nowMs = new Date(now).getTime();
+  const nowSec = Math.floor(nowMs / 1000);
   const ledgerIssue = env.QUOTA_FLOOR_LEDGER_ISSUE || QUOTA_FLOOR_LEDGER_ISSUE;
   const stats = collectRepairQuotaStats({
     repo,
-    since: sinceDate(now),
+    since: sinceDate(nowMs),
     nowSec,
     ledgerIssue,
     runJson,
