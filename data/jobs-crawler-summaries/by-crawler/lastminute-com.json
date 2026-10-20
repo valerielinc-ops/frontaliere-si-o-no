@@ -1,18 +1,19 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-10-19T21:33:45.442Z",
+  "generatedAt": "2026-10-20T09:25:21.166Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10492,
-  "avgDurationMs": 10492,
+  "durationMs": 9547,
+  "avgDurationMs": 9547,
   "durationHistory": [
-    10492
+    9547
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Administrative B2B Specialist",
       "slug": "administrative-b2b-specialist-chiasso",
@@ -53,9 +54,7 @@
         "translation": 21,
         "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Junior Accountant",
       "slug": "junior-accountant-chiasso",
@@ -263,5 +262,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
+  "codeCommit": "a1bd59ecfe0dd8e9073ead0a9cb11e2d39e2c95a"
 }

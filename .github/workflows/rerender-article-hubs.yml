@@ -211,6 +211,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install article renderer runtime dependencies
+        run: bash scripts/lib/install-article-renderer-runtime-deps.sh
+
       # DRY resolution, in one place, read by every later step.
       #
       # A manual dispatch defaults to dry (see the input's own default) so a
@@ -248,12 +251,11 @@ jobs:
       # and GITHUB_PAT as push-article-shard-incremental.sh's last-resort
       # fallback for a refused deploy key.
       #
-      # Deliberately NO `npm ci`: the driver runs through the pinned tsx wrapper and its
-      # whole transitive value-import closure (81 files, verified by scanning
-      # it — the one `react` edge is reached through an `import type` that tsx
-      # erases) touches no npm package at runtime. Same posture as
-      # rerender-article-corpus.yml and fast-publish-article.yml, and the
-      # reason this workflow costs minutes.
+      # Deliberately NO full `npm ci`: the targeted installer above materializes
+      # the renderer’s locked runtime dependencies (`@noble/hashes` for the
+      # shared job inventory and `html-entities` for the article engine), while
+      # `tsx` stays on-demand and the workflow remains off the full-install /
+      # full-build critical path.
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 

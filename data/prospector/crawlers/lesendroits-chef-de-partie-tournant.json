@@ -1,0 +1,20 @@
+{
+  "companyKey": "lesendroits-chef-de-partie-tournant",
+  "companyName": "lesendroits",
+  "companyHost": "lesendroits-chef-de-partie-tournant.lovable.app",
+  "platform": "lovable.app",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://lesendroits-chef-de-partie-tournant.lovable.app/"
+  ],
+  "detailTemplate": "/",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Chef de partie tournant – Cuisine"
+  ],
+  "canton": "NE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-20T09:30:02.060Z"
+}

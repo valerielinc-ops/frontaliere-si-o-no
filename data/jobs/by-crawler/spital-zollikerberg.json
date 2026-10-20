@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-zollikerberg",
-  "assembledAt": "2026-10-19T21:12:45.950Z",
+  "assembledAt": "2026-10-20T09:11:16.587Z",
   "jobs": [
     {
       "id": "spital-zollikerberg-3278b2d6f421",
@@ -34,7 +34,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=734fd96e-eb9f-4c02-8b96-1974dd060e6d,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:12:41.416Z",
+      "crawledAt": "2026-10-20T09:11:10.384Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=d90cebd1-1125-4662-8ec2-4f4363f7c2d8,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:12:41.415Z",
+      "crawledAt": "2026-10-20T09:11:10.383Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -188,7 +188,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=671c57cd-3204-4ca9-9d50-1e55f3d506d0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:12:41.414Z",
+      "crawledAt": "2026-10-20T09:11:10.382Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -268,7 +268,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=2c0a6813-d8ca-4173-9b61-4389d83da0a1,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:12:41.413Z",
+      "crawledAt": "2026-10-20T09:11:10.381Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -348,7 +348,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b719b326-c30b-46ee-91b5-eb21dd9b0123,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:12:41.412Z",
+      "crawledAt": "2026-10-20T09:11:10.380Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -423,7 +423,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=9f43c751-f835-495d-a3fa-f17679074be0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:12:41.411Z",
+      "crawledAt": "2026-10-20T09:11:10.378Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -464,86 +464,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "spital-zollikerberg-c63befe6f54f",
-      "slug": "pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg",
-      "slugByLocale": {
-        "it": "pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg",
-        "en": "nursing-assistant-or-assistant-health-social-care-on-an-emergency-spital-zollikerberg-zollikerberg",
-        "de": "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem",
-        "fr": "assistante-infirmiere-ou-assistante-sanitaire-et-sociale-en-cas-d-urgence-spital-zollikerberg-zollikerberg"
-      },
-      "company": "Spital Zollikerberg",
-      "companyKey": "spital-zollikerberg",
-      "companyDomain": "spitalzollikerberg.ch",
-      "title": "Pflegeassistent / Pflegeassistentin oder Assistent / Assistentin Gesundheit & Soziales auf dem Notfall",
-      "titleByLocale": {
-        "it": "Assistente Infermieristico o Assistente Salute e Affari Sociali in Emergenza",
-        "en": "Nursing assistant or assistant health & social care on an emergency",
-        "de": "Pflegeassistent / Pflegeassistentin oder Assistent / Assistentin Gesundheit & Soziales auf dem Notfall",
-        "fr": "Assistante infirmière ou assistante sanitaire et sociale en cas d'urgence"
-      },
-      "description": "Pflegeassistent / Pflegeassistentin oder Assistent / Assistentin Gesundheit & Soziales auf dem Notfall — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nHerzlich willkommen an Ihrem neuen Arbeitsort.\n\nRegula Schlotterbeck, Leitung Notfall bietet Ihnen eine Stelle mit wählbarem Pensum von 40-80% in Schichtarbeit aber ohne Nachtdienste als\n\nPflegeassistent / Pflegeassistentin oder Assistent / Assistentin Gesundheit & Soziales auf dem Notfall\n\nWenn auch Sie den Unterschied im Leben von Menschen machen möchten, sind das Ihre Aufgaben:\n\n• Unterstützung des Notfallteams bei der Versorgung unserer Notfallpatientinnen und -patienten nach aktuellen Standards\n\n• Unterstützung der Patientinnen und Patienten bei pflegerischen Tätigkeiten sowie Begleitung und Hilfestellung in den Aktivitäten des täglichen Lebens\n\n• Übernahme allgemeiner Tätigkeiten in den Bereichen Hotellerie und Hauswirtschaft\n\n• Mitverantwortung für die Materialbewirtschaftung sowie Kontrolle und Bereitstellung von benötigtem Material\n\n• Aufbereitung und Reinigung der Behandlungsräume nach Patientenaustritten unter Einhaltung der Hygienevorschriften\n\n• Durchführung von Patiententransporten innerhalb des Spitals\n\nWerden Sie Teil unserer Notfallstation des Spitals, in der wir jährlich über 15'000 Patientinnen und Patienten behandeln und betreuen. Die Notfallstation verfügt über 9 Behandlungsplätze und einen regen 24-Stunden-Betrieb. Sie ist Teil der Klinik für Innere Medizin mit Weiterbildungsstatus A, welche ein zentrales und wichtiges Leistungszentrum des Spitals ist.\n\nVerschaffen Sie sich in unserem 360° Rundgang einen ersten Eindruck zu Ihrem neuen Arbeitsort.\n\nDamit Sie sich bei uns wohlfühlen, warten viele Benefits auf Sie. Um nur einige zu nennen:\n\n• Ökobonus von bis zu CHF 650.– pro Jahr\n\n• Eigene Pensionskasse mit überobligatorischer Beteiligung der Arbeitgeberin\n\n• Kostenlose Nutzung des Fitnessraums auf dem Areal Zollikerberg\n\n• Grosszügige Schichtzulagen\n\nAlle Annehmlichkeiten für Mitarbeitende finden Sie\nhier . Wenn auch Sie die beste Version Ihrer Selbst sein möchten, finden Sie bei uns die Möglichkeiten dazu.\n\nDamit überzeugen Sie uns:\n\n• Abgeschlossene Ausbildung als Assistentin / Assistent Gesundheit und Soziales (AGS) oder als Pflegehelferin / Pflegehelfer SRK\n\n• Gute mündliche Deutschkenntnisse\n\n• Hohe Belastbarkeit sowie ausgeprägtes Verantwortungsbewusstsein\n\n• Sorgfältige, zuverlässige und selbstständige Arbeitsweise\n\n• bereit Dienste hauptsächlich im Spätdienst zu leisten (auch am Wochenende und Feiertagen)\n\nNähere Auskünfte erteilt I hnen gerne Regula Schlotterbeck, Leitung Notfall, T 044 397 22 26.\n\nWir freuen uns auf Ihre Online-Bewerbung.\n\nWir möchten diese Position mit Direktbewerbungen besetzen, ohne die Unterstützung durch Personalberatungen. Herzlichen Dank im Voraus für das Verständnis.\n\nÜber das Spital Zollikerberg\nWir stehen für ein umfassendes Leistungsangebot und starke Kooperationspartner. Mit öffentlichem Leistungsauftrag und 173 Betten trägt das Spital Zollikerberg zur optimalen medizinischen Versorgung des Grossraumes Zürich bei. Bei uns dürfen sich jährlich mehr als 11‘000 stationäre und 75‘000 ambulante Patient:innen aller Versicherungsklassen wohl und in guten Händen fühlen. Unsere breit aufgestellte Grundversorgung umfasst Inneren Medizin, Gynäkologie und Geburtshilfe mit Neonatologie, allgemeinen Chirurgie, ein interdisziplinäres Notfallzentrum sowie Orthopädie mit spezialisierter Wirbelsäulenchirurgie.\n\nBewerbungsquelle\n\nAnrede *\n\nVorname *\n\nNachname *\n\nGeburtsdatum *\n\nUsername\n\nE-Mail *\n\nTelefon\n\nStrasse *\n\nNummer *\n\nPLZ *\n\nWohnort *\n\nLand *\n\nLebenslauf / Gesamtdokumentation *\n\nMotivationsschreiben\n\nAus- und Weiterbildung\n\nArbeitszeugnis\n\nWie sind Sie auf uns aufmerksam geworden? *\n\nWelche/er Mitarbeitende hat Sie auf diese Stelle aufmerksam gemacht?\n\nVerfügbar ab\n\nWeitere Informationen zu uns finden Sie auf unserer Homepage.\n\nJetzt bewerben\n\nDie Anlagen werden geprüft.\nBitte beachten Sie folgende Hinweise",
-      "descriptionByLocale": {
-        "it": "Assistente infermieristico / assistente sanitario o assistente assistenza sanitaria e assistenza sociale all'emergenza - Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Infermieristica professioni.\n\nBenvenuto nel tuo nuovo posto di lavoro.\n\nRegula Schlotterbeck, Management Emergency ti offre un lavoro con un carico di lavoro selezionabile del 40-80% ma senza servizi notturni come\n\nAssistente infermieristico o assistente sanitario & assistenza sociale su un'emergenza\n\nSe anche voi volete fare la differenza nella vita delle persone, questi sono i vostri compiti:\n\n• Supporto del team di emergenza nella cura dei nostri pazienti di emergenza secondo gli standard attuali\n\n• Supporto per i pazienti in attività di cura, supporto e assistenza nelle attività della vita quotidiana\n\n• Acquisizione di attività generali di ospitalità e alloggio\n\n• Co-responsabilità per la gestione e il controllo dei materiali e la fornitura di materiali necessari\n\n• Preparazione e pulizia delle sale di trattamento dopo l'uscita del paziente in conformità alle normative igieniche\n\n• Eseguire i trasporti dei pazienti all'interno dell'ospedale\n\nDiventa parte del nostro reparto di emergenza ospedaliera, dove trattiamo e curiamo oltre 15.000 pazienti ogni anno. Il reparto di emergenza ha 9 stazioni di trattamento e una piovosa operazione 24 ore. Fa parte della clinica per la medicina interna con lo stato di formazione continua A, che è un centro centrale e importante di servizio dell'ospedale.\n\nNel nostro tour a 360°, ottieni una prima impressione del tuo nuovo posto di lavoro.\n\nPer farti sentire a tuo agio con noi, molti benefici ti aspettano. Solo per citarne alcuni:\n\n• Ecobonus fino a CHF 650 all'anno\n\n• Fondo pensionistico privato con partecipazione superobbligatoria del datore di lavoro\n\n• Uso gratuito della sala fitness sul sito Zollikerberg\n\n• Indennità di turni\n\nTutti i servizi per i dipendenti possono essere trovati\nQui. Se vuoi anche essere la migliore versione di te stesso, troverai le possibilità con noi.\n\nQuesto ci convince:\n\n• Formazione completa come assistente / assistente sanitario e assistente sociale (AGS) o come assistente infermieristico / assistente infermieristico SRK\n\n• Buone competenze linguistiche tedesche\n\n• Alta resilienza e un forte senso di responsabilità\n\n• Lavoro attento, affidabile e indipendente\n\n• disposto a fornire servizi principalmente in servizio tardivo (anche nei fine settimana e nei giorni festivi)\n\nPer ulteriori informazioni, si prega di fare riferimento a Regula Schlotterbeck, capo di emergenza, T 044 397 22 26.\n\nAttendiamo con ansia la vostra applicazione online.\n\nVorremmo riempire questa posizione con domande dirette, senza il sostegno di consultazioni di reclutamento. Grazie in anticipo per la vostra comprensione.\n\nInformazioni sull'ospedale di Zollikerberg\nSiamo a favore di una gamma completa di servizi e di forti partner di cooperazione. Con un mandato di servizio pubblico e 173 posti letto, l'Ospedale Zollikerberg contribuisce all'assistenza medica ottimale della zona di Zurigo. Ogni anno, più di 11.000 pazienti e 75.000 pazienti in tutte le classi di assicurazione possono sentirsi a proprio agio e in buone mani. La nostra cura primaria largamente basata comprende medicina interna, ginecologia e ostetricia con neonatologia, chirurgia generale, un centro di emergenza interdisciplinare e ortopedia con chirurgia spinale specializzata.\n\nFonte dell'applicazione\n\nVoce principale:\n\nNome *\n\nCognome *\n\nData di nascita *\n\nNome utente\n\nEmail *\n\nTelefono\n\nStrada\n\nNumero\n\nPLZ*\n\nLuogo di residenza *\n\nPaese *\n\nCV / Documentazione completa *\n\nLettera di motivazione\n\nIstruzione e formazione\n\nCertificato di occupazione\n\nCome sei venuto alla nostra attenzione? *\n\nQuale dipendente ha attirato la vostra attenzione su questa posizione?\n\nDisponibile da\n\nUlteriori informazioni su di noi possono essere trovate sulla nostra homepage.\n\nApplicare ora\n\nGli impianti sono testati.\nSi prega di notare le seguenti informazioni",
-        "en": "Nursing assistant / nursing assistant or assistant health & social care on the emergency - Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Nursing professions.\n\nWelcome to your new place of work.\n\nRegula Schlotterbeck, Management Emergency offers you a job with a selectable workload of 40-80% but without night services as\n\nNursing assistant or assistant health & social care on an emergency\n\nIf you too want to make a difference in people’s lives, these are your tasks:\n\n• Support of the emergency team in the care of our emergency patients according to current standards\n\n• Support for patients in nursing activities as well as support and assistance in the activities of daily life\n\n• Takeover of general hospitality and housing activities\n\n• Co-responsibility for materials management and control and provision of needed materials\n\n• Preparation and cleaning of treatment rooms after patient exits in compliance with hygiene regulations\n\n• Carrying out patient transports within the hospital\n\nBecome part of our hospital emergency department, where we treat and care for more than 15,000 patients every year. The emergency department has 9 treatment stations and a rainy 24-hour operation. It is part of the Clinic for Internal Medicine with continuing education status A, which is a central and important center of service of the hospital.\n\nIn our 360° tour, get a first impression of your new place of work.\n\nTo make you feel comfortable with us, many benefits are waiting for you. Just to name a few:\n\n• Ecobonus of up to CHF 650 per year\n\n• Own pension fund with super-compulsory participation of the employer\n\n• Free use of the fitness room on the Zollikerberg site\n\n• Generous shift allowances\n\nAll amenities for employees can be found\nhere . If you also want to be the best version of yourself, you will find the possibilities with us.\n\nThis convinces us:\n\n• Completed training as an assistant / health and social assistant (AGS) or as a nursing assistant / nursing assistant SRK\n\n• Good oral German language skills\n\n• High resilience and a strong sense of responsibility\n\n• Careful, reliable and independent work\n\n• willing to provide services mainly in late service (also on weekends and public holidays)\n\nFor more information, please refer to Regula Schlotterbeck, head of emergency, T 044 397 22 26.\n\nWe look forward to your online application.\n\nWe would like to fill this position with direct applications, without the support of recruitment consultancies. Thank you in advance for your understanding.\n\nAbout the Zollikerberg Hospital\nWe stand for a comprehensive range of services and strong cooperation partners. With a public service mandate and 173 beds, the Zollikerberg Hospital contributes to the optimal medical care of the greater Zurich area. Every year, more than 11,000 inpatients and 75,000 outpatients in all insurance classes can feel comfortable and in good hands. Our broadly based primary care includes internal medicine, gynecology and obstetrics with neonatology, general surgery, an interdisciplinary emergency center and orthopedics with specialized spinal surgery.\n\nSource of application\n\nSpeech *\n\nFirst name *\n\nSurname *\n\nDate of birth *\n\nUsername\n\nEmail *\n\nTelephone\n\nRoad *\n\nNumber *\n\nPLZ*\n\nPlace of residence *\n\nCountry *\n\nCV / Complete documentation *\n\nLetter of motivation\n\nEducation and training\n\nEmployment certificate\n\nHow did you come to our attention? *\n\nWhich employee drew your attention to this position?\n\nAvailable from\n\nFurther information about us can be found on our homepage.\n\nApply now\n\nThe installations shall be tested.\nPlease note the following information",
-        "de": "Pflegeassistent / Pflegeassistentin oder Assistent / Assistentin Gesundheit & Soziales auf dem Notfall — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nHerzlich willkommen an Ihrem neuen Arbeitsort.\n\nRegula Schlotterbeck, Leitung Notfall bietet Ihnen eine Stelle mit wählbarem Pensum von 40-80% in Schichtarbeit aber ohne Nachtdienste als\n\nPflegeassistent / Pflegeassistentin oder Assistent / Assistentin Gesundheit & Soziales auf dem Notfall\n\nWenn auch Sie den Unterschied im Leben von Menschen machen möchten, sind das Ihre Aufgaben:\n\n• Unterstützung des Notfallteams bei der Versorgung unserer Notfallpatientinnen und -patienten nach aktuellen Standards\n\n• Unterstützung der Patientinnen und Patienten bei pflegerischen Tätigkeiten sowie Begleitung und Hilfestellung in den Aktivitäten des täglichen Lebens\n\n• Übernahme allgemeiner Tätigkeiten in den Bereichen Hotellerie und Hauswirtschaft\n\n• Mitverantwortung für die Materialbewirtschaftung sowie Kontrolle und Bereitstellung von benötigtem Material\n\n• Aufbereitung und Reinigung der Behandlungsräume nach Patientenaustritten unter Einhaltung der Hygienevorschriften\n\n• Durchführung von Patiententransporten innerhalb des Spitals\n\nWerden Sie Teil unserer Notfallstation des Spitals, in der wir jährlich über 15'000 Patientinnen und Patienten behandeln und betreuen. Die Notfallstation verfügt über 9 Behandlungsplätze und einen regen 24-Stunden-Betrieb. Sie ist Teil der Klinik für Innere Medizin mit Weiterbildungsstatus A, welche ein zentrales und wichtiges Leistungszentrum des Spitals ist.\n\nVerschaffen Sie sich in unserem 360° Rundgang einen ersten Eindruck zu Ihrem neuen Arbeitsort.\n\nDamit Sie sich bei uns wohlfühlen, warten viele Benefits auf Sie. Um nur einige zu nennen:\n\n• Ökobonus von bis zu CHF 650.– pro Jahr\n\n• Eigene Pensionskasse mit überobligatorischer Beteiligung der Arbeitgeberin\n\n• Kostenlose Nutzung des Fitnessraums auf dem Areal Zollikerberg\n\n• Grosszügige Schichtzulagen\n\nAlle Annehmlichkeiten für Mitarbeitende finden Sie\nhier . Wenn auch Sie die beste Version Ihrer Selbst sein möchten, finden Sie bei uns die Möglichkeiten dazu.\n\nDamit überzeugen Sie uns:\n\n• Abgeschlossene Ausbildung als Assistentin / Assistent Gesundheit und Soziales (AGS) oder als Pflegehelferin / Pflegehelfer SRK\n\n• Gute mündliche Deutschkenntnisse\n\n• Hohe Belastbarkeit sowie ausgeprägtes Verantwortungsbewusstsein\n\n• Sorgfältige, zuverlässige und selbstständige Arbeitsweise\n\n• bereit Dienste hauptsächlich im Spätdienst zu leisten (auch am Wochenende und Feiertagen)\n\nNähere Auskünfte erteilt I hnen gerne Regula Schlotterbeck, Leitung Notfall, T 044 397 22 26.\n\nWir freuen uns auf Ihre Online-Bewerbung.\n\nWir möchten diese Position mit Direktbewerbungen besetzen, ohne die Unterstützung durch Personalberatungen. Herzlichen Dank im Voraus für das Verständnis.\n\nÜber das Spital Zollikerberg\nWir stehen für ein umfassendes Leistungsangebot und starke Kooperationspartner. Mit öffentlichem Leistungsauftrag und 173 Betten trägt das Spital Zollikerberg zur optimalen medizinischen Versorgung des Grossraumes Zürich bei. Bei uns dürfen sich jährlich mehr als 11‘000 stationäre und 75‘000 ambulante Patient:innen aller Versicherungsklassen wohl und in guten Händen fühlen. Unsere breit aufgestellte Grundversorgung umfasst Inneren Medizin, Gynäkologie und Geburtshilfe mit Neonatologie, allgemeinen Chirurgie, ein interdisziplinäres Notfallzentrum sowie Orthopädie mit spezialisierter Wirbelsäulenchirurgie.\n\nBewerbungsquelle\n\nAnrede *\n\nVorname *\n\nNachname *\n\nGeburtsdatum *\n\nUsername\n\nE-Mail *\n\nTelefon\n\nStrasse *\n\nNummer *\n\nPLZ *\n\nWohnort *\n\nLand *\n\nLebenslauf / Gesamtdokumentation *\n\nMotivationsschreiben\n\nAus- und Weiterbildung\n\nArbeitszeugnis\n\nWie sind Sie auf uns aufmerksam geworden? *\n\nWelche/er Mitarbeitende hat Sie auf diese Stelle aufmerksam gemacht?\n\nVerfügbar ab\n\nWeitere Informationen zu uns finden Sie auf unserer Homepage.\n\nJetzt bewerben\n\nDie Anlagen werden geprüft.\nBitte beachten Sie folgende Hinweise",
-        "fr": "Assistant de soins infirmiers / assistant de soins infirmiers ou assistant de santé et de soins sociaux sur l'urgence - Spital Zollikerberg, Zollikerberg (ZH).\n\nDomaine: professions infirmières.\n\nBienvenue dans votre nouveau lieu de travail.\n\nRegula Schlotterbeck, Management Emergency vous offre un emploi avec une charge de travail sélectionnable de 40-80% mais sans services de nuit comme\n\nAssistante infirmière ou assistante sanitaire et sociale en cas d'urgence\n\nSi vous aussi voulez faire une différence dans la vie des gens, ce sont vos tâches:\n\n• Soutien de l'équipe d'urgence dans les soins de nos patients d'urgence selon les normes actuelles\n\n• Soutien aux patients dans les activités de soins infirmiers ainsi que soutien et assistance dans les activités de la vie quotidienne\n\n• Prise en charge des activités générales d'accueil et de logement\n\n• Coresponsabilité en matière de gestion et de contrôle des matériaux et fourniture des matériaux nécessaires\n\n• Préparation et nettoyage des salles de traitement après sortie du patient conformément aux règles d'hygiène\n\n• Transport de patients à l'intérieur de l'hôpital\n\nDevenez membre du service d'urgence de l'hôpital, où nous traitons plus de 15 000 patients chaque année. Le service des urgences a 9 stations de traitement et une opération pluvieuse 24 heures sur 24. Il fait partie de la Clinique de médecine interne avec un statut de formation continue A, qui est un centre de service central et important de l'hôpital.\n\nLors de notre visite à 360°, obtenez une première impression de votre nouveau lieu de travail.\n\nPour vous sentir à l'aise avec nous, de nombreux avantages vous attendent. Juste pour en citer quelques-uns :\n\n• Ecobonus jusqu'à CHF 650 par an\n\n• Fonds de pension propre avec participation superobligatoire de l'employeur\n\n• Utilisation gratuite de la salle de fitness sur le site de Zollikerberg\n\n• Indemnités de poste généreuses\n\nToutes les commodités pour les employés peuvent être trouvées\nIci. Si vous voulez aussi être la meilleure version de vous-même, vous trouverez les possibilités avec nous.\n\nCela nous convainc:\n\n• Formation terminée en tant qu'assistant / assistante en santé et en social (AGS) ou en tant qu'assistante infirmière/assistante infirmière SRK\n\n• Bonnes compétences orales en langue allemande\n\n• Haute résilience et fort sens des responsabilités\n\n• Travail attentif, fiable et indépendant\n\n• prêts à fournir des services principalement en service tardif (aussi le week-end et les jours fériés)\n\nPour plus d'informations, veuillez vous référer à Regula Schlotterbeck, chef des urgences, T 044 397 22 26.\n\nNous attendons avec impatience votre candidature en ligne.\n\nNous aimerions pourvoir ce poste avec des candidatures directes, sans l'appui de consultants en recrutement. Merci d'avance pour votre compréhension.\n\nÀ propos de l'hôpital Zollikerberg\nNous défendons une gamme complète de services et de solides partenaires de coopération. Avec un mandat de service public et 173 lits, l'hôpital de Zollikerberg contribue aux soins médicaux optimaux de la grande région de Zurich. Chaque année, plus de 11 000 malades hospitalisés et 75 000 malades externes de toutes les classes d'assurance peuvent se sentir à l'aise et entre de bonnes mains. Nos soins primaires largement basés comprennent la médecine interne, la gynécologie et l'obstétrique avec néonatologie, chirurgie générale, un centre interdisciplinaire d'urgence et l'orthopédie avec chirurgie spinale spécialisée.\n\nSource de la demande\n\nDiscours *\n\nPrénom *\n\nNom *\n\nDate de naissance *\n\nNom d'utilisateur\n\nCourriel *\n\nTéléphone\n\nRoute *\n\nNuméro *\n\nZLP*\n\nLieu de résidence *\n\nPays *\n\nCV / Documentation complète *\n\nLettre de motivation\n\nÉducation et formation\n\nCertificat de travail\n\nComment avez - vous attiré notre attention? *\n\nQuel employé a attiré votre attention sur ce poste?\n\nDisponible à partir de\n\nDe plus amples informations sur nous sont disponibles sur notre page d'accueil.\n\nAppliquer maintenant\n\nLes installations doivent être soumises à des essais.\nVeuillez noter les informations suivantes:"
-      },
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=3af15ddf-12dd-4228-8073-75630d95abc0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-18T09:11:00.829Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=3af15ddf-12dd-4228-8073-75630d95abc0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
-        ],
-        "en": [
-          "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
-        ],
-        "fr": [
-          "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
-        ]
-      },
-      "firstSeenAt": "2026-10-07T09:10:05.757Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

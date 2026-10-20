@@ -5516,7 +5516,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || fallbackSearchIndexPending
  ))
  );
- const resultsResolving = (resultDerivationPending || fallbackResultsResolving)
+ const resultsResolving = (jobsLoading || resultDerivationPending || fallbackResultsResolving)
  && !clusterSeedApplies;
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
@@ -8501,37 +8501,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (initialJobSlug && !companySlugFilter && !locationSlugFilter && !searchSlugFilter && !seeded) {
  return <SkeletonJobDetail />;
  }
- // Listing / search / location loading: paint the real hero (the LCP element,
- // #2350) on first mount, above a list skeleton, instead of waiting for the
- // full job-index fetch. Mirrors the loaded layout (hero → search → 10 cards)
- // so the hero reconciles in place and the footer stays below the fold (CLS).
- // Company-brand pages keep the generic skeleton — their loaded hero is the
- // richer EmployerBrandHub, not this text hero.
- if (!companySlugFilter) {
+ // Listing/search/location pages must keep the final rail shell mounted while
+ // the async job index resolves. The previous early return rendered only the
+ // hero and a short placeholder, then inserted the banner/rails and full
+ // filter footprint when the index arrived — a deterministic CLS on the
+ // field-sensitive job-board landing. `resultsResolving` keeps the content
+ // area in its loading state while this shell remains structurally stable.
+ if (companySlugFilter) {
  return (
- <div className="space-y-6 min-h-[80vh]">
- {listingHero}
- <div className="h-14 rounded-2xl bg-surface-raised animate-pulse" />
- {/* Animated, accessible loader (#2968): rotating reassurance + shimmer
- cards sized to the real JobCard so results reconcile in place (CLS). */}
- <JobBoardResultsLoader cards={8} />
- </div>
- );
- }
- return (
- // Reserve realistic page height during the async job fetch. Search/filter
- // URLs (e.g. /cerca-lavoro-ticino/concorsi-…, ricerca-*) render this
- // JobBoard WITHOUT staticOverlay, so App.tsx display:none's the full-height
- // static SEO body on hydration. The previous centered spinner reserved only
- // 80vh: the footer sat just inside the viewport during the fetch, then got
- // pushed below the fold when the ~10-card list resolved → 0.064 CLS on
- // every landing (field p75 0.58 on /cerca-lavoro-ticino/). The skeleton
- // list approximates the final list height (header + search bar + 10×112px
- // cards, min-h-[80vh] floor inside SkeletonJobBoard) so the footer never
- // enters the viewport mid-load.
+ // Company-brand pages keep a layout-matching skeleton because their loaded
+ // hero is the richer EmployerBrandHub, not the listing hero.
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <SkeletonJobBoard />
+ </JobBoardRailShell>
  );
  }
+ }
+ // Close the outer jobsLoading guard after the nested loading branches.
  }
 
  const authPendingNoticeJsx = authNotice?.kind === 'pending' ? (

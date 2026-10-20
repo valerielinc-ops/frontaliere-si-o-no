@@ -1,19 +1,61 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-10-19T21:28:07.044Z",
+  "generatedAt": "2026-10-20T09:20:44.507Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 9,
-  "durationMs": 21932,
-  "avgDurationMs": 21932,
+  "durationMs": 20097,
+  "avgDurationMs": 20097,
   "durationHistory": [
-    21932
+    20097
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "title": "Junior Immobilienmakler/in 50-100%",
+      "slug": "junior-immobilienmakler-in-50-100-buutiq-immobilien-ag-frauenfeld",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/43b06b00-1b67-4956-8d0f-ff022a315a67",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/43b06b00-1b67-4956-8d0f-ff022a315a67",
+      "company": "buutiq Immobilien AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "engel-voelkers-ebd1a190a812",
+      "needsRetranslation": true,
+      "salaryMin": 54000,
+      "salaryMax": 82500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8500",
+      "firstSeenAt": "2026-10-20T09:20:34.168Z",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 20
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "title": "Management & Marketing Assistant (m/w/d) – 100 %",
       "slug": "gestione-e-marketing-assistant-m-f-d-100-engel-volkers-wohnen-schweiz-ag-zug",
@@ -54,7 +96,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Immobilienberater/in 100 % | Ascona",
@@ -413,5 +454,5 @@
       }
     }
   ],
-  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
+  "codeCommit": "a1bd59ecfe0dd8e9073ead0a9cb11e2d39e2c95a"
 }
