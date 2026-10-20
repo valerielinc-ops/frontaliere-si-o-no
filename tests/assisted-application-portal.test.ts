@@ -3,7 +3,7 @@ import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateA
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonFor, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonFor, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -405,6 +405,35 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       .toMatchObject({ id: 'filename-upload', text: '' });
     expect(uploadButtonFor({ buttons: [{ ...page.buttons[0], section: 'Correspondence', context: 'Correspondence' }] }, 'cv')).toBeNull();
     expect(uploadButtonFor({ buttons: [page.buttons[0], { ...page.buttons[0], id: 'other-icon', context: 'Resume / CV (PDF preferred):' }] }, 'cv')).toBeNull();
+  });
+
+  it('does not skip SuccessFactors picklist options on the initial application snapshot', () => {
+    const snapshot = {
+      buttons: [
+        { text: '' },
+        { text: 'Read and accept the data privacy statement.' },
+        { text: 'Apply' },
+      ],
+      fields: [
+        { id: 'language', kind: 'combobox', label: 'English US ‎(English US)‎' },
+        { id: 'email', kind: 'text', label: 'Email Address: *', required: true },
+        { id: 'password', kind: 'text', label: 'Choose Password: *', required: true },
+        { id: 'first-name', kind: 'text', label: 'First Name: *', required: true },
+        { id: 'last-name', kind: 'text', label: 'Last Name: *', required: true },
+        { id: 'country', kind: 'combobox', label: 'Country:', required: true },
+        { id: 'permit', kind: 'combobox', label: 'Do you hold a valid work permit for Switzerland?', required: true, selectLike: true },
+        { id: 'source', kind: 'combobox', label: 'How did you hear about this position?', required: true, selectLike: true },
+        { id: 'workload', kind: 'textarea', label: 'What is your preferred workload?', required: true },
+        { id: 'salary', kind: 'textarea', label: 'What is your salary expectation?', required: true },
+        { id: 'start-date', kind: 'textarea', label: 'When would be your next possible starting date?', required: true },
+        { id: 'residence', kind: 'select', label: 'Country/Region of Residence:*', required: true },
+        { id: 'criminal-record', kind: 'radio', label: 'Could you provide a clean criminal register record?', required: true },
+        { id: 'german', kind: 'radio', label: 'Do you speak German?', required: true },
+      ],
+    };
+
+    expect(needsPortalOptionRead(snapshot)).toBe(true);
+    expect(needsPortalOptionRead({ ...snapshot, fields: snapshot.fields.filter((field) => !field.selectLike) })).toBe(false);
   });
 
   it('chooses the canonical French label when a native nationality select has equivalent options', async () => {
