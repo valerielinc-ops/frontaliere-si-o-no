@@ -3154,7 +3154,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   }
  }
 
- // ── Canonical-fallback worker pre-pass ─────────────────────────────
+ // ── Canonical-fallback worker batches ──────────────────────────────
  //
  // `canonicalizeFallbackCleaned` is pure (regex + string passes, no I/O)
  // and runs once per UNIQUE (description, requirements) tuple. Run 26440498634
@@ -3163,25 +3163,34 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // dedup across locales; the worker pool parallelizes the remaining unique
  // work across the runner's vCPUs (GH free-tier = 2; self-hosted = up to N).
  //
- // Pre-collect every unique tuple needed by the upcoming active-job loop,
- // dispatch to N workers, await results, then populate `canonicalCleanedCache`.
- // The main loop's `memoCanonicalCleaned` calls then hit 100 %.
+ // Pre-collect the unique tuples for one bounded active-job batch, dispatch
+ // them to N workers, merge the results, and then render that same batch.
+ // Keeping the worker result and cache bounded is important: pre-collecting
+ // the full corpus briefly retained ~21k cleaned values before the active
+ // loop could release them.
  //
  // Opt-out: set `JOBS_SEO_FALLBACK_WORKERS=0` to keep the inline single-
  // threaded path (useful for A/B timing or debugging worker overhead).
- await (async () => {
+ const precomputeCanonicalFallbackWorkerBatch = async (
+ batchJobs: any[],
+ batchIndex: number,
+ ): Promise<void> => {
  const optOut = process.env.JOBS_SEO_FALLBACK_WORKERS === '0';
  if (optOut) {
-  logJobsSeoMem('after-canonical-prepass', { canonicalPrepassSkipped: 1 });
+  logJobsSeoMem('after-canonical-prepass', { canonicalPrepassSkipped: 1, canonicalPrepassBatch: batchIndex });
   return;
  }
+ // Every active-job batch is rendered immediately after this function. Drop
+ // any unused values from the previous batch before spawning workers so the
+ // bounded cache is also a hard bound between batches.
+ canonicalCleanedCache.clear();
  const tStart = Date.now();
  // Phase 1: enumerate unique tuples (skip cache hits — usually none at
  // this point, but harmless to check).
  const tStartEnum = Date.now();
  const seen = new Set<string>();
  const tuples: Array<{ key: string; description: string; requirements: string[] }> = [];
- for (const job of validJobs) {
+ for (const job of batchJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const locale of localeList) {
  // Per-locale shard build (BUILD_LOCALE): the cleaned canonical
@@ -3220,17 +3229,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   return;
  }
 
- // Do not compute a corpus-sized worker result only to evict it immediately.
- // The active loop will fill the same bounded cache on demand, preserving the
- // pure fallback output while avoiding a second copy of every cleaned value.
- if (tuples.length > CANONICAL_CLEANED_CACHE_MAX) {
-  logJobsSeoMem('after-canonical-prepass', {
-   canonicalPrepassSkipped: 1,
-   canonicalPrepassReason: 'cache-cap',
-  });
-  return;
- }
-
  // Phase 2: decide on parallelism. Below 500 unique tuples the worker
  // setup overhead (~500 ms × N for spawn + dynamic import) costs more
  // than running inline.
@@ -3261,7 +3259,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  logJobsSeoMem('after-canonical-prepass');
  // eslint-disable-next-line no-console
  console.log(
- `[jobs-seo-profile] canonical-fallback-pre-pass tuples=${tuples.length} workers=1 wall_ms=${Date.now() - tStart}`,
+  `[jobs-seo-profile] canonical-fallback-pre-pass batch=${batchIndex} tuples=${tuples.length} workers=1 wall_ms=${Date.now() - tStart}`,
  );
  return;
  }
@@ -3323,9 +3321,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const workerWorkMin = Math.min(...results.map((r) => r.profile.workMs));
  // eslint-disable-next-line no-console
  console.log(
- `[jobs-seo-profile] canonical-fallback-pre-pass tuples=${tuples.length} workers=${workerCount} wall_ms=${Date.now() - tStart} enum_ms=${enumMs} chunk_ms=${chunkMs} dispatch_ms=${dispatchMs} merge_ms=${mergeMs} worker_import_p99_ms=${workerImportP99.toFixed(0)} worker_work_min_ms=${workerWorkMin.toFixed(0)} worker_work_avg_ms=${workerWorkAvg.toFixed(0)} worker_work_p99_ms=${workerWorkP99.toFixed(0)}`,
+  `[jobs-seo-profile] canonical-fallback-pre-pass batch=${batchIndex} tuples=${tuples.length} workers=${workerCount} wall_ms=${Date.now() - tStart} enum_ms=${enumMs} chunk_ms=${chunkMs} dispatch_ms=${dispatchMs} merge_ms=${mergeMs} worker_import_p99_ms=${workerImportP99.toFixed(0)} worker_work_min_ms=${workerWorkMin.toFixed(0)} worker_work_avg_ms=${workerWorkAvg.toFixed(0)} worker_work_p99_ms=${workerWorkP99.toFixed(0)}`,
  );
- })();
+ };
 
  // ── Evergreen employer hubs: hand the ad's authority to the page that
  //    outlives it (`/aziende/<slug>/`) ─────────────────────────────────────
@@ -3402,7 +3400,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   activeHtmlCacheChunks++;
  };
 
- for (const job of validJobs) {
+ for (let activeJobIndex = 0; activeJobIndex < validJobs.length; activeJobIndex++) {
+  if (activeJobIndex % 512 === 0) {
+   await precomputeCanonicalFallbackWorkerBatch(
+    validJobs.slice(activeJobIndex, activeJobIndex + 512),
+    Math.floor(activeJobIndex / 512),
+   );
+  }
+  const job = validJobs[activeJobIndex];
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
   if (activeHtmlPaths.size >= ACTIVE_HTML_CACHE_CHUNK_SIZE) await releaseActiveHtmlCacheChunk();
  const perLocaleSlug = {
