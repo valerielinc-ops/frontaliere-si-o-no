@@ -120,7 +120,7 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       click: async () => { clicked = true; },
     };
     const result = await runAction({ locator: () => locator } as any, contextual.actions[0]);
-    expect(result).toEqual({ ok: false, error: 'language_choice_target_mismatch' });
+    expect(result).toEqual({ ok: false, error: 'answer_option_mismatch' });
     expect(clicked).toBe(false);
 
     const keyPress = guardAgentStep(turn('act', [act({
@@ -136,6 +136,98 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     const unsafeKeyPress = await runAction({ locator: () => keyboardLocator } as any, keyPress.actions[0]);
     expect(unsafeKeyPress).toEqual({ ok: false, error: 'language_choice_keyboard_selection_unsupported' });
     expect(pressed).toBe(false);
+  });
+
+  it('uses an explicit CV language list to answer a current-ability question in a custom widget', () => {
+    const candidate = {
+      answers: {},
+      profile: { languagesExplicitList: true, languages: [{ language: 'Italian', level: 'C1' }] },
+      portalQuestionsAnswered: [],
+    };
+    const question = 'Do you speak German?';
+    const guarded = guardAgentStep(turn('act', [act({
+      ref: 'e10', action: 'select', value: 'Yes', question: 'German', context: question,
+      answer: 'Yes', source: 'profile', evidence: 'Italian C1',
+    })]), candidate);
+
+    expect(guarded).toMatchObject({ status: 'act', questions: [] });
+    expect(guarded.actions).toEqual([expect.objectContaining({
+      value: 'No', answer: 'No', source: 'profile',
+    })]);
+
+    const alreadyKnown = guardAgentStep(turn('needs_candidate', [], [{ question, type: 'yes_no' }]), candidate);
+    expect(alreadyKnown).toMatchObject({ status: 'stuck', questions: [] });
+  });
+
+  it('requires candidate support for ordinary language-ability widgets', () => {
+    const question = 'Do you speak German?';
+    const ambiguous = {
+      answers: {},
+      profile: { languagesExplicitList: false, languages: [{ language: 'Italian', level: 'C1' }] },
+      portalQuestionsAnswered: [],
+    };
+    const refused = guardAgentStep(turn('act', [act({
+      ref: 'e11', action: 'click', value: 'Yes', question, answer: 'Yes', source: 'widget', evidence: 'Italian C1',
+    })]), ambiguous);
+    expect(refused).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question })],
+    });
+
+    const listed = {
+      answers: {},
+      profile: { languagesExplicitList: true, languages: [{ language: 'German', level: 'C1' }] },
+      portalQuestionsAnswered: [],
+    };
+    const corrected = guardAgentStep(turn('act', [act({
+      ref: 'e11', action: 'click', value: 'No', question, answer: 'No', source: 'widget', evidence: 'Italian C1',
+    })]), listed);
+    expect(corrected).toMatchObject({ status: 'act', questions: [] });
+    expect(corrected.actions).toEqual([expect.objectContaining({ value: 'Yes', answer: 'Yes', source: 'profile' })]);
+  });
+
+  it('allows localized widget navigation and asks before a questionless language answer click', async () => {
+    const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
+    const navigation = guardAgentStep(turn('act', [act({
+      ref: 'e12', action: 'click', value: 'Open options', question: '', context: 'German proficiency', answer: '', source: 'widget',
+    })]), candidate);
+    expect(navigation).toMatchObject({ status: 'act', questions: [] });
+
+    let navigationClicks = 0;
+    const navigationLocator = {
+      evaluate: async () => ({ name: 'Afficher plus', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }),
+      click: async () => { navigationClicks += 1; },
+    };
+    await expect(runAction({ locator: () => navigationLocator } as any, navigation.actions[0])).resolves.toEqual({ ok: true });
+    expect(navigationClicks).toBe(1);
+
+    let answerClicks = 0;
+    const answerLocator = {
+      evaluate: async () => ({ name: 'Yes', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }),
+      click: async () => { answerClicks += 1; },
+    };
+    const page = {
+      url: () => 'https://jobs.example/apply',
+      title: async () => 'Apply',
+      ariaSnapshot: async () => '- button "Yes" [ref=e13]',
+      locator: () => answerLocator,
+      waitForTimeout: async () => {},
+    };
+    const result = await completeWithAgent({
+      page: page as any,
+      hint: 'no_form_controls',
+      candidate,
+      candidateLocale: 'en',
+      codex: async () => turn('act', [act({
+        action: 'click', ref: 'e13', value: 'Open options', question: '', context: 'German proficiency', answer: '', source: 'widget',
+      })]),
+    });
+    expect(result).toMatchObject({
+      status: 'needs_candidate',
+      questions: [expect.objectContaining({ question: 'German proficiency', context: 'German proficiency' })],
+    });
+    expect(answerClicks).toBe(0);
   });
 
   // Review of #10707: calling the answer a widget move must not get past the guard.
