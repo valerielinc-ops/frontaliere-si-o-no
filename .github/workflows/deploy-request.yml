@@ -94,6 +94,7 @@ jobs:
           sparse-checkout: |
             /.github/workflows/deploy-request.yml
             /scripts/ci/request-latest-deploy.mjs
+            /scripts/ci/request-latest-publish.mjs
             /scripts/check-pages-publish-lag.mjs
             /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/is-invoked-directly.mjs
@@ -133,3 +134,14 @@ jobs:
             exit 0
           fi
           GH_TOKEN="$APP_TOKEN" node scripts/ci/request-latest-deploy.mjs
+
+      - name: Reconcile the latest successful Pages publish
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [[ "${APP_TOKEN_ACTIONS:-false}" != 'true' || -z "${APP_TOKEN:-}" ]]; then
+            echo '::warning::Pages publish reconciliation skipped: App token with actions:write is unavailable'
+            exit 0
+          fi
+          GH_TOKEN="$APP_TOKEN" node scripts/ci/request-latest-publish.mjs
