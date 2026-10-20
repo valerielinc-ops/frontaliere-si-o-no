@@ -7,16 +7,16 @@ describe('sector hub label localization', () => {
       label: 'Servizi ferroviari',
       sourceLocale: 'it',
       existingLabels: { fr: 'Services ferroviaires' },
-      translate: async (_text, _sourceLocale, targetLocale) => ({
-        en: 'Rail services',
-        de: 'Bahnverkehr',
-        fr: 'Should not replace curated French',
-      })[targetLocale] || '',
+      translate: async (_text, _sourceLocale, targetLocale) => {
+        if (targetLocale === 'en') return 'Accountancy and finance';
+        if (targetLocale === 'de') return 'Bahnverkehr';
+        return 'Should not replace curated French';
+      },
     });
 
     expect(labels).toEqual({
       it: 'Servizi ferroviari',
-      en: 'Rail services',
+      en: 'Accountancy and finance',
       de: 'Bahnverkehr',
       fr: 'Services ferroviaires',
     });
@@ -34,5 +34,23 @@ describe('sector hub label localization', () => {
     });
 
     expect(labels).toEqual({ it: 'Analisi oceanografica' });
+  });
+
+  it('omits a changed label when language detection confidently identifies a different locale', async () => {
+    const labels = await localizeSectorHubLabel({
+      label: 'Servizi ferroviari',
+      sourceLocale: 'it',
+      translate: async (_text, _sourceLocale, targetLocale) => {
+        if (targetLocale === 'en') return 'Services ferroviaires';
+        if (targetLocale === 'de') return 'Bahnverkehr';
+        return 'Services ferroviaires';
+      },
+    });
+
+    expect(labels).toEqual({
+      it: 'Servizi ferroviari',
+      de: 'Bahnverkehr',
+      fr: 'Services ferroviaires',
+    });
   });
 });
