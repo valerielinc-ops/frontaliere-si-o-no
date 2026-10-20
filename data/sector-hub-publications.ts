@@ -2,6 +2,9 @@ export type SectorPublicationLocale = 'it' | 'en' | 'de' | 'fr';
 
 export type SectorHubPublicationStatus = 'active' | 'cooling-off' | 'retired';
 
+export const AUTO_SECTOR_HUB_MIN_JOBS = 5;
+export const AUTO_SECTOR_HUB_MIN_EMPLOYERS = 2;
+
 export interface SectorHubPublication {
   slug: string;
   routeKind: 'dynamic' | 'static-category';
@@ -75,6 +78,6 @@ export function isIndexableSectorHubPublication(
 ): boolean {
   return publication.status === 'active'
     && (locale === undefined || Boolean(publication.labelByLocale[locale]?.trim()))
-    && activeJobCount >= 15
-    && employerCount >= 4;
+    && activeJobCount >= AUTO_SECTOR_HUB_MIN_JOBS
+    && employerCount >= AUTO_SECTOR_HUB_MIN_EMPLOYERS;
 }
