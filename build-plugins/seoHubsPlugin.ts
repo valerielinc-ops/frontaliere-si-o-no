@@ -1684,7 +1684,7 @@ function cantonHubH1(locale: HubLocale, hub: CantonHubKind, cantonLabel: string,
 }
 
 // Per-hub-kind meta description for the thin canton sub-hubs. Kept to the
-// 140-160 char SERP range via `finalizeMeta` (issue #2996 — the old one-liners
+// 140-150 char SERP range via `finalizeMeta` (issue #2996 — the old one-liners
 // were ~60 chars, which GSC flags as "Description too short", e.g. on
 // /cerca-lavoro-ticino/aziende/). These feed ONLY the <meta name="description">
 // (the visible header uses `h1`/`bodyCopy`), so length is free to grow without
@@ -1746,7 +1746,7 @@ function buildPageNCompactProse(locale: HubLocale, cantonLabel: string, hub: Can
  * push the page over the 50-word floor enforced by validate-sitemap-pages
  * for small cantons (Glarona / Uri / Svitto / Zugo / Neuchatel had only the
  * employer-link grid + 1-sentence intro and tripped the gate). Independent of
- * the meta description, which `cantonHubIntro` now sizes to the 140-160 char
+ * the meta description, which `cantonHubIntro` now sizes to the 140-150 char
  * SERP range (issue #2996).
  */
 function cantonHubBody(locale: HubLocale, hub: CantonHubKind, cantonLabel: string): string {

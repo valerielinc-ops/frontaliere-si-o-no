@@ -57,7 +57,7 @@ interface LegacyAliasEntry {
   readonly canonicalPath: string;
   /** `<title>` headline (sans brand suffix — buildTitleWithBrand adds it). */
   readonly title: string;
-  /** Meta description (120-160 chars). */
+  /** Meta description (120-150 chars). */
   readonly description: string;
   /** H1 shown inside the static body (different from <title> per audit). */
   readonly h1: string;

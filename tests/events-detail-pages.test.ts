@@ -409,6 +409,35 @@ describe('renderEventDetailPage', () => {
     detailHref: detailHref as never,
   });
 
+  it('keeps event-detail titles and headings concise while retaining the place and date', () => {
+    const longEvent = {
+      ...EVENT,
+      title: 'Sing & Jam Session Zusammen Singen und Musizieren für alle Generationen',
+      startDate: '2026-10-18',
+      comune: 'Lugano',
+    };
+    const rendered = renderEventDetailPage({
+      locale: 'it',
+      event: longEvent as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(longEvent),
+      sameComuneEvents: [longEvent] as never,
+      dateStamp: '2026-10-17',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    const titleTag = /<title>([^<]*)<\/title>/.exec(rendered.html)?.[1] ?? '';
+    const h1Html = /<h1[^>]*>(.*?)<\/h1>/.exec(rendered.html)?.[1] ?? '';
+    const h1 = h1Html.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"');
+
+    expect(titleTag.length).toBeGreaterThan(0);
+    expect(titleTag.length).toBeLessThanOrEqual(60);
+    expect(titleTag).toContain('Lugano');
+    expect(h1.length).toBeLessThanOrEqual(100);
+    expect(h1).toContain('Lugano');
+    expect(h1).toContain('2026-10-18');
+  });
+
   it('uses a source-provided multi-day range in metadata, Event description and FAQ without changing the start-date URL', () => {
     const multiDayEvent = {
       ...EVENT,
@@ -776,7 +805,7 @@ describe('renderEventDetailPage', () => {
     expect(laterH1).toContain('2026-07-11');
   });
 
-  it('truncates an overlong crawled event title (word-aware) so <title> stays within the 66-char SERP cap, keeping the comune suffix (audit:title-length regression: eventi 707>340 offenders)', () => {
+  it('truncates an overlong crawled event title (word-aware) so <title> stays within the 60-char event cap, keeping the comune suffix', () => {
     const longTitle =
       'Concerto sinfonico straordinario di beneficenza con orchestra e coro per la giornata mondiale della musica al LAC';
     const longEvent = { ...EVENT, id: 'tio-agenda:99', title: longTitle };
@@ -791,20 +820,19 @@ describe('renderEventDetailPage', () => {
       detailHref: (() => null) as never,
     });
     const titleTag = /<title>([^<]*)<\/title>/.exec(longPage.html)?.[1] ?? '';
-    expect(titleTag.length).toBeLessThanOrEqual(66);
+    expect(titleTag.length).toBeLessThanOrEqual(60);
     expect(titleTag).toContain('…');
     expect(titleTag).toContain('Lugano (Ticino) | Eventi');
     // Never a naive hard cut mid-word or a dangling separator before the ellipsis.
     expect(titleTag).not.toMatch(/[\s—–\-·|,;:&(]…/);
   });
 
-  it('budgets/truncates the crawled title on the ESCAPED length so an `&`/`<`/`>`/`"` in the title cannot push <title> past the 66-char cap post-escape (#3589 item 1: audit:title-length false-green)', () => {
-    // 39 raw chars (fits the pre-fix raw-length budget untruncated) + the
-    // 27-char it-locale "Lugano" suffix = 66 raw chars — but the one `&`
+  it('budgets/truncates the crawled title on the ESCAPED length so an `&`/`<`/`>`/`"` cannot push it past the 60-char event cap', () => {
+    // The raw title plus its place/date suffix exceeds the event cap; the `&`
     // expands to `&amp;` on escape, which is what both `htmlTemplate.ts`
     // (`<title>${esc(title)}</title>`) and `audit-title-length.mjs` (raw
-    // HTML source) actually measure. Pre-fix this produced a 70-char
-    // escaped <title>, re-tripping the very gate PR #3581 fixed.
+    // HTML source) actually measure. The emitted title must stay in budget
+    // after that expansion.
     const ampTitle = 'Rock & Blues Night Festival Estivo 2026';
     expect(ampTitle.length).toBe(39);
     const ampEvent = { ...EVENT, id: 'tio-agenda:100', title: ampTitle };
@@ -819,7 +847,7 @@ describe('renderEventDetailPage', () => {
       detailHref: (() => null) as never,
     });
     const titleTag = /<title>([^<]*)<\/title>/.exec(ampPage.html)?.[1] ?? '';
-    expect(titleTag.length).toBeLessThanOrEqual(66);
+    expect(titleTag.length).toBeLessThanOrEqual(60);
     expect(titleTag).toContain('Lugano (Ticino) | Eventi');
     expect(titleTag).not.toMatch(/[\s—–\-·|,;:&(]…/);
   });
@@ -844,7 +872,7 @@ describe('renderEventDetailPage', () => {
     });
     const titleTag = /<title>([^<]*)<\/title>/.exec(longComunePage.html)?.[1] ?? '';
     expect(titleTag.length).toBeGreaterThan(0);
-    expect(titleTag.length).toBeLessThanOrEqual(66);
+    expect(titleTag.length).toBeLessThanOrEqual(60);
     expect(titleTag).toContain('…');
     expect(titleTag).not.toContain(EVENT.title);
     // Comune preserved; region/brand boilerplate sacrificed under pressure.
@@ -852,7 +880,7 @@ describe('renderEventDetailPage', () => {
     expect(titleTag).not.toContain('(Ticino)');
   });
 
-  it('keeps <title> within the 66-char cap on the degenerate comune-less "other events" bucket, where the comune IS the canton display label (#3799: fr/AI+AR suffix alone was 75 chars, 9 past the cap)', () => {
+  it('keeps <title> within the 60-char event cap on the degenerate comune-less "other events" bucket', () => {
     // `renderEventDetailPage` maps `comune === OTHER_EVENTS_COMUNE_KEY` to
     // `displayComune = cantonDisplayLabel(canton, locale)`, so the suffix
     // doubles the canton name: ` — Appenzell Rhodes-Extérieures (Appenzell
@@ -873,7 +901,7 @@ describe('renderEventDetailPage', () => {
       });
       const titleTag = /<title>([^<]*)<\/title>/.exec(page.html)?.[1] ?? '';
       expect(titleTag.length).toBeGreaterThan(0);
-      expect(titleTag.length).toBeLessThanOrEqual(66);
+      expect(titleTag.length).toBeLessThanOrEqual(60);
       // The place label (canton display name) is the local-SEO token and
       // must survive the degradation.
       expect(titleTag).toContain('Appenzell');
@@ -898,12 +926,12 @@ describe('renderEventDetailPage', () => {
       detailHref: (() => null) as never,
     });
     const titleTag = /<title>([^<]*)<\/title>/.exec(page.html)?.[1] ?? '';
-    expect(titleTag.length).toBeLessThanOrEqual(66);
+    expect(titleTag.length).toBeLessThanOrEqual(60);
     expect(titleTag).toContain(EVENT.title); // 25 chars — fits once the region is dropped
     expect(titleTag).toContain('— Schlatt-Haslen');
   });
 
-  it('keeps <title> within the 66-char cap for a non-TI canton with a long display name (regression: issue #3772 recurrence — validate-dist still failing on `eventi` after PR #3786)', () => {
+  it('keeps <title> within the 60-char event cap for a non-TI canton with a long display name', () => {
     // The old `detailCopyFor.metaTitle` substituted the real canton name
     // into the string `eventDetailMetaTitle` had ALREADY budgeted/truncated
     // assuming the short "Ticino"/"Tessin" placeholder — with no re-check.
@@ -923,7 +951,7 @@ describe('renderEventDetailPage', () => {
     });
     const titleTag = /<title>([^<]*)<\/title>/.exec(page.html)?.[1] ?? '';
     expect(titleTag.length).toBeGreaterThan(0);
-    expect(titleTag.length).toBeLessThanOrEqual(66);
+    expect(titleTag.length).toBeLessThanOrEqual(60);
     expect(titleTag).toContain('Appenzell Rhodes-Extérieures');
   });
 });

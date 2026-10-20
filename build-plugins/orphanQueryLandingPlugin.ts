@@ -39,7 +39,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { truncateToClauseNonEmpty } from './shared/clauseTail.mjs';
-import { truncateHeadline } from './shared/titleSuffix';
+import { META_DESCRIPTION_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
 import { WriteCollector } from './batchWrite';
 import { shouldEmitLocale, EMIT_LOCALES } from './shared/localeEmitFilter';
 import {
@@ -505,9 +505,9 @@ function buildEditorialDescription(query: string, locale: OrphanLandingLocale, e
     de: `${q} — `,
     fr: `${q} — `,
   };
-  // Word-aware, like the shared meta clamp: a raw `.slice(0, 155)` shipped the
-  // snippet cut mid-word (issue 11198 sibling of the cluster description fix).
-  return truncateHeadline(prefix[locale] + editorial, 155);
+  // Keep the prebuilt snippet within the same budget used by the final meta
+  // clamp, so this source does not need a second truncation during rendering.
+  return truncateHeadline(prefix[locale] + editorial, META_DESCRIPTION_MAX_CHARS);
 }
 
 async function loadLocaleStrings(rootDir: string, locale: OrphanLandingLocale): Promise<Record<string, string>> {

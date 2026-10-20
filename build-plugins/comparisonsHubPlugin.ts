@@ -75,7 +75,7 @@ function mdLinks(s: string): string {
   return esc(s).replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
     (_m, label, href) =>
-      `<a href="${String(href).replace(/"/g, '&quot;')}" rel="nofollow" style="${LINK_ACCENT_STYLE};text-decoration:underline">${label}</a>`,
+      `<a href="${String(href).replace(/"/g, '&quot;')}" style="${LINK_ACCENT_STYLE};text-decoration:underline">${label}</a>`,
   );
 }
 

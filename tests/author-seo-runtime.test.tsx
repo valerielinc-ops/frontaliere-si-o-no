@@ -4,6 +4,7 @@ import { AUTHORS, isEditorialProfile, isRealAuthor } from '../data/authors';
 import { EDITORIAL_PROFILE_DISCLOSURE, localizeAuthor } from '../data/authorLocales';
 import { buildAuthorSeo } from '../services/seo/seo-authors';
 import { setLocale } from '../services/i18n';
+import { clampMetaDescription } from '../build-plugins/shared/titleSuffix';
 vi.unmock('@/services/seoService');
 vi.unmock('../services/seoService');
 
@@ -31,7 +32,9 @@ describe('author metadata emitted by updateMetaTags', () => {
     expect(profile.jobTitle).toBeUndefined();
     expect(profile.sameAs).toBeUndefined();
     expect(document.title).toBe(seo.title);
-    expect(document.querySelector('meta[name="description"]')?.getAttribute('content')).toBe(seo.description);
+    expect(document.querySelector('meta[name="description"]')?.getAttribute('content')).toBe(
+      clampMetaDescription(seo.description, undefined, locale),
+    );
   });
 
   it.each(['it', 'en', 'de', 'fr'] as const)('emits the real guest author as Person with sameAs in %s', async locale => {
