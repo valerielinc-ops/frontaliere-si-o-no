@@ -176,6 +176,9 @@ function addDiagnosticMetadata(page, metadata) {
  * The first candidate locator that is visible (or attached), polling until
  * `timeout`. `guard` runs at every poll and may throw — that is how a login
  * wall or a challenge interrupts a wait at once instead of after the timeout.
+ * Check every match of a candidate: React surfaces can leave an old hidden
+ * toast/alert before the current visible one, and checking only `.first()`
+ * would turn a visible confirmation into a false missing-confirmation error.
  */
 export async function findFirst(candidates, { timeout = DEFAULT_TIMEOUTS.ui, state = 'visible', guard = null, interval = 250, unique = false } = {}) {
   const deadline = Date.now() + timeout;
@@ -184,11 +187,13 @@ export async function findFirst(candidates, { timeout = DEFAULT_TIMEOUTS.ui, sta
     for (const candidate of candidates) {
       const count = await candidate.count().catch(() => 0);
       if (unique && count !== 1) continue;
-      const loc = candidate.first();
-      try {
-        if (state === 'attached' ? (await loc.count()) > 0 : await loc.isVisible()) return loc;
-      } catch {
-        // detached while polling: try the next one
+      for (let index = 0; index < count; index += 1) {
+        const loc = candidate.nth(index);
+        try {
+          if (state === 'attached' ? (await loc.count()) > 0 : await loc.isVisible()) return loc;
+        } catch {
+          // detached while polling: try the next match
+        }
       }
     }
     if (Date.now() >= deadline) return null;
