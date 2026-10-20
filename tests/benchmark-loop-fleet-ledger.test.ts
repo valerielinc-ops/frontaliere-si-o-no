@@ -78,6 +78,25 @@ describe('loop-fleet ledger benchmark', () => {
     });
   });
 
+  it('does not promote one slow hosted runner to a sustained regression', () => {
+    const current = benchmark(6, 160);
+    const summary = buildLedgerBenchmarkSummary(current, [
+      benchmark(1, 100),
+      benchmark(2, 101),
+      benchmark(3, 99),
+      benchmark(4, 100),
+      benchmark(5, 101),
+    ]);
+
+    expect(summary).toMatchObject({
+      verdict: 'trusted-benchmark-green',
+      pre_change_append_p95_ms: 101,
+      post_change_append_p95_ms: 160,
+      latency_regression_pct: expect.closeTo(58.4158, 4),
+      latency_regression_over_10pct: false,
+    });
+  });
+
   it('reports every non-zero canonical rewrite instead of hiding it in the aggregate', () => {
     const current = benchmark(3, 30, { canonicalRewriteCount: 1 });
     const summary = buildLedgerBenchmarkSummary(current, [
