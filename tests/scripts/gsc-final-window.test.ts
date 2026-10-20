@@ -49,15 +49,67 @@ describe('GSC final seven-day window selection', () => {
     expect(selected).toMatchObject({ status: 'measurable', window: { start: '2026-10-11', end: '2026-10-17' } });
   });
 
-  it('marks an internal gap in the seven-day window unmeasurable', () => {
+  it('falls back to the latest earlier complete seven-day window when a newer candidate has a gap', () => {
     const availableDates = dates().filter((date) => date !== '2026-10-15');
     const selected = selectLatestGscFinalWindow({
       today: '2026-10-20',
       availableDates,
       firstIncompleteDate: '2026-10-19',
     });
-    expect(selected.status).toBe('unmeasurable');
-    expect(selected.missingDates).toEqual(['2026-10-15']);
+    expect(selected).toMatchObject({
+      status: 'measurable',
+      window: { start: '2026-10-08', end: '2026-10-14' },
+      selection: {
+        latestAvailableFinalDate: '2026-10-18',
+        latestCandidateWindow: { start: '2026-10-12', end: '2026-10-18' },
+        latestCandidateMissingDates: ['2026-10-15'],
+        selectedWindow: { start: '2026-10-08', end: '2026-10-14' },
+        fellBack: true,
+        skippedNewerFinalDates: ['2026-10-16', '2026-10-17', '2026-10-18'],
+      },
+    });
+  });
+
+  it('selects the last complete window before a newer isolated final date', () => {
+    const availableDates = [
+      '2026-10-12', '2026-10-13', '2026-10-14', '2026-10-15',
+      '2026-10-16', '2026-10-17', '2026-10-18', '2026-10-20',
+    ];
+    const selected = selectLatestGscFinalWindow({ today: '2026-10-20', availableDates });
+    expect(selected).toMatchObject({
+      status: 'measurable',
+      window: { start: '2026-10-12', end: '2026-10-18' },
+      selection: {
+        latestAvailableFinalDate: '2026-10-20',
+        latestCandidateWindow: { start: '2026-10-14', end: '2026-10-20' },
+        latestCandidateMissingDates: ['2026-10-19'],
+        selectedWindow: { start: '2026-10-12', end: '2026-10-18' },
+        fellBack: true,
+        skippedNewerFinalDates: ['2026-10-20'],
+      },
+    });
+  });
+
+  it('is unmeasurable when no complete seven-day window exists anywhere in the probe', () => {
+    const availableDates = [
+      '2026-09-30', '2026-10-02', '2026-10-04', '2026-10-06',
+      '2026-10-08', '2026-10-10', '2026-10-12', '2026-10-14',
+      '2026-10-16', '2026-10-18', '2026-10-20',
+    ];
+    const selected = selectLatestGscFinalWindow({ today: '2026-10-20', availableDates });
+    expect(selected).toMatchObject({
+      status: 'unmeasurable',
+      complete: false,
+      window: null,
+      reason: expect.stringContaining('no complete 7-day final window'),
+      selection: {
+        latestAvailableFinalDate: '2026-10-20',
+        latestCandidateWindow: { start: '2026-10-14', end: '2026-10-20' },
+        latestCandidateMissingDates: ['2026-10-15', '2026-10-17', '2026-10-19'],
+        selectedWindow: null,
+        fellBack: false,
+      },
+    });
   });
 
   it('keeps the current window measurable when only the previous window has a date gap', () => {

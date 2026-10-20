@@ -108,6 +108,39 @@ describe('revenue-monitor GSC final windows', () => {
     expect(selected.window.end).toBe('2026-10-17');
   });
 
+  it('falls back over a missing latest date and reports the selected and comparison windows', async () => {
+    const query = vi.fn(async (_token: string, body: any) => ({
+      rows: body.dimensions[0] === 'date'
+        ? dateRowsFor({ start: body.startDate, end: body.endDate })
+          .filter(({ keys: [date] }) => body.dataState !== 'final' || date !== '2026-10-19')
+        : [],
+    }));
+    const selected = await fetchGscFinalWindow('token', {
+      now: new Date('2026-10-21T06:00:00.000Z'),
+      queryImpl: query,
+    });
+    expect(selected).toMatchObject({
+      status: 'measurable',
+      window: { start: '2026-10-12', end: '2026-10-18' },
+      previousWindow: { start: '2026-10-05', end: '2026-10-11' },
+      selection: {
+        latestAvailableFinalDate: '2026-10-20',
+        latestCandidateWindow: { start: '2026-10-14', end: '2026-10-20' },
+        latestCandidateMissingDates: ['2026-10-19'],
+        selectedWindow: { start: '2026-10-12', end: '2026-10-18' },
+        fellBack: true,
+      },
+    });
+
+    const markdown = renderMarkdown([], {
+      gsc: { status: 'measurable', window: selected.window, previous: { status: 'measurable', window: selected.previousWindow } },
+      gscWindowProbe: selected,
+    });
+    expect(markdown).toContain('used earlier complete final window 2026-10-12 → 2026-10-18');
+    expect(markdown).toContain('latest candidate 2026-10-14 → 2026-10-20 was incomplete (2026-10-19)');
+    expect(markdown).toContain('Comparison window: 2026-10-05 → 2026-10-11');
+  });
+
   it('fails closed on conflicting metadata spellings even when final date rows are complete', async () => {
     const query = vi.fn(async (_token: string, body: any) => ({
       rows: dateRowsFor(window),

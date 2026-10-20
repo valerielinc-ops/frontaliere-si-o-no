@@ -942,6 +942,24 @@ export function renderMarkdown(rows, current, baseline = BASELINE) {
       lines.push('');
       lines.push(`Probe: ${probe.probe?.window?.start || 'n/a'} → ${probe.probe?.window?.end || 'n/a'} (${probe.probe?.dataState || 'n/a'} / date; metadata all/date); first incomplete date: ${probe.probe?.firstIncompleteDate || 'not returned'}.`);
       if (probe.reason) lines.push(`Window selection: unmeasurable — ${probe.reason}.`);
+      if (probe.selection) {
+        const selection = probe.selection;
+        const formatWindow = (window) => window ? `${window.start} → ${window.end}` : 'n/a';
+        if (selection.selectedWindow && selection.fellBack) {
+          const latestCandidate = formatWindow(selection.latestCandidateWindow);
+          const missing = selection.latestCandidateMissingDates?.join(', ') || selection.latestCandidateReason || 'coverage incomplete';
+          lines.push(`Window selection: used earlier complete final window ${formatWindow(selection.selectedWindow)}; latest candidate ${latestCandidate} was incomplete (${missing}); latest final date ${selection.latestAvailableFinalDate || 'n/a'}.`);
+        } else if (selection.selectedWindow) {
+          lines.push(`Window selection: latest complete final window ${formatWindow(selection.selectedWindow)}; latest final date ${selection.latestAvailableFinalDate || 'n/a'}.`);
+        } else if (selection.latestCandidateWindow) {
+          const missing = selection.latestCandidateMissingDates?.join(', ') || selection.latestCandidateReason || 'coverage incomplete';
+          lines.push(`Window selection: no complete final window; latest candidate ${formatWindow(selection.latestCandidateWindow)} was incomplete (${missing}); latest final date ${selection.latestAvailableFinalDate || 'n/a'}.`);
+        }
+        const comparisonWindow = current.gsc?.previous?.window;
+        if (comparisonWindow) {
+          lines.push(`Comparison window: ${formatWindow(comparisonWindow)} (the seven days immediately before the selected web window).`);
+        }
+      }
     }
   }
   lines.push('');

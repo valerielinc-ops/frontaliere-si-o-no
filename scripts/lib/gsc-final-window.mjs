@@ -89,8 +89,10 @@ export function assessGscFinalWindow(window, { availableDates = [], firstIncompl
 }
 
 /**
- * Select the latest consecutive seven-day window that is both before GSC's
- * first incomplete date and fully represented by date-dimension rows.
+ * Scan candidate end dates newest-first and select the first consecutive
+ * seven-day window that is before GSC's first incomplete date and fully
+ * represented by date-dimension rows. Preserve skipped-candidate details so
+ * a fallback to an older window is visible to report consumers.
  */
 export function selectLatestGscFinalWindow({
   today,
@@ -115,8 +117,7 @@ export function selectLatestGscFinalWindow({
   const lastFinalDate = metadataPresent ? shiftGscDay(firstIncompleteDate, -1) : today;
   const finalThrough = lastFinalDate > today ? today : lastFinalDate;
   const finalDates = [...new Set(availableDates.filter((date) => validDate(date) && date >= lookbackStart && date <= finalThrough))].sort();
-  const end = finalDates[finalDates.length - 1];
-  if (!end) {
+  if (!finalDates.length) {
     return {
       status: 'unmeasurable',
       complete: false,
@@ -124,18 +125,61 @@ export function selectLatestGscFinalWindow({
       window: null,
       firstIncompleteDate: metadataPresent ? firstIncompleteDate : null,
       lookback: { start: lookbackStart, end: today },
+      selection: {
+        latestAvailableFinalDate: null,
+        latestCandidateWindow: null,
+        latestCandidateMissingDates: [],
+        selectedWindow: null,
+        fellBack: false,
+      },
     };
   }
-  const start = shiftGscDay(end, -(days - 1));
-  if (start < lookbackStart) {
-    return { status: 'unmeasurable', complete: false, reason: `fewer than ${days} final dates found in ${lookbackDays}-day probe`, window: null, firstIncompleteDate: metadataPresent ? firstIncompleteDate : null, lookback: { start: lookbackStart, end: today } };
+
+  const candidateEnds = finalDates
+    .filter((end) => shiftGscDay(end, -(days - 1)) >= lookbackStart)
+    .reverse();
+  let latestCandidate = null;
+  let current = null;
+  for (const end of candidateEnds) {
+    const start = shiftGscDay(end, -(days - 1));
+    const candidate = assessGscFinalWindow({ start, end }, { availableDates, firstIncompleteDate, metadataError });
+    latestCandidate ||= candidate;
+    if (candidate.complete) {
+      current = candidate;
+      break;
+    }
   }
-  const window = { start, end };
-  const current = {
-    ...assessGscFinalWindow(window, { availableDates, firstIncompleteDate, metadataError }),
-    lookback: { start: lookbackStart, end: today },
+
+  const latestAvailableFinalDate = finalDates[finalDates.length - 1];
+  const selection = {
+    latestAvailableFinalDate,
+    latestCandidateWindow: latestCandidate?.window ?? null,
+    latestCandidateMissingDates: latestCandidate?.missingDates ?? [],
+    latestCandidateReason: latestCandidate?.reason ?? null,
+    selectedWindow: current?.window ?? null,
+    fellBack: Boolean(current && latestAvailableFinalDate > current.window.end),
+    skippedNewerFinalDates: current ? finalDates.filter((date) => date > current.window.end) : [],
   };
+  if (!current) {
+    const reason = latestCandidate
+      ? `no complete ${days}-day final window in ${lookbackDays}-day probe; latest candidate ${latestCandidate.window.start} → ${latestCandidate.window.end}: ${latestCandidate.reason}`
+      : `fewer than ${days} final dates found in ${lookbackDays}-day probe`;
+    return {
+      status: 'unmeasurable',
+      complete: false,
+      reason,
+      window: null,
+      firstIncompleteDate: metadataPresent ? firstIncompleteDate : null,
+      missingDates: latestCandidate?.missingDates ?? [],
+      availableDates: latestCandidate?.availableDates ?? finalDates,
+      lookback: { start: lookbackStart, end: today },
+      selection,
+    };
+  }
+
+  current.lookback = { start: lookbackStart, end: today };
+  const { start } = current.window;
   const previousWindow = { start: shiftGscDay(start, -days), end: shiftGscDay(start, -1) };
   const previous = assessGscFinalWindow(previousWindow, { availableDates, firstIncompleteDate });
-  return { ...current, previousWindow, previous };
+  return { ...current, previousWindow, previous, selection };
 }
