@@ -56,6 +56,7 @@ import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED, ADS_CONSENT_DENIED, ADS_C
 import { AD_PAGE_TEMPLATE_INLINE_FN } from '../services/adPageTemplate';
 import { isManualSlot } from '../services/adSlotKinds';
 import { observeManualAd } from '../services/manualAdLifecycle';
+import { createStaticAdSlotEligibility } from '../services/staticAdSlotEligibility';
 import { AD_FILL_TIMEOUT_MS, AD_SLOT_VIEWPORT_ROOT_MARGIN } from '../services/adsenseSlots';
 import { BENIGN_MESSAGES, THIRD_PARTY_STACK_ORIGINS } from '../services/posthog-error-filter';
 import {
@@ -661,9 +662,10 @@ export const POSTHOG_SNIPPET = `<script defer src="/assets/${POSTHOG_INIT_FILENA
  *  - preconnect hints to pagead2 so when we do load it's fast
  *  - google-adsense-account meta (required for AdSense site verification)
  *  - an inline IntersectionObserver loader that injects the script and pushes
- *    each <ins class="adsbygoogle"> slot the first time it scrolls within
- *    200px of the viewport. If no slot ever becomes visible, the script is
- *    never loaded — Semrush/Google crawlers stop seeing it in audits.
+ *    each manual <ins data-ad-slot> when it first enters the shared 200px
+ *    request margin. Other manual slots stay parked outside Google's
+ *    DOM-order push queue until then. The interaction and idle fallbacks still
+ *    load the script for Auto Ads even when no manual slot approaches.
  *  - a first-interaction trigger (scroll/touchstart/pointerdown/keydown/
  *    mousemove, once+passive) that loads the script on the first real user
  *    engagement. This closes the biggest Auto Ads leak: quick-bounce mobile
@@ -876,7 +878,7 @@ export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)r
  *     ~95% of revenue comes from Auto Ads, so the bot gate remains fail-closed
  *     for ads; Funding Choices is a consent surface, not an ad-serving script.
  *     See services/botPatterns.ts for the shared pattern source.
- *     (rootMargin 200px) — on first visible slot, loads adsbygoogle.js.
+ *     (rootMargin 200px) — on first approaching manual slot, loads adsbygoogle.js.
  *  2. Falls back to requestIdleCallback for pages without manual slots so Auto
  *     Ads still serve. Browsers lacking requestIdleCallback (legacy iOS Safari
  *     < 16.4 — has IntersectionObserver since 12.2 but no rIC until 16.4) use
@@ -889,14 +891,13 @@ export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)r
  *     no-rIC path, so both static-shell ad/CMP fetch paths are load-gated (not
  *     timer-gated). AdSenseBanner.tsx keeps a flat 1.5s no-rIC timer because it
  *     runs in a post-hydration effect (already after LCP), so it needs no gate.
- *  3. On script load, pushes {} once for every `<ins>` currently in the DOM.
- *     NOTE: `adsbygoogle.push({})` is NOT bound to a specific slot — each push
- *     fills the next not-yet-statused `<ins>` in DOM order. So the push COUNT
- *     must equal the number of `<ins>` (push-per-ins), never a filtered subset,
- *     or trailing slots (e.g. the end-of-list multiplex) would be left
- *     unprocessed. Off-device/hidden units are avoided upstream by emitting a
- *     single responsive `<ins>` per in-feed point (see `infeedAdListItemHtml`),
- *     not by skipping pushes here.
+ *  3. Parks each unrequested manual `<ins>` by removing its `adsbygoogle`
+ *     eligibility class. When a slot enters the shared 200px margin, the
+ *     loader restores that class and pushes once, so Google's DOM-order queue
+ *     selects the reached slot instead of spending requests on earlier
+ *     offscreen units. The placeholder and reserved height stay in the
+ *     document. Browsers without IntersectionObserver still request every
+ *     manual slot eagerly; Auto Ads keep the original idle / interaction path.
  */
 /** Manual slot state is shared with the SPA. A response deadline marks a
  * pending request; only explicit no-fill/script failures collapse, offscreen.
@@ -921,9 +922,9 @@ function staticAdWatch(el){
  });
  staticAdWatches.set(el,state);return state;
 }
-function staticAdWatchAll(){var slots=document.querySelectorAll('ins.adsbygoogle');for(var i=0;i<slots.length;i++)if(staticAdIsTarget(slots[i]))staticAdWatch(slots[i]);}
+function staticAdWatchAll(){var slots=document.querySelectorAll('ins[data-ad-slot]');for(var i=0;i<slots.length;i++)if(staticAdIsTarget(slots[i]))staticAdWatch(slots[i]);}
 function staticAdArm(){function start(){staticAdWatchAll();new MutationObserver(function(){staticAdWatches.forEach(function(watch,el){if(!el.isConnected){watch.stop();staticAdWatches.delete(el);}});}).observe(document.body,{childList:true,subtree:true});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();}
-function staticAdResolveManualFailure(reason){function resolve(){var slots=document.querySelectorAll('ins.adsbygoogle');for(var i=0;i<slots.length;i++){var watch=staticAdWatch(slots[i]);if(watch)watch.fail(reason);}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',resolve,{once:true});else resolve();}
+function staticAdResolveManualFailure(reason){function resolve(){var slots=document.querySelectorAll('ins[data-ad-slot]');for(var i=0;i<slots.length;i++){var watch=staticAdWatch(slots[i]);if(watch)watch.fail(reason);}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',resolve,{once:true});else resolve();}
 var staticScriptFailed=false;function staticAdScriptFailed(){staticScriptFailed=true;staticAdResolveManualFailure('script_failed');}`;
 
 /**
@@ -944,13 +945,19 @@ const FC_CMP_BOOTSTRAP = `${FC_CONSENT_BRIDGE_JS}${FC_ADBLOCK_BRIDGE_JS}function
  */
 const AD_PAGE_DIAG_CALL = `(${AD_PAGE_DIAG_FN})(function(){return(${BOT_GATE_FN})();});`;
 
+/** The static shell's Google push queue selects the first eligible `<ins>` in
+ * DOM order. Park manual slots until they approach the same 200px margin used
+ * by the SPA so a deep link cannot spend requests on earlier offscreen units. */
+const STATIC_AD_SLOT_ELIGIBILITY_CONTENT = `var staticAdEligibility=(${createStaticAdSlotEligibility.toString()})();`;
+const STATIC_AD_SLOT_REQUEST_CONTENT = `var queue=[],slotIo=null;function pushEligible(el){if(!staticAdEligibility.activate(el))return;var watch=staticAdWatch(el);try{(window.adsbygoogle=window.adsbygoogle||[]).push({});if(watch)watch.request();}catch(e){if(watch)watch.fail('push_failed');}}function stopSlotObserverWhenDrained(){if(slotIo&&staticAdEligibility.pendingCount()===0){slotIo.disconnect();slotIo=null;}}function armSlots(){if(slotIo){slotIo.disconnect();slotIo=null;}var candidates=[].slice.call(document.querySelectorAll('ins[data-ad-slot]')).filter(staticAdIsTarget);queue=staticAdEligibility.park(candidates,staticAdIsTarget);for(var q=0;q<queue.length;q++)if(queue[q].hasAttribute('data-ft-static-ad'))staticAdWatch(queue[q]);if(!queue.length)return;if(!('IntersectionObserver' in window)){for(var n=0;n<queue.length;n++)pushEligible(queue[n]);return;}slotIo=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting&&queue.indexOf(entries[i].target)!==-1)pushEligible(entries[i].target);}stopSlotObserverWhenDrained();},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<queue.length;j++)slotIo.observe(queue[j]);}`;
+
 /**
  * Plain JS body for the AdSense lazy loader — written to dist/assets/adsense-loader.js
  * by staticScriptsPlugin. This was the LARGEST inline script in every static page:
  * ~2 KB minified × ~200k SEO pages = ~400 MB dist. Externalising drops per-page cost
  * from ~2200 B to ~90 B (the <script src=...> tag).
  */
-const ADSENSE_LOADER_TEMPLATE = `(function(){${FC_JOBBOARD_OFFERWALL_GATE_JS}${STATIC_AD_COLLAPSE_CONTENT}staticAdArm();${AD_PAGE_DIAG_CALL}if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';}catch(e){return false;}})()){staticAdResolveManualFailure('reader_entitlement');return;}${FC_CMP_BOOTSTRAP}if(hasAdsDecision()){ensureFc();}else if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',scheduleFc,{once:true});}else{scheduleFc();}if((${BOT_GATE_FN})())return;var queue=null,cursor=0,slotIo=null;function pushUpTo(idx){for(;cursor<=idx;cursor++){var el=queue[cursor];if(!el||!el.parentNode||el.getAttribute('data-adsbygoogle-status'))continue;var watch=staticAdWatch(el);try{(window.adsbygoogle=window.adsbygoogle||[]).push({});if(watch)watch.request();}catch(e){if(watch)watch.fail('push_failed');}}if(slotIo&&cursor>=queue.length){slotIo.disconnect();slotIo=null;}}function armSlots(){queue=[].slice.call(document.querySelectorAll('ins.adsbygoogle')).filter(staticAdIsTarget);for(var q=0;q<queue.length;q++)if(queue[q].hasAttribute('data-ft-static-ad'))staticAdWatch(queue[q]);if(!queue.length)return;if(!('IntersectionObserver' in window)){pushUpTo(queue.length-1);return;}slotIo=new IntersectionObserver(function(entries){var max=-1;for(var i=0;i<entries.length;i++){if(!entries[i].isIntersecting)continue;var k=queue.indexOf(entries[i].target);if(k>max)max=k;}if(max>=cursor)pushUpTo(max);},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<queue.length;j++)slotIo.observe(queue[j]);}var loaded=false;function loadScript(){if(loaded)return;loaded=true;var existing=document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(existing){if(existing.getAttribute('data-loaded')==='1'||(window.adsbygoogle&&window.adsbygoogle.loaded))armSlots();else if(existing.getAttribute('data-failed')==='1')staticAdScriptFailed();else{existing.addEventListener('load',armSlots,{once:true});existing.addEventListener('error',staticAdScriptFailed,{once:true});}return;}var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){s.setAttribute('data-loaded','1');armSlots();};s.onerror=function(){s.setAttribute('data-failed','1');staticAdScriptFailed();};document.head.appendChild(s);}window.addEventListener('online',function(){if(!staticScriptFailed||!hasAdsDecision())return;staticScriptFailed=false;var failed=document.querySelector('script[data-failed="1"][src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(failed)failed.remove();staticAdWatches.forEach(function(watch,el){watch.stop();el.removeAttribute('data-ft-static-ad-collapsed');el.removeAttribute('data-ft-static-ad-state');});staticAdWatches.clear();loaded=false;loadScript();});function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');for(var k=0;k<slots.length;k++)if(slots[k].hasAttribute('data-ft-static-ad'))staticAdWatch(slots[k]);if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}function startAds(){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}}if(hasAdsDecision()){startAds();return;}var armed=false;function onGate(){if(armed||!hasAdsDecision())return;armed=true;startAds();}window.addEventListener('${ADS_CONSENT_CHANGE_EVENT}',onGate);window.addEventListener('storage',function(e){if(!e.key||e.key==='${ADS_CONSENT_STORAGE_KEY}')onGate();});})();`;
+const ADSENSE_LOADER_TEMPLATE = `(function(){${FC_JOBBOARD_OFFERWALL_GATE_JS}${STATIC_AD_COLLAPSE_CONTENT}${STATIC_AD_SLOT_ELIGIBILITY_CONTENT}staticAdArm();${AD_PAGE_DIAG_CALL}if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';}catch(e){return false;}})()){staticAdResolveManualFailure('reader_entitlement');return;}${FC_CMP_BOOTSTRAP}if(hasAdsDecision()){ensureFc();}else if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',scheduleFc,{once:true});}else{scheduleFc();}if((${BOT_GATE_FN})())return;${STATIC_AD_SLOT_REQUEST_CONTENT}var loaded=false;function loadScript(){if(loaded)return;loaded=true;var existing=document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(existing){if(existing.getAttribute('data-loaded')==='1'||(window.adsbygoogle&&window.adsbygoogle.loaded))armSlots();else if(existing.getAttribute('data-failed')==='1')staticAdScriptFailed();else{existing.addEventListener('load',armSlots,{once:true});existing.addEventListener('error',staticAdScriptFailed,{once:true});}return;}var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){s.setAttribute('data-loaded','1');armSlots();};s.onerror=function(){s.setAttribute('data-failed','1');staticAdScriptFailed();};document.head.appendChild(s);}window.addEventListener('online',function(){if(!staticScriptFailed||!hasAdsDecision())return;staticScriptFailed=false;var failed=document.querySelector('script[data-failed="1"][src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(failed)failed.remove();staticAdWatches.forEach(function(watch,el){watch.stop();el.removeAttribute('data-ft-static-ad-collapsed');el.removeAttribute('data-ft-static-ad-state');});staticAdWatches.clear();loaded=false;loadScript();});function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');for(var k=0;k<slots.length;k++)if(slots[k].hasAttribute('data-ft-static-ad'))staticAdWatch(slots[k]);if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}function startAds(){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}}if(hasAdsDecision()){startAds();return;}var armed=false;function onGate(){if(armed||!hasAdsDecision())return;armed=true;startAds();}window.addEventListener('${ADS_CONSENT_CHANGE_EVENT}',onGate);window.addEventListener('storage',function(e){if(!e.key||e.key==='${ADS_CONSENT_STORAGE_KEY}')onGate();});})();`;
 export const ADSENSE_LOADER_CONTENT = ADSENSE_LOADER_TEMPLATE;
 export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
 export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;

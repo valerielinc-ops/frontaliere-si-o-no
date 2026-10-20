@@ -171,7 +171,7 @@ describe('collector parity (TS ≡ inline)', () => {
     document.body.innerHTML = [
       '<ins class="adsbygoogle" data-ad-slot="1" data-ad-status="filled"></ins>',
       '<ins class="adsbygoogle" data-ad-slot="2" data-ad-status="unfilled" data-ft-static-ad-collapsed=""></ins>',
-      '<ins class="adsbygoogle" data-ad-slot="3"></ins>',
+      '<ins data-ft-static-ad-pending="" data-ad-slot="3"></ins>',
       `<div ${AD_BANNER_STATE_ATTR}="collapsed"><ins class="adsbygoogle" data-ad-slot="4" data-ad-status="unfilled"></ins></div>`,
       '<div class="google-auto-placed"><ins class="adsbygoogle" data-ad-status="filled"></ins></div>',
       '<div class="google-auto-placed"><ins class="adsbygoogle" data-ad-slot="9" data-ad-status="filled"></ins></div>',

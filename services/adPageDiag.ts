@@ -167,7 +167,10 @@ export function collectAdPageDiag(
   let filled = 0;
   let unfilled = 0;
   let collapsed = 0;
-  const slots = doc.querySelectorAll('ins.adsbygoogle');
+  // Static pages park non-eligible slots by removing only the AdSense class.
+  // Count their placeholders too so page diagnostics retain the declared slot
+  // total while manual requests remain deferred.
+  const slots = doc.querySelectorAll('ins[data-ad-slot]');
   for (let i = 0; i < slots.length; i++) {
     const el = slots[i];
     if (!isManualSlot(el)) continue;
