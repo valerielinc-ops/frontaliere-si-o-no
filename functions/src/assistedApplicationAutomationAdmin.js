@@ -17,7 +17,7 @@ import {
 import { randomUUID } from 'node:crypto';
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
-import { factSourcesNow, formAnswersWithEdits } from './assistedApplicationCandidateEdits.js';
+import { candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
 import { CvCommitError, saveAnswersWithCv } from './assistedApplicationCvCommit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { cvChoiceOf, cvToSend } from './assistedApplicationDocxInPlace.js';
@@ -154,6 +154,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   };
   const inPlaceKey = draft?.tailoredCv?.inplace?.status === 'ready' ? draft.tailoredCv.inplace.docxKey : null;
   const [letterUrl, tailoredCvUrl, inPlaceUrl, sent] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey), signed(inPlaceKey), sentView(draft?.sent, signed)]);
+  const candidateState = draft ? candidateWithEdits({ order: orderSnapshot.data() || {}, draft, flow }) : { profile: {}, answers: {} };
   return {
     inbox,
     accounts,
@@ -166,7 +167,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       reminderAt: flow.reminderAt || null,
       heldBy: flow.heldBy || [],
       feedback: flow.feedback || [],
-      answers: flow.answers || {},
+      answers: candidateState.answers,
       // The fields the candidate corrected on the review page.
       formOverrides: flow.formOverrides || {},
       dispatch: flow.dispatch || null,
@@ -186,7 +187,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       checksIt: draft.checksIt || [],
       requirements: draft.requirements || [],
       matches: draft.matches || [],
-      questions: draft.questions || [],
+      questions: questionsForCandidate(draft.questions, candidateState.profile, candidateState.answers, flow?.questionAnswers),
       coverLetter: draft.coverLetter || null,
       applicationEmail: draft.applicationEmail || null,
       formAnswers: formAnswersWithEdits({ order: orderSnapshot.data() || {}, draft, flow }),

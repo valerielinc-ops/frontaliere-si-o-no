@@ -1,12 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import {
   candidateWithEdits,
+  candidateQuestionAnswerKey,
+  questionsForCandidate,
+  rememberCandidateQuestionAnswers,
   factSourcesNow,
   fieldView,
   formAnswersWithEdits,
   planCandidateEdits,
+  questionNeedsCandidateAnswer,
 } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
+import { languageExplicitlyAbsent } from '../functions/src/lib/languageFacts.js';
+import { sanitizeProfile } from '../functions/src/assistedApplicationAiDraftCore.js';
 
 const LETTER = [
   'Gentili Signore e Signori,',
@@ -51,6 +57,67 @@ describe('candidate edits', () => {
     expect(candidateWithEdits({ order, draft: asking, flow: { ...flow, answers: { salary_expectation: 'CHF 90k' } } }).answers.salary_expectation).toBe('CHF 90k');
     const fields = Object.fromEntries(formAnswersWithEdits({ order, draft: draft(), flow }).map((field) => [field.key, field.value]));
     expect(fields).toMatchObject({ salutation: 'Signora', firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', location: 'Varese', salary: 'CHF 80k', motivationShort: 'Mi motiva il reparto.' });
+  });
+
+  it('recovers complete legacy language lists from the CV section without trusting capped lists', () => {
+    const languages = [
+      { language: 'English', level: 'C1' },
+      { language: 'Italian', level: 'C2' },
+      { language: 'French', level: 'B2' },
+      { language: 'Spanish', level: 'C1' },
+    ];
+    const legacyProfile = sanitizeProfile({ ...draft().profile, languages }, { legacy: true });
+    expect(legacyProfile.languagesListTruncated).toBe(false);
+    const legacy = draft({
+      profile: legacyProfile,
+      factSources: { text: 'Languages\nEnglish C1\nItalian C2\nFrench B2\nSpanish C1' },
+    });
+    const recovered = candidateWithEdits({ order, draft: legacy, flow: { answers: {} } }).profile;
+    const germanQuestion = 'Do you speak German? If so, how would you describe your proficiency level?';
+    expect(recovered).toMatchObject({ languagesListTruncated: false, languagesExplicitList: true });
+    expect(languageExplicitlyAbsent(recovered, germanQuestion)).toBe(true);
+    expect(questionNeedsCandidateAnswer({ question: germanQuestion }, recovered)).toBe(false);
+
+    const cappedProfile = sanitizeProfile({ ...draft().profile, languages: Array.from({ length: 12 }, () => ({ language: 'English', level: 'C1' })) }, { legacy: true });
+    expect(cappedProfile.languagesListTruncated).toBe(true);
+    const capped = draft({
+      profile: cappedProfile,
+      factSources: { text: 'Languages\nEnglish C1\nItalian C2' },
+    });
+    const conservative = candidateWithEdits({ order, draft: capped, flow: { answers: {} } }).profile;
+    expect(conservative).toMatchObject({ languagesListTruncated: true, languagesExplicitList: false });
+    expect(languageExplicitlyAbsent(conservative, germanQuestion)).toBe(false);
+    expect(questionNeedsCandidateAnswer({ question: germanQuestion }, conservative)).toBe(true);
+  });
+
+  it('reuses an answer when equivalent language questions have different ids, and carries it across drafts', () => {
+    const first = {
+      id: 'german_level', question: 'Qual è il tuo livello di tedesco?', type: 'choice',
+      options: ['A1', 'A2', 'B1', 'B2'], required: true,
+    };
+    const second = {
+      id: 'german_proficiency', question: 'Do you speak German? If so, how would you describe your proficiency level?', type: 'choice',
+      options: ['A1', 'A2', 'B1', 'B2'], required: true,
+    };
+    const currentDraft = { profile: { languages: [] }, questions: [first, second] };
+    const current = candidateWithEdits({ order, draft: currentDraft, flow: { answers: { german_level: 'B1' } } });
+    expect(current.answers.german_proficiency).toBe('B1');
+    expect(questionsForCandidate(currentDraft.questions, current.profile, current.answers)).toEqual([first]);
+
+    const memory = rememberCandidateQuestionAnswers({ questions: [first], answers: { german_level: 'B1' } });
+    const nextQuestion = { ...second, id: 'german_skill_level', question: 'What is your German proficiency level?' };
+    const next = candidateWithEdits({
+      order,
+      draft: { profile: { languages: [] }, questions: [nextQuestion] },
+      flow: { answers: {}, questionAnswers: memory },
+    });
+    expect(memory[candidateQuestionAnswerKey(first)]).toBe('B1');
+    expect(next.answers.german_skill_level).toBe('B1');
+
+    const cleared = rememberCandidateQuestionAnswers({
+      questions: [first], answers: { german_level: '' }, previous: memory, changed: { german_level: '' },
+    });
+    expect(cleared[candidateQuestionAnswerKey(first)]).toBe('');
   });
 
   it('keeps the alias and the fields a question asks locked, with the reason', () => {

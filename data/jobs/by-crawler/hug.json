@@ -3694,12 +3694,12 @@
     },
     {
       "id": "hug-1e7474281ebd",
-      "slug": "acheteur-ou-acheteuse-immobilier-construction-100-hug-geneve",
+      "slug": "buyer-real-estate-construction-100-hug-geneve",
       "slugByLocale": {
         "fr": "acheteur-ou-acheteuse-immobilier-construction-100-hug-geneve",
-        "it": "acheteur-ou-acheteuse-immobilier-construction-100-hug-geneve",
+        "it": "buyer-real-estate-construction-100-hug-geneve",
         "en": "acheteur-ou-acheteuse-immobilier-construction-100-hug-geneve",
-        "de": "acheteur-ou-acheteuse-immobilier-construction-100-hug-geneve"
+        "de": "kaufer-immobilienbau-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3758,7 +3758,18 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-20T15:10:50.982Z"
+      "firstSeenAt": "2026-10-20T15:10:50.982Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "acheteur-ou-acheteuse-immobilier-construction-100-hug-geneve"
+        ],
+        "de": [
+          "acheteur-ou-acheteuse-immobilier-construction-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "acheteur-ou-acheteuse-immobilier-construction-100-hug-geneve"
+      ]
     }
   ]
 }

@@ -13534,6 +13534,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.battaglia-frontalieri-tasse-diritti.title': 'The long battle of cross-border workers: taxes, rights and disparities',
     'blog.article.battaglia-frontalieri-tasse-diritti.excerpt': 'About 31 thousand cross-border commuters in the Varese area and 32 thousand in the Como area Varese remains excluded from tax rebates after the return of 4% 31,7% spend more than an hour and a half traveling',
     'blog.article.battaglia-frontalieri-tasse-diritti.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.interrogazione-wicht-clausola-regionale.title': 'Lugano: parliamentary question on safeguard clause and cross-border workers',
+    'blog.article.interrogazione-wicht-clausola-regionale.excerpt': 'Omar Wicht questions the Municipality of Lugano Regional clause approved in September 2026 Temporary limits on immigration among the measures envisaged Possible',
+    'blog.article.interrogazione-wicht-clausola-regionale.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.ricerca-cisl-frontalieri-2026.title': 'CISL research: declining purchasing power for cross-border workers',
+    'blog.article.ricerca-cisl-frontalieri-2026.excerpt': '1.542 responses collected in May 2026 31,7% over an hour and a half commuting 87,8% considers the «health tax» penalizing 76,9% does not assess',
+    'blog.article.ricerca-cisl-frontalieri-2026.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

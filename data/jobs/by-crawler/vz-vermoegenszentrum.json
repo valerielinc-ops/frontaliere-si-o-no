@@ -5564,8 +5564,8 @@
       "slugByLocale": {
         "de": "fachspezialist-in-berufliche-vorsorge-und-sozialversicherungen-brokerage-vz",
         "it": "fachspezialist-in-berufliche-previdenza-e-sozialversicherungen-brokerage-vz-vermogenszentrum-zurich",
-        "en": "fachspezialist-in-berufliche-vorsorge-und-sozialversicherungen-brokerage-vz",
-        "fr": "fachspezialist-in-berufliche-vorsorge-und-sozialversicherungen-brokerage-vz"
+        "en": "specialist-in-occupational-pensions-and-social-insurance-brokerage-vz-vermogenszentrum-zurich-zurich",
+        "fr": "specialiste-de-la-prevoyance-professionnelle-et-des-assurances-sociales-brokerage-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -5624,6 +5624,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialist-in-berufliche-vorsorge-und-sozialversicherungen-brokerage-vz"
+        ],
+        "en": [
+          "fachspezialist-in-berufliche-vorsorge-und-sozialversicherungen-brokerage-vz"
+        ],
+        "fr": [
           "fachspezialist-in-berufliche-vorsorge-und-sozialversicherungen-brokerage-vz"
         ]
       },

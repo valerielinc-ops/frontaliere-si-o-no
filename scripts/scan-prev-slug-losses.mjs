@@ -80,7 +80,15 @@ export function parseSliceSnapshot(content, context = 'slice snapshot') {
   } catch (error) {
     throw new Error(`[scan-prev-slug-losses] malformed JSON in ${context}`, { cause: error });
   }
-  if (!payload || typeof payload !== 'object' || Array.isArray(payload) || !Array.isArray(payload.jobs)) {
+  // Active crawler slices use the `{ jobs: [...] }` envelope, while expired
+  // per-crawler archives are intentionally persisted as a bare `[...]` array
+  // by archiveRemovedJobsToSlice(). Normalize that second shape only when the
+  // caller identifies the expired archive path: an array in an active slice
+  // must remain a hard failure so recovery cannot silently skip a bad writer.
+  const normalizedContext = String(context).replaceAll('\\', '/');
+  const isExpiredArchive = normalizedContext.includes('data/jobs/expired/by-crawler/');
+  if (Array.isArray(payload) && isExpiredArchive) return { jobs: payload };
+  if (!payload || typeof payload !== 'object' || !Array.isArray(payload.jobs)) {
     throw new Error(`[scan-prev-slug-losses] invalid jobs snapshot in ${context}`);
   }
   return payload;

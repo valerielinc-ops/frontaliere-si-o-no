@@ -29,13 +29,14 @@ export function cleanBlock(value, max = 4000) {
 
 const list = (value, max) => (Array.isArray(value) ? value.slice(0, max) : []);
 const MAX_PROFILE_LANGUAGES = 40;
+const LEGACY_LANGUAGE_LIST_LIMIT = 12;
 
 /** Lengths the schemas no longer enforce are capped here. */
 export function sanitizeProfile(raw, { legacy = false } = {}) {
   const rawLanguages = Array.isArray(raw?.languages) ? raw.languages : [];
   const languagesListTruncated = raw?.languagesListTruncated === true
     || rawLanguages.length > MAX_PROFILE_LANGUAGES
-    || (legacy && raw?.languagesListTruncated === undefined);
+    || (legacy && raw?.languagesListTruncated === undefined && rawLanguages.length >= LEGACY_LANGUAGE_LIST_LIMIT);
   return {
     fullName: clean(raw?.fullName, 200),
     email: clean(raw?.email, 320),

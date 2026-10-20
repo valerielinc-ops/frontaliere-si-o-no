@@ -91,6 +91,41 @@ describe('red flags', () => {
     expect(flags).toEqual({ owner: ['fact_check', 'channel_unknown'], candidate: ['permit'], documents: [] });
   });
 
+  it('does not hold a legacy draft on a language question already answered by a complete CV list', () => {
+    const draft = {
+      ...cleanDraft,
+      profile: { languages: [
+        { language: 'English', level: 'C1' },
+        { language: 'Italian', level: 'C2' },
+        { language: 'French', level: 'B2' },
+        { language: 'Spanish', level: 'C1' },
+      ] },
+      factSources: { text: 'Languages\nEnglish C1\nItalian C2\nFrench B2\nSpanish C1' },
+      questions: [{ id: 'german_level', question: 'Do you speak German? If so, how would you describe your proficiency level?', required: true }],
+    };
+    expect(evaluateRedFlags(draft).candidate).toEqual([]);
+  });
+
+  it('releases an old candidate review hold when its last required question is now answered by the CV', () => {
+    const draft = {
+      ...cleanDraft,
+      profile: { languages: [
+        { language: 'English', level: 'C1' },
+        { language: 'Italian', level: 'C2' },
+        { language: 'French', level: 'B2' },
+        { language: 'Spanish', level: 'C1' },
+      ] },
+      factSources: { text: 'Languages\nEnglish C1\nItalian C2\nFrench B2\nSpanish C1' },
+      questions: [{ id: 'german_level', question: 'Do you speak German? If so, how would you describe your proficiency level?', required: true }],
+    };
+    const resolved = transition({
+      state: 'candidate_review', round: 1, heldBy: ['question:german_level'],
+      heldSince: T0, reminderAt: T0 + HELD_REMINDERS_AFTER_MS[0],
+    }, { type: 'tick' }, { draft, nowMs: T0 + HELD_REMINDERS_AFTER_MS[0] });
+    expect(resolved.flow).toMatchObject({ state: 'candidate_review', heldBy: [], deadlineAt: T0 + HELD_REMINDERS_AFTER_MS[0] + CANDIDATE_REVIEW_MS });
+    expect(resolved.effects).toEqual([]);
+  });
+
   // Owner decision 2026-10-03: a profile that is not a full match goes on, the candidate reads why.
   it('a profile that misses a must-have no longer stops at the owner', () => {
     const poor = { ...cleanDraft, verdict: 'poor' };
