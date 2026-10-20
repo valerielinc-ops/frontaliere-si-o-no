@@ -6,6 +6,8 @@ import { fetchGa4Pages } from './lib/evidence/ga4Fetcher.mjs';
 import { fetchGscQueries } from './lib/evidence/gscFetcher.mjs';
 import { DEFAULT_GA4_PROPERTY_ID, ga4DateRange } from './lib/ga4-service-account.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { freeTranslateWithRetry } from './lib/free-translate.mjs';
+import { localizeSectorHubLabel } from './lib/sector-hub-label-localization';
 import {
   buildSectorHubDiscoveryReport,
   buildAutomaticSectorHubPublicationRegistry,
@@ -164,14 +166,38 @@ async function main() {
     now,
   });
   writeJsonAtomic(args.outputFile, report);
-  const publications = buildAutomaticSectorHubPublicationRegistry({ report, previous: previousPublications });
+  const previousLabelsBySlug = new Map((previousPublications?.hubs || []).map((hub) => [hub.slug, hub]));
+  const localizedCandidates: Array<(typeof report.candidates)[number]> = [];
+  for (const candidate of report.candidates) {
+    if (!candidate.automaticPromotionEligible) {
+      localizedCandidates.push(candidate);
+      continue;
+    }
+    const previousHub = previousLabelsBySlug.get(candidate.suggestedSlug);
+    const existingLabels = previousHub?.label === candidate.label ? previousHub.labelByLocale : {};
+    const labelByLocale = await localizeSectorHubLabel({
+      label: candidate.label,
+      sourceLocale: candidate.sourceLocale,
+      existingLabels: { ...existingLabels, ...candidate.labelByLocale },
+      translate: async (text, sourceLocale, targetLocale) => freeTranslateWithRetry({
+        text,
+        sourceLang: sourceLocale,
+        targetLang: targetLocale,
+        fieldType: 'title',
+        maxRetries: 1,
+      }),
+    });
+    localizedCandidates.push({ ...candidate, labelByLocale });
+  }
+  const publicationReport = { ...report, candidates: localizedCandidates };
+  const publications = buildAutomaticSectorHubPublicationRegistry({ report: publicationReport, previous: previousPublications });
   writeJsonAtomic(args.publicationsOutputFile, publications);
 
-  const eligible = report.candidates.filter((candidate) => candidate.status === 'eligible-for-review').length;
+  const eligible = report.candidates.filter((candidate) => candidate.automaticPromotionEligible).length;
   const promising = report.candidates.filter((candidate) => candidate.status === 'promising').length;
   const activePublications = publications.hubs.filter((hub) => hub.status === 'active').length;
   const coolingPublications = publications.hubs.filter((hub) => hub.status === 'cooling-off').length;
-  console.log(`[sector-hub-discovery] ${report.sourceCoverage.jobs.activeTicinoJobs} active TI ads; ${report.existingHubPerformance.length} curated hubs measured; ${report.candidates.length} candidates retained (${promising} promising, ${eligible} sustained-gate candidates).`);
+  console.log(`[sector-hub-discovery] ${report.sourceCoverage.jobs.activeTicinoJobs} active TI ads; ${report.existingHubPerformance.length} curated hubs measured; ${report.candidates.length} candidates retained (${promising} promising, ${eligible} automatically publishable).`);
   console.log(`[sector-hub-discovery] ${activePublications} automatic hubs active, ${coolingPublications} cooling off; GA4 ${report.sourceCoverage.ga4.status}; GSC ${report.sourceCoverage.gsc.status}.`);
   console.log(`[sector-hub-discovery] wrote ${path.relative(ROOT, args.outputFile)} and ${path.relative(ROOT, args.publicationsOutputFile)}.`);
 }

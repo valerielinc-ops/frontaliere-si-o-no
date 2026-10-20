@@ -18,6 +18,8 @@ import { isListingInventoryJob, normalizeListingIdentity } from '../../services/
 import { jobQueuedAtMs, jobTrafficScore } from './job-traffic-priority.mjs';
 import { isFixtureJob } from './fixture-data-filter.mjs';
 import {
+  AUTO_SECTOR_HUB_MIN_EMPLOYERS,
+  AUTO_SECTOR_HUB_MIN_JOBS,
   type SectorHubPublication,
   type SectorHubPublicationRegistry,
 } from '../../data/sector-hub-publications';
@@ -25,9 +27,9 @@ import {
 export const HUB_DISCOVERY_WINDOW_DAYS = 28;
 export const MIN_TRACKED_JOBS = 3;
 export const MIN_PROMISING_JOBS = 8;
-export const MIN_REVIEW_JOBS = 5;
-export const MIN_REVIEW_EMPLOYERS = 2;
-export const MIN_REVIEW_WEEKS = 3;
+export const MIN_PROMOTION_JOBS = AUTO_SECTOR_HUB_MIN_JOBS;
+export const MIN_PROMOTION_EMPLOYERS = AUTO_SECTOR_HUB_MIN_EMPLOYERS;
+export const MIN_PROMOTION_WEEKS = 1;
 export const CANDIDATE_RETENTION_WEEKS = 12;
 export const MAX_CANDIDATES = 250;
 const SCORING = Object.freeze({
@@ -92,12 +94,18 @@ const AUTO_LABELS_BY_SLUG: Readonly<Record<string, SectorHubPublication['labelBy
   legal: { it: 'Servizi legali', en: 'Legal services', de: 'Rechtswesen', fr: 'Services juridiques' },
 };
 
-const AUTO_PUBLISH_FAST_TRACK = Object.freeze({
-  minActiveJobs: 5,
-  minDistinctEmployers: 2,
-  minJobsWithViews: 12,
-  minStrongTrafficSignals: 2,
-  strongSignalThresholds: Object.freeze({ viewsPerLiveDay: 10, ga4Sessions28d: 100, gscJobPageImpressions28d: 1500 }),
+const AUTO_PUBLICATION = Object.freeze({
+  minActiveJobs: MIN_PROMOTION_JOBS,
+  minDistinctEmployers: MIN_PROMOTION_EMPLOYERS,
+  minConsecutiveWeeks: MIN_PROMOTION_WEEKS,
+  minTrafficSignals: 1,
+  trafficEvidenceThresholds: Object.freeze({
+    viewsPerLiveDay: 0.25,
+    ga4Sessions28d: 10,
+    gscJobPageImpressions28d: 50,
+    gscQueryClicks: 2,
+    gscQueryImpressions: 100,
+  }),
 });
 
 export interface DiscoveryJob {
@@ -415,6 +423,8 @@ export function buildSectorHubDiscoveryReport({
     jobs: Map<string, { job: DiscoveryJob; id: string; views: number; viewsPerLiveDay: number }>;
     labels: Map<string, number>;
     fields: Set<string>;
+    sourceLocales: Map<(typeof LOCALES)[number], number>;
+    labelsBySourceLocale: Map<(typeof LOCALES)[number], Map<string, number>>;
   }>();
   // Mirror the valid listing pool and first-page ordering used by
   // jobsSeoPagesPlugin. A static category route covers candidates when every
@@ -492,10 +502,24 @@ export function buildSectorHubDiscoveryReport({
       return;
     }
     for (const [slug, info] of candidateLabels) {
-      const acc = candidateAcc.get(slug) || { slug, jobs: new Map(), labels: new Map(), fields: new Set<string>() };
+      const acc = candidateAcc.get(slug) || {
+        slug,
+        jobs: new Map(),
+        labels: new Map(),
+        fields: new Set<string>(),
+        sourceLocales: new Map(),
+        labelsBySourceLocale: new Map(),
+      };
       acc.jobs.set(id, { job, id, views, viewsPerLiveDay });
       acc.labels.set(info.label, (acc.labels.get(info.label) || 0) + 1);
       for (const field of info.fields) acc.fields.add(field);
+      const sourceLocale = job.sourceLang;
+      if (sourceLocale && (LOCALES as readonly string[]).includes(sourceLocale)) {
+        acc.sourceLocales.set(sourceLocale, (acc.sourceLocales.get(sourceLocale) || 0) + 1);
+        const localeLabels = acc.labelsBySourceLocale.get(sourceLocale) || new Map<string, number>();
+        localeLabels.set(info.label, (localeLabels.get(info.label) || 0) + 1);
+        acc.labelsBySourceLocale.set(sourceLocale, localeLabels);
+      }
       candidateAcc.set(slug, acc);
     }
   });
@@ -530,7 +554,12 @@ export function buildSectorHubDiscoveryReport({
   const candidateRows = [];
   for (const [slug, acc] of candidateAcc) {
     const entries = [...acc.labels.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-    const label = entries[0]?.[0] || slug.replace(/-/g, ' ');
+    const sourceLocale = [...acc.sourceLocales.entries()]
+      .sort((a, b) => b[1] - a[1] || Number(b[0] === 'it') - Number(a[0] === 'it') || a[0].localeCompare(b[0]))
+      .map(([locale]) => locale)[0] || 'it';
+    const sourceLabels = [...(acc.labelsBySourceLocale.get(sourceLocale) || acc.labels).entries()]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    const label = sourceLabels[0]?.[0] || entries[0]?.[0] || slug.replace(/-/g, ' ');
     const jobEntries = [...acc.jobs.values()];
     const employers = new Set(jobEntries.map(({ job }) => employerIdentity(job)).filter(Boolean));
     const activeJobCount = jobEntries.length;
@@ -566,11 +595,13 @@ export function buildSectorHubDiscoveryReport({
     const old = previousBySlug.get(slug);
     const observedWeeks = [...new Set([...(old?.observedWeeks || []), currentWeek])].sort().slice(-CANDIDATE_RETENTION_WEEKS);
     const candidateAgeWeeks = consecutiveWeekCount(observedWeeks);
-    const trafficEvidence = (popularityFresh && viewsPerLiveDay >= 0.25)
-      || ga4Sessions28d >= 10
-      || gscJobPageImpressions28d >= 50
-      || queryMetrics.clicks >= 2
-      || queryMetrics.impressions >= 100;
+    const trafficEvidence = (popularityFresh && viewsPerLiveDay >= AUTO_PUBLICATION.trafficEvidenceThresholds.viewsPerLiveDay)
+      || (ga4Complete && ga4Sessions28d >= AUTO_PUBLICATION.trafficEvidenceThresholds.ga4Sessions28d)
+      || (gscPageImpressionsComplete
+        && gscJobPageImpressions28d >= AUTO_PUBLICATION.trafficEvidenceThresholds.gscJobPageImpressions28d)
+      || (gscQueryAggregationComplete
+        && (queryMetrics.clicks >= AUTO_PUBLICATION.trafficEvidenceThresholds.gscQueryClicks
+          || queryMetrics.impressions >= AUTO_PUBLICATION.trafficEvidenceThresholds.gscQueryImpressions));
     const score = scoreCandidate({
       activeJobCount,
       employerCount: employers.size,
@@ -583,14 +614,16 @@ export function buildSectorHubDiscoveryReport({
     const slugConflicts = Object.entries(SECTOR_HUB_SLUG).some(([, slugs]) =>
       Object.values(slugs).some((knownSlug) => knownSlug === slug))
       || (SECTOR_HUB_KEYS as readonly string[]).includes(slug);
-    const reviewEligible = !slugConflicts
-      && activeJobCount >= MIN_REVIEW_JOBS
-      && employers.size >= MIN_REVIEW_EMPLOYERS
+    const automaticPromotionEligible = !slugConflicts
+      && activeJobCount >= MIN_PROMOTION_JOBS
+      && employers.size >= MIN_PROMOTION_EMPLOYERS
       && trafficEvidence
-      && candidateAgeWeeks >= MIN_REVIEW_WEEKS;
+      && candidateAgeWeeks >= MIN_PROMOTION_WEEKS;
     candidateRows.push({
       label,
       suggestedSlug: slug,
+      sourceLocale,
+      labelByLocale: AUTO_LABELS_BY_SLUG[slug] || { [sourceLocale]: label },
       sourceFields: [...acc.fields].sort(),
       existingCategoryJobCount: existingCategoryJobCounts.get(slug) || 0,
       existingCategoryInventoryMatches,
@@ -611,9 +644,10 @@ export function buildSectorHubDiscoveryReport({
       observedWeeks,
       firstSeenAt: old?.firstSeenAt || generatedAt,
       lastSeenAt: generatedAt,
-      status: reviewEligible ? 'eligible-for-review'
+      automaticPromotionEligible,
+      status: automaticPromotionEligible ? 'eligible-for-publication'
         : activeJobCount >= MIN_PROMISING_JOBS && employers.size >= 3 && trafficEvidence ? 'promising' : 'watch',
-      requiresCuratedTaxonomy: true,
+      requiresCuratedTaxonomy: !automaticPromotionEligible,
       slugConflict: slugConflicts,
     });
   }
@@ -637,12 +671,13 @@ export function buildSectorHubDiscoveryReport({
       gscQueryClicks28d: 0,
       score: 0,
       status: 'dormant',
+      automaticPromotionEligible: false,
       requiresCuratedTaxonomy: true,
       slugConflict: Boolean(old.slugConflict),
     });
   }
 
-  candidateRows.sort((a, b) => Number(b.status === 'eligible-for-review') - Number(a.status === 'eligible-for-review')
+  candidateRows.sort((a, b) => Number(b.status === 'eligible-for-publication') - Number(a.status === 'eligible-for-publication')
     || b.score - a.score
     || b.activeJobCount - a.activeJobCount
     || a.suggestedSlug.localeCompare(b.suggestedSlug));
@@ -655,17 +690,17 @@ export function buildSectorHubDiscoveryReport({
     window: traffic.window,
     publicationMode: 'automatic-quality-gated',
     promotionRules: {
-      minActiveJobs: MIN_REVIEW_JOBS,
-      minDistinctEmployers: MIN_REVIEW_EMPLOYERS,
-      minConsecutiveWeeks: MIN_REVIEW_WEEKS,
+      minActiveJobs: MIN_PROMOTION_JOBS,
+      minDistinctEmployers: MIN_PROMOTION_EMPLOYERS,
+      minConsecutiveWeeks: MIN_PROMOTION_WEEKS,
       requiresTrafficEvidence: true,
-      trafficEvidenceRule: 'Sustained promotion needs one traffic threshold; fast-track promotion needs two of the three strong, complete traffic signals plus minimum inventory and employer counts.',
+      trafficEvidenceRule: 'Automatic publication needs at least one positive signal from a fresh or complete traffic source plus minimum inventory and employer counts.',
       trafficSources: ['active-ad views', 'GA4 job-page sessions', 'GSC impressions and clicks'],
-      automaticFastTrack: AUTO_PUBLISH_FAST_TRACK,
-      fastTrackSourceRule: 'Count only fresh popularity exports, complete GA4 page data and GSC page impressions marked complete.',
-      automaticSustainedTrack: 'eligible-for-review status for 3 consecutive weeks with the normal inventory, employer and traffic gates',
+      automaticPublication: AUTO_PUBLICATION,
+      trafficSourceRule: 'Count popularity only when fresh, GA4 only when complete, and GSC queries/pages only when the corresponding pass is complete.',
+      automaticPromotionRule: 'Every candidate that meets the minimum inventory, employer and one-source traffic gates is promoted after its first weekly observation.',
       staticCategoryRouteRule: 'Reuse a static category URL only when the first emitted category page contains every active candidate job ID; additional unrelated jobs on that page are allowed.',
-      localizedLabelRule: 'Only locales with an explicit localized label are emitted, linked and indexed.',
+      localizedLabelRule: 'Emit the source locale label and add validated translations; retain curated translations and omit locales when translation validation fails.',
     },
     scoring: SCORING,
     sourceCoverage: {
@@ -705,8 +740,8 @@ export function buildSectorHubDiscoveryReport({
       'Candidates are grouped only from active Ticino ads whose title/category does not match any of the '
         + SECTOR_HUB_KEYS.length + ' curated hubs.',
       'The popularity export is cumulative; only views attached to active ads are counted and the score uses views per live day from the best available posting date.',
-      'Eligible candidates require at least 5 active ads, 2 distinct employers, traffic evidence and 3 consecutive weekly observations.',
-      'Automatic publication accepts every candidate that passes either the sustained three-week gate or the fast-track inventory and multi-source traffic gate; there is no one-hub promotion slot.',
+      'Automatic publication requires at least 5 active ads, 2 distinct employers, one positive signal from a fresh or complete traffic source, and one weekly observation.',
+      'Every qualifying candidate is promoted in the same run; there is no one-hub promotion slot or two-signal fast-track gate.',
       'Generated pages use localized templates, exact publisher category fields, live inventory floors, canonical/hreflang and noindex retirement bridges.',
       'Static category URLs are reused when the first emitted category page contains every active candidate job ID; additional unrelated jobs on that page are allowed.',
       'Missing candidate rows in complete traffic sources do not advance active-hub retirement; partial or unavailable GA4/GSC sources are not interpreted as measured zero demand.',
@@ -717,6 +752,9 @@ export function buildSectorHubDiscoveryReport({
 type AutomaticHubCandidate = {
   label: string;
   suggestedSlug: string;
+  sourceLocale?: (typeof LOCALES)[number];
+  labelByLocale?: SectorHubPublication['labelByLocale'];
+  automaticPromotionEligible?: boolean;
   sourceFields: string[];
   existingCategoryJobCount?: number;
   existingCategoryInventoryMatches?: boolean;
@@ -733,35 +771,29 @@ type AutomaticHubCandidate = {
   slugConflict: boolean;
 };
 
-function qualifiesForAutomaticPublication(
-  candidate: AutomaticHubCandidate,
-  sources: { popularityFresh: boolean; ga4Complete: boolean; gscPageImpressionsComplete: boolean },
-): boolean {
-  if (candidate.slugConflict || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(candidate.suggestedSlug)) return false;
-  const fastThresholds = AUTO_PUBLISH_FAST_TRACK.strongSignalThresholds;
-  const strongSignals = [
-    sources.popularityFresh
-      && candidate.activeJobsWithViews >= AUTO_PUBLISH_FAST_TRACK.minJobsWithViews
-      && candidate.viewsPerLiveDay >= fastThresholds.viewsPerLiveDay,
-    sources.ga4Complete && candidate.ga4Sessions28d >= fastThresholds.ga4Sessions28d,
-    sources.gscPageImpressionsComplete
-      && candidate.gscJobPageImpressions28d >= fastThresholds.gscJobPageImpressions28d,
-  ].filter(Boolean).length;
-  const fastTrack = candidate.activeJobCount >= AUTO_PUBLISH_FAST_TRACK.minActiveJobs
-    && candidate.employerCount >= AUTO_PUBLISH_FAST_TRACK.minDistinctEmployers
-    && strongSignals >= AUTO_PUBLISH_FAST_TRACK.minStrongTrafficSignals;
-  const sustainedTrack = candidate.status === 'eligible-for-review'
-    && candidate.activeJobCount >= MIN_REVIEW_JOBS
-    && candidate.employerCount >= MIN_REVIEW_EMPLOYERS
-    && candidate.consecutiveWeeks >= MIN_REVIEW_WEEKS;
-  return fastTrack || sustainedTrack;
+function qualifiesForAutomaticPublication(candidate: AutomaticHubCandidate): boolean {
+  return candidate.automaticPromotionEligible === true
+    && !candidate.slugConflict
+    && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(candidate.suggestedSlug);
 }
 
-function labelsForCandidate(candidate: AutomaticHubCandidate): SectorHubPublication['labelByLocale'] {
+function labelsForCandidate(
+  candidate: AutomaticHubCandidate,
+  previous?: SectorHubPublication,
+): SectorHubPublication['labelByLocale'] {
   // Unknown labels remain in the promotion registry, but only explicitly
-  // translated locales may be emitted or indexed. Repeating a source label
-  // across every language would create misleading localized SEO pages.
-  return AUTO_LABELS_BY_SLUG[candidate.suggestedSlug] || {};
+  // translated locales may be emitted or indexed. New labels use the source
+  // locale of their listings; curated labels keep their reviewed translations.
+  const curated = AUTO_LABELS_BY_SLUG[candidate.suggestedSlug];
+  if (curated) return curated;
+  const previousLabels = previous?.label === candidate.label ? previous.labelByLocale || {} : {};
+  return {
+    ...previousLabels,
+    ...(candidate.labelByLocale || {}),
+    ...(!Object.keys(previousLabels).length && !candidate.labelByLocale
+      ? { [candidate.sourceLocale || 'it']: candidate.label }
+      : {}),
+  };
 }
 
 function samePublicationState(
@@ -804,7 +836,7 @@ export function buildAutomaticSectorHubPublicationRegistry({
   };
   const previousBySlug = new Map(previousHubs.map((hub) => [hub.slug, hub]));
   const qualifying = report.candidates
-    .filter((candidate) => qualifiesForAutomaticPublication(candidate, sources))
+    .filter((candidate) => qualifiesForAutomaticPublication(candidate))
     .sort((a, b) => b.activeJobCount - a.activeJobCount || a.suggestedSlug.localeCompare(b.suggestedSlug));
   const qualifyingSlugs = new Set(qualifying.map((candidate) => candidate.suggestedSlug));
   const currentBySlug = new Map(report.candidates.map((candidate) => [candidate.suggestedSlug, candidate]));
@@ -827,7 +859,7 @@ export function buildAutomaticSectorHubPublicationRegistry({
       slug: candidate.suggestedSlug,
       routeKind,
       label: candidate.label,
-      labelByLocale: labelsForCandidate(candidate),
+      labelByLocale: labelsForCandidate(candidate, old),
       sourceFields: sourceFields.length ? sourceFields : old?.sourceFields || ['category'],
       matchLabels: matchLabels.length ? matchLabels : old?.matchLabels || [candidate.label],
       firstPublishedAt: old?.firstPublishedAt || report.generatedAt,
@@ -856,7 +888,7 @@ export function buildAutomaticSectorHubPublicationRegistry({
       || (sources.gscPageImpressionsComplete && current.gscJobPageImpressions28d > 0)
     );
     if (current && current.hasCompleteTrafficEvidence !== true && !legacyCandidateHasMeasuredTraffic
-      && current.activeJobCount >= MIN_REVIEW_JOBS) {
+      && current.activeJobCount >= MIN_PROMOTION_JOBS) {
       hubs.push(old);
       continue;
     }

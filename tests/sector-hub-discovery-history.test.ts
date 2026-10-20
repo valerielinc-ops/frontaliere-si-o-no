@@ -43,7 +43,7 @@ function reportAt(
 }
 
 describe('sector-hub discovery candidate history', () => {
-  it('persists observations so three consecutive reports become eligible', () => {
+  it('retains observations while publishing eligible candidates from their first weekly report', () => {
     const dates = [
       new Date('2026-10-05T12:00:00.000Z'),
       new Date('2026-10-12T12:00:00.000Z'),
@@ -59,7 +59,8 @@ describe('sector-hub discovery candidate history', () => {
     const candidate = report!.candidates.find((row) => row.suggestedSlug === 'analisi-oceanografica');
     expect(candidate).toMatchObject({
       suggestedSlug: 'analisi-oceanografica',
-      status: 'eligible-for-review',
+      status: 'eligible-for-publication',
+      automaticPromotionEligible: true,
       consecutiveWeeks: 3,
     });
     expect(candidate?.observedWeeks).toHaveLength(3);
