@@ -240,7 +240,7 @@ describe('static SEO JSON-LD identities', () => {
 });
 
 describe('static SEO X cards', () => {
-  it('emits complete cards with escaped text and absolute images', () => {
+  it('emits complete cards on opted-in pages with escaped text and absolute images', () => {
     const options = {
       locale: 'it',
       title: 'Evento <speciale> & novità',
@@ -249,7 +249,10 @@ describe('static SEO X cards', () => {
       ogImage: '/images/events/esempio.webp',
       bodyHtml: '<main><h1>Evento</h1></main>',
     } as const;
-    const html = buildSeoPageHtml(options);
+    const defaultHtml = buildSeoPageHtml(options);
+    expect(defaultHtml).not.toContain('name=twitter:card');
+
+    const html = buildSeoPageHtml({ ...options, includeTwitterCard: true });
 
     expect(html).toContain('name=twitter:card content=summary_large_image');
     expect(html).toMatch(/name=twitter:title content="Evento &lt;speciale&gt; &amp; novità/);
@@ -258,6 +261,7 @@ describe('static SEO X cards', () => {
 
     const overridden = buildSeoPageHtml({
       ...options,
+      includeTwitterCard: true,
       extraHeadHtml: '<meta name="twitter:title" content="Titolo personalizzato">',
     });
     expect(overridden).toContain('name=twitter:title content="Titolo personalizzato"');

@@ -2595,6 +2595,7 @@ export function renderHubPage(params: {
   const contentHtml = injectEventListingAd(body, locale, indexable);
   const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: copy.hubTitle,
     description: copy.hubDesc,
@@ -2727,6 +2728,7 @@ export function renderEventsIndexPage(params: {
   const contentHtml = injectEventListingAd(body, locale, indexable);
   const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: copy.metaTitle,
     description: copy.metaDesc,
@@ -2834,6 +2836,7 @@ export function renderHistoricalEventsArchivePage(params: {
     ],
   });
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: metaTitle,
     description: municipality ? `${municipality.comune}: ${intro}` : copy.description,
@@ -2962,6 +2965,7 @@ export function renderComunePage(params: {
   const contentHtml = injectEventListingAd(body, locale, indexable);
   const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: copy.comuneTitle(comune),
     description: copy.comuneDesc(comune),
@@ -3224,6 +3228,7 @@ export function renderOtherEventsPage(params: {
   const contentHtml = injectEventListingAd(body, locale, indexable);
   const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: oeCopy.metaTitle,
     description: oeCopy.metaDesc,
@@ -3348,6 +3353,7 @@ export function renderOverflowLadderPage(params: {
   const contentHtml = injectEventListingAd(body, locale, indexable);
   const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: ladderTitle,
     description: oCopy.ladderDesc(label, page, pageCount),
@@ -4027,6 +4033,7 @@ export function renderEventDetailPage(params: {
   const bodyWithAds = body.replace(inlineAdMarker, inlineAd);
   const bodyHtml = `${bodyWithAds}${endOfContentMultiplexHtml({ indexable, contentHtml: bodyWithAds })}`;
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: dc.metaTitle(title, displayComune, dateToken),
     description: dc.metaDesc(title, displayComune, when),
@@ -4279,6 +4286,7 @@ export function renderDigestPage(params: {
   const contentHtml = injectEventListingAd(body, locale, indexable);
   const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: dc.title,
     description: dc.desc,
