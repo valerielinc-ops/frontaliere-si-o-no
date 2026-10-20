@@ -115,11 +115,11 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
       'Le informazioni contenute in questa pagina hanno valore informativo e non sostituiscono la consulenza personalizzata di un commercialista, un avvocato o un patronato. Le norme fiscali, previdenziali e sui permessi cambiano con frequenza: verifica sempre le fonti ufficiali linkate in ogni risposta.',
     relatedTitle: 'Approfondisci',
     relatedLinks: [
-      { href: '/calcolatore/', label: 'Calcolatore netto frontaliere' },
+      { href: '/calcola-stipendio/', label: 'Calcolatore netto frontaliere' },
       { href: '/confronti-frontalieri/', label: 'Tabelle di confronto CH vs IT' },
-      { href: '/guida-frontaliere/nuova-legge-frontalieri-2024/', label: 'Guida alla nuova legge 2024' },
-      { href: '/fisco-frontalieri/', label: 'Hub fiscale frontalieri' },
-      { href: '/costo-della-vita/', label: 'Costo della vita CH vs IT' },
+      { href: '/guida-frontaliere/', label: 'Guida alla nuova legge 2024' },
+      { href: '/tasse-e-pensione/', label: 'Hub fiscale frontalieri' },
+      { href: '/compara-servizi/costo-della-vita/', label: 'Costo della vita CH vs IT' },
       { href: '/frontaliere/', label: 'Frontaliere in Svizzera: la guida completa' },
     ],
   },
@@ -237,14 +237,14 @@ function esc(s: unknown): string {
 }
 
 /**
- * Preserve `[label](href)` markdown and render as nofollow links.
- * Every FAQ answer cites sources inline using this syntax.
+ * Preserve `[label](href)` markdown and render cited sources as ordinary
+ * editorial links. FAQ answers and their source lists are curated content.
  */
 function mdLinks(s: string): string {
   return esc(s).replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
     (_m, label, href) =>
-      `<a class="s-TKxoRL" href="${String(href).replace(/"/g, '&quot;')}" rel="nofollow noopener" target="_blank">${label}</a>`,
+      `<a class="s-TKxoRL" href="${String(href).replace(/"/g, '&quot;')}" rel="noopener" target="_blank">${label}</a>`,
   );
 }
 
@@ -898,7 +898,7 @@ function renderEntryPage(
       ? `<section id="fh-sources" class="fh-rls fh-entry-panel fh-entry-sources" aria-labelledby="fh-sources-title"><div class="fh-entry-panel-heading"><h2 id="fh-sources-title" class="fh-rlh">${esc(ecopy.sourcesHeading)}</h2><span class="fh-entry-panel-note">${entry.sources.length}</span></div><ul class="fh-rll">${entry.sources
           .map(
             (src) =>
-              `<li class="fh-rli"><a href="${esc(src)}" class="fh-lnk fh-source-link" rel="nofollow noopener" target="_blank"><span class="fh-source-domain">${esc(
+              `<li class="fh-rli"><a href="${esc(src)}" class="fh-lnk fh-source-link" rel="noopener" target="_blank"><span class="fh-source-domain">${esc(
                 (() => {
                   try {
                     return new URL(src).hostname.replace(/^www\./, '');

@@ -659,6 +659,22 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toContain('pull-requests: read');
   });
 
+  it('publishes trusted before-after ledger benchmark metrics without changing the writer contract', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    expect(source).toContain('/scripts/ci/benchmark-loop-fleet-ledger.mjs');
+    expect(source).toContain('Initialize trusted ledger benchmark');
+    expect(source).toContain('canonical_rewrite_count');
+    expect(source).toContain('Aggregate trusted before-after ledger benchmark');
+    expect(source).toContain('--history-dir "$history_dir"');
+    expect(source).toContain('post_change_append_p95_ms');
+    expect(source).toContain('Upload trusted ledger benchmark');
+    expect(source).toContain('retention-days: 90');
+    expect(source).toContain('actions: read');
+    expect(source).not.toMatch(/contents:\\s*write/u);
+    expect(source).toContain('for attempt in 1 2 3 4 5 6 7 8 9 10');
+    expect(source).toContain('bounded_remote git -C "$ledger_worktree" -c pack.window=0 -c pack.threads=1 push --no-thin');
+  });
+
   it('keeps code and registry on main while retrying the data-only branch', () => {
     const writers = [
       ['loop-fleet-ledger.yml', 'merge-loop-fleet-ledger.mjs'],

@@ -12,7 +12,7 @@
  *   - `<meta description>` "…Giorni di chiusura uffici, impatto su perme…"
  *     (raw 152-code-unit slice in the article render path)
  *   - `<meta description>` "…Confronta requisiti e costi con B, C e…"
- *     (the 160-char clamp peeled separators but not function words)
+ *     (the prior 160-char clamp peeled separators but not function words)
  *   - 2 936 stored corpus descriptions ending on a dangling function word,
  *     1 844 of them on the literal tail "Dati aggiornati 2026 per"
  *

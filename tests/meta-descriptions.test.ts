@@ -1,9 +1,9 @@
 /**
- * Tests for `services/seo/meta-descriptions.ts` — the shared 140-160 char
+ * Tests for `services/seo/meta-descriptions.ts` — the shared 140-150 char
  * meta-description templates introduced by F3a (Job Page CTR Optimization).
  *
  * Verifies, per page type × locale:
- *   - 140-160 visible-char length (Google SERP-safe range).
+ *   - 140-150 visible-char length (with a 10-character display buffer).
  *   - Primary keyword match.
  *   - Specific dynamic number (live job count) when count > 0.
  *   - Call-to-action verb present.
@@ -50,19 +50,19 @@ const KEYWORD: Record<JobPageLocale, RegExp> = {
 describe('isValidMetaLength', () => {
   it('exports the SERP-safe thresholds', () => {
     expect(META_MIN_CHARS).toBe(140);
-    expect(META_MAX_CHARS).toBe(160);
+    expect(META_MAX_CHARS).toBe(150);
   });
 
-  it('matches the 140-160 range', () => {
+  it('matches the 140-150 range', () => {
     expect(isValidMetaLength('a'.repeat(139))).toBe(false);
     expect(isValidMetaLength('a'.repeat(140))).toBe(true);
-    expect(isValidMetaLength('a'.repeat(160))).toBe(true);
-    expect(isValidMetaLength('a'.repeat(161))).toBe(false);
+    expect(isValidMetaLength('a'.repeat(150))).toBe(true);
+    expect(isValidMetaLength('a'.repeat(151))).toBe(false);
   });
 });
 
 describe('buildListingHubMeta — listing hub', () => {
-  it('stays within 140-160 chars across all locales and counts', () => {
+  it('stays within 140-150 chars across all locales and counts', () => {
     for (const locale of LOCALES) {
       for (const count of SAMPLE_COUNTS) {
         const meta = buildListingHubMeta({ locale, count });
@@ -101,7 +101,7 @@ describe('buildListingHubMeta — listing hub', () => {
 });
 
 describe('buildCityHubMeta — per-city hub', () => {
-  it('stays within 140-160 chars across all locales, cities, counts', () => {
+  it('stays within 140-150 chars across all locales, cities, counts', () => {
     for (const locale of LOCALES) {
       for (const city of CITIES) {
         for (const count of SAMPLE_COUNTS) {
@@ -154,7 +154,7 @@ const AGGREGATES: Record<JobPageLocale, string> = {
 };
 
 describe('buildCantonHubMeta — per-canton hub', () => {
-  it('stays within 140-160 chars across all locales, cantons, counts', () => {
+  it('stays within 140-150 chars across all locales, cantons, counts', () => {
     for (const locale of LOCALES) {
       for (const canton of CANTONS) {
         for (const count of SAMPLE_COUNTS) {
@@ -168,7 +168,7 @@ describe('buildCantonHubMeta — per-canton hub', () => {
     }
   });
 
-  it('aggregator stays within 140-160 and does not duplicate the country name', () => {
+  it('aggregator stays within 140-150 and does not duplicate the country name', () => {
     for (const locale of LOCALES) {
       const country = AGGREGATES[locale];
       for (const count of SAMPLE_COUNTS) {
@@ -202,7 +202,7 @@ describe('buildCantonHubMeta — per-canton hub', () => {
 });
 
 describe('buildRoleHubMeta — per-role hub', () => {
-  it('stays within 140-160 chars across all locales, roles, counts', () => {
+  it('stays within 140-150 chars across all locales, roles, counts', () => {
     for (const locale of LOCALES) {
       for (const role of ROLES) {
         for (const count of SAMPLE_COUNTS) {
@@ -227,7 +227,7 @@ describe('buildRoleHubMeta — per-role hub', () => {
 });
 
 describe('buildEmployerHubMeta — employer hub', () => {
-  it('stays within 140-160 chars across all locales, companies, counts', () => {
+  it('stays within 140-150 chars across all locales, companies, counts', () => {
     for (const locale of LOCALES) {
       for (const co of COMPANIES) {
         for (const count of SAMPLE_COUNTS) {
@@ -252,7 +252,7 @@ describe('buildEmployerHubMeta — employer hub', () => {
 });
 
 describe('buildRecencyHubMeta — recency hub', () => {
-  it('stays within 140-160 chars across all locales, days, counts', () => {
+  it('stays within 140-150 chars across all locales, days, counts', () => {
     for (const locale of LOCALES) {
       for (const days of DAYS) {
         for (const count of SAMPLE_COUNTS) {

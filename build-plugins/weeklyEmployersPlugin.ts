@@ -2706,7 +2706,7 @@ ${faqHtml}
 </article>`;
 
   const title = buildTitleWithBrand(t.topHubTitle);
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = ledeText;
@@ -3299,7 +3299,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   // verbose phrasing already in COPY[] which always carries "questa settimana"
   // / "this week" / "diese Woche" / "cette semaine".
   void h1; // h1 is already differentiated from title; declared above.
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = heroSummary;
@@ -3781,7 +3781,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   // eventDetailMetaTitle (#3589).
   const compactClamped = capSearchStatsLandingTitle(compactBase, 60).replace(/[\s,—-]+$/u, '');
   const title = buildTitleWithBrand(compactClamped);
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = heroSummary;

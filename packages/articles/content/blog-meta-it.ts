@@ -13526,6 +13526,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scuola-inoltre-ventanni-formazione-carcere.title': 'Scuola InOltre: vent’anni di formazione nelle carceri cantonali',
     'blog.article.scuola-inoltre-ventanni-formazione-carcere.excerpt': 'La Scuola InOltre compie vent’anni nel 2026 Attiva dal 2006 nelle Strutture carcerarie cantonali A giugno attestati a una trentina di detenute e quasi 230',
     'blog.article.scuola-inoltre-ventanni-formazione-carcere.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.indagine-disparita-salariali-frontalieri.title': 'Frontalieri: il 55,6% percepisce salari inferiori ai residenti',
+    'blog.article.indagine-disparita-salariali-frontalieri.excerpt': '1.542 risposte raccolte tra lavoratrici e lavoratori Il 55,6% si sente pagato meno di un residente svizzero La ricerca sarà presentata il 24 ottobre a Varese',
+    'blog.article.indagine-disparita-salariali-frontalieri.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;
