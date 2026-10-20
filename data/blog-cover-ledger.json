@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 697,
+      "5": 698,
       "6": 5054
     },
-    "publishedCovers": 7434,
+    "publishedCovers": 7435,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -203708,6 +203708,39 @@
         "provider": "openai-codex",
         "assetId": "article-indagine-disparita-salariali-frontalieri",
         "imageUrl": "/images/blog/article-indagine-disparita-salariali-frontalieri.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sezione-medicina-nucleare": {
+      "cover": "/images/blog/article-sezione-medicina-nucleare.webp",
+      "hash": "2d1ef45926bf240c0194fb0f779cd1f8258f3ef1ad97ef4806ad40ad25fb9587",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "sezione-medicina-nucleare",
+          "category": "novita",
+          "date": "2026-10-20T12:05:23.812Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sezione-medicina-nucleare.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sezione-medicina-nucleare",
+        "imageUrl": "/images/blog/article-sezione-medicina-nucleare.webp",
         "evidence": "generated-engine-record"
       }
     }

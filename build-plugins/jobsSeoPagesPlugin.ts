@@ -138,7 +138,6 @@ import {
  renderSearchQueryIntro,
  isKnownTicinoCommuterCity, CALC_HREF,
 } from './shared/jobBoardCommuterContext';
-import { FX_HREF } from './shared/comparatorHref';
 import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { renderCompanyHubFrontalierContext } from './shared/companyHubFrontalierContext';
 import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceholder';
@@ -231,7 +230,8 @@ import {
  type SectorHubKey,
 } from './jobSectorLanding';
 import { HUB_SLUG_BY_LOCALE, SEO_HUB_RESERVED_SLUGS, hubSlugFor } from './seoHubsData';
-import { buildCantonHubEditorial, buildCantonRealDataBlock } from './shared/cantonHubEditorial';
+import { buildCantonHubArchiveNavigation, buildCantonHubEditorial, buildCantonRealDataBlock } from './shared/cantonHubEditorial';
+import { isRegionalJobGuidanceTarget, renderRegionalJobGuidance, type RegionalGuidanceCanton } from './shared/regionalJobGuidance';
 // Issue #4303 item 1 — real BFS/BAG-sourced axes for the cathedral canton
 // real-data block (wage-level factor + LAMal premium vs Ticino; no
 // fabricated cross-canton rent/CPI index exists in-repo).
@@ -313,6 +313,12 @@ import { canonicalCleanedKey } from './shared/canonicalCleanedKey';
 import { buildJobMetaDescription } from './shared/jobMetaDescription';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
+import {
+  JOB_CATEGORY_KEYS,
+  buildJobCategoryPath,
+  isKnownExistingCategorySlug,
+  type JobCategoryKey,
+} from './shared/autoSectorHubPaths';
 
 // Static HTML cannot read the runtime Remote Config hook. The same kill key is
 // accepted by the build so a rollback can restore the manual slot on the
@@ -1283,11 +1289,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const ALL_CANTON_CODES: readonly string[] = Object.freeze(Object.keys(cantonSlugFile.cantons).sort());
  const AGGREGATE_KEY = '_AGGREGATE_';
 
- /** Cantons with real-data enrichment (Issue #4303 item 1 — median salary by
-  * sector, cost-of-living vs Ticino, permit-G guidance, top employers). All
-  * canton URL-groups get this block — the underlying data (cantonSalaryIndex,
-  * aggregateLamalCantonMedians) is already canton-generic, so there's no
-  * data-authoring gap to gate on. */
+ /** Canton URL groups eligible for the legacy sourced real-data section.
+  * Regional guidance replaces that section for GR/GE/VD/NE. */
  const REAL_DATA_ENRICHED_CANTONS = ALL_CANTON_CODES;
 
  /** Cantons shown as "stessa professione in altri cantoni" cross-links on TI
@@ -8385,17 +8388,6 @@ ${staticAnalyticsHtml}
  }
 
  /* ── Category listing pages (/cerca-lavoro-ticino/categoria-sanita/) ── */
- const catSlugsMap: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
- health: { it: 'sanita', en: 'health', de: 'gesundheit', fr: 'sante' },
- finance: { it: 'finanza', en: 'finance', de: 'finanzen', fr: 'finance' },
- tech: { it: 'informatica', en: 'tech', de: 'technik', fr: 'tech' },
- engineering: { it: 'ingegneria', en: 'engineering', de: 'ingenieurwesen', fr: 'ingenierie' },
- admin: { it: 'amministrazione', en: 'admin', de: 'verwaltung', fr: 'administration' },
- hospitality: { it: 'ristorazione', en: 'hospitality', de: 'gastgewerbe', fr: 'hotellerie' },
- sales: { it: 'vendita', en: 'sales', de: 'vertrieb', fr: 'vente' },
- other: { it: 'altro', en: 'other', de: 'andere', fr: 'autre' },
- };
- const catPrefix: Record<'it' | 'en' | 'de' | 'fr', string> = { it: 'categoria', en: 'category', de: 'kategorie', fr: 'categorie' };
  const catLabels: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
  health: { it: 'Sanit\u00e0', en: 'Healthcare', de: 'Gesundheit', fr: 'Sant\u00e9' },
  finance: { it: 'Finanza', en: 'Finance', de: 'Finanzen', fr: 'Finance' },
@@ -8408,7 +8400,7 @@ ${staticAnalyticsHtml}
  };
  let categoryPageCount = 0;
  const categorySitemapEntries: string[] = [];
- for (const catKey of Object.keys(catSlugsMap)) {
+ for (const catKey of JOB_CATEGORY_KEYS) {
  const catJobs = sortedForPagination.filter((j: any) => String(j.category || '').toLowerCase() === catKey);
  if (catJobs.length < 3) continue;
  const catTotalPages = Math.min(CATEGORY_LISTING_MAX_PAGES, Math.ceil(catJobs.length / CATEGORY_LISTING_PAGE_SIZE));
@@ -8419,10 +8411,8 @@ ${staticAnalyticsHtml}
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCategory = startTimer();
- const catSlugL = catSlugsMap[catKey][locale];
- const catPageSuffix = catPage > 1 ? `/${paginationSlugs[locale]}-${catPage}` : '';
- const catFullSlug = `${catPrefix[locale]}-${catSlugL}${catPageSuffix}`;
- const catCanonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${catFullSlug}`.replace(/\/+/g, '/'));
+ const catPageSlug = catPage > 1 ? `${paginationSlugs[locale]}-${catPage}` : undefined;
+ const catCanonicalPath = buildJobCategoryPath(locale, sectionByLocale[locale], catKey, catPageSlug);
  const catCanonicalUrl = `${BASE_URL}${catCanonicalPath}`;
  const catLabel = catLabels[catKey][locale];
  const catPageLabel = catPage > 1 ? ` - ${locale === 'de' ? 'Seite' : 'Pagina'} ${catPage}` : '';
@@ -8445,9 +8435,8 @@ ${staticAnalyticsHtml}
  count: catJobs.length,
  });
  const catAlternatesPairs = localeList.map((al) => {
- const alSlug = `${catPrefix[al]}-${catSlugsMap[catKey][al]}${catPage > 1 ? `/${paginationSlugs[al]}-${catPage}` : ''}`;
- const alPath = `${localePrefix[al]}/${sectionByLocale[al]}/${alSlug}`.replace(/\/+/g, '/');
- return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
+ const alPageSlug = catPage > 1 ? `${paginationSlugs[al]}-${catPage}` : undefined;
+ return { lang: al, href: `${BASE_URL}${buildJobCategoryPath(al, sectionByLocale[al], catKey, alPageSlug)}` };
  });
  const catXDefaultHref = catAlternatesPairs.find((p) => p.lang === 'it')?.href ?? catAlternatesPairs[0]?.href ?? catCanonicalUrl;
  // audit-hreflang requires x-default on every multi-locale page.
@@ -8456,7 +8445,7 @@ ${staticAnalyticsHtml}
  ` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`,
  ].join('\n');
  const catListHtml = jobCardListBody(catPageJobs, locale);
- const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a class="s-gcEaMI" href="${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}">${catLabels[k][locale]}</a>`; });
+ const catOtherLinks = JOB_CATEGORY_KEYS.filter((k) => k !== catKey).map((k) => `<a class="s-gcEaMI" href="${buildJobCategoryPath(locale, sectionByLocale[locale], k)}">${catLabels[k][locale]}</a>`);
  const catCollLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const catBreadcrumbLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
@@ -8513,12 +8502,10 @@ ${staticAnalyticsHtml}
  recordEmit('category-listing', __tCategory);
  }
  if (catPage === 1) {
- const catItSlug = `${catPrefix.it}-${catSlugsMap[catKey].it}`;
- const catItPath = withSlash(`/${sectionByLocale.it}/${catItSlug}`.replace(/\/+/g, '/'));
+ const catItPath = buildJobCategoryPath('it', sectionByLocale.it, catKey);
  const catLocalePaths = new Map<typeof localeList[number], string>();
  for (const l of localeList) {
- const ls = `${catPrefix[l]}-${catSlugsMap[catKey][l]}`;
- const lp = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'));
+ const lp = buildJobCategoryPath(l, sectionByLocale[l], catKey);
  catLocalePaths.set(l, lp);
  }
  const catSmAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${catLocalePaths.get(l)}" />`).join('\n');
@@ -8550,7 +8537,7 @@ ${staticAnalyticsHtml}
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
  const cat = String((job as any).category || '').toLowerCase();
- if (!cat || !catSlugsMap[cat]) continue;
+ if (!isKnownExistingCategorySlug(cat)) continue;
  if (!cantonCategoryCounts.has(c)) cantonCategoryCounts.set(c, new Map());
  const byCat = cantonCategoryCounts.get(c)!;
  if (!byCat.has(cat)) byCat.set(cat, []);
@@ -8563,7 +8550,7 @@ ${staticAnalyticsHtml}
  if (canton === 'TI') continue;
  const byCat = cantonCategoryCounts.get(canton);
  if (!byCat) continue;
- for (const catKey of Object.keys(catSlugsMap)) {
+ for (const catKey of JOB_CATEGORY_KEYS) {
  const catJobs = byCat.get(catKey) ?? [];
  if (catJobs.length < 3) continue;
  // Sort like the global one to preserve consistent feed ordering.
@@ -8578,10 +8565,8 @@ ${staticAnalyticsHtml}
  const __tCategory = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const cDisplay = cantonDisplayLocalCat(canton, locale);
- const catSlugL = catSlugsMap[catKey][locale];
- const catPageSuffix = catPage > 1 ? `/${paginationSlugs[locale]}-${catPage}` : '';
- const catFullSlug = `${catPrefix[locale]}-${catSlugL}${catPageSuffix}`;
- const catCanonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${catFullSlug}`.replace(/\/+/g, '/'));
+ const catPageSlug = catPage > 1 ? `${paginationSlugs[locale]}-${catPage}` : undefined;
+ const catCanonicalPath = buildJobCategoryPath(locale, sectionSlug, catKey, catPageSlug);
  const catCanonicalUrl = `${BASE_URL}${catCanonicalPath}`;
  const catLabel = catLabels[catKey][locale];
  const catUniqueCompanies = [...new Set(sortedCantonCatJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
@@ -8602,9 +8587,8 @@ ${staticAnalyticsHtml}
  });
  const catAlternatesPairs = localeList.map((al) => {
  const alSection = sharedResolveCantonSection(al, canton);
- const alSlug = `${catPrefix[al]}-${catSlugsMap[catKey][al]}${catPage > 1 ? `/${paginationSlugs[al]}-${catPage}` : ''}`;
- const alPath = `${localePrefix[al]}/${alSection}/${alSlug}`.replace(/\/+/g, '/');
- return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
+ const alPageSlug = catPage > 1 ? `${paginationSlugs[al]}-${catPage}` : undefined;
+ return { lang: al, href: `${BASE_URL}${buildJobCategoryPath(al, alSection, catKey, alPageSlug)}` };
  });
  const catXDefaultHref = catAlternatesPairs.find((p) => p.lang === 'it')?.href ?? catAlternatesPairs[0]?.href ?? catCanonicalUrl;
  const catAlternates = [
@@ -8612,7 +8596,7 @@ ${staticAnalyticsHtml}
  ` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`,
  ].join('\n');
  const catListHtml = jobCardListBody(catPageJobs, locale);
- const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a class="s-gcEaMI" href="${withSlash(`${localePrefix[locale]}/${sectionSlug}/${kSlug}`.replace(/\/+/g, '/'))}">${catLabels[k][locale]}</a>`; });
+ const catOtherLinks = JOB_CATEGORY_KEYS.filter((k) => k !== catKey).map((k) => `<a class="s-gcEaMI" href="${buildJobCategoryPath(locale, sectionSlug, k)}">${catLabels[k][locale]}</a>`);
  const catCollLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
  const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
@@ -8670,13 +8654,11 @@ ${staticAnalyticsHtml}
  }
  if (catPage === 1) {
  const itSection = sharedResolveCantonSection('it', canton);
- const catItSlug = `${catPrefix.it}-${catSlugsMap[catKey].it}`;
- const catItPath = withSlash(`/${itSection}/${catItSlug}`.replace(/\/+/g, '/'));
+ const catItPath = buildJobCategoryPath('it', itSection, catKey);
  const catLocalePathsCanton = new Map<typeof localeList[number], string>();
  for (const l of localeList) {
  const lSection = sharedResolveCantonSection(l, canton);
- const ls = `${catPrefix[l]}-${catSlugsMap[catKey][l]}`;
- const lp = withSlash(`${localePrefix[l]}/${lSection}/${ls}`.replace(/\/+/g, '/'));
+ const lp = buildJobCategoryPath(l, lSection, catKey);
  catLocalePathsCanton.set(l, lp);
  }
  const catSmAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${catLocalePathsCanton.get(l)}" />`).join('\n');
@@ -11271,64 +11253,52 @@ ${staticAnalyticsHtml}
      }
    };
 
-   /**
-    * Locale-aware frontaliere context paragraphs for canton landings.
-    *
-    * Pre-T2.S3 the body was just H1 + 1-line lede + CTA → text/HTML ratio of
-    * 1.7-2.2 % (HTML ~6.1 KB vs ~140 chars text). The Semrush text-html-ratio
-    * gate (10 % floor) failed with 64 spa-locale offenders. This adds ~600
-    * chars of locale-appropriate prose per canton landing — frontaliere
-    * context (Permit G, fiscal regime, AVS/LPP, LAMal, CHF/EUR conversion)
-    * + cross-link to calculator and comparator hubs. Placed BELOW the CTA
-    * per CLAUDE.md non-negotiable #16 (mobile-first: filler below content).
-    */
+   /** Neutral, localized guidance for canton hubs; legal and tax details stay with official sources. */
    const buildCantonContextProse = (
      locale: CantonLocale,
      display: string,
    ): string => {
+     const name = esc(display);
      switch (locale) {
        case 'it':
          return [
            `<section class="s-0P4kC8" data-canton-context-prose>`,
-           `<h2 class="s-iZTOT1">Lavorare ${display === 'Svizzera' ? 'in Svizzera' : `nel Canton ${display}`} come frontaliere</h2>`,
-           `<p>${display === 'Svizzera' ? 'La Svizzera resta la destinazione più stabile per i lavoratori italiani in cerca di salari competitivi e ammortizzatori sociali solidi.' : `Il cantone ${display} rientra fra le mete principali dei frontalieri italiani in cerca di stipendi più alti rispetto alla media italiana.`} Le posizioni elencate qui coprono tutti i settori — sanità, costruzioni, industria, terziario, IT, logistica — e includono sia ruoli a tempo pieno (100 %) sia part-time (50–80 %), tipici dei contratti svizzeri.</p>`,
-           `<p>${esc(CROSS_BORDER_TAX_FACTS[locale])} <a href="${CROSS_BORDER_TAX_SOURCE}">ESTV</a></p>`,
-           `<p>Usa il <a class="s-EBYcGk" href="${CALC_HREF.it}">calcolatore di stipendio netto</a> per simulare il netto in mano partendo dal lordo proposto, oppure il <a class="s-EBYcGk" href="${FX_HREF.it}">confronto cambio CHF/EUR</a> per capire quanto rende oggi un'offerta in franchi svizzeri rispetto ad un equivalente italiano in euro.</p>`,
+           `<h2 class="s-iZTOT1">Valutare un’offerta in ${name}</h2>`,
+           `<p>Usa gli annunci raccolti come punto di partenza e verifica sulla pagina originale disponibilità, sede, orari, mansioni e requisiti. Le informazioni possono variare da un’offerta all’altra.</p>`,
+           `<p>La lingua di questa pagina o della traduzione non indica quali lingue richieda il ruolo. Controlla i requisiti espliciti nell’annuncio originale o chiedi conferma al datore di lavoro.</p>`,
            `</section>`,
          ].join('');
        case 'en':
          return [
            `<section class="s-0P4kC8" data-canton-context-prose>`,
-           `<h2 class="s-iZTOT1">Working ${display === 'Switzerland' ? 'in Switzerland' : `in the canton of ${display}`} as a cross-border worker</h2>`,
-           `<p>${display === 'Switzerland' ? 'Switzerland remains the most attractive destination for Italian workers seeking higher wages and stronger social protection than the Italian average.' : `The canton of ${display} is one of the main destinations for Italian cross-border workers (frontalieri) chasing salaries that exceed the Italian average.`} The positions listed here cover every sector — healthcare, construction, manufacturing, services, IT, logistics — and include both full-time (100 %) and part-time (50–80 %) contracts that are standard in Switzerland.</p>`,
-           `<p>${esc(CROSS_BORDER_TAX_FACTS[locale])} <a href="${CROSS_BORDER_TAX_SOURCE}">ESTV</a></p>`,
-           `<p>Use the <a class="s-EBYcGk" href="${CALC_HREF.en}">net-salary calculator</a> to simulate take-home pay starting from a gross offer, or the <a class="s-EBYcGk" href="${FX_HREF.en}">CHF/EUR exchange comparator</a> to gauge how much a Swiss offer in francs is worth today versus an Italian equivalent in euros.</p>`,
+           `<h2 class="s-iZTOT1">Assessing a job listing in ${name}</h2>`,
+           `<p>Use collected listings as a starting point and check availability, location, schedule, duties and requirements on the original page. Details can vary between offers.</p>`,
+           `<p>The language of this page or its translation does not show which languages the role requires. Check the explicit requirements in the original listing or ask the employer.</p>`,
            `</section>`,
          ].join('');
        case 'de':
          return [
            `<section class="s-0P4kC8" data-canton-context-prose>`,
-           `<h2 class="s-iZTOT1">Arbeiten ${display === 'Schweiz' ? 'in der Schweiz' : `${germanCantonPrep(display)}`} als Grenzgänger</h2>`,
-           `<p>${display === 'Schweiz' ? 'Die Schweiz bleibt das attraktivste Ziel für italienische Arbeitnehmer, die höhere Löhne und einen stärkeren Sozialschutz als im italienischen Durchschnitt suchen.' : `Der Kanton ${display} zählt zu den Hauptzielen italienischer Grenzgänger (frontalieri), die ein höheres Gehalt als den italienischen Durchschnitt anstreben.`} Die hier aufgeführten Stellen decken alle Branchen ab — Gesundheitswesen, Bau, Industrie, Dienstleistungen, IT, Logistik — und umfassen sowohl Vollzeit- (100 %) als auch Teilzeitverträge (50–80 %), wie sie in der Schweiz üblich sind.</p>`,
-           `<p>${esc(CROSS_BORDER_TAX_FACTS[locale])} <a href="${CROSS_BORDER_TAX_SOURCE}">ESTV</a></p>`,
-           `<p>Nutzen Sie den <a class="s-EBYcGk" href="${CALC_HREF.de}">Nettolohnrechner</a>, um den Nettolohn aus einem Bruttoangebot zu simulieren, oder den <a class="s-EBYcGk" href="${FX_HREF.de}">CHF/EUR-Wechselkursrechner</a>, um den heutigen Wert eines Schweizer Angebots in Franken im Vergleich zum italienischen Pendant in Euro zu beurteilen.</p>`,
+           `<h2 class="s-iZTOT1">Eine Stellenausschreibung in ${name} beurteilen</h2>`,
+           `<p>Nutzen Sie die gesammelten Ausschreibungen als Ausgangspunkt und prüfen Sie Verfügbarkeit, Arbeitsort, Arbeitszeiten, Aufgaben und Anforderungen auf der Originalseite. Die Angaben können sich je nach Stelle unterscheiden.</p>`,
+           `<p>Die Sprache dieser Seite oder ihrer Übersetzung zeigt nicht, welche Sprachen für die Stelle verlangt werden. Prüfen Sie die ausdrücklichen Anforderungen in der ursprünglichen Ausschreibung oder fragen Sie beim Arbeitgeber nach.</p>`,
            `</section>`,
          ].join('');
        case 'fr':
        default:
          return [
            `<section class="s-0P4kC8" data-canton-context-prose>`,
-           `<h2 class="s-iZTOT1">Travailler ${display === 'Suisse' ? 'en Suisse' : `${frenchCantonPrep(display)}`} en tant que frontalier</h2>`,
-           `<p>${display === 'Suisse' ? 'La Suisse reste la destination la plus attractive pour les travailleurs italiens en quête de salaires supérieurs et d\'une protection sociale plus solide que la moyenne italienne.' : `Le canton ${display} compte parmi les principales destinations des frontaliers italiens (frontalieri) en recherche de salaires supérieurs à la moyenne italienne.`} Les postes listés ici couvrent tous les secteurs — santé, construction, industrie, services, informatique, logistique — et incluent à la fois les contrats à temps plein (100 %) et à temps partiel (50–80 %), typiques du marché suisse.</p>`,
-           `<p>${esc(CROSS_BORDER_TAX_FACTS[locale])} <a href="${CROSS_BORDER_TAX_SOURCE}">ESTV</a></p>`,
-           `<p>Utilisez le <a class="s-EBYcGk" href="${CALC_HREF.fr}">calculateur de salaire net</a> pour simuler le net à partir d'une offre brute, ou le <a class="s-EBYcGk" href="${FX_HREF.fr}">comparateur du change CHF/EUR</a> pour évaluer la valeur actuelle d'une offre suisse en francs face à une offre italienne équivalente en euros.</p>`,
+           `<h2 class="s-iZTOT1">Évaluer une annonce dans le canton de ${name}</h2>`,
+           `<p>Utilisez les annonces recueillies comme point de départ et vérifiez la disponibilité, le lieu, les horaires, les tâches et les exigences sur la page d’origine. Les informations peuvent varier d’une offre à l’autre.</p>`,
+           `<p>La langue de cette page ou de sa traduction n’indique pas quelles langues le poste exige. Consultez les exigences explicites dans l’annonce d’origine ou demandez confirmation à l’employeur.</p>`,
            `</section>`,
          ].join('');
      }
    };
 
    // ── Issue #4303 item 1 — real-data block precompute ──────────────────
-   // Covers every canton URL-group + the Svizzera aggregate. LAMal medians
+   // Covers every canton URL-group + the Svizzera aggregate; GR/GE/VD/NE
+   // replace the output block with source-linked regional guidance. LAMal medians
    // are computed once (build-time file read) and reused across all
    // canton×locale entries below instead of re-reading per entry.
    const REAL_DATA_TARGET_KEYS = new Set<string>([...REAL_DATA_ENRICHED_CANTONS, AGGREGATE_KEY]);
@@ -11368,6 +11338,7 @@ ${staticAnalyticsHtml}
 
    for (const entry of cantonsToEmit) {
      const display = getCantonDisplayLabel(entry.key, entry.locale);
+     const regionalGuidanceTarget = isRegionalJobGuidanceTarget(entry.key, entry.locale);
      const path = withSlash(`${localePrefix[entry.locale]}/${entry.section}`.replace(/\/+/g, '/'));
      const canonicalUrl = `${BASE_URL}${path}`;
      // Every emitted non-TI canton landing is a complete page. The active-job
@@ -11494,7 +11465,7 @@ ${staticAnalyticsHtml}
        `<div class="s-hr1jx1">${esc(tileLabels.topCity)}</div>` +
        `<div class="s-9is_7q">${esc(topCity)}</div>` +
        `</div>` +
-       (avgSalary
+       (avgSalary && !regionalGuidanceTarget
          ? `<div class="s-lwTRUc" data-stat-tile="base">` +
            `<div class="s-hr1jx1">${esc(tileLabels.avgSalary)}</div>` +
            `<div class="s-Y1GKEe">CHF ${avgSalary.toLocaleString('de-CH')}</div>` +
@@ -11648,15 +11619,21 @@ ${staticAnalyticsHtml}
        archiveSnapshot.cantonJobs.get(entry.key) ?? [],
        true,
      ));
-     const editorialEntries = buildCantonHubEditorial({
+     const archiveNavigationHtml = buildCantonHubArchiveNavigation({
+       locale: entry.locale,
+       totalPages: cantonTotalPages,
+       archiveNavigablePages: cantonTotalPages,
+       archiveBaseHref,
+     });
+     const editorialEntries = regionalGuidanceTarget ? [] : buildCantonHubEditorial({
        canton: entry.key,
        locale: entry.locale,
        display,
-      jobsCount: totalJobs,
-      totalPages: cantonTotalPages,
-      archiveNavigablePages: cantonTotalPages,
-      archiveBaseHref,
-    });
+       jobsCount: totalJobs,
+       totalPages: cantonTotalPages,
+       archiveNavigablePages: cantonTotalPages,
+       archiveBaseHref,
+     });
      // Mirror the staticPagesPlugin auto-`<p>`-wrap regex so plain-text
      // prose paragraphs (entries 3-6 in the non-TI helper output) become
      // proper paragraphs instead of leaking into a flat string. Block-level
@@ -11666,8 +11643,24 @@ ${staticAnalyticsHtml}
          ? b
          : `<p class="s-L9sOKI">${b}</p>`)
        .join('');
-     const cantonEditorialSection =
-       `<section class="s-IE_H9o" data-canton-editorial>${editorialHtml}</section>`;
+     const regionalEditorialSection = regionalGuidanceTarget
+       ? renderRegionalJobGuidance({
+           canton: entry.key as RegionalGuidanceCanton,
+           locale: entry.locale,
+           display,
+           jobs: cantonJobsAll.map((job) => {
+             const j = job as { company?: string | null; location?: string | null };
+             return { company: j.company, location: j.location };
+           }),
+           archiveHref: archiveBaseHref,
+           cityHubBaseHref: sectionBase,
+           cityHubs: emittedCantonCityHubs.get(entry.key) ?? [],
+           archiveNavigationHtml,
+         })
+       : '';
+     const cantonEditorialSection = regionalGuidanceTarget
+       ? regionalEditorialSection
+       : `<section class="s-IE_H9o" data-canton-editorial>${editorialHtml}</section>`;
 
      // ── BFS-depth closure (Group A2) — "Esplora" navigator ─────────────
      // Phase 8a introduced sub-pages per canton (city hubs, category hubs,
@@ -11692,19 +11685,6 @@ ${staticAnalyticsHtml}
        // Top categories by job count (max 6). Mirror the category slug
        // tables from the category-listing block (~line 5742-5752); kept
        // inline to avoid hoisting a nested scope across thousands of lines.
-       const categorySlugMap: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
-         health: { it: 'sanita', en: 'health', de: 'gesundheit', fr: 'sante' },
-         finance: { it: 'finanza', en: 'finance', de: 'finanzen', fr: 'finance' },
-         tech: { it: 'informatica', en: 'tech', de: 'technik', fr: 'tech' },
-         engineering: { it: 'ingegneria', en: 'engineering', de: 'ingenieurwesen', fr: 'ingenierie' },
-         admin: { it: 'amministrazione', en: 'admin', de: 'verwaltung', fr: 'administration' },
-         hospitality: { it: 'ristorazione', en: 'hospitality', de: 'gastgewerbe', fr: 'hotellerie' },
-         sales: { it: 'vendita', en: 'sales', de: 'vertrieb', fr: 'vente' },
-         other: { it: 'altro', en: 'other', de: 'andere', fr: 'autre' },
-       };
-       const categoryPrefixMap: Record<'it' | 'en' | 'de' | 'fr', string> = {
-         it: 'categoria', en: 'category', de: 'kategorie', fr: 'categorie',
-       };
        const categoryLabelMap: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
          health: { it: 'Sanità', en: 'Healthcare', de: 'Gesundheit', fr: 'Santé' },
          finance: { it: 'Finanza', en: 'Finance', de: 'Finanzen', fr: 'Finance' },
@@ -11725,23 +11705,24 @@ ${staticAnalyticsHtml}
        // navigation, reported 2026-05-18). Read the same field, apply the
        // same gate, exclude the `other` catch-all (no SEO value + frequent
        // misclassifications).
-       const categoryCountAggregated = new Map<string, number>();
+       const categoryCountAggregated = new Map<JobCategoryKey, number>();
        for (const j of cantonJobsAll) {
          const rawCat = String((j as { category?: string }).category || '').toLowerCase().trim();
          if (!rawCat) continue;
-         if (!Object.prototype.hasOwnProperty.call(categorySlugMap, rawCat)) continue;
+         if (!isKnownExistingCategorySlug(rawCat)) continue;
          if (rawCat === 'other') continue;
          categoryCountAggregated.set(rawCat, (categoryCountAggregated.get(rawCat) ?? 0) + 1);
        }
-       const topCategoryHubs: Array<{ slug: string; label: string }> = [];
+       const topCategoryHubs: Array<{ href: string; label: string }> = [];
        for (const [catKey, count] of [...categoryCountAggregated.entries()].sort((a, b) => b[1] - a[1])) {
          if (topCategoryHubs.length >= 6) break;
          if (count < 3) continue; // same gate as the page emitter
-         const catSlug = categorySlugMap[catKey]?.[entry.locale];
          const catLabel = categoryLabelMap[catKey]?.[entry.locale];
-         if (!catSlug || !catLabel) continue;
-         const slug = `${categoryPrefixMap[entry.locale]}-${catSlug}`;
-         topCategoryHubs.push({ slug, label: catLabel });
+         if (!catLabel) continue;
+         topCategoryHubs.push({
+           href: buildJobCategoryPath(entry.locale, entry.section, catKey),
+           label: catLabel,
+         });
        }
        // Editorial slot pages (Phase 8d). Non-TI cantons collapse to short
        // slugs (`oggi` / `infermieri` / `lavoro-part-time` / `cliniche`);
@@ -11887,7 +11868,7 @@ ${staticAnalyticsHtml}
          blocks.push(
            `<div class="s-h0CoDf" data-explore-categories>` +
            `<h3 class="s-8S_vke">${esc(colByCategoryLabel)}</h3>` +
-           `<div>${renderLinks(topCategoryHubs)}</div>` +
+           `<div>${topCategoryHubs.map((it) => `<a href="${it.href}" style="${linkStyle}">${esc(it.label)}</a>`).join('')}</div>` +
            `</div>`,
          );
        }
@@ -11924,8 +11905,7 @@ ${staticAnalyticsHtml}
        }
      }
 
-     // ── Issue #4303 item 1 — real-data block (Zurigo, Berna, Basilea,
-     // Svizzera aggregate only) ──────────────────────────────────────────
+     // ── Issue #4303 item 1 — legacy real-data block ────────────────────
      // Sector medians + employer counts are computed fresh from
      // `realDataJobPool` (live data/jobs.json baseSalary/company fields —
      // see the module-header rationale in shared/cantonHubEditorial.ts for
@@ -11934,7 +11914,7 @@ ${staticAnalyticsHtml}
      // exploreSection so it slots into bodyHtml right before the long-form
      // prose (mobile-first: data first, filler below).
      let cantonRealDataSection = '';
-     if (REAL_DATA_TARGET_KEYS.has(entry.key)) {
+     if (REAL_DATA_TARGET_KEYS.has(entry.key) && !regionalGuidanceTarget) {
        const sectorRowsRaw: Array<{ sector: SectorHubKey; medianAnnualChf: number; jobCount: number; href: string | null }> = [];
        for (const sector of SECTOR_HUB_KEYS) {
          const salaries: number[] = [];
@@ -12053,16 +12033,15 @@ ${staticAnalyticsHtml}
        // ABOVE the prose so internal navigation stays close to the data
        // area; the long filler stays after.
        exploreSection,
-       // Issue #4303 item 1 — sourced sector/cost-of-living/G-permit/employer
-       // data block. Empty string for every canton except Zurigo, Berna,
-       // Basilea and the Svizzera aggregate. Sits ABOVE the long-form prose
-       // (mobile-first: structured real data before filler).
+       // Sourced sector/cost-of-living/authorization/employer data block.
+       // Empty for GR/GE/VD/NE because their regional guidance replaces it.
+       // Sits ABOVE the long-form prose (mobile-first: structured data first).
        cantonRealDataSection,
        // Frontaliere context prose — placed BELOW the data area per CLAUDE.md
        // non-negotiable #16/#17 (mobile-first, filler below content). Ratio
        // uplift brings text/HTML from 1.7-2.2 % to ~12 % so
        // audit:text-html-ratio accepts these pages.
-       buildCantonContextProse(entry.locale, display),
+       regionalGuidanceTarget ? '' : buildCantonContextProse(entry.locale, display),
        // Phase 8(g) — TI-parity editorial package (H2, archive navigator,
        // prose, sources, FAQ). Below the data area per #16/#17.
        cantonEditorialSection,
