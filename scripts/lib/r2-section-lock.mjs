@@ -276,9 +276,11 @@ export function createR2Request(env = process.env, { fetchImpl = globalThis.fetc
       headers: signed.headers,
       ...(method === 'GET' || method === 'HEAD' || method === 'DELETE' ? {} : { body: signed.body }),
       signal: controller.signal,
-    })).then(async (response) => {
+    })).then((response) => {
       if (timedOut || Date.now() >= deadlineAt) {
-        await cancelR2ResponseBody(response);
+        timedOut = true;
+        controller.abort(timeoutError);
+        cancelR2ResponseBody(response);
         throw timeoutError;
       }
       receivedResponse = response;
@@ -296,14 +298,40 @@ export function createR2Request(env = process.env, { fetchImpl = globalThis.fetc
         try {
           Object.defineProperty(response, 'text', {
             configurable: true,
-            value: (...args) => Promise.resolve().then(() => readText(...args)).finally(() => clearTimeout(timeoutId)),
+            value: (...args) => {
+              if (Date.now() >= deadlineAt) {
+                timedOut = true;
+                controller.abort(timeoutError);
+                cancelR2ResponseBody(response);
+                clearTimeout(timeoutId);
+                return Promise.reject(timeoutError);
+              }
+              return Promise.race([
+                Promise.resolve().then(() => readText(...args)),
+                timeout,
+              ]).then((text) => {
+                if (Date.now() >= deadlineAt) {
+                  timedOut = true;
+                  controller.abort(timeoutError);
+                  cancelR2ResponseBody(response);
+                  throw timeoutError;
+                }
+                return text;
+              }).finally(() => clearTimeout(timeoutId));
+            },
           });
         } catch {
           // The deadline timer still aborts/cancels a non-extensible response body.
         }
       } else {
+        await Promise.race([cancelR2ResponseBody(response), timeout]);
+        if (Date.now() >= deadlineAt) {
+          timedOut = true;
+          controller.abort(timeoutError);
+          cancelR2ResponseBody(response);
+          throw timeoutError;
+        }
         clearTimeout(timeoutId);
-        await cancelR2ResponseBody(response);
       }
       return response;
     } catch (error) {

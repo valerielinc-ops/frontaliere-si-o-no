@@ -699,6 +699,25 @@ export async function releaseImageNamespaceLeases(leases, options = {}) {
   return released;
 }
 
+function containsReleaseTimeout(error, seen = new Set()) {
+  if (
+    error === null
+    || (typeof error !== 'object' && typeof error !== 'function')
+    || seen.has(error)
+  ) {
+    return false;
+  }
+  seen.add(error);
+  if (error.code === 'R2_REQUEST_TIMEOUT' || error.code === 'IMAGE_LEASE_RELEASE_TIMEOUT') {
+    return true;
+  }
+  if (error instanceof AggregateError
+    && [...error.errors].some((nested) => containsReleaseTimeout(nested, seen))) {
+    return true;
+  }
+  return containsReleaseTimeout(error.cause, seen);
+}
+
 /**
  * Release image leases within one absolute budget. `perLease` starts each
  * namespace independently so a slow lease cannot prevent the others starting.
@@ -746,8 +765,7 @@ export async function releaseImageNamespaceLeasesWithDeadline(
     else if (result.value === true) released.push(groups[index][0]?.namespace);
   }
   if (errors.length > 0) {
-    if (errors.some((error) => error?.code === 'R2_REQUEST_TIMEOUT'
-      || error?.code === 'IMAGE_LEASE_RELEASE_TIMEOUT')) {
+    if (errors.some((error) => containsReleaseTimeout(error))) {
       return { status: 'timeout', timedOut: true, released: null, error: timeoutError };
     }
     return {
