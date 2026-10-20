@@ -45,6 +45,7 @@ describe('Prospector discovery source outcomes', () => {
   it('retains SECO results while marking a later page failure as partial', async () => {
     let pageCalls = 0;
     const row = {
+      id: 'ad-example',
       jobAdvertisement: {
         jobContent: {
           company: { name: 'Example Sagl', city: 'Lugano' },
@@ -70,44 +71,127 @@ describe('Prospector discovery source outcomes', () => {
     expect(result.employers.map(({ name }) => name)).toEqual(['Example Sagl']);
   });
 
-  it('resumes SECO pagination from its saved page and returns the next cursor', async () => {
-    const pages: number[] = [];
-    const row = {
+  it('resumes SECO after a stable ad ID when new ads shift the date-descending feed', async () => {
+    const ad = (id: string, employer = id) => ({
+      id,
       jobAdvertisement: {
         jobContent: {
-          company: { name: 'Example Sagl', city: 'Lugano' },
+          company: { name: employer, city: 'Lugano' },
           jobDescriptions: [{ title: 'Techniker' }],
         },
       },
-    };
-    const result = await fetchSecoEmployers({
+    });
+    const firstPages = new Map([[0, [ad('A')]], [1, [ad('B')]]]);
+    const firstRun = await fetchSecoEmployers({
       cantons: ['TI'],
-      startPage: 4,
       pageSize: 1,
-      maxPages: 2,
+      maxPages: 1,
       fetchImpl: async (url) => {
         const page = Number(new URL(String(url)).searchParams.get('page'));
-        pages.push(page);
-        return response(String(url), 200, JSON.stringify([row]));
+        return response(String(url), 200, JSON.stringify(firstPages.get(page) || []));
       },
       lookupImpl,
       sleepImpl,
     });
 
-    expect(pages).toEqual([4, 5]);
-    expect(result).toMatchObject({ outcome: 'partial', errorCode: 'page_limit_reached', pagesRead: 2, nextPage: 6 });
+    expect(firstRun).toMatchObject({
+      outcome: 'partial', errorCode: 'page_limit_reached', headId: 'A', nextAfterId: 'A', nextAfterPageHint: 0,
+    });
+
+    const secondPages = new Map([[0, [ad('X')]], [1, [ad('A')]], [2, [ad('B')]]]);
+    const secondRunPages: number[] = [];
+    const secondRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      headId: firstRun.headId,
+      startAfterId: firstRun.nextAfterId,
+      startPageHint: firstRun.nextAfterPageHint,
+      pageSize: 1,
+      maxPages: 1,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        secondRunPages.push(page);
+        return response(String(url), 200, JSON.stringify(secondPages.get(page) || []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(secondRunPages).toEqual([0, 1, 2]);
+    expect(secondRun.employers.map(({ name }) => name)).toEqual(['X', 'B']);
+    expect(secondRun).toMatchObject({ outcome: 'partial', nextAfterId: 'B' });
+  });
+
+  it('advances a bounded SECO head scan across runs instead of stalling on its prefix', async () => {
+    const ad = (id: string) => ({
+      id,
+      jobAdvertisement: { jobContent: { company: { name: id }, jobDescriptions: [] } },
+    });
+    const firstRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      pageSize: 1,
+      maxPages: 1,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        return response(String(url), 200, JSON.stringify(page === 0 ? [ad('A')] : []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    const secondRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      headId: firstRun.headId,
+      startAfterId: firstRun.nextAfterId,
+      startPageHint: firstRun.nextAfterPageHint,
+      headSearchPages: 1,
+      pageSize: 1,
+      maxPages: 1,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        return response(String(url), 200, JSON.stringify([[ad('X')], [ad('A')]][page] || []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(secondRun).toMatchObject({
+      outcome: 'partial', errorCode: 'head_cursor_not_found', headId: 'X', nextAfterId: 'X',
+    });
+
+    const thirdRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      headId: secondRun.headId,
+      startAfterId: secondRun.nextAfterId,
+      startPageHint: secondRun.nextAfterPageHint,
+      pageSize: 1,
+      maxPages: 2,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        return response(String(url), 200, JSON.stringify([[ad('X')], [ad('A')], [ad('B')]][page] || []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(thirdRun.employers.map(({ name }) => name)).toEqual(['A', 'B']);
   });
 
   it('loads and saves per-canton SECO page cursors without sharing mutable defaults', () => {
     dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-seco-cursors-'));
     const cursorFile = path.join(dir, 'seco-page-cursors.json');
-    expect(loadSecoPageCursors(cursorFile)).toEqual({ version: 1, updatedAt: null, cantons: {} });
-    const state = { version: 1, updatedAt: null, cantons: { TI: { nextPage: 3, onlineSinceDays: 30, updatedAt: '2026-10-19T03:00:00.000Z' } } };
-    saveSecoPageCursors(state, cursorFile);
+    expect(loadSecoPageCursors(cursorFile)).toEqual({ version: 2, updatedAt: null, cantons: {} });
+    fs.writeFileSync(cursorFile, JSON.stringify({
+      version: 1,
+      updatedAt: null,
+      cantons: { TI: { nextPage: 3, onlineSinceDays: 30, updatedAt: '2026-10-19T03:00:00.000Z' } },
+    }));
     expect(loadSecoPageCursors(cursorFile)).toMatchObject({
-      cantons: { TI: { nextPage: 3, onlineSinceDays: 30 } },
-      updatedAt: expect.any(String),
+      version: 2,
+      cantons: { TI: { headId: null, afterId: null, afterPageHint: 0, onlineSinceDays: 30 } },
+      updatedAt: null,
     });
+    saveSecoPageCursors(loadSecoPageCursors(cursorFile), cursorFile);
+    expect(JSON.parse(fs.readFileSync(cursorFile, 'utf8')).version).toBe(2);
     expect(loadSecoPageCursors(path.join(dir, 'other.json')).cantons).toEqual({});
   });
 
@@ -116,6 +200,7 @@ describe('Prospector discovery source outcomes', () => {
       cantons: ['TI'],
       pageSize: 2,
       fetchImpl: async (url) => response(String(url), 200, JSON.stringify([{
+        id: 'ad-malformed-company',
         jobAdvertisement: { jobContent: { company: { name: ' ' }, jobDescriptions: [{ title: 'Tecnico' }] } },
       }])),
       lookupImpl,

@@ -157,13 +157,17 @@ if (sources.includes('seco')) {
     // ancora da fare.
     let employers; let adCount; let hostHistogram; let outcome; let errorCode;
     const savedCursor = secoPageCursors?.cantons[canton];
-    const startPage = savedCursor?.onlineSinceDays === days ? savedCursor.nextPage : 0;
-    let nextPage = startPage;
+    const cursor = savedCursor?.onlineSinceDays === days ? savedCursor : null;
+    let headId = cursor?.headId ?? null;
+    let nextAfterId = cursor?.afterId ?? null;
+    let nextAfterPageHint = cursor?.afterPageHint ?? 0;
     try {
-      ({ employers, adCount, hostHistogram, outcome, errorCode, nextPage } = await fetchSecoEmployers({
+      ({ employers, adCount, hostHistogram, outcome, errorCode, headId, nextAfterId, nextAfterPageHint } = await fetchSecoEmployers({
         cantons: [canton],
         onlineSince: days,
-        startPage,
+        headId,
+        startAfterId: nextAfterId,
+        startPageHint: nextAfterPageHint,
       }));
     } catch (err) {
       recordSourceOutcome('seco', { outcome: 'unavailable', errorCode: 'source_exception' });
@@ -172,7 +176,9 @@ if (sources.includes('seco')) {
     }
     if (secoPageCursors) {
       secoPageCursors.cantons[canton] = {
-        nextPage,
+        headId,
+        afterId: nextAfterId,
+        afterPageHint: nextAfterPageHint,
         onlineSinceDays: days,
         updatedAt: new Date().toISOString(),
       };

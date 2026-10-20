@@ -474,8 +474,13 @@ function ensureShape(target, value) {
   }
   if (target === PROSPECTOR_PATHS.secoPageCursors) {
     for (const [canton, cursor] of Object.entries(value.cantons)) {
-      if (!/^[A-Z]{2}$/.test(canton) || !isObject(cursor)
-        || !Number.isSafeInteger(cursor.nextPage) || cursor.nextPage < 0
+      const stable = isObject(cursor)
+        && (cursor.headId === null || typeof cursor.headId === 'string')
+        && (cursor.afterId === null || typeof cursor.afterId === 'string')
+        && Number.isSafeInteger(cursor.afterPageHint) && cursor.afterPageHint >= 0;
+      const legacy = isObject(cursor)
+        && Number.isSafeInteger(cursor.nextPage) && cursor.nextPage >= 0;
+      if (!/^[A-Z]{2}$/.test(canton) || (!stable && !legacy)
         || !Number.isSafeInteger(cursor.onlineSinceDays) || cursor.onlineSinceDays < 1
         || typeof cursor.updatedAt !== 'string') {
         throw new Error(`${target}: invalid cursor for ${canton}`);
