@@ -1196,12 +1196,12 @@
     },
     {
       "id": "anker-swiss-232ef3b917ee",
-      "slug": "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
+      "slug": "installatore-sanitario-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
       "slugByLocale": {
         "de": "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-        "it": "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-        "en": "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-        "fr": "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9"
+        "it": "installatore-sanitario-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
+        "en": "sanitary-installer-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
+        "fr": "installation-sanitaire-100-anker-swiss-ticino-ag-dubendorf-232ef3b9"
       },
       "slugDisambiguator": "232ef3b9",
       "company": "Anker Swiss Ticino AG",
@@ -1253,25 +1253,23 @@
         "installation-sanitaire-100-anker-swiss-ticino-ag-dubendorf-d081b135",
         "plumbing-fitter-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
         "installateur-sanitaire-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-        "installatore-sanitario-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-        "sanitary-installer-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-        "installation-sanitaire-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
         "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-d081b135",
         "installatore-sanitario-100-anker-swiss-ticino-ag-dubendorf-d081b135",
         "plumbing-fitter-100-anker-swiss-ticino-ag-dubendorf-d081b135",
-        "installateur-sanitaire-100-anker-swiss-ticino-ag-dubendorf-d081b135"
+        "installateur-sanitaire-100-anker-swiss-ticino-ag-dubendorf-d081b135",
+        "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "installatore-sanitario-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
           "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-d081b135",
-          "installatore-sanitario-100-anker-swiss-ticino-ag-dubendorf-d081b135"
+          "installatore-sanitario-100-anker-swiss-ticino-ag-dubendorf-d081b135",
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9"
         ],
         "en": [
           "sanitary-installer-100-anker-swiss-ticino-ag-dubendorf-d081b135",
           "plumbing-fitter-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-          "sanitary-installer-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-          "plumbing-fitter-100-anker-swiss-ticino-ag-dubendorf-d081b135"
+          "plumbing-fitter-100-anker-swiss-ticino-ag-dubendorf-d081b135",
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9"
         ],
         "de": [
           "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-d081b135"
@@ -1279,8 +1277,8 @@
         "fr": [
           "installation-sanitaire-100-anker-swiss-ticino-ag-dubendorf-d081b135",
           "installateur-sanitaire-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-          "installation-sanitaire-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-          "installateur-sanitaire-100-anker-swiss-ticino-ag-dubendorf-d081b135"
+          "installateur-sanitaire-100-anker-swiss-ticino-ag-dubendorf-d081b135",
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9"
         ]
       },
       "salaryMin": 73500,
@@ -14066,12 +14064,12 @@
     },
     {
       "id": "anker-swiss-fa6395680827",
-      "slug": "montage-elektriker-100-anker-swiss-ticino-ag-nidau-fa639568",
+      "slug": "montaggio-elettrico-100-anker-swiss-ticino-ag-nidau-fa639568",
       "slugByLocale": {
         "de": "montage-elektriker-100-anker-swiss-ticino-ag-nidau-fa639568",
-        "it": "montage-elektriker-100-anker-swiss-ticino-ag-nidau-fa639568",
-        "en": "montage-elektriker-100-anker-swiss-ticino-ag-nidau-fa639568",
-        "fr": "montage-elektriker-100-anker-swiss-ticino-ag-nidau-fa639568"
+        "it": "montaggio-elettrico-100-anker-swiss-ticino-ag-nidau-fa639568",
+        "en": "assembly-electrician-100-anker-swiss-ticino-ag-nidau-fa639568",
+        "fr": "assemblage-electricien-100-anker-swiss-ticino-ag-nidau-fa639568"
       },
       "slugDisambiguator": "fa639568",
       "company": "Anker Swiss Ticino AG",
@@ -14131,16 +14129,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:27:36.446Z"
+      "firstSeenAt": "2026-10-20T21:27:36.446Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montage-elektriker-100-anker-swiss-ticino-ag-nidau-fa639568"
+        ],
+        "en": [
+          "montage-elektriker-100-anker-swiss-ticino-ag-nidau-fa639568"
+        ],
+        "fr": [
+          "montage-elektriker-100-anker-swiss-ticino-ag-nidau-fa639568"
+        ]
+      },
+      "previousSlugs": [
+        "montage-elektriker-100-anker-swiss-ticino-ag-nidau-fa639568"
+      ]
     },
     {
       "id": "anker-swiss-9deb75b9f3b8",
-      "slug": "betriebsarbeiter-logistiker-100-anker-swiss-ticino-ag-ruswil",
+      "slug": "lavoratori-logistici-100-anker-swiss-ticino-ag-ruswil-9deb75b9",
       "slugByLocale": {
         "de": "betriebsarbeiter-logistiker-100-anker-swiss-ticino-ag-ruswil-9deb75b9",
-        "it": "betriebsarbeiter-logistiker-100-anker-swiss-ticino-ag-ruswil",
-        "en": "betriebsarbeiter-logistiker-100-anker-swiss-ticino-ag-ruswil-9deb75b9",
-        "fr": "betriebsarbeiter-logistiker-100-anker-swiss-ticino-ag-ruswil-9deb75b9"
+        "it": "lavoratori-logistici-100-anker-swiss-ticino-ag-ruswil-9deb75b9",
+        "en": "workers-logisticians-100-anker-swiss-ticino-ag-ruswil-9deb75b9",
+        "fr": "travailleurs-logisticiens-100-anker-swiss-ticino-ag-ruswil-9deb75b9"
       },
       "slugDisambiguator": "9deb75b9",
       "company": "Anker Swiss Ticino AG",
@@ -14189,11 +14201,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "betriebsarbeiter-logistiker-100-anker-swiss-ticino-ag-ruswil-9deb75b9",
+          "betriebsarbeiter-logistiker-100-anker-swiss-ticino-ag-ruswil"
+        ],
+        "en": [
+          "betriebsarbeiter-logistiker-100-anker-swiss-ticino-ag-ruswil-9deb75b9"
+        ],
+        "fr": [
           "betriebsarbeiter-logistiker-100-anker-swiss-ticino-ag-ruswil-9deb75b9"
         ]
       },
       "previousSlugs": [
-        "betriebsarbeiter-logistiker-100-anker-swiss-ticino-ag-ruswil-9deb75b9"
+        "betriebsarbeiter-logistiker-100-anker-swiss-ticino-ag-ruswil-9deb75b9",
+        "betriebsarbeiter-logistiker-100-anker-swiss-ticino-ag-ruswil"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -14212,12 +14232,12 @@
     },
     {
       "id": "anker-swiss-1d0859714c9e",
-      "slug": "projektleiter-schreinerei-100-anker-swiss-ticino-ag-willisau",
+      "slug": "carpenteria-project-manager-100-anker-swiss-ticino-ag-willisau-1d085971",
       "slugByLocale": {
         "de": "projektleiter-schreinerei-100-anker-swiss-ticino-ag-willisau-1d085971",
-        "it": "projektleiter-schreinerei-100-anker-swiss-ticino-ag-willisau",
-        "en": "projektleiter-schreinerei-100-anker-swiss-ticino-ag-willisau-1d085971",
-        "fr": "projektleiter-schreinerei-100-anker-swiss-ticino-ag-willisau-1d085971"
+        "it": "carpenteria-project-manager-100-anker-swiss-ticino-ag-willisau-1d085971",
+        "en": "project-manager-carpentry-100-anker-swiss-ticino-ag-willisau-1d085971",
+        "fr": "chef-de-projet-menuiserie-100-anker-swiss-ticino-ag-willisau-1d085971"
       },
       "slugDisambiguator": "1d085971",
       "company": "Anker Swiss Ticino AG",
@@ -14266,11 +14286,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-schreinerei-100-anker-swiss-ticino-ag-willisau-1d085971",
+          "projektleiter-schreinerei-100-anker-swiss-ticino-ag-willisau"
+        ],
+        "en": [
+          "projektleiter-schreinerei-100-anker-swiss-ticino-ag-willisau-1d085971"
+        ],
+        "fr": [
           "projektleiter-schreinerei-100-anker-swiss-ticino-ag-willisau-1d085971"
         ]
       },
       "previousSlugs": [
-        "projektleiter-schreinerei-100-anker-swiss-ticino-ag-willisau-1d085971"
+        "projektleiter-schreinerei-100-anker-swiss-ticino-ag-willisau-1d085971",
+        "projektleiter-schreinerei-100-anker-swiss-ticino-ag-willisau"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -14289,12 +14317,12 @@
     },
     {
       "id": "anker-swiss-8c2f74118b98",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-munchenstein-8c2f7411",
+      "slug": "copertura-100-anker-swiss-ticino-ag-munchenstein-8c2f7411",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-munchenstein-8c2f7411",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-munchenstein-8c2f7411",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-munchenstein-8c2f7411",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-munchenstein-8c2f7411"
+        "it": "copertura-100-anker-swiss-ticino-ag-munchenstein-8c2f7411",
+        "en": "roofing-100-anker-swiss-ticino-ag-munchenstein-8c2f7411",
+        "fr": "toiture-100-anker-swiss-ticino-ag-munchenstein-8c2f7411"
       },
       "slugDisambiguator": "8c2f7411",
       "company": "Anker Swiss Ticino AG",
@@ -14354,16 +14382,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:27:36.444Z"
+      "firstSeenAt": "2026-10-20T21:27:36.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dachdecker-100-anker-swiss-ticino-ag-munchenstein-8c2f7411"
+        ],
+        "en": [
+          "dachdecker-100-anker-swiss-ticino-ag-munchenstein-8c2f7411"
+        ],
+        "fr": [
+          "dachdecker-100-anker-swiss-ticino-ag-munchenstein-8c2f7411"
+        ]
+      },
+      "previousSlugs": [
+        "dachdecker-100-anker-swiss-ticino-ag-munchenstein-8c2f7411"
+      ]
     },
     {
       "id": "anker-swiss-8326cbd2723c",
-      "slug": "zimmermann-100-anker-swiss-ticino-ag-buron-8326cbd2",
+      "slug": "carpenter-100-anker-swiss-ticino-ag-buron-8326cbd2",
       "slugByLocale": {
         "de": "zimmermann-100-anker-swiss-ticino-ag-buron-8326cbd2",
-        "it": "zimmermann-100-anker-swiss-ticino-ag-buron-8326cbd2",
+        "it": "carpenter-100-anker-swiss-ticino-ag-buron-8326cbd2",
         "en": "zimmermann-100-anker-swiss-ticino-ag-buron-8326cbd2",
-        "fr": "zimmermann-100-anker-swiss-ticino-ag-buron-8326cbd2"
+        "fr": "charpentier-100-anker-swiss-ticino-ag-buron-8326cbd2"
       },
       "slugDisambiguator": "8326cbd2",
       "company": "Anker Swiss Ticino AG",
@@ -14423,16 +14465,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:27:36.443Z"
+      "firstSeenAt": "2026-10-20T21:27:36.443Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-100-anker-swiss-ticino-ag-buron-8326cbd2"
+        ],
+        "fr": [
+          "zimmermann-100-anker-swiss-ticino-ag-buron-8326cbd2"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-100-anker-swiss-ticino-ag-buron-8326cbd2"
+      ]
     },
     {
       "id": "anker-swiss-5ff43ab62575",
-      "slug": "bauvorarbeiter-100-anker-swiss-ticino-ag-buron-5ff43ab6",
+      "slug": "lavoratori-di-costruzione-100-anker-swiss-ticino-ag-buron-5ff43ab6",
       "slugByLocale": {
         "de": "bauvorarbeiter-100-anker-swiss-ticino-ag-buron-5ff43ab6",
-        "it": "bauvorarbeiter-100-anker-swiss-ticino-ag-buron-5ff43ab6",
-        "en": "bauvorarbeiter-100-anker-swiss-ticino-ag-buron-5ff43ab6",
-        "fr": "bauvorarbeiter-100-anker-swiss-ticino-ag-buron-5ff43ab6"
+        "it": "lavoratori-di-costruzione-100-anker-swiss-ticino-ag-buron-5ff43ab6",
+        "en": "construction-workers-100-anker-swiss-ticino-ag-buron-5ff43ab6",
+        "fr": "travailleurs-de-la-construction-100-anker-swiss-ticino-ag-buron-5ff43ab6"
       },
       "slugDisambiguator": "5ff43ab6",
       "company": "Anker Swiss Ticino AG",
@@ -14492,7 +14545,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:27:36.443Z"
+      "firstSeenAt": "2026-10-20T21:27:36.443Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bauvorarbeiter-100-anker-swiss-ticino-ag-buron-5ff43ab6"
+        ],
+        "en": [
+          "bauvorarbeiter-100-anker-swiss-ticino-ag-buron-5ff43ab6"
+        ],
+        "fr": [
+          "bauvorarbeiter-100-anker-swiss-ticino-ag-buron-5ff43ab6"
+        ]
+      },
+      "previousSlugs": [
+        "bauvorarbeiter-100-anker-swiss-ticino-ag-buron-5ff43ab6"
+      ]
     },
     {
       "id": "anker-swiss-6669402cb376",
@@ -14500,8 +14567,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-100-anker-swiss-ticino-ag-ittigen-6669402c",
         "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-ittigen",
-        "en": "elektroinstallateur-100-anker-swiss-ticino-ag-ittigen-6669402c",
-        "fr": "elektroinstallateur-100-anker-swiss-ticino-ag-ittigen-6669402c"
+        "en": "electrical-installer-100-anker-swiss-ticino-ag-ittigen-6669402c",
+        "fr": "installateur-electrique-100-anker-swiss-ticino-ag-ittigen-6669402c"
       },
       "slugDisambiguator": "6669402c",
       "company": "Anker Swiss Ticino AG",
@@ -14550,6 +14617,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-100-anker-swiss-ticino-ag-ittigen-6669402c"
+        ],
+        "en": [
+          "elektroinstallateur-100-anker-swiss-ticino-ag-ittigen-6669402c"
+        ],
+        "fr": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-ittigen-6669402c"
         ]
       },

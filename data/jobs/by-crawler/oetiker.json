@@ -494,12 +494,12 @@
     },
     {
       "id": "oetiker-511fc7b466f6",
-      "slug": "logistics-operator-switzerland-all-oetiker-horgen-zh-switzerland",
+      "slug": "logistica-operatore-switzerland-all-oetiker-horgen-zh-switzerland",
       "slugByLocale": {
         "de": "logistics-operator-switzerland-all-oetiker-horgen-zh-switzerland",
-        "it": "logistics-operator-switzerland-all-oetiker-horgen-zh-switzerland",
+        "it": "logistica-operatore-switzerland-all-oetiker-horgen-zh-switzerland",
         "en": "logistics-operator-switzerland-all-oetiker-horgen-zh-switzerland",
-        "fr": "logistics-operator-switzerland-all-oetiker-horgen-zh-switzerland"
+        "fr": "logistique-operateur-switzerland-all-oetiker-horgen-zh-switzerland"
       },
       "company": "Oetiker",
       "companyKey": "oetiker",
@@ -560,7 +560,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:18:39.660Z"
+      "firstSeenAt": "2026-10-20T21:18:39.660Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistics-operator-switzerland-all-oetiker-horgen-zh-switzerland"
+        ],
+        "fr": [
+          "logistics-operator-switzerland-all-oetiker-horgen-zh-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "logistics-operator-switzerland-all-oetiker-horgen-zh-switzerland"
+      ]
     }
   ]
 }

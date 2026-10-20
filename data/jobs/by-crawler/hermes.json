@@ -389,12 +389,12 @@
     },
     {
       "id": "hermes-da512457b984",
-      "slug": "cdi-coordinateur-commercial-h-f-hermes-ch",
+      "slug": "cdi-coordinatore-commerciale-m-f-hermes-brugg-be-bern-switzerland",
       "slugByLocale": {
         "fr": "cdi-coordinateur-commercial-h-f-hermes-ch",
-        "it": "cdi-coordinateur-commercial-h-f-hermes-ch",
+        "it": "cdi-coordinatore-commerciale-m-f-hermes-brugg-be-bern-switzerland",
         "en": "cdi-coordinateur-commercial-h-f-hermes-ch",
-        "de": "cdi-coordinateur-commercial-h-f-hermes-ch"
+        "de": "cdi-kommerzieller-koordinator-m-w-hermes-brugg-be-bern-switzerland"
       },
       "company": "Hermès",
       "companyKey": "hermes",
@@ -451,7 +451,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "cdi-coordinateur-commercial-h-f-hermes-ch"
+        ],
+        "de": [
+          "cdi-coordinateur-commercial-h-f-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cdi-coordinateur-commercial-h-f-hermes-ch"
+      ]
     }
   ]
 }

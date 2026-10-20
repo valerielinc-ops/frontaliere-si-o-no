@@ -153,7 +153,7 @@
         "it": "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke",
         "en": "teamlead-maintenance-f-m-d-valora-group-emmenbrucke",
         "de": "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
-        "fr": "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
+        "fr": "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -213,14 +213,14 @@
         "fr": [
           "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
           "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
-          "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
+          "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
         "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke",
-        "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
+        "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
       ],
       "firstSeenAt": "2026-07-22T22:06:00.739Z",
       "salaryMin": 69500,
@@ -2711,12 +2711,12 @@
     },
     {
       "id": "valora-60d9d0af96ee",
-      "slug": "sachbearbeiter-rechnungsprufung-100-w-m-d-valora-muttenz",
+      "slug": "controllo-del-personale-100-m-f-d-valora-group-muttenz",
       "slugByLocale": {
         "de": "sachbearbeiter-rechnungsprufung-100-w-m-d-valora-muttenz",
-        "it": "sachbearbeiter-rechnungsprufung-100-w-m-d-valora-muttenz",
-        "en": "sachbearbeiter-rechnungsprufung-100-w-m-d-valora-muttenz",
-        "fr": "sachbearbeiter-rechnungsprufung-100-w-m-d-valora-muttenz"
+        "it": "controllo-del-personale-100-m-f-d-valora-group-muttenz",
+        "en": "personnel-audit-100-m-f-d-valora-group-muttenz",
+        "fr": "verification-du-personnel-100-h-f-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2776,16 +2776,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:15:41.401Z"
+      "firstSeenAt": "2026-10-20T21:15:41.401Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-rechnungsprufung-100-w-m-d-valora-muttenz"
+        ],
+        "en": [
+          "sachbearbeiter-rechnungsprufung-100-w-m-d-valora-muttenz"
+        ],
+        "fr": [
+          "sachbearbeiter-rechnungsprufung-100-w-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-rechnungsprufung-100-w-m-d-valora-muttenz"
+      ]
     },
     {
       "id": "valora-90b270ec4ef0",
-      "slug": "sachbearbeiter-rechnungsprufung-80-w-m-d-valora-muttenz",
+      "slug": "controllo-del-personale-80-m-f-d-valora-group-muttenz",
       "slugByLocale": {
         "de": "sachbearbeiter-rechnungsprufung-80-w-m-d-valora-muttenz",
-        "it": "sachbearbeiter-rechnungsprufung-80-w-m-d-valora-muttenz",
-        "en": "sachbearbeiter-rechnungsprufung-80-w-m-d-valora-muttenz",
-        "fr": "sachbearbeiter-rechnungsprufung-80-w-m-d-valora-muttenz"
+        "it": "controllo-del-personale-80-m-f-d-valora-group-muttenz",
+        "en": "personnel-audit-80-m-f-d-valora-group-muttenz",
+        "fr": "verification-du-personnel-80-h-f-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2845,16 +2859,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:15:41.400Z"
+      "firstSeenAt": "2026-10-20T21:15:41.400Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-rechnungsprufung-80-w-m-d-valora-muttenz"
+        ],
+        "en": [
+          "sachbearbeiter-rechnungsprufung-80-w-m-d-valora-muttenz"
+        ],
+        "fr": [
+          "sachbearbeiter-rechnungsprufung-80-w-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-rechnungsprufung-80-w-m-d-valora-muttenz"
+      ]
     },
     {
       "id": "valora-7a8a9e3e6c8a",
-      "slug": "strategischer-einkaufer-w-m-d-valora-muttenz",
+      "slug": "acquirente-strategico-m-f-d-valora-group-muttenz",
       "slugByLocale": {
         "de": "strategischer-einkaufer-w-m-d-valora-muttenz",
-        "it": "strategischer-einkaufer-w-m-d-valora-muttenz",
-        "en": "strategischer-einkaufer-w-m-d-valora-muttenz",
-        "fr": "strategischer-einkaufer-w-m-d-valora-muttenz"
+        "it": "acquirente-strategico-m-f-d-valora-group-muttenz",
+        "en": "strategic-buyer-m-f-d-valora-group-muttenz",
+        "fr": "acheteur-strategique-h-f-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2914,7 +2942,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:15:41.397Z"
+      "firstSeenAt": "2026-10-20T21:15:41.397Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategischer-einkaufer-w-m-d-valora-muttenz"
+        ],
+        "en": [
+          "strategischer-einkaufer-w-m-d-valora-muttenz"
+        ],
+        "fr": [
+          "strategischer-einkaufer-w-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "strategischer-einkaufer-w-m-d-valora-muttenz"
+      ]
     }
   ]
 }

@@ -5784,8 +5784,8 @@
       "slugByLocale": {
         "de": "laborantin-laborant-fachrichtung-biologie-kanton-basel-landschaft-liestal",
         "it": "laborantin-laborant-specializzazione-biologie-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "laborantin-laborant-fachrichtung-biologie-kanton-basel-landschaft-liestal",
-        "fr": "laborantin-laborant-fachrichtung-biologie-kanton-basel-landschaft-liestal"
+        "en": "laboratory-assistant-laborant-field-of-biology-kantonale-verwaltung-basel-landschaft-liestal",
+        "fr": "assistant-de-laboratoire-domaine-de-laboratoire-de-biologie-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5834,6 +5834,12 @@
       "previousSlugsByLocale": {
         "it": [
           "laborantin-laborant-fachrichtung-biologie-kanton-basel-landschaft-liestal"
+        ],
+        "en": [
+          "laborantin-laborant-fachrichtung-biologie-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "laborantin-laborant-fachrichtung-biologie-kanton-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
@@ -5856,12 +5862,12 @@
     },
     {
       "id": "kanton-basel-landschaft-102d3ffaf62c",
-      "slug": "lehrperson-zyklus-1-kanton-basel-landschaft-hemmiken",
+      "slug": "ciclo-degli-insegnanti-1-kantonale-verwaltung-basel-landschaft-hemmiken",
       "slugByLocale": {
         "de": "lehrperson-zyklus-1-kanton-basel-landschaft-hemmiken",
-        "it": "lehrperson-zyklus-1-kanton-basel-landschaft-hemmiken",
+        "it": "ciclo-degli-insegnanti-1-kantonale-verwaltung-basel-landschaft-hemmiken",
         "en": "lehrperson-zyklus-1-kantonale-verwaltung-basel-landschaft-hemmiken",
-        "fr": "lehrperson-zyklus-1-kanton-basel-landschaft-hemmiken"
+        "fr": "cycle-d-enseignement-1-kantonale-verwaltung-basel-landschaft-hemmiken"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5921,7 +5927,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:14:31.144Z"
+      "firstSeenAt": "2026-10-20T21:14:31.144Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-zyklus-1-kanton-basel-landschaft-hemmiken"
+        ],
+        "fr": [
+          "lehrperson-zyklus-1-kanton-basel-landschaft-hemmiken"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-zyklus-1-kanton-basel-landschaft-hemmiken"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-d75b7771b644",
@@ -6001,11 +6018,11 @@
     },
     {
       "id": "kanton-basel-landschaft-52ae30447e1a",
-      "slug": "lehrperson-textiles-gestalten-kanton-basel-landschaft-aesch",
+      "slug": "tessili-per-la-progettazione-degli-insegnanti-kantonale-verwaltung-basel-landschaft-aesch",
       "slugByLocale": {
         "de": "lehrperson-textiles-gestalten-kanton-basel-landschaft-aesch",
-        "it": "lehrperson-textiles-gestalten-kanton-basel-landschaft-aesch",
-        "en": "lehrperson-textiles-gestalten-kanton-basel-landschaft-aesch",
+        "it": "tessili-per-la-progettazione-degli-insegnanti-kantonale-verwaltung-basel-landschaft-aesch",
+        "en": "teacher-designing-textiles-kantonale-verwaltung-basel-landschaft-aesch",
         "fr": "lehrperson-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
@@ -6065,7 +6082,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:14:31.137Z"
+      "firstSeenAt": "2026-10-20T21:14:31.137Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-textiles-gestalten-kanton-basel-landschaft-aesch"
+        ],
+        "en": [
+          "lehrperson-textiles-gestalten-kanton-basel-landschaft-aesch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-textiles-gestalten-kanton-basel-landschaft-aesch"
+      ]
     }
   ]
 }

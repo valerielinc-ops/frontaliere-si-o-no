@@ -97,8 +97,8 @@
       "slugByLocale": {
         "de": "leiter-in-empfang-100-m-w-d-sodexo-zurich-flughafen",
         "it": "responsabile-empfang-100-m-w-d-sodexo-suisse-sa-zurich-flughafen",
-        "en": "leiter-in-empfang-100-m-w-d-sodexo-zurich-flughafen",
-        "fr": "leiter-in-empfang-100-m-w-d-sodexo-zurich-flughafen"
+        "en": "head-of-reception-100-m-f-d-sodexo-suisse-sa-zurich-flughafen",
+        "fr": "responsable-de-la-reception-100-h-f-d-sodexo-suisse-sa-zurich-flughafen"
       },
       "company": "Sodexo (Suisse) SA",
       "companyKey": "sodexo",
@@ -146,6 +146,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-empfang-100-m-w-d-sodexo-zurich-flughafen"
+        ],
+        "en": [
+          "leiter-in-empfang-100-m-w-d-sodexo-zurich-flughafen"
+        ],
+        "fr": [
           "leiter-in-empfang-100-m-w-d-sodexo-zurich-flughafen"
         ]
       },

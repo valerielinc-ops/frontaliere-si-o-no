@@ -742,8 +742,8 @@
       "slug": "preventivo-e-coordinatore-post-vendita-bkw-marly",
       "slugByLocale": {
         "it": "preventivo-e-coordinatore-post-vendita-bkw-marly",
-        "en": "assistant-to-the-quantity-quote-manager-bkw-marly",
-        "de": "assistent-du-responsable-chiffrage-bkw-marly",
+        "en": "estimator-after-sales-coordinator-bkw-marly",
+        "de": "kalkulator-und-after-sales-koordinator-bkw-marly",
         "fr": "assistant-du-responsable-chiffrage-bkw-marly"
       },
       "company": "BKW",
@@ -790,8 +790,8 @@
       "previousSlugs": [
         "assistant-du-responsable-chiffrage-bkw-marly",
         "assistant-du-responsable-chiffrage-bkw-ch",
-        "estimator-after-sales-coordinator-bkw-marly",
-        "kalkulator-und-after-sales-koordinator-bkw-marly"
+        "assistant-to-the-quantity-quote-manager-bkw-marly",
+        "assistent-du-responsable-chiffrage-bkw-marly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -799,10 +799,10 @@
         ],
         "en": [
           "assistant-du-responsable-chiffrage-bkw-marly",
-          "estimator-after-sales-coordinator-bkw-marly"
+          "assistant-to-the-quantity-quote-manager-bkw-marly"
         ],
         "de": [
-          "kalkulator-und-after-sales-koordinator-bkw-marly"
+          "assistent-du-responsable-chiffrage-bkw-marly"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:36.190Z",
@@ -10121,7 +10121,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -10170,7 +10170,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10178,7 +10178,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -25461,8 +25461,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "installatore-trice-elettrico-a-in-cfc-alle-bkw-urdorf-d3a7557363",
-        "en": "elektroinstallateur-in-efz-alle-bkw-ch",
-        "fr": "elektroinstallateur-in-efz-alle-bkw-ch"
+        "en": "electrical-installer-efz-all-genders-bkw-urdorf",
+        "fr": "installateur-rice-electricien-ne-cfc-tous-bkw-urdorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25512,6 +25512,12 @@
         "it": [
           "elektroinstallateur-in-efz-alle-bkw-ch",
           "installatore-trice-elettrico-a-in-cfc-alle-bkw-urdorf"
+        ],
+        "en": [
+          "elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
+          "elektroinstallateur-in-efz-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
@@ -25691,8 +25697,8 @@
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "it": "direttore-trice-lavori-elektro-alle-bkw-baar",
-        "en": "bauleiter-in-elektro-alle-bkw-ch",
-        "fr": "bauleiter-in-elektro-alle-bkw-ch"
+        "en": "electrical-site-supervisor-all-genders-bkw-baar",
+        "fr": "chef-fe-de-chantier-en-electricite-tous-bkw-baar"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25740,6 +25746,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bauleiter-in-elektro-alle-bkw-ch"
+        ],
+        "en": [
+          "bauleiter-in-elektro-alle-bkw-ch"
+        ],
+        "fr": [
           "bauleiter-in-elektro-alle-bkw-ch"
         ]
       },
@@ -25841,8 +25853,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-industrie-alle-bkw-ch",
         "it": "responsabile-di-progetto-industrie-alle-bkw-allschwil",
-        "en": "projektleiter-in-industrie-alle-bkw-ch",
-        "fr": "projektleiter-in-industrie-alle-bkw-ch"
+        "en": "project-manager-industrie-alle-bkw-allschwil",
+        "fr": "chef-de-projet-industrie-alle-bkw-allschwil"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25890,6 +25902,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-industrie-alle-bkw-ch"
+        ],
+        "en": [
+          "projektleiter-in-industrie-alle-bkw-ch"
+        ],
+        "fr": [
           "projektleiter-in-industrie-alle-bkw-ch"
         ]
       },
@@ -26150,7 +26168,7 @@
         "de": "senior-sales-it-ucc-audio-video-alle-bkw-ch",
         "it": "senior-sales-it-ucc-audio-video-alle-bkw-ch",
         "en": "senior-sales-it-ucc-audio-video-alle-bkw-ch",
-        "fr": "senior-sales-it-ucc-audio-video-alle-bkw-ch"
+        "fr": "ventes-seniors-it-ucc-audio-video-tous-bkw-baar"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26441,12 +26459,12 @@
     },
     {
       "id": "bkw-3311f252e31e",
-      "slug": "bauleitende-r-monteur-in-im-bereich-unterhalt-alle-bkw-ch",
+      "slug": "montatore-trice-con-funzione-di-capocantiere-nel-settore-della-manutenzione-tutti-e-bkw-urdorf",
       "slugByLocale": {
         "de": "bauleitende-r-monteur-in-im-bereich-unterhalt-alle-bkw-ch",
-        "it": "bauleitende-r-monteur-in-im-bereich-unterhalt-alle-bkw-ch",
-        "en": "bauleitende-r-monteur-in-im-bereich-unterhalt-alle-bkw-ch",
-        "fr": "bauleitende-r-monteur-in-im-bereich-unterhalt-alle-bkw-ch"
+        "it": "montatore-trice-con-funzione-di-capocantiere-nel-settore-della-manutenzione-tutti-e-bkw-urdorf",
+        "en": "site-supervising-technician-in-maintenance-all-genders-bkw-urdorf",
+        "fr": "monteur-euse-responsable-de-chantier-dans-le-domaine-de-l-entretien-tous-genres-bkw-urdorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26505,7 +26523,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:15:02.868Z"
+      "firstSeenAt": "2026-10-20T21:15:02.868Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bauleitende-r-monteur-in-im-bereich-unterhalt-alle-bkw-ch"
+        ],
+        "en": [
+          "bauleitende-r-monteur-in-im-bereich-unterhalt-alle-bkw-ch"
+        ],
+        "fr": [
+          "bauleitende-r-monteur-in-im-bereich-unterhalt-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bauleitende-r-monteur-in-im-bereich-unterhalt-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-bcf4991a9992",

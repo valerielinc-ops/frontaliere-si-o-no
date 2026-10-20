@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "zurich-insurance-sede-ticino-1375369457",
-      "slug": "werkstudent-medical-claims-m-w-d-befristet-bis-30-juni-2027-zurich-insurance-zurich",
+      "slug": "studente-di-lavoro-giurisprudenza-medica-m-f-d-limitata-al-30-giugno-2027-zurich-insurance-zurich-1375369457",
       "slugByLocale": {
         "de": "werkstudent-medical-claims-m-w-d-befristet-bis-30-juni-2027-zurich-insurance-sede-ticino",
-        "it": "werkstudent-medical-claims-m-w-d-befristet-bis-30-juni-2027-zurich-insurance-zurich",
-        "en": "werkstudent-medical-claims-m-w-d-befristet-bis-30-juni-2027-zurich-insurance-sede-ticino",
-        "fr": "werkstudent-medical-claims-m-w-d-befristet-bis-30-juni-2027-zurich-insurance-sede-ticino"
+        "it": "studente-di-lavoro-giurisprudenza-medica-m-f-d-limitata-al-30-giugno-2027-zurich-insurance-zurich-1375369457",
+        "en": "working-student-medical-claims-m-f-d-limited-to-june-30-2027-zurich-insurance-zurich-1375369457",
+        "fr": "reclamations-medicales-pour-etudiant-en-travail-h-f-d-limitee-au-30-juin-2027-zurich-insurance-zurich-1375369457"
       },
       "slugDisambiguator": "1375369457",
       "company": "Zurich Insurance",
@@ -58,11 +58,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-medical-claims-m-w-d-befristet-bis-30-juni-2027-zurich-insurance-sede-ticino",
+          "werkstudent-medical-claims-m-w-d-befristet-bis-30-juni-2027-zurich-insurance-zurich"
+        ],
+        "en": [
+          "werkstudent-medical-claims-m-w-d-befristet-bis-30-juni-2027-zurich-insurance-sede-ticino"
+        ],
+        "fr": [
           "werkstudent-medical-claims-m-w-d-befristet-bis-30-juni-2027-zurich-insurance-sede-ticino"
         ]
       },
       "previousSlugs": [
-        "werkstudent-medical-claims-m-w-d-befristet-bis-30-juni-2027-zurich-insurance-sede-ticino"
+        "werkstudent-medical-claims-m-w-d-befristet-bis-30-juni-2027-zurich-insurance-sede-ticino",
+        "werkstudent-medical-claims-m-w-d-befristet-bis-30-juni-2027-zurich-insurance-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -84,9 +92,9 @@
       "slug": "stagista-medical-claims-m-f-d-contratto-a-tempo-determinato-fino-al-30-giugno-2027-zurich",
       "slugByLocale": {
         "it": "stagista-medical-claims-m-f-d-contratto-a-tempo-determinato-fino-al-30-giugno-2027-zurich",
-        "en": "stagista-medical-claims-m-f-d-contratto-a-tempo-determinato-fino-al-30-giugno-2027-zurich",
-        "de": "stagista-medical-claims-m-f-d-contratto-a-tempo-determinato-fino-al-30-giugno-2027-zurich",
-        "fr": "stagista-medical-claims-m-f-d-contratto-a-tempo-determinato-fino-al-30-giugno-2027-zurich"
+        "en": "stagist-medical-claims-m-f-d-contract-fixed-time-until-30-june-2027-zurich-insurance-lugano-1375365557",
+        "de": "stagist-medical-claims-m-w-d-vertrag-festgelegte-zeit-bis-zum-30-juni-2027-zurich-insurance-lugano-1375365557",
+        "fr": "stagist-medical-revendications-h-f-d-contrat-temps-fixe-jusqu-au-30-juin-2027-zurich-insurance-lugano-1375365557"
       },
       "slugDisambiguator": "1375365557",
       "company": "Zurich Insurance",
@@ -1428,7 +1436,7 @@
       "slug": "rechtskonsulent-previdenza-m-w-d-zurich-insurance-zurich",
       "slugByLocale": {
         "it": "rechtskonsulent-previdenza-m-w-d-zurich-insurance-zurich",
-        "en": "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757",
+        "en": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757",
         "de": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich",
         "fr": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
       },
@@ -1476,14 +1484,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
+        "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich"
         ],
         "en": [
-          "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
+          "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757"
         ]
       },
       "slugDisambiguator": "1373916757",

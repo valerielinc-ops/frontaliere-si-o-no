@@ -7206,12 +7206,12 @@
     },
     {
       "id": "senevita-a78a33ce446d",
-      "slug": "fachperson-gesundheit-im-stundenlohn-spitex-senevita-so-olten",
+      "slug": "professionista-di-salute-nel-salario-orario-spitex-senevita-so-olten",
       "slugByLocale": {
         "de": "fachperson-gesundheit-im-stundenlohn-spitex-senevita-so-olten",
-        "it": "fachperson-gesundheit-im-stundenlohn-spitex-senevita-so-olten",
-        "en": "fachperson-gesundheit-im-stundenlohn-spitex-senevita-so-olten",
-        "fr": "fachperson-gesundheit-im-stundenlohn-spitex-senevita-so-olten"
+        "it": "professionista-di-salute-nel-salario-orario-spitex-senevita-so-olten",
+        "en": "health-professional-in-the-hourly-wage-spitex-senevita-so-olten",
+        "fr": "professionnels-de-la-sante-dans-le-salaire-horaire-spitex-senevita-so-olten"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -7270,7 +7270,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:21:49.020Z"
+      "firstSeenAt": "2026-10-20T21:21:49.020Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-im-stundenlohn-spitex-senevita-so-olten"
+        ],
+        "en": [
+          "fachperson-gesundheit-im-stundenlohn-spitex-senevita-so-olten"
+        ],
+        "fr": [
+          "fachperson-gesundheit-im-stundenlohn-spitex-senevita-so-olten"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-im-stundenlohn-spitex-senevita-so-olten"
+      ]
     },
     {
       "id": "senevita-868ff104fb0d",
@@ -7614,7 +7628,7 @@
         "it": "risorse-umane-collaboratore-trice-50-senevita-bl-lausen",
         "en": "hr-employee-50-senevita-bl-lausen",
         "de": "hr-mitarbeiter-in-50-senevita-bl-lausen",
-        "fr": "collaborateur-trice-rh-50-senevita-bl-lausen"
+        "fr": "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -7660,14 +7674,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hr-mitarbeiter-in-50-senevita-bl-lausen",
-        "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
+        "collaborateur-trice-rh-50-senevita-bl-lausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-mitarbeiter-in-50-senevita-bl-lausen"
         ],
         "fr": [
-          "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
+          "collaborateur-trice-rh-50-senevita-bl-lausen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:24:20.770Z",
@@ -8077,9 +8091,9 @@
       "slug": "cuocere-cucinare-80-senevita-be-bern",
       "slugByLocale": {
         "it": "cuocere-cucinare-80-senevita-be-bern",
-        "en": "kochin-koch-80-senevita-be-bern",
+        "en": "cook-cook-80-senevita-be-bern",
         "de": "kochin-koch-80-senevita-be-bern",
-        "fr": "cuisinier-ere-80-senevita-be-bern"
+        "fr": "cuire-cuir-80-senevita-be-bern"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -8125,19 +8139,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-80-senevita-be-bern",
-        "cook-cook-80-senevita-be-bern",
-        "cuire-cuir-80-senevita-be-bern"
+        "cuisinier-ere-80-senevita-be-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-80-senevita-be-bern"
         ],
         "en": [
-          "cook-cook-80-senevita-be-bern"
+          "kochin-koch-80-senevita-be-bern"
         ],
         "fr": [
           "kochin-koch-80-senevita-be-bern",
-          "cuire-cuir-80-senevita-be-bern"
+          "cuisinier-ere-80-senevita-be-bern"
         ]
       },
       "firstSeenAt": "2026-09-07T15:13:56.696Z",
@@ -9540,7 +9553,7 @@
         "it": "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-ittigen-be",
         "en": "assistant-in-health-and-social-affairs-eba-senevita-ittigen-be",
         "de": "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ittigen-be",
-        "fr": "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
+        "fr": "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -9586,7 +9599,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen",
-        "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+        "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9596,7 +9609,7 @@
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen"
         ],
         "fr": [
-          "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+          "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
         ]
       },
       "salaryMin": 66000,
@@ -9851,8 +9864,8 @@
       "slugByLocale": {
         "de": "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-senevita-zh-affoltern-am-albis",
         "it": "apprendistato-fachfrau-mann-betriebsunterhalt-cfc-senevita-zh-affoltern-am-albis",
-        "en": "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-senevita-zh-affoltern-am-albis",
-        "fr": "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-senevita-zh-affoltern-am-albis"
+        "en": "apprenticeship-as-facility-maintenance-specialist-efz-senevita-zh-affoltern-am-albis",
+        "fr": "place-d-apprentissage-d-agent-e-d-exploitation-cfc-senevita-zh-affoltern-am-albis"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -9900,6 +9913,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-senevita-zh-affoltern-am-albis"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-senevita-zh-affoltern-am-albis"
+        ],
+        "fr": [
           "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-senevita-zh-affoltern-am-albis"
         ]
       },
@@ -11675,8 +11694,8 @@
       "slugByLocale": {
         "de": "lehrstelle-koch-kochin-efz-senevita-zh-affoltern-am-albis",
         "it": "apprendistato-koch-kochin-cfc-senevita-zh-affoltern-am-albis",
-        "en": "lehrstelle-koch-kochin-efz-senevita-zh-affoltern-am-albis",
-        "fr": "lehrstelle-koch-kochin-efz-senevita-zh-affoltern-am-albis"
+        "en": "cook-apprenticeship-efz-senevita-zh-affoltern-am-albis",
+        "fr": "place-d-apprentissage-de-cuisinier-cuisiniere-cfc-senevita-zh-affoltern-am-albis"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -11724,6 +11743,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-koch-kochin-efz-senevita-zh-affoltern-am-albis"
+        ],
+        "en": [
+          "lehrstelle-koch-kochin-efz-senevita-zh-affoltern-am-albis"
+        ],
+        "fr": [
           "lehrstelle-koch-kochin-efz-senevita-zh-affoltern-am-albis"
         ]
       },
@@ -15888,7 +15913,7 @@
       "id": "senevita-4127b0846e86",
       "slug": "secondo-chef-senevita-zh-dietikon",
       "slugByLocale": {
-        "it": "secondo-chef-senevita-zh-dietikon",
+        "it": "sottocuoco-senevita-zh-dietikon",
         "en": "sous-chief-senevita-zh-dietikon",
         "de": "sous-chef-senevita-zh-dietikon",
         "fr": "sous-chef-senevita-zh-dietikon"
@@ -15937,13 +15962,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sous-chef-senevita-zh-dietikon",
-        "sottocuoco-senevita-zh-dietikon"
+        "sous-chef-senevita-zh-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sous-chef-senevita-zh-dietikon",
-          "sottocuoco-senevita-zh-dietikon"
+          "sous-chef-senevita-zh-dietikon"
         ],
         "en": [
           "sous-chef-senevita-zh-dietikon"

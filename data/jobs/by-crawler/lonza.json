@@ -13622,10 +13622,10 @@
     },
     {
       "id": "lonza-6bbb499beac2",
-      "slug": "laborantin-laboratory-technician-hplc-quality-control-m-w-d-80-100-lonza-ch",
+      "slug": "controllo-qualita-hplc-del-tecnico-di-laboratorio-m-f-d-80-100-lonza-visp",
       "slugByLocale": {
         "de": "laborantin-laboratory-technician-hplc-quality-control-m-w-d-80-100-lonza-ch",
-        "it": "laborantin-laboratory-technician-hplc-quality-control-m-w-d-80-100-lonza-ch",
+        "it": "controllo-qualita-hplc-del-tecnico-di-laboratorio-m-f-d-80-100-lonza-visp",
         "en": "laborantin-laboratory-technician-hplc-quality-control-m-w-d-80-100-lonza-ch",
         "fr": "laborantin-laboratory-technician-hplc-quality-control-m-w-d-80-100-lonza-ch"
       },
@@ -13686,16 +13686,24 @@
       },
       "postalCode": "3930",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-20T21:17:09.503Z"
+      "firstSeenAt": "2026-10-20T21:17:09.503Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laborantin-laboratory-technician-hplc-quality-control-m-w-d-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laborantin-laboratory-technician-hplc-quality-control-m-w-d-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-e17e59fc6c35",
-      "slug": "deputy-to-head-security-80-100-m-w-d-lonza-ch",
+      "slug": "aggiunto-alla-sicurezza-di-testa-80-100-m-f-d-lonza-visp",
       "slugByLocale": {
         "de": "deputy-to-head-security-80-100-m-w-d-lonza-ch",
-        "it": "deputy-to-head-security-80-100-m-w-d-lonza-ch",
+        "it": "aggiunto-alla-sicurezza-di-testa-80-100-m-f-d-lonza-visp",
         "en": "deputy-to-head-security-80-100-m-w-d-lonza-ch",
-        "fr": "deputy-to-head-security-80-100-m-w-d-lonza-ch"
+        "fr": "sous-ministre-a-la-securite-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -13754,16 +13762,27 @@
       },
       "postalCode": "3930",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-20T21:17:08.768Z"
+      "firstSeenAt": "2026-10-20T21:17:08.768Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "deputy-to-head-security-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "deputy-to-head-security-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "deputy-to-head-security-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-d2f878daff64",
-      "slug": "pmo-lead-lonza-ch",
+      "slug": "piombo-pmo-lonza-visp",
       "slugByLocale": {
         "en": "pmo-lead-lonza-ch",
-        "it": "pmo-lead-lonza-ch",
-        "de": "pmo-lead-lonza-ch",
-        "fr": "pmo-lead-lonza-ch"
+        "it": "piombo-pmo-lonza-visp",
+        "de": "pmo-leiter-lonza-visp",
+        "fr": "pmo-plomb-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -13822,16 +13841,30 @@
       },
       "postalCode": "3930",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-20T21:17:08.127Z"
+      "firstSeenAt": "2026-10-20T21:17:08.127Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pmo-lead-lonza-ch"
+        ],
+        "de": [
+          "pmo-lead-lonza-ch"
+        ],
+        "fr": [
+          "pmo-lead-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pmo-lead-lonza-ch"
+      ]
     },
     {
       "id": "lonza-eaf7a1a8c13e",
-      "slug": "customer-portal-product-owner-and-data-governance-lead-m-w-d-80-100-lonza-ch",
+      "slug": "portale-del-cliente-proprietario-del-prodotto-e-gestione-dei-dati-piombo-m-f-d-80-100-lonza-basel",
       "slugByLocale": {
         "en": "customer-portal-product-owner-and-data-governance-lead-m-w-d-80-100-lonza-ch",
-        "it": "customer-portal-product-owner-and-data-governance-lead-m-w-d-80-100-lonza-ch",
+        "it": "portale-del-cliente-proprietario-del-prodotto-e-gestione-dei-dati-piombo-m-f-d-80-100-lonza-basel",
         "de": "customer-portal-product-owner-and-data-governance-lead-m-w-d-80-100-lonza-ch",
-        "fr": "customer-portal-product-owner-and-data-governance-lead-m-w-d-80-100-lonza-ch"
+        "fr": "portail-client-proprietaire-de-produit-et-gouvernance-de-donnees-lead-h-f-d-80-100-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -13890,16 +13923,27 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-20T21:17:07.474Z"
+      "firstSeenAt": "2026-10-20T21:17:07.474Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-portal-product-owner-and-data-governance-lead-m-w-d-80-100-lonza-ch"
+        ],
+        "fr": [
+          "customer-portal-product-owner-and-data-governance-lead-m-w-d-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "customer-portal-product-owner-and-data-governance-lead-m-w-d-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-3420280a4bee",
-      "slug": "manufacturing-transformation-lead-m-w-d-80-100-lonza-ch",
+      "slug": "piombo-di-trasformazione-di-fabbricazione-m-f-d-80-100-lonza-basel",
       "slugByLocale": {
         "en": "manufacturing-transformation-lead-m-w-d-80-100-lonza-ch",
-        "it": "manufacturing-transformation-lead-m-w-d-80-100-lonza-ch",
+        "it": "piombo-di-trasformazione-di-fabbricazione-m-f-d-80-100-lonza-basel",
         "de": "manufacturing-transformation-lead-m-w-d-80-100-lonza-ch",
-        "fr": "manufacturing-transformation-lead-m-w-d-80-100-lonza-ch"
+        "fr": "transformation-de-la-fabrication-plomb-h-f-d-80-100-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -13958,7 +14002,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-20T21:17:06.821Z"
+      "firstSeenAt": "2026-10-20T21:17:06.821Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manufacturing-transformation-lead-m-w-d-80-100-lonza-ch"
+        ],
+        "fr": [
+          "manufacturing-transformation-lead-m-w-d-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manufacturing-transformation-lead-m-w-d-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-2961c86e745e",
@@ -13966,8 +14021,8 @@
       "slugByLocale": {
         "en": "lab-of-the-future-lead-m-w-d-80-100-lonza-ch",
         "it": "lab-of-the-future-lead-m-w-d-80-100-lonza-ch",
-        "de": "lab-of-the-future-lead-m-w-d-80-100-lonza-ch",
-        "fr": "lab-of-the-future-lead-m-w-d-80-100-lonza-ch"
+        "de": "labor-der-zukunft-fuhren-m-w-d-80-100-lonza-basel",
+        "fr": "laboratoire-du-futur-chef-de-file-h-f-d-80-100-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14278,12 +14333,12 @@
     },
     {
       "id": "lonza-144176dca391",
-      "slug": "advanced-industry-program-manager-m-w-d-80-100-lonza-ch",
+      "slug": "direttore-avanzato-del-programma-industriale-m-f-d-80-100-lonza-basel",
       "slugByLocale": {
         "en": "advanced-industry-program-manager-m-w-d-80-100-lonza-ch",
-        "it": "advanced-industry-program-manager-m-w-d-80-100-lonza-ch",
-        "de": "advanced-industry-program-manager-m-w-d-80-100-lonza-ch",
-        "fr": "advanced-industry-program-manager-m-w-d-80-100-lonza-ch"
+        "it": "direttore-avanzato-del-programma-industriale-m-f-d-80-100-lonza-basel",
+        "de": "programmmanager-in-fur-fortschrittliche-industrien-m-w-d-80-100-lonza-basel",
+        "fr": "gestionnaire-de-programme-pour-l-industrie-avancee-h-f-d-80-100-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14342,16 +14397,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-20T21:17:03.467Z"
+      "firstSeenAt": "2026-10-20T21:17:03.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-industry-program-manager-m-w-d-80-100-lonza-ch"
+        ],
+        "de": [
+          "advanced-industry-program-manager-m-w-d-80-100-lonza-ch"
+        ],
+        "fr": [
+          "advanced-industry-program-manager-m-w-d-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-industry-program-manager-m-w-d-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-17c22ed163ce",
-      "slug": "program-integration-scale-up-lead-lonza-ch",
+      "slug": "integrazione-del-programma-scale-up-lead-lonza-basel",
       "slugByLocale": {
         "en": "program-integration-scale-up-lead-lonza-ch",
-        "it": "program-integration-scale-up-lead-lonza-ch",
-        "de": "program-integration-scale-up-lead-lonza-ch",
-        "fr": "program-integration-scale-up-lead-lonza-ch"
+        "it": "integrazione-del-programma-scale-up-lead-lonza-basel",
+        "de": "programmintegration-und-scale-up-lead-lonza-basel",
+        "fr": "integration-des-programmes-et-mise-a-l-echelle-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14410,16 +14479,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-20T21:17:02.819Z"
+      "firstSeenAt": "2026-10-20T21:17:02.819Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "program-integration-scale-up-lead-lonza-ch"
+        ],
+        "de": [
+          "program-integration-scale-up-lead-lonza-ch"
+        ],
+        "fr": [
+          "program-integration-scale-up-lead-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "program-integration-scale-up-lead-lonza-ch"
+      ]
     },
     {
       "id": "lonza-65c6f45a20f7",
-      "slug": "data-as-a-product-lead-lonza-ch",
+      "slug": "dati-come-piombo-di-prodotto-lonza-basel",
       "slugByLocale": {
         "en": "data-as-a-product-lead-lonza-ch",
-        "it": "data-as-a-product-lead-lonza-ch",
-        "de": "data-as-a-product-lead-lonza-ch",
-        "fr": "data-as-a-product-lead-lonza-ch"
+        "it": "dati-come-piombo-di-prodotto-lonza-basel",
+        "de": "daten-als-product-lead-lonza-basel",
+        "fr": "donnees-en-tant-que-plomb-de-produit-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14478,16 +14561,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-20T21:17:01.973Z"
+      "firstSeenAt": "2026-10-20T21:17:01.973Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-as-a-product-lead-lonza-ch"
+        ],
+        "de": [
+          "data-as-a-product-lead-lonza-ch"
+        ],
+        "fr": [
+          "data-as-a-product-lead-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-as-a-product-lead-lonza-ch"
+      ]
     },
     {
       "id": "lonza-6bf42c777189",
-      "slug": "advanced-manufacturing-technology-lead-lonza-ch",
+      "slug": "tecnologia-avanzata-di-produzione-lonza-basel",
       "slugByLocale": {
         "en": "advanced-manufacturing-technology-lead-lonza-ch",
-        "it": "advanced-manufacturing-technology-lead-lonza-ch",
-        "de": "advanced-manufacturing-technology-lead-lonza-ch",
-        "fr": "advanced-manufacturing-technology-lead-lonza-ch"
+        "it": "tecnologia-avanzata-di-produzione-lonza-basel",
+        "de": "spitzentechnologie-fur-fortgeschrittene-fertigungstechnik-lonza-basel",
+        "fr": "technologie-de-fabrication-avancee-plomb-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14546,7 +14643,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-20T21:17:01.328Z"
+      "firstSeenAt": "2026-10-20T21:17:01.328Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-manufacturing-technology-lead-lonza-ch"
+        ],
+        "de": [
+          "advanced-manufacturing-technology-lead-lonza-ch"
+        ],
+        "fr": [
+          "advanced-manufacturing-technology-lead-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-manufacturing-technology-lead-lonza-ch"
+      ]
     },
     {
       "id": "lonza-b87c31774b66",

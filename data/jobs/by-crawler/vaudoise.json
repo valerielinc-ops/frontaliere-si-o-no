@@ -4091,12 +4091,12 @@
     },
     {
       "id": "vaudoise-630ceed4cdbc",
-      "slug": "spezialist-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch",
+      "slug": "specialista-in-prestazioni-di-indennita-giornaliera-per-malattia-m-f-d-80-100-vaudoise-assurances-bern",
       "slugByLocale": {
         "de": "spezialist-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch",
-        "it": "spezialist-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch",
-        "en": "spezialist-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch",
-        "fr": "spezialist-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+        "it": "specialista-in-prestazioni-di-indennita-giornaliera-per-malattia-m-f-d-80-100-vaudoise-assurances-bern",
+        "en": "benefits-specialist-daily-sickness-allowance-m-f-d-80-100-vaudoise-assurances-bern",
+        "fr": "specialiste-des-prestations-d-indemnites-journalieres-en-cas-de-maladie-h-f-d-80-100-vaudoise-assurances-bern"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -4155,7 +4155,21 @@
       },
       "postalCode": "3004",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-20T21:16:07.709Z"
+      "firstSeenAt": "2026-10-20T21:16:07.709Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "spezialist-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+        ],
+        "fr": [
+          "spezialist-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-cdeb78959f91",

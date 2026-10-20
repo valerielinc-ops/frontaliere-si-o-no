@@ -2241,12 +2241,12 @@
     },
     {
       "id": "ete-4eb27a9675ed",
-      "slug": "werkstatt-monteur-in-100-werkstatt-bereitstellung-e-unterhalt-emil-egger-ag-bassersdorf",
+      "slug": "montatore-trice-d-officina-100-officina-messa-a-disposizione-e-manutenzione-emil-egger-ag-bassersdorf-4eb27a96",
       "slugByLocale": {
         "de": "werkstatt-monteur-in-100-8211-werkstatt-bereitstellung-und-unterhalt-emil-egger-ag-bassersdorf-4eb27a96",
-        "it": "werkstatt-monteur-in-100-werkstatt-bereitstellung-e-unterhalt-emil-egger-ag-bassersdorf",
-        "en": "werkstatt-monteur-in-100-8211-werkstatt-bereitstellung-und-unterhalt-emil-egger-ag-bassersdorf-4eb27a96",
-        "fr": "werkstatt-monteur-in-100-8211-werkstatt-bereitstellung-und-unterhalt-emil-egger-ag-bassersdorf-4eb27a96"
+        "it": "montatore-trice-d-officina-100-officina-messa-a-disposizione-e-manutenzione-emil-egger-ag-bassersdorf-4eb27a96",
+        "en": "workshop-technician-100-workshop-provisioning-and-maintenance-emil-egger-ag-bassersdorf-4eb27a96",
+        "fr": "monteur-monteuse-d-atelier-100-atelier-mise-a-disposition-et-entretien-emil-egger-ag-bassersdorf-4eb27a96"
       },
       "slugDisambiguator": "4eb27a96",
       "company": "Emil Egger AG",
@@ -2293,11 +2293,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "werkstatt-monteur-in-100-8211-werkstatt-bereitstellung-und-unterhalt-emil-egger-ag-bassersdorf-4eb27a96",
+          "werkstatt-monteur-in-100-werkstatt-bereitstellung-e-unterhalt-emil-egger-ag-bassersdorf"
+        ],
+        "en": [
+          "werkstatt-monteur-in-100-8211-werkstatt-bereitstellung-und-unterhalt-emil-egger-ag-bassersdorf-4eb27a96"
+        ],
+        "fr": [
           "werkstatt-monteur-in-100-8211-werkstatt-bereitstellung-und-unterhalt-emil-egger-ag-bassersdorf-4eb27a96"
         ]
       },
       "previousSlugs": [
-        "werkstatt-monteur-in-100-8211-werkstatt-bereitstellung-und-unterhalt-emil-egger-ag-bassersdorf-4eb27a96"
+        "werkstatt-monteur-in-100-8211-werkstatt-bereitstellung-und-unterhalt-emil-egger-ag-bassersdorf-4eb27a96",
+        "werkstatt-monteur-in-100-werkstatt-bereitstellung-e-unterhalt-emil-egger-ag-bassersdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

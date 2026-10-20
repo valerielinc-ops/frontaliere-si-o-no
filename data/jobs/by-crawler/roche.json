@@ -9,7 +9,7 @@
         "it": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
         "en": "system-development-troubleshooter-roche-ch",
         "de": "systementwicklung-troubleshooter-roche-rotkreuz",
-        "fr": "system-development-troubleshooter-roche-rotkreuz"
+        "fr": "developpement-du-systeme-depanneur-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -52,14 +52,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-development-troubleshooter-roche-ch",
-        "developpement-du-systeme-depanneur-roche-rotkreuz"
+        "system-development-troubleshooter-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-development-troubleshooter-roche-ch"
         ],
         "fr": [
-          "developpement-du-systeme-depanneur-roche-rotkreuz"
+          "system-development-troubleshooter-roche-rotkreuz"
         ]
       },
       "salaryMin": 74500,
@@ -3251,7 +3251,7 @@
         "it": "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
         "en": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "de": "leitender-rechtsberater-rechtliche-geschaftsentwicklung-gesellschaftsrecht-roche-basel",
-        "fr": "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+        "fr": "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -3294,7 +3294,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-legal-counsel-legal-business-development-corporate-roche-ch",
-        "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+        "senior-legal-counsel-legal-business-development-corporate-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3304,7 +3304,7 @@
           "senior-legal-counsel-legal-business-development-corporate-roche-ch"
         ],
         "fr": [
-          "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+          "senior-legal-counsel-legal-business-development-corporate-roche-basel"
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:04.141Z",
@@ -3491,7 +3491,7 @@
       "slugByLocale": {
         "it": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "en": "site-data-operations-lead-roche-ch",
-        "de": "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst",
+        "de": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "fr": "exploitation-des-donnees-du-site-responsable-roche-kaiseraugst"
       },
       "company": "Roche",
@@ -3535,12 +3535,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "site-data-operations-lead-roche-ch",
-        "site-data-operations-lead-roche-kaiseraugst"
+        "site-data-operations-lead-roche-kaiseraugst",
+        "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "site-data-operations-lead-roche-ch",
           "site-data-operations-lead-roche-kaiseraugst"
+        ],
+        "de": [
+          "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -6193,7 +6197,7 @@
         "it": "gestione-globale-dei-contratti-e-dei-partner-roche-basel",
         "en": "global-expert-contracting-partner-management-roche-ch",
         "de": "globales-experten-contracting-partner-management-roche-basel",
-        "fr": "global-expert-contracting-partner-management-roche-basel"
+        "fr": "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -6236,7 +6240,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "global-expert-contracting-partner-management-roche-ch",
-        "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
+        "global-expert-contracting-partner-management-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6247,7 +6251,7 @@
         ],
         "fr": [
           "global-expert-contracting-partner-management-roche-ch",
-          "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
+          "global-expert-contracting-partner-management-roche-basel"
         ]
       },
       "firstSeenAt": "2026-10-15T21:14:39.547Z",
@@ -6506,7 +6510,7 @@
       "slug": "esperto-di-produzione-temporaneo-a-18-mesi-kaiseraugst-roche-kaiseraugst",
       "slugByLocale": {
         "it": "esperto-di-produzione-temporaneo-a-18-mesi-kaiseraugst-roche-kaiseraugst",
-        "en": "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst",
+        "en": "production-expert-temporary-to-18-months-kaiseraugst-roche-kaiseraugst",
         "de": "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
         "fr": "expert-en-production-temporaire-a-18-mois-kaiseraugst-roche-kaiseraugst"
       },
@@ -6551,8 +6555,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
-        "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst",
-        "production-expert-temporary-to-18-months-kaiseraugst-roche-kaiseraugst"
+        "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6561,7 +6564,7 @@
         ],
         "en": [
           "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
-          "production-expert-temporary-to-18-months-kaiseraugst-roche-kaiseraugst"
+          "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst"
         ],
         "fr": [
           "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch"
@@ -7136,7 +7139,7 @@
         "de": "facility-excellence-compliance-lead-packaging-roche-ch",
         "it": "facility-excellence-compliance-lead-packaging-roche-ch",
         "en": "facility-excellence-compliance-lead-packaging-roche-ch",
-        "fr": "facility-excellence-compliance-lead-packaging-roche-ch"
+        "fr": "l-excellence-de-l-installation-conformite-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7430,12 +7433,12 @@
     },
     {
       "id": "roche-5288b881b0ee",
-      "slug": "avor-spezialist-planungskoordinator-roche-ch",
+      "slug": "coordinatore-avor-specializzato-e-pianificazione-roche-kaiseraugst",
       "slugByLocale": {
         "de": "avor-spezialist-planungskoordinator-roche-ch",
-        "it": "avor-spezialist-planungskoordinator-roche-ch",
-        "en": "avor-spezialist-planungskoordinator-roche-ch",
-        "fr": "avor-spezialist-planungskoordinator-roche-ch"
+        "it": "coordinatore-avor-specializzato-e-pianificazione-roche-kaiseraugst",
+        "en": "avor-specialist-planning-coordinator-roche-kaiseraugst",
+        "fr": "specialiste-avor-coordinateur-de-planification-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7493,7 +7496,21 @@
       },
       "postalCode": "4303",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-10-20T21:14:08.652Z"
+      "firstSeenAt": "2026-10-20T21:14:08.652Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "avor-spezialist-planungskoordinator-roche-ch"
+        ],
+        "en": [
+          "avor-spezialist-planungskoordinator-roche-ch"
+        ],
+        "fr": [
+          "avor-spezialist-planungskoordinator-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "avor-spezialist-planungskoordinator-roche-ch"
+      ]
     },
     {
       "id": "roche-62d2a5fbd32b",
@@ -7501,8 +7518,8 @@
       "slugByLocale": {
         "de": "trainer-in-uk-leiter-in-business-digital-technology-60-100-kaiseraugst-unbefristet-roche",
         "it": "trainer-in-uk-responsabile-business-digital-technology-60-100-kaiseraugst-unbefristet-roche-kaiseraugst",
-        "en": "trainer-in-uk-responsabile-business-digital-technology-60-100-kaiseraugst-unbefristet-roche-kaiseraugst",
-        "fr": "trainer-in-uk-responsabile-business-digital-technology-60-100-kaiseraugst-unbefristet-roche-kaiseraugst"
+        "en": "it-vocational-training-trainer-60-100-basel-kaiseraugst-permanent-roche-kaiseraugst",
+        "fr": "formateur-trice-en-formation-professionnelle-en-informatique-60-100-bale-kaiseraugst-a-duree-indeterminee-roche"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7649,12 +7666,12 @@
     },
     {
       "id": "roche-98bec1dd8a79",
-      "slug": "administrative-assistant-m-f-d-roche-ch",
+      "slug": "assistente-amministrativo-m-f-d-roche-basel",
       "slugByLocale": {
         "en": "administrative-assistant-m-f-d-roche-ch",
-        "it": "administrative-assistant-m-f-d-roche-ch",
-        "de": "administrative-assistant-m-f-d-roche-ch",
-        "fr": "administrative-assistant-m-f-d-roche-basel"
+        "it": "assistente-amministrativo-m-f-d-roche-basel",
+        "de": "administrative-assistent-m-f-d-roche-basel",
+        "fr": "assistant-administratif-h-f-d-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7712,16 +7729,31 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-20T21:14:05.573Z"
+      "firstSeenAt": "2026-10-20T21:14:05.573Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-assistant-m-f-d-roche-ch"
+        ],
+        "de": [
+          "administrative-assistant-m-f-d-roche-ch"
+        ],
+        "fr": [
+          "administrative-assistant-m-f-d-roche-basel"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-assistant-m-f-d-roche-ch",
+        "administrative-assistant-m-f-d-roche-basel"
+      ]
     },
     {
       "id": "roche-54ddf75f6c25",
-      "slug": "project-portfolio-manager-sites-network-roche-ch",
+      "slug": "gestore-di-progetti-e-portafogli-rete-dei-siti-roche-basel",
       "slugByLocale": {
         "en": "project-portfolio-manager-sites-network-roche-ch",
-        "it": "project-portfolio-manager-sites-network-roche-ch",
-        "de": "project-portfolio-manager-sites-network-roche-ch",
-        "fr": "project-portfolio-manager-sites-network-roche-ch"
+        "it": "gestore-di-progetti-e-portafogli-rete-dei-siti-roche-basel",
+        "de": "projekt-und-portfoliomanager-sites-network-roche-basel",
+        "fr": "gestionnaire-de-projet-et-de-portefeuille-reseau-de-sites-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7780,7 +7812,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-20T21:14:04.274Z"
+      "firstSeenAt": "2026-10-20T21:14:04.274Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-portfolio-manager-sites-network-roche-ch"
+        ],
+        "de": [
+          "project-portfolio-manager-sites-network-roche-ch"
+        ],
+        "fr": [
+          "project-portfolio-manager-sites-network-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-portfolio-manager-sites-network-roche-ch"
+      ]
     },
     {
       "id": "roche-13e11222a472",
@@ -7860,12 +7906,12 @@
     },
     {
       "id": "roche-be49907ccc49",
-      "slug": "center-of-accounting-practices-swiss-cap-team-member-roche-ch",
+      "slug": "centro-di-pratiche-contabili-swiss-cap-team-member-roche-rotkreuz",
       "slugByLocale": {
         "en": "center-of-accounting-practices-swiss-cap-team-member-roche-ch",
-        "it": "center-of-accounting-practices-swiss-cap-team-member-roche-ch",
+        "it": "centro-di-pratiche-contabili-swiss-cap-team-member-roche-rotkreuz",
         "de": "center-of-accounting-practices-swiss-cap-team-member-roche-ch",
-        "fr": "center-of-accounting-practices-swiss-cap-team-member-roche-ch"
+        "fr": "centre-des-pratiques-comptables-swiss-cap-membre-de-l-equipe-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7923,16 +7969,27 @@
       },
       "postalCode": "6343",
       "addressRegion": "ZG",
-      "firstSeenAt": "2026-10-20T21:14:02.097Z"
+      "firstSeenAt": "2026-10-20T21:14:02.097Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "center-of-accounting-practices-swiss-cap-team-member-roche-ch"
+        ],
+        "fr": [
+          "center-of-accounting-practices-swiss-cap-team-member-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "center-of-accounting-practices-swiss-cap-team-member-roche-ch"
+      ]
     },
     {
       "id": "roche-747054879713",
-      "slug": "collaboratore-trice-chemiedienst-basel-unbefristet-roche-basel",
+      "slug": "collaboratore-del-servizio-chimico-basilea-a-tempo-indeterminato-roche-basel",
       "slugByLocale": {
         "de": "mitarbeiter-chemiedienst-basel-unbefristet-roche-ch",
-        "it": "collaboratore-trice-chemiedienst-basel-unbefristet-roche-basel",
-        "en": "mitarbeiter-chemiedienst-basel-unbefristet-roche-ch",
-        "fr": "mitarbeiter-chemiedienst-basel-unbefristet-roche-ch"
+        "it": "collaboratore-del-servizio-chimico-basilea-a-tempo-indeterminato-roche-basel",
+        "en": "employee-chemical-service-basel-permanent-roche-basel",
+        "fr": "service-chimique-des-employes-bale-permanent-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7977,11 +8034,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-chemiedienst-basel-unbefristet-roche-ch",
+          "collaboratore-trice-chemiedienst-basel-unbefristet-roche-basel"
+        ],
+        "en": [
+          "mitarbeiter-chemiedienst-basel-unbefristet-roche-ch"
+        ],
+        "fr": [
           "mitarbeiter-chemiedienst-basel-unbefristet-roche-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-chemiedienst-basel-unbefristet-roche-ch"
+        "mitarbeiter-chemiedienst-basel-unbefristet-roche-ch",
+        "collaboratore-trice-chemiedienst-basel-unbefristet-roche-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8002,12 +8067,12 @@
     },
     {
       "id": "roche-89492aa80ac8",
-      "slug": "employee-counselor-case-manager-80-befristet-auf-ein-jahr-option-auf-festanstellung-m-w-d-roche-rotkreuz",
+      "slug": "consigliere-per-i-dipendenti-case-manager-80-limitato-ad-un-anno-opzione-di-lavoro-permanente-m-f-d-roche-rotkreuz",
       "slugByLocale": {
         "de": "employee-counselor-case-manager-80-befristet-auf-ein-jahr-option-auf-festanstellung-m-w-d",
-        "it": "employee-counselor-case-manager-80-befristet-auf-ein-jahr-option-auf-festanstellung-m-w-d-roche-rotkreuz",
-        "en": "employee-counselor-case-manager-80-befristet-auf-ein-jahr-option-auf-festanstellung-m-w-d",
-        "fr": "employee-counselor-case-manager-80-befristet-auf-ein-jahr-option-auf-festanstellung-m-w-d"
+        "it": "consigliere-per-i-dipendenti-case-manager-80-limitato-ad-un-anno-opzione-di-lavoro-permanente-m-f-d-roche-rotkreuz",
+        "en": "employee-counselor-case-manager-80-limited-to-one-year-permanent-employment-option-m-f-d-roche-rotkreuz",
+        "fr": "conseiller-d-employe-gestionnaire-de-cas-80-limite-a-un-an-option-d-emploi-permanent-h-f-d-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8052,11 +8117,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "employee-counselor-case-manager-80-befristet-auf-ein-jahr-option-auf-festanstellung-m-w-d",
+          "employee-counselor-case-manager-80-befristet-auf-ein-jahr-option-auf-festanstellung-m-w-d-roche-rotkreuz"
+        ],
+        "en": [
+          "employee-counselor-case-manager-80-befristet-auf-ein-jahr-option-auf-festanstellung-m-w-d"
+        ],
+        "fr": [
           "employee-counselor-case-manager-80-befristet-auf-ein-jahr-option-auf-festanstellung-m-w-d"
         ]
       },
       "previousSlugs": [
-        "employee-counselor-case-manager-80-befristet-auf-ein-jahr-option-auf-festanstellung-m-w-d"
+        "employee-counselor-case-manager-80-befristet-auf-ein-jahr-option-auf-festanstellung-m-w-d",
+        "employee-counselor-case-manager-80-befristet-auf-ein-jahr-option-auf-festanstellung-m-w-d-roche-rotkreuz"
       ],
       "salaryMin": 76800,
       "salaryMax": 116800,
@@ -8082,7 +8155,7 @@
         "en": "internship-agentic-ai-for-environmental-regulatory-compliance-roche-ch",
         "it": "internship-ai-agente-per-la-conformita-normativa-ambientale-roche-basel",
         "de": "praktikum-agentic-ai-fur-environmental-regulatory-compliance-roche-basel",
-        "fr": "internship-agentic-ai-for-environmental-regulatory-compliance-roche-basel"
+        "fr": "stage-agent-d-ia-pour-la-conformite-reglementaire-environnementale-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8130,12 +8203,12 @@
           "internship-agentic-ai-for-environmental-regulatory-compliance-roche-ch"
         ],
         "fr": [
-          "stage-agent-d-ia-pour-la-conformite-reglementaire-environnementale-roche-basel"
+          "internship-agentic-ai-for-environmental-regulatory-compliance-roche-basel"
         ]
       },
       "previousSlugs": [
         "internship-agentic-ai-for-environmental-regulatory-compliance-roche-ch",
-        "stage-agent-d-ia-pour-la-conformite-reglementaire-environnementale-roche-basel"
+        "internship-agentic-ai-for-environmental-regulatory-compliance-roche-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

@@ -3216,11 +3216,11 @@
     },
     {
       "id": "concordia-7209e6df8bb1",
-      "slug": "fachspezialist-in-managed-care-50-60-concordia-luzern",
+      "slug": "specialista-di-settore-in-managed-care-50-60-concordia-luzern",
       "slugByLocale": {
         "de": "fachspezialist-in-managed-care-50-60-concordia-luzern",
-        "it": "fachspezialist-in-managed-care-50-60-concordia-luzern",
-        "en": "fachspezialist-in-managed-care-50-60-concordia-luzern",
+        "it": "specialista-di-settore-in-managed-care-50-60-concordia-luzern",
+        "en": "subject-matter-specialist-managed-care-50-60-concordia-luzern",
         "fr": "fachspezialist-in-managed-care-50-60-concordia-luzern"
       },
       "company": "Concordia",
@@ -3280,7 +3280,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:16:52.800Z"
+      "firstSeenAt": "2026-10-20T21:16:52.800Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-managed-care-50-60-concordia-luzern"
+        ],
+        "en": [
+          "fachspezialist-in-managed-care-50-60-concordia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-managed-care-50-60-concordia-luzern"
+      ]
     }
   ]
 }

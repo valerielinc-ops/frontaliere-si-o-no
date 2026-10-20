@@ -2086,12 +2086,12 @@
     },
     {
       "id": "abbott-1c1478fa0862",
-      "slug": "global-medical-manager-cardiometabolics-abbott-ch",
+      "slug": "direttore-medico-globale-cardiometabolici-abbott-allschwil",
       "slugByLocale": {
         "en": "global-medical-manager-cardiometabolics-abbott-ch",
-        "it": "global-medical-manager-cardiometabolics-abbott-ch",
+        "it": "direttore-medico-globale-cardiometabolici-abbott-allschwil",
         "de": "global-medical-manager-cardiometabolics-abbott-ch",
-        "fr": "global-medical-manager-cardiometabolics-abbott-ch"
+        "fr": "directeur-medical-mondial-cardiometabolisants-abbott-allschwil"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -2151,7 +2151,18 @@
         }
       },
       "postalCode": "4123",
-      "firstSeenAt": "2026-10-20T21:25:30.751Z"
+      "firstSeenAt": "2026-10-20T21:25:30.751Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-medical-manager-cardiometabolics-abbott-ch"
+        ],
+        "fr": [
+          "global-medical-manager-cardiometabolics-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-medical-manager-cardiometabolics-abbott-ch"
+      ]
     }
   ]
 }

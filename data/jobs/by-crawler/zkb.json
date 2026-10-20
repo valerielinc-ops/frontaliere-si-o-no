@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "zkb-3d7435d589d1",
-      "slug": "teamleiter-in-privatkunden-kusnacht-zumikon-zkb-kusnacht",
+      "slug": "responsabile-del-team-clienti-privati-kusnacht-zumikon-zurcher-kantonalbank-kusnacht",
       "slugByLocale": {
         "de": "teamleiter-in-privatkunden-kusnacht-zumikon-zkb-kusnacht",
-        "it": "teamleiter-in-privatkunden-kusnacht-zumikon-zkb-kusnacht",
-        "en": "teamleiter-in-privatkunden-kusnacht-zumikon-zkb-kusnacht",
-        "fr": "teamleiter-in-privatkunden-kusnacht-zumikon-zkb-kusnacht"
+        "it": "responsabile-del-team-clienti-privati-kusnacht-zumikon-zurcher-kantonalbank-kusnacht",
+        "en": "team-leader-private-customers-kusnacht-zumikon-zurcher-kantonalbank-kusnacht",
+        "fr": "responsable-d-equipe-clientele-privee-kusnacht-zumikon-zurcher-kantonalbank-kusnacht"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -71,7 +71,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:19:00.547Z"
+      "firstSeenAt": "2026-10-20T21:19:00.547Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-privatkunden-kusnacht-zumikon-zkb-kusnacht"
+        ],
+        "en": [
+          "teamleiter-in-privatkunden-kusnacht-zumikon-zkb-kusnacht"
+        ],
+        "fr": [
+          "teamleiter-in-privatkunden-kusnacht-zumikon-zkb-kusnacht"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-privatkunden-kusnacht-zumikon-zkb-kusnacht"
+      ]
     },
     {
       "id": "zkb-2bdffff1f5e2",
@@ -324,7 +338,7 @@
         "it": "ufficiale-di-conformita-m-f-d-zurcher-kantonalbank-zurich",
         "en": "compliance-officer-m-w-d-zkb-zurich",
         "de": "compliance-officer-m-w-d-zkb-zurich",
-        "fr": "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
+        "fr": "agent-de-conformite-h-f-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -373,14 +387,14 @@
       "pensum": "60%",
       "previousSlugs": [
         "compliance-officer-m-w-d-zkb-zurich",
-        "agent-de-conformite-h-f-d-zurcher-kantonalbank-zurich"
+        "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "compliance-officer-m-w-d-zkb-zurich"
         ],
         "fr": [
-          "agent-de-conformite-h-f-d-zurcher-kantonalbank-zurich"
+          "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-10-19T09:16:47.839Z",

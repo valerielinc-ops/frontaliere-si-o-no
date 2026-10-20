@@ -176,11 +176,11 @@
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-f9926f37e357",
-      "slug": "assistant-e-de-direction-des-soins-a-70-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+      "slug": "70-100-assistente-di-gestione-della-cura-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
         "fr": "assistant-e-de-direction-des-soins-a-70-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "it": "assistant-e-de-direction-des-soins-a-70-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "en": "assistant-e-de-direction-des-soins-a-70-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+        "it": "70-100-assistente-di-gestione-della-cura-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "70-100-care-management-assistant-reseau-hospitalier-neuchatelois-rhne-neuchatel",
         "de": "assistant-e-de-direction-des-soins-a-70-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
@@ -240,7 +240,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:24:15.293Z"
+      "firstSeenAt": "2026-10-20T21:24:15.293Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-de-direction-des-soins-a-70-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "en": [
+          "assistant-e-de-direction-des-soins-a-70-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-de-direction-des-soins-a-70-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      ]
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-a8532902a94e",
