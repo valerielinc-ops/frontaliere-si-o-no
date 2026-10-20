@@ -43,9 +43,16 @@ function parseCandidateApplication(value: unknown): CandidateAssistedApplication
   if (source !== 'single' && source !== 'concierge') return null;
   if (typeof value.status !== 'string' || !CANDIDATE_STATUSES.has(value.status as AssistedApplicationCandidateStatus)) return null;
   if (typeof value.requiresCvUpload !== 'boolean') return null;
-  const updatedAt = value.updatedAt;
-  if (updatedAt !== null && typeof updatedAt !== 'string') return null;
-  if (typeof updatedAt === 'string' && Number.isNaN(Date.parse(updatedAt))) return null;
+  const updatedAtValue = value.updatedAt;
+  let updatedAt: string | null;
+  if (typeof updatedAtValue === 'string') {
+    if (Number.isNaN(Date.parse(updatedAtValue))) return null;
+    updatedAt = updatedAtValue;
+  } else if (updatedAtValue === null) {
+    updatedAt = null;
+  } else {
+    return null;
+  }
 
   return {
     orderId: value.orderId,
