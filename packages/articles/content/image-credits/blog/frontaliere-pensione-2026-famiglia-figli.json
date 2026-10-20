@@ -1,34 +1,31 @@
 {
   "schema": 1,
   "cover": "/images/blog/frontaliere-pensione-2026-famiglia-figli.webp",
-  "source": "licensed-photo",
-  "photo": {
-    "provider": "pixabay",
-    "title": "Arches, Leaning tower of pisa",
-    "pageUrl": "https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
-    "width": 2496,
-    "height": 1664
+  "source": "wikimedia-commons",
+  "commons": {
+    "title": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lago_de_Como,_Italia,_2016-06-25,_DD_02-06_PAN.jpg",
+    "pageId": 50312585,
+    "width": 14906,
+    "height": 4928,
+    "revision": "2016-07-24T15:52:18Z"
   },
   "author": {
-    "text": "Pixabay contributor",
-    "name": "Pixabay contributor",
-    "url": null,
+    "text": "Diego Delso",
+    "name": "Diego Delso",
+    "url": "https://www.wikidata.org/wiki/Q28147777",
     "type": "Person"
   },
-  "attribution": null,
+  "attribution": "Diego Delso",
   "licence": {
-    "name": "Pixabay Content License",
-    "url": "https://pixabay.com/service/license-summary/",
-    "family": "pixabay",
-    "attributionRequired": false
+    "name": "CC BY-SA 4.0",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "family": "cc-by-sa",
+    "attributionRequired": true
   },
-  "restrictions": [
-    "licensed-source",
-    "no-recognizable-foreground-person",
-    "no-logo-brand-or-trademark"
-  ],
+  "restrictions": [],
   "modified": "cropped",
-  "fetchedAt": "2026-10-16",
+  "fetchedAt": "2026-10-04",
   "status": "ok",
   "curation": null
 }
