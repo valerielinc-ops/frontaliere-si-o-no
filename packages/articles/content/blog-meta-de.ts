@@ -13530,6 +13530,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lega-misure-lugano.title': 'Die Lega fordert in Lugano Maßnahmen für Grenzgänger',
     'blog.article.lega-misure-lugano.excerpt': 'Die Verschärfung wurde am 29.',
     'blog.article.lega-misure-lugano.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.battaglia-frontalieri-tasse-diritti.title': 'Der lange Kampf der Grenzgänger: Steuern, Rechte und Ungleichheiten',
+    'blog.article.battaglia-frontalieri-tasse-diritti.excerpt': 'Etwa 31 Tausend Grenzgänger im Varesotto und 32 Tausend im Comasco Varese bleibt nach der Rückkehr des 4%-Satzes von den Steuerrückvergütungen ausgeschlossen 31,7% sind länger als eineinhalb Stunden unterwegs',
+    'blog.article.battaglia-frontalieri-tasse-diritti.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

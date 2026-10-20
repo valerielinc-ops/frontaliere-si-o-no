@@ -13531,6 +13531,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lega-misure-lugano.title': 'The Lega calls for measures on cross-border commuters in Lugano',
     'blog.article.lega-misure-lugano.excerpt': 'The strengthening was approved on September 29, 2026 Wicht asks the Municipality of Lugano to urge the Canton The request concerns the package',
     'blog.article.lega-misure-lugano.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.battaglia-frontalieri-tasse-diritti.title': 'The long battle of cross-border workers: taxes, rights and disparities',
+    'blog.article.battaglia-frontalieri-tasse-diritti.excerpt': 'About 31 thousand cross-border commuters in the Varese area and 32 thousand in the Como area Varese remains excluded from tax rebates after the return of 4% 31,7% spend more than an hour and a half traveling',
+    'blog.article.battaglia-frontalieri-tasse-diritti.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

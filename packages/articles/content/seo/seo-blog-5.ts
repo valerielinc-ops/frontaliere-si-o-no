@@ -112450,6 +112450,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-battaglia-frontalieri-tasse-diritti': {
+    title: 'La lunga battaglia dei frontalieri: tasse, diritti e disparità',
+    description: 'Circa 31 mila frontalieri nel Varesotto e 32 mila nel Comasco Varese resta esclusa dai ristorni dopo il ritorno del 4% Il 31,7% supera un\'ora e mezza di viaggio',
+    keywords: 'frontalieri, ticino, svizzera, italia, lunga, battaglia, tasse, diritti',
+    ogTitle: 'Frontalieri Varese e Como: la battaglia su tasse, ristorni e diritti',
+    ogDescription: 'Circa 31 mila frontalieri nel Varesotto e 32 mila nel Comasco Varese resta esclusa dai ristorni dopo il ritorno del 4% Il 31,7% supera un\'ora e mezza di viaggio',
+    canonicalPath: '/articoli-frontaliere/battaglia-frontalieri-tasse-diritti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La lunga battaglia dei frontalieri: tasse, diritti e disparità",
+      "description": "Circa 31 mila frontalieri nel Varesotto e 32 mila nel Comasco Varese resta esclusa dai ristorni dopo il ritorno del 4% Il 31,7% supera un'ora e mezza di viaggio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-battaglia-frontalieri-tasse-diritti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-20T15:23:15+00:00",
+      "dateModified": "2026-10-20T15:23:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/battaglia-frontalieri-tasse-diritti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

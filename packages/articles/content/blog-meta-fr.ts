@@ -13533,6 +13533,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lega-misure-lugano.title': 'La Lega demande des mesures concernant les travailleurs frontaliers à Lugano',
     'blog.article.lega-misure-lugano.excerpt': 'Le renforcement a été approuvé le 29 septembre 2026 Wicht demande à la Municipalité de Lugano de solliciter le Canton La demande concerne le paquet',
     'blog.article.lega-misure-lugano.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.battaglia-frontalieri-tasse-diritti.title': 'La longue bataille des travailleurs frontaliers : impôts, droits et disparités',
+    'blog.article.battaglia-frontalieri-tasse-diritti.excerpt': 'Environ 31 mille travailleurs frontaliers dans le Varesotto et 32 mille dans le Comasco Varese reste exclue des rétrocessions après le retour à 4 % Les 31,7 % dépassent une heure et demie de trajet',
+    'blog.article.battaglia-frontalieri-tasse-diritti.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

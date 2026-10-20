@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 701,
+      "5": 703,
       "6": 5054
     },
-    "publishedCovers": 7438,
+    "publishedCovers": 7440,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -203777,6 +203777,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-battaglia-frontalieri-tasse-diritti": {
+      "cover": "/images/blog/article-battaglia-frontalieri-tasse-diritti.webp",
+      "hash": "43a7ce3afa8177377d04b55ddcad4ca68dab85d15b4f195541430bf496c8f1ce",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "battaglia-frontalieri-tasse-diritti",
+          "category": "fiscale",
+          "date": "2026-10-20T15:23:15.269Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-battaglia-frontalieri-tasse-diritti.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-battaglia-frontalieri-tasse-diritti",
+        "imageUrl": "/images/blog/article-battaglia-frontalieri-tasse-diritti.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-governo-soletta-ottobre-2026": {
       "cover": "/images/blog/article-governo-soletta-ottobre-2026.webp",
       "hash": "9c31acafff3d073a4d21ec421717e92371cc4fdbc698fe84673bd4b6c0ce249f",
@@ -203840,6 +203873,39 @@
         "provider": "openai-codex",
         "assetId": "article-lega-misure-lugano",
         "imageUrl": "/images/blog/article-lega-misure-lugano.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-soletta-regierungsrat-attiparlamentari-2026": {
+      "cover": "/images/blog/article-soletta-regierungsrat-attiparlamentari-2026.webp",
+      "hash": "7e7f4aea061b2608f2abee053f747c9665220c5444de18acdd44dd1d6784156f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "soletta-regierungsrat-attiparlamentari-2026",
+          "category": "novita",
+          "date": "2026-10-20T15:42:25.788Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-soletta-regierungsrat-attiparlamentari-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-soletta-regierungsrat-attiparlamentari-2026",
+        "imageUrl": "/images/blog/article-soletta-regierungsrat-attiparlamentari-2026.webp",
         "evidence": "generated-engine-record"
       }
     }

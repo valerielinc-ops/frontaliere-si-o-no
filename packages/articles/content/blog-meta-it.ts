@@ -13532,6 +13532,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lega-misure-lugano.title': 'La Lega chiede misure sui frontalieri a Lugano',
     'blog.article.lega-misure-lugano.excerpt': 'Il rafforzamento è stato approvato il 29 settembre 2026 Wicht chiede al Municipio di Lugano di sollecitare il Cantone La richiesta riguarda il pacchetto',
     'blog.article.lega-misure-lugano.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.battaglia-frontalieri-tasse-diritti.title': 'La lunga battaglia dei frontalieri: tasse, diritti e disparità',
+    'blog.article.battaglia-frontalieri-tasse-diritti.excerpt': 'Circa 31 mila frontalieri nel Varesotto e 32 mila nel Comasco Varese resta esclusa dai ristorni dopo il ritorno del 4% Il 31,7% supera un\'ora e mezza di viaggio',
+    'blog.article.battaglia-frontalieri-tasse-diritti.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

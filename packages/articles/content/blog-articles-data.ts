@@ -45660,6 +45660,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'battaglia-frontalieri-tasse-diritti',
+ category: 'fiscale',
+ date: '2026-10-20T15:23:15.269Z',
+ image: '/images/blog/article-battaglia-frontalieri-tasse-diritti.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

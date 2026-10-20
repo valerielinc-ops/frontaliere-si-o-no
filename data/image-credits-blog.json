@@ -61843,6 +61843,80 @@
         }
       }
     },
+    "generated:article-battaglia-frontalieri-tasse-diritti": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-20T15:23:02.512Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-20",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-battaglia-frontalieri-tasse-diritti",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "95aa70f661e43213b0affd6faa142da3e877932ce28972843af8ca4d00a9473b",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "43a7ce3afa8177377d04b55ddcad4ca68dab85d15b4f195541430bf496c8f1ce",
+        "bytes": 99972,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-20T15:23:02.512Z",
+        "verifiedAt": "2026-10-20T15:23:14.827Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-battaglia-frontalieri-tasse-diritti.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic photorealistic editorial scene of cross-border commuter traffic near an Alpine lake; no readable text, logos, or identifiable people."
+        }
+      }
+    },
     "generated:article-governo-soletta-ottobre-2026": {
       "source": "generated-provider",
       "commons": {
@@ -61988,6 +62062,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Generic synthetic photorealistic Lugano lakeside scene; no visible text, logos, recognizable people, or event-specific cues."
+        }
+      }
+    },
+    "generated:article-soletta-regierungsrat-attiparlamentari-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-20T15:42:18.125Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-20",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-soletta-regierungsrat-attiparlamentari-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "fb1dbfcc6374a8eb21f9da55da05a456e4eac36ac9e4fbe42f25b38183e733b9",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "7e7f4aea061b2608f2abee053f747c9665220c5444de18acdd44dd1d6784156f",
+        "bytes": 200246,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-20T15:42:18.125Z",
+        "verifiedAt": "2026-10-20T15:42:25.747Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-soletta-regierungsrat-attiparlamentari-2026.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic illustration of a Swiss government building exterior with a Swiss flag; no readable text, logos, or people."
         }
       }
     }
@@ -101663,12 +101811,20 @@
       "file": "generated:article-murales-pediatria-ksb-baden",
       "modified": "resized"
     },
+    "article-battaglia-frontalieri-tasse-diritti": {
+      "file": "generated:article-battaglia-frontalieri-tasse-diritti",
+      "modified": "resized"
+    },
     "article-governo-soletta-ottobre-2026": {
       "file": "generated:article-governo-soletta-ottobre-2026",
       "modified": "resized"
     },
     "article-lega-misure-lugano": {
       "file": "generated:article-lega-misure-lugano",
+      "modified": "resized"
+    },
+    "article-soletta-regierungsrat-attiparlamentari-2026": {
+      "file": "generated:article-soletta-regierungsrat-attiparlamentari-2026",
       "modified": "resized"
     }
   }
