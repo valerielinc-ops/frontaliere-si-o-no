@@ -1,64 +1,18 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-10-20T09:36:37.502Z",
+  "generatedAt": "2026-10-20T21:45:08.256Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 69498,
-  "avgDurationMs": 69498,
+  "durationMs": 69924,
+  "avgDurationMs": 69924,
   "durationHistory": [
-    69498
+    69924
   ],
-  "newJobs": [
-    {
-      "id": "company-l4u562",
-      "slug": "collaboratrice-scientifica-collaboratore-scientifico-nell-ambito-dell-automazione-e-della-robotica-collaborativa-applicate-a-sistemi-di-prod-l4u562",
-      "company": "SUPSI / DTI",
-      "title": "Collaboratrice scientifica / Collaboratore scientifico nell’ambito dell’automazione e della robotica collaborativa applicate a sistemi di produzione human-centred”",
-      "location": "Manno",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.supsi.ch/bando26_5045",
-      "applyUrl": "https://www.supsi.ch/bando26_5045",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Lugano",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-20T09:36:21.726Z",
-      "firstSeenAt": "2026-10-20T09:36:21.726Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "salarySource": "estimated",
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 21,
-        "completeness": 23
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-7dvau3",
@@ -82,7 +36,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-20T09:36:21.726Z",
+      "crawledAt": "2026-10-20T21:44:44.163Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "country": "CH",
       "sourceLang": "it",
@@ -127,7 +81,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-20T09:36:21.726Z",
+      "crawledAt": "2026-10-20T21:44:44.163Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "country": "CH",
       "sourceLang": "it",
@@ -171,7 +125,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-20T09:36:21.726Z",
+      "crawledAt": "2026-10-20T21:44:44.163Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "country": "CH",
       "sourceLang": "it",
@@ -219,7 +173,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-20T09:36:21.726Z",
+      "crawledAt": "2026-10-20T21:44:44.163Z",
       "firstSeenAt": "2026-10-05T09:36:12.464Z",
       "country": "CH",
       "sourceLang": "it",
@@ -239,9 +193,54 @@
         "translation": 16,
         "completeness": 23
       }
+    },
+    {
+      "id": "company-l4u562",
+      "slug": "collaboratrice-scientifica-collaboratore-scientifico-nell-ambito-dell-automazione-e-della-robotica-collaborativa-applicate-a-sistemi-di-prod-l4u562",
+      "company": "SUPSI / DTI",
+      "title": "Collaboratrice scientifica / Collaboratore scientifico nell’ambito dell’automazione e della robotica collaborativa applicate a sistemi di produzione human-centred”",
+      "location": "Manno",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.supsi.ch/bando26_5045",
+      "applyUrl": "https://www.supsi.ch/bando26_5045",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Lugano",
+        "canton": "TI"
+      },
+      "companyKey": "supsi-dti",
+      "companyDomain": "supsi.ch",
+      "crawledAt": "2026-10-20T21:44:44.163Z",
+      "firstSeenAt": "2026-10-20T09:36:21.726Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "salarySource": "estimated",
+      "streetAddress": "Via Cantonale 2C",
+      "postalCode": "6928",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 21,
+        "completeness": 23
+      }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "a1bd59ecfe0dd8e9073ead0a9cb11e2d39e2c95a"
+  "codeCommit": "5d413b0550f3391711b8d8bf8b472520011f35e5"
 }
