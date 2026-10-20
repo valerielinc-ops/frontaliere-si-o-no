@@ -299,6 +299,50 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: emDashReverseOrder })],
     });
 
+    const spokenOrWrittenItalian = 'Qual è il livello di italiano parlato o scritto?';
+    const supportedModeEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e31', action: 'select', value: 'C2', question: spokenOrWrittenItalian, answer: 'C2',
+      source: 'profile', evidence: 'Italian C2',
+    })]), {
+      answers: {}, profile: { cvText: 'Italian C2' }, portalQuestionsAnswered: [],
+    });
+    expect(supportedModeEvidence).toMatchObject({
+      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+    });
+
+    const advancedUnknownLanguage = 'Do you speak German and advanced xhosa at C2?';
+    const partialAdvancedEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e32', action: 'select', value: 'Yes', question: advancedUnknownLanguage, answer: 'Yes',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialAdvancedEvidence).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: advancedUnknownLanguage })],
+    });
+
+    const alsoUnknownLanguage = 'Do you speak German and also Xhosa at C2?';
+    const partialAlsoEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e34', action: 'select', value: 'Yes', question: alsoUnknownLanguage, answer: 'Yes',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialAlsoEvidence).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: alsoUnknownLanguage })],
+    });
+
+    const singleLanguageModifiers = 'What is your German level: conversational or professional?';
+    const supportedModifierEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e33', action: 'select', value: 'C2', question: singleLanguageModifiers, answer: 'C2',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(supportedModifierEvidence).toMatchObject({
+      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+    });
+
     const listed = {
       answers: {},
       profile: { languagesExplicitList: true, languages: [{ language: 'German', level: 'C1' }] },

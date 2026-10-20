@@ -1009,6 +1009,50 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       expect(supportedEvidence.actions).toEqual([expect.objectContaining({ fieldId: singleLanguage.id, value: 'C2' })]);
       expect(supportedEvidence.missingRequired).toEqual([]);
     }
+
+    const spokenOrWrittenItalian = {
+      id: 'italian-spoken-or-written', kind: 'select',
+      label: 'Qual è il livello di italiano parlato o scritto?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const supportedModeEvidence = guardPlan({
+      actions: [{ fieldId: spokenOrWrittenItalian.id, action: 'select', value: 'C2', source: 'profile', evidence: 'Italian C2' }],
+      missingRequired: [],
+    }, [spokenOrWrittenItalian], { ...candidate, profile: { cvText: 'Italian C2' } });
+    expect(supportedModeEvidence.actions).toEqual([expect.objectContaining({ fieldId: spokenOrWrittenItalian.id, value: 'C2' })]);
+    expect(supportedModeEvidence.missingRequired).toEqual([]);
+
+    const advancedUnknownLanguage = {
+      id: 'advanced-unknown-language', kind: 'select', label: 'Do you speak German and advanced xhosa at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialAdvancedEvidence = guardPlan({
+      actions: [{ fieldId: advancedUnknownLanguage.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [advancedUnknownLanguage], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialAdvancedEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: advancedUnknownLanguage.id })]);
+
+    const alsoUnknownLanguage = {
+      id: 'also-unknown-language', kind: 'select', label: 'Do you speak German and also Xhosa at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialAlsoEvidence = guardPlan({
+      actions: [{ fieldId: alsoUnknownLanguage.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [alsoUnknownLanguage], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialAlsoEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: alsoUnknownLanguage.id })]);
+
+    const singleLanguageModifiers = {
+      id: 'single-language-modifiers', kind: 'select',
+      label: 'What is your German level: conversational or professional?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const supportedModifierEvidence = guardPlan({
+      actions: [{ fieldId: singleLanguageModifiers.id, action: 'select', value: 'C2', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [singleLanguageModifiers], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(supportedModifierEvidence.actions).toEqual([expect.objectContaining({ fieldId: singleLanguageModifiers.id, value: 'C2' })]);
+    expect(supportedModifierEvidence.missingRequired).toEqual([]);
   });
 
   it('derives a native language from the CV language only with contrasting language evidence', () => {
@@ -1288,6 +1332,7 @@ describe('portal runner helpers', () => {
       portalQuestionsAnswered: [],
     };
     const repeatEmail = { id: 'email-again', kind: 'text', label: 'E-Mail-Adresse erneut eingeben: *', required: true, options: [] };
+    const email = { id: 'email', kind: 'text', label: 'E-Mail-Adresse', required: true, options: [] };
     const street = { id: 'street-name', kind: 'text', label: 'Street Name', context: 'My Information', required: true, options: [] };
     const postcode = { id: 'postcode', kind: 'text', label: 'Postcode', context: 'My Information', required: true, options: [] };
     const country = { id: 'residence-country', kind: 'select', label: 'Land/Region des Wohnorts:*', required: true, options: [{ label: '- Bitte auswählen -' }, { label: 'Schweiz' }, { label: 'Italien' }] };
@@ -1306,6 +1351,7 @@ describe('portal runner helpers', () => {
       .toEqual({ value: '6830', source: 'identity' });
     expect(candidateAnswerForField(candidate, { label: 'Nazione (di residenza)', context: flattenedPersonalContext, options: [{ label: 'Svizzera' }, { label: 'Italia' }] }))
       .toEqual({ value: 'Svizzera', source: 'identity' });
+    expect(candidateAnswerForField(candidate, email)).toEqual({ value: candidate.identity.email, source: 'identity' });
     expect(candidateAnswerForField(candidate, repeatEmail)).toBeNull();
     expect(candidateAnswerForField(candidate, street)).toEqual({ value: 'Via Esempio', source: 'identity' });
     expect(candidateAnswerForField(candidate, postcode)).toEqual({ value: '6830', source: 'identity' });
@@ -1607,7 +1653,8 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     // «Ja» answers another question of the candidate: the substring rule read it as backing this one.
     for (const permitStatus of ['none', 'permit_b']) {
       const guarded = guardPlan({ actions: [select('p1', 'Ja', 'answers')], missingRequired: [] }, [yesNo], candidate({ permitStatus }, { portal_fuehrerschein: 'Ja' }));
-      expect([permitStatus, guarded.actions, guarded.missingRequired.map((item: any) => item.fieldId)]).toEqual([permitStatus, [], ['p1']]);
+      const expected = permitStatus === 'none' ? select('p1', 'Nein') : select('p1', 'Ja');
+      expect([permitStatus, guarded.actions, guarded.missingRequired]).toEqual([permitStatus, [expected], []]);
     }
     // The candidate's own answer to this very question.
     const answered = candidate({ permitStatus: 'none' }, { portal_bewilligung: 'Ja' }, [{ id: 'portal_bewilligung', question }]);
@@ -1625,7 +1672,8 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
   it('keeps a nationality only when it names the one the candidate gave, Swiss for the status «swiss»', () => {
     const field = { id: 'n1', kind: 'select', label: 'Nationalität', required: true, options: [{ label: 'Italien' }, { label: 'Deutschland' }, { label: 'Schweiz' }] };
     expect(guardPlan({ actions: [select('n1', 'Italien', 'profile')], missingRequired: [] }, [field], candidate({ nationality: 'italiana' })).actions).toEqual([select('n1', 'Italien', 'profile')]);
-    expect(guardPlan({ actions: [select('n1', 'Deutschland', 'profile')], missingRequired: [] }, [field], candidate({ nationality: 'italiana' })).missingRequired.map((item: any) => item.fieldId)).toEqual(['n1']);
+    expect(guardPlan({ actions: [select('n1', 'Deutschland', 'profile')], missingRequired: [] }, [field], candidate({ nationality: 'italiana' })))
+      .toEqual({ actions: [select('n1', 'Italien', 'profile')], missingRequired: [] });
     expect(guardPlan({ actions: [select('n1', 'Schweiz', 'profile')], missingRequired: [] }, [field], candidate({ permitStatus: 'swiss' })).actions).toEqual([select('n1', 'Schweiz', 'profile')]);
   });
 

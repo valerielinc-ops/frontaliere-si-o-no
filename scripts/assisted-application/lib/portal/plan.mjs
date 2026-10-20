@@ -143,6 +143,7 @@ const ADDRESS_FIELD_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße
 const CONTACT_ADDRESS_RE = /\b(?:e[-\s]?mail|email|courriel|correo)\b/i;
 const CONTACT_ADDRESS_ONLY_RE = /^\s*(?:e[-\s]?mail|email|courriel|correo)(?:\s*[-–—:]?\s*(?:address|adresse|indirizzo))?(?:\s*[/|]\s*(?:login|identifiant))?(?:\s*(?:\((?:required|obligatoire|obbligatorio|pflichtfeld|erforderlich)\)|[*:?!]))*\s*$/i;
 const IDENTITY_EMAIL_RE = /\b(?:e[-\s]?mail|email|courriel|correo)\b/i;
+const EMAIL_CONFIRMATION_RE = /\b(?:re[- ]?enter|enter again|repeat|confirm(?:ation)?|again|erneut|wiederholen|bestätigen|bestaetigen|nochmals|ripeti|conferma|répéter|repeter|confirmer|à nouveau|de nouveau)\b/i;
 const STREET_NAME_ONLY_RE = /\b(?:street|road|strasse|straße|rue)\s+name\b|\b(?:name|nom|nome)\s+(?:of\s+)?(?:the\s+)?(?:street|road|rue|via)\b/i;
 const SENSITIVE_TERMS = String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}|${AGE_UNDER_RE.source}|${ADDRESS_FIELD_RE.source}`;
 // Contact e-mail labels contain the word «adresse/address», but are ordinary
@@ -359,33 +360,41 @@ export function evidenceSupports(question, answer, evidence) {
 const LANGUAGE_TARGET_STOP_WORDS = new Set([
   'a', 'able', 'above', 'ability', 'also', 'and', 'at', 'basic', 'below', 'can', 'could', 'c1', 'c2',
   'communication', 'competence', 'competences', 'connaissance', 'connaissances', 'conoscenza', 'conoscenze',
-  'do', 'does', 'did', 'ecrit', 'enough', 'fluent', 'fluency', 'for', 'good', 'hablar', 'hablo', 'has', 'have', 'had', 'how',
+  'do', 'does', 'did', 'ecrit', 'ecrite', 'ecrits', 'ecrites', 'enough', 'fluent', 'fluency', 'for', 'good', 'hablar', 'hablo', 'has', 'have', 'had', 'how',
   'in', 'knowledge', 'know', 'level', 'levels', 'livello', 'minimum', 'mother', 'mundlich', 'multiple', 'native', 'need',
   'higher', 'lower', 'greater', 'less', 'more', 'equivalent', 'equivalently', 'better', 'besser', 'mejor', 'migliore',
   'meilleur', 'superior', 'superiore', 'superieur', 'superieure', 'hoher', 'hoehere', 'hoherer',
   'especially', 'particularly', 'preferably', 'ideally', 'specifically', 'including', 'with', 'without', 'if', 'as',
   'but', 'yet', 'though', 'although', 'however', 'whether', 'regarding', 'advanced', 'intermediate', 'beginner',
-  'niveau', 'not', 'of', 'on', 'oral', 'orally', 'parla', 'qual', 'quale', 'is', 'are', 'was', 'were', 'parle', 'parler', 'parlez', 'parli', 'proficiency',
-  'read', 'reads', 'reading', 'required', 'speak', 'speaks', 'speaking', 'spoken', 'sprachkenntnis',
-  'sprachkenntnisse', 'skill', 'skills', 'schriftlich', 'sufficient', 'understand', 'understands', 'understood',
+  'conversational', 'professional',
+  'niveau', 'not', 'of', 'on', 'oral', 'orale', 'orali', 'orally', 'parla', 'parlata', 'parlato', 'parlate', 'parlati', 'qual', 'quale', 'is', 'are', 'was', 'were', 'parle', 'parler', 'parlez', 'parli', 'proficiency',
+  'read', 'reads', 'reading', 'required', 'speak', 'speaks', 'speaking', 'spoken', 'geschrieben', 'gesprochen', 'sprachkenntnis',
+  'sprachkenntnisse', 'skill', 'skills', 'schriftlich', 'scritto', 'scritta', 'scritti', 'scritte', 'sufficient', 'understand', 'understands', 'understood',
   'use', 'uses', 'using', 'well', 'what', 'which', 'write', 'writes', 'writing', 'written', 'your',
 ]);
 const LANGUAGE_TARGET_ARTICLES = new Set([
   'a', 'an', 'das', 'de', 'der', 'des', 'die', 'do', 'dos', 'du', 'el', 'la', 'las', 'le', 'les',
   'lo', 'los', 'o', 'os', 'um', 'uma', 'un', 'una', 'une', 'the', 'il', 'i', 'gli', 'aux', 'au',
 ]);
+const LANGUAGE_TARGET_QUALIFIERS = new Set([
+  'also', 'advanced', 'intermediate', 'beginner', 'higher', 'lower', 'greater', 'less', 'more', 'equivalent',
+  'equivalently', 'better', 'especially', 'particularly', 'preferably', 'ideally', 'specifically', 'including',
+  'conversational', 'professional', 'fluent', 'fluency', 'spoken', 'written', 'oral', 'orale', 'orali', 'orally',
+  'parla', 'parlata', 'parlato', 'parlate', 'parlati', 'parle', 'parler', 'parlez', 'parli',
+  'scritto', 'scritta', 'scritti', 'scritte', 'ecrit', 'ecrite', 'ecrits', 'ecrites',
+  'geschrieben', 'gesprochen', 'mundlich', 'schriftlich',
+]);
 
 function isPotentialLanguageTarget(value) {
-  let text = String(value || '').trimStart();
-  const leadingWord = /^([\p{L}][\p{L}\p{M}'-]*)/u;
-  let word = leadingWord.exec(text)?.[1] || '';
-  while (word && LANGUAGE_TARGET_ARTICLES.has(word.toLowerCase())) {
-    text = text.slice(word.length).trimStart();
-    word = leadingWord.exec(text)?.[1] || '';
+  const words = String(value || '').match(/[\p{L}][\p{L}\p{M}'-]*/gu) || [];
+  for (const word of words) {
+    const lower = word.toLowerCase();
+    const normalized = lower.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    if (LANGUAGE_TARGET_ARTICLES.has(lower) || LANGUAGE_TARGET_QUALIFIERS.has(normalized)) continue;
+    if (word.length < 3) return false;
+    return !LANGUAGE_TARGET_STOP_WORDS.has(normalized);
   }
-  if (word.length < 3) return false;
-  const normalized = word.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-  return !LANGUAGE_TARGET_STOP_WORDS.has(normalized);
+  return false;
 }
 
 function hasMultipleLanguageTargets(question) {
@@ -920,7 +929,7 @@ export function candidateAnswerForField(candidate, field) {
   if (FIRST_NAME_FIELD_RE.test(label) && !otherPersonField) identityValue = identity.firstName || '';
   else if (LAST_NAME_FIELD_RE.test(label) && !otherPersonField) identityValue = identity.lastName || '';
   else if (FULL_NAME_FIELD_RE.test(label) && !otherPersonField) identityValue = identity.fullName || '';
-  else if (IDENTITY_EMAIL_RE.test(label) && !otherPersonField) identityValue = identity.email || '';
+  else if (IDENTITY_EMAIL_RE.test(label) && !EMAIL_CONFIRMATION_RE.test(label) && !otherPersonField) identityValue = identity.email || '';
   else if (PHONE_CODE_FIELD_RE.test(label) && !PHONE_COUNTRY_CODE_LABEL_RE.test(label) && !otherPersonField) identityValue = identity.phone || '';
   else if (/\blinkedin\b/i.test(label) && !otherPersonField) identityValue = identity.linkedin || '';
   if (identityValue) {
