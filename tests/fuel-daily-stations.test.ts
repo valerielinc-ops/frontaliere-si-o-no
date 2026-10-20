@@ -37,9 +37,11 @@ import {
 } from '../build-plugins/fuelDailyData';
 import {
   generateFuelStationPages,
+  generateFuelItalianStationPages,
   generateFuelItalianCityPages,
 } from '../build-plugins/fuelDailyPagesPlugin';
 import { htmlAttr, htmlTagWithAttrs, htmlTagWithClass } from './utils/htmlAttr';
+import { extractFuelBreadcrumbTargets } from './utils/fuelBreadcrumbs';
 
 // Minimal dataset mimicking the real fuel-prices.json shape.
 // Covers 4 Ticino zones + 2 stations outside Ticino (Valais / Grisons) to
@@ -430,6 +432,31 @@ describe('generateFuelStationPages() — Ticino only', () => {
       expect(types, path).toContain('BreadcrumbList');
       expect(types, path).toContain('GasStation');
       expect(types, path).not.toContain('Product');
+    }
+  });
+
+  it('breadcrumb targets use emitted fuel routes', () => {
+    for (const [path, html] of Object.entries(pages)) {
+      const targets = extractFuelBreadcrumbTargets(html);
+      expect(targets.jsonLd, `page ${path} has no JSON-LD breadcrumbs`).not.toHaveLength(0);
+      expect(targets.visible, `page ${path} has no visible breadcrumbs`).not.toHaveLength(0);
+      for (const target of [...targets.jsonLd, ...targets.visible]) {
+        if (target === '/') continue;
+        expect(isFuelDailyPath(target), `${path} breadcrumb target ${target}`).toBe(true);
+      }
+    }
+  });
+
+  it('Italian station breadcrumb targets use emitted fuel routes', () => {
+    const italianPages = generateFuelItalianStationPages({ dataset: DATASET, today });
+    for (const [path, html] of Object.entries(italianPages)) {
+      const targets = extractFuelBreadcrumbTargets(html);
+      expect(targets.jsonLd, `page ${path} has no JSON-LD breadcrumbs`).not.toHaveLength(0);
+      expect(targets.visible, `page ${path} has no visible breadcrumbs`).not.toHaveLength(0);
+      for (const target of [...targets.jsonLd, ...targets.visible]) {
+        if (target === '/') continue;
+        expect(isFuelDailyPath(target), `${path} breadcrumb target ${target}`).toBe(true);
+      }
     }
   });
 

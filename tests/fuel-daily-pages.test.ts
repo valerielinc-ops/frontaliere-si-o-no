@@ -33,6 +33,7 @@ import { htmlHasIndexableRobots } from '../build-plugins/shared/incrementalHtmlR
 import { createAuditor as createTextHtmlRatioAuditor } from '../scripts/audit-text-html-ratio.mjs';
 import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
+import { extractFuelBreadcrumbTargets } from './utils/fuelBreadcrumbs';
 import { AD_SLOTS } from '../services/adsenseSlots';
 
 // Minimal dataset sufficient for the renderer (nearby Swiss stations in each
@@ -268,6 +269,18 @@ describe('fuel-daily page generation — content quality', () => {
       expect(types).toContain('BreadcrumbList');
       expect(types).toContain('WebPage');
       expect(types).toContain('FAQPage');
+    }
+  });
+
+  it('breadcrumb targets use emitted fuel routes', () => {
+    for (const [path, html] of Object.entries(pages)) {
+      const targets = extractFuelBreadcrumbTargets(html);
+      expect(targets.jsonLd, `page ${path} has no JSON-LD breadcrumbs`).not.toHaveLength(0);
+      expect(targets.visible, `page ${path} has no visible breadcrumbs`).not.toHaveLength(0);
+      for (const target of [...targets.jsonLd, ...targets.visible]) {
+        if (target === '/') continue;
+        expect(isFuelDailyPath(target), `${path} breadcrumb target ${target}`).toBe(true);
+      }
     }
   });
 
@@ -715,6 +728,27 @@ describe('fuel-daily archive generation', () => {
       expect(path.includes('2026-04')).toBe(false);
     }
     expect(Object.keys(archives).length).toBeGreaterThan(0);
+  });
+
+  it('archive breadcrumb targets use emitted fuel routes', () => {
+    const archiveSnapshot = {
+      date: '2026-03-15',
+      zones: Object.fromEntries(FUEL_ZONES.map((zone) => [zone, { benzina: 1.8, diesel: 1.9 }])),
+      regional: { benzina: 1.8, diesel: 1.9 },
+    } as Parameters<typeof generateFuelArchivePages>[0]['history'][number];
+    const archives = generateFuelArchivePages({
+      history: [archiveSnapshot],
+      today: new Date('2026-04-20T06:00:00.000Z'),
+    });
+
+    for (const [path, html] of Object.entries(archives)) {
+      const targets = extractFuelBreadcrumbTargets(html);
+      expect(targets.jsonLd, `page ${path} has no JSON-LD breadcrumbs`).not.toHaveLength(0);
+      for (const target of targets.jsonLd) {
+        if (target === '/') continue;
+        expect(isFuelDailyPath(target), `${path} breadcrumb target ${target}`).toBe(true);
+      }
+    }
   });
 
   it('returns empty object when history is empty', () => {
