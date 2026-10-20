@@ -705,13 +705,15 @@ async function acquireFromCli(namespaces, request, env = process.env) {
   const controller = new AbortController();
   const owner = env.FRONTALIERE_R2_IMAGE_LEASE_OWNER ?? randomUUID();
   const leaseId = env.FRONTALIERE_R2_IMAGE_LEASE_ID ?? randomUUID();
+  const pendingAcquiredAt = Date.now();
   const pendingLeases = namespaces.map((namespace) => ({
     namespace,
     owner,
     leaseId,
-    // Release reconciliation uses the stable owner/lease ID pair. Expiry is
-    // unknown until the acquisition succeeds and is intentionally omitted.
-    expiresAt: 0,
+    // Candidate cleanup needs a valid timestamp even when acquire never returns
+    // the lease. A current object supplies its own timestamps during cleanup.
+    acquiredAt: pendingAcquiredAt,
+    expiresAt: pendingAcquiredAt + IMAGE_LOCK_LEASE_MS,
   }));
   let signalExitStatus = 0;
   const abortForSignal = (exitStatus) => {
@@ -746,7 +748,10 @@ async function acquireFromCli(namespaces, request, env = process.env) {
       // The lock may have reached R2 even when its PUT response and the first
       // read-back were both lost. Reconcile the candidate identity before the
       // CLI exits so the caller's signal cleanup is not the only recovery.
-      await releaseImageNamespaceLeases(pendingLeases, { request });
+      await releaseImageNamespaceLeases(pendingLeases, {
+        request,
+        fenceMissingCandidate: true,
+      });
     } catch (caughtCleanupError) {
       cleanupError = caughtCleanupError;
     }
