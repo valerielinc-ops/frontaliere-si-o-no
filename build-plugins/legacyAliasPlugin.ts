@@ -202,6 +202,45 @@ function buildRewriteScript(orphanPath: string, canonicalPath: string): string {
   return `<script>(function(){try{if(location.pathname===${safeOrphan}){history.replaceState(null,'',${safeCanonical}+location.search+location.hash);}}catch(e){}})();</script>`;
 }
 
+function isSafeInternalPath(route: string): boolean {
+  if (typeof route !== 'string' || !route.startsWith('/') || route.startsWith('//')
+    || !route.endsWith('/') || route.includes('?') || route.includes('#')
+    || route.includes(String.fromCharCode(92))) return false;
+  const segments = route.slice(1, -1).split('/');
+  return segments.length > 0 && segments.every((segment) => segment !== '' && segment !== '.' && segment !== '..');
+}
+
+function resolveAliasTargets(distDir: string, orphanPath: string): { indexTarget: string; flatTarget: string } | null {
+  if (!isSafeInternalPath(orphanPath)) return null;
+  const root = path.resolve(distDir);
+  let realRoot: string;
+  try { realRoot = fs.realpathSync(root); }
+  catch { return null; }
+  const relativePath = orphanPath.slice(1);
+  const indexTarget = path.resolve(root, relativePath, 'index.html');
+  const flatTarget = path.resolve(root, `${relativePath.slice(0, -1)}.html`);
+  const staysInsideDist = (target: string): boolean => {
+    const relative = path.relative(root, target);
+    if (relative === '' || relative === '..' || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) return false;
+
+    let current = root;
+    for (const segment of relative.split(path.sep)) {
+      current = path.join(current, segment);
+      try {
+        if (fs.lstatSync(current).isSymbolicLink()) return false;
+        const actual = path.relative(realRoot, fs.realpathSync(current));
+        if (actual === '..' || actual.startsWith(`..${path.sep}`) || path.isAbsolute(actual)) return false;
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code === 'ENOENT') return true;
+        return false;
+      }
+    }
+    return true;
+  };
+  if (!staysInsideDist(indexTarget) || !staysInsideDist(flatTarget)) return null;
+  return { indexTarget, flatTarget };
+}
+
 /**
  * Map the cohort name from `data/legacy-aliases.json` to the shared
  * bridge-prose `bridgeKind`. Drives the opener wording so two cohorts
@@ -293,6 +332,7 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
       let emitted = 0;
       let skipped = 0;
       let skippedUnshippable = 0;
+      let skippedUnsafePath = 0;
       const start = Date.now();
       // Prefixes routed to a section shard this build does not push. 21 of the
       // 24 committed aliases sit under them, and this plugin emits
@@ -305,12 +345,14 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
       const unshippablePrefixes = unshippableSectionPrefixes();
 
       for (const entry of file.aliases) {
+        const targets = resolveAliasTargets(distDir, entry.orphanPath);
+        if (!targets || !isSafeInternalPath(entry.canonicalPath)) { skippedUnsafePath++; continue; }
+
         // BEFORE the existsSync collision guard, which cannot help here: with
         // the flags on, the real article page is never emitted either, so the
         // guard always passes and the alias always writes.
         if (isUnshippablePath(entry.orphanPath, unshippablePrefixes)) { skippedUnshippable++; continue; }
-        const indexTarget = path.join(distDir, entry.orphanPath, 'index.html');
-        const flatTarget = path.join(distDir, entry.orphanPath.replace(/\/+$/, '') + '.html');
+        const { indexTarget, flatTarget } = targets;
         if (fs.existsSync(indexTarget)) { skipped++; continue; }
 
         const html = renderPage(entry, distDir);
@@ -327,7 +369,7 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
 
       const dur = ((Date.now() - start) / 1000).toFixed(1);
       console.log(
-        `\x1b[36m[legacy-alias]\x1b[0m emitted ${emitted} bridge files (${file.aliases.length - skipped - skippedUnshippable} pages, ${skipped} skipped) in ${dur}s`,
+        `\x1b[36m[legacy-alias]\x1b[0m emitted ${emitted} bridge files (${file.aliases.length - skipped - skippedUnshippable - skippedUnsafePath} pages, ${skipped} collision skips, ${skippedUnsafePath} unsafe-path skips) in ${dur}s`,
       );
       // Never a silent skip: an alias that is not emitted is an alias that does
       // not exist, while data/legacy-aliases.json still lists it.

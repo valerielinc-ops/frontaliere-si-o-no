@@ -64,25 +64,33 @@
     },
     "slugByLocale": {
       "it": "distributed-storage-ingegnere-it-sd-gss-2026-96-ld-cern-geneva-39f42920aa",
-      "en": "distributed-storage-engineer-it-sd-gss-2026-96-ld-cern-geneva-geneva-switzerland",
-      "de": "distributed-storage-ingenieur-it-sd-gss-2026-96-ld-cern-geneva",
-      "fr": "distributed-storage-ingenieur-it-sd-gss-2026-96-ld-cern-geneva"
+      "en": "distributed-storage-engineer-it-sd-gss-2026-96-ld-cern-geneva-geneva-switzerland-402fbfc2",
+      "de": "distributed-storage-ingenieur-it-sd-gss-2026-96-ld-cern-geneva-e10ee5bf",
+      "fr": "distributed-storage-ingenieur-it-sd-gss-2026-96-ld-cern-geneva-e10ee5bf"
     },
     "sector": "Ricerca / Scienza",
     "expiredAt": "2026-10-20T09:23:13.303Z",
     "previousSlugs": [
+      "distributed-storage-engineer-it-sd-gss-2026-96-ld-cern-geneva-geneva-switzerland-402fbfc2",
+      "distributed-storage-ingegnere-it-sd-gss-2026-96-ld-cern-geneva-da9babdc",
       "distributed-storage-engineer-it-sd-gss-2026-96-ld-cern-geneva-geneva-switzerland",
-      "distributed-storage-ingegnere-it-sd-gss-2026-96-ld-cern-geneva"
+      "distributed-storage-ingegnere-it-sd-gss-2026-96-ld-cern-geneva",
+      "distributed-storage-ingenieur-it-sd-gss-2026-96-ld-cern-geneva"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "distributed-storage-engineer-it-sd-gss-2026-96-ld-cern-geneva-geneva-switzerland-402fbfc2",
+        "distributed-storage-ingegnere-it-sd-gss-2026-96-ld-cern-geneva-da9babdc",
         "distributed-storage-engineer-it-sd-gss-2026-96-ld-cern-geneva-geneva-switzerland",
         "distributed-storage-ingegnere-it-sd-gss-2026-96-ld-cern-geneva"
       ],
       "de": [
-        "distributed-storage-engineer-it-sd-gss-2026-96-ld-cern-geneva-geneva-switzerland"
+        "distributed-storage-engineer-it-sd-gss-2026-96-ld-cern-geneva-geneva-switzerland-402fbfc2",
+        "distributed-storage-engineer-it-sd-gss-2026-96-ld-cern-geneva-geneva-switzerland",
+        "distributed-storage-ingenieur-it-sd-gss-2026-96-ld-cern-geneva"
       ],
       "fr": [
+        "distributed-storage-engineer-it-sd-gss-2026-96-ld-cern-geneva-geneva-switzerland-402fbfc2",
         "distributed-storage-engineer-it-sd-gss-2026-96-ld-cern-geneva-geneva-switzerland"
       ]
     },
@@ -1844,6 +1852,9 @@
     "expiredAt": "2026-10-06T21:26:58.492Z",
     "previousSlugs": [
       "applied-physicist-atlas-muon-ls3-integration-and-installation-manager-ep-atl-am-2026-198-d7d09d9a",
+      "applied-physicist-atlas-muon-ls3-integration-and-installation-manager-ep-atl-am-2026-198-b2e522a0",
+      "angewandter-physiker-atlas-muon-ls3-integration-und-installation-manager-ep-atl-am-2026-198-ld-cern-geneva-25fc9cb0",
+      "physicien-applique-gestionnaire-d-integration-et-d-installation-atlas-muon-ls3-ep-atl-am-2026-198-ld-cern-90a1bb77",
       "applied-physicist-atlas-muon-ls3-integration-and-installation-manager-ep-atl-am-2026-198",
       "angewandter-physiker-atlas-muon-ls3-integration-und-installation-manager-ep-atl-am-2026-198-ld-cern-geneva",
       "physicien-applique-gestionnaire-d-integration-et-d-installation-atlas-muon-ls3-ep-atl-am-2026-198-ld-cern-geneva"
@@ -1851,15 +1862,20 @@
     "previousSlugsByLocale": {
       "it": [
         "applied-physicist-atlas-muon-ls3-integration-and-installation-manager-ep-atl-am-2026-198-d7d09d9a",
+        "applied-physicist-atlas-muon-ls3-integration-and-installation-manager-ep-atl-am-2026-198-b2e522a0",
         "applied-physicist-atlas-muon-ls3-integration-and-installation-manager-ep-atl-am-2026-198"
       ],
       "de": [
         "applied-physicist-atlas-muon-ls3-integration-and-installation-manager-ep-atl-am-2026-198-d7d09d9a",
+        "applied-physicist-atlas-muon-ls3-integration-and-installation-manager-ep-atl-am-2026-198-b2e522a0",
+        "angewandter-physiker-atlas-muon-ls3-integration-und-installation-manager-ep-atl-am-2026-198-ld-cern-geneva-25fc9cb0",
         "applied-physicist-atlas-muon-ls3-integration-and-installation-manager-ep-atl-am-2026-198",
         "angewandter-physiker-atlas-muon-ls3-integration-und-installation-manager-ep-atl-am-2026-198-ld-cern-geneva"
       ],
       "fr": [
         "applied-physicist-atlas-muon-ls3-integration-and-installation-manager-ep-atl-am-2026-198-d7d09d9a",
+        "applied-physicist-atlas-muon-ls3-integration-and-installation-manager-ep-atl-am-2026-198-b2e522a0",
+        "physicien-applique-gestionnaire-d-integration-et-d-installation-atlas-muon-ls3-ep-atl-am-2026-198-ld-cern-90a1bb77",
         "applied-physicist-atlas-muon-ls3-integration-and-installation-manager-ep-atl-am-2026-198",
         "physicien-applique-gestionnaire-d-integration-et-d-installation-atlas-muon-ls3-ep-atl-am-2026-198-ld-cern-geneva"
       ]
@@ -1903,6 +1919,10 @@
     "previousSlugs": [
       "full-stack-software-developer-it-ca-2026-236-grae-cern-geneva-geneva-switzerland-3f235409",
       "full-stack-software-sviluppatore-it-ca-2026-236-grae-cern-geneva-5eaa6360",
+      "full-stack-software-developer-it-ca-2026-236-grae-cern-geneva-geneva-switzerland-e3bc94dd",
+      "full-stack-software-sviluppatore-it-ca-2026-236-grae-cern-geneva-32f106d3",
+      "full-stack-software-entwickler-it-ca-2026-236-grae-cern-geneva-a667fd39",
+      "full-stack-software-developpeur-it-ca-2026-236-grae-cern-geneva-379f526e",
       "full-stack-software-developer-it-ca-2026-236-grae-cern-geneva-geneva-switzerland",
       "full-stack-software-sviluppatore-it-ca-2026-236-grae-cern-geneva",
       "full-stack-software-entwickler-it-ca-2026-236-grae-cern-geneva",
@@ -1912,16 +1932,22 @@
       "it": [
         "full-stack-software-developer-it-ca-2026-236-grae-cern-geneva-geneva-switzerland-3f235409",
         "full-stack-software-sviluppatore-it-ca-2026-236-grae-cern-geneva-5eaa6360",
+        "full-stack-software-developer-it-ca-2026-236-grae-cern-geneva-geneva-switzerland-e3bc94dd",
+        "full-stack-software-sviluppatore-it-ca-2026-236-grae-cern-geneva-32f106d3",
         "full-stack-software-developer-it-ca-2026-236-grae-cern-geneva-geneva-switzerland",
         "full-stack-software-sviluppatore-it-ca-2026-236-grae-cern-geneva"
       ],
       "de": [
         "full-stack-software-developer-it-ca-2026-236-grae-cern-geneva-geneva-switzerland-3f235409",
+        "full-stack-software-developer-it-ca-2026-236-grae-cern-geneva-geneva-switzerland-e3bc94dd",
+        "full-stack-software-entwickler-it-ca-2026-236-grae-cern-geneva-a667fd39",
         "full-stack-software-developer-it-ca-2026-236-grae-cern-geneva-geneva-switzerland",
         "full-stack-software-entwickler-it-ca-2026-236-grae-cern-geneva"
       ],
       "fr": [
         "full-stack-software-developer-it-ca-2026-236-grae-cern-geneva-geneva-switzerland-3f235409",
+        "full-stack-software-developer-it-ca-2026-236-grae-cern-geneva-geneva-switzerland-e3bc94dd",
+        "full-stack-software-developpeur-it-ca-2026-236-grae-cern-geneva-379f526e",
         "full-stack-software-developer-it-ca-2026-236-grae-cern-geneva-geneva-switzerland",
         "full-stack-software-developpeur-it-ca-2026-236-grae-cern-geneva"
       ]
@@ -1966,6 +1992,9 @@
     "previousSlugs": [
       "systems-and-digital-asic-engineer-ep-ese-me-2026-160-grap-cern-geneva-geneva-switzerland-547d1b58",
       "systems-and-digital-asic-ingegnere-ep-ese-me-2026-160-grap-cern-geneva-79af1302",
+      "systems-and-digital-asic-engineer-ep-ese-me-2026-160-grap-cern-geneva-geneva-switzerland-4bb5081a",
+      "systems-and-digital-asic-ingegnere-ep-ese-me-2026-160-grap-cern-geneva-5a135392",
+      "systems-and-digital-asic-ingenieur-ep-ese-me-2026-160-grap-cern-geneva-a7ae9ce1",
       "systems-and-digital-asic-engineer-ep-ese-me-2026-160-grap-cern-geneva-geneva-switzerland",
       "systems-and-digital-asic-ingegnere-ep-ese-me-2026-160-grap-cern-geneva",
       "systems-and-digital-asic-ingenieur-ep-ese-me-2026-160-grap-cern-geneva"
@@ -1974,16 +2003,21 @@
       "it": [
         "systems-and-digital-asic-engineer-ep-ese-me-2026-160-grap-cern-geneva-geneva-switzerland-547d1b58",
         "systems-and-digital-asic-ingegnere-ep-ese-me-2026-160-grap-cern-geneva-79af1302",
+        "systems-and-digital-asic-engineer-ep-ese-me-2026-160-grap-cern-geneva-geneva-switzerland-4bb5081a",
+        "systems-and-digital-asic-ingegnere-ep-ese-me-2026-160-grap-cern-geneva-5a135392",
         "systems-and-digital-asic-engineer-ep-ese-me-2026-160-grap-cern-geneva-geneva-switzerland",
         "systems-and-digital-asic-ingegnere-ep-ese-me-2026-160-grap-cern-geneva"
       ],
       "de": [
         "systems-and-digital-asic-engineer-ep-ese-me-2026-160-grap-cern-geneva-geneva-switzerland-547d1b58",
+        "systems-and-digital-asic-engineer-ep-ese-me-2026-160-grap-cern-geneva-geneva-switzerland-4bb5081a",
+        "systems-and-digital-asic-ingenieur-ep-ese-me-2026-160-grap-cern-geneva-a7ae9ce1",
         "systems-and-digital-asic-engineer-ep-ese-me-2026-160-grap-cern-geneva-geneva-switzerland",
         "systems-and-digital-asic-ingenieur-ep-ese-me-2026-160-grap-cern-geneva"
       ],
       "fr": [
         "systems-and-digital-asic-engineer-ep-ese-me-2026-160-grap-cern-geneva-geneva-switzerland-547d1b58",
+        "systems-and-digital-asic-engineer-ep-ese-me-2026-160-grap-cern-geneva-geneva-switzerland-4bb5081a",
         "systems-and-digital-asic-engineer-ep-ese-me-2026-160-grap-cern-geneva-geneva-switzerland"
       ]
     },
@@ -2543,6 +2577,10 @@
       "software-developpeur-beam-optics-be-abp-lno-2026-132-grap-cern-geneva-1c9a08ca",
       "software-developer-beam-optics-be-abp-lno-2026-132-grap-cern-geneva-geneva-switzerland-2",
       "software-developer-beam-optics-be-abp-lno-2026-132-grap-cern-geneva-geneva-switzerland-d797638e",
+      "software-sviluppatore-beam-optics-be-abp-lno-2026-132-grap-cern-geneva-3b6a52b3",
+      "software-entwickler-beam-optics-be-abp-lno-2026-132-grap-cern-geneva-5c9a085b",
+      "software-developpeur-beam-optics-be-abp-lno-2026-132-grap-cern-geneva-88f91dcb",
+      "software-developer-beam-optics-be-abp-lno-2026-132-grap-cern-geneva-geneva-switzerland-824d756e",
       "software-sviluppatore-beam-optics-be-abp-lno-2026-132-grap-cern-geneva",
       "software-entwickler-beam-optics-be-abp-lno-2026-132-grap-cern-geneva",
       "software-developpeur-beam-optics-be-abp-lno-2026-132-grap-cern-geneva",
@@ -2552,14 +2590,17 @@
       "it": [
         "software-sviluppatore-beam-optics-be-abp-lno-2026-132-grap-cern-geneva-09cf9d09",
         "software-developer-beam-optics-be-abp-lno-2026-132-grap-cern-geneva-geneva-switzerland-2",
+        "software-sviluppatore-beam-optics-be-abp-lno-2026-132-grap-cern-geneva-3b6a52b3",
         "software-sviluppatore-beam-optics-be-abp-lno-2026-132-grap-cern-geneva"
       ],
       "de": [
         "software-entwickler-beam-optics-be-abp-lno-2026-132-grap-cern-geneva-0dd56df2",
+        "software-entwickler-beam-optics-be-abp-lno-2026-132-grap-cern-geneva-5c9a085b",
         "software-entwickler-beam-optics-be-abp-lno-2026-132-grap-cern-geneva"
       ],
       "fr": [
         "software-developpeur-beam-optics-be-abp-lno-2026-132-grap-cern-geneva-1c9a08ca",
+        "software-developpeur-beam-optics-be-abp-lno-2026-132-grap-cern-geneva-88f91dcb",
         "software-developpeur-beam-optics-be-abp-lno-2026-132-grap-cern-geneva"
       ]
     },
@@ -4432,19 +4473,24 @@
     "expiredAt": "2026-09-04T13:39:42.165Z",
     "previousSlugs": [
       "digital-asic-designer-ep-ese-me-2026-134-grap-cern-geneva-geneva-switzerland-ace24303",
+      "digital-asic-designer-ep-ese-me-2026-134-grap-cern-geneva-geneva-switzerland-3d67cb44",
+      "conception-numerique-de-la-citi-ep-ese-me-2026-134-grap-cern-geneva-geneva-switzerland-3edb0a83",
       "digital-asic-designer-ep-ese-me-2026-134-grap-cern-geneva-geneva-switzerland",
       "conception-numerique-de-la-citi-ep-ese-me-2026-134-grap-cern-geneva-geneva-switzerland"
     ],
     "previousSlugsByLocale": {
       "it": [
         "digital-asic-designer-ep-ese-me-2026-134-grap-cern-geneva-geneva-switzerland-ace24303",
+        "digital-asic-designer-ep-ese-me-2026-134-grap-cern-geneva-geneva-switzerland-3d67cb44",
         "digital-asic-designer-ep-ese-me-2026-134-grap-cern-geneva-geneva-switzerland"
       ],
       "de": [
         "digital-asic-designer-ep-ese-me-2026-134-grap-cern-geneva-geneva-switzerland-ace24303",
+        "digital-asic-designer-ep-ese-me-2026-134-grap-cern-geneva-geneva-switzerland-3d67cb44",
         "digital-asic-designer-ep-ese-me-2026-134-grap-cern-geneva-geneva-switzerland"
       ],
       "fr": [
+        "conception-numerique-de-la-citi-ep-ese-me-2026-134-grap-cern-geneva-geneva-switzerland-3edb0a83",
         "conception-numerique-de-la-citi-ep-ese-me-2026-134-grap-cern-geneva-geneva-switzerland"
       ]
     },
