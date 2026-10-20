@@ -343,7 +343,11 @@ export function sanitizeDocuments(raw) {
  * candidate's own address.
  */
 export function candidateIdentity(order, profile) {
-  const name = clean(order?.applicantName, 200) || clean(profile?.fullName, 200);
+  // Some callers already have the normalized profile-shaped `fullName` on
+  // the order object (notably the review/runner boundary). Keep the persisted
+  // applicantName as the primary source, but do not silently discard that
+  // normalized name before falling back to the draft profile.
+  const name = clean(order?.applicantName, 200) || clean(order?.fullName, 200) || clean(profile?.fullName, 200);
   const alias = order?.candidateAlias?.active ? clean(order.candidateAlias.address, 320) : '';
   const email = alias || clean(order?.applicantEmail, 320) || clean(profile?.email, 320) || clean(order?.customerEmail, 320);
   const phone = clean(order?.applicantPhone, 80) || clean(profile?.phone, 80);
