@@ -246,9 +246,48 @@ interface ScannedTemplateLiteral {
  hasInterpolation: boolean;
 }
 
+const REGEX_AFTER_KEYWORDS = new Set([
+ 'case', 'delete', 'do', 'else', 'in', 'instanceof', 'new', 'of', 'return', 'throw',
+ 'typeof', 'void', 'yield', 'await',
+]);
+
+function skipRegularExpressionLiteral(source: string, start: number, sourcePath: string): number {
+ let inCharacterClass = false;
+ let cursor = start + 1;
+ while (cursor < source.length) {
+  const char = source[cursor];
+  if (char === '\\') {
+   cursor += 2;
+   continue;
+  }
+  if (char === '\n' || char === '\r' || char === '\u2028' || char === '\u2029') {
+   throw new Error(`[og-pages] Unterminated regular expression literal in ${sourcePath}`);
+  }
+  if (char === '[') {
+   inCharacterClass = true;
+   cursor += 1;
+   continue;
+  }
+  if (char === ']' && inCharacterClass) {
+   inCharacterClass = false;
+   cursor += 1;
+   continue;
+  }
+  if (char === '/' && !inCharacterClass) {
+   cursor += 1;
+   while (/[A-Za-z]/.test(source[cursor] || '')) cursor += 1;
+   return cursor;
+  }
+  cursor += 1;
+ }
+
+ throw new Error(`[og-pages] Unterminated regular expression literal in ${sourcePath}`);
+}
+
 function skipTemplateExpression(source: string, start: number, sourcePath: string): number {
  let depth = 1;
  let cursor = start;
+ let canStartRegex = true;
  while (cursor < source.length) {
   if (source.startsWith('//', cursor)) {
    cursor += 2;
@@ -265,23 +304,60 @@ function skipTemplateExpression(source: string, start: number, sourcePath: strin
   const char = source[cursor];
   if (char === "'" || char === '"') {
    cursor = readStaticTsStringLiteral(source, cursor, sourcePath).end;
+   canStartRegex = false;
    continue;
   }
   if (char === '`') {
    cursor = scanTemplateLiteral(source, cursor, sourcePath).end;
+   canStartRegex = false;
+   continue;
+  }
+  if (char === '/' && canStartRegex) {
+   cursor = skipRegularExpressionLiteral(source, cursor, sourcePath);
+   canStartRegex = false;
+   continue;
+  }
+  if (char === '/') {
+   cursor += 1;
+   canStartRegex = true;
    continue;
   }
   if (char === '{') {
    depth += 1;
    cursor += 1;
+   canStartRegex = true;
    continue;
   }
   if (char === '}') {
    depth -= 1;
    cursor += 1;
    if (depth === 0) return cursor;
+   canStartRegex = false;
    continue;
   }
+
+  if (/\s/.test(char)) {
+   cursor += 1;
+   continue;
+  }
+  if (/[A-Za-z_$]/.test(char)) {
+   let end = cursor + 1;
+   while (end < source.length && /[A-Za-z0-9_$]/.test(source[end])) end += 1;
+   canStartRegex = REGEX_AFTER_KEYWORDS.has(source.slice(cursor, end));
+   cursor = end;
+   continue;
+  }
+  if ('([{,;:=!?&|+\-*%^~<>'.includes(char)) {
+   canStartRegex = true;
+   cursor += 1;
+   continue;
+  }
+  if (')]}'.includes(char) || char === '.') {
+   canStartRegex = false;
+   cursor += 1;
+   continue;
+  }
+  canStartRegex = false;
   cursor += 1;
  }
 

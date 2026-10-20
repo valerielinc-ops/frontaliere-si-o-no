@@ -36,6 +36,16 @@ describe('og article static body parser', () => {
     expect(parseStaticBlogBodySource(source, SOURCE_PATH)[ARTICLE_ID].body1).toBe('rendered');
   });
 
+  it('skips regex syntax inside an unrelated template interpolation', () => {
+    const source = [
+      'const other = `x ${/\\${/ .test(value)} y`;',
+      "const article = { 'blog.article.article-id.body1': 'body' };",
+    ].join(' ');
+
+    expect(parseStaticBlogBodySource(source, 'packages/articles/content/blog-body/fr/article-id.ts'))
+      .toEqual({ 'article-id': { body1: 'body' } });
+  });
+
   it('still rejects an interpolated template used as article data', () => {
     const source = [
       'const body: Record<string, string> = {',
