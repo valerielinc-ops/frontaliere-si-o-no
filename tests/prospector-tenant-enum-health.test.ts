@@ -56,6 +56,32 @@ describe('Prospector tenant enumeration source outcomes', () => {
     });
   });
 
+  it('does not count an all-malformed Common Crawl collection as a source success', async () => {
+    const result = await enumerateViaCommonCrawl('vendor.example', {
+      collections: ['cc-malformed'],
+      fetcher: async () => response('not-json'),
+    });
+
+    expect(result).toEqual({ hosts: [], outcome: 'malformed', errorCode: 'malformed_index_row' });
+  });
+
+  it('marks a Common Crawl response at the requested row cap as partial', async () => {
+    const result = await enumerateViaCommonCrawl('vendor.example', {
+      collections: ['cc-capped'],
+      limit: 2,
+      fetcher: async () => response([
+        JSON.stringify({ url: 'https://alpha.vendor.example/jobs' }),
+        JSON.stringify({ url: 'https://beta.vendor.example/jobs' }),
+      ].join('\n')),
+    });
+
+    expect(result).toEqual({
+      hosts: ['alpha.vendor.example', 'beta.vendor.example'],
+      outcome: 'partial',
+      errorCode: 'result_limit_reached',
+    });
+  });
+
   it('continues with CertSpotter after a Common Crawl outage and keeps the source results distinct', async () => {
     const result = await enumerateTenants(platform, {
       maxProbe: 0,
@@ -73,6 +99,57 @@ describe('Prospector tenant enumeration source outcomes', () => {
       sourceOutcomes: {
         commoncrawl: { outcome: 'unavailable', items: 0, errorCode: 'http_503' },
         certspotter: { outcome: 'complete', items: 0, errorCode: null },
+      },
+    });
+  });
+
+  it('reports transient tenant probe failures as partial expansion coverage', async () => {
+    const result = await enumerateTenants({
+      ...platform,
+      hostSamples: ['tenant.vendor.example'],
+    }, {
+      maxProbe: 5,
+      useCommonCrawl: false,
+      useCertSpotter: false,
+      fetcher: async () => response('', 503),
+    });
+
+    expect(result).toMatchObject({
+      outcome: 'partial',
+      probed: [{ host: 'tenant.vendor.example', retryable: true }],
+      sourceOutcomes: {
+        probes: { outcome: 'partial', items: 1, errorCode: 'transient_probe_failures' },
+      },
+    });
+    expect(result.probed[0].failureStatuses).toContain(503);
+  });
+
+  it.each([
+    ['robots.txt', { blockedByRobots: true }],
+    ['public URL policy', { policyBlocked: true }],
+  ])('keeps blocked tenant probes incomplete without marking them retryable (%s)', async (_label, denial) => {
+    const result = await enumerateTenants({
+      ...platform,
+      hostSamples: ['tenant.vendor.example'],
+    }, {
+      maxProbe: 5,
+      useCommonCrawl: false,
+      useCertSpotter: false,
+      fetcher: async (url) => ({
+        ok: false,
+        status: 0,
+        body: '',
+        url: String(url),
+        host: new URL(String(url)).hostname,
+        ...denial,
+      }),
+    });
+
+    expect(result).toMatchObject({
+      outcome: 'partial',
+      probed: [{ host: 'tenant.vendor.example', retryable: false, blocked: true }],
+      sourceOutcomes: {
+        probes: { outcome: 'partial', items: 1, errorCode: 'blocked_probe_requests' },
       },
     });
   });

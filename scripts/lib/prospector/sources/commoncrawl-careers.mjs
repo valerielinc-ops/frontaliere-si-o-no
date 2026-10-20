@@ -58,7 +58,7 @@ const CAREER_PATH_RX = new RegExp(
 
 /**
  * The newest collection the index offers.
- * @returns {Promise<string|null>}
+ * @returns {Promise<{ collection: string|null, outcome: 'complete'|'unavailable'|'malformed', errorCode: string|null }>}
  */
 export async function latestCollection(options = {}) {
   let res;
@@ -84,7 +84,7 @@ export async function latestCollection(options = {}) {
 /**
  * How many index pages the `.ch` range spans in a collection.
  * @param {string} collection
- * @returns {Promise<number>}
+ * @returns {Promise<{ totalPages: number, outcome: 'complete'|'unavailable'|'malformed', errorCode: string|null }>}
  */
 export async function chPageCount(collection, options = {}) {
   let res;
@@ -295,7 +295,7 @@ export function commonCrawlStride(totalPages, wanted) {
   return 1;
 }
 
-/** Pure page planner: retry failures first, then continue one full-range permutation. */
+/** Pure page planner: rotate retries fairly while continuing one full-range permutation. */
 export function planCommonCrawlPages(cursor, totalPages, wanted, requestedStride) {
   const safeWanted = Math.max(0, Math.floor(Number(wanted) || 0));
   if (!Number.isSafeInteger(totalPages) || totalPages <= 0 || safeWanted === 0) {
@@ -305,8 +305,11 @@ export function planCommonCrawlPages(cursor, totalPages, wanted, requestedStride
     .filter((page) => Number.isSafeInteger(page) && page >= 0 && page < totalPages));
   const pending = [...new Set((Array.isArray(cursor.pendingPages) ? cursor.pendingPages : [])
     .filter((page) => Number.isSafeInteger(page) && page >= 0 && page < totalPages && !seen.has(page)))];
-  const pages = pending.slice(0, safeWanted);
   const pendingSet = new Set(pending);
+  const hasUnseenPages = seen.size + pendingSet.size < totalPages;
+  const retryBudget = hasUnseenPages ? Math.floor(safeWanted / 2) : safeWanted;
+  const retryCount = Math.min(retryBudget, pending.length);
+  const pages = pending.slice(0, retryCount);
   const stride = Number.isSafeInteger(requestedStride) && requestedStride > 0 && gcd(requestedStride, totalPages) === 1
     ? requestedStride
     : commonCrawlStride(totalPages, safeWanted);
@@ -323,7 +326,7 @@ export function planCommonCrawlPages(cursor, totalPages, wanted, requestedStride
     pages,
     stride,
     nextPage: lastNewOffset < 0 ? nextPage : (nextPage + (lastNewOffset + 1) * stride) % totalPages,
-    pendingPages: pending.slice(safeWanted),
+    pendingPages: pending.slice(retryCount),
   };
 }
 
@@ -433,7 +436,9 @@ export async function sweepSwissCareerPages(opts = {}) {
     cursor.totalPages = totalPages;
     cursor.stride = plan.stride;
     cursor.sweptPages = [...seen].sort((a, b) => a - b).slice(-5000);
-    cursor.pendingPages = [...pendingPages].sort((a, b) => a - b).slice(-1000);
+    // Preserve retry FIFO order: pages attempted this run are re-added at the
+    // tail, so a persistently malformed page cannot pin the front of the queue.
+    cursor.pendingPages = [...pendingPages];
     cursor.nextPage = plan.nextPage;
     try { saveCursor(cursor, cursorFile); } catch {
       console.error('::warning::Common Crawl cursor non aggiornato; le pagine lette verranno ripetute al prossimo run.');

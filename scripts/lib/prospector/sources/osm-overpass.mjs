@@ -90,14 +90,24 @@ out tags ${limit};`;
 
   const seen = new Set();
   const out = [];
+  let malformedRows = 0;
   for (const el of payload.elements || []) {
-    const t = el.tags || {};
+    if (!el || typeof el !== 'object' || Array.isArray(el)
+      || !el.tags || typeof el.tags !== 'object' || Array.isArray(el.tags)) {
+      malformedRows++;
+      continue;
+    }
+    const t = el.tags;
     const name = String(t.name || '').trim();
     const website = String(t.website || t['contact:website'] || '').trim();
-    if (!name || !website) continue;
+    if (!name || !website) { malformedRows++; continue; }
     let domain;
-    try { domain = registrableDomain(normalizeHost(new URL(website.startsWith('http') ? website : `https://${website}`).hostname)); } catch { continue; }
-    if (!domain || seen.has(domain)) continue;
+    try { domain = registrableDomain(normalizeHost(new URL(website.startsWith('http') ? website : `https://${website}`).hostname)); } catch {
+      malformedRows++;
+      continue;
+    }
+    if (!domain) { malformedRows++; continue; }
+    if (seen.has(domain)) continue;
     seen.add(domain);
     out.push({
       name,
@@ -112,9 +122,12 @@ out tags ${limit};`;
   // element count. At the boundary we cannot distinguish an exact census from
   // a truncated one, so preserve the findings but report incomplete coverage.
   const limitReached = payload.elements.length >= limit;
+  const outcome = limitReached || (malformedRows > 0 && out.length > 0)
+    ? 'partial'
+    : malformedRows > 0 ? 'malformed' : 'complete';
   return {
     businesses: out,
-    outcome: limitReached ? 'partial' : 'complete',
-    errorCode: limitReached ? 'result_limit_reached' : null,
+    outcome,
+    errorCode: limitReached ? 'result_limit_reached' : malformedRows ? 'malformed_records' : null,
   };
 }

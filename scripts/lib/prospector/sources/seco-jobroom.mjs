@@ -99,7 +99,7 @@ export async function fetchSecoEmployers(opts = {}) {
       adCount++;
       const c = jc.company || {};
       const name = String(c.name || '').trim();
-      if (!name) continue;
+      if (!name) { malformedRows++; continue; }
       const key = name.toLowerCase();
       if (!employers.has(key)) {
         employers.set(key, {

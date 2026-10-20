@@ -792,6 +792,29 @@ describe('Prospector validation sample and schedule', () => {
     expect(order.slice(1).every((spec) => spec.companyKey.startsWith('new-'))).toBe(true);
   });
 
+  it('does not let a continuous stream of new specs starve an older validation retry', () => {
+    const candidates: Record<string, any> = {
+      'older-retry.example': {
+        firstSeenAt: '2026-09-20T09:00:00.000Z',
+        validationHistory: [{ at: '2026-10-01T09:00:00.000Z', verdict: 'weak', runtimeSnapshotComplete: true }],
+      },
+    };
+    const newSpecs = Array.from({ length: 12 }, (_, index) => {
+      const companyKey = `new-${String(index).padStart(2, '0')}.example`;
+      candidates[companyKey] = { firstSeenAt: '2026-10-18T09:00:00.000Z' };
+      return { companyKey };
+    });
+    const specs = [...newSpecs, { companyKey: 'older-retry.example' }];
+
+    const order = prioritizeValidationSpecs(specs, (spec) => candidates[spec.companyKey], {
+      limit: 5,
+      date: '2026-10-20T12:00:00Z',
+    });
+
+    expect(order.map((spec) => spec.companyKey)).toContain('older-retry.example');
+    expect(order[0].companyKey).toBe('older-retry.example');
+  });
+
   it('does not treat a prior runtime-incomplete candidate as already stable', () => {
     const specs = [
       { companyKey: 'retry.example' },

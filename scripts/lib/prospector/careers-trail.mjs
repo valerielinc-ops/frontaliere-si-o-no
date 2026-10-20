@@ -450,7 +450,7 @@ export function isDistinctCareerSurface(homeHtml = '', pageHtml = '', pageUrl = 
  *
  * @param {{ host: string, url: string, text: string }} candidate
  * @param {number} [minScore]
- * @returns {Promise<{ host: string, url: string, text: string, score: number, signals: string[], vacancyCount: number, aggregator?: boolean, distinctCompanies?: number, verified: boolean }>}
+ * @returns {Promise<{ host: string, url: string, text: string, score: number, signals: string[], vacancyCount: number, aggregator?: boolean, distinctCompanies?: number, verified: boolean, retryable?: boolean, failureStatus?: number, blockedByRobots?: boolean, policyBlocked?: boolean }>}
  */
 export async function verifyAtsHost(candidate, minScore = 3) {
   const res = await politeFetch(candidate.url);
@@ -461,7 +461,17 @@ export async function verifyAtsHost(candidate, minScore = 3) {
   // unreachable page.
   const jsSurface = res.ok && isJavascriptCareerSurface(res.body);
   if (!res.ok || (res.body.length < 200 && !jsSurface)) {
-    return { ...candidate, score: 0, signals: ['unreachable'], vacancyCount: 0, verified: false };
+    return {
+      ...candidate,
+      score: 0,
+      signals: ['unreachable'],
+      vacancyCount: 0,
+      verified: false,
+      retryable: isRetryableTraceResponse(res),
+      failureStatus: Number(res?.status) || 0,
+      blockedByRobots: Boolean(res?.blockedByRobots),
+      policyBlocked: Boolean(res?.policyBlocked),
+    };
   }
   const links = extractLinks(res.body, res.url);
   const scored = scoreVacancyPage(res.body, res.url, links);
@@ -484,6 +494,14 @@ export async function verifyAtsHost(candidate, minScore = 3) {
     distinctCompanies: surface.distinctCompanies,
     verified: (scored.score >= minScore || jsSurface) && !surface.aggregator,
   };
+}
+
+function recordAtsVerificationFailures(result, checks) {
+  for (const check of checks) {
+    if (!check.retryable) continue;
+    result.retryable = true;
+    result.failureStatuses.push(Number(check.failureStatus) || 0);
+  }
 }
 
 /**
@@ -532,9 +550,21 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
   for (const cand of externalAtsLinks(links, pageHost, { relaxed: true }).slice(0, 6)) {
     checked.push(await verifyAtsHost(cand));
   }
+  recordAtsVerificationFailures(result, checked);
   result.externalHosts = checked.filter((c) => c.verified);
-  result.rejectedHosts = checked.filter((c) => !c.verified).map((c) => ({ host: c.host, score: c.score, aggregator: c.aggregator || false }));
-  result.selfHosted = result.externalHosts.length === 0;
+  result.rejectedHosts = checked.filter((c) => !c.verified).map((c) => ({
+    host: c.host,
+    score: c.score,
+    aggregator: c.aggregator || false,
+    retryable: Boolean(c.retryable),
+    failureStatus: c.failureStatus,
+    blockedByRobots: Boolean(c.blockedByRobots),
+    policyBlocked: Boolean(c.policyBlocked),
+  }));
+  const blockedAts = checked.some((c) => c.blockedByRobots || c.policyBlocked);
+  result.selfHosted = result.externalHosts.length === 0
+    ? blockedAts ? null : !checked.some((c) => c.retryable)
+    : false;
   return result;
 }
 
@@ -546,8 +576,8 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
  * @returns {Promise<{
  *   domain: string, reachable: boolean, careersUrls: string[],
  *   externalHosts: { host: string, url: string, text: string, score: number, vacancyCount: number }[],
- *   rejectedHosts?: { host: string, score: number }[], failureStatuses: number[],
- *   retryable: boolean, selfHosted: boolean, via: string[]
+ *   rejectedHosts?: { host: string, score: number, aggregator?: boolean, retryable?: boolean, failureStatus?: number, blockedByRobots?: boolean, policyBlocked?: boolean }[], failureStatuses: number[],
+ *   retryable: boolean, selfHosted: boolean|null, via: string[]
  * }>}
  */
 export async function traceCareers(domain, opts = {}) {
@@ -635,6 +665,7 @@ export async function traceCareers(domain, opts = {}) {
   if (!candidates.length) {
     for (const hint of CAREER_PATH_HINTS) {
       const probe = await politeFetch(`${origin}${hint}`);
+      if (isRetryableTraceResponse(probe)) recordTraceResponse(result, probe);
       if (
         probe.ok
         && probe.body.length > 500
@@ -682,10 +713,22 @@ export async function traceCareers(domain, opts = {}) {
   for (const cand of result.externalHosts.slice(0, 6)) {
     checked.push(await verifyAtsHost(cand));
   }
+  recordAtsVerificationFailures(result, checked);
   result.externalHosts = checked.filter((c) => c.verified);
-  result.rejectedHosts = checked.filter((c) => !c.verified).map((c) => ({ host: c.host, score: c.score, aggregator: c.aggregator || false }));
+  result.rejectedHosts = checked.filter((c) => !c.verified).map((c) => ({
+    host: c.host,
+    score: c.score,
+    aggregator: c.aggregator || false,
+    retryable: Boolean(c.retryable),
+    failureStatus: c.failureStatus,
+    blockedByRobots: Boolean(c.blockedByRobots),
+    policyBlocked: Boolean(c.policyBlocked),
+  }));
   // No third-party host anywhere, but a careers page exists -> the employer
   // publishes on its own site and needs a bespoke crawler rather than a family one.
-  result.selfHosted = result.careersUrls.length > 0 && result.externalHosts.length === 0;
+  const blockedAts = checked.some((c) => c.blockedByRobots || c.policyBlocked);
+  result.selfHosted = result.careersUrls.length > 0 && result.externalHosts.length === 0
+    ? blockedAts ? null : !checked.some((c) => c.retryable)
+    : false;
   return result;
 }

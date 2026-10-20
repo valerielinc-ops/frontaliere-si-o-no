@@ -45,6 +45,17 @@ export async function traceCandidate(candidate, deps = {}) {
       trail,
     };
   }
+  if (!trail.externalHosts?.length && trail.retryable
+    && trail.rejectedHosts?.some((host) => host.retryable)) {
+    return {
+      c: candidate,
+      domain,
+      verdict: 'retry',
+      reason: 'verifica ATS temporaneamente non riuscita',
+      resolution,
+      trail,
+    };
+  }
   if (!trail.careersUrls.length && !trail.externalHosts.length) {
     return {
       c: candidate,
@@ -71,8 +82,9 @@ export async function traceCandidate(candidate, deps = {}) {
   // The trail helper can only call a direct URL self-hosted when its origin is
   // the independently resolved employer domain. A career page on another
   // origin with no ATS outlink has unknown ownership, not proof of self-hosting.
-  let selfHosted = trail.selfHosted;
-  if (candidate.careersUrl && !trail.externalHosts.length) {
+  const blockedAtsVerification = trail.rejectedHosts?.some((host) => host.blockedByRobots || host.policyBlocked);
+  let selfHosted = blockedAtsVerification && !trail.externalHosts.length ? null : trail.selfHosted;
+  if (candidate.careersUrl && !trail.externalHosts.length && !blockedAtsVerification) {
     try {
       const resolvedCareersUrl = trail.careersUrls?.[0] || candidate.careersUrl;
       selfHosted = registrableDomain(new URL(resolvedCareersUrl).hostname) === domain

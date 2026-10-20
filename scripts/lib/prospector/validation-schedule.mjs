@@ -19,6 +19,11 @@ function lastAt(spec, candidate, adapterVersionFor) {
   return String(history.at(-1)?.at || '');
 }
 
+function validationSortAt(spec, candidate, adapterVersionFor) {
+  return lastAt(spec, candidate, adapterVersionFor)
+    || String(candidate?.firstSeenAt || candidate?.updatedAt || spec?.firstSeenAt || spec?.updatedAt || '\uffff');
+}
+
 export const VALIDATION_RETRY_DELAYS_HOURS = Object.freeze({
   not_found: 72,
   dns: 6,
@@ -73,7 +78,8 @@ export function isValidationRetryDue(candidate, now = Date.now(), { qualityContr
  * A quarter of the daily budget is reserved for candidates whose latest
  * complete result is their first good UTC day and which are now due for day 2.
  * Remaining slots preserve oldest-first fairness across unvalidated and
- * retryable candidates. Candidates with two good days stay in the background
+ * retryable candidates, using first-seen time for candidates without history.
+ * Candidates with two good days stay in the background
  * while unfinished candidates remain.
  *
  * @param {any[]} specs
@@ -115,8 +121,8 @@ export function prioritizeValidationSpecs(specs, candidateForSpec, options = {})
     }
   }
 
-  const compareOldest = (a, b) => lastAt(a, candidateForSpec(a), options.adapterVersionFor)
-    .localeCompare(lastAt(b, candidateForSpec(b), options.adapterVersionFor))
+  const compareOldest = (a, b) => validationSortAt(a, candidateForSpec(a), options.adapterVersionFor)
+    .localeCompare(validationSortAt(b, candidateForSpec(b), options.adapterVersionFor))
     || String(a.companyKey).localeCompare(String(b.companyKey));
   dueSecondDay.sort(compareOldest);
   retryable.sort(compareOldest);
