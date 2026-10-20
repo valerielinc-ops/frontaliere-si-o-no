@@ -32,7 +32,179 @@ import { answerMessage, safePattern, validateAnswer } from './lib/answerRules.js
 import { isoDateOf } from './lib/cvPeriod.js';
 import { permitOptions, permitStatusOf } from './lib/permitStatus.js';
 import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
-import { hasExplicitLanguageSection } from './lib/languageFacts.js';
+import { hasExplicitLanguageSection, isLanguageAbilityQuestion, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
+
+const LEGACY_LANGUAGE_LIST_LIMIT = 12;
+const LANGUAGE_LEVEL_RE = /\b(?:level|proficiency|fluency|fluent|niveau|livello|grado|kenntnis|kenntnisse|maitrise|maîtrise)\b/i;
+const LANGUAGE_MODALITY_RE = /\b(?:written|schriftlich|ecrit|écrit|scritto|scritta)\b/i;
+const LANGUAGE_ORAL_RE = /\b(?:oral|spoken|muendlich|mündlich|parlato|parlata|parle|parlé)\b/i;
+
+function normalizeQuestionValue(value) {
+  return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[’‘`]/g, "'").replace(/[^\p{L}\p{N}]+/gu, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function questionHash(value) {
+  let hash = 2166136261;
+  for (const character of value) {
+    hash ^= character.codePointAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(36);
+}
+
+function optionValues(question) {
+  return (Array.isArray(question?.options) ? question.options : [])
+    .flatMap((option) => typeof option === 'string' ? [option] : [option?.label, option?.value])
+    .map(normalizeQuestionValue).filter(Boolean);
+}
+
+function hasQuestionAnswer(value) {
+  return typeof value === 'boolean'
+    || (typeof value === 'number' && Number.isFinite(value))
+    || (Array.isArray(value) && value.some((item) => String(item ?? '').trim()))
+    || String(value ?? '').trim().length > 0;
+}
+
+function answerValueKey(value) {
+  return Array.isArray(value) ? value.map(normalizeQuestionValue).sort().join('|') : normalizeQuestionValue(value);
+}
+
+function answerFitsQuestion(value, question) {
+  const options = optionValues(question);
+  return !options.length || options.includes(normalizeQuestionValue(value));
+}
+
+/** Stable fact key for an answer, independent of a model or ATS field id. */
+export function candidateQuestionAnswerKey(question) {
+  const text = String(question?.question ?? '').trim();
+  if (!text) return '';
+  const languageCodes = languageCodesIn(text);
+  if (languageCodes.length === 1 && isLanguageAbilityQuestion(text)) {
+    const normalized = normalizeQuestionValue(text);
+    const threshold = /\b(?:at least|minimum|min(?:imum)? level|required level|mindestens|au moins|almeno|minimum|minimo)\s*(?:level\s*)?([abc][12])\b/i.exec(normalized)?.[1] || '';
+    const modality = LANGUAGE_MODALITY_RE.test(normalized) ? 'written' : LANGUAGE_ORAL_RE.test(normalized) ? 'oral' : 'any';
+    const kind = threshold ? `threshold_${threshold}` : LANGUAGE_LEVEL_RE.test(normalized) ? 'proficiency' : 'ability';
+    return `language_${languageCodes[0]}_${modality}_${kind}`;
+  }
+  const normalized = normalizeQuestionValue(text);
+  if (!normalized) return '';
+  const context = normalizeQuestionValue(question?.context);
+  const type = normalizeQuestionValue(question?.type) || 'unknown';
+  const options = [...new Set(optionValues(question))].sort().join('|');
+  return `question_${questionHash(`${type}\u0000${context}\u0000${normalized}\u0000${options}`)}`;
+}
+
+/** Reuse answers across changed ids only when their topic is unambiguous and the answer fits. */
+export function candidateAnswersForQuestions(questions, answers = {}, memory = {}) {
+  const result = { ...(answers && typeof answers === 'object' ? answers : {}) };
+  const currentValues = new Map();
+  const conflicts = new Set();
+  for (const question of Array.isArray(questions) ? questions : []) {
+    const key = candidateQuestionAnswerKey(question);
+    const value = result[question?.id];
+    if (!key || !hasQuestionAnswer(value)) continue;
+    const previous = currentValues.get(key);
+    if (!previous) currentValues.set(key, { value, comparable: answerValueKey(value) });
+    else if (previous.comparable !== answerValueKey(value)) conflicts.add(key);
+  }
+  for (const question of Array.isArray(questions) ? questions : []) {
+    if (!question?.id || hasQuestionAnswer(result[question.id])) continue;
+    const key = candidateQuestionAnswerKey(question);
+    if (!key || conflicts.has(key)) continue;
+    const remembered = Object.hasOwn(memory || {}, key) ? memory[key] : undefined;
+    if (Object.hasOwn(memory || {}, key) && !hasQuestionAnswer(remembered)) continue;
+    const source = currentValues.get(key)?.value ?? remembered;
+    if (hasQuestionAnswer(source) && answerFitsQuestion(source, question)) result[question.id] = source;
+  }
+  return result;
+}
+
+/** Persist a compact, order-scoped answer ledger so a later draft can survive new question ids. */
+export function rememberCandidateQuestionAnswers({ questions, answers = {}, previous = {}, changed = {} } = {}) {
+  const memory = { ...(previous && typeof previous === 'object' ? previous : {}) };
+  const groups = new Map();
+  for (const question of Array.isArray(questions) ? questions : []) {
+    const key = candidateQuestionAnswerKey(question);
+    if (!key || !question?.id) continue;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(question);
+  }
+  for (const [key, group] of groups) {
+    const changedQuestions = group.filter((question) => Object.hasOwn(changed || {}, question.id));
+    const changedValues = changedQuestions.map((question) => answers[question.id]).filter(hasQuestionAnswer);
+    const currentValues = group.map((question) => answers[question.id]).filter(hasQuestionAnswer);
+    const unique = new Map(currentValues.map((value) => [answerValueKey(value), value]));
+    const changedUnique = new Map(changedValues.map((value) => [answerValueKey(value), value]));
+    const explicitClear = changedQuestions.some((question) => !hasQuestionAnswer(changed[question.id]));
+    if (changedUnique.size === 1) memory[key] = [...changedUnique.values()][0];
+    else if (changedUnique.size > 1 || explicitClear) memory[key] = '';
+    else if (unique.size === 1 && !Object.hasOwn(memory, key)) memory[key] = [...unique.values()][0];
+    else if (unique.size > 1) memory[key] = '';
+  }
+  return Object.fromEntries(Object.entries(memory).slice(-80));
+}
+
+/** Whether a language ability question still needs an answer after facts from the CV are applied. */
+export function questionNeedsCandidateAnswer(question, profile) {
+  return !languageExplicitlyAbsent(profile, question?.question);
+}
+
+/** Remove questions established by the CV and duplicate semantic requests, retaining required status. */
+export function questionsForCandidate(questions, profile, answers = {}, memory = {}) {
+  const projectedAnswers = candidateAnswersForQuestions(questions, answers, memory);
+  const candidates = (Array.isArray(questions) ? questions : []).filter((question) => questionNeedsCandidateAnswer(question, profile));
+  const answerValues = new Map();
+  const conflictingKeys = new Set();
+  const questionsByKey = new Map();
+  for (const question of candidates) {
+    const key = candidateQuestionAnswerKey(question);
+    if (key) {
+      if (!questionsByKey.has(key)) questionsByKey.set(key, []);
+      questionsByKey.get(key).push(question);
+    }
+    const answer = projectedAnswers[question?.id];
+    if (!key || !hasQuestionAnswer(answer)) continue;
+    if (!answerValues.has(key)) answerValues.set(key, new Set());
+    answerValues.get(key).add(answerValueKey(answer));
+    if (answerValues.get(key).size > 1) conflictingKeys.add(key);
+  }
+  const incompatibleKeys = new Set();
+  for (const [key, group] of questionsByKey) {
+    for (const question of group) {
+      const answer = projectedAnswers[question?.id];
+      if (hasQuestionAnswer(answer) && group.some((other) => !answerFitsQuestion(answer, other))) incompatibleKeys.add(key);
+    }
+  }
+  const result = [];
+  const seen = new Map();
+  for (const question of candidates) {
+    const key = candidateQuestionAnswerKey(question);
+    if (!key) {
+      result.push(question);
+      continue;
+    }
+    if (conflictingKeys.has(key) || incompatibleKeys.has(key)) {
+      result.push(question);
+      continue;
+    }
+    const priorIndex = seen.get(key);
+    if (priorIndex === undefined) {
+      seen.set(key, result.length);
+      result.push(question);
+      continue;
+    }
+    const previous = result[priorIndex];
+    const previousAnswered = hasQuestionAnswer(projectedAnswers[previous.id]);
+    const currentAnswered = hasQuestionAnswer(projectedAnswers[question.id]);
+    const preferred = currentAnswered && !previousAnswered
+      || Boolean(question.required && !previous.required)
+      ? question
+      : previous;
+    result[priorIndex] = { ...preferred, required: Boolean(previous.required || question.required) };
+  }
+  return result;
+}
 
 const MESSAGES = {
   name: {
@@ -192,12 +364,13 @@ export function candidateWithEdits({ order, draft, flow }) {
     phone: has(overrides, 'phone') ? overrides.phone : base.phone,
   };
   const profile = { ...(draft?.profile || {}) };
-  // Profiles predating the completeness marker may have been capped at 12
-  // languages without recording that fact. Treat an unmarked profile as
-  // incomplete even when it reaches submission without going through draft reuse.
+  // Older profiles capped language lists at 12 without a completeness marker.
+  // A shorter list can still be complete when its CV has a dedicated language
+  // section; keep an at-cap legacy list conservative because it may be cut off.
   if (profile.languagesListTruncated === undefined) {
-    profile.languagesListTruncated = true;
-    profile.languagesExplicitList = false;
+    profile.languagesListTruncated = Array.isArray(profile.languages)
+      && profile.languages.length >= LEGACY_LANGUAGE_LIST_LIMIT;
+    profile.languagesExplicitList = profile.languagesExplicitList === true && !profile.languagesListTruncated;
   }
   if (has(overrides, 'location')) profile.location = overrides.location;
   if (has(overrides, 'linkedin')) profile.linkedin = overrides.linkedin;
@@ -211,7 +384,7 @@ export function candidateWithEdits({ order, draft, flow }) {
   if (has(overrides, 'availability')) profile.availability = overrides.availability;
   if (has(overrides, 'dateOfBirth')) profile.dateOfBirth = overrides.dateOfBirth;
   if (has(overrides, 'nationality')) profile.nationality = overrides.nationality;
-  const answers = { ...(flow?.answers || {}) };
+  const answers = candidateAnswersForQuestions(draft?.questions, flow?.answers || {}, flow?.questionAnswers || {});
   const asked = new Set((draft?.questions || []).map((question) => question.id));
   for (const [key, spec] of Object.entries(EDITABLE_FIELDS)) {
     if (spec.answerId && has(overrides, key) && !asked.has(spec.answerId)) answers[spec.answerId] = overrides[key];

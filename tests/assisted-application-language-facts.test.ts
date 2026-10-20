@@ -43,6 +43,9 @@ describe('language facts stay conservative when a CV entry or question is ambigu
     const coded = { languagesExplicitList: true, languages: [{ language: 'de-CH', level: 'C1' }] };
     expect(languageCodeOf('de-CH')).toBe('de');
     expect(languageExplicitlyAbsent(coded, englishField.label)).toBe(true);
+
+    const truncated = { ...coded, languagesListTruncated: true };
+    expect(languageExplicitlyAbsent(truncated, englishField.label)).toBe(false);
   });
 
   it('infers absence for a single, explicit current-ability question', () => {
@@ -66,6 +69,11 @@ describe('language facts stay conservative when a CV entry or question is ambigu
     expect(isLanguageAbilityQuestion('Do you use Excel?')).toBe(false);
     expect(isLanguageAbilityQuestion('Do you use English?')).toBe(true);
     expect(isLanguageAbilityQuestion('Do you speak klingon?')).toBe(true);
+
+    const describeLevel = 'Do you speak German? If so, how would you describe your proficiency level?';
+    expect(isLanguageAbilityQuestion(describeLevel)).toBe(true);
+    expect(isLanguageIntentQuestion(describeLevel)).toBe(false);
+    expect(languageExplicitlyAbsent(profile, describeLevel)).toBe(true);
 
     const french = 'Parlez-vous allemand ?';
     expect(isLanguageAbilityQuestion(french)).toBe(true);

@@ -1053,6 +1053,26 @@ describe('submit mode', () => {
 
   it('never sends with an open required question, and hands portals over to the candidate', async () => {
     expect(openRequiredQuestions(baseDraft, {})).toHaveLength(1);
+    const legacyCvFacts = {
+      ...baseDraft,
+      profile: { languages: [
+        { language: 'English', level: 'C1' },
+        { language: 'Italian', level: 'C2' },
+        { language: 'French', level: 'B2' },
+        { language: 'Spanish', level: 'C1' },
+      ] },
+      factSources: { text: 'Languages\nEnglish C1\nItalian C2\nFrench B2\nSpanish C1' },
+      questions: [{ id: 'german_level', question: 'Do you speak German? If so, how would you describe your proficiency level?', required: true }],
+    };
+    expect(openRequiredQuestions(legacyCvFacts, {})).toEqual([]);
+    const duplicateLanguageQuestions = {
+      profile: { languages: [] },
+      questions: [
+        { id: 'german_level', question: 'Qual è il tuo livello di tedesco?', type: 'choice', options: ['A1', 'B1'], required: true },
+        { id: 'german_proficiency', question: 'Do you speak German? If so, how would you describe your proficiency level?', type: 'choice', options: ['A1', 'B1'], required: true },
+      ],
+    };
+    expect(openRequiredQuestions(duplicateLanguageQuestions, { german_level: 'B1' })).toEqual([]);
     const blocked = await submitApplication({
       order, orderId: ORDER_ID, flow: { answers: {} }, draft: baseDraft, cvBuffer: cvPdf(), cvType: 'pdf',
       bucket: fakeBucket(), runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,

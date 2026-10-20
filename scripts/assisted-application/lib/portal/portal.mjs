@@ -1428,7 +1428,17 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
       }
       current = await extractFields(page);
       const currentRows = current.fields.filter((field) => rowFields.some((row) => row.id === field.id));
-      if (rowFields.some((field) => field.required && !holdsValue(currentRows.find((item) => item.id === field.id) || field))) {
+      if (rowFields.some((field) => {
+        if (!field.required) return false;
+        const filled = currentRows.find((item) => item.id === field.id) || field;
+        if (holdsValue(filled)) return false;
+        // Work history dates are periods: a plain-text portal input may accept
+        // the exact month precision in the CV even though a full calendar date
+        // would invent a day. Calendar controls still need a valid full date.
+        const dateLabel = /^(?:start|end) date\s*[＊*]?$/i.test(String(field.label || '').trim());
+        const source = profileEntryAnswer(entry, kind, field)?.value;
+        return !(dateLabel && field.inputType === 'text' && source && String(filled.value || '').trim() === source);
+      })) {
         if (!await cancel()) return { snapshot: current, counts, handoff: 'profile_section_row_incomplete' };
         skipped += 1;
         continue;
@@ -2389,6 +2399,9 @@ export async function submitViaPortal(ctx) {
         const planned = ownAccount ? { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') } : snapshot;
         const plan = await planPage({ snapshot: planned, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
         const cvField = snapshot.fields.find(isCvFileField);
+        // This synthetic action is executed by applyActions below, which resolves
+        // the extracted fieldId through data-aa-id; agent.mjs aria-ref actions
+        // are a separate path and are not used for this deterministic upload.
         const automaticCvUpload = cvField && documentPaths(ctx.files, 'cv').length
           ? {
               fieldId: cvField.id,
@@ -2660,6 +2673,11 @@ export async function submitViaPortal(ctx) {
       if (outcome === 'captcha') return await handoff('captcha');
       if (outcome === 'validation' && validationRetries < 1) {
         validationRetries += 1;
+        // A server-side validation response can clear a required agreement
+        // that was accepted in the same URL (SIX resets its data privacy
+        // agreement after rejecting another field). Re-open required notices
+        // on the fresh page before retrying the submission.
+        privacyAcceptedPages.clear();
         snapshot = await extractFields(page);
         continue;
       }

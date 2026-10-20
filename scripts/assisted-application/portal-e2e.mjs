@@ -40,7 +40,7 @@ const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:$
 function fakePortal() {
   const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, registrationValidationOnce: false, registrationInvalidOnlyOnce: false, registrationNeedsAnswerAfterValidation: false, registrationNeedsAnswer: false, registrationRequests: 0, registeredPermit: '', unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
-  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, flaky: false, cookieManager: '' };
+  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, privacyValidationRetry: false, privacyValidationRetries: 0, applicationPrivacySubmissions: [], flaky: false, cookieManager: '' };
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
@@ -135,9 +135,18 @@ function fakePortal() {
         <label for="97:_datepicker">Geburtsdatum:*</label><div id="97:_datepicker" class="datePicker"><ui5-date-picker-xweb-calendar-widget ui5-date-picker="" title="Geburtsdatum" accessible-name="Geburtsdatum" format-pattern="dd.MM.yyyy" required="" placeholder="TT.MM.JJJJ"></ui5-date-picker-xweb-calendar-widget></div><input type="hidden" name="birth" id="birth-v">
         <label for="agency-in">* Stammt diese Bewerbung von einem Vermittlungsbüro? (Falls ja: Mit Einreichen des Dossiers werden die AGB der Coop Genossenschaft für die Personalvermittlung auf Erfolgsbasis akzeptiert.)</label><input id="agency-in" type="text" role="combobox" placeholder="Bitte auswählen" aria-owns="ag:_listSelect" aria-required="true" aria-expanded="false" class="rcmpaginatedselectinput"><input type="hidden" name="agency" id="agency-v"><ul id="ag:_listSelect" role="listbox"></ul>
       </section>
+      <input type="hidden" name="applicationPrivacy" id="applicationPrivacy" value="">
+      <label>Terms of Use * <a id="applicationPrivacyLink" role="button" tabindex="0" aria-haspopup="dialog">Read and accept the data privacy statement</a></label>
       <button type="button">Speichern</button><button type="submit">Bewerben</button>`)}
     <div role="dialog" id="up" hidden></div>
+    <div role="dialog" id="applicationPrivacyDialog" hidden><label><input type="checkbox" id="applicationPrivacyReview"> I have read and accept the data privacy statement.</label><button type="button" id="applicationPrivacyAccept" disabled>Accept</button></div>
     <script>
+      const privacyDialog = document.getElementById('applicationPrivacyDialog');
+      const privacyReview = document.getElementById('applicationPrivacyReview');
+      const privacyAccept = document.getElementById('applicationPrivacyAccept');
+      document.getElementById('applicationPrivacyLink').addEventListener('click', () => { privacyDialog.hidden = false; });
+      privacyReview.addEventListener('change', () => { privacyAccept.disabled = !privacyReview.checked; });
+      privacyAccept.addEventListener('click', () => { document.getElementById('applicationPrivacy').value = '1'; privacyDialog.hidden = true; });
       // A flaky portal (review of #11022): the first click on each control is dropped.
       const flaky = ${coop.flaky ? 'true' : 'false'};
       const dropped = new Set();
@@ -306,6 +315,7 @@ function fakePortal() {
     if (route === 'POST /six/submit') {
       const body = await readBody(req);
       state.sixApplications.push({ workload: /name="workload"\r\n\r\n80%/.test(body) });
+      state.sixApplications.at(-1).hasCv = /name="cv"; filename="CV_Luca_Bianchi\.pdf"/.test(body);
       return send(page('Application received', '<h1>Thank you for your application</h1>'));
     }
     if (route === 'GET /job') return send(page('Pflegefachperson', '<h1>Pflegefachperson 80%</h1><a href="/login">Jetzt bewerben</a>'));
@@ -411,6 +421,12 @@ function fakePortal() {
     }
     if (route === 'POST /sf/apply') {
       const body = new URLSearchParams(await readBody(req));
+      coop.applicationPrivacySubmissions.push(body.get('applicationPrivacy') || '');
+      if (coop.privacyValidationRetry) {
+        coop.privacyValidationRetry = false;
+        coop.privacyValidationRetries += 1;
+        return send(sfApplyPage(['Please open the data privacy agreement to accept the terms.']));
+      }
       const errors = [
         body.get('cv') !== '1' && 'Lebenslauf ist erforderlich',
         !body.get('first') && 'Vorname ist erforderlich',
@@ -418,6 +434,7 @@ function fakePortal() {
         !body.get('anrede') && 'Anrede ist erforderlich',
         !body.get('birth') && 'Geburtsdatum ist erforderlich',
         !body.get('agency') && 'Stammt diese Bewerbung von einem Vermittlungsbüro? ist erforderlich',
+        body.get('applicationPrivacy') !== '1' && 'Please open the data privacy agreement to accept the terms.',
       ].filter(Boolean);
       if (errors.length) {
         coop.validationRefusals += 1;
@@ -954,19 +971,20 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   state.sessions.clear();
   const profileResult = await run(job, profileCandidate);
   const profileForm = workday.forms.at(-1) || {};
+  const profileSections = profileResult.evidence.steps.map((step) => step.profileSections).filter(Boolean);
   check('Workday: profile sections submit the application', profileResult.event.type === 'submit_succeeded');
   check('Workday: experience rows are complete and retain source order', JSON.stringify(profileForm.experience) === JSON.stringify([
     'Retail Assistant|Mendrisio Market|2020-03|2022-04',
     'Cashier|Lugano Foods|2022-05|2024-10',
-  ]));
+  ]), { values: profileForm.experience, profileSections });
   check('Workday: education rows are complete and retain source order', JSON.stringify(profileForm.education) === JSON.stringify([
     'Vocational Diploma|Scuola Cantonale|2015-09|2018-06',
     'Secondary School|Liceo Lugano|2012-09|2015-06',
-  ]));
+  ]), { values: profileForm.education, profileSections });
   check('Workday: rows without month-level dates are skipped', profileResult.evidence.steps.some((step) => JSON.stringify(step.profileSections) === JSON.stringify([
       { section: 'experience', added: 2, skipped: 1 },
       { section: 'education', added: 2, skipped: 0 },
-  ])));
+  ])), profileSections);
 }
 
 async function main() {
@@ -1015,7 +1033,11 @@ async function main() {
   };
 
   const checks = [];
-  const check = (name, ok) => { checks.push({ name, ok }); console.log(`${ok ? '✓' : '✗'} ${name}`); };
+  const check = (name, ok, actual) => {
+    checks.push({ name, ok });
+    console.log(`${ok ? '✓' : '✗'} ${name}`);
+    if (!ok && actual !== undefined) console.log(`  actual: ${JSON.stringify(actual)}`);
+  };
   const focusWorkday = process.env.AA_PORTAL_E2E_FOCUS === 'workday-assisted';
   const focusRegistration = process.env.AA_PORTAL_E2E_FOCUS === 'registration-retry';
   try {
@@ -1069,8 +1091,18 @@ async function main() {
       launch: () => launchChromium({ headless: true, executablePath }),
     });
     check('SIX pre-read follows the posting and captures the required workload question', sixRead.questions.some((item) => /preferred workload/i.test(item.question)) && state.sixPostingViews === 1);
+    const sixCodex = async (request) => {
+      const planned = await fakeCodex(request);
+      if (!request.prompt.includes('{"form"')) return planned;
+      const payload = JSON.parse(request.prompt.slice(request.prompt.lastIndexOf('{"form"'), request.prompt.lastIndexOf('\n\nReturn exactly')));
+      const cv = payload.form.fields.find((field) => field.kind === 'file' && /resume|cv/i.test(field.label));
+      if (!cv) return planned;
+      // The deterministic runner must attach a supplied CV even when the plan omits it.
+      return { ...planned, actions: planned.actions.map((action) => action.fieldId === cv.id ? { ...action, action: 'skip', document: 'none' } : action) };
+    };
     const six = await run({
       applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, job: sixJob,
+      codex: sixCodex,
       candidate: {
         identity: { email: ALIAS },
         profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
@@ -1080,6 +1112,8 @@ async function main() {
     check('SIX opens the matching form and submits with the reviewed workload answer', six.event.type === 'submit_succeeded'
       && state.sixPostingViews === 2 && state.sixApplications.length === 1 && state.sixApplications[0].workload
       && six.evidence.postingMatch === 'match');
+    check('SIX uploads the supplied CV when the planner skips its file field', state.sixApplications[0]?.hasCv === true
+      && six.evidence.uploads?.some((item) => item.document === 'cv'));
     // The agentic fallback on a custom calendar (Playwright's snapshot refs, a real browser).
     const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
     const asked = unknown.event.questions || [];
@@ -1270,6 +1304,11 @@ async function main() {
       && coopAgain.evidence.steps.some((step) => step.cv === 'uploaded'));
     check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
       && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
+    coop.privacyValidationRetry = true;
+    const privacyRetry = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
+    check('SuccessFactors reopens and accepts the required privacy statement after same-page validation',
+      privacyRetry.event.type === 'submit_succeeded' && coop.privacyValidationRetries === 1
+      && coop.applicationPrivacySubmissions.slice(-2).join(',') === '1,1');
     // Review of #11015: a lost first click gets its own 8 s retry window.
     const slowBrowser = await launchChromium({ headless: true, executablePath });
     const slowPage = await slowBrowser.newPage();
