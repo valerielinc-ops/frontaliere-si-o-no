@@ -3727,7 +3727,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // ─── Glossario SEO ──────────────────────────────────────────────────────,
 
  glossario: {
- title: 'Glossario Frontaliere 2026 | 52 Termini CH-IT',
+ title: 'Glossario frontaliere: 52 termini',
  h1: 'Glossario frontaliere Svizzera-Italia 2026 — 52 termini fiscali, previdenziali e sanitari spiegati',
  description: 'Glossario completo per frontalieri: 52 termini fiscali, previdenziali, assicurativi e legali spiegati in modo semplice. AVS, LPP, LAMal, imposta alla.',
  keywords: 'glossario frontaliere, termini fiscali svizzera, avs significato, lpp secondo pilastro, lamal frontaliere, imposta alla fonte spiegazione, irpef frontaliere, glossario lavoro svizzera',

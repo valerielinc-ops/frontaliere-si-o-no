@@ -125,7 +125,7 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
   },
   en: {
     title:
-      `${TOTAL_FAQ_COUNT} FAQs for Italian cross-border workers in Ticino — full answers | Frontaliere Ticino`,
+      `${TOTAL_FAQ_COUNT} FAQs for Italian workers in Ticino | Frontaliere Ticino`,
     description:
       `${TOTAL_FAQ_COUNT} detailed answers for Italian cross-border workers in Ticino: 2026 tax, LAMal, G/B permits, AVS/LPP, salary, transport, work, family, rights. Primary sources: AFC, UFAS, SEM, Agenzia Entrate, Fedlex.`,
     h1: `${TOTAL_FAQ_COUNT} FAQs for Italian cross-border workers in Ticino`,
@@ -154,7 +154,7 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
   },
   de: {
     title:
-      `${TOTAL_FAQ_COUNT} häufige Fragen italienischer Grenzgänger im Tessin — Antworten | Frontaliere Ticino`,
+      `${TOTAL_FAQ_COUNT} Fragen für italienische Grenzgänger | Frontaliere Ticino`,
     description:
       `${TOTAL_FAQ_COUNT} detaillierte Antworten für italienische Grenzgänger im Tessin: Steuern 2026, KVG, G/B-Bewilligung, AHV/BVG, Lohn, Verkehr, Arbeit, Familie, Rechte. Primärquellen: AFC, BSV, SEM, Agenzia Entrate, Fedlex.`,
     h1: `${TOTAL_FAQ_COUNT} häufige Fragen italienischer Grenzgänger im Tessin`,

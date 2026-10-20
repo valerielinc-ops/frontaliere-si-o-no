@@ -760,9 +760,11 @@ describe('renderEventDetailPage', () => {
     expect(pastPage.html).toMatch(new RegExp(`data-ad-slot=["']?${AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}`));
     expect(pastPage.html).toMatch(new RegExp(`data-ad-slot=["']?${AD_SLOTS.SSG_END_MULTIPLEX.slot}`));
   });
-  it('links the source as a nofollow official-site CTA and lists other events in the comune', () => {
+  it('links the verified event source as a follow official-site CTA and lists other events in the comune', () => {
     expect(page.html).toContain(EVENT.url);
-    expect(page.html).toMatch(/rel="nofollow noopener"/);
+    expect(page.html).toMatch(/rel=(?:"noopener"|noopener)/);
+    expect(page.html).not.toMatch(/rel="nofollow noopener"/);
+    expect(page.html).toContain('name=twitter:card content=summary_large_image');
     expect(page.html).toContain('Mostra fotografica'); // the other comune event
   });
   it('emits hreflang for all four locales', () => {
@@ -1176,7 +1178,7 @@ describe('renderEventDetailPage nationwide fields (#3125 Task C)', () => {
   it('renders a plain OpenStreetMap link (no Google Maps, no tracker script), accessible', () => {
     // esc() HTML-escapes the "&" in the href attribute (&amp;).
     expect(page.html).toContain('openstreetmap.org/?mlat=46.005&amp;mlon=8.951');
-    expect(page.html).toContain('rel="nofollow noopener"');
+    expect(page.html).toMatch(/rel=(?:"noopener"|noopener)/);
     expect(page.html).not.toMatch(/google\.com\/maps/i);
     // Accessible name on the map link (not just an icon).
     expect(page.html).toMatch(/aria-label="Apri [^"]+ su OpenStreetMap"/);
@@ -1256,7 +1258,7 @@ describe('multi-source attribution (#3125 Task B)', () => {
     expect(page.html).toContain('https://www.tio.ch/agenda');
     expect(page.html).toContain('https://www.guidle.com');
     expect(page.html).toContain('https://www.myswitzerland.com');
-    expect(page.html).toMatch(/rel="nofollow noopener"/);
+    expect(page.html).toMatch(/rel=(?:"noopener"|noopener)/);
   });
 
   it('comune page lists every distinct source among the shown events', () => {

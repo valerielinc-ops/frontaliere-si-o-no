@@ -159,6 +159,7 @@ export const FAQ_permessi: ReadonlyArray<FaqHubEntry> = [
       fr: 'Dois-je m\'inscrire à l\'AIRE si je détiens un permis G ?',
     },
     titleShort: {
+      it: 'Permesso G e iscrizione AIRE',
       de: 'Muss ich mich mit G-Bewilligung beim AIRE registrieren?',
     },
     answer: {

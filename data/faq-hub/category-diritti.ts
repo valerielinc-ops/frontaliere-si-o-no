@@ -52,6 +52,7 @@ export const FAQ_diritti: ReadonlyArray<FaqHubEntry> = [
       fr: 'La NASpI italienne est-elle due au frontalier licencié en Suisse ?',
     },
     titleShort: {
+      it: 'NASpI per frontalieri licenziati',
       en: 'Can a cross-border worker dismissed in Switzerland claim NASpI?',
       de: 'Hat der entlassene Grenzgänger Anspruch auf italienische NASpI?',
     },
@@ -80,6 +81,7 @@ export const FAQ_diritti: ReadonlyArray<FaqHubEntry> = [
       fr: 'Puis-je bénéficier de la réduction de l\'horaire de travail (RHT) en tant que frontalier ?',
     },
     titleShort: {
+      it: 'RHT e frontalieri: cassa integrazione',
       en: 'Can cross-border workers get short-time work compensation (RHT)?',
       fr: 'Les frontaliers ont-ils droit à la RHT (chômage partiel) ?',
     },
