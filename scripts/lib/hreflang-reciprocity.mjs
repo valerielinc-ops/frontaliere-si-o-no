@@ -10,6 +10,47 @@
 
 const DEFAULT_BASE_URL = 'https://frontaliereticino.ch';
 
+/**
+ * @typedef {object} HreflangPage
+ * @property {string} [url]
+ * @property {string} [href]
+ * @property {string} [relPath]
+ * @property {string} [file]
+ * @property {Map<string, string>|Record<string, string>} [alternates]
+ */
+
+/** @typedef {Map<string, string>|Record<string, string>|null|undefined} HreflangAlternates */
+
+/** @typedef {HreflangPage|null|undefined} HreflangTargetPage */
+
+/**
+ * @typedef {(href: string) => HreflangTargetPage|Promise<HreflangTargetPage>} HreflangTargetResolver
+ */
+
+/**
+ * @typedef {object} HreflangResolverOptions
+ * @property {string} [baseUrl]
+ * @property {number} [maxEntries]
+ */
+
+/**
+ * @typedef {object} HreflangPageCheckOptions
+ * @property {string} [baseUrl]
+ * @property {(href: string) => boolean} [skipTarget]
+ * @property {HreflangTargetResolver} [resolveTargetPage]
+ * @property {(page: HreflangPage) => string|undefined} [getPagePath]
+ */
+
+/**
+ * @typedef {object} HreflangFailure
+ * @property {string} source
+ * @property {string} target
+ * @property {string} hreflang
+ * @property {string} sourcePath
+ * @property {string} targetPath
+ */
+
+/** @param {unknown} value @param {string} [baseUrl] @returns {string} */
 export function normalizeHreflangUrl(value, baseUrl = DEFAULT_BASE_URL) {
   if (typeof value !== 'string' || value.trim() === '') return '';
   try {
@@ -24,12 +65,14 @@ export function normalizeHreflangUrl(value, baseUrl = DEFAULT_BASE_URL) {
   }
 }
 
+/** @param {HreflangAlternates} alternates @returns {Iterable<[string, string]>} */
 function alternateEntries(alternates) {
   if (alternates instanceof Map) return alternates.entries();
   if (alternates && typeof alternates === 'object') return Object.entries(alternates);
   return [];
 }
 
+/** @param {string} value @param {string} baseUrl @returns {boolean} */
 function isOwnHostUrl(value, baseUrl) {
   try {
     return new URL(value, baseUrl).origin === new URL(baseUrl).origin;
@@ -42,6 +85,9 @@ function isOwnHostUrl(value, baseUrl) {
  * Memoize target-page metadata without retaining an unbounded corpus index.
  * Values may be promises so concurrent sources share the same in-flight read.
  * The resolver exposes its observed high-water mark for deterministic tests.
+ *
+ * @param {HreflangTargetResolver} resolveTargetPage
+ * @param {HreflangResolverOptions} [options]
  */
 export function createBoundedHreflangTargetResolver(resolveTargetPage, options = {}) {
   if (typeof resolveTargetPage !== 'function') {
@@ -53,16 +99,20 @@ export function createBoundedHreflangTargetResolver(resolveTargetPage, options =
   const maxEntries = Number.isInteger(requestedLimit) && requestedLimit > 0
     ? requestedLimit
     : 4096;
+  /** @type {Map<string, Promise<HreflangTargetPage>>} */
   const cache = new Map();
   let peakCacheSize = 0;
 
   function trim() {
     while (cache.size > maxEntries) {
-      cache.delete(cache.keys().next().value);
+      const oldest = cache.keys().next().value;
+      if (oldest === undefined) break;
+      cache.delete(oldest);
     }
     peakCacheSize = Math.max(peakCacheSize, cache.size);
   }
 
+  /** @param {string} href @param {HreflangTargetPage} page @returns {boolean} */
   function remember(href, page) {
     const key = normalizeHreflangUrl(href, baseUrl);
     if (!key || cache.has(key)) return false;
@@ -71,12 +121,14 @@ export function createBoundedHreflangTargetResolver(resolveTargetPage, options =
     return true;
   }
 
+  /** @param {string} href @returns {Promise<HreflangTargetPage>} */
   const resolve = async (href) => {
     const key = normalizeHreflangUrl(href, baseUrl);
     if (!key) return null;
 
     if (cache.has(key)) {
       const cached = cache.get(key);
+      if (!cached) return null;
       cache.delete(key);
       cache.set(key, cached);
       return await cached;
@@ -90,7 +142,7 @@ export function createBoundedHreflangTargetResolver(resolveTargetPage, options =
       const page = await pending;
       if (cache.get(key) === pending) {
         cache.delete(key);
-        cache.set(key, page);
+        cache.set(key, Promise.resolve(page));
         trim();
       }
       return page;
@@ -113,8 +165,13 @@ export function createBoundedHreflangTargetResolver(resolveTargetPage, options =
  * Check one parsed source page against its own-host targets. The caller owns
  * the bounded target resolver, so the source page and its targets can be
  * checked immediately without retaining a corpus-wide page index.
+ *
+ * @param {HreflangPage|null|undefined} page
+ * @param {HreflangPageCheckOptions} [options]
+ * @returns {Promise<HreflangFailure[]>}
  */
 export async function findHreflangReciprocityFailuresForPage(page, options = {}) {
+  if (!page) return [];
   const baseUrl = options.baseUrl ?? DEFAULT_BASE_URL;
   const skipTarget = options.skipTarget ?? (() => false);
   const resolveTargetPage = options.resolveTargetPage;
@@ -147,13 +204,13 @@ export async function findHreflangReciprocityFailuresForPage(page, options = {})
     };
   });
 
-  return (await Promise.all(checks)).filter(Boolean);
+  return (await Promise.all(checks)).filter((failure) => failure !== null);
 }
 
 /**
- * @param {Iterable<{url?: string, href?: string, relPath?: string, alternates: Map<string,string>|Record<string,string>}>} pages
- * @param {{baseUrl?: string, skipTarget?: (href: string) => boolean, pageIndex?: Map<string, object>, getPagePath?: (page: object) => string|undefined}} options
- * @returns {Array<{source: string, target: string, hreflang: string, sourcePath: string, targetPath: string}>}
+ * @param {Iterable<HreflangPage>} pages
+ * @param {{baseUrl?: string, skipTarget?: (href: string) => boolean, pageIndex?: Map<string, HreflangPage>, getPagePath?: (page: HreflangPage) => string|undefined}} [options]
+ * @returns {HreflangFailure[]}
  */
 export function findHreflangReciprocityFailures(pages, options = {}) {
   const baseUrl = options.baseUrl ?? DEFAULT_BASE_URL;
@@ -161,6 +218,7 @@ export function findHreflangReciprocityFailures(pages, options = {}) {
   // Large dist audits can pass their already-built target Map here. Rebuilding
   // the same million-entry URL index would duplicate the dominant data shape
   // at the end of the scan, exactly when the heap is closest to its limit.
+  /** @type {Map<string, HreflangPage>} */
   const pageByUrl = options.pageIndex ?? new Map();
   const pageList = (options.pageIndex || Array.isArray(pages)) ? pages : [...pages];
 
