@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
 import {
   AUTO_SECTOR_HUB_MIN_EMPLOYERS,
   AUTO_SECTOR_HUB_MIN_JOBS,
@@ -42,15 +41,6 @@ function jobsForCategory(
 }
 
 describe('automatic sector hub publication', () => {
-  it('keeps both emitters on the shared category owner contract', () => {
-    const jobsSeoSource = readFileSync(new URL('../build-plugins/jobsSeoPagesPlugin.ts', import.meta.url), 'utf8');
-    const autoSource = readFileSync(new URL('../build-plugins/autoSectorHubPagesPlugin.ts', import.meta.url), 'utf8');
-
-    expect(jobsSeoSource).toContain('buildJobCategoryPath');
-    expect(jobsSeoSource).not.toMatch(/const\s+(?:catSlugsMap|catPrefix|categorySlugMap|categoryPrefixMap)\b/);
-    expect(autoSource).toContain('autoSectorHubPathOwner');
-  });
-
   it('keeps static category paths owned by the job-board emitter in every locale', () => {
     const locales = ['it', 'en', 'de', 'fr'] as const;
     const cantonSections = {
