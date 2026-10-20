@@ -281,6 +281,20 @@ function priorBucket(beforeJob, locale) {
   return out;
 }
 
+/** Slugs actively served by the prior version of a job (not its history). */
+function activeSlugs(job) {
+  const out = new Set();
+  const add = (slug) => {
+    const normalized = normalize(slug);
+    if (normalized) out.add(normalized);
+  };
+  add(job?.slug);
+  if (job?.slugByLocale && typeof job.slugByLocale === 'object') {
+    for (const slug of Object.values(job.slugByLocale)) add(slug);
+  }
+  return out;
+}
+
 /**
  * Bank `slug` — a slug with PROVEN history, i.e. one the on-disk version could
  * already serve — into `bucket`, without letting the cap swallow it.
@@ -294,26 +308,30 @@ function priorBucket(beforeJob, locale) {
  * is legitimate.
  *
  * A full bucket can explain an ordinary LRU eviction, but not the loss of a
- * slug that GSC still reports. Such a URL replaces a non-indexed history item
- * (or exceeds the soft cap if every slot is evidence-backed). When instead the
- * WRITE itself creates pressure, a slug that was already serving outranks one
- * that has never been published: make room by dropping the newest unindexed
- * entry this write introduced.
+ * slug that GSC still reports or that was the job's active route before this
+ * write. Either replaces a non-indexed history item (or exceeds the soft cap
+ * if every slot is evidence-backed). When instead the WRITE itself creates
+ * pressure, a slug that was already serving outranks one that has never been
+ * published: make room by dropping the newest unindexed entry this write
+ * introduced.
  *
+ * @param {boolean} [mustPreserve] true when the slug was active before this write
  * @returns {{ next: string[], outcome: 'present'|'restored'|'cap-trim' }}
  */
-function bankPreservingHistory(slug, bucket, prior, cap, gscEvidence) {
+function bankPreservingHistory(slug, bucket, prior, cap, gscEvidence, mustPreserve = false) {
   const isGscIndexed = (value) => !gscEvidence.complete
     || gscEvidence.slugs.has(normalize(value).normalize('NFC'));
   if (bucket.includes(slug)) return { next: bucket, outcome: 'present' };
   // Oldest-first position: a rescued slug is older than whatever is banked.
   if (bucket.length < cap) return { next: [slug, ...bucket], outcome: 'restored' };
 
-  // A current GSC URL is not disposable merely because its history bucket is
-  // full. Keep it by evicting the oldest entry with no GSC evidence; if every
-  // entry is protected, let this evidence-backed alias overflow the soft cap.
+  // A GSC URL or previously active route is not disposable merely because its
+  // history bucket is full. Keep it by evicting the oldest entry with no GSC
+  // evidence; if every entry is protected, let the proven route overflow the
+  // soft cap. Current-GSC status is not required for an active route: the
+  // active field itself proves that this URL was served before this write.
   if (prior.length >= cap) {
-    if (!isGscIndexed(slug)) return { next: bucket, outcome: 'cap-trim' };
+    if (!mustPreserve && !isGscIndexed(slug)) return { next: bucket, outcome: 'cap-trim' };
     const victimIndex = bucket.findIndex((candidate) => !isGscIndexed(candidate));
     if (victimIndex < 0) return { next: [slug, ...bucket], outcome: 'restored' };
     const next = bucket.slice();
@@ -332,7 +350,7 @@ function bankPreservingHistory(slug, bucket, prior, cap, gscEvidence) {
     next.splice(i, 1);
     return { next: [slug, ...next], outcome: 'restored' };
   }
-  if (isGscIndexed(slug)) return { next: [slug, ...bucket], outcome: 'restored' };
+  if (mustPreserve || isGscIndexed(slug)) return { next: [slug, ...bucket], outcome: 'restored' };
   return { next: bucket, outcome: 'cap-trim' };
 }
 
@@ -341,9 +359,9 @@ function bankPreservingHistory(slug, bucket, prior, cap, gscEvidence) {
  *
  * Returns 'restored' when the slug survives the write, 'cap-trim' when the
  * destination bucket was already full BEFORE this write and the slug has no
- * current GSC evidence, or 'present' when already there.
+ * current GSC evidence and was not an active route, or 'present' when already there.
  */
-function recapture(job, slug, locale, beforeJob, gscEvidence) {
+function recapture(job, slug, locale, beforeJob, gscEvidence, mustPreserve = false) {
   const norm = normalize(slug);
   if (!norm) return 'present';
 
@@ -351,7 +369,7 @@ function recapture(job, slug, locale, beforeJob, gscEvidence) {
     // Unattributed legacy entry → flat array only.
     if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
     const { next, outcome } = bankPreservingHistory(
-      norm, job.previousSlugs, priorBucket(beforeJob, null), GUARD_LEGACY_CAP, gscEvidence,
+      norm, job.previousSlugs, priorBucket(beforeJob, null), GUARD_LEGACY_CAP, gscEvidence, mustPreserve,
     );
     job.previousSlugs = next;
     if (outcome === 'cap-trim') {
@@ -371,7 +389,7 @@ function recapture(job, slug, locale, beforeJob, gscEvidence) {
     ? job.previousSlugsByLocale[locale]
     : [];
   const banked = bankPreservingHistory(
-    norm, bucket, priorBucket(beforeJob, locale), GUARD_PER_LOCALE_CAP, gscEvidence,
+    norm, bucket, priorBucket(beforeJob, locale), GUARD_PER_LOCALE_CAP, gscEvidence, mustPreserve,
   );
   job.previousSlugsByLocale[locale] = banked.next;
 
@@ -389,7 +407,7 @@ function recapture(job, slug, locale, beforeJob, gscEvidence) {
   // previousSlugsByLocale still emit the redirect.
   if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
   const mirrored = bankPreservingHistory(
-    norm, job.previousSlugs, priorBucket(beforeJob, null), GUARD_LEGACY_CAP, gscEvidence,
+    norm, job.previousSlugs, priorBucket(beforeJob, null), GUARD_LEGACY_CAP, gscEvidence, mustPreserve,
   );
   job.previousSlugs = mirrored.next;
   return 'restored';
@@ -451,6 +469,7 @@ export function preserveSlugHistory(filePath, nextValue, opts = {}) {
     const beforeSlugs = reachableSlugs(before);
     if (beforeSlugs.size === 0) continue;
     const afterSlugs = reachableSlugs(job);
+    const beforeActiveSlugs = activeSlugs(before);
 
     for (const [slug, locale] of beforeSlugs) {
       if (afterSlugs.has(slug)) continue;
@@ -459,7 +478,7 @@ export function preserveSlugHistory(filePath, nextValue, opts = {}) {
       // The evidence snapshot can be several megabytes, so load it lazily and
       // only after a real candidate loss has been found in this write.
       gscEvidence ??= loadGscIndexedSlugEvidence(root);
-      const outcome = recapture(job, slug, locale, before, gscEvidence);
+      const outcome = recapture(job, slug, locale, before, gscEvidence, beforeActiveSlugs.has(slug));
       if (outcome === 'restored') {
         restored++;
         touched.add(key);
