@@ -222,6 +222,22 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       questions: [expect.objectContaining({ question: 'German C2?' })],
     });
 
+    const connectors = ['and', 'or', 'und', 'oder', 'et', 'ou', 'e', 'o', 'y', 'en', 'of', 'och', 'og', 'si', 'sau', '&', ';', ',', '/', '+', '-'];
+    for (const connector of connectors) {
+      const questionWithUnknownLanguage = `Do you speak German ${connector} Xhosa at C2?`;
+      const unrecognizedLanguageEvidence = guardAgentStep(turn('act', [act({
+        ref: 'e25', action: 'select', value: 'Yes', question: questionWithUnknownLanguage,
+        answer: 'Yes', source: 'profile', evidence: 'German C2',
+      })]), {
+        answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+      });
+      expect(unrecognizedLanguageEvidence).toMatchObject({
+        status: 'needs_candidate',
+        actions: [],
+        questions: [expect.objectContaining({ question: questionWithUnknownLanguage })],
+      });
+    }
+
     const listed = {
       answers: {},
       profile: { languagesExplicitList: true, languages: [{ language: 'German', level: 'C1' }] },

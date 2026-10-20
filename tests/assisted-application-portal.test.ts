@@ -908,6 +908,19 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       missingRequired: [],
     }, [proficiency], candidate);
     expect(mixedEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: proficiency.id })]);
+
+    const connectors = ['and', 'or', 'und', 'oder', 'et', 'ou', 'e', 'o', 'y', 'en', 'of', 'och', 'og', 'si', 'sau', '&', ';', ',', '/', '+', '-'];
+    for (const connector of connectors) {
+      const multipleLanguages = {
+        id: 'two-languages', kind: 'select', label: `Do you speak German ${connector} Xhosa at C2?`, required: true,
+        options: [{ label: 'Yes' }, { label: 'No' }],
+      };
+      const partialEvidence = guardPlan({
+        actions: [{ fieldId: multipleLanguages.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+        missingRequired: [],
+      }, [multipleLanguages], { ...candidate, profile: { cvText: 'German C2' } });
+      expect(partialEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: multipleLanguages.id })]);
+    }
   });
 
   it('derives a native language from the CV language only with contrasting language evidence', () => {

@@ -333,7 +333,9 @@ export function evidenceSupports(question, answer, evidence) {
     // the requested language and support the answer. A yes/no answer also
     // needs an explicit minimum level in the question.
     const asked = languageCodesIn(question);
-    if (asked.length !== 1) return false;
+    // A conjunction or list may include an unrecognized language name, so one
+    // recognized code is not enough to prove the question asks about one language.
+    if (asked.length !== 1 || /[,;\/|+&-]|\b(?:and|or|und|oder|et|ou|e|o|y|en|of|och|og|si|sau)\b/i.test(question)) return false;
     const parts = quote.split(/[;,|\/\n+]|\s[-–—]\s|\s+(?:and|or|und|et|e|y)\s+/i)
       .filter((part) => {
         const languages = languageCodesIn(part);
