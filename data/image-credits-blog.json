@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "9fa489d9514a6839f3d5522dd7db6161b41024bb",
+  "commit": "2e80ba2f586f79175fe7c5eef17cad54a384794b",
   "section": "blog",
   "files": {
     "generated:139-frontalieri-ticino-special-olympics": {
@@ -2697,80 +2697,6 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Generic generated aerial illustration of Lake Lugano/Ticino with no people, text, signage, logos, or watermark."
-        }
-      }
-    },
-    "generated:article-acqua-domleschg-feldis-scheid": {
-      "source": "generated-provider",
-      "commons": {
-        "title": "Generated editorial illustration",
-        "pageUrl": "https://openai.com/policies/terms-of-use/",
-        "width": 1200,
-        "height": 675,
-        "revision": "2026-10-20T10:34:34.474Z"
-      },
-      "author": {
-        "text": "frontaliereticino.ch",
-        "name": "frontaliereticino.ch",
-        "url": null,
-        "type": "Organization"
-      },
-      "attribution": null,
-      "licence": {
-        "name": "Generated media — provider terms apply",
-        "family": "other-attribution",
-        "attributionRequired": true,
-        "url": "https://openai.com/policies/terms-of-use/"
-      },
-      "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
-      ],
-      "fetchedAt": "2026-10-20",
-      "generated": {
-        "schema": 1,
-        "assetId": "article-acqua-domleschg-feldis-scheid",
-        "kind": "generated",
-        "provider": "openai-codex",
-        "model": "gpt-image-2.5",
-        "executorModel": "gpt-5.6-luna",
-        "promptVersion": "frontaliereticino.generated-image-policy.v1",
-        "promptHash": "d89e5295cc37775b8d11b2c08cea3e6ee910f11d8e8ec576312b461979a8cac1",
-        "license": "generated-provider",
-        "licenseUrl": "https://openai.com/policies/terms-of-use/",
-        "credit": "frontaliereticino.ch",
-        "sha256": "32ef494352798e7cd20b473ceed0ed5a41a10fc07a20b900811291b0e6f05fe9",
-        "bytes": 169844,
-        "width": 1200,
-        "height": 675,
-        "format": "webp",
-        "generatedAt": "2026-10-20T10:34:34.474Z",
-        "verifiedAt": "2026-10-20T10:34:42.469Z",
-        "restrictions": [
-          "illustrative-only",
-          "no-real-recognizable-foreground-person",
-          "no-public-figure-face",
-          "no-logo-brand-or-text",
-          "no-specific-real-event-photojournalism"
-        ],
-        "scope": "article-hero",
-        "imageUrl": "/images/blog/article-acqua-domleschg-feldis-scheid.webp",
-        "area": "Swiss border region",
-        "season": "all seasons",
-        "variant": "article hero",
-        "vision": {
-          "ok": true,
-          "contains_text": false,
-          "contains_logo": false,
-          "contains_recognizable_face": false,
-          "contains_recognizable_foreground_person": false,
-          "looks_like_specific_real_event": false,
-          "is_photograph": false,
-          "is_topic_relevant": true,
-          "notes": "Original generic synthetic illustration of a water cistern truck on an alpine mountain road; no text, logos, people, or specific event indicators."
         }
       }
     },
@@ -6458,80 +6384,6 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Original generic editorial illustration depicting voting, coins, rail travel, and a Ticino-like alpine lake setting; no text, logos, people, or identifiable event."
-        }
-      }
-    },
-    "generated:article-axenstrasse-chiusa-quattro-notti": {
-      "source": "generated-provider",
-      "commons": {
-        "title": "Generated editorial illustration",
-        "pageUrl": "https://openai.com/policies/terms-of-use/",
-        "width": 1200,
-        "height": 675,
-        "revision": "2026-10-20T09:55:59.811Z"
-      },
-      "author": {
-        "text": "frontaliereticino.ch",
-        "name": "frontaliereticino.ch",
-        "url": null,
-        "type": "Organization"
-      },
-      "attribution": null,
-      "licence": {
-        "name": "Generated media — provider terms apply",
-        "family": "other-attribution",
-        "attributionRequired": true,
-        "url": "https://openai.com/policies/terms-of-use/"
-      },
-      "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
-      ],
-      "fetchedAt": "2026-10-20",
-      "generated": {
-        "schema": 1,
-        "assetId": "article-axenstrasse-chiusa-quattro-notti",
-        "kind": "generated",
-        "provider": "openai-codex",
-        "model": "gpt-image-2.5",
-        "executorModel": "gpt-5.6-luna",
-        "promptVersion": "frontaliereticino.generated-image-policy.v1",
-        "promptHash": "3791e088d83b71360557f8133eecf1587761c00a61a95bd85180dc5f3be01970",
-        "license": "generated-provider",
-        "licenseUrl": "https://openai.com/policies/terms-of-use/",
-        "credit": "frontaliereticino.ch",
-        "sha256": "42b83b9ff70b53e641edd13d3d674fa791e7044912c3fbe3faeeedd558d7ef97",
-        "bytes": 109354,
-        "width": 1200,
-        "height": 675,
-        "format": "webp",
-        "generatedAt": "2026-10-20T09:55:59.811Z",
-        "verifiedAt": "2026-10-20T09:56:09.894Z",
-        "restrictions": [
-          "illustrative-only",
-          "no-real-recognizable-foreground-person",
-          "no-public-figure-face",
-          "no-logo-brand-or-text",
-          "no-specific-real-event-photojournalism"
-        ],
-        "scope": "article-hero",
-        "imageUrl": "/images/blog/article-axenstrasse-chiusa-quattro-notti.webp",
-        "area": "Swiss border region",
-        "season": "all seasons",
-        "variant": "article hero",
-        "vision": {
-          "ok": true,
-          "contains_text": false,
-          "contains_logo": false,
-          "contains_recognizable_face": false,
-          "contains_recognizable_foreground_person": false,
-          "looks_like_specific_real_event": false,
-          "is_photograph": false,
-          "is_topic_relevant": true,
-          "notes": "Original synthetic, photorealistic editorial scene of a nighttime mountain-road closure; no readable text, logos, people, or faces."
         }
       }
     },
@@ -19940,80 +19792,6 @@
         }
       }
     },
-    "generated:article-frontalieri-ticino-indagine-salari-2026": {
-      "source": "generated-provider",
-      "commons": {
-        "title": "Generated editorial illustration",
-        "pageUrl": "https://openai.com/policies/terms-of-use/",
-        "width": 1200,
-        "height": 675,
-        "revision": "2026-10-20T10:00:02.918Z"
-      },
-      "author": {
-        "text": "frontaliereticino.ch",
-        "name": "frontaliereticino.ch",
-        "url": null,
-        "type": "Organization"
-      },
-      "attribution": null,
-      "licence": {
-        "name": "Generated media — provider terms apply",
-        "family": "other-attribution",
-        "attributionRequired": true,
-        "url": "https://openai.com/policies/terms-of-use/"
-      },
-      "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
-      ],
-      "fetchedAt": "2026-10-20",
-      "generated": {
-        "schema": 1,
-        "assetId": "article-frontalieri-ticino-indagine-salari-2026",
-        "kind": "generated",
-        "provider": "openai-codex",
-        "model": "gpt-image-2.5",
-        "executorModel": "gpt-5.6-luna",
-        "promptVersion": "frontaliereticino.generated-image-policy.v1",
-        "promptHash": "d9eba76f8253b56b80c5310ba573a93e6c1ff062536c14f75bfa7f27c879790b",
-        "license": "generated-provider",
-        "licenseUrl": "https://openai.com/policies/terms-of-use/",
-        "credit": "frontaliereticino.ch",
-        "sha256": "c42a398c328e3fadbf56dcd01d9fa9f9eccaca6dec6b2800dea818a5285e6958",
-        "bytes": 125148,
-        "width": 1200,
-        "height": 675,
-        "format": "webp",
-        "generatedAt": "2026-10-20T10:00:02.918Z",
-        "verifiedAt": "2026-10-20T10:00:10.849Z",
-        "restrictions": [
-          "illustrative-only",
-          "no-real-recognizable-foreground-person",
-          "no-public-figure-face",
-          "no-logo-brand-or-text",
-          "no-specific-real-event-photojournalism"
-        ],
-        "scope": "article-hero",
-        "imageUrl": "/images/blog/article-frontalieri-ticino-indagine-salari-2026.webp",
-        "area": "Swiss border region",
-        "season": "all seasons",
-        "variant": "article hero",
-        "vision": {
-          "ok": true,
-          "contains_text": false,
-          "contains_logo": false,
-          "contains_recognizable_face": false,
-          "contains_recognizable_foreground_person": false,
-          "looks_like_specific_real_event": false,
-          "is_photograph": false,
-          "is_topic_relevant": true,
-          "notes": "Original generic synthetic editorial landscape with commuter traffic; no readable text, logos, recognizable people, or specific event."
-        }
-      }
-    },
     "generated:article-fuga-dati-publica-cassa": {
       "source": "generated-provider",
       "commons": {
@@ -24390,80 +24168,6 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Original generic editorial illustration with an equality infographic, lakeside Ticino-style setting, and no readable lettering, logos, watermarks, or identifiable people."
-        }
-      }
-    },
-    "generated:article-indagine-disparita-salariali-frontalieri": {
-      "source": "generated-provider",
-      "commons": {
-        "title": "Generated editorial illustration",
-        "pageUrl": "https://openai.com/policies/terms-of-use/",
-        "width": 1200,
-        "height": 675,
-        "revision": "2026-10-20T10:53:02.198Z"
-      },
-      "author": {
-        "text": "frontaliereticino.ch",
-        "name": "frontaliereticino.ch",
-        "url": null,
-        "type": "Organization"
-      },
-      "attribution": null,
-      "licence": {
-        "name": "Generated media — provider terms apply",
-        "family": "other-attribution",
-        "attributionRequired": true,
-        "url": "https://openai.com/policies/terms-of-use/"
-      },
-      "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
-      ],
-      "fetchedAt": "2026-10-20",
-      "generated": {
-        "schema": 1,
-        "assetId": "article-indagine-disparita-salariali-frontalieri",
-        "kind": "generated",
-        "provider": "openai-codex",
-        "model": "gpt-image-2.5",
-        "executorModel": "gpt-5.6-luna",
-        "promptVersion": "frontaliereticino.generated-image-policy.v1",
-        "promptHash": "1959b625882cdcba9979c0f285e5505e425a55be9bd15e133c65997ad08a6530",
-        "license": "generated-provider",
-        "licenseUrl": "https://openai.com/policies/terms-of-use/",
-        "credit": "frontaliereticino.ch",
-        "sha256": "89f0d7a234f0965b2d07df2fe89595f0fd463f31375e986f96f7057537290406",
-        "bytes": 130104,
-        "width": 1200,
-        "height": 675,
-        "format": "webp",
-        "generatedAt": "2026-10-20T10:53:02.198Z",
-        "verifiedAt": "2026-10-20T10:53:08.972Z",
-        "restrictions": [
-          "illustrative-only",
-          "no-real-recognizable-foreground-person",
-          "no-public-figure-face",
-          "no-logo-brand-or-text",
-          "no-specific-real-event-photojournalism"
-        ],
-        "scope": "article-hero",
-        "imageUrl": "/images/blog/article-indagine-disparita-salariali-frontalieri.webp",
-        "area": "Ticino e pendolarismo transfrontaliero",
-        "season": "all seasons",
-        "variant": "article hero",
-        "vision": {
-          "ok": true,
-          "contains_text": false,
-          "contains_logo": false,
-          "contains_recognizable_face": false,
-          "contains_recognizable_foreground_person": false,
-          "looks_like_specific_real_event": false,
-          "is_photograph": false,
-          "is_topic_relevant": true,
-          "notes": "Generic synthetic editorial illustration of a car commute through a Ticino-like lakeside landscape; no people, text, signage, logos, or watermark."
         }
       }
     },
@@ -61694,6 +61398,302 @@
         "attributionRequired": true
       },
       "fetchedAt": "2026-10-04"
+    },
+    "generated:article-acqua-domleschg-feldis-scheid": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-20T10:34:34.474Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-20",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-acqua-domleschg-feldis-scheid",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "d89e5295cc37775b8d11b2c08cea3e6ee910f11d8e8ec576312b461979a8cac1",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "32ef494352798e7cd20b473ceed0ed5a41a10fc07a20b900811291b0e6f05fe9",
+        "bytes": 169844,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-20T10:34:34.474Z",
+        "verifiedAt": "2026-10-20T10:34:42.469Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-acqua-domleschg-feldis-scheid.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic illustration of a water cistern truck on an alpine mountain road; no text, logos, people, or specific event indicators."
+        }
+      }
+    },
+    "generated:article-axenstrasse-chiusa-quattro-notti": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-20T09:55:59.811Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-20",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-axenstrasse-chiusa-quattro-notti",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "3791e088d83b71360557f8133eecf1587761c00a61a95bd85180dc5f3be01970",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "42b83b9ff70b53e641edd13d3d674fa791e7044912c3fbe3faeeedd558d7ef97",
+        "bytes": 109354,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-20T09:55:59.811Z",
+        "verifiedAt": "2026-10-20T09:56:09.894Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-axenstrasse-chiusa-quattro-notti.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original synthetic, photorealistic editorial scene of a nighttime mountain-road closure; no readable text, logos, people, or faces."
+        }
+      }
+    },
+    "generated:article-frontalieri-ticino-indagine-salari-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-20T10:00:02.918Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-20",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-frontalieri-ticino-indagine-salari-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "d9eba76f8253b56b80c5310ba573a93e6c1ff062536c14f75bfa7f27c879790b",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "c42a398c328e3fadbf56dcd01d9fa9f9eccaca6dec6b2800dea818a5285e6958",
+        "bytes": 125148,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-20T10:00:02.918Z",
+        "verifiedAt": "2026-10-20T10:00:10.849Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-frontalieri-ticino-indagine-salari-2026.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic editorial landscape with commuter traffic; no readable text, logos, recognizable people, or specific event."
+        }
+      }
+    },
+    "generated:article-indagine-disparita-salariali-frontalieri": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-20T10:53:02.198Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-20",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-indagine-disparita-salariali-frontalieri",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "1959b625882cdcba9979c0f285e5505e425a55be9bd15e133c65997ad08a6530",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "89f0d7a234f0965b2d07df2fe89595f0fd463f31375e986f96f7057537290406",
+        "bytes": 130104,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-20T10:53:02.198Z",
+        "verifiedAt": "2026-10-20T10:53:08.972Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-indagine-disparita-salariali-frontalieri.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of a car commute through a Ticino-like lakeside landscape; no people, text, signage, logos, or watermark."
+        }
+      }
     }
   },
   "covers": {
@@ -63963,10 +63963,6 @@
       "file": "generated:article-acof-70-anni-premio-confindustria-varese",
       "modified": "resized"
     },
-    "article-acqua-domleschg-feldis-scheid": {
-      "file": "generated:article-acqua-domleschg-feldis-scheid",
-      "modified": "resized"
-    },
     "article-adesione-ocst-servizi-frontalieri": {
       "file": "generated:article-adesione-ocst-servizi-frontalieri",
       "modified": "resized"
@@ -64165,10 +64161,6 @@
     },
     "article-avs-voto-iva-il-29-novembre-per-la-13esima-rendita": {
       "file": "generated:article-avs-voto-iva-il-29-novembre-per-la-13esima-rendita",
-      "modified": "resized"
-    },
-    "article-axenstrasse-chiusa-quattro-notti": {
-      "file": "generated:article-axenstrasse-chiusa-quattro-notti",
       "modified": "resized"
     },
     "article-axpo-concessioni-idroelettriche": {
@@ -64905,10 +64897,6 @@
       "file": "generated:article-frontalieri-tassa-salute-omnibus-giugno-2026",
       "modified": "resized"
     },
-    "article-frontalieri-ticino-indagine-salari-2026": {
-      "file": "generated:article-frontalieri-ticino-indagine-salari-2026",
-      "modified": "resized"
-    },
     "article-fuga-dati-publica-cassa": {
       "file": "generated:article-fuga-dati-publica-cassa",
       "modified": "resized"
@@ -65147,10 +65135,6 @@
     },
     "article-incontro-parita-salariale-varese": {
       "file": "generated:article-incontro-parita-salariale-varese",
-      "modified": "resized"
-    },
-    "article-indagine-disparita-salariali-frontalieri": {
-      "file": "generated:article-indagine-disparita-salariali-frontalieri",
       "modified": "resized"
     },
     "article-indagini-imprese-ginevrine": {
@@ -101358,6 +101342,22 @@
       "provider": null,
       "verifiedAt": "2026-10-20",
       "status": "no-credit"
+    },
+    "article-acqua-domleschg-feldis-scheid": {
+      "file": "generated:article-acqua-domleschg-feldis-scheid",
+      "modified": "resized"
+    },
+    "article-axenstrasse-chiusa-quattro-notti": {
+      "file": "generated:article-axenstrasse-chiusa-quattro-notti",
+      "modified": "resized"
+    },
+    "article-frontalieri-ticino-indagine-salari-2026": {
+      "file": "generated:article-frontalieri-ticino-indagine-salari-2026",
+      "modified": "resized"
+    },
+    "article-indagine-disparita-salariali-frontalieri": {
+      "file": "generated:article-indagine-disparita-salariali-frontalieri",
+      "modified": "resized"
     }
   }
 }
