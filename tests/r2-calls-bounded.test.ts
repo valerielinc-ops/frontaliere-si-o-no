@@ -551,7 +551,7 @@ async function runUploadInterrupted(name: string, cdnKey = 'images/blog/cover.we
   const exit = new Promise<{ code: number | null; signal: NodeJS.Signals | null }>((resolve) => {
     child.once('exit', (code, signal) => resolve({ code, signal }));
   });
-  const deadline = setTimeout(() => child.kill('SIGKILL'), 5_000);
+  let deadline = setTimeout(() => child.kill('SIGKILL'), 5_000);
   try {
     const startDeadline = Date.now() + 5_000;
     while (Date.now() < startDeadline && !readFileSync(writerEvents, 'utf8').includes('copyto-started')) {
@@ -563,6 +563,8 @@ async function runUploadInterrupted(name: string, cdnKey = 'images/blog/cover.we
     if (!readFileSync(writerEvents, 'utf8').includes('copyto-started')) {
       throw new Error(`single-file upload did not start before the test deadline: ${stderr}`);
     }
+    clearTimeout(deadline);
+    deadline = setTimeout(() => child.kill('SIGKILL'), 5_000);
     child.kill('SIGTERM');
     const result = await exit;
     return {

@@ -7,6 +7,7 @@ import {
   LOCK_LEASE_MS,
   LOCK_RENEW_INITIAL_DELAY_MS,
   LOCK_RENEW_INTERVAL_MS,
+  normalizeS3MatchEtag,
   parseSections,
   releaseSectionLock,
   renewSectionLock,
@@ -104,6 +105,220 @@ describe('r2-section-lock', () => {
     });
   });
 
+  it('refuses weak S3 ETags as match conditions', () => {
+    expect(normalizeS3MatchEtag(' W/"etag-1" ')).toBeUndefined();
+    expect(normalizeS3MatchEtag('"etag-1"')).toBe('"etag-1"');
+    expect(normalizeS3MatchEtag(undefined)).toBeUndefined();
+  });
+
+  it.each([undefined, 'W/"weak-etag"'])('does not return ownership after a section lock PUT has no strong ETag (%s)', async (etag) => {
+    const { request: baseRequest, objects } = fakeR2();
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      const result = await baseRequest(input);
+      if (input.method === 'PUT' && input.headers?.['if-none-match'] === '*') {
+        return response(200, '', etag);
+      }
+      if (input.method === 'GET' && objects.has(input.key)) {
+        return response(200, JSON.stringify(objects.get(input.key)?.payload), etag);
+      }
+      return result;
+    };
+
+    await expect(acquireSectionLock('frontaliere', {
+      owner: 'owner-weak-etag',
+      request,
+      timeoutMs: 100,
+      sleep: async () => {},
+    })).rejects.toThrow('could not be confirmed with an ETag');
+  });
+
+  it('retries a conditional acquisition conflict reported as HTTP 409', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    let conflict = true;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (conflict && input.method === 'PUT') {
+        conflict = false;
+        return response(409);
+      }
+      return baseRequest(input);
+    };
+
+    const lock = await acquireSectionLock('frontaliere', {
+      owner: 'owner-409',
+      request,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    });
+
+    expect(lock.owner).toBe('owner-409');
+    expect(lock.leaseId).toEqual(expect.any(String));
+    expect(objects.get(lockKey('frontaliere'))?.payload.owner).toBe('owner-409');
+    await releaseSectionLock('frontaliere', { owner: lock.owner, leaseId: lock.leaseId, request });
+  });
+
+  it('reconciles a committed section lock when the PUT response is ambiguous', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    let ambiguous = true;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (ambiguous && input.method === 'PUT' && input.headers?.['if-none-match'] === '*') {
+        ambiguous = false;
+        await baseRequest(input);
+        throw new Error('socket timeout after commit');
+      }
+      return baseRequest(input);
+    };
+
+    const lock = await acquireSectionLock('frontaliere', {
+      owner: 'owner-ambiguous',
+      request,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    });
+
+    expect(lock).toMatchObject({ owner: 'owner-ambiguous', etag: 'etag-1' });
+    expect(objects.get(lockKey('frontaliere'))?.payload.owner).toBe('owner-ambiguous');
+    await releaseSectionLock('frontaliere', { owner: lock.owner, leaseId: lock.leaseId, request });
+  });
+
+  it.each([408, 500])('reconciles a section lock committed before an HTTP %s response', async (status) => {
+    const { request: baseRequest, objects } = fakeR2();
+    let failAfterCommit = true;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (failAfterCommit && input.method === 'PUT' && input.headers?.['if-none-match'] === '*') {
+        failAfterCommit = false;
+        await baseRequest(input);
+        return response(status, 'response failed after commit');
+      }
+      return baseRequest(input);
+    };
+
+    const lock = await acquireSectionLock('frontaliere', {
+      owner: 'owner-http-500',
+      request,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    });
+
+    expect(lock).toMatchObject({ owner: 'owner-http-500', etag: 'etag-1' });
+    expect(objects.get(lockKey('frontaliere'))?.payload.leaseId).toEqual(expect.any(String));
+    await releaseSectionLock('frontaliere', { owner: lock.owner, leaseId: lock.leaseId, request });
+  });
+
+  it('recognizes a delayed section lock after retries return 409 and negative reads', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    const bodies: string[] = [];
+    let puts = 0;
+    let gets = 0;
+    let pending: { key: string; body: string; headers: Record<string, string> } | undefined;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (input.method === 'PUT' && input.headers?.['if-none-match'] === '*') {
+        puts += 1;
+        bodies.push(input.body ?? '');
+        if (puts === 1) {
+          pending = { key: input.key, body: input.body ?? '', headers: input.headers ?? {} };
+          throw new Error('socket timeout while write remains pending');
+        }
+        if (puts === 2) return response(409);
+        if (puts === 3) {
+          await baseRequest({ method: 'PUT', ...pending! });
+          return response(409);
+        }
+      }
+      if (input.method === 'GET' && gets < 2) {
+        gets += 1;
+        return response(404);
+      }
+      return baseRequest(input);
+    };
+
+    const lock = await acquireSectionLock('frontaliere', {
+      owner: 'owner-delayed',
+      request,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    });
+
+    expect(puts).toBe(3);
+    expect(new Set(bodies).size).toBe(1);
+    expect(lock.owner).toBe('owner-delayed');
+    expect(objects.get(lockKey('frontaliere'))?.payload).toMatchObject({
+      owner: 'owner-delayed',
+      leaseId: expect.any(String),
+    });
+    await releaseSectionLock('frontaliere', { owner: lock.owner, leaseId: lock.leaseId, request });
+  });
+
+  it('does not mistake another same-owner acquisition for its ambiguous section lock', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    let firstPut = true;
+    let secondPut = true;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (input.method === 'PUT' && input.headers?.['if-none-match'] === '*') {
+        if (firstPut) {
+          firstPut = false;
+          await baseRequest(input);
+          throw new Error('first response lost after commit');
+        }
+        if (secondPut) {
+          secondPut = false;
+          await baseRequest(input);
+          throw new Error('second response lost after conflict');
+        }
+      }
+      return baseRequest(input);
+    };
+    const options = { owner: 'same-owner', request, now: () => 1_000, timeoutMs: 0 };
+
+    const first = await acquireSectionLock('frontaliere', options);
+    await expect(acquireSectionLock('frontaliere', options)).rejects.toThrow('timed out');
+    expect(objects.get(lockKey('frontaliere'))?.payload.leaseId).toEqual(expect.any(String));
+    expect(first.owner).toBe('same-owner');
+    await releaseSectionLock('frontaliere', { owner: first.owner, leaseId: first.leaseId, request });
+  });
+
+  it('fences stale renew and release calls from a newer acquisition by the same owner', async () => {
+    const { request, objects } = fakeR2();
+    let now = 0;
+    const first = await acquireSectionLock('frontaliere', {
+      owner: 'same-owner',
+      request,
+      now: () => now,
+      leaseMs: 10,
+    });
+
+    now = 11;
+    const second = await acquireSectionLock('frontaliere', {
+      owner: 'same-owner',
+      request,
+      now: () => now,
+      leaseMs: 10,
+      timeoutMs: 100,
+      sleep: async () => {},
+    });
+
+    expect(second.leaseId).not.toBe(first.leaseId);
+    expect(await renewSectionLock('frontaliere', {
+      owner: first.owner,
+      leaseId: first.leaseId,
+      request,
+      now: () => now,
+    })).toBe(false);
+    expect(await releaseSectionLock('frontaliere', {
+      owner: first.owner,
+      leaseId: first.leaseId,
+      request,
+    })).toBe(false);
+    expect(objects.get(lockKey('frontaliere'))?.payload).toMatchObject({
+      owner: second.owner,
+      leaseId: second.leaseId,
+    });
+    await releaseSectionLock('frontaliere', {
+      owner: second.owner,
+      leaseId: second.leaseId,
+      request,
+    });
+  });
+
   it('serializes concurrent same-section publishes so both hubs retain their client IDs', async () => {
     const { request } = fakeR2();
     let registry = new Set<string>();
@@ -122,7 +337,7 @@ describe('r2-section-lock', () => {
       await waitBriefly(5);
       snapshot.add(articleId);
       registry = snapshot;
-      await releaseSectionLock('frontaliere', { owner, request });
+      await releaseSectionLock('frontaliere', { owner, leaseId: lock.leaseId, request });
       return lock;
     };
 
@@ -159,7 +374,7 @@ describe('r2-section-lock', () => {
         registry = new Set(registryBySource.get(sourceSha)!);
         liveHubs.add(articleId);
       }
-      await releaseSectionLock('frontaliere', { owner: lock.owner, request });
+      await releaseSectionLock('frontaliere', { owner: lock.owner, leaseId: lock.leaseId, request });
     };
 
     // Force the adversarial order: the older run is already waiting while the
@@ -177,7 +392,7 @@ describe('r2-section-lock', () => {
     await waitBriefly(5);
     registry = new Set(registryBySource.get(newSha)!);
     liveHubs.add('article-new');
-    await releaseSectionLock('frontaliere', { owner: newLock.owner, request });
+    await releaseSectionLock('frontaliere', { owner: newLock.owner, leaseId: newLock.leaseId, request });
     await oldRun;
 
     expect(registry).toEqual(new Set(['article-old', 'article-new']));
@@ -207,7 +422,7 @@ describe('r2-section-lock', () => {
 
     expect(lock.owner).toBe('replacement-run');
     expect(objects.get(lockKey('svizzera'))?.payload.owner).toBe('replacement-run');
-    await releaseSectionLock('svizzera', { owner: 'replacement-run', request });
+    await releaseSectionLock('svizzera', { owner: lock.owner, leaseId: lock.leaseId, request });
   });
 
   it('renews a long critical section so a competing owner stays blocked until release', async () => {
@@ -222,6 +437,7 @@ describe('r2-section-lock', () => {
     now = LOCK_LEASE_MS + 1; // past the original lease, while owner A is still publishing
     expect(await renewSectionLock('frontaliere', {
       owner: 'owner-a',
+      leaseId: first.leaseId,
       request,
       now: () => now,
     })).toBe(true);
@@ -235,7 +451,7 @@ describe('r2-section-lock', () => {
     })).rejects.toThrow('timed out');
 
     expect(objects.get(lockKey('frontaliere'))?.payload.owner).toBe(first.owner);
-    await releaseSectionLock('frontaliere', { owner: 'owner-a', request });
+    await releaseSectionLock('frontaliere', { owner: 'owner-a', leaseId: first.leaseId, request });
 
     const second = await acquireSectionLock('frontaliere', {
       owner: 'owner-b',
@@ -244,7 +460,7 @@ describe('r2-section-lock', () => {
       timeoutMs: 100,
     });
     expect(second.owner).toBe('owner-b');
-    await releaseSectionLock('frontaliere', { owner: 'owner-b', request });
+    await releaseSectionLock('frontaliere', { owner: 'owner-b', leaseId: second.leaseId, request });
   });
 
   it('waits for the initial heartbeat instead of rewriting a fresh lease immediately', async () => {
@@ -254,12 +470,13 @@ describe('r2-section-lock', () => {
       requestCount += 1;
       return request(args);
     };
-    await acquireSectionLock('frontaliere', { owner: 'owner-a', request: trackedRequest });
+    const lock = await acquireSectionLock('frontaliere', { owner: 'owner-a', request: trackedRequest });
     const afterAcquire = requestCount;
     const waits: number[] = [];
 
     await renewSectionLocksUntilStopped(['frontaliere'], {
       owner: 'owner-a',
+      leaseId: lock.leaseId,
       request: trackedRequest,
       intervalMs: 11,
       waitForStopImpl: async (duration: number) => {
@@ -275,12 +492,12 @@ describe('r2-section-lock', () => {
     expect(waits).toEqual([LOCK_RENEW_INITIAL_DELAY_MS, 11]);
     expect(requestCount).toBe(afterAcquire + 2); // GET + conditional PUT
     expect(LOCK_RENEW_INITIAL_DELAY_MS).toBe(LOCK_RENEW_INTERVAL_MS);
-    await releaseSectionLock('frontaliere', { owner: 'owner-a', request });
+    await releaseSectionLock('frontaliere', { owner: 'owner-a', leaseId: lock.leaseId, request });
   });
 
   it('does not delete a replacement lock when ownership changes after the read', async () => {
     const { request, objects } = fakeR2();
-    await acquireSectionLock('frontaliere', { owner: 'owner-a', request });
+    const first = await acquireSectionLock('frontaliere', { owner: 'owner-a', request });
     let replaced = false;
     const racingRequest = async (args: {
       method: string;
@@ -298,6 +515,7 @@ describe('r2-section-lock', () => {
           body: JSON.stringify({
             ...current.payload,
             owner: 'owner-b',
+            leaseId: 'replacement-lease',
             acquiredAt: 1,
             expiresAt: 2,
           }),
@@ -310,17 +528,22 @@ describe('r2-section-lock', () => {
 
     expect(await releaseSectionLock('frontaliere', {
       owner: 'owner-a',
+      leaseId: first.leaseId,
       request: racingRequest,
     })).toBe(false);
     expect(objects.get(lockKey('frontaliere'))?.payload.owner).toBe('owner-b');
-    await releaseSectionLock('frontaliere', { owner: 'owner-b', request });
+    await releaseSectionLock('frontaliere', { owner: 'owner-b', leaseId: 'replacement-lease', request });
   });
 
   it('never releases a lease owned by another run', async () => {
     const { request, objects } = fakeR2();
-    await acquireSectionLock('frontaliere', { owner: 'owner-a', request });
+    const first = await acquireSectionLock('frontaliere', { owner: 'owner-a', request });
 
-    expect(await releaseSectionLock('frontaliere', { owner: 'owner-b', request })).toBe(false);
+    expect(await releaseSectionLock('frontaliere', {
+      owner: 'owner-b',
+      leaseId: first.leaseId,
+      request,
+    })).toBe(false);
     expect(objects.has(lockKey('frontaliere'))).toBe(true);
     expect(isLockExpired(objects.get(lockKey('frontaliere'))?.payload)).toBe(false);
   });

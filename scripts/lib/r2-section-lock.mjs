@@ -13,6 +13,8 @@ import { isInvokedDirectly } from './is-invoked-directly.mjs';
 // push, then releases it in an always-run workflow step.
 
 import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { createHash, createHmac, randomUUID } from 'node:crypto';
 export const ARTICLE_SECTIONS = Object.freeze(['frontaliere', 'svizzera']);
 export const LOCK_KEY_PREFIX = 'internal/ci/article-chunk-locks';
@@ -80,7 +82,9 @@ export function isLockPayload(value) {
       && ARTICLE_SECTIONS.includes(value.section)
       && Number.isFinite(value.acquiredAt)
       && Number.isFinite(value.expiresAt)
-      && value.expiresAt > value.acquiredAt,
+      && value.expiresAt > value.acquiredAt
+      && (value.leaseId === undefined
+        || (typeof value.leaseId === 'string' && value.leaseId.length > 0)),
   );
 }
 
@@ -166,13 +170,36 @@ function signRequest({ endpoint, bucket, accessKeyId, secretAccessKey, now, meth
   };
 }
 
+export function normalizeS3MatchEtag(value) {
+  if (typeof value !== 'string') return value;
+  const etag = value.trim();
+  // If-Match requires strong comparison. Never turn a weak validator into a
+  // strong one; callers treat undefined as an unsafe CAS and fail closed.
+  return etag.startsWith('W/') ? undefined : etag;
+}
+
+function requireStrongEtag(section, etag) {
+  if (!etag) {
+    throw new Error(`[r2-section-lock] ${section} acquisition could not be confirmed with an ETag`);
+  }
+  return etag;
+}
+
 function readHeader(response, name) {
-  return response?.headers?.get?.(name) ?? response?.headers?.[name] ?? response?.headers?.[name.toLowerCase()];
+  return normalizeS3MatchEtag(
+    response?.headers?.get?.(name) ?? response?.headers?.[name] ?? response?.headers?.[name.toLowerCase()],
+  );
 }
 
 async function responseText(response) {
   if (typeof response?.text === 'function') return response.text();
   return '';
+}
+
+function r2ResponseError(message, status) {
+  const error = new Error(message);
+  error.r2Status = status;
+  return error;
 }
 
 function configFromEnv(env) {
@@ -246,11 +273,77 @@ async function putLock(request, section, payload, condition) {
     headers,
   });
   if (response.status >= 200 && response.status < 300) {
-    return { etag: readHeader(response, 'etag') };
+    return { etag: requireStrongEtag(section, readHeader(response, 'etag')) };
   }
-  if (response.status === 412) return null;
+  if (response.status === 409 || response.status === 412) return null;
   const body = await responseText(response);
-  throw new Error(`[r2-section-lock] acquire ${section} failed (${response.status}): ${body.slice(0, 300)}`);
+  throw r2ResponseError(`[r2-section-lock] acquire ${section} failed (${response.status}): ${body.slice(0, 300)}`, response.status);
+}
+
+function lockMatches(current, payload) {
+  return Boolean(
+    current
+      && current.payload.owner === payload.owner
+      && current.payload.section === payload.section
+      && current.payload.leaseId === payload.leaseId
+      && current.payload.acquiredAt === payload.acquiredAt
+      && current.payload.expiresAt === payload.expiresAt,
+  );
+}
+
+async function acquisitionFailureAfterCleanup(section, payload, request, error) {
+  let cleanupError;
+  try {
+    await releaseSectionLock(section, {
+      owner: payload.owner,
+      leaseId: payload.leaseId,
+      request,
+    });
+  } catch (caughtCleanupError) {
+    cleanupError = caughtCleanupError;
+  }
+  if (!cleanupError) return error;
+
+  const acquisitionMessage = error instanceof Error ? error.message : String(error);
+  const cleanupMessage = cleanupError instanceof Error ? cleanupError.message : String(cleanupError);
+  return new AggregateError(
+    [error, cleanupError],
+    `${acquisitionMessage}; candidate cleanup failed: ${cleanupMessage}`,
+    { cause: error },
+  );
+}
+
+async function reconcileAmbiguousLockWrite(request, section, payload, error) {
+  let current;
+  try {
+    current = await readCurrentLock(request, section);
+  } catch (reconciliationError) {
+    const originalMessage = error instanceof Error ? error.message : String(error);
+    const reconciliationMessage = reconciliationError instanceof Error
+      ? reconciliationError.message
+      : String(reconciliationError);
+    throw new AggregateError(
+      [error, reconciliationError],
+      `[r2-section-lock] acquire ${section} failed ambiguously; reconciliation also failed: ${originalMessage}; ${reconciliationMessage}`,
+      { cause: error },
+    );
+  }
+  if (lockMatches(current, payload)) {
+    if (!current.etag) {
+      throw new Error(`[r2-section-lock] ${section} acquisition could not be confirmed with an ETag`);
+    }
+    return {
+      current,
+      lock: {
+        section,
+        owner: payload.owner,
+        leaseId: payload.leaseId,
+        key: lockKey(section),
+        etag: current.etag,
+      },
+    };
+  }
+  return { current, lock: null };
 }
 
 export async function acquireSectionLock(
@@ -272,40 +365,77 @@ export async function acquireSectionLock(
   const deadline = startedAt + timeoutMs;
   const payload = {
     owner,
+    leaseId: randomUUID(),
     section,
     acquiredAt: startedAt,
     expiresAt: startedAt + leaseMs,
   };
 
-  while (now() <= deadline) {
-    const created = await putLock(request, section, payload, { name: 'if-none-match', value: '*' });
-    if (created) {
-      return { section, owner, key: lockKey(section), etag: created.etag };
-    }
-
-    const current = await readCurrentLock(request, section);
-    if (!current) {
-      await sleep(100);
-      continue;
-    }
-    if (isLockExpired(current.payload, now())) {
-      if (!current.etag) {
-        throw new Error(`[r2-section-lock] lock ${section} has no ETag; refusing an unsafe takeover`);
+  let candidateMayExist = false;
+  try {
+    while (now() <= deadline) {
+      let currentAfterWrite;
+      let created;
+      try {
+        created = await putLock(request, section, payload, { name: 'if-none-match', value: '*' });
+      } catch (error) {
+        if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
+        candidateMayExist = true;
+        const reconciled = await reconcileAmbiguousLockWrite(request, section, payload, error);
+        if (reconciled.lock) return reconciled.lock;
+        currentAfterWrite = reconciled.current;
       }
-      const replacement = await putLock(request, section, payload, { name: 'if-match', value: current.etag });
-      if (replacement) {
-        return { section, owner, key: lockKey(section), etag: replacement.etag };
+      if (created) {
+        candidateMayExist = true;
+        return { section, owner, leaseId: payload.leaseId, key: lockKey(section), etag: created.etag };
       }
-      continue;
-    }
 
-    onWait({ section, owner: current.payload.owner, expiresAt: current.payload.expiresAt });
-    const remaining = deadline - now();
-    if (remaining <= 0) break;
-    await sleep(Math.min(pollMs, remaining));
+      const current = currentAfterWrite === undefined
+        ? await readCurrentLock(request, section)
+        : currentAfterWrite;
+      if (lockMatches(current, payload)) {
+        candidateMayExist = true;
+        if (!current.etag) {
+          throw new Error(`[r2-section-lock] ${section} acquisition could not be confirmed with an ETag`);
+        }
+        return { section, owner, leaseId: payload.leaseId, key: lockKey(section), etag: current.etag };
+      }
+      if (!current) {
+        await sleep(100);
+        continue;
+      }
+      if (isLockExpired(current.payload, now())) {
+        if (!current.etag) {
+          throw new Error(`[r2-section-lock] lock ${section} has no ETag; refusing an unsafe takeover`);
+        }
+        let replacement;
+        try {
+          replacement = await putLock(request, section, payload, { name: 'if-match', value: current.etag });
+        } catch (error) {
+          if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
+          candidateMayExist = true;
+          const reconciled = await reconcileAmbiguousLockWrite(request, section, payload, error);
+          if (reconciled.lock) return reconciled.lock;
+        }
+        if (replacement) {
+          candidateMayExist = true;
+          return { section, owner, leaseId: payload.leaseId, key: lockKey(section), etag: replacement.etag };
+        }
+        continue;
+      }
+
+      onWait({ section, owner: current.payload.owner, expiresAt: current.payload.expiresAt });
+      const remaining = deadline - now();
+      if (remaining <= 0) break;
+      await sleep(Math.min(pollMs, remaining));
+    }
+    throw new Error(`[r2-section-lock] timed out waiting for section ${section}`);
+  } catch (error) {
+    if (candidateMayExist) {
+      throw await acquisitionFailureAfterCleanup(section, payload, request, error);
+    }
+    throw error;
   }
-
-  throw new Error(`[r2-section-lock] timed out waiting for section ${section}`);
 }
 
 export async function acquireSectionLocks(sections, options = {}) {
@@ -323,22 +453,33 @@ export async function acquireSectionLocks(sections, options = {}) {
   }
 }
 
+function leaseIdForSection(section, options = {}) {
+  if (options.leaseId !== undefined) return options.leaseId;
+  if (options.leaseIds instanceof Map) return options.leaseIds.get(section);
+  if (options.leaseIds && typeof options.leaseIds === 'object') return options.leaseIds[section];
+  if (Array.isArray(options.locks)) {
+    return options.locks.find((lock) => lock?.section === section)?.leaseId;
+  }
+  return undefined;
+}
+
 /**
  * Extend a lease only if the exact lock read above is still present. A late
  * heartbeat must never revive a lease that another owner already replaced.
  */
 export async function renewSectionLock(
   section,
-  { owner, request = createR2Request(), now = Date.now, leaseMs = LOCK_LEASE_MS } = {},
+  { owner, leaseId, request = createR2Request(), now = Date.now, leaseMs = LOCK_LEASE_MS } = {},
 ) {
   asString(owner, 'owner');
+  asString(leaseId, 'leaseId');
   positiveDuration(leaseMs, 'lease duration');
   const current = await readCurrentLock(request, section);
   if (!current) {
     console.log(`[r2-section-lock] ${section} disappeared before renewal`);
     return false;
   }
-  if (current.payload.owner !== owner) {
+  if (current.payload.owner !== owner || current.payload.leaseId !== leaseId) {
     console.log(`[r2-section-lock] ${section} was replaced before renewal; leaving it intact`);
     return false;
   }
@@ -364,7 +505,8 @@ export async function renewSectionLocks(sections, options = {}) {
   if (!Array.isArray(sections)) throw new Error('[r2-section-lock] sections must be an array');
   const normalized = parseSections(sections.join(','));
   for (const section of normalized) {
-    if (!(await renewSectionLock(section, options))) return false;
+    const leaseId = leaseIdForSection(section, options);
+    if (!(await renewSectionLock(section, { ...options, leaseId }))) return false;
   }
   return true;
 }
@@ -393,6 +535,9 @@ export async function renewSectionLocksUntilStopped(
   sections,
   {
     owner,
+    leaseId,
+    leaseIds,
+    locks,
     request = createR2Request(),
     now = Date.now,
     leaseMs = LOCK_LEASE_MS,
@@ -415,11 +560,27 @@ export async function renewSectionLocksUntilStopped(
 
   try {
     if (initialDelayMs > 0 && (await waitForStopImpl(initialDelayMs, stopped))) return;
-    if (!(await renewSectionLocks(normalized, { owner, request, now, leaseMs }))) {
+    if (!(await renewSectionLocks(normalized, {
+      owner,
+      leaseId,
+      leaseIds,
+      locks,
+      request,
+      now,
+      leaseMs,
+    }))) {
       throw new Error('[r2-section-lock] lease ownership was lost before renewal started');
     }
     while (!(await waitForStopImpl(intervalMs, stopped))) {
-      if (!(await renewSectionLocks(normalized, { owner, request, now, leaseMs }))) {
+      if (!(await renewSectionLocks(normalized, {
+        owner,
+        leaseId,
+        leaseIds,
+        locks,
+        request,
+        now,
+        leaseMs,
+      }))) {
         throw new Error('[r2-section-lock] lease ownership was lost during renewal');
       }
     }
@@ -429,11 +590,15 @@ export async function renewSectionLocksUntilStopped(
   }
 }
 
-export async function releaseSectionLock(section, { owner, request = createR2Request() } = {}) {
+export async function releaseSectionLock(
+  section,
+  { owner, leaseId, request = createR2Request() } = {},
+) {
   asString(owner, 'owner');
+  asString(leaseId, 'leaseId');
   const current = await readCurrentLock(request, section);
   if (!current) return false;
-  if (current.payload.owner !== owner) {
+  if (current.payload.owner !== owner || current.payload.leaseId !== leaseId) {
     // An expired lease may already have been taken over. Never delete the new
     // owner's lock from an always-run cleanup step.
     console.log(`[r2-section-lock] ${section} is owned by another run; leaving it intact`);
@@ -447,7 +612,7 @@ export async function releaseSectionLock(section, { owner, request = createR2Req
     key: lockKey(section),
     headers: { 'if-match': current.etag },
   });
-  if (response.status === 404 || response.status === 412) return false;
+  if (response.status === 404 || response.status === 409 || response.status === 412) return false;
   if (response.status < 200 || response.status >= 300) {
     const body = await responseText(response);
     throw new Error(`[r2-section-lock] release ${section} failed (${response.status}): ${body.slice(0, 300)}`);
@@ -460,7 +625,11 @@ export async function releaseSectionLocks(locks, options = {}) {
   let firstError;
   for (const lock of [...locks].reverse()) {
     try {
-      if (await releaseSectionLock(lock.section, { ...options, owner: lock.owner })) released.push(lock.section);
+      if (await releaseSectionLock(lock.section, {
+        ...options,
+        owner: lock.owner,
+        leaseId: lock.leaseId,
+      })) released.push(lock.section);
     } catch (error) {
       firstError ??= error;
     }
@@ -486,6 +655,64 @@ function optionalFlagValue(args, flag) {
   return args[index + 1];
 }
 
+const SECTION_LEASE_FILE_VERSION = 1;
+
+function sectionLeaseFilePath(owner, env) {
+  if (env.FRONTALIERE_R2_SECTION_LEASE_FILE) return env.FRONTALIERE_R2_SECTION_LEASE_FILE;
+  const directory = env.RUNNER_TEMP || os.tmpdir();
+  return path.join(directory, `.frontaliere-r2-section-lock-${sha256(owner).slice(0, 32)}.json`);
+}
+
+function writeSectionLeaseFile(file, owner, locks) {
+  const directory = path.dirname(file);
+  fs.mkdirSync(directory, { recursive: true });
+  const temporary = `${file}.${process.pid}.${randomUUID()}.tmp`;
+  try {
+    fs.writeFileSync(
+      temporary,
+      `${JSON.stringify({
+        version: SECTION_LEASE_FILE_VERSION,
+        owner,
+        locks: locks.map(({ section, leaseId }) => ({ section, leaseId })),
+      })}\n`,
+      { encoding: 'utf8', mode: 0o600 },
+    );
+    fs.renameSync(temporary, file);
+    fs.chmodSync(file, 0o600);
+  } finally {
+    try {
+      fs.rmSync(temporary, { force: true });
+    } catch {
+      // The durable lease file was already installed; a leftover temporary
+      // file is harmless and remains inside the runner's private temp area.
+    }
+  }
+}
+
+function readSectionLeaseFile(file, owner, sections, { allowMissing = false } = {}) {
+  if (!fs.existsSync(file)) {
+    if (allowMissing) return null;
+    throw new Error(`[r2-section-lock] lease context file is missing for owner ${owner}`);
+  }
+  let stored;
+  try {
+    stored = JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch (error) {
+    throw new Error(`[r2-section-lock] lease context file is invalid: ${error?.message ?? error}`);
+  }
+  if (stored?.version !== SECTION_LEASE_FILE_VERSION || stored.owner !== owner || !Array.isArray(stored.locks)) {
+    throw new Error('[r2-section-lock] lease context file does not belong to this owner');
+  }
+  const normalized = parseSections(sections.join(','));
+  return normalized.map((section) => {
+    const lock = stored.locks.find((candidate) => candidate?.section === section);
+    if (!lock || typeof lock.leaseId !== 'string' || lock.leaseId.length === 0) {
+      throw new Error(`[r2-section-lock] lease context file has no leaseId for ${section}`);
+    }
+    return { section, owner, leaseId: lock.leaseId, key: lockKey(section) };
+  });
+}
+
 async function main(args = process.argv.slice(2), env = process.env) {
   const command = args[0];
   if (command !== 'acquire' && command !== 'renew' && command !== 'release') {
@@ -494,8 +721,26 @@ async function main(args = process.argv.slice(2), env = process.env) {
   const sections = parseSections(flagValue(args, '--section'));
   const owner = flagValue(args, '--owner');
   const request = createR2Request(env);
+  const leaseFile = sectionLeaseFilePath(owner, env);
   if (command === 'acquire') {
-    const locks = await acquireSectionLocks(sections, { owner, request });
+    let locks;
+    try {
+      locks = await acquireSectionLocks(sections, { owner, request });
+      writeSectionLeaseFile(leaseFile, owner, locks);
+    } catch (error) {
+      if (locks?.length) {
+        try {
+          await releaseSectionLocks(locks, { request });
+        } catch (cleanupError) {
+          throw new AggregateError(
+            [error, cleanupError],
+            `[r2-section-lock] acquisition failed and lease context cleanup failed: ${error?.message ?? error}; ${cleanupError?.message ?? cleanupError}`,
+            { cause: error },
+          );
+        }
+      }
+      throw error;
+    }
     console.log(`[r2-section-lock] acquired ${locks.map((lock) => lock.section).join(', ')}`);
     return;
   }
@@ -506,8 +751,15 @@ async function main(args = process.argv.slice(2), env = process.env) {
     const initialDelayMs =
       initialDelayValue === undefined ? LOCK_RENEW_INITIAL_DELAY_MS : Number(initialDelayValue);
     const failureFile = optionalFlagValue(args, '--failure-file');
+    const locks = readSectionLeaseFile(leaseFile, owner, sections);
     try {
-      await renewSectionLocksUntilStopped(sections, { owner, request, intervalMs, initialDelayMs });
+      await renewSectionLocksUntilStopped(sections, {
+        owner,
+        locks,
+        request,
+        intervalMs,
+        initialDelayMs,
+      });
     } catch (error) {
       if (failureFile) {
         fs.writeFileSync(failureFile, `${error?.message ?? error}\n`, 'utf8');
@@ -516,10 +768,13 @@ async function main(args = process.argv.slice(2), env = process.env) {
     }
     return;
   }
-  const released = await releaseSectionLocks(
-    sections.map((section) => ({ section, owner })),
-    { owner, request },
-  );
+  const locks = readSectionLeaseFile(leaseFile, owner, sections, { allowMissing: true });
+  if (!locks) {
+    console.log('[r2-section-lock] no lease context for this owner; no lock released');
+    return;
+  }
+  const released = await releaseSectionLocks(locks, { request });
+  fs.rmSync(leaseFile, { force: true });
   console.log(`[r2-section-lock] released ${released.join(', ') || 'no lock owned by this run'}`);
 }
 

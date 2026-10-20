@@ -300,10 +300,20 @@ _R2_IMAGE_LEASE_ACTIVE=1
 _R2_IMAGE_LEASE_TIMEOUT_PID=
 _R2_IMAGE_LEASE_RELEASE_ALLOWED=1
 _R2_IMAGE_LEASE_SIGNAL_HANDLER=_image_lease_signal
+image_lease_context="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT:-}"
+image_lease_owned_here=0
+image_lease_acquire_pending=0
 
 _release_image_namespace_lease() {
   [ "${image_lease_owned_here:-0}" -eq 1 ] || return 0
   image_lease_owned_here=0
+  if [ "${image_lease_acquire_pending:-0}" -eq 1 ]; then
+    if ! node "$image_lease_cli" release --context "$image_lease_context" --ignore-not-owned true >/dev/null; then
+      echo "::error::[cdn-upload] could not reconcile an interrupted $image_namespace lease acquisition" >&2
+      return 1
+    fi
+    return 0
+  fi
   if ! node "$image_lease_cli" release --context "$image_lease_context" >/dev/null; then
     echo "::error::[cdn-upload] could not safely release the $image_namespace lease" >&2
     return 1
@@ -333,7 +343,10 @@ _image_lease_signal() {
   exit "$exit_status"
 }
 
-image_lease_owned_here=0
+trap _image_lease_exit_cleanup EXIT
+trap '_image_lease_signal 130' INT
+trap '_image_lease_signal 143' TERM
+
 if [ -n "$image_namespace" ]; then
   _R2_IMAGE_LEASE_ACTIVE=1
   if [ ! -f "$image_lease_cli" ]; then
@@ -341,24 +354,40 @@ if [ -n "$image_namespace" ]; then
     exit 0
   fi
 
-  image_lease_context="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT:-}"
   if [ -z "$image_lease_context" ]; then
-    image_lease_context="$(node "$image_lease_cli" acquire --namespace "$image_namespace")" || {
-      echo "::warning::[cdn-upload] could not acquire $image_namespace lease — skipping upload of $cdn_key"
+    lease_identity="$(openssl rand -hex 32)" || {
+      echo "::warning::[cdn-upload] could not create a recovery identity for the $image_namespace lease — skipping upload of $cdn_key"
       exit 0
     }
-    if [ -z "$image_lease_context" ]; then
+    image_lease_owner="${lease_identity:0:32}"
+    image_lease_id="${lease_identity:32:32}"
+    image_lease_context="$(printf '{\"version\":1,\"leases\":[{\"namespace\":\"%s\",\"owner\":\"%s\",\"leaseId\":\"%s\",\"expiresAt\":0}]}' \
+      "$image_namespace" "$image_lease_owner" "$image_lease_id")"
+    image_lease_owned_here=1
+    image_lease_acquire_pending=1
+    acquired_context=""
+    if acquired_context="$(
+      FRONTALIERE_R2_IMAGE_LEASE_OWNER="$image_lease_owner" \
+      FRONTALIERE_R2_IMAGE_LEASE_ID="$image_lease_id" \
+        node "$image_lease_cli" acquire --namespace "$image_namespace"
+    )"; then
+      :
+    else
+      # The CLI reconciles an ambiguous PUT itself. A normal acquisition
+      # failure has no lease to clean up. Keep the candidate armed so EXIT can
+      # retry cleanup if the CLI's reconciliation failed or was interrupted.
+      echo "::warning::[cdn-upload] could not acquire $image_namespace lease — skipping upload of $cdn_key"
+      exit 0
+    fi
+    if [ -z "$acquired_context" ]; then
       echo "::warning::[cdn-upload] image lease acquisition returned no context — skipping upload of $cdn_key"
       exit 0
     fi
+    image_lease_context="$acquired_context"
+    image_lease_acquire_pending=0
     export FRONTALIERE_R2_IMAGE_LEASE_CONTEXT="$image_lease_context"
-    image_lease_owned_here=1
   fi
 fi
-
-trap _image_lease_exit_cleanup EXIT
-trap '_image_lease_signal 130' INT
-trap '_image_lease_signal 143' TERM
 
 if [ -n "$image_namespace" ]; then
   if ! node "$image_lease_cli" verify --namespace "$image_namespace" --context "$image_lease_context" >/dev/null; then
