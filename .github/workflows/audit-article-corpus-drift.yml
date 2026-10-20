@@ -182,7 +182,7 @@ jobs:
       # categories run 31369064388 actually found once this precondition held.
       # It grants no write path: the upload steps live in that workflow, not
       # this one. Deliberately NO full `npm ci` — the byte-identity renderer's
-      # one runtime dependency is installed from the root lockfile above.
+      # targeted runtime dependencies are installed from the root lockfile above.
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
