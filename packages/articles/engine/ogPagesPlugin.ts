@@ -1278,13 +1278,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // alt="" would tell Discover this image is not about the article.
  const socialTitle = articleLocale === 'it' ? normalizeArticleTitle(en.ogT) : localizedTitle;
  const heroAlt = localizedMeta?.imageAlt || socialTitle;
- // Pad short descriptions to ≥150 chars for Bing (locale variant excerpts are often <150)
+ // Pad short descriptions to the active shell budget for Bing (locale variant excerpts are often shorter).
  const LOCALE_DESC_CONTEXT: Partial<Record<string, string>> = {
  en: ' Practical guide and free tools for cross-border workers (frontalieri) between Switzerland and Italy. Frontaliere Ticino.',
  de: ' Praxisratgeber und kostenlose Tools für Grenzgänger zwischen der Schweiz und Italien. Frontaliere Ticino.',
  fr: " Guide pratique et outils gratuits pour travailleurs frontaliers entre la Suisse et l'Italie. Frontaliere Ticino.",
  };
- const metaDescPadded = (localeForMeta && localizedDesc.length < 150)
+ const metaDescPadded = (localeForMeta && localizedDesc.length < shell.metaDescriptionMaxChars)
  ? localizedDesc + (LOCALE_DESC_CONTEXT[localeForMeta] ?? '')
  : localizedDesc;
  // SERP-CTR lever (issue #4300 plan item 2): title/h1/headline are locked by
@@ -1295,16 +1295,16 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const metaDescRaw = boostDescriptionForCtr(
  metaDescPadded,
  (localeForMeta ?? 'it') as 'it' | 'en' | 'de' | 'fr',
- { maxLength: 155 },
+ { maxLength: shell.metaDescriptionMaxChars },
  );
- // Truncate to ≤155 chars for Bing/Google snippet display.
+ // Truncate to the active shell budget for Bing/Google snippet display.
  // truncateHeadline, NOT truncateCodeUnits: the raw code-unit slice cut mid
  // WORD and shipped snippets like "…impatto su perme…" (live offender
  // /articoli-frontaliere/calendario-festivi-ticino-2026/). truncateHeadline
  // cuts on a word boundary and peels the dangling clause tail, so the snippet
  // always ends on a content word — same helper every other template family
  // already reaches through clampMetaDescription.
- const metaDesc = truncateHeadline(metaDescRaw, 155);
+ const metaDesc = truncateHeadline(metaDescRaw, shell.metaDescriptionMaxChars);
  // <title>: headline VERBATIM, brand suffix only when total <= TITLE_MAX_CHARS.
  // Per build-plugins/shared/titleSuffix.ts, mid-headline ellipsis truncation
  // tanks CTR (see /calcola-stipendio/ regression doc). We only force a
