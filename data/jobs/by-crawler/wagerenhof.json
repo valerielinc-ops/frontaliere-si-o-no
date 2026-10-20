@@ -318,12 +318,12 @@
     },
     {
       "id": "wagerenhof-cede64748036",
-      "slug": "collaboratore-trice-in-reinigung-100-stiftung-wagerenhof-uster",
+      "slug": "addetto-a-alle-pulizie-100-stiftung-wagerenhof-uster",
       "slugByLocale": {
         "de": "mitarbeiter-in-reinigung-100-wagerenhof-uster",
-        "it": "collaboratore-trice-in-reinigung-100-stiftung-wagerenhof-uster",
-        "en": "mitarbeiter-in-reinigung-100-wagerenhof-uster",
-        "fr": "mitarbeiter-in-reinigung-100-wagerenhof-uster"
+        "it": "addetto-a-alle-pulizie-100-stiftung-wagerenhof-uster",
+        "en": "cleaning-staff-member-100-stiftung-wagerenhof-uster",
+        "fr": "employe-e-de-nettoyage-100-stiftung-wagerenhof-uster"
       },
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
@@ -370,11 +370,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-reinigung-100-wagerenhof-uster",
+          "collaboratore-trice-in-reinigung-100-stiftung-wagerenhof-uster"
+        ],
+        "en": [
+          "mitarbeiter-in-reinigung-100-wagerenhof-uster"
+        ],
+        "fr": [
           "mitarbeiter-in-reinigung-100-wagerenhof-uster"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-100-wagerenhof-uster"
+        "mitarbeiter-in-reinigung-100-wagerenhof-uster",
+        "collaboratore-trice-in-reinigung-100-stiftung-wagerenhof-uster"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

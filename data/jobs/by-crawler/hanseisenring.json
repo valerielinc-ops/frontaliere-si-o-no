@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hanseisenring-2d9bbd30c81d",
-      "slug": "leitung-montage-disposition-naturstein-matzingen-hanseisenring-ch",
+      "slug": "montaggio-sposizione-di-pietra-naturale-hans-eisenring-ag-matzingen",
       "slugByLocale": {
         "de": "leitung-montage-disposition-naturstein-matzingen-hanseisenring-ch",
-        "it": "leitung-montage-disposition-naturstein-matzingen-hanseisenring-ch",
-        "en": "leitung-montage-disposition-naturstein-matzingen-hanseisenring-ch",
-        "fr": "leitung-montage-disposition-naturstein-matzingen-hanseisenring-ch"
+        "it": "montaggio-sposizione-di-pietra-naturale-hans-eisenring-ag-matzingen",
+        "en": "assembly-disposition-of-natural-stone-hans-eisenring-ag-matzingen",
+        "fr": "montage-et-disposition-de-la-pierre-naturelle-hans-eisenring-ag-matzingen"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -67,16 +67,30 @@
         }
       },
       "postalCode": "9548",
-      "firstSeenAt": "2026-10-20T09:33:41.140Z"
+      "firstSeenAt": "2026-10-20T09:33:41.140Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-montage-disposition-naturstein-matzingen-hanseisenring-ch"
+        ],
+        "en": [
+          "leitung-montage-disposition-naturstein-matzingen-hanseisenring-ch"
+        ],
+        "fr": [
+          "leitung-montage-disposition-naturstein-matzingen-hanseisenring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-montage-disposition-naturstein-matzingen-hanseisenring-ch"
+      ]
     },
     {
       "id": "hanseisenring-6f25cfc6e77c",
-      "slug": "montage-naturstein-matzingen-hanseisenring-ch",
+      "slug": "installazione-di-pietra-naturale-hans-eisenring-ag-matzingen",
       "slugByLocale": {
         "de": "montage-naturstein-matzingen-hanseisenring-ch",
-        "it": "montage-naturstein-matzingen-hanseisenring-ch",
-        "en": "montage-naturstein-matzingen-hanseisenring-ch",
-        "fr": "montage-naturstein-matzingen-hanseisenring-ch"
+        "it": "installazione-di-pietra-naturale-hans-eisenring-ag-matzingen",
+        "en": "installation-of-natural-stone-hans-eisenring-ag-matzingen",
+        "fr": "installation-de-pierre-naturelle-hans-eisenring-ag-matzingen"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -134,16 +148,30 @@
         }
       },
       "postalCode": "9548",
-      "firstSeenAt": "2026-10-20T09:33:41.139Z"
+      "firstSeenAt": "2026-10-20T09:33:41.139Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montage-naturstein-matzingen-hanseisenring-ch"
+        ],
+        "en": [
+          "montage-naturstein-matzingen-hanseisenring-ch"
+        ],
+        "fr": [
+          "montage-naturstein-matzingen-hanseisenring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "montage-naturstein-matzingen-hanseisenring-ch"
+      ]
     },
     {
       "id": "hanseisenring-56f81a892db8",
-      "slug": "kuchenmontage-munchwilen-hanseisenring-ch",
+      "slug": "montaggio-della-cucina-hans-eisenring-ag-munchwilen",
       "slugByLocale": {
         "de": "kuchenmontage-munchwilen-hanseisenring-ch",
-        "it": "kuchenmontage-munchwilen-hanseisenring-ch",
-        "en": "kuchenmontage-munchwilen-hanseisenring-ch",
-        "fr": "kuchenmontage-munchwilen-hanseisenring-ch"
+        "it": "montaggio-della-cucina-hans-eisenring-ag-munchwilen",
+        "en": "kitchen-assembly-hans-eisenring-ag-munchwilen",
+        "fr": "assemblage-de-cuisine-hans-eisenring-ag-munchwilen"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -201,16 +229,30 @@
         }
       },
       "postalCode": "9542",
-      "firstSeenAt": "2026-10-20T09:33:41.138Z"
+      "firstSeenAt": "2026-10-20T09:33:41.138Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kuchenmontage-munchwilen-hanseisenring-ch"
+        ],
+        "en": [
+          "kuchenmontage-munchwilen-hanseisenring-ch"
+        ],
+        "fr": [
+          "kuchenmontage-munchwilen-hanseisenring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kuchenmontage-munchwilen-hanseisenring-ch"
+      ]
     },
     {
       "id": "hanseisenring-eeacc19e8590",
-      "slug": "schreinermonteur-in-hans-eisenring-ag-munchwilen",
+      "slug": "montatore-trice-falegname-hans-eisenring-ag-munchwilen",
       "slugByLocale": {
         "de": "schreinermonteur-in-munchwilen-hanseisenring-ch",
-        "it": "schreinermonteur-in-hans-eisenring-ag-munchwilen",
-        "en": "schreinermonteur-in-hans-eisenring-ag-munchwilen",
-        "fr": "schreinermonteur-in-hans-eisenring-ag-munchwilen"
+        "it": "montatore-trice-falegname-hans-eisenring-ag-munchwilen",
+        "en": "carpenter-installer-hans-eisenring-ag-munchwilen",
+        "fr": "monteur-euse-en-menuiserie-hans-eisenring-ag-munchwilen"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -256,11 +298,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreinermonteur-in-munchwilen-hanseisenring-ch"
+          "schreinermonteur-in-munchwilen-hanseisenring-ch",
+          "schreinermonteur-in-hans-eisenring-ag-munchwilen"
+        ],
+        "en": [
+          "schreinermonteur-in-hans-eisenring-ag-munchwilen"
+        ],
+        "fr": [
+          "schreinermonteur-in-hans-eisenring-ag-munchwilen"
         ]
       },
       "previousSlugs": [
-        "schreinermonteur-in-munchwilen-hanseisenring-ch"
+        "schreinermonteur-in-munchwilen-hanseisenring-ch",
+        "schreinermonteur-in-hans-eisenring-ag-munchwilen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -280,12 +330,12 @@
     },
     {
       "id": "hanseisenring-885f42d854cf",
-      "slug": "disposition-servie-center-munchwilen-hanseisenring-ch",
+      "slug": "pianificazione-servie-center-hans-eisenring-ag-munchwilen",
       "slugByLocale": {
         "de": "disposition-servie-center-munchwilen-hanseisenring-ch",
-        "it": "disposition-servie-center-munchwilen-hanseisenring-ch",
-        "en": "disposition-servie-center-munchwilen-hanseisenring-ch",
-        "fr": "disposition-servie-center-munchwilen-hanseisenring-ch"
+        "it": "pianificazione-servie-center-hans-eisenring-ag-munchwilen",
+        "en": "service-center-dispatch-hans-eisenring-ag-munchwilen",
+        "fr": "centre-servie-de-disposition-hans-eisenring-ag-munchwilen"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -343,16 +393,30 @@
         }
       },
       "postalCode": "9542",
-      "firstSeenAt": "2026-10-20T09:33:41.137Z"
+      "firstSeenAt": "2026-10-20T09:33:41.137Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disposition-servie-center-munchwilen-hanseisenring-ch"
+        ],
+        "en": [
+          "disposition-servie-center-munchwilen-hanseisenring-ch"
+        ],
+        "fr": [
+          "disposition-servie-center-munchwilen-hanseisenring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "disposition-servie-center-munchwilen-hanseisenring-ch"
+      ]
     },
     {
       "id": "hanseisenring-a16caf6d8f6b",
-      "slug": "projektleitung-abacus-munchwilen-hanseisenring-ch",
+      "slug": "gestione-del-progetto-abacus-hans-eisenring-ag-munchwilen",
       "slugByLocale": {
         "de": "projektleitung-abacus-munchwilen-hanseisenring-ch",
-        "it": "projektleitung-abacus-munchwilen-hanseisenring-ch",
-        "en": "projektleitung-abacus-munchwilen-hanseisenring-ch",
-        "fr": "projektleitung-abacus-munchwilen-hanseisenring-ch"
+        "it": "gestione-del-progetto-abacus-hans-eisenring-ag-munchwilen",
+        "en": "project-management-abacus-hans-eisenring-ag-munchwilen",
+        "fr": "gestion-de-projet-abacus-hans-eisenring-ag-munchwilen"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -410,16 +474,30 @@
         }
       },
       "postalCode": "9542",
-      "firstSeenAt": "2026-10-20T09:33:41.137Z"
+      "firstSeenAt": "2026-10-20T09:33:41.137Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleitung-abacus-munchwilen-hanseisenring-ch"
+        ],
+        "en": [
+          "projektleitung-abacus-munchwilen-hanseisenring-ch"
+        ],
+        "fr": [
+          "projektleitung-abacus-munchwilen-hanseisenring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projektleitung-abacus-munchwilen-hanseisenring-ch"
+      ]
     },
     {
       "id": "hanseisenring-a2545d303940",
-      "slug": "sachbearbeitung-miet-e-eigentumskuchen-avor-hans-eisenring-ag-sirnach",
+      "slug": "impiegato-a-amministrativo-a-per-cucine-in-affitto-e-di-proprieta-avor-hans-eisenring-ag-sirnach",
       "slugByLocale": {
         "de": "sachbearbeitung-miet-und-eigentumskuchen-avor-sirnach-hanseisenring-ch",
-        "it": "sachbearbeitung-miet-e-eigentumskuchen-avor-hans-eisenring-ag-sirnach",
-        "en": "sachbearbeitung-miet-und-eigentumskuchen-avor-hans-eisenring-ag-sirnach",
-        "fr": "sachbearbeitung-miet-und-eigentumskuchen-avor-hans-eisenring-ag-sirnach"
+        "it": "impiegato-a-amministrativo-a-per-cucine-in-affitto-e-di-proprieta-avor-hans-eisenring-ag-sirnach",
+        "en": "handling-of-kitchens-avor-hans-eisenring-ag-sirnach",
+        "fr": "manutention-des-cuisines-avor-hans-eisenring-ag-sirnach"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -465,11 +543,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-miet-und-eigentumskuchen-avor-sirnach-hanseisenring-ch"
+          "sachbearbeitung-miet-und-eigentumskuchen-avor-sirnach-hanseisenring-ch",
+          "sachbearbeitung-miet-e-eigentumskuchen-avor-hans-eisenring-ag-sirnach"
+        ],
+        "en": [
+          "sachbearbeitung-miet-und-eigentumskuchen-avor-hans-eisenring-ag-sirnach"
+        ],
+        "fr": [
+          "sachbearbeitung-miet-und-eigentumskuchen-avor-hans-eisenring-ag-sirnach"
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-miet-und-eigentumskuchen-avor-sirnach-hanseisenring-ch"
+        "sachbearbeitung-miet-und-eigentumskuchen-avor-sirnach-hanseisenring-ch",
+        "sachbearbeitung-miet-e-eigentumskuchen-avor-hans-eisenring-ag-sirnach",
+        "sachbearbeitung-miet-und-eigentumskuchen-avor-hans-eisenring-ag-sirnach"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -489,12 +576,12 @@
     },
     {
       "id": "hanseisenring-fcc46303eeec",
-      "slug": "sachbearbeitung-kuchenplanung-avor-hans-eisenring-ag-oensingen",
+      "slug": "pianificazione-della-cucina-avor-hans-eisenring-ag-oensingen",
       "slugByLocale": {
         "de": "sachbearbeitung-kuchenplanung-avor-oensingen-hanseisenring-ch",
-        "it": "sachbearbeitung-kuchenplanung-avor-hans-eisenring-ag-oensingen",
-        "en": "sachbearbeitung-kuchenplanung-avor-hans-eisenring-ag-oensingen",
-        "fr": "sachbearbeitung-kuchenplanung-avor-hans-eisenring-ag-oensingen"
+        "it": "pianificazione-della-cucina-avor-hans-eisenring-ag-oensingen",
+        "en": "kitchen-planning-avor-hans-eisenring-ag-oensingen",
+        "fr": "planification-des-cuisines-avor-hans-eisenring-ag-oensingen"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -540,11 +627,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-kuchenplanung-avor-oensingen-hanseisenring-ch"
+          "sachbearbeitung-kuchenplanung-avor-oensingen-hanseisenring-ch",
+          "sachbearbeitung-kuchenplanung-avor-hans-eisenring-ag-oensingen"
+        ],
+        "en": [
+          "sachbearbeitung-kuchenplanung-avor-hans-eisenring-ag-oensingen"
+        ],
+        "fr": [
+          "sachbearbeitung-kuchenplanung-avor-hans-eisenring-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-kuchenplanung-avor-oensingen-hanseisenring-ch"
+        "sachbearbeitung-kuchenplanung-avor-oensingen-hanseisenring-ch",
+        "sachbearbeitung-kuchenplanung-avor-hans-eisenring-ag-oensingen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -564,12 +659,12 @@
     },
     {
       "id": "hanseisenring-9822c6a3e537",
-      "slug": "sachbearbeitung-einzelkuchen-hans-eisenring-ag-sirnach",
+      "slug": "gestione-delle-singole-cucine-hans-eisenring-ag-sirnach",
       "slugByLocale": {
         "de": "sachbearbeitung-einzelkuchen-sirnach-hanseisenring-ch",
-        "it": "sachbearbeitung-einzelkuchen-hans-eisenring-ag-sirnach",
-        "en": "sachbearbeitung-einzelkuchen-hans-eisenring-ag-sirnach",
-        "fr": "sachbearbeitung-einzelkuchen-hans-eisenring-ag-sirnach"
+        "it": "gestione-delle-singole-cucine-hans-eisenring-ag-sirnach",
+        "en": "handling-of-individual-kitchens-hans-eisenring-ag-sirnach",
+        "fr": "manipulation-des-cuisines-individuelles-hans-eisenring-ag-sirnach"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -615,11 +710,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-einzelkuchen-sirnach-hanseisenring-ch"
+          "sachbearbeitung-einzelkuchen-sirnach-hanseisenring-ch",
+          "sachbearbeitung-einzelkuchen-hans-eisenring-ag-sirnach"
+        ],
+        "en": [
+          "sachbearbeitung-einzelkuchen-hans-eisenring-ag-sirnach"
+        ],
+        "fr": [
+          "sachbearbeitung-einzelkuchen-hans-eisenring-ag-sirnach"
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-einzelkuchen-sirnach-hanseisenring-ch"
+        "sachbearbeitung-einzelkuchen-sirnach-hanseisenring-ch",
+        "sachbearbeitung-einzelkuchen-hans-eisenring-ag-sirnach"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -639,12 +742,12 @@
     },
     {
       "id": "hanseisenring-f2005abe7f41",
-      "slug": "sachbearbeitung-service-center-hans-eisenring-ag-munchwilen",
+      "slug": "centro-assistenza-hans-eisenring-ag-munchwilen",
       "slugByLocale": {
         "de": "sachbearbeitung-service-center-munchwilen-hanseisenring-ch",
-        "it": "sachbearbeitung-service-center-hans-eisenring-ag-munchwilen",
+        "it": "centro-assistenza-hans-eisenring-ag-munchwilen",
         "en": "sachbearbeitung-service-center-hans-eisenring-ag-munchwilen",
-        "fr": "sachbearbeitung-service-center-hans-eisenring-ag-munchwilen"
+        "fr": "centre-de-services-hans-eisenring-ag-munchwilen"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -690,11 +793,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-service-center-munchwilen-hanseisenring-ch"
+          "sachbearbeitung-service-center-munchwilen-hanseisenring-ch",
+          "sachbearbeitung-service-center-hans-eisenring-ag-munchwilen"
+        ],
+        "fr": [
+          "sachbearbeitung-service-center-hans-eisenring-ag-munchwilen"
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-service-center-munchwilen-hanseisenring-ch"
+        "sachbearbeitung-service-center-munchwilen-hanseisenring-ch",
+        "sachbearbeitung-service-center-hans-eisenring-ag-munchwilen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -714,12 +822,12 @@
     },
     {
       "id": "hanseisenring-a056fe309571",
-      "slug": "aussendienst-vendita-kuchen-hans-eisenring-ag-volketswil",
+      "slug": "addetto-a-alle-vendite-esterne-di-cucine-hans-eisenring-ag-volketswil",
       "slugByLocale": {
         "de": "aussendienst-verkauf-kuchen-volketswil-hanseisenring-ch",
-        "it": "aussendienst-vendita-kuchen-hans-eisenring-ag-volketswil",
-        "en": "aussendienst-verkauf-kuchen-volketswil-hanseisenring-ch",
-        "fr": "aussendienst-verkauf-kuchen-volketswil-hanseisenring-ch"
+        "it": "addetto-a-alle-vendite-esterne-di-cucine-hans-eisenring-ag-volketswil",
+        "en": "field-sales-kitchens-hans-eisenring-ag-volketswil",
+        "fr": "commercial-e-externe-en-vente-de-cuisines-hans-eisenring-ag-volketswil"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -765,11 +873,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "aussendienst-verkauf-kuchen-volketswil-hanseisenring-ch",
+          "aussendienst-vendita-kuchen-hans-eisenring-ag-volketswil"
+        ],
+        "en": [
+          "aussendienst-verkauf-kuchen-volketswil-hanseisenring-ch"
+        ],
+        "fr": [
           "aussendienst-verkauf-kuchen-volketswil-hanseisenring-ch"
         ]
       },
       "previousSlugs": [
-        "aussendienst-verkauf-kuchen-volketswil-hanseisenring-ch"
+        "aussendienst-verkauf-kuchen-volketswil-hanseisenring-ch",
+        "aussendienst-vendita-kuchen-hans-eisenring-ag-volketswil"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -789,12 +905,12 @@
     },
     {
       "id": "hanseisenring-64ae07ba847b",
-      "slug": "montageplanung-munchwilen-hanseisenring-ch",
+      "slug": "pianificazione-dell-assemblaggio-hans-eisenring-ag-munchwilen",
       "slugByLocale": {
         "de": "montageplanung-munchwilen-hanseisenring-ch",
-        "it": "montageplanung-munchwilen-hanseisenring-ch",
-        "en": "montageplanung-munchwilen-hanseisenring-ch",
-        "fr": "montageplanung-munchwilen-hanseisenring-ch"
+        "it": "pianificazione-dell-assemblaggio-hans-eisenring-ag-munchwilen",
+        "en": "assembly-planning-hans-eisenring-ag-munchwilen",
+        "fr": "planification-de-l-assemblee-hans-eisenring-ag-munchwilen"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -852,16 +968,30 @@
         }
       },
       "postalCode": "9542",
-      "firstSeenAt": "2026-10-20T09:33:41.132Z"
+      "firstSeenAt": "2026-10-20T09:33:41.132Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montageplanung-munchwilen-hanseisenring-ch"
+        ],
+        "en": [
+          "montageplanung-munchwilen-hanseisenring-ch"
+        ],
+        "fr": [
+          "montageplanung-munchwilen-hanseisenring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "montageplanung-munchwilen-hanseisenring-ch"
+      ]
     },
     {
       "id": "hanseisenring-7a4fb6d7cbed",
-      "slug": "fachberatung-eigentumskuchen-hans-eisenring-ag-volketswil",
+      "slug": "cucine-di-proprieta-di-consulenza-specialistica-hans-eisenring-ag-volketswil",
       "slugByLocale": {
         "de": "fachberatung-eigentumskuchen-volketswil-hanseisenring-ch",
-        "it": "fachberatung-eigentumskuchen-hans-eisenring-ag-volketswil",
-        "en": "fachberatung-eigentumskuchen-hans-eisenring-ag-volketswil",
-        "fr": "fachberatung-eigentumskuchen-hans-eisenring-ag-volketswil"
+        "it": "cucine-di-proprieta-di-consulenza-specialistica-hans-eisenring-ag-volketswil",
+        "en": "specialist-consultancy-property-kitchens-hans-eisenring-ag-volketswil",
+        "fr": "experts-conseils-bien-cuisines-hans-eisenring-ag-volketswil"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -907,11 +1037,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachberatung-eigentumskuchen-volketswil-hanseisenring-ch"
+          "fachberatung-eigentumskuchen-volketswil-hanseisenring-ch",
+          "fachberatung-eigentumskuchen-hans-eisenring-ag-volketswil"
+        ],
+        "en": [
+          "fachberatung-eigentumskuchen-hans-eisenring-ag-volketswil"
+        ],
+        "fr": [
+          "fachberatung-eigentumskuchen-hans-eisenring-ag-volketswil"
         ]
       },
       "previousSlugs": [
-        "fachberatung-eigentumskuchen-volketswil-hanseisenring-ch"
+        "fachberatung-eigentumskuchen-volketswil-hanseisenring-ch",
+        "fachberatung-eigentumskuchen-hans-eisenring-ag-volketswil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -931,12 +1069,12 @@
     },
     {
       "id": "hanseisenring-c82d014db106",
-      "slug": "disposition-kuche-munchwilen-hanseisenring-ch",
+      "slug": "cucina-a-disposizione-hans-eisenring-ag-munchwilen",
       "slugByLocale": {
         "de": "disposition-kuche-munchwilen-hanseisenring-ch",
-        "it": "disposition-kuche-munchwilen-hanseisenring-ch",
-        "en": "disposition-kuche-munchwilen-hanseisenring-ch",
-        "fr": "disposition-kuche-munchwilen-hanseisenring-ch"
+        "it": "cucina-a-disposizione-hans-eisenring-ag-munchwilen",
+        "en": "disposition-kitchen-hans-eisenring-ag-munchwilen",
+        "fr": "cuisine-de-disposition-hans-eisenring-ag-munchwilen"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -994,7 +1132,21 @@
         }
       },
       "postalCode": "9542",
-      "firstSeenAt": "2026-10-20T09:33:41.129Z"
+      "firstSeenAt": "2026-10-20T09:33:41.129Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disposition-kuche-munchwilen-hanseisenring-ch"
+        ],
+        "en": [
+          "disposition-kuche-munchwilen-hanseisenring-ch"
+        ],
+        "fr": [
+          "disposition-kuche-munchwilen-hanseisenring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "disposition-kuche-munchwilen-hanseisenring-ch"
+      ]
     }
   ]
 }

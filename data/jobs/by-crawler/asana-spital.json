@@ -1728,12 +1728,12 @@
     },
     {
       "id": "asana-spital-4fe4dc7dce8e",
-      "slug": "facharztin-facharzt-gynakologie-e-geburtshilfe-80-100-asana-spital-ag-menziken-leuggern",
+      "slug": "medica-specialista-medico-specialista-in-ginecologia-e-ostetricia-80-100-asana-spital-ag-menziken-leuggern-leuggern",
       "slugByLocale": {
         "de": "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-asana-spital-leuggern",
-        "it": "facharztin-facharzt-gynakologie-e-geburtshilfe-80-100-asana-spital-ag-menziken-leuggern",
-        "en": "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-asana-spital-leuggern",
-        "fr": "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-asana-spital-leuggern"
+        "it": "medica-specialista-medico-specialista-in-ginecologia-e-ostetricia-80-100-asana-spital-ag-menziken-leuggern-leuggern",
+        "en": "specialist-gynecology-and-obstetrics-80-100-asana-spital-ag-menziken-leuggern-leuggern",
+        "fr": "gynecologie-et-obstetrique-specialisees-80-100-asana-spital-ag-menziken-leuggern-leuggern"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
       "companyKey": "asana-spital",
@@ -1781,11 +1781,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-asana-spital-leuggern",
+          "facharztin-facharzt-gynakologie-e-geburtshilfe-80-100-asana-spital-ag-menziken-leuggern"
+        ],
+        "en": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-asana-spital-leuggern"
+        ],
+        "fr": [
           "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-asana-spital-leuggern"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-asana-spital-leuggern"
+        "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-asana-spital-leuggern",
+        "facharztin-facharzt-gynakologie-e-geburtshilfe-80-100-asana-spital-ag-menziken-leuggern"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

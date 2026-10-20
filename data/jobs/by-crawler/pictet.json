@@ -410,7 +410,7 @@
         "it": "consigliere-legale-squadra-investimenti-pictet-group-geneva",
         "en": "legal-adviser-investment-team-pictet-geneva",
         "de": "rechtsberater-investment-team-pictet-group-geneva",
-        "fr": "legal-adviser-investment-team-pictet-group-geneva"
+        "fr": "conseiller-juridique-equipe-d-investissement-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -455,7 +455,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-adviser-investment-team-pictet-geneva",
-        "conseiller-juridique-equipe-d-investissement-pictet-group-geneva"
+        "legal-adviser-investment-team-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -466,7 +466,7 @@
         ],
         "fr": [
           "legal-adviser-investment-team-pictet-geneva",
-          "conseiller-juridique-equipe-d-investissement-pictet-group-geneva"
+          "legal-adviser-investment-team-pictet-group-geneva"
         ]
       },
       "firstSeenAt": "2026-10-19T09:20:38.189Z",
@@ -487,12 +487,12 @@
     },
     {
       "id": "pictet-483bdcebf75d",
-      "slug": "client-relationship-officer-pictet-zurich",
+      "slug": "responsabile-relazioni-cliente-pictet-group-zurich",
       "slugByLocale": {
         "en": "client-relationship-officer-pictet-zurich",
-        "it": "client-relationship-officer-pictet-zurich",
-        "de": "client-relationship-officer-pictet-zurich",
-        "fr": "client-relationship-officer-pictet-zurich"
+        "it": "responsabile-relazioni-cliente-pictet-group-zurich",
+        "de": "beauftragter-fur-kundenbeziehungen-pictet-group-zurich",
+        "fr": "agent-de-relations-avec-la-clientele-pictet-group-zurich"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -550,7 +550,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-pictet-zurich"
+        ],
+        "de": [
+          "client-relationship-officer-pictet-zurich"
+        ],
+        "fr": [
+          "client-relationship-officer-pictet-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-officer-pictet-zurich"
+      ]
     },
     {
       "id": "pictet-db445e2a0d29",
@@ -558,7 +572,7 @@
       "slugByLocale": {
         "en": "equity-analyst-pictet-geneva",
         "it": "equity-analista-pictet-group-geneva",
-        "de": "equity-analyst-pictet-group-geneva",
+        "de": "aktienanalyst-pictet-group-geneva",
         "fr": "equity-analyste-pictet-group-geneva"
       },
       "company": "Pictet Group",
@@ -609,12 +623,12 @@
           "equity-analyst-pictet-geneva"
         ],
         "de": [
-          "aktienanalyst-pictet-group-geneva"
+          "equity-analyst-pictet-group-geneva"
         ]
       },
       "previousSlugs": [
         "equity-analyst-pictet-geneva",
-        "aktienanalyst-pictet-group-geneva"
+        "equity-analyst-pictet-group-geneva"
       ],
       "salaryMin": 104500,
       "salaryMax": 183500,

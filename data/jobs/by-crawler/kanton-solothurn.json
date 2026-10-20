@@ -460,9 +460,9 @@
     },
     {
       "id": "kanton-solothurn-38b136945c9f",
-      "slug": "jurist-in-60-kanton-solothurn",
+      "slug": "giurista-60-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "jurist-in-60-kanton-solothurn",
+        "it": "giurista-60-kanton-solothurn-solothurn",
         "en": "lawyer-60-kanton-solothurn-solothurn",
         "de": "jurist-in-60-kanton-solothurn-solothurn",
         "fr": "juriste-60-kanton-solothurn-solothurn"
@@ -511,12 +511,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "jurist-in-60-kanton-solothurn-solothurn",
-        "giurista-60-kanton-solothurn-solothurn"
+        "jurist-in-60-kanton-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "jurist-in-60-kanton-solothurn-solothurn",
-          "giurista-60-kanton-solothurn-solothurn"
+          "jurist-in-60-kanton-solothurn"
         ]
       },
       "firstSeenAt": "2026-09-25T14:53:20.900Z",
@@ -2186,12 +2186,12 @@
     },
     {
       "id": "kanton-solothurn-46cf633c925d",
-      "slug": "fachexperte-fachexpertin-alter-e-pflege-80-kanton-solothurn",
+      "slug": "esperto-esperta-in-ambito-anziani-e-cure-80-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "fachexperte-fachexpertin-alter-und-pflege-80-kanton-solothurn-solothurn",
-        "it": "fachexperte-fachexpertin-alter-e-pflege-80-kanton-solothurn",
-        "en": "fachexperte-fachexpertin-alter-und-pflege-80-kanton-solothurn-solothurn",
-        "fr": "fachexperte-fachexpertin-alter-und-pflege-80-kanton-solothurn-solothurn"
+        "it": "esperto-esperta-in-ambito-anziani-e-cure-80-kanton-solothurn-solothurn",
+        "en": "expert-age-and-care-80-kanton-solothurn-solothurn",
+        "fr": "age-et-soins-des-experts-80-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -2239,11 +2239,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachexperte-fachexpertin-alter-und-pflege-80-kanton-solothurn-solothurn",
+          "fachexperte-fachexpertin-alter-e-pflege-80-kanton-solothurn"
+        ],
+        "en": [
+          "fachexperte-fachexpertin-alter-und-pflege-80-kanton-solothurn-solothurn"
+        ],
+        "fr": [
           "fachexperte-fachexpertin-alter-und-pflege-80-kanton-solothurn-solothurn"
         ]
       },
       "previousSlugs": [
-        "fachexperte-fachexpertin-alter-und-pflege-80-kanton-solothurn-solothurn"
+        "fachexperte-fachexpertin-alter-und-pflege-80-kanton-solothurn-solothurn",
+        "fachexperte-fachexpertin-alter-e-pflege-80-kanton-solothurn"
       ],
       "salaryMin": 68000,
       "salaryMax": 95200,

@@ -604,12 +604,12 @@
     },
     {
       "id": "ottos-3879e83da7f2",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-sursee",
+      "slug": "addetto-a-alle-vendite-tessili-sport-otto-s-ag-sursee",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-sursee",
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-sursee",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-sursee",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-sursee"
+        "it": "addetto-a-alle-vendite-tessili-sport-otto-s-ag-sursee",
+        "en": "sales-associate-textiles-sports-otto-s-ag-sursee",
+        "fr": "collaborateur-rice-de-vente-textile-sport-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -661,11 +661,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-textil-sport-ottos-sursee"
+          "verkaufsmitarbeiter-in-textil-sport-ottos-sursee",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-sursee"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-sursee"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-sursee"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-textil-sport-ottos-sursee"
+        "verkaufsmitarbeiter-in-textil-sport-ottos-sursee",
+        "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-sursee"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -3855,9 +3863,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3908,17 +3916,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",

@@ -2507,8 +2507,8 @@
       "slugByLocale": {
         "de": "technischer-sachbearbeiter-nf-verkauf-innendienst-m-w-d-hess-bellach",
         "it": "technischer-sachbearbeiter-nf-vendita-servizio-interno-m-w-d-carrosserie-hess-ag-bellach",
-        "en": "technischer-sachbearbeiter-nf-verkauf-innendienst-m-w-d-hess-bellach",
-        "fr": "technischer-sachbearbeiter-nf-verkauf-innendienst-m-w-d-hess-bellach"
+        "en": "technical-administrator-nf-inside-sales-m-f-d-carrosserie-hess-ag-bellach",
+        "fr": "collaborateur-administratif-technique-vente-nf-service-interne-h-f-d-carrosserie-hess-ag-bellach"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
@@ -2558,6 +2558,12 @@
       "department": "Nutzfahrzeuge",
       "previousSlugsByLocale": {
         "it": [
+          "technischer-sachbearbeiter-nf-verkauf-innendienst-m-w-d-hess-bellach"
+        ],
+        "en": [
+          "technischer-sachbearbeiter-nf-verkauf-innendienst-m-w-d-hess-bellach"
+        ],
+        "fr": [
           "technischer-sachbearbeiter-nf-verkauf-innendienst-m-w-d-hess-bellach"
         ]
       },

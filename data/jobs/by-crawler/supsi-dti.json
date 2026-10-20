@@ -457,9 +457,9 @@
       },
       "slugByLocale": {
         "it": "stagista-52-settimane-supsi-dti-manno",
-        "en": "stagista-52-settimane-supsi-dti-manno",
-        "de": "stagista-52-settimane-supsi-dti-manno",
-        "fr": "stagista-52-settimane-supsi-dti-manno"
+        "en": "stagist-52-weeks-supsi-dti-manno",
+        "de": "stagist-52-wochen-supsi-dti-manno",
+        "fr": "stagiaire-52-semaines-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -502,23 +502,7 @@
       "postalCode": "6928",
       "addressLocality": "Manno",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "en": [
-          "stagist-52-weeks-supsi-dti-manno"
-        ],
-        "de": [
-          "stagist-52-wochen-supsi-dti-manno"
-        ],
-        "fr": [
-          "stagiaire-52-semaines-supsi-dti-manno"
-        ]
-      },
-      "previousSlugs": [
-        "stagist-52-weeks-supsi-dti-manno",
-        "stagist-52-wochen-supsi-dti-manno",
-        "stagiaire-52-semaines-supsi-dti-manno"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-l4u562",
@@ -573,9 +557,9 @@
       },
       "slugByLocale": {
         "it": "collaboratrice-scientifica-collaboratore-scientifico-nell-ambito-dell-automazione-e-della-robotica-collaborativa-applicate-a-sistemi-di-prod-l4u562",
-        "en": "collaboratrice-scientifica-collaboratore-scientifico-nell-ambito-dell-automazione-e-della-robotica-collaborativa-applicate-a-sistemi-di-prod-l4u562",
-        "de": "collaboratrice-scientifica-collaboratore-scientifico-nell-ambito-dell-automazione-e-della-robotica-collaborativa-applicate-a-sistemi-di-prod-l4u562",
-        "fr": "collaboratrice-scientifica-collaboratore-scientifico-nell-ambito-dell-automazione-e-della-robotica-collaborativa-applicate-a-sistemi-di-prod-l4u562"
+        "en": "scientific-collaborator-scientific-collaborator-in-the-field-of-automation-and-collaborative-robotics-applied-to-human",
+        "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-im-bereich-der-automatisierung-und-der-kollaborativen",
+        "fr": "collaboratrice-scientifique-collaborateur-scientifique-dans-le-domaine-de-l-automatisation-et-de-la-robotique"
       },
       "requirementsByLocale": {
         "it": [

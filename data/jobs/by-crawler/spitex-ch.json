@@ -1043,12 +1043,12 @@
     },
     {
       "id": "spitex-ch-78ab2da891f8",
-      "slug": "pflegefachperson-hf-m-w-d-wertvolle-unterstutzung-im-team-20-80-spitex-ch-wangen-b-olten",
+      "slug": "cura-professionale-hf-m-w-d-supporto-prezioso-nel-team-20-80-spitex-untergau-ag-wangen-b",
       "slugByLocale": {
         "de": "pflegefachperson-hf-m-w-d-wertvolle-unterstutzung-im-team-20-80-spitex-ch-wangen-b-olten",
-        "it": "pflegefachperson-hf-m-w-d-wertvolle-unterstutzung-im-team-20-80-spitex-ch-wangen-b-olten",
-        "en": "pflegefachperson-hf-m-w-d-wertvolle-unterstutzung-im-team-20-80-spitex-ch-wangen-b-olten",
-        "fr": "pflegefachperson-hf-m-w-d-wertvolle-unterstutzung-im-team-20-80-spitex-ch-wangen-b-olten"
+        "it": "cura-professionale-hf-m-w-d-supporto-prezioso-nel-team-20-80-spitex-untergau-ag-wangen-b",
+        "en": "care-professional-hf-m-w-d-valuable-support-in-the-team-20-80-spitex-untergau-ag-wangen-b",
+        "fr": "care-professionnel-hf-m-w-d-precieux-soutien-dans-l-equipe-20-80-spitex-untergau-ag-wangen-b"
       },
       "company": "Spitex Untergäu AG",
       "companyKey": "spitex-ch",
@@ -1107,7 +1107,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:19:26.738Z"
+      "firstSeenAt": "2026-10-20T09:19:26.738Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-m-w-d-wertvolle-unterstutzung-im-team-20-80-spitex-ch-wangen-b-olten"
+        ],
+        "en": [
+          "pflegefachperson-hf-m-w-d-wertvolle-unterstutzung-im-team-20-80-spitex-ch-wangen-b-olten"
+        ],
+        "fr": [
+          "pflegefachperson-hf-m-w-d-wertvolle-unterstutzung-im-team-20-80-spitex-ch-wangen-b-olten"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-m-w-d-wertvolle-unterstutzung-im-team-20-80-spitex-ch-wangen-b-olten"
+      ]
     },
     {
       "id": "spitex-ch-a2d0291dab8a",
@@ -1115,8 +1129,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-40-100-spitex-ch-bremgarten-ag",
         "it": "dipl-pflegefachperson-hf-40-100-spitex-ch-bremgarten-ag",
-        "en": "dipl-pflegefachperson-hf-40-100-spitex-ch-bremgarten-ag",
-        "fr": "dipl-pflegefachperson-hf-40-100-spitex-ch-bremgarten-ag"
+        "en": "dipl-care-professional-hf-40-100-spitex-mutschellen-reusstal-bremgarten-ag",
+        "fr": "dipl-professionnel-de-soins-hf-40-100-spitex-mutschellen-reusstal-bremgarten-ag"
       },
       "company": "Spitex Mutschellen-Reusstal",
       "companyKey": "spitex-ch",

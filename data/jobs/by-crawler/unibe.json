@@ -898,7 +898,7 @@
         "it": "responsabile-della-scienza-dei-dati-universitat-bern-bern",
         "en": "data-science-officer-unibe-bern",
         "de": "data-science-beauftragter-universitat-bern-bern",
-        "fr": "data-science-officer-universitat-bern"
+        "fr": "specialiste-des-sciences-des-donnees-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -946,7 +946,7 @@
       "previousSlugs": [
         "data-science-officer-unibe-bern",
         "data-science-officer-universitat-bern-bern",
-        "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+        "data-science-officer-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -957,7 +957,7 @@
         ],
         "fr": [
           "data-science-officer-universitat-bern-bern",
-          "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+          "data-science-officer-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-09-24T00:02:05.731Z",
@@ -1303,9 +1303,9 @@
     },
     {
       "id": "unibe-8d3e9e6a7b54",
-      "slug": "it-systemadministrator-in-universitat-bern",
+      "slug": "amministratore-trice-di-sistema-it-universitat-bern-bern",
       "slugByLocale": {
-        "it": "it-systemadministrator-in-universitat-bern",
+        "it": "amministratore-trice-di-sistema-it-universitat-bern-bern",
         "en": "it-system-administrator-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
         "fr": "administrateur-systeme-informatique-universitat-bern-bern"
@@ -1355,13 +1355,13 @@
       "previousSlugs": [
         "it-systemadministrator-in-unibe-bern",
         "it-systemadministrator-in-universitat-bern-bern",
-        "amministratore-trice-di-sistema-it-universitat-bern-bern"
+        "it-systemadministrator-in-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-systemadministrator-in-unibe-bern",
           "it-systemadministrator-in-universitat-bern-bern",
-          "amministratore-trice-di-sistema-it-universitat-bern-bern"
+          "it-systemadministrator-in-universitat-bern"
         ],
         "en": [
           "it-systemadministrator-in-universitat-bern-bern"
@@ -3894,12 +3894,12 @@
     },
     {
       "id": "unibe-68a30d45ea7f",
-      "slug": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
+      "slug": "cattedra-di-medicina-d-urgenza-livello-aperto-direttore-e-primario-del-dipartimento-di-medicina-d-urgenza-universitat",
       "slugByLocale": {
         "en": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
-        "it": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
-        "de": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
-        "fr": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the"
+        "it": "cattedra-di-medicina-d-urgenza-livello-aperto-direttore-e-primario-del-dipartimento-di-medicina-d-urgenza-universitat",
+        "de": "professur-fur-notfallmedizin-alle-besoldungsgruppen-direktor-und-chefarzt-der-abteilung-fur-notfallmedizin-universitat",
+        "fr": "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3958,16 +3958,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:31:08.059Z"
+      "firstSeenAt": "2026-10-20T09:31:08.059Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the"
+        ],
+        "de": [
+          "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the"
+        ],
+        "fr": [
+          "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the"
+        ]
+      },
+      "previousSlugs": [
+        "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the"
+      ]
     },
     {
       "id": "unibe-f076c39b3f9c",
-      "slug": "professur-per-notfallmedizin-open-rank-direktor-in-e-chefarzt-in-der-universitatsklinik-per-notfallmedizin-universitat-bern",
+      "slug": "cattedra-di-medicina-d-urgenza-open-rank-direttore-trice-e-medico-a-primario-a-della-clinica-universitaria-di-medicina-d",
       "slugByLocale": {
         "de": "professur-fur-notfallmedizin-open-rank-direktor-in-und-chefarzt-in-der-universitatsklinik",
-        "it": "professur-per-notfallmedizin-open-rank-direktor-in-e-chefarzt-in-der-universitatsklinik-per-notfallmedizin-universitat-bern",
-        "en": "professur-fur-notfallmedizin-open-rank-direktor-in-und-chefarzt-in-der-universitatsklinik",
-        "fr": "professur-fur-notfallmedizin-open-rank-direktor-in-und-chefarzt-in-der-universitatsklinik"
+        "it": "cattedra-di-medicina-d-urgenza-open-rank-direttore-trice-e-medico-a-primario-a-della-clinica-universitaria-di-medicina-d",
+        "en": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-university-clinic-for-emergency",
+        "fr": "professeur-e-de-medecine-d-urgence-open-rank-directeur-rice-et-medecin-chef-fe-de-la-clinique-universitaire-de-medecine"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4015,11 +4029,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "professur-fur-notfallmedizin-open-rank-direktor-in-und-chefarzt-in-der-universitatsklinik",
+          "professur-per-notfallmedizin-open-rank-direktor-in-e-chefarzt-in-der-universitatsklinik-per-notfallmedizin-universitat-bern"
+        ],
+        "en": [
+          "professur-fur-notfallmedizin-open-rank-direktor-in-und-chefarzt-in-der-universitatsklinik"
+        ],
+        "fr": [
           "professur-fur-notfallmedizin-open-rank-direktor-in-und-chefarzt-in-der-universitatsklinik"
         ]
       },
       "previousSlugs": [
-        "professur-fur-notfallmedizin-open-rank-direktor-in-und-chefarzt-in-der-universitatsklinik"
+        "professur-fur-notfallmedizin-open-rank-direktor-in-und-chefarzt-in-der-universitatsklinik",
+        "professur-per-notfallmedizin-open-rank-direktor-in-e-chefarzt-in-der-universitatsklinik-per-notfallmedizin-universitat-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

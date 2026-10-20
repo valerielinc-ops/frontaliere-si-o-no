@@ -569,8 +569,8 @@
       "id": "hoch-health-db42bf4ee31c",
       "slug": "controller-dei-risultati-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "controller-dei-risultati-100-hoch-health-ostschweiz-st-gallen",
-        "en": "results-controller-100-hoch-health-ostschweiz-st-gallen",
+        "it": "ergebnis-controller-in-100-kssg-ch",
+        "en": "ergebnis-controller-in-100-kssg-ch",
         "de": "ergebnis-controller-in-100-hoch-health-st-gallen",
         "fr": "ergebnis-controller-in-100-kssg-ch"
       },
@@ -617,15 +617,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergebnis-controller-in-100-hoch-health-st-gallen",
-        "ergebnis-controller-in-100-kssg-ch"
+        "results-controller-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergebnis-controller-in-100-hoch-health-st-gallen",
-          "ergebnis-controller-in-100-kssg-ch"
+          "ergebnis-controller-in-100-hoch-health-st-gallen"
         ],
         "en": [
-          "ergebnis-controller-in-100-kssg-ch"
+          "results-controller-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-08-24T22:09:28.890Z",
@@ -3483,9 +3482,9 @@
       "slug": "persona-responsabile-60-80-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "it": "persona-responsabile-60-80-hoch-health-ostschweiz-grabs",
-        "en": "employee-60-80-hoch-health-ostschweiz-grabs",
+        "en": "person-in-charge-60-80-hoch-health-ostschweiz-grabs",
         "de": "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
-        "fr": "employe-60-80-hoch-health-ostschweiz-grabs"
+        "fr": "responsable-60-80-hoch-health-ostschweiz-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -3531,18 +3530,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
-        "person-in-charge-60-80-hoch-health-ostschweiz-grabs",
-        "responsable-60-80-hoch-health-ostschweiz-grabs"
+        "employee-60-80-hoch-health-ostschweiz-grabs",
+        "employe-60-80-hoch-health-ostschweiz-grabs"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs"
         ],
         "en": [
-          "person-in-charge-60-80-hoch-health-ostschweiz-grabs"
+          "employee-60-80-hoch-health-ostschweiz-grabs"
         ],
         "fr": [
-          "responsable-60-80-hoch-health-ostschweiz-grabs"
+          "employe-60-80-hoch-health-ostschweiz-grabs"
         ]
       },
       "firstSeenAt": "2026-09-01T14:25:30.059Z",
@@ -5176,7 +5175,7 @@
         "it": "tirocinio-professionale-scuola-media-professionale-infermieristica-sss-hoch-health-ostschweiz-uznach",
         "en": "professional-internship-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach",
         "de": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "fr": "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
+        "fr": "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -5228,7 +5227,7 @@
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-st-gallen-2",
         "stage-professionale-per-scuola-professionale-assistenza-hf-hoch-health-ostschweiz-st-gallen",
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+        "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5236,7 +5235,7 @@
           "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach"
         ],
         "fr": [
-          "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+          "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
         ]
       },
       "firstSeenAt": "2026-05-19T22:28:24.584Z",
@@ -7884,7 +7883,7 @@
       "slug": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
-        "en": "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen",
+        "en": "professional-health-40-80-hoch-health-ostschweiz-st-gallen",
         "de": "fachfrau-mann-gesundheit-40-80-hoch-health-st-gallen",
         "fr": "sante-professionnelle-40-80-hoch-health-ostschweiz-st-gallen"
       },
@@ -7933,7 +7932,7 @@
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
         "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen",
-        "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
+        "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7941,7 +7940,7 @@
         ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
-          "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
+          "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen"
@@ -15342,7 +15341,7 @@
       "slug": "psychologin-psychologe-per-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "psychologin-psychologe-per-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen",
-        "en": "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen",
+        "en": "psychologist-psychologist-60-80-hoch-health-ostschweiz-st-gallen",
         "de": "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen",
         "fr": "psychologue-psychologue-60-80-hoch-health-ostschweiz-st-gallen"
       },
@@ -15391,7 +15390,7 @@
       "previousSlugs": [
         "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen",
         "psychologist-for-psychotherapy-60-80-hoch-health-ostschweiz-st-gallen",
-        "psychologist-psychologist-60-80-hoch-health-ostschweiz-st-gallen"
+        "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15400,7 +15399,7 @@
         "en": [
           "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen",
           "psychologist-for-psychotherapy-60-80-hoch-health-ostschweiz-st-gallen",
-          "psychologist-psychologist-60-80-hoch-health-ostschweiz-st-gallen"
+          "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
           "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen"
@@ -15675,9 +15674,9 @@
     },
     {
       "id": "hoch-health-13f6ae072591",
-      "slug": "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil",
+      "slug": "infermiera-diplomata-infermiere-diplomato-40-60-hoch-health-ostschweiz-wil",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil",
+        "it": "infermiera-diplomata-infermiere-diplomato-40-60-hoch-health-ostschweiz-wil",
         "en": "diploma-qualified-nurse-40-60-hoch-health-ostschweiz-wil",
         "de": "dipl-pflegefachfrau-mann-40-60-hoch-health-wil",
         "fr": "infirmier-ere-diplome-e-40-60-hoch-health-ostschweiz-wil"
@@ -15725,12 +15724,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-40-60-hoch-health-wil",
-        "infermiera-diplomata-infermiere-diplomato-40-60-hoch-health-ostschweiz-wil"
+        "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-40-60-hoch-health-wil",
-          "infermiera-diplomata-infermiere-diplomato-40-60-hoch-health-ostschweiz-wil"
+          "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-40-60-hoch-health-wil"
@@ -18112,12 +18111,12 @@
     },
     {
       "id": "hoch-health-af413a8d3a9f",
-      "slug": "dipl-fachfrau-mann-operationstechnik-40-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "tecnico-a-diplomato-a-di-sala-operatoria-40-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "dipl-fachfrau-mann-operationstechnik-40-100-hoch-health-st-gallen",
-        "it": "dipl-fachfrau-mann-operationstechnik-40-100-hoch-health-ostschweiz-st-gallen",
-        "en": "dipl-fachfrau-mann-operationstechnik-40-100-hoch-health-st-gallen",
-        "fr": "dipl-fachfrau-mann-operationstechnik-40-100-hoch-health-st-gallen"
+        "it": "tecnico-a-diplomato-a-di-sala-operatoria-40-100-hoch-health-ostschweiz-st-gallen",
+        "en": "dipl-operating-room-technician-40-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "technicien-ne-diplome-e-en-salle-d-operation-40-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18164,11 +18163,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-fachfrau-mann-operationstechnik-40-100-hoch-health-st-gallen",
+          "dipl-fachfrau-mann-operationstechnik-40-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "en": [
+          "dipl-fachfrau-mann-operationstechnik-40-100-hoch-health-st-gallen"
+        ],
+        "fr": [
           "dipl-fachfrau-mann-operationstechnik-40-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-40-100-hoch-health-st-gallen"
+        "dipl-fachfrau-mann-operationstechnik-40-100-hoch-health-st-gallen",
+        "dipl-fachfrau-mann-operationstechnik-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,

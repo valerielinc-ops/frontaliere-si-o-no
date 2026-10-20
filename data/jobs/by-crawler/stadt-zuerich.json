@@ -1018,12 +1018,12 @@
     },
     {
       "id": "stadt-zuerich-0f8dd9c140f6",
-      "slug": "hortleiter-in-stadt-zuerich-zurigo-51661",
+      "slug": "responsabile-del-doposcuola-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "hortleiter-in-stadt-zuerich-zurigo-51661",
-        "it": "hortleiter-in-stadt-zuerich-zurigo-51661",
-        "en": "hortleiter-in-stadt-zuerich-zurigo-51661",
-        "fr": "hortleiter-in-stadt-zuerich-zurigo-51661"
+        "it": "responsabile-del-doposcuola-stadt-zurich-zurich",
+        "en": "after-school-care-manager-stadt-zurich-zurich",
+        "fr": "responsable-de-garderie-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -1085,7 +1085,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.898Z"
+      "firstSeenAt": "2026-09-19T23:10:09.898Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hortleiter-in-stadt-zuerich-zurigo-51661"
+        ],
+        "en": [
+          "hortleiter-in-stadt-zuerich-zurigo-51661"
+        ],
+        "fr": [
+          "hortleiter-in-stadt-zuerich-zurigo-51661"
+        ]
+      },
+      "previousSlugs": [
+        "hortleiter-in-stadt-zuerich-zurigo-51661"
+      ]
     },
     {
       "id": "stadt-zuerich-59ecf5e0907a",
@@ -1251,8 +1265,8 @@
       "slugByLocale": {
         "de": "automatikmonteur-in-stadt-zuerich-zurigo-5465",
         "it": "assemblaggio-automatico-stadt-zurich-zurich",
-        "en": "automatikmonteur-in-stadt-zurich",
-        "fr": "automatikmonteur-in-stadt-zurich"
+        "en": "automatic-assembler-stadt-zurich-zurich",
+        "fr": "monteur-automatique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -1306,16 +1320,15 @@
           "automatikmonteur-in-stadt-zuerich-zurigo-5465"
         ],
         "en": [
-          "automatic-assembler-stadt-zurich-zurich"
+          "automatikmonteur-in-stadt-zurich"
         ],
         "fr": [
-          "monteur-automatique-stadt-zurich-zurich"
+          "automatikmonteur-in-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "automatikmonteur-in-stadt-zuerich-zurigo-5465",
-        "automatic-assembler-stadt-zurich-zurich",
-        "monteur-automatique-stadt-zurich-zurich"
+        "automatikmonteur-in-stadt-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1338,8 +1351,8 @@
       "slugByLocale": {
         "de": "elektromechaniker-in-stadt-zuerich-zurigo-5800",
         "it": "elettromeccanica-stadt-zurich-zurich",
-        "en": "elektromechaniker-in-stadt-zurich",
-        "fr": "elektromechaniker-in-stadt-zurich"
+        "en": "electromechanic-stadt-zurich-zurich",
+        "fr": "electromecanique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -1393,16 +1406,15 @@
           "elektromechaniker-in-stadt-zuerich-zurigo-5800"
         ],
         "en": [
-          "electromechanic-stadt-zurich-zurich"
+          "elektromechaniker-in-stadt-zurich"
         ],
         "fr": [
-          "electromecanique-stadt-zurich-zurich"
+          "elektromechaniker-in-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "elektromechaniker-in-stadt-zuerich-zurigo-5800",
-        "electromechanic-stadt-zurich-zurich",
-        "electromecanique-stadt-zurich-zurich"
+        "elektromechaniker-in-stadt-zurich"
       ],
       "salaryMin": 99000,
       "salaryMax": 151500,
@@ -1425,8 +1437,8 @@
       "slugByLocale": {
         "de": "automatiker-in-stadt-zuerich-zurigo-5782",
         "it": "automatico-stadt-zurich-zurich",
-        "en": "automatiker-in-stadt-zurich",
-        "fr": "automatiker-in-stadt-zurich"
+        "en": "automatics-stadt-zurich-zurich",
+        "fr": "automatique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -1480,16 +1492,15 @@
           "automatiker-in-stadt-zuerich-zurigo-5782"
         ],
         "en": [
-          "automatics-stadt-zurich-zurich"
+          "automatiker-in-stadt-zurich"
         ],
         "fr": [
-          "automatique-stadt-zurich-zurich"
+          "automatiker-in-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "automatiker-in-stadt-zuerich-zurigo-5782",
-        "automatics-stadt-zurich-zurich",
-        "automatique-stadt-zurich-zurich"
+        "automatiker-in-stadt-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2349,7 +2360,7 @@
       "id": "stadt-zuerich-7b6cd3f09bf0",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
         "en": "apprenticeship-2027-logistician-logistician-efz-lager-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
         "fr": "apprentissage-2027-logisticien-logisticien-efz-lager-stadt-zurich-zurich"
@@ -6414,7 +6425,7 @@
       "id": "stadt-zuerich-04358cd59fd3",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
         "en": "apprenticeship-2027-logistics-specialist-efz-warehouse-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich",
         "fr": "place-d-apprentissage-2027-logisticienne-logisticien-cfc-stockage-stadt-zurich-zurich"
@@ -7558,7 +7569,7 @@
       "id": "stadt-zuerich-424168fc48ff",
       "slug": "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
       "slugByLocale": {
-        "it": "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-15ad59",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-15ad59"
@@ -7643,7 +7654,7 @@
       "id": "stadt-zuerich-bf97b1cf4fd8",
       "slug": "operatore-trice-socioassistenziale-per-l-infanzia-afc-stadt-zurich-zurich-4ae60937c1",
       "slugByLocale": {
-        "it": "operatore-trice-socioassistenziale-per-l-infanzia-afc-stadt-zurich-zurich-4ae60937c1",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-c7fa8a",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-c7fa8a"
@@ -7695,14 +7706,12 @@
       "referenceNumber": "51123",
       "previousSlugs": [
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84"
         ]
       },
       "needsRetranslation": true,
@@ -7725,7 +7734,7 @@
       "id": "stadt-zuerich-7fbfffba9e11",
       "slug": "operatore-trice-socioassistenziale-per-l-infanzia-afc-stadt-zurich-zurich-872f94b038",
       "slugByLocale": {
-        "it": "operatore-trice-socioassistenziale-per-l-infanzia-afc-stadt-zurich-zurich-872f94b038",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-f06c10",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-f06c10"
@@ -7777,14 +7786,12 @@
       "referenceNumber": "51137",
       "previousSlugs": [
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
         ]
       },
       "needsRetranslation": true,
@@ -9624,9 +9631,9 @@
       "slug": "potenza-di-rimozione-e-pulizia-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "potenza-di-rimozione-e-pulizia-stadt-zurich-zurich",
-        "en": "relief-worker-and-cleaner-stadt-zurich",
+        "en": "removal-and-cleaning-power-stadt-zurich-zurich",
         "de": "abloser-in-und-reinigungskraft-stadt-zuerich-zurigo-51435",
-        "fr": "remplacant-e-et-agent-e-d-entretien-stadt-zurich"
+        "fr": "puissance-d-enlevement-et-de-nettoyage-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -9679,8 +9686,8 @@
         "abloser-in-e-reinigungskraft-stadt-zurich",
         "detachment-and-cleaner-stadt-zurich",
         "abloser-in-und-reinigungskraft-stadt-zurich",
-        "removal-and-cleaning-power-stadt-zurich-zurich",
-        "puissance-d-enlevement-et-de-nettoyage-stadt-zurich-zurich"
+        "relief-worker-and-cleaner-stadt-zurich",
+        "remplacant-e-et-agent-e-d-entretien-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9691,11 +9698,11 @@
         ],
         "en": [
           "abloser-in-und-reinigungskraft-stadt-zurich",
-          "removal-and-cleaning-power-stadt-zurich-zurich"
+          "relief-worker-and-cleaner-stadt-zurich"
         ],
         "fr": [
           "abloser-in-und-reinigungskraft-stadt-zurich",
-          "puissance-d-enlevement-et-de-nettoyage-stadt-zurich-zurich"
+          "remplacant-e-et-agent-e-d-entretien-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-09-01T14:26:21.615Z",
@@ -12510,7 +12517,7 @@
       "id": "stadt-zuerich-18d96bb91c32",
       "slug": "formatore-formatrice-per-corsi-zl-applicativo-interno-stadt-zurich",
       "slugByLocale": {
-        "it": "formatore-formatrice-per-corsi-zl-applicativo-interno-stadt-zurich",
+        "it": "formazione-per-istruttore-zl-in-propria-applicazione-stadt-zurich-zurich",
         "en": "instructor-zl-training-in-own-application-stadt-zurich-zurich",
         "de": "ausbilder-in-zl-schulungen-in-eigener-applikation-stadt-zuerich-zurigo-51852",
         "fr": "formation-d-instructeur-zl-dans-la-propre-application-stadt-zurich-zurich"
@@ -12563,15 +12570,13 @@
       "previousSlugs": [
         "ausbilder-in-applikationsschulung-stadt-zuerich-zurigo-51852",
         "ausbilder-in-applikationsschulung-stadt-zurich-zurich",
-        "ausbilder-in-zl-schulungen-in-eigener-applikation-stadt-zuerich-zurigo-51852",
-        "formazione-per-istruttore-zl-in-propria-applicazione-stadt-zurich-zurich"
+        "ausbilder-in-zl-schulungen-in-eigener-applikation-stadt-zuerich-zurigo-51852"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ausbilder-in-applikationsschulung-stadt-zuerich-zurigo-51852",
           "ausbilder-in-applikationsschulung-stadt-zurich-zurich",
-          "ausbilder-in-zl-schulungen-in-eigener-applikation-stadt-zuerich-zurigo-51852",
-          "formazione-per-istruttore-zl-in-propria-applicazione-stadt-zurich-zurich"
+          "ausbilder-in-zl-schulungen-in-eigener-applikation-stadt-zuerich-zurigo-51852"
         ],
         "en": [
           "ausbilder-in-applikationsschulung-stadt-zurich-zurich",
@@ -16438,7 +16443,7 @@
         "it": "trampilota-stadt-zurich-zurich",
         "en": "trampilot-stadt-zurich-zurich",
         "de": "trampilot-in-stadt-zuerich-zurigo-48193",
-        "fr": "trampilot-in-stadt-zurich"
+        "fr": "pilote-tram-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -16488,7 +16493,7 @@
       "previousSlugs": [
         "trampilot-in-stadt-zuerich-zurigo-48193",
         "trampilot-in-stadt-zurich-zurich",
-        "pilote-tram-stadt-zurich-zurich"
+        "trampilot-in-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16496,7 +16501,7 @@
           "trampilot-in-stadt-zurich-zurich"
         ],
         "fr": [
-          "pilote-tram-stadt-zurich-zurich"
+          "trampilot-in-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-09-01T16:12:36.172Z",
@@ -17028,7 +17033,7 @@
         "it": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich",
         "en": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich",
         "de": "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803",
-        "fr": "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
+        "fr": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -17077,14 +17082,14 @@
       "referenceNumber": "51803",
       "previousSlugs": [
         "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803",
-        "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
+        "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803"
         ],
         "fr": [
-          "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
+          "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-05T21:59:00.870Z",
@@ -18589,12 +18594,12 @@
     },
     {
       "id": "stadt-zuerich-2921e377c03a",
-      "slug": "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zurich-zurich",
+      "slug": "addetto-a-alle-pulizie-per-la-scuola-allmend-a-tempo-determinato-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zuerich-zurigo-51916",
-        "it": "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zurich-zurich",
-        "en": "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zurich-zurich",
-        "fr": "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zurich-zurich"
+        "it": "addetto-a-alle-pulizie-per-la-scuola-allmend-a-tempo-determinato-stadt-zurich-zurich",
+        "en": "cleaning-employee-fixed-term-allmend-school-stadt-zurich-zurich",
+        "fr": "employe-e-de-nettoyage-pour-l-ecole-allmend-poste-a-duree-determinee-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -18645,11 +18650,19 @@
       "referenceNumber": "51916",
       "previousSlugsByLocale": {
         "it": [
-          "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zuerich-zurigo-51916"
+          "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zuerich-zurigo-51916",
+          "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zurich-zurich"
+        ],
+        "en": [
+          "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zuerich-zurigo-51916"
+        "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zuerich-zurigo-51916",
+        "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -18857,10 +18870,10 @@
       "id": "stadt-zuerich-a8ec3b1d4c21",
       "slug": "tirocinante-presso-la-giardineria-comunale-stadt-zurich",
       "slugByLocale": {
-        "it": "tirocinante-presso-la-giardineria-comunale-stadt-zurich",
-        "en": "municipal-horticulture-intern-stadt-zurich",
+        "it": "allenamento-in-giardino-urbano-stadt-zurich-zurich",
+        "en": "trainee-in-urban-gardening-stadt-zurich-zurich",
         "de": "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261",
-        "fr": "stagiaire-en-horticulture-urbaine-stadt-zurich"
+        "fr": "stage-en-jardinage-urbain-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -18910,21 +18923,19 @@
       "previousSlugs": [
         "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261",
         "praktikant-in-stadtgartnerei-stadt-zurich",
-        "allenamento-in-giardino-urbano-stadt-zurich-zurich",
-        "trainee-in-urban-gardening-stadt-zurich-zurich",
-        "stage-en-jardinage-urbain-stadt-zurich-zurich"
+        "municipal-horticulture-intern-stadt-zurich",
+        "stagiaire-en-horticulture-urbaine-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261",
-          "praktikant-in-stadtgartnerei-stadt-zurich",
-          "allenamento-in-giardino-urbano-stadt-zurich-zurich"
+          "praktikant-in-stadtgartnerei-stadt-zurich"
         ],
         "en": [
-          "trainee-in-urban-gardening-stadt-zurich-zurich"
+          "municipal-horticulture-intern-stadt-zurich"
         ],
         "fr": [
-          "stage-en-jardinage-urbain-stadt-zurich-zurich"
+          "stagiaire-en-horticulture-urbaine-stadt-zurich"
         ]
       },
       "salaryMin": 57500,
@@ -22685,7 +22696,7 @@
       "slug": "kontraktmanager-in-con-schwerpunkt-flucht-e-migration-stadt-zurich",
       "slugByLocale": {
         "it": "kontraktmanager-in-con-schwerpunkt-flucht-e-migration-stadt-zurich",
-        "en": "contract-manager-with-a-focus-on-displacement-and-migration-stadt-zurich-zurich",
+        "en": "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zurich-zurich",
         "de": "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zuerich-zurigo-51879",
         "fr": "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zurich-zurich"
       },
@@ -22736,14 +22747,14 @@
       "referenceNumber": "51879",
       "previousSlugs": [
         "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zuerich-zurigo-51879",
-        "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zurich-zurich"
+        "contract-manager-with-a-focus-on-displacement-and-migration-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zuerich-zurigo-51879"
         ],
         "en": [
-          "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zurich-zurich"
+          "contract-manager-with-a-focus-on-displacement-and-migration-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -27555,7 +27566,7 @@
       "slug": "praticante-universitario-a-in-informatica-12-mesi-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "praticante-universitario-a-in-informatica-12-mesi-stadt-zurich-zurich",
-        "en": "hochschulpraktikant-in-informatik-12-monate-stadt-zurich",
+        "en": "university-intern-computer-science-12-months-stadt-zurich-zurich",
         "de": "hochschulpraktikant-in-informatik-12-monate-stadt-zuerich-zurigo-51997",
         "fr": "stagiaire-universitaire-en-informatique-12-mois-stadt-zurich-zurich"
       },
@@ -27607,7 +27618,7 @@
       "previousSlugs": [
         "hochschulpraktikant-in-informatik-12-monate-stadt-zuerich-zurigo-51997",
         "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich",
-        "university-intern-computer-science-12-months-stadt-zurich-zurich"
+        "hochschulpraktikant-in-informatik-12-monate-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -27616,7 +27627,7 @@
         ],
         "en": [
           "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich",
-          "university-intern-computer-science-12-months-stadt-zurich-zurich"
+          "hochschulpraktikant-in-informatik-12-monate-stadt-zurich"
         ],
         "fr": [
           "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich"
@@ -33462,12 +33473,12 @@
     },
     {
       "id": "stadt-zuerich-0deeed989ed2",
-      "slug": "hochschulpraktikant-in-scrum-master-stadt-zurich-zurich",
+      "slug": "tirocinante-universitario-a-scrum-master-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "hochschulpraktikant-in-scrum-master-stadt-zuerich-zurigo-51998",
-        "it": "hochschulpraktikant-in-scrum-master-stadt-zurich-zurich",
-        "en": "hochschulpraktikant-in-scrum-master-stadt-zurich-zurich",
-        "fr": "hochschulpraktikant-in-scrum-master-stadt-zurich-zurich"
+        "it": "tirocinante-universitario-a-scrum-master-stadt-zurich-zurich",
+        "en": "university-intern-scrum-master-stadt-zurich-zurich",
+        "fr": "stagiaire-universitaire-scrum-master-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -33518,11 +33529,19 @@
       "referenceNumber": "51998",
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikant-in-scrum-master-stadt-zuerich-zurigo-51998"
+          "hochschulpraktikant-in-scrum-master-stadt-zuerich-zurigo-51998",
+          "hochschulpraktikant-in-scrum-master-stadt-zurich-zurich"
+        ],
+        "en": [
+          "hochschulpraktikant-in-scrum-master-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-scrum-master-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikant-in-scrum-master-stadt-zuerich-zurigo-51998"
+        "hochschulpraktikant-in-scrum-master-stadt-zuerich-zurigo-51998",
+        "hochschulpraktikant-in-scrum-master-stadt-zurich-zurich"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -33541,12 +33560,12 @@
     },
     {
       "id": "stadt-zuerich-e6ecc02b43f9",
-      "slug": "fachspezialist-in-schalten-stadt-zuerich-zurigo-52009",
+      "slug": "specialista-tecnico-a-in-commutazione-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachspezialist-in-schalten-stadt-zuerich-zurigo-52009",
-        "it": "fachspezialist-in-schalten-stadt-zuerich-zurigo-52009",
-        "en": "fachspezialist-in-schalten-stadt-zuerich-zurigo-52009",
-        "fr": "fachspezialist-in-schalten-stadt-zuerich-zurigo-52009"
+        "it": "specialista-tecnico-a-in-commutazione-stadt-zurich-zurich",
+        "en": "switching-specialist-stadt-zurich-zurich",
+        "fr": "specialiste-en-commutation-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -33608,7 +33627,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:44:27.682Z"
+      "firstSeenAt": "2026-10-20T09:44:27.682Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-schalten-stadt-zuerich-zurigo-52009"
+        ],
+        "en": [
+          "fachspezialist-in-schalten-stadt-zuerich-zurigo-52009"
+        ],
+        "fr": [
+          "fachspezialist-in-schalten-stadt-zuerich-zurigo-52009"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-schalten-stadt-zuerich-zurigo-52009"
+      ]
     },
     {
       "id": "stadt-zuerich-682f929dfdaf",
