@@ -2,7 +2,7 @@
   "schema": 1,
   "cdnPrefix": "/images/blog/",
   "assetCount": 701,
-  "generatedAt": "2026-10-20T12:50:38.596Z",
+  "generatedAt": "2026-10-20T13:46:37.082Z",
   "assets": [
     {
       "schema": 1,
@@ -29823,49 +29823,6 @@
     },
     {
       "schema": 1,
-      "assetId": "article-murales-pediatria-ksb-baden",
-      "kind": "generated",
-      "provider": "openai-codex",
-      "model": "gpt-image-2.5",
-      "executorModel": "gpt-5.6-luna",
-      "promptVersion": "frontaliereticino.generated-image-policy.v1",
-      "promptHash": "1276c03d44904c575d398c5277800b6baf3c7478e07acc470c050e7a42ec1a6b",
-      "license": "generated-provider",
-      "licenseUrl": "https://openai.com/policies/terms-of-use/",
-      "credit": "frontaliereticino.ch",
-      "sha256": "8157afec02039b08575562c77b457fb2a033a628795f9a8f66f0f18c40b8cc95",
-      "bytes": 130672,
-      "width": 1200,
-      "height": 675,
-      "format": "webp",
-      "generatedAt": "2026-10-20T12:20:43.053Z",
-      "verifiedAt": "2026-10-20T12:20:50.362Z",
-      "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
-      ],
-      "scope": "article-hero",
-      "imageUrl": "/images/blog/article-murales-pediatria-ksb-baden.webp",
-      "area": "Swiss border region",
-      "season": "all seasons",
-      "variant": "article hero",
-      "vision": {
-        "ok": true,
-        "contains_text": false,
-        "contains_logo": false,
-        "contains_recognizable_face": false,
-        "contains_recognizable_foreground_person": false,
-        "looks_like_specific_real_event": false,
-        "is_photograph": false,
-        "is_topic_relevant": true,
-        "notes": "Original generic synthetic hospital interior illustration with forest-animal murals; no people, text, logos, or signage visible."
-      }
-    },
-    {
-      "schema": 1,
       "assetId": "article-sezione-medicina-nucleare",
       "kind": "generated",
       "provider": "openai-codex",
@@ -29905,6 +29862,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic photorealistic illustration of a nuclear-medicine imaging corridor; no readable text, logos, or identifiable people."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-murales-pediatria-ksb-baden",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "1276c03d44904c575d398c5277800b6baf3c7478e07acc470c050e7a42ec1a6b",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "8157afec02039b08575562c77b457fb2a033a628795f9a8f66f0f18c40b8cc95",
+      "bytes": 130672,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-20T12:20:43.053Z",
+      "verifiedAt": "2026-10-20T12:20:50.362Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-murales-pediatria-ksb-baden.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic hospital interior illustration with forest-animal murals; no people, text, logos, or signage visible."
       }
     }
   ]
