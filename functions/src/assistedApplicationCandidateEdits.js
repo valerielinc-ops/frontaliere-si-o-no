@@ -72,7 +72,10 @@ function answerValueKey(value) {
 
 function answerFitsQuestion(value, question) {
   const options = optionValues(question);
-  return !options.length || options.includes(normalizeQuestionValue(value));
+  if (!options.length) return true;
+  const values = Array.isArray(value) ? value : [value];
+  const normalized = values.map(normalizeQuestionValue).filter(Boolean);
+  return normalized.length > 0 && normalized.every((answer) => options.includes(answer));
 }
 
 /** Stable fact key for an answer, independent of a model or ATS field id. */
