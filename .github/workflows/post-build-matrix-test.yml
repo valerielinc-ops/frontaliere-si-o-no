@@ -29,6 +29,11 @@ on:
         required: false
         type: boolean
         default: false
+      checkout_measurement:
+        description: 'Measurement-only: compare the full and issue-fix sparse checkout populations on this ref.'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -51,6 +56,7 @@ env:
 
 jobs:
   build:
+    if: ${{ inputs.checkout_measurement != true }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -120,7 +126,7 @@ jobs:
 
   shards:
     needs: build
-    if: github.event.inputs.build_only != 'true'
+    if: ${{ inputs.checkout_measurement != true && github.event.inputs.build_only != 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     strategy:
@@ -284,7 +290,7 @@ jobs:
   aggregate:
     needs: [build, shards]
     runs-on: ubuntu-latest
-    if: always() && github.event.inputs.build_only != 'true'
+    if: ${{ always() && inputs.checkout_measurement != true && github.event.inputs.build_only != 'true' }}
     steps:
       - uses: actions/download-artifact@v8
         with:
@@ -328,3 +334,68 @@ jobs:
               | sort -k2 -gr || true
             echo '```'
           } | tee -a "$GITHUB_STEP_SUMMARY"
+
+  # Diagnostic-only benchmark for checkout profiles. Both actions/checkout
+  # invocations use the same ref, history depth, and blob filter; only the
+  # working-tree population differs. Keeping this manual avoids adding a full
+  # checkout to every normal post-build run while making the issue-fix claim
+  # reproducible on the exact PR HEAD under review.
+  checkout_measurement:
+    if: ${{ inputs.checkout_measurement == true }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Full checkout baseline
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+          filter: blob:none
+          path: checkout-full
+
+      - name: Issue-fix sparse checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+          filter: blob:none
+          path: checkout-sparse
+          sparse-checkout: |
+            /.github/
+            /.codex/
+            /.claude/
+            /build-plugins/
+            /components/
+            /docs/
+            /functions/
+            /hooks/
+            /infra/
+            /packages/
+            /scripts/
+            /server/
+            /services/
+            /tests/
+            /.*
+            /*.cjs
+            /*.css
+            /*.csv
+            /*.html
+            /*.js
+            /*.json
+            /*.lock
+            /*.mjs
+            /*.md
+            /*.scss
+            /*.ts
+            /*.tsx
+            /*.txt
+            /*.yaml
+            /*.yml
+            /data/canton-municipalities.json
+            /data/swiss-canton-salary-index.json
+            /data/swiss-locality-postal-codes.json
+            /data/swiss-postal-code-index.json
+          sparse-checkout-cone-mode: false
+
+      - name: Measure same-HEAD checkout populations
+        run: node checkout-full/scripts/ci/measure-checkout-profile.mjs checkout-full checkout-sparse
