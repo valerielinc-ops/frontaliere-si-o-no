@@ -192,7 +192,7 @@ describe('generateFuelItalianCityPages() — content quality', () => {
       municipalities: [{
         municipality: 'Livigno',
         province: 'SO',
-        italy: { stations: [{ id: 'livigno-1', stationName: 'Livigno Sample', brand: 'Test', address: 'Via Rasia 1, 23041 Livigno', priceEur: 1.206, isSelf: true, updatedAt: '2026-10-20T06:00:00.000Z' }] },
+        italy: { stations: [{ id: 'livigno-1', stationName: 'Livigno Sample', brand: 'Test', address: 'Via Rasia 1, 23041 Livigno', priceEur: 1.206, benzinaUpdatedAt: '2026-10-20', isSelf: true, updatedAt: '2026-10-20T06:00:00.000Z' }] },
         swiss: { nearbyStations: [{ id: 'swiss-1', name: 'Swiss Sample', brand: 'Test', address: 'Via del Forno 1, Zernez', sp95PriceChf: 1.9, updatedAt: '2026-10-20T06:00:00.000Z' }] },
       }],
     } as never;

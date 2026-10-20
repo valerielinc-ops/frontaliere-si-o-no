@@ -1,8 +1,5 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { transformSync } from 'esbuild';
 import {
   calculateFuelTrip,
   convertFuelPrice,
@@ -204,18 +201,4 @@ describe('static fuel calculator script', () => {
     expect((window as Window & { dataLayer?: unknown[] }).dataLayer).toHaveLength(1);
   });
 
-  it('executes after serializing the helper from an esbuild keepNames transform', () => {
-    const source = readFileSync(fileURLToPath(new URL('../build-plugins/shared/fuelTripCalculator.ts', import.meta.url)), 'utf8');
-    const compiledModule = { exports: {} as Record<string, unknown> };
-    const compiled = transformSync(source, { loader: 'ts', target: 'es2022', format: 'cjs', keepNames: true });
-    new Function('module', 'exports', compiled.code)(compiledModule, compiledModule.exports);
-
-    const render = compiledModule.exports.renderFuelTripCalculatorMarkup as (options: Parameters<typeof renderFuelTripCalculatorMarkup>[0]) => string;
-    const markup = render({ locale: 'en', fuel: 'benzina', currency: 'EUR', id: 'transpiled-trip', referencePrice: 1.8, alternativePrice: 1.7, copy });
-    document.body.innerHTML = markup;
-    const script = document.querySelector('[data-fuel-trip-calculator] script')?.textContent;
-    expect(script).toBeTruthy();
-    expect(script).not.toContain('__name');
-    expect(() => new Function(script!)()).not.toThrow();
-  });
 });

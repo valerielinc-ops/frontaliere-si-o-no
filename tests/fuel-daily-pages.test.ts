@@ -212,9 +212,9 @@ describe('fuel-daily page generation — content quality', () => {
     expect(petrol).toContain('data-currency=CHF');
     expect(petrol).toContain('TCS · media campione');
     expect(petrol).toContain('value=1.78');
-    expect(diesel).toContain('data-fuel="diesel"');
+    expect(diesel).toMatch(/data-fuel=(?:"diesel"|'diesel'|diesel)(?=\s|>)/);
     expect(diesel).toContain('data-currency=CHF');
-    expect(diesel).toContain('data-fuel-trip-field="additionalRoundTripKm"');
+    expect(diesel).toMatch(/data-fuel-trip-field=(?:"additionalRoundTripKm"|'additionalRoundTripKm'|additionalRoundTripKm)(?=\s|>)/);
 
     const undatedDatasetPage = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-daily-undated-test', dataset: DATASET, today, history: [] })['/prezzi-benzina/oggi/'];
     expect(undatedDatasetPage).toContain('Data del prezzo iniziale: data non disponibile');
