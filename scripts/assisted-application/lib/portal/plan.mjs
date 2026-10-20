@@ -346,7 +346,10 @@ export function evidenceSupports(question, answer, evidence) {
     const held = parts.flatMap(levelsIn);
     if (!held.length) return false;
     const strongestHeld = Math.max(...held);
-    if (YES_RE.test(value)) return required.length > 0 && strongestHeld >= Math.max(...required);
+    // An explicit level for the one requested language also supports a plain
+    // yes/no ability question.  The question has no threshold to compare;
+    // the level itself is the candidate evidence for being able to do it.
+    if (YES_RE.test(value)) return !required.length || strongestHeld >= Math.max(...required);
     const answerLevels = levelsIn(value);
     if (!answerLevels.length) return false;
     const answerLevel = Math.max(...answerLevels);
