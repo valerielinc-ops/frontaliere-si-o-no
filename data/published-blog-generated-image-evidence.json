@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "23870da49cba53b86f1f00b31445efb27a1293af",
+  "commit": "1341d513311eadb269b0cd0c87459350e2e870fb",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -30968,6 +30968,92 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original generic synthetic editorial landscape with commuter traffic; no readable text, logos, recognizable people, or specific event."
+      }
+    },
+    "/images/blog/article-acqua-domleschg-feldis-scheid.webp": {
+      "schema": 1,
+      "assetId": "article-acqua-domleschg-feldis-scheid",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "d89e5295cc37775b8d11b2c08cea3e6ee910f11d8e8ec576312b461979a8cac1",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "32ef494352798e7cd20b473ceed0ed5a41a10fc07a20b900811291b0e6f05fe9",
+      "bytes": 169844,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-20T10:34:34.474Z",
+      "verifiedAt": "2026-10-20T10:34:42.469Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-acqua-domleschg-feldis-scheid.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic illustration of a water cistern truck on an alpine mountain road; no text, logos, people, or specific event indicators."
+      }
+    },
+    "/images/blog/article-indagine-disparita-salariali-frontalieri.webp": {
+      "schema": 1,
+      "assetId": "article-indagine-disparita-salariali-frontalieri",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "1959b625882cdcba9979c0f285e5505e425a55be9bd15e133c65997ad08a6530",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "89f0d7a234f0965b2d07df2fe89595f0fd463f31375e986f96f7057537290406",
+      "bytes": 130104,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-20T10:53:02.198Z",
+      "verifiedAt": "2026-10-20T10:53:08.972Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-indagine-disparita-salariali-frontalieri.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of a car commute through a Ticino-like lakeside landscape; no people, text, signage, logos, or watermark."
       }
     },
     "/images/places/lugano-view.webp": {
