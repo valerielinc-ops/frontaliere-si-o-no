@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 703,
+      "5": 708,
       "6": 5054
     },
-    "publishedCovers": 7440,
+    "publishedCovers": 7445,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -203906,6 +203906,171 @@
         "provider": "openai-codex",
         "assetId": "article-soletta-regierungsrat-attiparlamentari-2026",
         "imageUrl": "/images/blog/article-soletta-regierungsrat-attiparlamentari-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-circolare-221-deduzione-figli-2027": {
+      "cover": "/images/blog/article-circolare-221-deduzione-figli-2027.webp",
+      "hash": "40f9a54f65677a2e0cf5e192b3be28cf808472c5e89c20277a8cd5de512e6d5c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "circolare-221-deduzione-figli-2027",
+          "category": "fiscale",
+          "date": "2026-10-20T17:41:42.699Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-circolare-221-deduzione-figli-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-circolare-221-deduzione-figli-2027",
+        "imageUrl": "/images/blog/article-circolare-221-deduzione-figli-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-interrogazione-wicht-clausola-regionale": {
+      "cover": "/images/blog/article-interrogazione-wicht-clausola-regionale.webp",
+      "hash": "f546c613fb41ee653ff0bf7f0ddc960d32c45e084afa91a36275b42022d836b6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "interrogazione-wicht-clausola-regionale",
+          "category": "novita",
+          "date": "2026-10-20T19:20:36.800Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-interrogazione-wicht-clausola-regionale.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-interrogazione-wicht-clausola-regionale",
+        "imageUrl": "/images/blog/article-interrogazione-wicht-clausola-regionale.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-maja-riniker-eletta-governo-argovia": {
+      "cover": "/images/blog/article-maja-riniker-eletta-governo-argovia.webp",
+      "hash": "2182aab53a6fa7f09843d25513ffeaac8b76f1fbf9aa487879add4c99e2229f8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "maja-riniker-eletta-governo-argovia",
+          "category": "novita",
+          "date": "2026-10-20T18:24:51.865Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-maja-riniker-eletta-governo-argovia.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-maja-riniker-eletta-governo-argovia",
+        "imageUrl": "/images/blog/article-maja-riniker-eletta-governo-argovia.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-ricerca-cisl-frontalieri-2026": {
+      "cover": "/images/blog/article-ricerca-cisl-frontalieri-2026.webp",
+      "hash": "81bfbef7830fed518a90ff62e18c04b8bb56380dcfdff26545902386685af5f9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "ricerca-cisl-frontalieri-2026",
+          "category": "pratico",
+          "date": "2026-10-20T19:40:19.854Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ricerca-cisl-frontalieri-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-ricerca-cisl-frontalieri-2026",
+        "imageUrl": "/images/blog/article-ricerca-cisl-frontalieri-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-skyguide-ginevra-capacita-ottobre": {
+      "cover": "/images/blog/article-skyguide-ginevra-capacita-ottobre.webp",
+      "hash": "89147a1770f022631f6cf78835b276d8889f91c42e02f8322c3e0449c6df3222",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ge",
+          "id": "skyguide-ginevra-capacita-ottobre",
+          "category": "novita",
+          "date": "2026-10-20T18:26:56.192Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-skyguide-ginevra-capacita-ottobre.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-skyguide-ginevra-capacita-ottobre",
+        "imageUrl": "/images/blog/article-skyguide-ginevra-capacita-ottobre.webp",
         "evidence": "generated-engine-record"
       }
     }

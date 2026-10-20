@@ -45670,6 +45670,27 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'interrogazione-wicht-clausola-regionale',
+ category: 'novita',
+ date: '2026-10-20T19:20:36.800Z',
+ image: '/images/blog/article-interrogazione-wicht-clausola-regionale.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'ricerca-cisl-frontalieri-2026',
+ category: 'pratico',
+ date: '2026-10-20T19:40:19.854Z',
+ image: '/images/blog/article-ricerca-cisl-frontalieri-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
