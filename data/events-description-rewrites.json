@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-20T18:22:58.264Z",
+  "generatedAt": "2026-10-20T20:25:17.037Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -97460,6 +97460,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T06:23:52.530Z"
     },
+    "myswitzerland:7ef09aa9223448cca1ebef2c083b782e::14a6476baad8685de6ccae0e2cfe523ec094f949cf9f15ed71c182a8312cfee8": {
+      "id": "myswitzerland:7ef09aa9223448cca1ebef2c083b782e",
+      "sourceDescriptionHash": "14a6476baad8685de6ccae0e2cfe523ec094f949cf9f15ed71c182a8312cfee8",
+      "description": "L’evento «2000er Party» si svolge a Zurigo. La scheda indica MySwitzerland come organizzatore e Zurich nel ruolo di performer.",
+      "descriptionByLocale": {
+        "it": "L’evento «2000er Party» si svolge a Zurigo. La scheda indica MySwitzerland come organizzatore e Zurich nel ruolo di performer.",
+        "en": "The “2000er Party” event takes place in Zurich. The listing identifies MySwitzerland as the organizer and Zurich as the performer.",
+        "de": "Die Veranstaltung «2000er Party» findet in Zürich statt. In den Veranstaltungsangaben werden MySwitzerland als Organisator und Zurich als Performer genannt.",
+        "fr": "L’événement « 2000er Party » a lieu à Zurich. La fiche mentionne MySwitzerland comme organisateur et Zurich dans le rôle de performer."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-20T20:19:15.669Z"
+    },
     "myswitzerland:7ef14e1772a84afc8379853b6ed82989::8016310c3cbc28b1ec9a37dcbed496550b2e09c35cfc3a606438de6c95a81ebc": {
       "id": "myswitzerland:7ef14e1772a84afc8379853b6ed82989",
       "sourceDescriptionHash": "8016310c3cbc28b1ec9a37dcbed496550b2e09c35cfc3a606438de6c95a81ebc",
@@ -98355,6 +98369,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T00:17:57.297Z"
+    },
+    "myswitzerland:810f0e5e288442229540605abdbcb457::89371fa38bd87b68c8462b646156dfd410564dfb1951cace8378b263f2794bc2": {
+      "id": "myswitzerland:810f0e5e288442229540605abdbcb457",
+      "sourceDescriptionHash": "89371fa38bd87b68c8462b646156dfd410564dfb1951cace8378b263f2794bc2",
+      "description": "A Boudry, la manifestazione riguarda il profumo di cioccolato che per decenni si diffondeva a Neuchâtel con il vento da ovest. L’odore proveniva dalla fabbrica di cioccolato Suchard di Serrières, all’ingresso della città.",
+      "descriptionByLocale": {
+        "it": "A Boudry, la manifestazione riguarda il profumo di cioccolato che per decenni si diffondeva a Neuchâtel con il vento da ovest. L’odore proveniva dalla fabbrica di cioccolato Suchard di Serrières, all’ingresso della città.",
+        "en": "The Boudry event recalls the chocolate scent that spread through Neuchâtel for decades when the wind came from the west. The smell came from the Suchard chocolate factory in Serrières, at the entrance to the city.",
+        "de": "In Boudry erinnert die Veranstaltung an den Schokoladenduft, der sich über Jahrzehnte bei Westwind in Neuenburg verbreitete. Er ging von der Suchard-Schokoladenfabrik in Serrières am Eingang der Stadt aus.",
+        "fr": "À Boudry, la manifestation revient sur l’odeur de chocolat qui se diffusait à Neuchâtel pendant plusieurs décennies sous l’effet du vent d’ouest. Elle la relie à la chocolaterie Suchard de Serrières, implantée à l’entrée de la ville."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-20T20:18:17.203Z"
     },
     "myswitzerland:8111661c7eb94c55b8286b1478725e9c::3df22855092d215a6e5402f81fe71cac931b8bf20a71afeec85b1fc72268738d": {
       "id": "myswitzerland:8111661c7eb94c55b8286b1478725e9c",
@@ -163131,8 +163159,8 @@
       "id": "guidle:Aj8M9dD",
       "sourceDescriptionHash": "2ecdb3b462a316fd1b93dead7eb566e2d49e697fc8ab4d0c1469051a9b6f2efc",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-20T17:23:13.942Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-20T20:20:46.646Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -163608,8 +163636,8 @@
       "id": "guidle:ApvifCe",
       "sourceDescriptionHash": "050dc7aa771f98ca6e47af5a878e95737245ce121b63b13bfc220a64289c145b",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-20T17:22:00.972Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-20T20:18:51.957Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -164193,8 +164221,8 @@
       "id": "guidle:Ax1g7iF",
       "sourceDescriptionHash": "246b139c7f99c1175ac7dee90080b0bee0ec7677c52e6fe5a62a1c757ccee058",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-20T17:18:58.087Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-20T20:17:13.804Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -164382,8 +164410,8 @@
       "id": "guidle:AyhdBPb",
       "sourceDescriptionHash": "2ecdb3b462a316fd1b93dead7eb566e2d49e697fc8ab4d0c1469051a9b6f2efc",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-20T17:18:19.847Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-20T20:19:18.614Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -167082,8 +167110,8 @@
       "id": "myswitzerland:795734d1c91d40de93417c22a667d893",
       "sourceDescriptionHash": "599362b15903cb6891aa03ca37da828993febf625d38fced0e943559fc059fc9",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-20T17:21:26.805Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-20T20:20:47.153Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -167190,8 +167218,8 @@
       "id": "myswitzerland:7ccca33f7210400ebfd0d84acb5a9131",
       "sourceDescriptionHash": "6781b03ecd7de2817efd6b7b48f00994a38e33e3fe219710446d1714581922d4",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-20T17:21:33.292Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-20T20:18:34.456Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -167231,15 +167259,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:7ef09aa9223448cca1ebef2c083b782e::14a6476baad8685de6ccae0e2cfe523ec094f949cf9f15ed71c182a8312cfee8": {
-      "id": "myswitzerland:7ef09aa9223448cca1ebef2c083b782e",
-      "sourceDescriptionHash": "14a6476baad8685de6ccae0e2cfe523ec094f949cf9f15ed71c182a8312cfee8",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-20T17:18:09.262Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:7f1db1b477b148a0a19b438e0d74a37f::43314d6a221376d631c5c9e2e6f89445e1841dee12ff4445eec3b504a958d3de": {
       "id": "myswitzerland:7f1db1b477b148a0a19b438e0d74a37f",
       "sourceDescriptionHash": "43314d6a221376d631c5c9e2e6f89445e1841dee12ff4445eec3b504a958d3de",
@@ -167271,8 +167290,8 @@
       "id": "myswitzerland:80910645d4ff488fb1a8c4951a06b710",
       "sourceDescriptionHash": "e9ddb8bdf65d8f24c58696c2102b35856289c5a614ec75ad8204c1567d2fd657",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-20T17:19:40.929Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-20T20:19:56.162Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -167282,15 +167301,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T21:39:24.702Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:810f0e5e288442229540605abdbcb457::89371fa38bd87b68c8462b646156dfd410564dfb1951cace8378b263f2794bc2": {
-      "id": "myswitzerland:810f0e5e288442229540605abdbcb457",
-      "sourceDescriptionHash": "89371fa38bd87b68c8462b646156dfd410564dfb1951cace8378b263f2794bc2",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-20T17:19:04.088Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -170763,8 +170773,8 @@
       "id": "tio-agenda:64026",
       "sourceDescriptionHash": "6a4635c451a349317313869dc1751a2f34e196451befc218ea63c5708cdb2b84",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-20T17:22:08.397Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-20T20:19:05.574Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -171177,8 +171187,8 @@
       "id": "tio-agenda:64627",
       "sourceDescriptionHash": "abb8ee43a51ae19cf0e7fd462c7dbb4ffd66db131ec1a68d88c652c5135cffda",
       "code": "source-ngram-8",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-20T17:19:57.186Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-20T20:17:56.653Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -171186,8 +171196,8 @@
       "id": "tio-agenda:64630",
       "sourceDescriptionHash": "668b876c8184eabe4b0951947fdb8690eccfa9f6d90cb5e2dbaf3c1443c9a38f",
       "code": "source-ngram-8",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-20T17:18:52.785Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-20T20:19:57.097Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }
