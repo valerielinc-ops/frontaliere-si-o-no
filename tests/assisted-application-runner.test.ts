@@ -152,10 +152,9 @@ describe('draft mode', () => {
     // Evidence the CV does not contain is not kept as evidence.
     expect(draft.matches.find((item: any) => item.index === 0)).toMatchObject({ evidence: '', evidenceUnverified: true });
     // The posting asks for a salary expectation: the question is added even though the model forgot it.
-    // A name does not determine a form of address; the optional review question asks the candidate.
+    // The candidate's unambiguous given name resolves the form of address, so the runner does not ask again.
     expect(draft.questions).toEqual([
       expect.objectContaining({ id: 'salary_expectation', required: true, source: 'rule' }),
-      expect.objectContaining({ id: 'salutation', required: false, source: 'rule' }),
     ]);
     // "7 anni" is not in the CV: flagged for the operator.
     expect(draft.factCheck.unsupported.map((item: any) => item.token)).toEqual(['7']);
