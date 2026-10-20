@@ -24,4 +24,26 @@ describe('og article static body parser', () => {
     expect(() => parseStaticBlogBodySource(sourceWith('line\nbroken'), SOURCE_PATH))
       .toThrow(/Unterminated string literal/);
   });
+
+  it('skips an interpolated template that is outside article data', () => {
+    const source = [
+      'const unrelated = `ignored ${{ label: "runtime" }.label}`;',
+      'const body: Record<string, string> = {',
+      `  'blog.article.${ARTICLE_ID}.body1': 'rendered',`,
+      '};',
+    ].join('\n');
+
+    expect(parseStaticBlogBodySource(source, SOURCE_PATH)[ARTICLE_ID].body1).toBe('rendered');
+  });
+
+  it('still rejects an interpolated template used as article data', () => {
+    const source = [
+      'const body: Record<string, string> = {',
+      `  'blog.article.${ARTICLE_ID}.body1': ` + '`runtime ${runtimeValue}`,',
+      '};',
+    ].join('\n');
+
+    expect(() => parseStaticBlogBodySource(source, SOURCE_PATH))
+      .toThrow(/Interpolated template literal is not static article data/);
+  });
 });
