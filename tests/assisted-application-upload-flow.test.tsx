@@ -128,7 +128,8 @@ describe('assisted application consent and CV upload flow', () => {
     });
     await waitFor(() => expect(mocks.uploadBytes).toHaveBeenCalledOnce());
     expect(mocks.updateDoc).toHaveBeenCalledTimes(2);
-    expect(screen.getByRole('button', { name: itCore['jobBoard.assisted.fileSelected'] })).toBeDisabled();
+    expect(screen.getByText('cv.pdf').closest('[role="status"]')).not.toBeNull();
+    expect(fileInput).toBeDisabled();
   });
 
   it('does not ask again when the order already contains a valid mandate', async () => {

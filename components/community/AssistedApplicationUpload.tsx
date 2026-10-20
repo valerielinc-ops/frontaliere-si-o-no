@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
-import { CheckCircle2, FileText, Loader2, LockKeyhole, UploadCloud } from 'lucide-react';
+import { CheckCircle2, Eye, FileText, Loader2, LockKeyhole, UploadCloud } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import { hasAssistedApplicationConsent } from '@/functions/src/assistedApplicationConstants.js';
@@ -61,6 +61,14 @@ function safeFileName(name: string): string {
   return name.replace(/[^a-zA-Z0-9._-]/g, '_').slice(0, 100) || 'cv';
 }
 
+function fileNameFromStorageKey(storageKey: string | null, orderId: string): string | null {
+  const prefix = `assisted-application-uploads/${orderId}/`;
+  if (!storageKey?.startsWith(prefix)) return null;
+  const file = storageKey.slice(prefix.length);
+  const match = file.match(/^\d+-(?:[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}|[a-z0-9]{1,16})-(.+)$/i);
+  return match?.[1] || null;
+}
+
 function randomFileToken(): string {
   try {
     if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
@@ -110,6 +118,7 @@ export default function AssistedApplicationUpload({
   const [consentSaving, setConsentSaving] = useState(false);
   const [detailsSaved, setDetailsSaved] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [openingCv, setOpeningCv] = useState(false);
   const [cvStorageKey, setCvStorageKey] = useState<string | null>(null);
   const [cvFileName, setCvFileName] = useState<string | null>(null);
   const [submitBusy, setSubmitBusy] = useState(false);
@@ -335,6 +344,36 @@ export default function AssistedApplicationUpload({
     }
   };
 
+  const handleOpenCv = async () => {
+    if (!cvStorageKey || openingCv) return;
+    const previewWindow = window.open('about:blank', '_blank');
+    if (!previewWindow) {
+      setError(t('jobBoard.assisted.openCvError'));
+      return;
+    }
+    previewWindow.opener = null;
+    setOpeningCv(true);
+    setError(null);
+    try {
+      const [{ getApp }, authModule] = await Promise.all([
+        import('@/services/firebase'),
+        import('firebase/auth'),
+      ]);
+      const auth = authModule.getAuth(await getApp());
+      if (typeof auth.authStateReady === 'function') await auth.authStateReady();
+      const currentUser = auth.currentUser || authUser;
+      if (!currentUser?.getIdToken) throw new Error('assisted_application_auth_required');
+      const { getAssistedApplicationCvUrl } = await import('@/services/assistedApplicationCvUrl');
+      const url = await getAssistedApplicationCvUrl(orderId, currentUser);
+      previewWindow.location.replace(url);
+    } catch {
+      previewWindow.close();
+      setError(t('jobBoard.assisted.openCvError'));
+    } finally {
+      setOpeningCv(false);
+    }
+  };
+
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     if (!order || order.paymentStatus !== 'paid' || !consentPersisted || !cvStorageKey) return;
@@ -366,6 +405,31 @@ export default function AssistedApplicationUpload({
   };
 
   const jobTitle = order?.jobTitle || t('jobBoard.assisted.jobFallback');
+  const displayedCvFileName = cvFileName || fileNameFromStorageKey(cvStorageKey, orderId);
+  const uploadedCvCard = cvStorageKey ? (
+    <div className="rounded-xl border border-success-border bg-success-subtle p-4">
+      <div role="status" className="flex items-start gap-3">
+        <FileText className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
+        <div className="min-w-0">
+          <p className="text-sm font-semibold text-heading">{t('jobBoard.assisted.fileSelected')}</p>
+          <p className="mt-1 break-all text-sm font-semibold text-heading">{displayedCvFileName || t('jobBoard.assisted.fileNameUnavailable')}</p>
+          <p className="mt-2 flex items-center gap-1.5 text-xs leading-5 text-subtle">
+            <LockKeyhole className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+            {t('jobBoard.assisted.fileHint')}
+          </p>
+        </div>
+      </div>
+      <button
+        type="button"
+        onClick={() => { void handleOpenCv(); }}
+        disabled={openingCv}
+        className="mt-3 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg border border-edge bg-surface px-4 py-2 text-sm font-semibold text-body hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-wait disabled:opacity-60"
+      >
+        {openingCv ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Eye className="h-4 w-4" aria-hidden="true" />}
+        {t(openingCv ? 'jobBoard.assisted.openingCv' : 'jobBoard.assisted.openCv')}
+      </button>
+    </div>
+  ) : null;
 
   // The order and the candidate's CV: never in a session replay.
   return (
@@ -413,10 +477,13 @@ export default function AssistedApplicationUpload({
             </div>
 
             {status === 'submitted' ? (
-              <div className="space-y-3" role="status">
-                <h2 className="text-lg font-bold text-heading">{t('jobBoard.assisted.submittedTitle')}</h2>
-                <p className="text-sm leading-relaxed text-subtle">{t('jobBoard.assisted.submittedBody')}</p>
-              </div>
+              <>
+                <div className="space-y-3" role="status">
+                  <h2 className="text-lg font-bold text-heading">{t('jobBoard.assisted.submittedTitle')}</h2>
+                  <p className="text-sm leading-relaxed text-subtle">{t('jobBoard.assisted.submittedBody')}</p>
+                </div>
+                {uploadedCvCard}
+              </>
             ) : (
               <form className="space-y-5" onSubmit={handleSubmit}>
                 <details className="rounded-xl border border-info-border bg-info-subtle/60 text-sm leading-relaxed text-body">
@@ -433,7 +500,6 @@ export default function AssistedApplicationUpload({
                         <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" aria-hidden="true" />
                         <div>
                           <p className="font-semibold text-heading">{t('jobBoard.assisted.consentRecorded')}</p>
-                          <p className="mt-1 text-xs leading-5">{t('jobBoard.assisted.consentCvLabel')} {cvFileName || (cvStorageKey ? t('jobBoard.assisted.fileSelected') : t('jobBoard.assisted.fileCta'))}</p>
                         </div>
                       </div>
                       <AssistedApplicationLegalLinks className="mt-3 block pl-8 text-xs text-muted" />
@@ -466,39 +532,43 @@ export default function AssistedApplicationUpload({
                         {detailsSaved && <span className="inline-flex items-center gap-1 text-xs font-medium text-success"><CheckCircle2 size={14} aria-hidden="true" />{t('jobBoard.assisted.dataSaved')}</span>}
                       </div>
 
-                      <div className="rounded-xl border border-dashed border-accent-border p-4">
-                        <button
-                          type="button"
-                          onClick={() => cvInputRef.current?.click()}
-                          disabled={!consentPersisted || Boolean(cvStorageKey) || consentSaving || uploading || submitBusy}
-                          aria-controls="assisted-application-cv-input"
-                          aria-describedby="assisted-application-cv-hint"
-                          className="flex min-h-[44px] w-full items-center gap-3 text-left text-sm font-semibold text-accent disabled:cursor-not-allowed disabled:text-muted"
-                        >
-                          <UploadCloud className="h-5 w-5 shrink-0" aria-hidden="true" />
-                          <span>{cvStorageKey ? t('jobBoard.assisted.fileSelected') : t('jobBoard.assisted.fileCta')}</span>
-                        </button>
-                        <input
-                          ref={cvInputRef}
-                          id="assisted-application-cv-input"
-                          type="file"
-                          accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                          disabled={!consentPersisted || Boolean(cvStorageKey) || consentSaving || uploading || submitBusy}
-                          aria-hidden="true"
-                          tabIndex={-1}
-                          onChange={(event) => {
-                            const file = event.target.files?.[0];
-                            event.target.value = '';
-                            void handleFileChange(file);
-                          }}
-                          className="sr-only"
-                        />
-                        <p id="assisted-application-cv-hint" className="mt-2 flex items-center gap-1.5 text-xs text-muted">
-                          <LockKeyhole className="h-3.5 w-3.5" aria-hidden="true" />
-                          {t('jobBoard.assisted.fileHint')}
-                        </p>
-                        {uploading && <p className="mt-2 text-xs text-accent">{t('jobBoard.assisted.uploading')}</p>}
-                      </div>
+                      {cvStorageKey ? uploadedCvCard : (
+                        <div className="rounded-xl border border-dashed border-accent-border p-4">
+                          <>
+                            <button
+                              type="button"
+                              onClick={() => cvInputRef.current?.click()}
+                              disabled={!consentPersisted || Boolean(cvStorageKey) || consentSaving || uploading || submitBusy}
+                              aria-controls="assisted-application-cv-input"
+                              aria-describedby="assisted-application-cv-hint"
+                              className="flex min-h-[44px] w-full items-center gap-3 text-left text-sm font-semibold text-accent disabled:cursor-not-allowed disabled:text-muted"
+                            >
+                              <UploadCloud className="h-5 w-5 shrink-0" aria-hidden="true" />
+                              <span>{t('jobBoard.assisted.fileCta')}</span>
+                            </button>
+                            <input
+                              ref={cvInputRef}
+                              id="assisted-application-cv-input"
+                              type="file"
+                              accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                              disabled={!consentPersisted || Boolean(cvStorageKey) || consentSaving || uploading || submitBusy}
+                              aria-hidden="true"
+                              tabIndex={-1}
+                              onChange={(event) => {
+                                const file = event.target.files?.[0];
+                                event.target.value = '';
+                                void handleFileChange(file);
+                              }}
+                              className="sr-only"
+                            />
+                            <p id="assisted-application-cv-hint" className="mt-2 flex items-center gap-1.5 text-xs text-muted">
+                              <LockKeyhole className="h-3.5 w-3.5" aria-hidden="true" />
+                              {t('jobBoard.assisted.fileHint')}
+                            </p>
+                            {uploading && <p className="mt-2 text-xs text-accent">{t('jobBoard.assisted.uploading')}</p>}
+                          </>
+                        </div>
+                      )}
                       <p className="text-xs leading-relaxed text-subtle" data-testid="assisted-application-email-alternative">
                         {t('jobBoard.assisted.emailAlternative')}
                       </p>
