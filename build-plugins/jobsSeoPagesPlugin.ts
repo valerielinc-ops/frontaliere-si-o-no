@@ -13336,7 +13336,14 @@ ${staticAnalyticsHtml}
  let expiredHtmlCacheChunks = 0;
  let expiredHtmlCacheReleasedEntries = 0;
  const releaseExpiredHtmlCacheChunk = async (): Promise<void> => {
-  if (expiredHtmlCacheOnDisk.size === 0) return;
+  if (expiredHtmlCacheOnDisk.size === 0) {
+   // Even chunks without cross-locale cache entries may have completed many
+   // historical writes. Drain their acknowledgements before releasing them;
+   // awaitDrainSlot(2) in the caller only bounds in-flight flushes.
+   await collector.awaitDrainSlot(0);
+   collector.forgetWrittenPaths();
+   return;
+  }
   await collector.flush();
   const confirmedDiskKeys = new Set<string>();
   for (const key of expiredHtmlCacheOnDisk) {
