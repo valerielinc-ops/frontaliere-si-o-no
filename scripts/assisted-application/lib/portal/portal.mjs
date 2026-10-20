@@ -257,7 +257,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   const status = profile.permitStatus || '';
-  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers);
+  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers);
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
   const address = resolveResidenceAddress(profile.address, profile.location);
@@ -337,22 +337,46 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
 /**
  * Keep portal answers usable when an ATS changes a question's wording or
  * regenerates its field id between account creation and the application form.
- * Exact ids win; canonical topics match well-defined candidate facts and
- * retain distinctions such as salary period/currency and language modality.
+ * Current answers win; canonical topics also reuse an unambiguous answer from
+ * the previous portal run when an ATS regenerates its field id.
  */
-function portalAnswersForQuestions(questions, answers) {
-  const items = questions.map((question) => ({ question, answer: String(answers[question.id] ?? '').trim() }))
-    .filter((item) => item.answer);
+function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
+  const items = questions.map((question) => ({
+    question: question.question,
+    context: question.context || '',
+    answer: String(answers[question.id] ?? '').trim(),
+    source: 'answers',
+    current: true,
+  })).filter((item) => item.answer);
+  const keyFor = (item) => portalQuestionKey(item.question, item.context) || portalQuestionId(item.question, item.context);
+  const currentKeys = new Set(questions
+    .filter((question) => Object.hasOwn(answers, question.id))
+    .map((question) => keyFor({ question: question.question, context: question.context || '' })));
+  const priorGroups = new Map();
+  for (const item of Array.isArray(previousAnswers) ? previousAnswers : []) {
+    const question = String(item?.question || '').trim();
+    const answer = String(item?.answer || '').trim();
+    if (!question || !answer) continue;
+    const prior = { question, context: String(item?.context || ''), answer, source: String(item?.source || 'answers') };
+    const key = keyFor(prior);
+    if (currentKeys.has(key)) continue;
+    const group = priorGroups.get(key) || [];
+    group.push(prior);
+    priorGroups.set(key, group);
+  }
+  for (const group of priorGroups.values()) {
+    const values = new Set(group.map((item) => item.answer.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase()));
+    if (values.size === 1) items.unshift(group[0]);
+  }
   const seen = new Map();
   for (const item of items) {
-    const key = portalQuestionKey(item.question.question, item.question.context);
+    const key = keyFor(item);
     const previous = seen.get(key);
-    // Prefer an answer stored under this exact question id over an alias found
-    // only by semantic topic.
-    const exact = String(answers[item.question.id] ?? '').trim();
-    if (!previous || exact || !String(answers[previous.question.id] ?? '').trim()) seen.set(key, item);
+    if (!previous || item.current) seen.set(key, item);
   }
-  return [...seen.values()].map(({ question, answer }) => ({ question: question.question, answer, ...(question.context ? { context: question.context } : {}) }));
+  return [...seen.values()].map(({ question, answer, context, source }) => ({
+    question, answer, source, ...(context ? { context: context.slice(0, 240) } : {}),
+  }));
 }
 
 /** Resolve required portal questions from the candidate data before the submit gate. */
@@ -1764,11 +1788,13 @@ async function typeOwnPassword({ page, snapshot, ctx, passwords }) {
  * read by the snapshot (`holdsValue` counts it empty), so its own `files` say
  * whether the CV went in; an upload widget that clears its input reads as empty.
  */
-async function requiredLeftEmpty(page) {
+async function requiredLeftEmpty(page, uploaded = new Set()) {
+  const url = page.url();
   for (const field of (await extractFields(page, NAVIGATION)).fields) {
     if (!field.required) continue;
-    const filled = field.kind === 'file'
-      ? await locatorFor(page, field).evaluate((element) => (element.files?.length || 0) > 0, null, { timeout: 2000 }).catch(() => false)
+    const uploadedKey = uploadedPortalFieldKey(url, field);
+    const filled = field.kind === 'file' || field.inputType === 'file'
+      ? uploaded.has(uploadedKey) || await locatorFor(page, field).evaluate((element) => (element.files?.length || 0) > 0, null, { timeout: 2000 }).catch(() => false)
       : holdsValue(field);
     if (!filled) return true;
   }
@@ -2150,9 +2176,17 @@ export async function submitViaPortal(ctx) {
     const noteUpload = (document, files = 1) => {
       if (document) evidence.uploads.push({ document: String(document), files: Number(files) || 1 });
     };
-    const record = (question, answer, source) => {
+    const record = (question, answer, source, context = '') => {
       if (!question || !String(answer ?? '').trim()) return;
-      given.set(question, { question: String(question).slice(0, 200), answer: String(answer).slice(0, 2000), source: source || '' });
+      const label = String(question).slice(0, 200);
+      const surrounding = String(context || '').slice(0, 240);
+      const key = portalQuestionKey(label, surrounding) || portalQuestionId(label, surrounding) || label;
+      given.set(key, {
+        question: label,
+        answer: String(answer).slice(0, 2000),
+        source: source || '',
+        ...(surrounding ? { context: surrounding } : {}),
+      });
       evidence.answers = [...given.values()].slice(0, 80);
     };
     // The agentic fallback: once per page and reason, within the run's budget.
@@ -2182,7 +2216,7 @@ export async function submitViaPortal(ctx) {
       }
       agentCalls += agent.calls;
       (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
-      for (const item of agent.answers || []) record(item.question, item.answer, item.source);
+      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context);
       for (const item of (agent.evidence?.rounds || []).flatMap((round) => round.actions || [])) {
         if (item.action === 'upload' && item.ok) noteUpload(item.document, item.files);
       }
@@ -2486,7 +2520,7 @@ export async function submitViaPortal(ctx) {
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
           const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
-          record(field.label || field.name || field.id, answer, action.source);
+          record(field.label || field.name || field.id, answer, action.source, field.context);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
@@ -2571,7 +2605,7 @@ export async function submitViaPortal(ctx) {
           // the agent names it, the runner presses it below, behind the submission guard,
           // only when nothing required is left empty on the page.
           if (!submit && !next && !advance && agent.submitRef) {
-            if (!await requiredLeftEmpty(page)) finalByAgent = await submitLocator(page, agent.submitRef);
+            if (!await requiredLeftEmpty(page, uploaded)) finalByAgent = await submitLocator(page, agent.submitRef);
           }
         }
       }
@@ -2629,7 +2663,7 @@ export async function submitViaPortal(ctx) {
         continue;
       }
       // The final button: a usual or learned name (the runner's), or the one the agent named.
-      const final = submit
+      let final = submit
         ? { label: submit.text, by: 'runner', click: () => clickButton(page, submit) }
         : finalByAgent && { label: finalByAgent.name, by: 'agent', click: () => clickSubmitButton(page, finalByAgent) };
       if (!final) {
@@ -2639,6 +2673,38 @@ export async function submitViaPortal(ctx) {
           continue;
         }
         return await handoff('portal_needs_candidate');
+      }
+      // A normal send button is not evidence that the portal form is complete.
+      // Let the agent repair any required fields the deterministic fill missed;
+      // never click Send while a required answer or upload is still empty.
+      if (await requiredLeftEmpty(page, uploaded)) {
+        evidence.steps.at(-1).requiredFieldsUnfilled = true;
+        const repairUrl = page.url();
+        const repair = await runAgent(after, 'required_fields_unfilled');
+        if (repair?.status === 'needs_candidate') return askCandidate(repair.questions);
+        if (repair?.status !== 'done') return await handoff('portal_required_fields_unfilled');
+        if (repair.moved || page.url() !== repairUrl) {
+          snapshot = await awaitFields(page, await extractFields(page));
+          step -= 1;
+          continue;
+        }
+        after = await extractFields(page, NAVIGATION);
+        if (await requiredLeftEmpty(page, uploaded)) return await handoff('portal_required_fields_unfilled');
+        const repairedControls = pageControls(after.buttons, known, page.url());
+        if (repairedControls.next && !repairedControls.submit) {
+          snapshot = after;
+          step -= 1;
+          continue;
+        }
+        if (repairedControls.submit) {
+          final = { label: repairedControls.submit.text, by: 'runner', click: () => clickButton(page, repairedControls.submit) };
+        } else if (repair.submitRef) {
+          const repairedSubmit = await submitLocator(page, repair.submitRef);
+          if (!repairedSubmit) return await handoff('portal_required_fields_unfilled');
+          final = { label: repairedSubmit.name || String(repair.submitRef), by: 'agent', click: () => clickSubmitButton(page, repairedSubmit) };
+        } else {
+          return await handoff('portal_required_fields_unfilled');
+        }
       }
       if (ctx.dryRun) {
         evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
