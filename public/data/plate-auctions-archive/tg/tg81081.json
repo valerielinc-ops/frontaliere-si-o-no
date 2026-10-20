@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109690",
+      "sourceKey": "TG",
+      "sourceRecordId": "109690",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "81081",
+      "normalizedPlate": "TG81081",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 500,
+      "bidCount": 0,
+      "endsAt": "2026-10-21T17:00:00.000Z",
+      "closedAt": "2026-10-17T15:35:53.535Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109690",
+      "sourceFetchedAt": "2026-10-17T15:35:53.535Z",
+      "lastVerifiedAt": "2026-10-17T15:35:53.535Z",
+      "firstSeenAt": "2026-10-07T06:06:06.221Z",
+      "lastSeenAt": "2026-10-17T15:35:53.535Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "ea64b8c2539a"
+    }
+  ]
+}
