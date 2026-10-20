@@ -11,6 +11,8 @@
   "pagination": {
     "maxPages": 120
   },
+  "detailNotFoundPolicy": "expected-filter",
+  "detailNotFoundMinimumPublished": 10,
   "sampleVacancyCount": 993,
   "sampleTitles": [
     "Allrounder/in Ausbaugewerbe mit vielseitiger Erfahrung",

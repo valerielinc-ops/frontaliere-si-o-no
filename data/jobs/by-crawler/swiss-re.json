@@ -61,7 +61,7 @@
           "sous-chef-de-cuisine-m-f-x-d-80-100-swiss-re-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:08:52.109Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -77,7 +77,8 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "retranslationAttempts": 0
     },
     {
       "id": "swiss-re-151eb7a335b8",
@@ -384,8 +385,7 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "swiss-re-680b7a0acb88",

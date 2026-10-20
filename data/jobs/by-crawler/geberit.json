@@ -314,12 +314,12 @@
     },
     {
       "id": "geberit-2157",
-      "slug": "controller-werke-a-100-geberit-ch",
+      "slug": "operazioni-di-controllo-a-100-geberit-rapperswil-jona-b8a4a7",
       "slugByLocale": {
         "de": "controller-werke-a-100-geberit-ch",
-        "it": "controller-werke-a-100-geberit-ch",
+        "it": "operazioni-di-controllo-a-100-geberit-rapperswil-jona-b8a4a7",
         "en": "controller-werke-a-100-geberit-ch",
-        "fr": "controller-werke-a-100-geberit-ch"
+        "fr": "le-controleur-fonctionne-a-100-geberit-rapperswil-jona-b8a4a7"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -369,16 +369,17 @@
         "operazioni-di-controllo-a-100-geberit-rapperswil-jona",
         "operazioni-di-controllo-a-100-geberit-rapperswil-jona-f0a4f74f3e",
         "controller-works-a-100-geberit-rapperswil-jona",
-        "le-controleur-fonctionne-a-100-geberit-rapperswil-jona-b8a4a7"
+        "controller-werke-a-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operazioni-di-controllo-a-100-geberit-rapperswil-jona",
-          "operazioni-di-controllo-a-100-geberit-rapperswil-jona-f0a4f74f3e"
+          "operazioni-di-controllo-a-100-geberit-rapperswil-jona-f0a4f74f3e",
+          "controller-werke-a-100-geberit-ch"
         ],
         "fr": [
           "le-controleur-fonctionne-a-100-geberit-rapperswil-jona",
-          "le-controleur-fonctionne-a-100-geberit-rapperswil-jona-b8a4a7"
+          "controller-werke-a-100-geberit-ch"
         ],
         "en": [
           "controller-works-a-100-geberit-rapperswil-jona"
@@ -480,12 +481,12 @@
     },
     {
       "id": "geberit-1969",
-      "slug": "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch",
+      "slug": "apprendista-operatore-di-impianti-a-inizio-dell-apprendistato-2027-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch",
-        "it": "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch",
-        "en": "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch",
-        "fr": "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch"
+        "it": "apprendista-operatore-di-impianti-a-inizio-dell-apprendistato-2027-geberit-rapperswil-jona",
+        "en": "apprentice-plant-operator-a-apprenticeship-start-2027-geberit-rapperswil-jona",
+        "fr": "apprenti-conducteur-d-installations-a-debut-de-l-apprentissage-2027-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -493,9 +494,9 @@
       "title": "Lernender Anlagenführer (a) - Lehrbeginn 2027",
       "titleByLocale": {
         "de": "Lernender Anlagenführer (a) - Lehrbeginn 2027",
-        "it": "Apprendista Anlagenführer (a) - Lehrbeginn 2027",
-        "en": "Apprentice Anlagenführer (a) - Lehrbeginn 2027",
-        "fr": "Apprenti/e Anlagenführer (a) - Lehrbeginn 2027"
+        "it": "Apprendista operatore di impianti (a) - Inizio dell'apprendistato 2027",
+        "en": "Apprentice Plant Operator (a) - Apprenticeship start 2027",
+        "fr": "Apprenti conducteur d’installations (a) - début de l’apprentissage 2027"
       },
       "description": "## HAUPTAUFGABEN​\n\nAnlagenführer/-innen sind verantwortlich für ein fehlerfreies Funktionieren von Produktions- und Verpackungsanlagen. Sie kontrollieren den Produktionsprozess und die Produkte und nehmen bei Bedarf Anpassungen vor. Den laufenden Produktionsprozess überwachen sie genau und stellen eine hohe Qualität sicher . Bei kleineren Störungen oder Pannen greifen Anlageführer/-innen rasch und zielgerichtet ein. Kleinere Reparaturen und Wartungen führen sie selbst aus. Dabei bilden Pneumatik-, Hydraulik-, Elektrotechnik- und Mechanikkenntnisse eine wichtige Grundlage. Die Hauptaufgaben sind:\n\n- Programmieren und Inbetriebnahme von Steuerungen\n- Analyse und Behebung von technischen Problemen\n- Montage von Anlagen und Geräten\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Gutes Real- oder Sekundarniveau\n- Begeisterung für Technik\n- Freude am Umgang mit Maschinen und Anlagen\n- Handwerkliches Geschick bzw. praktische Fähigkeiten\n- Genaue und sorgfältige Arbeitsweise\n- Konzentrationsfähigkeit\n- Zuverlässigkeit und Verantwortungsbewusstsein\n- Organisationstalent\n- Teamfähigkeit\n- Belastbarkeit und Bereitschaft zu unregelmässigen Arbeitszeiten (Schichtarbeit)",
       "descriptionByLocale": {
@@ -530,27 +531,30 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "apprenti-e-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona",
         "apprentice-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona",
         "apprendista-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona",
         "apprendista-operatore-impianto-a-inizio-apprendistato-2027-geberit-rapperswil-jona",
         "learning-plant-operator-a-start-of-apprenticeship-in-2027-geberit-rapperswil-jona",
-        "conducteur-d-installation-apprenant-a-debut-de-l-apprentissage-en-2027-geberit-rapperswil-jona"
+        "conducteur-d-installation-apprenant-a-debut-de-l-apprentissage-en-2027-geberit-rapperswil-jona",
+        "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprendista-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona",
-          "apprendista-operatore-impianto-a-inizio-apprendistato-2027-geberit-rapperswil-jona"
+          "apprendista-operatore-impianto-a-inizio-apprendistato-2027-geberit-rapperswil-jona",
+          "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch"
         ],
         "en": [
           "apprentice-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona",
-          "learning-plant-operator-a-start-of-apprenticeship-in-2027-geberit-rapperswil-jona"
+          "learning-plant-operator-a-start-of-apprenticeship-in-2027-geberit-rapperswil-jona",
+          "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch"
         ],
         "fr": [
           "apprenti-e-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona",
-          "conducteur-d-installation-apprenant-a-debut-de-l-apprentissage-en-2027-geberit-rapperswil-jona"
+          "conducteur-d-installation-apprenant-a-debut-de-l-apprentissage-en-2027-geberit-rapperswil-jona",
+          "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch"
         ]
       },
       "salaryMin": 48000,
@@ -621,7 +625,6 @@
         "de": []
       },
       "previousSlugs": [
-        "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-832c200c65",
         "apprentice-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona",
         "apprenti-e-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona",
         "lernender-logistiker-a-lehrbeginn-2027-geberit-ch",
@@ -629,7 +632,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-832c200c65",
           "lernender-logistiker-a-lehrbeginn-2027-geberit-ch",
           "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona"
         ],
@@ -890,12 +892,12 @@
     },
     {
       "id": "geberit-2182",
-      "slug": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
+      "slug": "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona-a6c094",
       "slugByLocale": {
         "de": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
-        "it": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
-        "en": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
-        "fr": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
+        "it": "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona-a6c094",
+        "en": "plumber-building-physics-laboratory-a-100-geberit-rapperswil-jona",
+        "fr": "laboratoire-de-physique-des-batiments-pour-plombiers-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -944,22 +946,20 @@
         "installation-sanitaire-du-laboratoire-de-physique-du-batiment-a-100-geberit-rapperswil-jona",
         "sanitary-installer-of-building-physics-laboratory-a-100-geberit-rapperswil-jona",
         "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona",
-        "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona-a6c094",
-        "plumber-building-physics-laboratory-a-100-geberit-rapperswil-jona",
-        "laboratoire-de-physique-des-batiments-pour-plombiers-a-100-geberit-rapperswil-jona"
+        "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona",
-          "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona-a6c094"
+          "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
         ],
         "en": [
           "sanitary-installer-of-building-physics-laboratory-a-100-geberit-rapperswil-jona",
-          "plumber-building-physics-laboratory-a-100-geberit-rapperswil-jona"
+          "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
         ],
         "fr": [
           "installation-sanitaire-du-laboratoire-de-physique-du-batiment-a-100-geberit-rapperswil-jona",
-          "laboratoire-de-physique-des-batiments-pour-plombiers-a-100-geberit-rapperswil-jona"
+          "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
         ]
       },
       "salaryMin": 57500,
@@ -979,10 +979,10 @@
     },
     {
       "id": "geberit-1669",
-      "slug": "technician-sanitary-laboratory-a-80-100-geberit-ch",
+      "slug": "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona-b0d87a",
       "slugByLocale": {
         "de": "technician-sanitary-laboratory-a-80-100-geberit-ch",
-        "it": "technician-sanitary-laboratory-a-80-100-geberit-ch",
+        "it": "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona-b0d87a",
         "en": "technician-sanitary-laboratory-a-80-100-geberit-ch",
         "fr": "technician-sanitary-laboratory-a-80-100-geberit-ch"
       },
@@ -1034,13 +1034,15 @@
         "technician-sanitary-laboratory-a-80-100-geberit-rapperswil-jona",
         "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona",
         "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona-484d97f1a6",
-        "technicien-sanitary-laboratory-a-80-100-geberit-rapperswil-jona"
+        "technicien-sanitary-laboratory-a-80-100-geberit-rapperswil-jona",
+        "technician-sanitary-laboratory-a-80-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tecnico-a-laboratorio-sanitario-80-100-geberit-rapperswil-jona",
           "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona",
-          "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona-484d97f1a6"
+          "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona-484d97f1a6",
+          "technician-sanitary-laboratory-a-80-100-geberit-ch"
         ],
         "en": [
           "technician-sanitary-laboratory-a-80-100-geberit-rapperswil-jona"
@@ -1066,12 +1068,12 @@
     },
     {
       "id": "geberit-2201",
-      "slug": "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch",
+      "slug": "manutenzione-meccanica-meccanica-di-precisione-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch",
-        "it": "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch",
-        "en": "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch",
-        "fr": "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
+        "it": "manutenzione-meccanica-meccanica-di-precisione-a-100-geberit-rapperswil-jona",
+        "en": "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona-6dfaab",
+        "fr": "mecanique-de-precision-de-l-entretien-mecanique-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1121,22 +1123,22 @@
         "meccanica-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
         "mecanique-mecanique-de-precision-d-entretien-a-100-geberit-rapperswil-jona",
         "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
-        "manutenzione-meccanica-meccanica-di-precisione-a-100-geberit-rapperswil-jona",
         "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona",
-        "mecanique-de-precision-de-l-entretien-mecanique-a-100-geberit-rapperswil-jona"
+        "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "meccanica-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
           "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
-          "manutenzione-meccanica-meccanica-di-precisione-a-100-geberit-rapperswil-jona"
+          "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
         ],
         "fr": [
           "mecanique-mecanique-de-precision-d-entretien-a-100-geberit-rapperswil-jona",
-          "mecanique-de-precision-de-l-entretien-mecanique-a-100-geberit-rapperswil-jona"
+          "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
         ],
         "en": [
-          "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona"
+          "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona",
+          "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
         ]
       },
       "salaryMin": 57500,
@@ -1156,12 +1158,12 @@
     },
     {
       "id": "geberit-2186",
-      "slug": "teamleiter-kunden-servizio-interno-a-100-geberit-rapperswil-jona",
+      "slug": "responsabile-del-team-del-servizio-clienti-interno-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "teamleiter-kunden-innendienst-a-100-geberit-ch",
-        "it": "teamleiter-kunden-servizio-interno-a-100-geberit-rapperswil-jona",
-        "en": "teamleiter-kunden-innendienst-a-100-geberit-ch",
-        "fr": "teamleiter-kunden-innendienst-a-100-geberit-ch"
+        "it": "responsabile-del-team-del-servizio-clienti-interno-a-100-geberit-rapperswil-jona",
+        "en": "team-leader-customer-internal-service-a-100-geberit-rapperswil-jona",
+        "fr": "chef-d-equipe-service-client-interne-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1169,7 +1171,7 @@
       "title": "Teamleiter Kunden-Innendienst (a) 100%",
       "titleByLocale": {
         "de": "Teamleiter Kunden-Innendienst (a) 100%",
-        "it": "Teamleiter Kunden-servizio interno (a) 100%",
+        "it": "Responsabile del team del servizio clienti interno (a) 100%",
         "en": "Team Leader Customer Internal Service (a) 100%",
         "fr": "Chef d'équipe Service client interne (a) 100 %"
       },
@@ -1206,7 +1208,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona",
         "chef-d-equipe-service-interieur-a-la-clientele-a-100-geberit-rapperswil-jona",
@@ -1214,27 +1215,27 @@
         "team-leader-customer-interior-service-a-100-geberit-rapperswil-jona",
         "leiter-kundeninnendienst-a-100-geberit-rapperswil-jona",
         "responsabile-del-team-servizio-clienti-interno-a-100-geberit-rapperswil-jona",
-        "team-leader-customer-internal-service-a-100-geberit-rapperswil-jona",
-        "chef-d-equipe-service-client-interne-a-100-geberit-rapperswil-jona",
-        "teamleiter-kunden-innendienst-a-100-geberit-ch"
+        "teamleiter-kunden-innendienst-a-100-geberit-ch",
+        "teamleiter-kunden-servizio-interno-a-100-geberit-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-kundeninnendienst-a-100-geberit-rapperswil-jona",
           "responsabile-del-team-servizio-clienti-interno-a-100-geberit-rapperswil-jona",
-          "teamleiter-kunden-innendienst-a-100-geberit-ch"
+          "teamleiter-kunden-innendienst-a-100-geberit-ch",
+          "teamleiter-kunden-servizio-interno-a-100-geberit-rapperswil-jona"
         ],
         "en": [
           "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona",
           "team-leader-customer-interior-service-a-100-geberit-rapperswil-jona",
-          "team-leader-customer-internal-service-a-100-geberit-rapperswil-jona"
+          "teamleiter-kunden-innendienst-a-100-geberit-ch"
         ],
         "de": [
           "leiter-kundeninnendienst-a-100-geberit-ch"
         ],
         "fr": [
           "chef-d-equipe-service-interieur-a-la-clientele-a-100-geberit-rapperswil-jona",
-          "chef-d-equipe-service-client-interne-a-100-geberit-rapperswil-jona"
+          "teamleiter-kunden-innendienst-a-100-geberit-ch"
         ]
       },
       "salaryMin": 57500,
@@ -1413,12 +1414,12 @@
     },
     {
       "id": "geberit-2245",
-      "slug": "anlagenfuhrer-efz-a-100-geberit-ch",
+      "slug": "operatore-trice-di-impianti-efz-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "anlagenfuhrer-efz-a-100-geberit-ch",
-        "it": "anlagenfuhrer-efz-a-100-geberit-ch",
-        "en": "anlagenfuhrer-efz-a-100-geberit-ch",
-        "fr": "anlagenfuhrer-efz-a-100-geberit-ch"
+        "it": "operatore-trice-di-impianti-efz-a-100-geberit-rapperswil-jona",
+        "en": "plant-operator-efz-a-100-geberit-rapperswil-jona-9ca643",
+        "fr": "conducteur-d-installation-cfc-a-100-geberit-rapperswil-jona-9ca643"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1426,7 +1427,7 @@
       "title": "Anlagenführer EFZ (a) 100%",
       "titleByLocale": {
         "de": "Anlagenführer EFZ (a) 100%",
-        "it": "Anlagenführer CFC (a) 100%",
+        "it": "Operatore/trice di impianti EFZ (a) 100%",
         "en": "Plant operator EFZ (a) 100%",
         "fr": "Conducteur d'installation CFC (a) 100 %"
       },
@@ -1463,27 +1464,30 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "directeur-de-l-usine-efz-a-100-geberit-rapperswil-jona",
         "plant-manager-efz-a-100-geberit-rapperswil-jona",
         "anlagenfuhrer-cfc-a-100-geberit-rapperswil-jona",
         "gestore-dell-impianto-afc-a-100-geberit-rapperswil-jona",
         "plant-operator-efz-a-100-geberit-rapperswil-jona",
-        "conducteur-d-installation-cfc-a-100-geberit-rapperswil-jona"
+        "conducteur-d-installation-cfc-a-100-geberit-rapperswil-jona",
+        "anlagenfuhrer-efz-a-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "plant-manager-efz-a-100-geberit-rapperswil-jona",
           "anlagenfuhrer-cfc-a-100-geberit-rapperswil-jona",
-          "gestore-dell-impianto-afc-a-100-geberit-rapperswil-jona"
+          "gestore-dell-impianto-afc-a-100-geberit-rapperswil-jona",
+          "anlagenfuhrer-efz-a-100-geberit-ch"
         ],
         "fr": [
           "directeur-de-l-usine-efz-a-100-geberit-rapperswil-jona",
-          "conducteur-d-installation-cfc-a-100-geberit-rapperswil-jona"
+          "conducteur-d-installation-cfc-a-100-geberit-rapperswil-jona",
+          "anlagenfuhrer-efz-a-100-geberit-ch"
         ],
         "en": [
-          "plant-operator-efz-a-100-geberit-rapperswil-jona"
+          "plant-operator-efz-a-100-geberit-rapperswil-jona",
+          "anlagenfuhrer-efz-a-100-geberit-ch"
         ]
       },
       "salaryMin": 57500,
@@ -1503,12 +1507,12 @@
     },
     {
       "id": "geberit-2262",
-      "slug": "praktikant-verpackungsmanagement-a-100-geberit-ch",
+      "slug": "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-ab056c",
       "slugByLocale": {
         "de": "praktikant-verpackungsmanagement-a-100-geberit-ch",
-        "it": "praktikant-verpackungsmanagement-a-100-geberit-ch",
-        "en": "praktikant-verpackungsmanagement-a-100-geberit-ch",
-        "fr": "praktikant-verpackungsmanagement-a-100-geberit-ch"
+        "it": "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-ab056c",
+        "en": "intern-packaging-management-a-100-geberit-rapperswil-jona-ab056c",
+        "fr": "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona-ab056c"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1557,18 +1561,22 @@
         "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona",
         "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-9b1c6c426d",
         "intern-packaging-management-a-100-geberit-rapperswil-jona",
-        "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona"
+        "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona",
+        "praktikant-verpackungsmanagement-a-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona",
-          "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-9b1c6c426d"
+          "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona-9b1c6c426d",
+          "praktikant-verpackungsmanagement-a-100-geberit-ch"
         ],
         "en": [
-          "intern-packaging-management-a-100-geberit-rapperswil-jona"
+          "intern-packaging-management-a-100-geberit-rapperswil-jona",
+          "praktikant-verpackungsmanagement-a-100-geberit-ch"
         ],
         "fr": [
-          "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona"
+          "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona",
+          "praktikant-verpackungsmanagement-a-100-geberit-ch"
         ]
       },
       "salaryMin": 48000,
@@ -1588,12 +1596,12 @@
     },
     {
       "id": "geberit-2243",
-      "slug": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch",
+      "slug": "stratega-di-marketing-crm-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch",
-        "it": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch",
-        "en": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch",
-        "fr": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
+        "it": "stratega-di-marketing-crm-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
+        "en": "marketing-crm-strategist-with-focus-on-customer-portal-a-100-geberit-rapperswil-jona",
+        "fr": "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona-d7d8b7"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1602,7 +1610,7 @@
       "titleByLocale": {
         "de": "Marketing CRM Strategist (mit Fokus Kundenportal) (a) 100%",
         "en": "Marketing CRM Strategist (with focus on customer portal) (a) 100%",
-        "it": "Marketing CRM Strategist (con Fokus Kundenportal) (a) 100%",
+        "it": "Stratega di marketing CRM (con focus sul portale clienti) (a) 100%",
         "fr": "Marketing CRM Strategist (avec l'accent sur le portail client) (a) 100%"
       },
       "description": "## HAUPTAUFGABEN​\n\nIn der Funktion als Marketing CRM Strategist bist du verantwortlich für die fachliche Weiterentwicklung des gruppenweiten Kundenportals sowie der zentralen CIAM-Lösung (Geberit ID). In enger Zusammenarbeit mit den lokalen Märkten, der IT und externen Partnern treibst du die Weiterentwicklung dieser strategischen Plattformen voran. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Fachliche Verantwortung für den Betrieb und die Weiterentwicklung des gruppenweiten Kundenportals\n- Verantwortung für die Weiterentwicklung der zentralen Login-Lösung (CIAM; SAP Customer Data Cloud) unter Berücksichtigung von Benutzerfreundlichkeit, Datenschutz und Sicherheit\n- Sicherstellung der Integration des Kundenportals und der CIAM-Lösung mit Microsoft Dynamics 365 sowie weiteren digitalen Systemen und Plattformen\n- Aufnahme, Analyse und Priorisierung von Anforderungen sowie Erarbeitung geeigneter Lösungsansätze\n- Unterstützung internationaler Rollouts und Mitarbeit in Projekten zur Weiterentwicklung der digitalen Plattformen\n- Enge Zusammenarbeit mit Marketing, IT, Vertrieb und externen Partnern sowie Sicherstellung der Einhaltung globaler Standards und Vorgaben\n\n## PROFIL\n\nFür diese spannende Position verfügst du über ein abgeschlossenes Studium im Bereich Wirtschaft, Marketing, Wirtschaftsinformatik oder eine vergleichbare Ausbildung. Zudem bringst du mehrere Jahre Berufserfahrung im Umfeld von CRM-Systemen, digitalen Plattformen oder Customer-Identity-Lösungen mit. Darüber hinaus zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Mehrjährige Berufserfahrung in einer vergleichbaren Funktion, idealerweise in einem internationalen Unternehmensumfeld\n- Erfahrung mit CRM-Systemen, vorzugsweise Microsoft Dynamics 365 sowie digitalen Kundenplattformen\n- Kenntnisse im Bereich Customer Identity & Access Management, idealerweise mit SAP Customer Data Cloud\n- Starkes Verständnis für Datenschutz und Nutzerzentrierung in digitalen Prozessen\n- Technisches Verständnis für Systemarchitekturen, Schnittstellen und Datenflüsse\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten sowie eine strukturierte und lösungsorientierte Arbeitsweise in einem agilen Setup\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
@@ -1638,25 +1646,26 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-rapperswil-jona",
         "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
         "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona-bd3786828b",
-        "marketing-crm-strategist-with-focus-on-customer-portal-a-100-geberit-rapperswil-jona",
-        "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona"
+        "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona",
+        "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
-          "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona-bd3786828b"
+          "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona-bd3786828b",
+          "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
         ],
         "en": [
           "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-rapperswil-jona",
-          "marketing-crm-strategist-with-focus-on-customer-portal-a-100-geberit-rapperswil-jona"
+          "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
         ],
         "fr": [
-          "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona"
+          "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona",
+          "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
         ]
       },
       "salaryMin": 58500,
@@ -1749,12 +1758,12 @@
     },
     {
       "id": "geberit-2237",
-      "slug": "leiter-empfang-zentrale-dienste-a-50-geberit-rapperswil-jona",
+      "slug": "capo-della-reception-e-dei-servizi-centrali-a-50-geberit-rapperswil-jona-1f3675",
       "slugByLocale": {
         "de": "leiter-empfang-zentrale-dienste-a-50-geberit-ch",
-        "it": "leiter-empfang-zentrale-dienste-a-50-geberit-rapperswil-jona",
-        "en": "leiter-empfang-zentrale-dienste-a-50-geberit-ch",
-        "fr": "leiter-empfang-zentrale-dienste-a-50-geberit-ch"
+        "it": "capo-della-reception-e-dei-servizi-centrali-a-50-geberit-rapperswil-jona-1f3675",
+        "en": "head-of-reception-central-services-a-50-geberit-rapperswil-jona-1f3675",
+        "fr": "chef-de-la-reception-et-des-services-centraux-a-50-geberit-rapperswil-jona-1f3675"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1804,19 +1813,23 @@
         "capo-della-reception-e-dei-servizi-centrali-a-50-geberit-rapperswil-jona-3a87866611",
         "head-of-reception-central-services-a-50-geberit-rapperswil-jona",
         "chef-de-la-reception-et-des-services-centraux-a-50-geberit-rapperswil-jona",
-        "leiter-empfang-zentrale-dienste-a-50-geberit-ch"
+        "leiter-empfang-zentrale-dienste-a-50-geberit-ch",
+        "leiter-empfang-zentrale-dienste-a-50-geberit-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "capo-della-reception-e-dei-servizi-centrali-a-50-geberit-rapperswil-jona",
           "capo-della-reception-e-dei-servizi-centrali-a-50-geberit-rapperswil-jona-3a87866611",
-          "leiter-empfang-zentrale-dienste-a-50-geberit-ch"
+          "leiter-empfang-zentrale-dienste-a-50-geberit-ch",
+          "leiter-empfang-zentrale-dienste-a-50-geberit-rapperswil-jona"
         ],
         "en": [
-          "head-of-reception-central-services-a-50-geberit-rapperswil-jona"
+          "head-of-reception-central-services-a-50-geberit-rapperswil-jona",
+          "leiter-empfang-zentrale-dienste-a-50-geberit-ch"
         ],
         "fr": [
-          "chef-de-la-reception-et-des-services-centraux-a-50-geberit-rapperswil-jona"
+          "chef-de-la-reception-et-des-services-centraux-a-50-geberit-rapperswil-jona",
+          "leiter-empfang-zentrale-dienste-a-50-geberit-ch"
         ]
       },
       "salaryMin": 39500,
@@ -2227,12 +2240,12 @@
     },
     {
       "id": "geberit-2172",
-      "slug": "berechnungsingenieur-strukturmechanik-fluiddynamik-a-100-geberit-ch",
+      "slug": "meccanica-strutturale-e-dinamica-fluida-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "berechnungsingenieur-strukturmechanik-fluiddynamik-a-100-geberit-ch",
-        "it": "berechnungsingenieur-strukturmechanik-fluiddynamik-a-100-geberit-ch",
-        "en": "berechnungsingenieur-strukturmechanik-fluiddynamik-a-100-geberit-ch",
-        "fr": "berechnungsingenieur-strukturmechanik-fluiddynamik-a-100-geberit-ch"
+        "it": "meccanica-strutturale-e-dinamica-fluida-a-100-geberit-rapperswil-jona",
+        "en": "computational-engineer-structural-mechanics-fluid-dynamics-a-100-geberit-rapperswil-jona",
+        "fr": "ingenieur-informatique-mecanique-structurelle-et-dynamique-des-fluides-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -2240,16 +2253,16 @@
       "title": "Berechnungsingenieur Strukturmechanik & Fluiddynamik (a) 100%",
       "titleByLocale": {
         "de": "Berechnungsingenieur Strukturmechanik & Fluiddynamik (a) 100%",
-        "it": "Berechnungsingenieur Strukturmechanik & Fluiddynamik (a) 100%",
-        "en": "Berechnungsingenieur Strukturmechanik & Fluiddynamik (a) 100%",
-        "fr": "Berechnungsingenieur Strukturmechanik & Fluiddynamik (a) 100%"
+        "it": "Meccanica strutturale e dinamica fluida (a) 100%",
+        "en": "Computational Engineer Structural Mechanics & Fluid Dynamics (a) 100%",
+        "fr": "Ingénieur informatique Mécanique structurelle et dynamique des fluides (a) 100%"
       },
       "description": "## HAUPTAUFGABEN​\n\nDiese Position bietet dir die Möglichkeit, deine Expertise in Simulationen gezielt einzusetzen und weiterzuentwickeln. Neben komplexen strukturmechanischen und fluiddynamischen Fragestellungen arbeitest du an innovativen Vorentwicklungsprojekten und bist verantwortlich für physikalische Simulationsumfänge im Bereich Strukturmechanik und Fluiddynamik. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Unterstützung der Produktentwicklung/-pflege mit validierten Simulationsmethoden\n- Beratung der Produktionswerke und Vertriebsgesellschaften bei strukturmechanischen und fluiddynamischen Fragestellungen\n- Leitung von innovativen Vorentwicklungsprojekten\n- Automatisierung von Simulationstätigkeiten\n- Zusammenarbeit mit externen Partnern sowie Führung von Praktikanten und Masteranden\n\n## PROFIL\n\nDu bringst einen Hochschulabschluss (vorzugsweise promoviert) in Physik, Maschinenbau, Luft- und Raumfahrttechnik oder einer vergleichbaren Fachrichtung mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Umfangreiche Berufserfahrung in der virtuellen Entwicklung (Ansys Mechanical, Ansys Fluent, Ansys CFX)\n- Routiniert in Python, Linux, HPC\n- Vertiefte Erfahrung in der Versuchsmethodik und Datenanalyse\n- Teamplayer mit Freude an interdisziplinärer Zusammenarbeit\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
       "descriptionByLocale": {
         "de": "## HAUPTAUFGABEN​\n\nDiese Position bietet dir die Möglichkeit, deine Expertise in Simulationen gezielt einzusetzen und weiterzuentwickeln. Neben komplexen strukturmechanischen und fluiddynamischen Fragestellungen arbeitest du an innovativen Vorentwicklungsprojekten und bist verantwortlich für physikalische Simulationsumfänge im Bereich Strukturmechanik und Fluiddynamik. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Unterstützung der Produktentwicklung/-pflege mit validierten Simulationsmethoden\n- Beratung der Produktionswerke und Vertriebsgesellschaften bei strukturmechanischen und fluiddynamischen Fragestellungen\n- Leitung von innovativen Vorentwicklungsprojekten\n- Automatisierung von Simulationstätigkeiten\n- Zusammenarbeit mit externen Partnern sowie Führung von Praktikanten und Masteranden\n\n## PROFIL\n\nDu bringst einen Hochschulabschluss (vorzugsweise promoviert) in Physik, Maschinenbau, Luft- und Raumfahrttechnik oder einer vergleichbaren Fachrichtung mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Umfangreiche Berufserfahrung in der virtuellen Entwicklung (Ansys Mechanical, Ansys Fluent, Ansys CFX)\n- Routiniert in Python, Linux, HPC\n- Vertiefte Erfahrung in der Versuchsmethodik und Datenanalyse\n- Teamplayer mit Freude an interdisziplinärer Zusammenarbeit\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "it": "## HAUPTAUFGABEN​\n\nDiese Position bietet dir die Möglichkeit, deine Expertise in Simulationen gezielt einzusetzen und weiterzuentwickeln. Neben komplexen strukturmechanischen und fluiddynamischen Fragestellungen arbeitest du an innovativen Vorentwicklungsprojekten und bist verantwortlich für physikalische Simulationsumfänge im Bereich Strukturmechanik und Fluiddynamik. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Unterstützung der Produktentwicklung/-pflege mit validierten Simulationsmethoden\n- Beratung der Produktionswerke und Vertriebsgesellschaften bei strukturmechanischen und fluiddynamischen Fragestellungen\n- Leitung von innovativen Vorentwicklungsprojekten\n- Automatisierung von Simulationstätigkeiten\n- Zusammenarbeit mit externen Partnern sowie Führung von Praktikanten und Masteranden\n\n## PROFIL\n\nDu bringst einen Hochschulabschluss (vorzugsweise promoviert) in Physik, Maschinenbau, Luft- und Raumfahrttechnik oder einer vergleichbaren Fachrichtung mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Umfangreiche Berufserfahrung in der virtuellen Entwicklung (Ansys Mechanical, Ansys Fluent, Ansys CFX)\n- Routiniert in Python, Linux, HPC\n- Vertiefte Erfahrung in der Versuchsmethodik und Datenanalyse\n- Teamplayer mit Freude an interdisziplinärer Zusammenarbeit\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "en": "## HAUPTAUFGABEN​\n\nDiese Position bietet dir die Möglichkeit, deine Expertise in Simulationen gezielt einzusetzen und weiterzuentwickeln. Neben komplexen strukturmechanischen und fluiddynamischen Fragestellungen arbeitest du an innovativen Vorentwicklungsprojekten und bist verantwortlich für physikalische Simulationsumfänge im Bereich Strukturmechanik und Fluiddynamik. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Unterstützung der Produktentwicklung/-pflege mit validierten Simulationsmethoden\n- Beratung der Produktionswerke und Vertriebsgesellschaften bei strukturmechanischen und fluiddynamischen Fragestellungen\n- Leitung von innovativen Vorentwicklungsprojekten\n- Automatisierung von Simulationstätigkeiten\n- Zusammenarbeit mit externen Partnern sowie Führung von Praktikanten und Masteranden\n\n## PROFIL\n\nDu bringst einen Hochschulabschluss (vorzugsweise promoviert) in Physik, Maschinenbau, Luft- und Raumfahrttechnik oder einer vergleichbaren Fachrichtung mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Umfangreiche Berufserfahrung in der virtuellen Entwicklung (Ansys Mechanical, Ansys Fluent, Ansys CFX)\n- Routiniert in Python, Linux, HPC\n- Vertiefte Erfahrung in der Versuchsmethodik und Datenanalyse\n- Teamplayer mit Freude an interdisziplinärer Zusammenarbeit\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "## HAUPTAUFGABEN​\n\nDiese Position bietet dir die Möglichkeit, deine Expertise in Simulationen gezielt einzusetzen und weiterzuentwickeln. Neben komplexen strukturmechanischen und fluiddynamischen Fragestellungen arbeitest du an innovativen Vorentwicklungsprojekten und bist verantwortlich für physikalische Simulationsumfänge im Bereich Strukturmechanik und Fluiddynamik. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Unterstützung der Produktentwicklung/-pflege mit validierten Simulationsmethoden\n- Beratung der Produktionswerke und Vertriebsgesellschaften bei strukturmechanischen und fluiddynamischen Fragestellungen\n- Leitung von innovativen Vorentwicklungsprojekten\n- Automatisierung von Simulationstätigkeiten\n- Zusammenarbeit mit externen Partnern sowie Führung von Praktikanten und Masteranden\n\n## PROFIL\n\nDu bringst einen Hochschulabschluss (vorzugsweise promoviert) in Physik, Maschinenbau, Luft- und Raumfahrttechnik oder einer vergleichbaren Fachrichtung mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Umfangreiche Berufserfahrung in der virtuellen Entwicklung (Ansys Mechanical, Ansys Fluent, Ansys CFX)\n- Routiniert in Python, Linux, HPC\n- Vertiefte Erfahrung in der Versuchsmethodik und Datenanalyse\n- Teamplayer mit Freude an interdisziplinärer Zusammenarbeit\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen."
+        "it": "## TASK PRINCIPALI\n\nQuesta posizione ti dà l'opportunità di utilizzare e sviluppare ulteriormente le tue competenze nelle simulazioni. Oltre a complessi problemi di meccanica strutturale e dinamica dei fluidi, si lavorerà su progetti innovativi di pre-sviluppo e sarà responsabile per scopi di simulazione fisica nel campo della meccanica strutturale e della dinamica dei fluidi. Questo include in particolare le seguenti attività:\n\n- Supporto per lo sviluppo/manutenzione dei prodotti con metodi di simulazione convalidati\n- Consulenza impianti di produzione e società di vendita su problemi strutturali di dinamica meccanica e fluida\n- Gestione di progetti innovativi pre-sviluppo\n- Automazione delle attività di simulazione\n- Cooperazione con partner esterni e gestione di tirocinanti e studenti master\n\n## PROFESSIONALE\n\nSi porta una laurea (preferibilmente un dottorato) in fisica, ingegneria meccanica, ingegneria aerospaziale o un campo di studio comparabile. Inoltre, le seguenti caratteristiche e abilità ti caratterizzano:\n\n- Ampia esperienza professionale nello sviluppo virtuale (Ansys Mechanical, Ansys Fluent, Ansys CFX)\n- Routinato in Python, Linux, HPC\n- Esperienza approfondita nella metodologia sperimentale e nell'analisi dei dati\n- Giocatore di squadra con piacere nella cooperazione interdisciplinare\n- Forte capacità analitiche e concettuali\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
+        "en": "## MAIN TASKS\n\nThis position gives you the opportunity to use and further develop your expertise in simulations. In addition to complex structural mechanics and fluid dynamics issues, you will work on innovative pre-development projects and will be responsible for physical simulation scopes in the field of structural mechanics and fluid dynamics. This includes in particular the following activities:\n\n- Support for product development/maintenance with validated simulation methods\n- Advising production plants and sales companies on structural mechanical and fluid dynamics issues\n- Management of innovative pre-development projects\n- Automation of simulation activities\n- Cooperation with external partners as well as management of interns and master students\n\n## PROFILE\n\nYou bring a university degree (preferably a doctorate) in physics, mechanical engineering, aerospace engineering or a comparable field of study. In addition, the following characteristics and abilities characterize you:\n\n- Extensive professional experience in virtual development (Ansys Mechanical, Ansys Fluent, Ansys CFX)\n- Routinated in Python, Linux, HPC\n- In-depth experience in experimental methodology and data analysis\n- Team player with pleasure in interdisciplinary cooperation\n- Strong analytical and conceptual skills\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
+        "fr": "## PRINCIPALES TÂCHES\n\nCe poste vous donne l'occasion d'utiliser et de développer votre expertise en simulations. En plus des questions complexes de mécanique structurelle et de dynamique des fluides, vous travaillerez sur des projets innovants de pré-développement et serez responsable des champs de simulation physique dans le domaine de la mécanique structurelle et de la dynamique des fluides. Cela comprend notamment les activités suivantes:\n\n- Soutien au développement/entretien de produits avec des méthodes de simulation validées\n- Conseiller les usines de production et les entreprises de vente sur les questions de dynamique mécanique et fluide structurelle\n- Gestion des projets innovants de prédéveloppement\n- Automatisation des activités de simulation\n- Coopération avec des partenaires extérieurs ainsi que gestion de stagiaires et d'étudiants maîtres\n\n## PROFIL\n\nVous apportez un diplôme universitaire (de préférence un doctorat) en physique, génie mécanique, ingénierie aérospatiale ou un domaine d'études comparable. De plus, les caractéristiques et les capacités suivantes vous caractérisent :\n\n- Expérience professionnelle étendue en développement virtuel (Ansys Mechanical, Ansys Fluent, Ansys CFX)\n- Routiné en Python, Linux, HPC\n- Expérience approfondie de la méthodologie expérimentale et de l'analyse des données\n- Joueur d'équipe avec plaisir dans la coopération interdisciplinaire\n- Fortes compétences analytiques et conceptuelles\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
       },
       "location": "Rapperswil-Jona",
       "canton": "SG",
@@ -2277,7 +2290,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2290,7 +2302,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "berechnungsingenieur-strukturmechanik-fluiddynamik-a-100-geberit-ch"
+        ],
+        "en": [
+          "berechnungsingenieur-strukturmechanik-fluiddynamik-a-100-geberit-ch"
+        ],
+        "fr": [
+          "berechnungsingenieur-strukturmechanik-fluiddynamik-a-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berechnungsingenieur-strukturmechanik-fluiddynamik-a-100-geberit-ch"
+      ]
     },
     {
       "id": "geberit-2148",
@@ -2308,15 +2334,15 @@
       "titleByLocale": {
         "de": "Product Manager International - Installation Systems (a) 80-100%",
         "en": "Product Manager International - Installation Systems (a) 80-100%",
-        "it": "Product Manager International - Installation Systems (a) 80-100%",
-        "fr": "Product Manager International - Installation Systems (a) 80-100%"
+        "it": "Product Manager International - Sistemi di installazione (a) 80-100 %",
+        "fr": "Product Manager International - Systèmes d'installation (a) 80-100 %"
       },
       "description": "## HAUPTAUFGABEN​\n\nMöchtest du internationale Produkte aktiv gestalten und Innovationen erfolgreich in den Markt bringen? Als Product Manager International verantwortest du den Produktbereich Betätigungsplatten. Dabei verbindest du Marktverständnis, technisches Know-how sowie unternehmerisches Denken und führst interdisziplinäre Teams erfolgreich zum Ziel. Das beinhaltet insbesondere folgende Tätigkeiten:\n\n- Strategische Weiterentwicklung des internationalen Produktportfolios im Bereich Betätigungsplatten\n- Entwicklung und Umsetzung von Produkt- und Portfoliostrategien über den gesamten Produktlebenszyklus\n- Analyse von Markt-, Kunden- und Technologietrends\n- Erarbeitung von Business Cases, Priorisierung von Produktinitiativen und Definition von Produktanforderungen\n- Verantwortung für Produkteinführungen, Produktänderungen und Portfoliobereinigungen\n- Intensive Zusammenarbeit mit internationalen Vertriebsgesellschaften sowie internen Bereichen wie Entwicklung, Produktion, Qualität, Einkauf und Logistik\n- Arbeitsort Jona (SG, Schweiz) mit gelegentlicher internationaler Reisetätigkeit\n\n## PROFIL\n\nDu bringst ein abgeschlossenes Ingenieurstudium, ergänzt durch eine betriebswirtschaftliche Weiterbildung mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Mehrjährige Erfahrung im Produktmanagement, Innovationsmanagement oder in der Produktentwicklung, vorzugsweise mit Hintergrund im mehrstufigen B2B Geschäft.\n- Strategisches und unternehmerisches Denken sowie Erfahrung in der Entwicklung und Vermarktung erfolgreicher Produkte\n- Fähigkeit, technische, wirtschaftliche und marktbezogene Anforderungen in nachhaltige Produktlösungen zu übersetzen\n- Hohe Eigeninitiative, Entscheidungsstärke und Umsetzungsorientierung verbunden mit einer ausgeprägten Hands-on-Mentalität\n- Ausgezeichnete Kommunikations-, Moderations- und Stakeholder-Management-Kompetenzen\n- Freude an internationaler Zusammenarbeit sowie an der Führung von Projekten und Teams ohne direkte Weisungsbefugnis\n- Stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
       "descriptionByLocale": {
         "de": "## HAUPTAUFGABEN​\n\nMöchtest du internationale Produkte aktiv gestalten und Innovationen erfolgreich in den Markt bringen? Als Product Manager International verantwortest du den Produktbereich Betätigungsplatten. Dabei verbindest du Marktverständnis, technisches Know-how sowie unternehmerisches Denken und führst interdisziplinäre Teams erfolgreich zum Ziel. Das beinhaltet insbesondere folgende Tätigkeiten:\n\n- Strategische Weiterentwicklung des internationalen Produktportfolios im Bereich Betätigungsplatten\n- Entwicklung und Umsetzung von Produkt- und Portfoliostrategien über den gesamten Produktlebenszyklus\n- Analyse von Markt-, Kunden- und Technologietrends\n- Erarbeitung von Business Cases, Priorisierung von Produktinitiativen und Definition von Produktanforderungen\n- Verantwortung für Produkteinführungen, Produktänderungen und Portfoliobereinigungen\n- Intensive Zusammenarbeit mit internationalen Vertriebsgesellschaften sowie internen Bereichen wie Entwicklung, Produktion, Qualität, Einkauf und Logistik\n- Arbeitsort Jona (SG, Schweiz) mit gelegentlicher internationaler Reisetätigkeit\n\n## PROFIL\n\nDu bringst ein abgeschlossenes Ingenieurstudium, ergänzt durch eine betriebswirtschaftliche Weiterbildung mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Mehrjährige Erfahrung im Produktmanagement, Innovationsmanagement oder in der Produktentwicklung, vorzugsweise mit Hintergrund im mehrstufigen B2B Geschäft.\n- Strategisches und unternehmerisches Denken sowie Erfahrung in der Entwicklung und Vermarktung erfolgreicher Produkte\n- Fähigkeit, technische, wirtschaftliche und marktbezogene Anforderungen in nachhaltige Produktlösungen zu übersetzen\n- Hohe Eigeninitiative, Entscheidungsstärke und Umsetzungsorientierung verbunden mit einer ausgeprägten Hands-on-Mentalität\n- Ausgezeichnete Kommunikations-, Moderations- und Stakeholder-Management-Kompetenzen\n- Freude an internationaler Zusammenarbeit sowie an der Führung von Projekten und Teams ohne direkte Weisungsbefugnis\n- Stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "it": "## HAUPTAUFGABEN​\n\nMöchtest du internationale Produkte aktiv gestalten und Innovationen erfolgreich in den Markt bringen? Als Product Manager International verantwortest du den Produktbereich Betätigungsplatten. Dabei verbindest du Marktverständnis, technisches Know-how sowie unternehmerisches Denken und führst interdisziplinäre Teams erfolgreich zum Ziel. Das beinhaltet insbesondere folgende Tätigkeiten:\n\n- Strategische Weiterentwicklung des internationalen Produktportfolios im Bereich Betätigungsplatten\n- Entwicklung und Umsetzung von Produkt- und Portfoliostrategien über den gesamten Produktlebenszyklus\n- Analyse von Markt-, Kunden- und Technologietrends\n- Erarbeitung von Business Cases, Priorisierung von Produktinitiativen und Definition von Produktanforderungen\n- Verantwortung für Produkteinführungen, Produktänderungen und Portfoliobereinigungen\n- Intensive Zusammenarbeit mit internationalen Vertriebsgesellschaften sowie internen Bereichen wie Entwicklung, Produktion, Qualität, Einkauf und Logistik\n- Arbeitsort Jona (SG, Schweiz) mit gelegentlicher internationaler Reisetätigkeit\n\n## PROFIL\n\nDu bringst ein abgeschlossenes Ingenieurstudium, ergänzt durch eine betriebswirtschaftliche Weiterbildung mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Mehrjährige Erfahrung im Produktmanagement, Innovationsmanagement oder in der Produktentwicklung, vorzugsweise mit Hintergrund im mehrstufigen B2B Geschäft.\n- Strategisches und unternehmerisches Denken sowie Erfahrung in der Entwicklung und Vermarktung erfolgreicher Produkte\n- Fähigkeit, technische, wirtschaftliche und marktbezogene Anforderungen in nachhaltige Produktlösungen zu übersetzen\n- Hohe Eigeninitiative, Entscheidungsstärke und Umsetzungsorientierung verbunden mit einer ausgeprägten Hands-on-Mentalität\n- Ausgezeichnete Kommunikations-, Moderations- und Stakeholder-Management-Kompetenzen\n- Freude an internationaler Zusammenarbeit sowie an der Führung von Projekten und Teams ohne direkte Weisungsbefugnis\n- Stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "en": "## HAUPTAUFGABEN​\n\nMöchtest du internationale Produkte aktiv gestalten und Innovationen erfolgreich in den Markt bringen? Als Product Manager International verantwortest du den Produktbereich Betätigungsplatten. Dabei verbindest du Marktverständnis, technisches Know-how sowie unternehmerisches Denken und führst interdisziplinäre Teams erfolgreich zum Ziel. Das beinhaltet insbesondere folgende Tätigkeiten:\n\n- Strategische Weiterentwicklung des internationalen Produktportfolios im Bereich Betätigungsplatten\n- Entwicklung und Umsetzung von Produkt- und Portfoliostrategien über den gesamten Produktlebenszyklus\n- Analyse von Markt-, Kunden- und Technologietrends\n- Erarbeitung von Business Cases, Priorisierung von Produktinitiativen und Definition von Produktanforderungen\n- Verantwortung für Produkteinführungen, Produktänderungen und Portfoliobereinigungen\n- Intensive Zusammenarbeit mit internationalen Vertriebsgesellschaften sowie internen Bereichen wie Entwicklung, Produktion, Qualität, Einkauf und Logistik\n- Arbeitsort Jona (SG, Schweiz) mit gelegentlicher internationaler Reisetätigkeit\n\n## PROFIL\n\nDu bringst ein abgeschlossenes Ingenieurstudium, ergänzt durch eine betriebswirtschaftliche Weiterbildung mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Mehrjährige Erfahrung im Produktmanagement, Innovationsmanagement oder in der Produktentwicklung, vorzugsweise mit Hintergrund im mehrstufigen B2B Geschäft.\n- Strategisches und unternehmerisches Denken sowie Erfahrung in der Entwicklung und Vermarktung erfolgreicher Produkte\n- Fähigkeit, technische, wirtschaftliche und marktbezogene Anforderungen in nachhaltige Produktlösungen zu übersetzen\n- Hohe Eigeninitiative, Entscheidungsstärke und Umsetzungsorientierung verbunden mit einer ausgeprägten Hands-on-Mentalität\n- Ausgezeichnete Kommunikations-, Moderations- und Stakeholder-Management-Kompetenzen\n- Freude an internationaler Zusammenarbeit sowie an der Führung von Projekten und Teams ohne direkte Weisungsbefugnis\n- Stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "## HAUPTAUFGABEN​\n\nMöchtest du internationale Produkte aktiv gestalten und Innovationen erfolgreich in den Markt bringen? Als Product Manager International verantwortest du den Produktbereich Betätigungsplatten. Dabei verbindest du Marktverständnis, technisches Know-how sowie unternehmerisches Denken und führst interdisziplinäre Teams erfolgreich zum Ziel. Das beinhaltet insbesondere folgende Tätigkeiten:\n\n- Strategische Weiterentwicklung des internationalen Produktportfolios im Bereich Betätigungsplatten\n- Entwicklung und Umsetzung von Produkt- und Portfoliostrategien über den gesamten Produktlebenszyklus\n- Analyse von Markt-, Kunden- und Technologietrends\n- Erarbeitung von Business Cases, Priorisierung von Produktinitiativen und Definition von Produktanforderungen\n- Verantwortung für Produkteinführungen, Produktänderungen und Portfoliobereinigungen\n- Intensive Zusammenarbeit mit internationalen Vertriebsgesellschaften sowie internen Bereichen wie Entwicklung, Produktion, Qualität, Einkauf und Logistik\n- Arbeitsort Jona (SG, Schweiz) mit gelegentlicher internationaler Reisetätigkeit\n\n## PROFIL\n\nDu bringst ein abgeschlossenes Ingenieurstudium, ergänzt durch eine betriebswirtschaftliche Weiterbildung mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Mehrjährige Erfahrung im Produktmanagement, Innovationsmanagement oder in der Produktentwicklung, vorzugsweise mit Hintergrund im mehrstufigen B2B Geschäft.\n- Strategisches und unternehmerisches Denken sowie Erfahrung in der Entwicklung und Vermarktung erfolgreicher Produkte\n- Fähigkeit, technische, wirtschaftliche und marktbezogene Anforderungen in nachhaltige Produktlösungen zu übersetzen\n- Hohe Eigeninitiative, Entscheidungsstärke und Umsetzungsorientierung verbunden mit einer ausgeprägten Hands-on-Mentalität\n- Ausgezeichnete Kommunikations-, Moderations- und Stakeholder-Management-Kompetenzen\n- Freude an internationaler Zusammenarbeit sowie an der Führung von Projekten und Teams ohne direkte Weisungsbefugnis\n- Stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen."
+        "it": "## TASK PRINCIPALI\n\nVuoi progettare attivamente prodotti internazionali e portare con successo innovazioni sul mercato? Come Product Manager International, sei responsabile per l'area di produzione delle piastre di controllo. Unisci la comprensione del mercato, il know-how tecnico e il pensiero imprenditoriale e con successo conduca i team interdisciplinari all'obiettivo. Questo include in particolare le seguenti attività:\n\n- Sviluppo strategico del portafoglio internazionale di prodotti nel settore delle piastre operative\n- Sviluppo e realizzazione di strategie di prodotto e portafoglio su tutto il ciclo di vita del prodotto\n- Analisi delle tendenze del mercato, del cliente e della tecnologia\n- Sviluppo dei casi aziendali, priorità delle iniziative di prodotto e definizione dei requisiti di prodotto\n- Responsabilità per lancio di prodotti, modifiche di prodotto e modifiche di portafoglio\n- Cooperazione intensiva con le aziende di vendita internazionali e settori interni come lo sviluppo, la produzione, la qualità, l'acquisto e la logistica\n- Luogo di lavoro Jona (SG, Svizzera) con occasionali viaggi internazionali\n\n## PROFESSIONALE\n\nSi porta un grado di ingegneria completato, completato da una formazione aziendale. Inoltre, le seguenti caratteristiche e abilità ti caratterizzano:\n\n- Diversi anni di esperienza nella gestione del prodotto, nella gestione dell'innovazione o nello sviluppo del prodotto, preferibilmente con uno sfondo nel business multi-livello B2B.\n- Pensiero e esperienza strategica e imprenditoriale nello sviluppo e nella commercializzazione di prodotti di successo\n- Capacità di tradurre i requisiti tecnici, economici e di mercato in soluzioni di prodotto sostenibili\n- Alta iniziativa, forza decisionale e orientamento di attuazione combinato con una mentalità pronunciata\n- Ottima capacità di comunicazione, moderazione e gestione degli stakeholder\n- Godere della cooperazione internazionale e dei principali progetti e team senza autorità diretta\n- Conoscenza di stile-confidente di tedesco e inglese in parole e scrittura\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
+        "en": "## MAIN TASKS\n\nDo you want to actively design international products and successfully bring innovations to the market? As Product Manager International, you are responsible for the product area of control plates. You combine market understanding, technical know-how and entrepreneurial thinking and successfully lead interdisciplinary teams to the goal. This includes in particular the following activities:\n\n- Strategic development of the international product portfolio in the field of operating plates\n- Development and implementation of product and portfolio strategies over the entire product lifecycle\n- Analysis of market, customer and technology trends\n- Development of business cases, prioritization of product initiatives and definition of product requirements\n- Responsibility for product launches, product changes and portfolio adjustments\n- Intensive cooperation with international sales companies as well as internal areas such as development, production, quality, purchasing and logistics\n- Place of work Jona (SG, Switzerland) with occasional international travel\n\n## PROFILE\n\nYou bring a completed engineering degree, supplemented by a business education. In addition, the following characteristics and abilities characterize you:\n\n- Several years of experience in product management, innovation management or product development, preferably with a background in the multi-level B2B business.\n- Strategic and entrepreneurial thinking and experience in the development and marketing of successful products\n- Ability to translate technical, economic and market requirements into sustainable product solutions\n- High initiative, decision-making strength and implementation orientation combined with a pronounced hands-on mentality\n- Excellent communication, moderation and stakeholder management skills\n- Enjoying international cooperation and leading projects and teams without direct authority\n- Style-confident knowledge of German and English in words and writing\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
+        "fr": "## PRINCIPALES TÂCHES\n\nVoulez-vous concevoir activement des produits internationaux et apporter avec succès des innovations sur le marché? En tant que Product Manager International, vous êtes responsable de la zone de produits des plaques de contrôle. Vous combinez compréhension du marché, savoir-faire technique et esprit d'entreprise et dirigez avec succès des équipes interdisciplinaires vers l'objectif. Cela comprend notamment les activités suivantes:\n\n- Développement stratégique du portefeuille international de produits dans le domaine des plaques d'exploitation\n- Élaboration et mise en œuvre de stratégies de produits et de portefeuilles sur l'ensemble du cycle de vie du produit\n- Analyse des tendances du marché, de la clientèle et de la technologie\n- Élaboration d'analyses de rentabilisation, hiérarchisation des initiatives de produits et définition des exigences de produits\n- Responsabilité des lancements de produits, des changements de produits et des ajustements de portefeuille\n- Coopération intensive avec les entreprises de vente internationales ainsi que dans des domaines internes tels que le développement, la production, la qualité, l'achat et la logistique\n- Lieu de travail Jonas (SG, Suisse) avec voyages internationaux occasionnels\n\n## PROFIL\n\nVous apportez un diplôme d'ingénieur, complété par une formation en affaires. De plus, les caractéristiques et les capacités suivantes vous caractérisent :\n\n- Plusieurs années d'expérience dans la gestion de produits, la gestion de l'innovation ou le développement de produits, de préférence avec une expérience dans l'entreprise multi-niveaux B2B.\n- Pensée stratégique et entrepreneuriale et expérience dans le développement et la commercialisation de produits réussis\n- Capacité de traduire les exigences techniques, économiques et de marché en solutions de produits durables\n- Haute initiative, force décisionnelle et orientation de la mise en œuvre associée à une mentalité concrète\n- Excellentes compétences en communication, modération et gestion des parties prenantes\n- Bénéficier de la coopération internationale et diriger des projets et des équipes sans autorité directe\n- Style-connaissance de l'allemand et de l'anglais en mots et en écriture\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
       },
       "location": "Rapperswil-Jona",
       "canton": "SG",
@@ -2372,7 +2398,7 @@
       "id": "geberit-2157-r44f90146",
       "slug": "operazioni-di-controllo-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "controller-werke-a-100-geberit-ch",
+        "de": "controller-werke-a-100-geberit-ch-p9tt7z",
         "it": "operazioni-di-controllo-a-100-geberit-rapperswil-jona",
         "fr": "le-controleur-fonctionne-a-100-geberit-rapperswil-jona",
         "en": "operazioni-di-controllo-a-100-geberit-rapperswil-jona"
@@ -2431,6 +2457,9 @@
           "controller-werke-a-100-geberit-ch"
         ],
         "fr": [
+          "controller-werke-a-100-geberit-ch"
+        ],
+        "de": [
           "controller-werke-a-100-geberit-ch"
         ]
       },
@@ -2538,7 +2567,7 @@
       "id": "geberit-2229-r9dc003ea",
       "slug": "senior-it-system-ingegnere-platform-services-a-80-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "senior-it-system-engineer-platform-services-a-80-100-geberit-ch",
+        "de": "senior-it-system-engineer-platform-services-a-80-100-geberit-ch-3noltj",
         "it": "senior-it-system-ingegnere-platform-services-a-80-100-geberit-rapperswil-jona",
         "fr": "senior-it-system-ingenieur-platform-services-a-80-100-geberit-rapperswil-jona",
         "en": "senior-it-system-ingegnere-platform-services-a-80-100-geberit-rapperswil-jona"
@@ -2599,6 +2628,9 @@
         ],
         "en": [
           "senior-it-system-engineer-platform-services-a-80-100-geberit-ch"
+        ],
+        "de": [
+          "senior-it-system-engineer-platform-services-a-80-100-geberit-ch"
         ]
       },
       "salaryMin": 92000,
@@ -2621,7 +2653,7 @@
       "id": "geberit-2201-rdf2bf086",
       "slug": "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch",
+        "de": "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch-dd69lb",
         "it": "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
         "en": "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona",
         "fr": "mecanique-mecanique-de-precision-d-entretien-a-100-geberit-rapperswil-jona"
@@ -2681,6 +2713,9 @@
         ],
         "fr": [
           "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
+        ],
+        "de": [
+          "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
         ]
       },
       "salaryMin": 57500,
@@ -2704,7 +2739,7 @@
       "id": "geberit-2182-r0eafe726",
       "slug": "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
+        "de": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch-06qpt5",
         "it": "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona",
         "en": "sanitary-installer-of-building-physics-laboratory-a-100-geberit-rapperswil-jona",
         "fr": "installation-sanitaire-du-laboratoire-de-physique-du-batiment-a-100-geberit-rapperswil-jona"
@@ -2751,8 +2786,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
-        "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch-06qpt5"
+        "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2765,7 +2799,7 @@
           "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
         ],
         "de": [
-          "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch-06qpt5"
+          "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
         ]
       },
       "salaryMin": 57500,
@@ -2788,7 +2822,7 @@
       "id": "geberit-1969-r33c85e0f",
       "slug": "apprendista-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch",
+        "de": "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch-el3wkl",
         "it": "apprendista-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona",
         "en": "apprentice-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona",
         "fr": "apprenti-e-anlagenfuhrer-a-lehrbeginn-2027-geberit-rapperswil-jona"
@@ -2846,6 +2880,9 @@
         ],
         "fr": [
           "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch"
+        ],
+        "de": [
+          "lernender-anlagenfuhrer-a-lehrbeginn-2027-geberit-ch"
         ]
       },
       "salaryMin": 48000,
@@ -2868,7 +2905,7 @@
       "id": "geberit-1669-rd13c1547",
       "slug": "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "technician-sanitary-laboratory-a-80-100-geberit-ch",
+        "de": "technician-sanitary-laboratory-a-80-100-geberit-ch-v44lbs",
         "fr": "technicien-sanitary-laboratory-a-80-100-geberit-rapperswil-jona",
         "it": "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona",
         "en": "technician-sanitary-laboratory-a-80-100-geberit-rapperswil-jona"
@@ -2924,6 +2961,9 @@
           "tecnico-a-laboratorio-sanitario-80-100-geberit-rapperswil-jona",
           "technician-sanitary-laboratory-a-80-100-geberit-ch",
           "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona-b2dcbe1d79"
+        ],
+        "de": [
+          "technician-sanitary-laboratory-a-80-100-geberit-ch"
         ]
       },
       "salaryMin": 67000,
@@ -2947,7 +2987,7 @@
       "slug": "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-beac4ad4ae",
       "slugByLocale": {
         "de": "lernender-logistiker-a-lehrbeginn-2027-geberit-ch",
-        "it": "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-beac4ad4ae",
+        "it": "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona",
         "en": "apprentice-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona",
         "fr": "apprenti-e-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona"
       },
@@ -2994,13 +3034,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lernender-logistiker-a-lehrbeginn-2027-geberit-ch",
-        "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-beac4ad4ae",
         "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-logistiker-a-lehrbeginn-2027-geberit-ch",
-          "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-beac4ad4ae",
           "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona"
         ],
         "en": [
@@ -3030,7 +3068,7 @@
       "id": "geberit-2245-r23e109e1",
       "slug": "anlagenfuhrer-cfc-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "anlagenfuhrer-efz-a-100-geberit-ch",
+        "de": "anlagenfuhrer-efz-a-100-geberit-ch-8maz67",
         "it": "anlagenfuhrer-cfc-a-100-geberit-rapperswil-jona",
         "en": "plant-operator-efz-a-100-geberit-rapperswil-jona",
         "fr": "conducteur-d-installation-cfc-a-100-geberit-rapperswil-jona"
@@ -3093,6 +3131,9 @@
         "fr": [
           "directeur-de-l-usine-efz-a-100-geberit-rapperswil-jona",
           "anlagenfuhrer-efz-a-100-geberit-ch"
+        ],
+        "de": [
+          "anlagenfuhrer-efz-a-100-geberit-ch"
         ]
       },
       "salaryMin": 57500,
@@ -3115,7 +3156,7 @@
       "id": "geberit-2262-r0886e0ac",
       "slug": "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "praktikant-verpackungsmanagement-a-100-geberit-ch",
+        "de": "praktikant-verpackungsmanagement-a-100-geberit-ch-cjaoms",
         "it": "gestione-dell-imballaggio-interno-a-100-geberit-rapperswil-jona",
         "en": "intern-packaging-management-a-100-geberit-rapperswil-jona",
         "fr": "gestion-de-l-emballage-interne-a-100-geberit-rapperswil-jona"
@@ -3175,6 +3216,9 @@
         ],
         "fr": [
           "praktikant-verpackungsmanagement-a-100-geberit-ch"
+        ],
+        "de": [
+          "praktikant-verpackungsmanagement-a-100-geberit-ch"
         ]
       },
       "salaryMin": 48000,
@@ -3197,7 +3241,7 @@
       "id": "geberit-2243-r7a6773ba",
       "slug": "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch",
+        "de": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch-pcaq8h",
         "en": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-rapperswil-jona",
         "fr": "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona",
         "it": "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona"
@@ -3255,6 +3299,9 @@
         ],
         "en": [
           "marketing-crm-strategist-with-focus-on-customer-portal-a-100-geberit-rapperswil-jona"
+        ],
+        "de": [
+          "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
         ]
       },
       "salaryMin": 58500,
@@ -3361,10 +3408,10 @@
       "id": "geberit-1635-ree98a626",
       "slug": "mobile-apps-software-architetto-a-80-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "mobile-apps-software-architect-a-80-100-geberit-ch",
+        "de": "mobile-apps-software-architect-a-80-100-geberit-ch-1fp8hj",
         "fr": "mobile-apps-software-architecte-a-80-100-geberit-rapperswil-jona",
         "it": "mobile-apps-software-architetto-a-80-100-geberit-rapperswil-jona",
-        "en": "mobile-apps-software-architect-a-80-100-geberit-ch"
+        "en": "mobile-apps-software-architect-a-80-100-geberit-ch-1fp8hj"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -3416,6 +3463,12 @@
         "it": [
           "mobile-apps-software-architect-a-80-100-geberit-ch",
           "mobile-apps-software-architetto-a-80-100-geberit-rapperswil-jona-ee2618cbae"
+        ],
+        "en": [
+          "mobile-apps-software-architect-a-80-100-geberit-ch"
+        ],
+        "de": [
+          "mobile-apps-software-architect-a-80-100-geberit-ch"
         ]
       },
       "salaryMin": 60000,

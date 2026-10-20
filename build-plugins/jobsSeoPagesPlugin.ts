@@ -313,6 +313,12 @@ import { canonicalCleanedKey } from './shared/canonicalCleanedKey';
 import { buildJobMetaDescription } from './shared/jobMetaDescription';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
+import {
+  JOB_CATEGORY_KEYS,
+  buildJobCategoryPath,
+  isKnownExistingCategorySlug,
+  type JobCategoryKey,
+} from './shared/autoSectorHubPaths';
 
 // Static HTML cannot read the runtime Remote Config hook. The same kill key is
 // accepted by the build so a rollback can restore the manual slot on the
@@ -8382,17 +8388,6 @@ ${staticAnalyticsHtml}
  }
 
  /* ── Category listing pages (/cerca-lavoro-ticino/categoria-sanita/) ── */
- const catSlugsMap: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
- health: { it: 'sanita', en: 'health', de: 'gesundheit', fr: 'sante' },
- finance: { it: 'finanza', en: 'finance', de: 'finanzen', fr: 'finance' },
- tech: { it: 'informatica', en: 'tech', de: 'technik', fr: 'tech' },
- engineering: { it: 'ingegneria', en: 'engineering', de: 'ingenieurwesen', fr: 'ingenierie' },
- admin: { it: 'amministrazione', en: 'admin', de: 'verwaltung', fr: 'administration' },
- hospitality: { it: 'ristorazione', en: 'hospitality', de: 'gastgewerbe', fr: 'hotellerie' },
- sales: { it: 'vendita', en: 'sales', de: 'vertrieb', fr: 'vente' },
- other: { it: 'altro', en: 'other', de: 'andere', fr: 'autre' },
- };
- const catPrefix: Record<'it' | 'en' | 'de' | 'fr', string> = { it: 'categoria', en: 'category', de: 'kategorie', fr: 'categorie' };
  const catLabels: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
  health: { it: 'Sanit\u00e0', en: 'Healthcare', de: 'Gesundheit', fr: 'Sant\u00e9' },
  finance: { it: 'Finanza', en: 'Finance', de: 'Finanzen', fr: 'Finance' },
@@ -8405,7 +8400,7 @@ ${staticAnalyticsHtml}
  };
  let categoryPageCount = 0;
  const categorySitemapEntries: string[] = [];
- for (const catKey of Object.keys(catSlugsMap)) {
+ for (const catKey of JOB_CATEGORY_KEYS) {
  const catJobs = sortedForPagination.filter((j: any) => String(j.category || '').toLowerCase() === catKey);
  if (catJobs.length < 3) continue;
  const catTotalPages = Math.min(CATEGORY_LISTING_MAX_PAGES, Math.ceil(catJobs.length / CATEGORY_LISTING_PAGE_SIZE));
@@ -8416,10 +8411,8 @@ ${staticAnalyticsHtml}
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCategory = startTimer();
- const catSlugL = catSlugsMap[catKey][locale];
- const catPageSuffix = catPage > 1 ? `/${paginationSlugs[locale]}-${catPage}` : '';
- const catFullSlug = `${catPrefix[locale]}-${catSlugL}${catPageSuffix}`;
- const catCanonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${catFullSlug}`.replace(/\/+/g, '/'));
+ const catPageSlug = catPage > 1 ? `${paginationSlugs[locale]}-${catPage}` : undefined;
+ const catCanonicalPath = buildJobCategoryPath(locale, sectionByLocale[locale], catKey, catPageSlug);
  const catCanonicalUrl = `${BASE_URL}${catCanonicalPath}`;
  const catLabel = catLabels[catKey][locale];
  const catPageLabel = catPage > 1 ? ` - ${locale === 'de' ? 'Seite' : 'Pagina'} ${catPage}` : '';
@@ -8442,9 +8435,8 @@ ${staticAnalyticsHtml}
  count: catJobs.length,
  });
  const catAlternatesPairs = localeList.map((al) => {
- const alSlug = `${catPrefix[al]}-${catSlugsMap[catKey][al]}${catPage > 1 ? `/${paginationSlugs[al]}-${catPage}` : ''}`;
- const alPath = `${localePrefix[al]}/${sectionByLocale[al]}/${alSlug}`.replace(/\/+/g, '/');
- return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
+ const alPageSlug = catPage > 1 ? `${paginationSlugs[al]}-${catPage}` : undefined;
+ return { lang: al, href: `${BASE_URL}${buildJobCategoryPath(al, sectionByLocale[al], catKey, alPageSlug)}` };
  });
  const catXDefaultHref = catAlternatesPairs.find((p) => p.lang === 'it')?.href ?? catAlternatesPairs[0]?.href ?? catCanonicalUrl;
  // audit-hreflang requires x-default on every multi-locale page.
@@ -8453,7 +8445,7 @@ ${staticAnalyticsHtml}
  ` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`,
  ].join('\n');
  const catListHtml = jobCardListBody(catPageJobs, locale);
- const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a class="s-gcEaMI" href="${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}">${catLabels[k][locale]}</a>`; });
+ const catOtherLinks = JOB_CATEGORY_KEYS.filter((k) => k !== catKey).map((k) => `<a class="s-gcEaMI" href="${buildJobCategoryPath(locale, sectionByLocale[locale], k)}">${catLabels[k][locale]}</a>`);
  const catCollLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const catBreadcrumbLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
@@ -8510,12 +8502,10 @@ ${staticAnalyticsHtml}
  recordEmit('category-listing', __tCategory);
  }
  if (catPage === 1) {
- const catItSlug = `${catPrefix.it}-${catSlugsMap[catKey].it}`;
- const catItPath = withSlash(`/${sectionByLocale.it}/${catItSlug}`.replace(/\/+/g, '/'));
+ const catItPath = buildJobCategoryPath('it', sectionByLocale.it, catKey);
  const catLocalePaths = new Map<typeof localeList[number], string>();
  for (const l of localeList) {
- const ls = `${catPrefix[l]}-${catSlugsMap[catKey][l]}`;
- const lp = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'));
+ const lp = buildJobCategoryPath(l, sectionByLocale[l], catKey);
  catLocalePaths.set(l, lp);
  }
  const catSmAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${catLocalePaths.get(l)}" />`).join('\n');
@@ -8547,7 +8537,7 @@ ${staticAnalyticsHtml}
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
  const cat = String((job as any).category || '').toLowerCase();
- if (!cat || !catSlugsMap[cat]) continue;
+ if (!isKnownExistingCategorySlug(cat)) continue;
  if (!cantonCategoryCounts.has(c)) cantonCategoryCounts.set(c, new Map());
  const byCat = cantonCategoryCounts.get(c)!;
  if (!byCat.has(cat)) byCat.set(cat, []);
@@ -8560,7 +8550,7 @@ ${staticAnalyticsHtml}
  if (canton === 'TI') continue;
  const byCat = cantonCategoryCounts.get(canton);
  if (!byCat) continue;
- for (const catKey of Object.keys(catSlugsMap)) {
+ for (const catKey of JOB_CATEGORY_KEYS) {
  const catJobs = byCat.get(catKey) ?? [];
  if (catJobs.length < 3) continue;
  // Sort like the global one to preserve consistent feed ordering.
@@ -8575,10 +8565,8 @@ ${staticAnalyticsHtml}
  const __tCategory = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const cDisplay = cantonDisplayLocalCat(canton, locale);
- const catSlugL = catSlugsMap[catKey][locale];
- const catPageSuffix = catPage > 1 ? `/${paginationSlugs[locale]}-${catPage}` : '';
- const catFullSlug = `${catPrefix[locale]}-${catSlugL}${catPageSuffix}`;
- const catCanonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${catFullSlug}`.replace(/\/+/g, '/'));
+ const catPageSlug = catPage > 1 ? `${paginationSlugs[locale]}-${catPage}` : undefined;
+ const catCanonicalPath = buildJobCategoryPath(locale, sectionSlug, catKey, catPageSlug);
  const catCanonicalUrl = `${BASE_URL}${catCanonicalPath}`;
  const catLabel = catLabels[catKey][locale];
  const catUniqueCompanies = [...new Set(sortedCantonCatJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
@@ -8599,9 +8587,8 @@ ${staticAnalyticsHtml}
  });
  const catAlternatesPairs = localeList.map((al) => {
  const alSection = sharedResolveCantonSection(al, canton);
- const alSlug = `${catPrefix[al]}-${catSlugsMap[catKey][al]}${catPage > 1 ? `/${paginationSlugs[al]}-${catPage}` : ''}`;
- const alPath = `${localePrefix[al]}/${alSection}/${alSlug}`.replace(/\/+/g, '/');
- return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
+ const alPageSlug = catPage > 1 ? `${paginationSlugs[al]}-${catPage}` : undefined;
+ return { lang: al, href: `${BASE_URL}${buildJobCategoryPath(al, alSection, catKey, alPageSlug)}` };
  });
  const catXDefaultHref = catAlternatesPairs.find((p) => p.lang === 'it')?.href ?? catAlternatesPairs[0]?.href ?? catCanonicalUrl;
  const catAlternates = [
@@ -8609,7 +8596,7 @@ ${staticAnalyticsHtml}
  ` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`,
  ].join('\n');
  const catListHtml = jobCardListBody(catPageJobs, locale);
- const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a class="s-gcEaMI" href="${withSlash(`${localePrefix[locale]}/${sectionSlug}/${kSlug}`.replace(/\/+/g, '/'))}">${catLabels[k][locale]}</a>`; });
+ const catOtherLinks = JOB_CATEGORY_KEYS.filter((k) => k !== catKey).map((k) => `<a class="s-gcEaMI" href="${buildJobCategoryPath(locale, sectionSlug, k)}">${catLabels[k][locale]}</a>`);
  const catCollLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
  const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
@@ -8667,13 +8654,11 @@ ${staticAnalyticsHtml}
  }
  if (catPage === 1) {
  const itSection = sharedResolveCantonSection('it', canton);
- const catItSlug = `${catPrefix.it}-${catSlugsMap[catKey].it}`;
- const catItPath = withSlash(`/${itSection}/${catItSlug}`.replace(/\/+/g, '/'));
+ const catItPath = buildJobCategoryPath('it', itSection, catKey);
  const catLocalePathsCanton = new Map<typeof localeList[number], string>();
  for (const l of localeList) {
  const lSection = sharedResolveCantonSection(l, canton);
- const ls = `${catPrefix[l]}-${catSlugsMap[catKey][l]}`;
- const lp = withSlash(`${localePrefix[l]}/${lSection}/${ls}`.replace(/\/+/g, '/'));
+ const lp = buildJobCategoryPath(l, lSection, catKey);
  catLocalePathsCanton.set(l, lp);
  }
  const catSmAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${catLocalePathsCanton.get(l)}" />`).join('\n');
@@ -11700,19 +11685,6 @@ ${staticAnalyticsHtml}
        // Top categories by job count (max 6). Mirror the category slug
        // tables from the category-listing block (~line 5742-5752); kept
        // inline to avoid hoisting a nested scope across thousands of lines.
-       const categorySlugMap: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
-         health: { it: 'sanita', en: 'health', de: 'gesundheit', fr: 'sante' },
-         finance: { it: 'finanza', en: 'finance', de: 'finanzen', fr: 'finance' },
-         tech: { it: 'informatica', en: 'tech', de: 'technik', fr: 'tech' },
-         engineering: { it: 'ingegneria', en: 'engineering', de: 'ingenieurwesen', fr: 'ingenierie' },
-         admin: { it: 'amministrazione', en: 'admin', de: 'verwaltung', fr: 'administration' },
-         hospitality: { it: 'ristorazione', en: 'hospitality', de: 'gastgewerbe', fr: 'hotellerie' },
-         sales: { it: 'vendita', en: 'sales', de: 'vertrieb', fr: 'vente' },
-         other: { it: 'altro', en: 'other', de: 'andere', fr: 'autre' },
-       };
-       const categoryPrefixMap: Record<'it' | 'en' | 'de' | 'fr', string> = {
-         it: 'categoria', en: 'category', de: 'kategorie', fr: 'categorie',
-       };
        const categoryLabelMap: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
          health: { it: 'Sanità', en: 'Healthcare', de: 'Gesundheit', fr: 'Santé' },
          finance: { it: 'Finanza', en: 'Finance', de: 'Finanzen', fr: 'Finance' },
@@ -11733,23 +11705,24 @@ ${staticAnalyticsHtml}
        // navigation, reported 2026-05-18). Read the same field, apply the
        // same gate, exclude the `other` catch-all (no SEO value + frequent
        // misclassifications).
-       const categoryCountAggregated = new Map<string, number>();
+       const categoryCountAggregated = new Map<JobCategoryKey, number>();
        for (const j of cantonJobsAll) {
          const rawCat = String((j as { category?: string }).category || '').toLowerCase().trim();
          if (!rawCat) continue;
-         if (!Object.prototype.hasOwnProperty.call(categorySlugMap, rawCat)) continue;
+         if (!isKnownExistingCategorySlug(rawCat)) continue;
          if (rawCat === 'other') continue;
          categoryCountAggregated.set(rawCat, (categoryCountAggregated.get(rawCat) ?? 0) + 1);
        }
-       const topCategoryHubs: Array<{ slug: string; label: string }> = [];
+       const topCategoryHubs: Array<{ href: string; label: string }> = [];
        for (const [catKey, count] of [...categoryCountAggregated.entries()].sort((a, b) => b[1] - a[1])) {
          if (topCategoryHubs.length >= 6) break;
          if (count < 3) continue; // same gate as the page emitter
-         const catSlug = categorySlugMap[catKey]?.[entry.locale];
          const catLabel = categoryLabelMap[catKey]?.[entry.locale];
-         if (!catSlug || !catLabel) continue;
-         const slug = `${categoryPrefixMap[entry.locale]}-${catSlug}`;
-         topCategoryHubs.push({ slug, label: catLabel });
+         if (!catLabel) continue;
+         topCategoryHubs.push({
+           href: buildJobCategoryPath(entry.locale, entry.section, catKey),
+           label: catLabel,
+         });
        }
        // Editorial slot pages (Phase 8d). Non-TI cantons collapse to short
        // slugs (`oggi` / `infermieri` / `lavoro-part-time` / `cliniche`);
@@ -11895,7 +11868,7 @@ ${staticAnalyticsHtml}
          blocks.push(
            `<div class="s-h0CoDf" data-explore-categories>` +
            `<h3 class="s-8S_vke">${esc(colByCategoryLabel)}</h3>` +
-           `<div>${renderLinks(topCategoryHubs)}</div>` +
+           `<div>${topCategoryHubs.map((it) => `<a href="${it.href}" style="${linkStyle}">${esc(it.label)}</a>`).join('')}</div>` +
            `</div>`,
          );
        }

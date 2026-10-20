@@ -1316,12 +1316,16 @@ jobs:
       # `Resolve PR` fallisce comunque, quindi nessuno step con effetti esterni
       # parte.
       #
-      # Il controllo usa `git ls-remote` su refs/pull/N/head (protocollo git,
-      # fuori dal rate limit REST del GITHUB_TOKEN); l'unica chiamata REST e' il
-      # cancel. Una run `cancelled` non suona allarmi: il redcheck-fixer parte
-      # solo su `failure`, scan-unreported-failures ignora `cancelled`,
-      # scan-job-timeouts pretende l'annotazione di timeout, e
-      # `Classify cancelled run` la etichetta `superseded` nello Step Summary.
+      # `git ls-remote` su refs/pull/N/head e' un segnale veloce, non una prova
+      # sufficiente per cancellare: il ref Git puo' essere stale. Prima del
+      # cancel il watcher conferma `headRefOid` con il binario GitHub fidato e
+      # cancella solo se API e Git concordano su uno SHA valido diverso da
+      # quello di questa run. API non disponibile/ambigua o discordante lascia
+      # la run in vita e produce diagnostica limitata. Una run `cancelled` non
+      # suona allarmi: il redcheck-fixer parte solo su `failure`,
+      # scan-unreported-failures ignora `cancelled`, scan-job-timeouts pretende
+      # l'annotazione di timeout, e `Classify cancelled run` la etichetta
+      # `superseded` nello Step Summary.
       - name: Start superseded-head watcher
         id: head_watch
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' && github.event_name == 'pull_request' }}
@@ -1350,6 +1354,7 @@ jobs:
           set -u
           cd "$WATCH_DIR" || exit 0
           failures=0
+          confirmations=0
           auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
           export GIT_TERMINAL_PROMPT=0 GIT_CONFIG_COUNT=1
           export GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'
@@ -1369,9 +1374,44 @@ jobs:
             [[ "$current" =~ ^[0-9a-f]{40}$ ]] || continue
             [ "$current" = "$HEAD_SHA" ] && continue
             [ -e "$WATCH_DIR/stop" ] && exit 0
-            printf '%s\n' "$current" > "$WATCH_DIR/superseded-by"
-            echo "$(date -u +%FT%TZ) PR #$PRN head ${HEAD_SHA:0:12} -> ${current:0:12}: cancel della run $RUN_ID"
-            "$TRUSTED_GH_BIN" api -X POST "repos/${REPO}/actions/runs/${RUN_ID}/cancel" --silent || echo "cancel non riuscito"
+            if ! api_head=$("$TRUSTED_GH_BIN" pr view "$PRN" --repo "$REPO" --json headRefOid --jq .headRefOid 2>"$WATCH_DIR/pr-view.err"); then
+              confirmations=$((confirmations + 1))
+              if [ "$confirmations" -eq 1 ] || [ $((confirmations % 10)) -eq 0 ]; then
+                echo "$(date -u +%FT%TZ) PR #$PRN head API non disponibile ($confirmations); continuo senza cancel"
+              fi
+              continue
+            fi
+            if ! [[ "$api_head" =~ ^[0-9a-f]{40}$ ]]; then
+              confirmations=$((confirmations + 1))
+              if [ "$confirmations" -eq 1 ] || [ $((confirmations % 10)) -eq 0 ]; then
+                echo "$(date -u +%FT%TZ) PR #$PRN head API assente/non valida ($confirmations); continuo senza cancel"
+              fi
+              continue
+            fi
+            if [ "$api_head" = "$HEAD_SHA" ]; then
+              confirmations=$((confirmations + 1))
+              if [ "$confirmations" -eq 1 ] || [ $((confirmations % 10)) -eq 0 ]; then
+                echo "$(date -u +%FT%TZ) PR #$PRN API conferma la HEAD di questa run; continuo senza cancel"
+              fi
+              continue
+            fi
+            if [ "$api_head" != "$current" ]; then
+              confirmations=$((confirmations + 1))
+              if [ "$confirmations" -eq 1 ] || [ $((confirmations % 10)) -eq 0 ]; then
+                echo "$(date -u +%FT%TZ) PR #$PRN head Git/API discordanti (${current:0:12}/${api_head:0:12}); continuo senza cancel"
+              fi
+              continue
+            fi
+            # Lo stop puo' arrivare mentre la lettura API e' in corso.
+            # Ricontrollarlo immediatamente prima dell'unica scrittura evita
+            # che una conferma tardiva apra la finestra oltre lo step stop.
+            [ -e "$WATCH_DIR/stop" ] && exit 0
+            echo "$(date -u +%FT%TZ) PR #$PRN head ${HEAD_SHA:0:12} -> ${api_head:0:12}: confermata, cancel della run $RUN_ID"
+            if "$TRUSTED_GH_BIN" api -X POST "repos/${REPO}/actions/runs/${RUN_ID}/cancel" --silent; then
+              printf '%s\n' "$api_head" > "$WATCH_DIR/superseded-by"
+            else
+              echo "cancel non riuscito"
+            fi
             exit 0
           done
           WATCH_EOF

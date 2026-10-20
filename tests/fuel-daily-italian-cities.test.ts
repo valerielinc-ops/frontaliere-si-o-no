@@ -11,8 +11,10 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { isFuelDailyPath } from '../build-plugins/fuelDailyData';
 import { generateFuelItalianCityPages } from '../build-plugins/fuelDailyPagesPlugin';
 import { htmlAttr, htmlTagWithAttrs, htmlTagWithClass } from './utils/htmlAttr';
+import { extractFuelBreadcrumbTargets } from './utils/fuelBreadcrumbs';
 
 const DATASET = {
   generatedAt: '2026-04-20T06:00:00.000Z',
@@ -160,6 +162,18 @@ describe('generateFuelItalianCityPages() — content quality', () => {
       expect(types, path).toContain('WebPage');
       expect(types, path).toContain('BreadcrumbList');
       expect(types, path).toContain('ItemList');
+    }
+  });
+
+  it('breadcrumb targets use emitted fuel routes', () => {
+    for (const [path, html] of Object.entries(pages)) {
+      const targets = extractFuelBreadcrumbTargets(html);
+      expect(targets.jsonLd, `page ${path} has no JSON-LD breadcrumbs`).not.toHaveLength(0);
+      expect(targets.visible, `page ${path} has no visible breadcrumbs`).not.toHaveLength(0);
+      for (const target of [...targets.jsonLd, ...targets.visible]) {
+        if (target === '/') continue;
+        expect(isFuelDailyPath(target), `${path} breadcrumb target ${target}`).toBe(true);
+      }
     }
   });
 

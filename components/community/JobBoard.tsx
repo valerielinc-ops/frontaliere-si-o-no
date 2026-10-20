@@ -108,13 +108,17 @@ import {
  type PersonalScore,
  reuseIfSameOrder,
  NO_PERSONAL_SCORE,
- scheduleNewJobsCount,
  getTrendingByLocation,
  computeTrendingBoost,
  SURVEY_SECTOR_TO_CATEGORY,
 } from '@/services/personalizationScoring';
 import { type JobMatchProfileData, loadJobMatchProfile, mergeNewsletterSignals } from '@/services/jobMatchProfile';
 import NewJobsCounter from '@/components/community/NewJobsCounter';
+import { isJobBoardNewSinceVisit, hasJobBoardAlertOpenRequest } from '@/services/jobBoardNewJobs';
+import {
+ createJobBoardReturnVisitSnapshotStore,
+ readOrCaptureJobBoardReturnVisitSnapshot,
+} from '@/services/jobBoardReturnVisitSnapshot';
 import TrendingSection, { selectRecommendationJobs } from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
 import EmployerHubCta from '@/components/community/EmployerHubCta';
@@ -318,6 +322,16 @@ import {
 const DEFAULT_CANTON = 'TI';
 const DEFAULT_CANTON_DISPLAY = 'Ticino';
 const TARGET_CANTONS_ORDERED = ['TI', 'GR', 'VS'] as const;
+const jobBoardReturnVisitSnapshotStore = createJobBoardReturnVisitSnapshotStore();
+
+function getJobBoardReturnVisitStorage(): Storage | null {
+ if (typeof window === 'undefined') return null;
+ try {
+ return window.sessionStorage;
+ } catch {
+ return null;
+ }
+}
 
 // Search-broaden floor: when a canton-scoped search yields FEWER than this many
 // in-canton results, the cross-canton tier is merged in (appended) so the page
@@ -2634,6 +2648,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [enrichmentLoading, setEnrichmentLoading] = useState(false);
  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
  const [enableJobAlerts, setEnableJobAlerts] = useState(false);
+ const returnVisitAlertRequestHandledRef = useRef(false);
  useEffect(() => {
  resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function').then(({ getConfigValue }) =>
  getConfigValue('ENABLE_JOB_ALERTS').then((v) => setEnableJobAlerts(v === 'true'))
@@ -2764,6 +2779,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const deferredSelectedLocation = useDeferredValue(selectedLocation);
  const deferredSelectedSector = useDeferredValue(selectedSector);
  const deferredShowNewOnly = useDeferredValue(showNewOnly);
+ const [showSinceLastVisitOnly, setShowSinceLastVisitOnly] = useState(false);
+ const deferredShowSinceLastVisitOnly = useDeferredValue(showSinceLastVisitOnly);
  // ── Saved jobs (#4466) + alert nudge (#4467) ──
  // localStorage-first list; loaded in a post-mount effect (same INP pattern
  // as behaviorData below) and kept in sync across surfaces via the
@@ -2792,10 +2809,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // ── Personalization: behavior data + derived state ──
  const [behaviorData, setBehaviorData] = useState<BehaviorData | null>(null);
  const [lastVisitTimestamp, setLastVisitTimestamp] = useState<number | null>(null);
- const visitCapturedRef = useRef(false);
  const applicationIntentExposureRef = useRef(false);
  const applicationIntentSyncRef = useRef<{ jobId: string; promise: Promise<boolean> } | null>(null);
  const [newJobsDismissed, setNewJobsDismissed] = useState(false);
+ const jobNewnessCache = useMemo(() => new WeakMap<JobListing, boolean>(), [enablePersonalization, jobs, lastVisitTimestamp]);
+ const isNewSincePreviousVisit = useCallback((job: JobListing): boolean => {
+  const cached = jobNewnessCache.get(job);
+  if (cached !== undefined) return cached;
+  const isNew = enablePersonalization && isJobBoardNewSinceVisit(job, lastVisitTimestamp);
+  jobNewnessCache.set(job, isNew);
+  return isNew;
+ }, [enablePersonalization, jobNewnessCache, lastVisitTimestamp]);
  const [jobMatchProfile, setJobMatchProfile] = useState<JobMatchProfileData | null>(null);
  // INP: behaviorData/jobMatchProfile land via a post-mount effect (localStorage
  // read), not a user interaction — but every memo below that consumes them
@@ -2851,19 +2875,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return () => { cancelled = true; clearTimeout(timer); };
  }, [enablePersonalization]);
 
- // Capture the previous visit before writing the current one. The timestamp
- // stays in React state for this board session, so later SPA updates to
- // behaviorData cannot make the counter compare against "now".
+ // Keep one previous-visit boundary stable across board remounts in this tab.
+ // The snapshot expires 30 minutes after the last board mount. The existing
+ // behavior tracker remains responsible for consent and for marking visits.
  useEffect(() => {
  if (!enablePersonalization && !enableApplicationIntentRanking) return;
- if (enablePersonalization && !visitCapturedRef.current) {
-  visitCapturedRef.current = true;
-  const { data, previousLastVisit } = readBehaviorAndMarkVisit();
-  setBehaviorData(data);
-  setLastVisitTimestamp(previousLastVisit);
- } else {
+ if (!enablePersonalization) {
   setBehaviorData(getBehaviorData());
+ return;
  }
+ const result = readOrCaptureJobBoardReturnVisitSnapshot({
+  store: jobBoardReturnVisitSnapshotStore,
+  storage: getJobBoardReturnVisitStorage(),
+  now: Date.now(),
+  startVisit: readBehaviorAndMarkVisit,
+ });
+ setBehaviorData(result.visit?.data ?? getBehaviorData());
+ setLastVisitTimestamp(result.snapshot.previousLastVisit);
  }, [enablePersonalization, enableApplicationIntentRanking, behaviorHydrationRevision]);
 
  // Preference changes happen in the profile surface, which can remain mounted
@@ -3031,19 +3059,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setBehaviorData(getBehaviorData());
  }, [enablePersonalization, deferredSearchQuery]);
 
- // New jobs counter
- // The badge can score the entire corpus for a returning visitor too.
- // Time-slice it just like the ranking path below, cancelling stale queries.
- const [newJobsInfo, setNewJobsInfo] = useState({ total: 0, matching: 0 });
- useEffect(() => {
- if (!enablePersonalization || !deferredBehaviorData) {
- setNewJobsInfo({ total: 0, matching: 0 });
- return;
- }
- return scheduleNewJobsCount(jobs, lastVisitTimestamp, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile,
- count => startTransition(() => setNewJobsInfo(count)));
- }, [enablePersonalization, deferredBehaviorData, jobs, lastVisitTimestamp, deferredUserProfile, deferredJobMatchProfile]);
-
  // Trending jobs for user's location
  const userLocation = userProfile?.municipality ?? null;
  const trendingJobs = useMemo(() => {
@@ -3117,12 +3132,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  }, [enablePersonalization, isPersonalizationActive, behaviorData, matchedJobCount]);
 
- // Analytics: track new jobs banner shown
- useEffect(() => {
- if (!enablePersonalization || newJobsDismissed || newJobsInfo.total <= 0) return;
- Analytics.trackSelectContent('new_jobs_banner_shown', `total:${newJobsInfo.total}_matching:${newJobsInfo.matching}`);
- }, [enablePersonalization, newJobsInfo.total, newJobsInfo.matching, newJobsDismissed]);
-
  // Apply filter params from SiteSearch navigation (location, search query)
  useEffect(() => {
  if (!initialFilterParams) return;
@@ -3183,9 +3192,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (selectedLocation !== 'all') count++;
  if (selectedSector !== 'all') count++;
  if (showNewOnly) count++;
+ if (showSinceLastVisitOnly) count++;
  if (showSavedOnly) count++;
  return count;
- }, [searchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, selectedLocation, selectedSector, showNewOnly, showSavedOnly]);
+ }, [searchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, selectedLocation, selectedSector, showNewOnly, showSinceLastVisitOnly, showSavedOnly]);
 
  const resetAllFilters = useCallback(() => {
  applySearchQuery('');
@@ -3196,6 +3206,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setSelectedLocation('all');
  setSelectedSector('all');
  setShowNewOnly(false);
+ setShowSinceLastVisitOnly(false);
  setShowSavedOnly(false);
  }, []);
  const [page, setPage] = useState(() => readPageFromUrl());
@@ -3683,6 +3694,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // record), closing the timing race that intermittently showed the orphan banner.
  return unscopedJobs.find((j) => matchesRouteSlug(j, lookupSlug)) || null;
  }, [jobs, unscopedJobs, initialJobSlug, bridgeTargetSlug, aliasCanonical, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor]);
+
+ // Profession landing links use `?alert=1`; query state is reliable even if
+ // SPA boot has already discarded the URL hash. Queue the open request before
+ // the lazy form mounts, then remove the one-shot parameter from the URL.
+ useEffect(() => {
+  if (returnVisitAlertRequestHandledRef.current || !enableJobAlerts || initialJobSlug || selectedJob) return;
+  if (typeof window === 'undefined' || !hasJobBoardAlertOpenRequest(window.location.search)) return;
+  returnVisitAlertRequestHandledRef.current = true;
+  openJobAlertForm(searchQuery.trim() || undefined);
+  syncQueryParamsToUrl({ alert: null });
+ }, [enableJobAlerts, initialJobSlug, selectedJob, searchQuery]);
 
  // Cross-canton bridge resolution: when a bridge URL (e.g.
  // /cerca-lavoro-ticino/<old-slug>/) points to a job that now lives in a
@@ -5314,7 +5336,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // replacing it: in-canton matches first, then the city-aware broadened tail,
  // deduped by id. crossCantonFallbackJobs is itself empty once in-canton fills
  // (>= BROADEN_BELOW), so the merge is a no-op on healthy pages.
- const filteredJobs = useMemo<JobListing[]>(() => {
+ const preReturnVisitFilteredJobs = useMemo<JobListing[]>(() => {
  // Sponsored ads matching the query surface above organic results, even when
  // they arrive via a fallback tier (e.g. a sponsored ad from another canton
  // appended after in-canton matches). Stable partition — relative order
@@ -5362,6 +5384,40 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return featuredFirst(crossLocaleFallbackJobs);
  }, [clusterSeedApplies, clusterSeedJobs, deferredSelectedDateRange, passingNonSearchFilters,
  strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
+
+ const returnVisitNewJobs = useMemo(() => {
+  if (!enablePersonalization) return [];
+  return preReturnVisitFilteredJobs.filter(isNewSincePreviousVisit);
+ }, [enablePersonalization, isNewSincePreviousVisit, preReturnVisitFilteredJobs]);
+ const filteredJobs = useMemo(
+  () => deferredShowSinceLastVisitOnly ? returnVisitNewJobs : preReturnVisitFilteredJobs,
+  [deferredShowSinceLastVisitOnly, preReturnVisitFilteredJobs, returnVisitNewJobs],
+ );
+
+ // Count only the pre-return-filter result set, so the action's number and its
+ // resulting list always describe the same profession and board filters.
+ const returnVisitNewJobsCount = returnVisitNewJobs.length;
+ useEffect(() => {
+  if (!enablePersonalization || newJobsDismissed || returnVisitNewJobsCount <= 0) return;
+  Analytics.trackSelectContent('new_jobs_banner_shown', `total:${returnVisitNewJobsCount}`);
+ }, [enablePersonalization, returnVisitNewJobsCount, newJobsDismissed]);
+
+ const toggleReturnVisitNewJobs = useCallback(() => {
+  const shouldShowOnlyNewJobs = !showSinceLastVisitOnly;
+  setShowSinceLastVisitOnly(shouldShowOnlyNewJobs);
+  if (shouldShowOnlyNewJobs) setNewJobsDismissed(false);
+  Analytics.trackEvent('return_visit_new_jobs_action', {
+   surface: 'job_board',
+   action: shouldShowOnlyNewJobs ? 'show_new' : 'show_all',
+   result_count: returnVisitNewJobsCount,
+  });
+  if (shouldShowOnlyNewJobs) {
+   Analytics.trackEvent('return_visit_filter_applied', {
+    filter: 'since_previous_visit',
+    result_count: returnVisitNewJobsCount,
+   });
+  }
+ }, [returnVisitNewJobsCount, showSinceLastVisitOnly]);
 
  // The loaded result set is authoritative for the root hub's metadata too.
  useEffect(() => {
@@ -5872,7 +5928,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setPage(1);
  setMobileJobLimit(10);
  syncQueryParamsToUrl({ page: null });
- }, [deferredSearchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly, showSavedOnly]);
+ }, [deferredSearchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly, showSinceLastVisitOnly, showSavedOnly]);
 
  // Sync search query to URL (?q=) and track in GA4
  useEffect(() => {
@@ -11599,12 +11655,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
 
  {/* ── Personalization notices (no empty wrapper when the flag resolves) ── */}
- {enablePersonalization && ((!newJobsDismissed && newJobsInfo.total > 0) || isPersonalizationActive || (jobMatchAlertVisible && userId && userEmail)) && (
+ {enablePersonalization && ((!newJobsDismissed && returnVisitNewJobsCount > 0) || showSinceLastVisitOnly || isPersonalizationActive || (jobMatchAlertVisible && userId && userEmail)) && (
  <div className="space-y-3">
- {!newJobsDismissed && newJobsInfo.total > 0 && (
+ {(!newJobsDismissed || showSinceLastVisitOnly) && (returnVisitNewJobsCount > 0 || showSinceLastVisitOnly) && (
  <NewJobsCounter
- newJobsCount={newJobsInfo.total}
- matchingCount={newJobsInfo.matching}
+ newJobsCount={returnVisitNewJobsCount}
+ isActive={showSinceLastVisitOnly}
+ onToggle={toggleReturnVisitNewJobs}
  onDismiss={() => setNewJobsDismissed(true)}
  />
  )}

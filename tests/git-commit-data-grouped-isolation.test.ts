@@ -556,6 +556,7 @@ exec ${JSON.stringify(process.execPath)} "$@"
     const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
     try {
       mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      writeFileSync(join(repoDir, 'README.md'), 'grouped commit fixture\n');
       writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"retire-me"}]\n');
       execFileSync('git', ['add', '.'], { cwd: repoDir });
       execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
