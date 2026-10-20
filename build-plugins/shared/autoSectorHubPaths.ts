@@ -13,65 +13,84 @@ export const AUTO_SECTOR_HUB_SEGMENT: Record<JobBoardLocale, string> = {
 
 export type AutoSectorHubRouteKind = 'dynamic' | 'static-category';
 
-// These category landing pages already exist in jobsSeoPagesPlugin. Reuse
-// their canonical URLs when the weekly publisher promotes the same category,
-// instead of emitting a second indexable page with the same job inventory.
-const EXISTING_CATEGORY_SLUGS: Record<string, Record<JobBoardLocale, string>> = {
-  health: {
-    it: 'categoria-sanita',
-    en: 'category-health',
-    de: 'kategorie-gesundheit',
-    fr: 'categorie-sante',
-  },
-  admin: {
-    it: 'categoria-amministrazione',
-    en: 'category-admin',
-    de: 'kategorie-verwaltung',
-    fr: 'categorie-administration',
-  },
-  finance: {
-    it: 'categoria-finanza',
-    en: 'category-finance',
-    de: 'kategorie-finanzen',
-    fr: 'categorie-finance',
-  },
-  tech: {
-    it: 'categoria-informatica',
-    en: 'category-tech',
-    de: 'kategorie-technik',
-    fr: 'categorie-tech',
-  },
-  engineering: {
-    it: 'categoria-ingegneria',
-    en: 'category-engineering',
-    de: 'kategorie-ingenieurwesen',
-    fr: 'categorie-ingenierie',
-  },
-  hospitality: {
-    it: 'categoria-ristorazione',
-    en: 'category-hospitality',
-    de: 'kategorie-gastgewerbe',
-    fr: 'categorie-hotellerie',
-  },
-  sales: {
-    it: 'categoria-vendita',
-    en: 'category-sales',
-    de: 'kategorie-vertrieb',
-    fr: 'categorie-vente',
-  },
-  other: {
-    it: 'categoria-altro',
-    en: 'category-other',
-    de: 'kategorie-andere',
-    fr: 'categorie-autre',
-  },
+/**
+ * Category paths are shared by the legacy job-board emitter and the automatic
+ * sector publisher. Keep the key order stable: it is also the order used by
+ * category navigation and the deterministic sitemap output.
+ */
+export const JOB_CATEGORY_KEYS = [
+  'health',
+  'finance',
+  'tech',
+  'engineering',
+  'admin',
+  'hospitality',
+  'sales',
+  'other',
+] as const;
+
+export type JobCategoryKey = typeof JOB_CATEGORY_KEYS[number];
+
+export const JOB_CATEGORY_SLUGS: Record<JobCategoryKey, Record<JobBoardLocale, string>> = {
+  health: { it: 'sanita', en: 'health', de: 'gesundheit', fr: 'sante' },
+  finance: { it: 'finanza', en: 'finance', de: 'finanzen', fr: 'finance' },
+  tech: { it: 'informatica', en: 'tech', de: 'technik', fr: 'tech' },
+  engineering: { it: 'ingegneria', en: 'engineering', de: 'ingenieurwesen', fr: 'ingenierie' },
+  admin: { it: 'amministrazione', en: 'admin', de: 'verwaltung', fr: 'administration' },
+  hospitality: { it: 'ristorazione', en: 'hospitality', de: 'gastgewerbe', fr: 'hotellerie' },
+  sales: { it: 'vendita', en: 'sales', de: 'vertrieb', fr: 'vente' },
+  other: { it: 'altro', en: 'other', de: 'andere', fr: 'autre' },
 };
 
-const SAFE_SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+export const JOB_CATEGORY_PREFIX: Record<JobBoardLocale, string> = {
+  it: 'categoria',
+  en: 'category',
+  de: 'kategorie',
+  fr: 'categorie',
+};
 
-export function isKnownExistingCategorySlug(slug: string): boolean {
-  return Object.prototype.hasOwnProperty.call(EXISTING_CATEGORY_SLUGS, slug);
+export function isKnownExistingCategorySlug(slug: string): slug is JobCategoryKey {
+  return (JOB_CATEGORY_KEYS as readonly string[]).includes(slug);
 }
+
+function trimPathSlashes(value: string): string {
+  return value.replace(/^\/+|\/+$/g, '');
+}
+
+export function buildJobCategorySlug(locale: JobBoardLocale, category: JobCategoryKey): string {
+  return `${JOB_CATEGORY_PREFIX[locale]}-${JOB_CATEGORY_SLUGS[category][locale]}`;
+}
+
+/**
+ * Build the one canonical category path for a locale and a canton-aware
+ * section. `pageSlug` is the optional pagination segment (for example
+ * `pagina-2`). The caller supplies the section owner; no other emitter may
+ * reconstruct this path from a second slug table.
+ */
+export function buildJobCategoryPath(
+  locale: JobBoardLocale,
+  section: string,
+  category: JobCategoryKey,
+  pageSlug?: string,
+): string {
+  const page = pageSlug ? `/${trimPathSlashes(pageSlug)}` : '';
+  return `${SECTOR_HUB_LOCALE_PREFIX[locale]}/${trimPathSlashes(section)}/${buildJobCategorySlug(locale, category)}${page}/`
+    .replace(/\/+/g, '/');
+}
+
+export type AutoSectorHubPathOwner = 'jobsSeoPagesPlugin' | 'autoSectorHubPagesPlugin';
+
+/**
+ * Static-category publications reuse the job-board page. Dynamic publications
+ * are the sole responsibility of autoSectorHubPagesPlugin. Keeping this
+ * decision beside the path builder prevents a canonical/noindex decision from
+ * drifting away from the file owner.
+ */
+export function autoSectorHubPathOwner(routeKind: AutoSectorHubRouteKind): AutoSectorHubPathOwner {
+  return routeKind === 'static-category' ? 'jobsSeoPagesPlugin' : 'autoSectorHubPagesPlugin';
+}
+
+const SAFE_SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 export function buildAutoSectorHubPath(
   locale: JobBoardLocale,
@@ -81,18 +100,20 @@ export function buildAutoSectorHubPath(
   if (!SAFE_SLUG_RE.test(slug)) throw new Error(`Invalid automatic sector-hub slug: ${slug}`);
   const prefix = SECTOR_HUB_LOCALE_PREFIX[locale];
   const section = SECTOR_HUB_SECTION[locale];
-  const existingCategory = routeKind === 'static-category' ? EXISTING_CATEGORY_SLUGS[slug]?.[locale] : undefined;
+  const existingCategory = routeKind === 'static-category' && isKnownExistingCategorySlug(slug)
+    ? slug
+    : undefined;
   if (routeKind === 'static-category' && !existingCategory) {
     throw new Error(`Automatic sector-hub slug has no static category route: ${slug}`);
   }
   if (existingCategory) {
-    return `${prefix}/${section}/${existingCategory}/`.replace(/\/+/g, '/');
+    return buildJobCategoryPath(locale, section, existingCategory);
   }
   return `${prefix}/${section}/${AUTO_SECTOR_HUB_SEGMENT[locale]}/${slug}/`.replace(/\/+/g, '/');
 }
 
 export function autoSectorHubUsesExistingCategoryPath(routeKind: AutoSectorHubRouteKind): boolean {
-  return routeKind === 'static-category';
+  return autoSectorHubPathOwner(routeKind) === 'jobsSeoPagesPlugin';
 }
 
 export function parseAutoSectorHubPath(
