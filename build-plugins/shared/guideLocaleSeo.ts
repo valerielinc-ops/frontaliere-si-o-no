@@ -42,7 +42,7 @@ const GUIDE_LOCALE_SEO: Record<GuideSeoLocale, Record<GuideSeoSection, GuideLoca
     },
     border: {
       title: 'Chiasso Border Traffic & Wait Times',
-      description: 'Live traffic at the Chiasso border: waiting times at Brogeda A2, Chiasso Strada and Ponte Chiasso, BAZG webcams and alternative Ticino crossing points.',
+      description: 'Live Chiasso border traffic: waits at Brogeda A2, Chiasso Strada and Ponte Chiasso, BAZG webcams and other Ticino crossings.',
     },
     unemployment: {
       title: 'Unemployment: Switzerland and Italy',

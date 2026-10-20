@@ -100,7 +100,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
       fr: 'Salaire net frontalier 2026: guide complet du calcul',
     },
     descriptions: {
-      it: 'Come calcolare lo stipendio netto di un frontaliere in Ticino nel 2026. Tabelle fiscali, contributi sociali, IRPEF e confronto tra regimi vecchio e nuovo.',
+      it: 'Calcolo dello stipendio netto frontaliere in Ticino 2026: tabelle fiscali, contributi AVS/LPP, IRPEF e confronto tra vecchio e nuovo regime.',
       en: 'How to calculate a cross-border worker\'s net salary in Ticino in 2026. Tax tables, social contributions, IRPEF and comparison between old and new regimes.',
       de: 'So berechnen Sie das Nettogehalt eines Grenzgängers im Tessin 2026. Steuertabellen, Sozialabgaben, IRPEF und Vergleich zwischen altem und neuem Regime.',
       fr: 'Comment calculer le salaire net d\'un frontalier au Tessin en 2026. Barèmes fiscaux, cotisations sociales, IRPEF et comparaison entre ancien et nouveau régime.',

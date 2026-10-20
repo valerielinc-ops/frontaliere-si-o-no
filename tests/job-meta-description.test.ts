@@ -40,7 +40,7 @@ describe('buildJobMetaDescription', () => {
    title: 'Senior technician',
    company: 'A &amp; B',
    location: 'Lugano',
-   cleanDescription: `${'x'.repeat(110)}&amp;quality`,
+   cleanDescription: `${'x'.repeat(100)} &amp;quality overflow`,
   });
 
   expect(description).not.toContain('&amp');

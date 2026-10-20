@@ -1714,7 +1714,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  permits: {
  title: 'Permesso G Svizzera 2026: Requisiti, Costi e Durata 5 Anni',
- description: 'Permesso G frontalieri 2026: residenza principale all’estero, contratto svizzero e rientro almeno settimanale. Confronta requisiti e costi con B, C e L.',
+ description: 'Permesso G 2026 per frontalieri: residenza all’estero, contratto svizzero e rientro almeno settimanale. Requisiti e costi a confronto con B, C e L.',
  keywords: 'permesso g svizzera, permesso b svizzera, permesso c svizzera, permesso l svizzera, permesso frontaliere requisiti, permesso dimora svizzera, documenti permesso lavoro svizzera',
  ogTitle: 'Permessi Lavoro Svizzera | Guida G, B, C, L per Frontalieri',
  ogDescription: 'Permesso G: residenza principale all’estero, contratto CH e rientro almeno settimanale. Permesso B: dimora in Svizzera. Confronta G, B, C e L con requisiti, documenti e costi aggiornati 2026.',

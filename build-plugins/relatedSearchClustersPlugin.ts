@@ -2880,29 +2880,27 @@ export function buildClusterDescription(
   const ordered = input.jobCount === 0
     ? [closings.calculator, closings.audience]
     : [closings.apply, closings.calculator, closings.audience];
-  const shortestClosingLength = Math.min(...ordered.map((sentence) => sentence.length));
-  const maxTaglineWithClosing = max - shortestClosingLength - 1;
-  if (out.length < META_DESCRIPTION_MIN_CHARS && out.length > maxTaglineWithClosing) {
-    out = truncateHeadline(out, maxTaglineWithClosing);
-  }
 
   const companies = input.topCompanies
     .map((c) => String(c || '').trim().replace(/\.+$/, ''))
     .filter(Boolean);
-  for (let k = Math.min(2, companies.length); k > 0; k--) {
-    const candidate = `${out} ${companies.slice(0, k).join(', ')}.`;
-    const leavesClosingRoom = candidate.length + shortestClosingLength + 1 <= max;
-    if (candidate.length <= max && (candidate.length >= META_DESCRIPTION_MIN_CHARS || leavesClosingRoom)) {
-      out = candidate;
-      break;
-    }
-  }
 
-  // "Apply directly" promises a listing to apply to: not on the zero-job copy.
-  for (const sentence of ordered) {
-    if (out.length >= META_DESCRIPTION_MIN_CHARS) break;
-    const candidate = `${out} ${sentence}`;
-    if (candidate.length <= max) out = candidate;
+  for (let companyCount = Math.min(2, companies.length); companyCount >= 0; companyCount -= 1) {
+    let candidate = out;
+    if (companyCount > 0) {
+      const withCompanies = `${candidate} ${companies.slice(0, companyCount).join(', ')}.`;
+      if (withCompanies.length > max) continue;
+      candidate = withCompanies;
+    }
+
+    // Keep complete, job-specific closings; drop employer names if they leave
+    // too little room to reach the minimum without generic site padding.
+    for (const sentence of ordered) {
+      if (candidate.length >= META_DESCRIPTION_MIN_CHARS) break;
+      const withClosing = `${candidate} ${sentence}`;
+      if (withClosing.length <= max) candidate = withClosing;
+    }
+    if (candidate.length >= META_DESCRIPTION_MIN_CHARS) return candidate;
   }
   return out;
 }

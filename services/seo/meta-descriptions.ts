@@ -117,6 +117,13 @@ function finalizeJobHubMeta(base: string, locale: JobPageLocale): string {
     const padded = `${prefix} ${qualifier}`;
     if (visibleLength(`${padded} ${cta}`) <= META_MAX_CHARS) prefix = padded;
   }
+  const description = `${prefix} ${cta}`;
+  if (visibleLength(description) < META_MIN_CHARS) {
+    const freshness = { it: 'Oggi.', en: 'Today.', de: 'Heute.', fr: 'À jour.' }[locale];
+    if (visibleLength(`${prefix} ${freshness} ${cta}`) <= META_MAX_CHARS) {
+      prefix = `${prefix} ${freshness}`;
+    }
+  }
   return `${prefix} ${cta}`;
 }
 

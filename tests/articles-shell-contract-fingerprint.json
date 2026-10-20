@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "SHA-256 of the SCALAR half of SiteShellContract. Both repositories assert this fingerprint. Re-recorded 2026-10-04: the identity-bearing gtag-init reference is content-addressed so stale edge bytes cannot emit a page_view without the current emission contract. Transport build-plugins/constants.ts and both contract fixtures together.",
+  "note": "SHA-256 of the SCALAR half of SiteShellContract. Both repositories assert this fingerprint. Re-recorded 2026-10-20 after the shared SERP description budget was capped at 150 characters; transport build-plugins/shared/titleSuffix.ts to host/shared/titleSuffix.ts and update both fixtures plus the manifest fingerprint together.",
   "scalarFields": 22,
-  "sha256": "cd702c32d250a58012beb5da86d107bd2a5af9036e5248a1567043d6ea0c2e78"
+  "sha256": "2cc55d337bbce2e78b89f6d8104f9417b06c2efb3fb8f63d07077d12b93912fd"
 }

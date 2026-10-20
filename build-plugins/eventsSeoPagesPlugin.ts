@@ -3421,7 +3421,8 @@ interface DetailCopy {
  * it the title collapses to a useless `…`/2-3 word stub while 20+ chars of
  * region boilerplate squat in the SERP. Under the tighter 60-char event cap,
  * the full suffix may be dropped for long canton names; the cascade still
- * keeps the event title, comune and date ahead of region/brand boilerplate.
+ * drops the date before clipping a complete comune/canton; region and brand
+ * remain optional boilerplate under budget pressure.
  */
 const MIN_DETAIL_TITLE_BUDGET = 12;
 
@@ -3482,38 +3483,44 @@ function eventDetailMetaTitle(
   dateToken = '',
   preferBrandSuffix = false,
 ): string {
-  const datedSuffixes = dateToken
+  const suffixCandidates = dateToken
     ? suffixes.flatMap((suffix) => {
-      const candidates = [`${suffix} · ${dateToken}`];
+      const candidates: Array<{ suffix: string; brandless?: string }> = [
+        { suffix: `${suffix} · ${dateToken}` },
+      ];
       // Once the scheduled date is present, the brand label is less useful
       // than the place/canton token. Keep the latter as a separate candidate
       // so long canton names do not force the event title down to a stub.
       const brandless = suffix.replace(/\s+\|\s+[^|]+$/, '');
-      if (brandless !== suffix) candidates.push(`${brandless} · ${dateToken}`);
+      if (brandless !== suffix) {
+        candidates[0].brandless = `${brandless} · ${dateToken}`;
+        candidates.push({ suffix: `${brandless} · ${dateToken}` });
+      }
+      // Preserve the full comune/canton before dropping it to keep the date.
+      // A location can itself use almost the entire title budget, so its
+      // undated form is a better fallback than a truncated place name.
+      candidates.push({ suffix, brandless: brandless !== suffix ? brandless : undefined });
+      if (brandless !== suffix) candidates.push({ suffix: brandless });
       return candidates;
     })
-    : suffixes;
-  // First suffix candidate that leaves a meaningful title budget wins; when
-  // even the bare-comune candidate is squeezed, still use it (the shortest).
+    : suffixes.map((suffix) => ({ suffix }));
+  // First location candidate that leaves a meaningful title budget wins; a
+  // place-only fallback is considered before degrading to a shorter location.
   // Prefer a complete event title whenever one of the useful place candidates
   // can accommodate it; otherwise retain the most descriptive candidate that
   // still leaves a meaningful title fragment. This prevents the date token
   // from truncating a 25-character event title merely to keep a brand label.
   const rawTitleBudget = esc(rawTitle).length;
-  const firstMeaningfulIndex = datedSuffixes.findIndex(
-    (s) => EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(s).length >= MIN_DETAIL_TITLE_BUDGET,
+  const firstMeaningful = suffixCandidates.find(
+    ({ suffix }) => EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length >= MIN_DETAIL_TITLE_BUDGET,
   );
-  let suffix = firstMeaningfulIndex >= 0
-    ? datedSuffixes[firstMeaningfulIndex]
-    : datedSuffixes[datedSuffixes.length - 1] ?? '';
-  // The first pair is the same place/canton with and without its brand label.
-  // If the full candidate is meaningful but just too long for the raw event
-  // title, use its paired brandless form when that preserves the title. Do not
-  // scan into the next comune-only candidate: a long canton token is a better
-  // disambiguator than a complete but location-poor title.
-  if (!preferBrandSuffix && dateToken && firstMeaningfulIndex >= 0 && firstMeaningfulIndex % 2 === 0) {
-    const brandless = datedSuffixes[firstMeaningfulIndex + 1];
-    if (brandless && EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(brandless).length >= rawTitleBudget) suffix = brandless;
+  let suffix = firstMeaningful?.suffix ?? suffixCandidates[suffixCandidates.length - 1]?.suffix ?? '';
+  // If a brand-bearing candidate is meaningful but crowds out the complete
+  // event title, use its brandless form when that preserves the title.
+  if (!preferBrandSuffix && firstMeaningful?.brandless) {
+    if (EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(firstMeaningful.brandless).length >= rawTitleBudget) {
+      suffix = firstMeaningful.brandless;
+    }
   }
   const budget = Math.max(1, EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length);
   let title = rawTitle;

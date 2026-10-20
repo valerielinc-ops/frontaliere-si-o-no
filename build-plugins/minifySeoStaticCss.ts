@@ -7,7 +7,7 @@ export const SEO_STATIC_CSS_MAX_BYTES = 150_000;
 
 export async function minifySeoStaticCss(source: string): Promise<string> {
   const { code } = await transform(source, { loader: 'css', minify: true });
-  return code;
+  return code.trimEnd();
 }
 
 /** Minify Vite's copied public stylesheet after the build has written it. */
