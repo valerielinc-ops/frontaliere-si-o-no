@@ -4,6 +4,9 @@ const GENERIC_VACANCY_TITLES = new Set([
   'open positions', 'positionen', 'offene stellen', 'stellenangebot',
   'stellenangebote', 'stellen', 'annunci', 'offerte', 'posizioni aperte',
   'offres', 'offres d emploi', 'offre d emploi', 'emplois', 'recherche',
+  'mehr erfahren', 'weitere informationen', 'weiterlesen', 'read more',
+  'learn more', 'apply now', 'jetzt bewerben', 'zum job', 'zur stelle',
+  'en savoir plus', 'scopri di piu',
 ]);
 
 /**
@@ -48,14 +51,16 @@ export function isGenericVacancyTitle(value) {
  * Prefer the detail-page title only when it names a vacancy. Some sources put
  * a generic layout heading such as "Header" in the detail H1 while the listing
  * still carries the real role title; publishing the H1 would replace good
- * listing evidence with detail chrome.
+ * listing evidence with detail chrome. Raw H1 and document-title evidence are
+ * later fallbacks when both extracted fields are generic calls to action.
  *
  * @param {unknown} detailTitle
  * @param {unknown} listingTitle
+ * @param {unknown[]} [rawDetailTitles]
  * @returns {string}
  */
-export function selectPublishableTitle(detailTitle, listingTitle) {
-  for (const value of [detailTitle, listingTitle]) {
+export function selectPublishableTitle(detailTitle, listingTitle, rawDetailTitles = []) {
+  for (const value of [detailTitle, listingTitle, ...rawDetailTitles]) {
     const title = String(value || '').replace(/\s+/g, ' ').trim();
     if (title && !isGenericVacancyTitle(title)) return title;
   }

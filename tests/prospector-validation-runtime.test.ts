@@ -90,6 +90,96 @@ describe('Prospector production validation', () => {
     expect(selectPublishableTitle('Jobs', 'Offene Stellen')).toBe('');
   });
 
+  it('uses and independently validates the detail H1 when listing and structured titles are a CTA', async () => {
+    const seed = 'https://hanseisenring.ch/unternehmen/karriere/jobportal';
+    const roles = [
+      { slug: 'disposition-kueche', title: 'Disposition Küche', locality: 'Münchwilen', canton: 'TG' },
+      { slug: 'sachbearbeitung-servicecenter', title: 'Sachbearbeitung Servicecenter', locality: 'Wängi', canton: 'TG' },
+      { slug: 'projektleitung-abacus', title: 'Projektleitung Abacus', locality: 'Oensingen', canton: 'SO' },
+    ];
+    const urls = roles.map(({ slug }) => `${seed}/${slug}`);
+    const detailsByUrl = new Map(roles.map((role, index) => {
+      const structuredPosting = {
+        '@type': 'JobPosting',
+        title: 'Mehr erfahren',
+        description: DESCRIPTION,
+        jobLocation: {
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: role.locality,
+            addressRegion: role.canton,
+            addressCountry: 'CH',
+          },
+        },
+      };
+      const body = `<html><head><title>${role.title} | Hans Eisenring</title></head><body>
+        <main><h1>${role.title}</h1><script type="application/ld+json">${JSON.stringify(structuredPosting)}</script>
+        <p>${DESCRIPTION}</p><p>Aufgaben und Anforderungen für ${role.title}.</p></main></body></html>`;
+      return [urls[index], body];
+    }));
+    const listing = roles.map((_, index) => `<a href="${urls[index]}">Mehr erfahren</a>`).join('\n');
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /');
+      if (url === seed) return new Response(listing);
+      const body = detailsByUrl.get(url);
+      if (body) return new Response(body);
+      throw new Error(`unexpected fixture URL: ${url}`);
+    };
+    const spec = {
+      companyKey: 'hanseisenring',
+      companyName: 'Hans Eisenring AG',
+      companyHost: 'hanseisenring.ch',
+      mode: 'template',
+      seedUrls: [seed],
+      detailTemplate: '/unternehmen/karriere/jobportal/*',
+      detailEnrichment: true,
+      detailFetchWorkers: 3,
+    } as any;
+    const runtime = {
+      fetchImpl,
+      lookupImpl: async () => PUBLIC_IP,
+      sleepImpl: async () => {},
+      hostDelayMs: 0,
+      retries: 0,
+      jinaRetries: 0,
+      disableWafProxy: true,
+    };
+
+    expect(isGenericVacancyTitle('Mehr erfahren')).toBe(true);
+    expect(selectPublishableTitle('Mehr erfahren', 'Mehr erfahren', ['Disposition Küche']))
+      .toBe('Disposition Küche');
+
+    clearPoliteFetchStateForTests();
+    try {
+      const observed = await observeSpecInProduction(spec, runtime);
+      expect(observed.vacancies.map((vacancy) => vacancy.title)).toEqual(roles.map((role) => role.title));
+      expect([...observed.titleEvidenceByUrl.values()].map((evidence) => evidence.titleSource))
+        .toEqual(['raw_h1', 'raw_h1', 'raw_h1']);
+
+      const report = await gradeExtraction(spec, observed.vacancies, {
+        sampleSize: 3,
+        runtimeObservation: observed.observation,
+        observedDetailsByUrl: observed.detailPagesByUrl,
+        titleEvidenceByUrl: observed.titleEvidenceByUrl,
+        sampleDate: '2026-10-20T12:00:00.000Z',
+        lookupImpl: async () => PUBLIC_IP,
+        fetchImpl,
+        sleepImpl: async () => {},
+      });
+      expect(report).toMatchObject({
+        vacancyCount: 3,
+        sampled: 3,
+        titleMatchRate: 1,
+        verdict: 'good',
+      });
+      expect(report.samples.every((sample) => sample.titleEvidenceSource === 'raw_h1' && sample.titleMatch === 1))
+        .toBe(true);
+    } finally {
+      clearPoliteFetchStateForTests();
+    }
+  });
+
   it('grades the production output, counts unexpected geography drops, and rejects an incomplete snapshot', async () => {
     const { spec, urls, runtime } = fixtureSpec();
     clearPoliteFetchStateForTests();
