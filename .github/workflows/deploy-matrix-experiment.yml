@@ -125,7 +125,7 @@ env:
   # Data oltre la quale lo studio non parte più senza una riconferma esplicita
   # (formato YYYY-MM-DD, UTC). Spostarla è una PR di una riga: serve proprio a
   # rendere visibile la scelta di continuare a spendere capacità.
-  EXPERIMENT_EXPIRES_ON: '2026-10-20'
+  EXPERIMENT_EXPIRES_ON: '2026-10-21'
 
 # Gruppo STABILE, non `github.run_id`: al più un run dello studio vivo per volta
 # (vedi «BUDGET DI CAPACITÀ» in testa al file). `cancel-in-progress: false`
