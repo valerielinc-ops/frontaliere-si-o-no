@@ -44,6 +44,7 @@
  */
 
 import { reportedSalaryNote } from './shared/reportedSalaryNote';
+import { reportedSalarySummary } from './shared/realSalaryMedian';
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
@@ -99,6 +100,12 @@ import { renderLandingHero, HERO_BADGES } from './shared/landingHeroPersonality'
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import { resolveNursingLandingsFlushed } from './shared/buildSignals';
+import {
+  buildProfessionJourneyAlertHref,
+  buildProfessionJourneyNetHref,
+  PROFESSION_JOURNEY_ANCHORS,
+  renderProfessionJourney,
+} from './shared/professionJourney';
 
 // CTA target sector for each landing id — null means "fall back to the
 // unfiltered job-board hub" (used by `healthcare-ticino`, whose CTA copy
@@ -116,6 +123,25 @@ const CALCULATOR_URL: Record<NursingLocale, string> = {
   en: '/en/calculate-salary/',
   de: '/de/gehalt-berechnen/',
   fr: '/fr/calculer-salaire/',
+};
+
+const NURSING_ALERT_QUERY: Record<NursingLandingId, Record<NursingLocale, string>> = {
+  nurses: { it: 'infermiere', en: 'nurse', de: 'Pflegefachfrau', fr: 'infirmier' },
+  oss: { it: 'OSS', en: 'healthcare assistant', de: 'Pflegehelfer', fr: 'aide-soignant' },
+  'healthcare-ticino': { it: 'sanitario', en: 'healthcare', de: 'Gesundheit', fr: 'santé' },
+};
+
+const NURSING_ROLE_LABEL: Record<NursingLandingId, Record<NursingLocale, string>> = {
+  nurses: { it: 'infermieri', en: 'nurses', de: 'Pflegefachpersonen', fr: 'infirmiers' },
+  oss: { it: 'OSS', en: 'healthcare assistants', de: 'Pflegeassistenz', fr: 'aides-soignants' },
+  'healthcare-ticino': { it: 'sanità in Ticino', en: 'Ticino healthcare jobs', de: 'Gesundheitsjobs im Tessin', fr: 'emplois de santé au Tessin' },
+};
+
+/** Requirement-bearing section positions are stable in each curated copy. */
+const NURSING_REQUIREMENTS_SECTION_INDEX: Record<NursingLandingId, Record<NursingLocale, number>> = {
+  nurses: { it: 3, en: 3, de: 3, fr: 3 },
+  oss: { it: 3, en: 5, de: 5, fr: 5 },
+  'healthcare-ticino': { it: 5, en: 5, de: 5, fr: 5 },
 };
 
 // ── Helpers ──────────────────────────────────────────────────────
@@ -186,14 +212,14 @@ interface RenderResult {
   wordCount: number;
 }
 
-function renderSection(title: string, paragraphs: string[]): string {
+function renderSection(title: string, paragraphs: string[], id?: string): string {
   const ps = paragraphs
     .map(
       (p) =>
         `<p class="s-Poj6T0">${esc(p)}</p>`,
     )
     .join('');
-  return `<section class="s-KZc0LQ"><h2 class="s-BEjFo9">${esc(title)}</h2>${ps}</section>`;
+  return `<section${id ? ` id="${esc(id)}"` : ''} class="s-KZc0LQ"><h2 class="s-BEjFo9">${esc(title)}</h2>${ps}</section>`;
 }
 
 function renderFaqBlock(faqs: NursingLandingComposedCopy['faqs']): string {
@@ -269,7 +295,7 @@ function renderFeaturedJobs(
   const ctaLabel = snapshot.featured.length > 0 && snapshot.liveCount > 0
     ? pickCtaAllJobs(id, locale, snapshot.liveCount)
     : (copy.featuredJobsCtaAllLabel ?? 'Vedi tutti gli annunci →');
-  return `<section class="s-KZc0LQ">
+  return `<section id="${PROFESSION_JOURNEY_ANCHORS.offers}" class="s-KZc0LQ">
     <h2 class="s-8dKmAe">${esc(copy.shell.featuredJobsTitle)}</h2>
     ${listHtml}
     ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-flex;align-items:center;min-height:44px;padding:8px 0;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
@@ -281,8 +307,6 @@ function renderEmployerGrid(
   copy: NursingLandingComposedCopy,
   locale: NursingLocale,
 ): string {
-  if (snapshot.topEmployers.length === 0) return '';
-
   const items = snapshot.topEmployers.map((e) => ({
     employer: {
       name: e.name,
@@ -296,9 +320,15 @@ function renderEmployerGrid(
   const listHtml = renderEmployerCardListHtml(items, {
     locale,
     variant: 'compact',
+    emptyStateHtml: `<p class="s-card">${{
+      it: 'Le offerte attive non riportano aziende per questa selezione.',
+      en: 'Active listings do not report employers for this selection.',
+      de: 'Die aktiven Stellenanzeigen nennen für diese Auswahl keine Unternehmen.',
+      fr: 'Les offres actives ne mentionnent pas d’employeurs pour cette sélection.',
+    }[locale]}</p>`,
   });
 
-  return `<section class="s-KZc0LQ">
+  return `<section id="${PROFESSION_JOURNEY_ANCHORS.companies}" class="s-KZc0LQ">
     <h2 class="s-8dKmAe">${esc(copy.shell.employerGridTitle)}</h2>
     ${listHtml}
   </section>`;
@@ -443,9 +473,32 @@ function renderPage(opts: {
   const employerGridHtml = renderEmployerGrid(snapshot, copy, locale);
   const dividerHtml = renderApprofondisciDivider(copy.shell.approfondisciHeading);
 
-  const sectionsHtml = copy.sections.map((s) => renderSection(s.title, s.paragraphs)).join('');
+  const requirementsIndex = NURSING_REQUIREMENTS_SECTION_INDEX[id][locale];
+  if (!copy.sections[requirementsIndex]) {
+    throw new Error(`Missing profession journey requirements section for ${id}/${locale}.`);
+  }
+  const sectionsHtml = copy.sections.map((s, index) => renderSection(
+    s.title,
+    s.paragraphs,
+    index === requirementsIndex ? PROFESSION_JOURNEY_ANCHORS.requirements : undefined,
+  )).join('');
   const faqHtml = renderFaqBlock(copy.faqs);
   const relatedHtml = renderRelatedLinks(locale, copy.relatedLabel);
+  const reportedSalary = snapshot.reportedSalary ?? reportedSalarySummary(snapshot.jobs ?? snapshot.featured);
+  const reportedGrossChf = reportedSalary.medianChf;
+  const journeyHtml = renderProfessionJourney({
+    locale,
+    professionKey: id,
+    roleLabel: NURSING_ROLE_LABEL[id][locale],
+    hrefs: {
+      offers: `#${PROFESSION_JOURNEY_ANCHORS.offers}`,
+      requirements: `#${PROFESSION_JOURNEY_ANCHORS.requirements}`,
+      net: buildProfessionJourneyNetHref(CALCULATOR_URL[locale], reportedGrossChf),
+      companies: `#${PROFESSION_JOURNEY_ANCHORS.companies}`,
+      alert: buildProfessionJourneyAlertHref(buildJobBoardUrl(locale), NURSING_ALERT_QUERY[id][locale]),
+    },
+    netSalaryPrefilled: typeof reportedGrossChf === 'number' && reportedGrossChf > 0,
+  });
 
   const body = `
     <nav class="s-bcr">
@@ -469,6 +522,7 @@ function renderPage(opts: {
     ${statTilesHtml}
     ${reportedSalaryNote(locale, snapshot.reportedSalary)}
     ${primaryCtaHtml}
+    ${journeyHtml}
     ${featuredHtml}
     ${employerGridHtml}
     ${dividerHtml}
@@ -696,4 +750,13 @@ export function renderNursingFeaturedJobsForTest(
     medianSalaryChf: snapshot.medianSalaryChf,
   });
   return renderFeaturedJobs(id, locale, snapshot, copy);
+}
+
+/** Test-only export that exercises the full page template used by the build. */
+export function renderNursingLandingForJourneyTest(
+  id: NursingLandingId,
+  locale: NursingLocale,
+  snapshot: NursingJobsSnapshot,
+): string {
+  return renderPage({ id, locale, dateStamp: '2026-10-20', snapshot }).html;
 }

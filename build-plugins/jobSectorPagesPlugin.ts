@@ -37,6 +37,7 @@ import {
 } from './constants';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import { jobBoardHeadTags } from './jobBoardGpt';
+import { buildJobBoardUrl } from './cityJobsAggregate';
 import {
   HERO_EYEBROW_STYLE,
   H1_STYLE,
@@ -73,12 +74,197 @@ import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { resolveSectorPagesFlushed } from './shared/buildSignals';
 import { SECTOR_HUB_SIBLINGS } from './shared/sectorHubClusters';
+import { buildProfessionLandingPath, type ProfessionId } from './professionLandingsData';
+import { buildNursingLandingPath, type NursingLandingId } from './nursingLandingsData';
+import { reportedSalarySummary } from './shared/realSalaryMedian';
+import {
+  buildProfessionJourneyAlertHref,
+  buildProfessionJourneyNetHref,
+  buildProfessionJourneySearchHref,
+  PROFESSION_JOURNEY_ANCHORS,
+  renderProfessionJourney,
+} from './shared/professionJourney';
 import {
   resolveJobCanton as sharedResolveJobCanton,
   resolveCantonSection as sharedResolveCantonSection,
 } from './shared/cantonSection';
 
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
+
+type ProfessionJourneyTarget = {
+  professionKey: string;
+  roleLabel: Record<JobBoardLocale, string>;
+  alertKeyword: Record<JobBoardLocale, string>;
+  roleTitle?: RegExp;
+  professionLanding?: ProfessionId;
+  nursingLanding?: NursingLandingId;
+  /** The company rail intentionally reflects the wider named sector. */
+  companyScope: 'role' | 'sector';
+};
+
+/** Existing sector hubs prioritized for the role-to-application journey. */
+const PROFESSION_JOURNEY_TARGETS: Partial<Record<SectorHubKey, ProfessionJourneyTarget>> = {
+  infermieri: {
+    professionKey: 'infermiere',
+    roleLabel: { it: 'infermieri', en: 'nursing jobs', de: 'Pflegefachberufe', fr: 'métiers infirmiers' },
+    alertKeyword: { it: 'infermiere', en: 'nurse', de: 'Pflegefachfrau', fr: 'infirmier' },
+    roleTitle: /infermier|nurse|pflegefach|krankenpfleg|krankensch|infirmier/i,
+    professionLanding: 'infermiere',
+    companyScope: 'role',
+  },
+  'case-anziani': {
+    professionKey: 'case-anziani',
+    roleLabel: { it: 'lavorare nelle case anziani', en: 'elderly-care jobs', de: 'Stellen in der Altenpflege', fr: 'emplois en maison de retraite' },
+    alertKeyword: { it: 'case anziani', en: 'elderly care', de: 'Altenpflege', fr: 'maison de retraite' },
+    nursingLanding: 'healthcare-ticino',
+    companyScope: 'sector',
+  },
+  educatori: {
+    professionKey: 'educatore',
+    roleLabel: { it: 'educatori', en: 'educators', de: 'Erzieher', fr: 'éducateurs' },
+    alertKeyword: { it: 'educatore', en: 'educator', de: 'Erzieher', fr: 'éducateur' },
+    roleTitle: /educator|educatric|erzieher|p[aä]dagog|social[ -]pedagog|[eé]ducateur|operatore[ -]socio[ -]educativ/i,
+    professionLanding: 'educatore',
+    companyScope: 'role',
+  },
+  autisti: {
+    professionKey: 'autista',
+    roleLabel: { it: 'autisti', en: 'drivers', de: 'Fahrer', fr: 'chauffeurs' },
+    alertKeyword: { it: 'autista', en: 'driver', de: 'Fahrer', fr: 'chauffeur' },
+    roleTitle: /\bautist[aie]\b|\bautotrasport|\bcamionist|\bdriver\b|\btrucker\b|\bchauffeur\b|\bfahrer\b|\bconducteur[ -]?routier\b|\bdelivery[ -]driver\b/i,
+    professionLanding: 'autista',
+    companyScope: 'role',
+  },
+  hotel: {
+    professionKey: 'receptionist',
+    roleLabel: { it: 'receptionist', en: 'receptionists', de: 'Rezeptionisten', fr: 'réceptionnistes' },
+    alertKeyword: { it: 'receptionist', en: 'receptionist', de: 'Rezeptionist', fr: 'réceptionniste' },
+    roleTitle: /\breceptionist\b|\breception\b|\brezeption(?:ist|istin)?\b|\br[eé]ceptionniste\b|\bfront[ -]office\b|\bricevimento\b|\baccueil\b|\bempfang\b/i,
+    companyScope: 'sector',
+  },
+  ristorazione: {
+    professionKey: 'pasticciere',
+    roleLabel: { it: 'pasticcieri', en: 'pastry chefs', de: 'Konditoren', fr: 'pâtissiers' },
+    alertKeyword: { it: 'pasticciere', en: 'pastry chef', de: 'Konditor', fr: 'pâtissier' },
+    roleTitle: /pasticcier|pasticcer|pastry[ -]chef|konditor|p[aâ]tissier|confectioner/i,
+    companyScope: 'sector',
+  },
+};
+
+const CALCULATOR_PATH: Record<JobBoardLocale, string> = {
+  it: '/calcola-stipendio/',
+  en: '/en/calculate-salary/',
+  de: '/de/gehalt-berechnen/',
+  fr: '/fr/calculer-salaire/',
+};
+
+const ROLE_REQUIREMENTS_COPY: Record<'hotel' | 'ristorazione', Record<JobBoardLocale, { title: string; body: string }>> = {
+  hotel: {
+    it: { title: 'Cosa verificare negli annunci da receptionist', body: 'Prima di candidarti, confronta per ogni offerta le lingue, l’esperienza, i turni e le attività di ricevimento indicate dal datore. I criteri cambiano da un annuncio all’altro: verifica sempre i dettagli della posizione.' },
+    en: { title: 'What to check in receptionist listings', body: 'Before applying, compare the languages, experience, shifts and front-desk duties stated in each listing. Details vary by employer, so check the posting for the specific role.' },
+    de: { title: 'Was Sie in Anzeigen für den Empfang prüfen sollten', body: 'Vergleichen Sie vor der Bewerbung die in jeder Anzeige genannten Sprachen, Erfahrungen, Schichten und Empfangsaufgaben. Die Angaben unterscheiden sich je nach Arbeitgeber; prüfen Sie deshalb die konkrete Stelle.' },
+    fr: { title: 'À vérifier dans les offres de réceptionniste', body: 'Avant de postuler, comparez les langues, l’expérience, les horaires et les tâches d’accueil indiqués dans chaque offre. Les détails varient selon l’employeur : vérifiez l’annonce du poste concerné.' },
+  },
+  ristorazione: {
+    it: { title: 'Cosa verificare negli annunci da pasticciere', body: 'Prima di candidarti, controlla per ogni offerta la formazione, l’esperienza, i turni e le mansioni descritti dal datore. Le condizioni dipendono dalla posizione: fai riferimento ai dettagli dell’annuncio.' },
+    en: { title: 'What to check in pastry-chef listings', body: 'Before applying, check the training, experience, shifts and duties described in each listing. Conditions depend on the role, so use the details in the specific posting.' },
+    de: { title: 'Was Sie in Anzeigen für Konditoren prüfen sollten', body: 'Prüfen Sie vor der Bewerbung die in jeder Anzeige beschriebenen Ausbildungen, Erfahrungen, Schichten und Aufgaben. Die Bedingungen hängen von der Stelle ab; maßgeblich sind die Angaben in der konkreten Anzeige.' },
+    fr: { title: 'À vérifier dans les offres de pâtissier', body: 'Avant de postuler, vérifiez la formation, l’expérience, les horaires et les tâches décrits dans chaque offre. Les conditions dépendent du poste : reportez-vous aux détails de l’annonce.' },
+  },
+};
+
+const JOURNEY_COMPANY_COPY: Record<JobBoardLocale, {
+  roleHeading: string;
+  sectorHeadings: Record<'case-anziani' | 'hotel' | 'ristorazione', string>;
+  empty: string;
+}> = {
+  it: {
+    roleHeading: 'Datori presenti negli annunci che corrispondono al ruolo',
+    sectorHeadings: {
+      'case-anziani': 'Aziende presenti negli annunci delle case anziani',
+      hotel: 'Aziende presenti negli annunci del settore alberghiero',
+      ristorazione: 'Aziende presenti negli annunci della ristorazione',
+    },
+    empty: 'Gli annunci disponibili non riportano nomi azienda per questo elenco.',
+  },
+  en: {
+    roleHeading: 'Employers named in listings matching this role',
+    sectorHeadings: {
+      'case-anziani': 'Employers named in elderly-care listings',
+      hotel: 'Employers named in hotel-sector listings',
+      ristorazione: 'Employers named in restaurant-sector listings',
+    },
+    empty: 'The available listings do not include employer names for this list.',
+  },
+  de: {
+    roleHeading: 'Arbeitgeber aus Anzeigen, die zu dieser Rolle passen',
+    sectorHeadings: {
+      'case-anziani': 'Arbeitgeber aus Anzeigen der Altenpflege',
+      hotel: 'Arbeitgeber aus Anzeigen der Hotelbranche',
+      ristorazione: 'Arbeitgeber aus Anzeigen der Gastronomie',
+    },
+    empty: 'Die verfügbaren Anzeigen enthalten für diese Liste keine Arbeitgebernamen.',
+  },
+  fr: {
+    roleHeading: 'Employeurs cités dans les offres correspondant au métier',
+    sectorHeadings: {
+      'case-anziani': 'Employeurs cités dans les offres de maisons de retraite',
+      hotel: 'Employeurs cités dans les offres du secteur hôtelier',
+      ristorazione: 'Employeurs cités dans les offres de restauration',
+    },
+    empty: 'Les offres disponibles ne mentionnent pas de noms d’employeurs pour cette liste.',
+  },
+};
+
+interface SectorJourneySalaryJob extends SectorCountableJob {
+  salaryMin?: number | null;
+  salaryMax?: number | null;
+  salarySource?: string;
+  currency?: string;
+}
+
+function matchesJourneyRole(job: SectorCountableJob, roleTitle: RegExp): boolean {
+  const titles = [job.title, ...Object.values(job.titleByLocale ?? {})]
+    .map((title) => String(title || '').trim())
+    .filter(Boolean);
+  return roleTitle.test(titles.join(' '));
+}
+
+function renderJourneyRoleRequirements(sector: SectorHubKey, locale: JobBoardLocale): string {
+  if (sector !== 'hotel' && sector !== 'ristorazione') return '';
+  const copy = ROLE_REQUIREMENTS_COPY[sector][locale];
+  return `<section id="${PROFESSION_JOURNEY_ANCHORS.requirements}" class="s-KZc0LQ"><h2 class="s-BEjFo9">${esc(copy.title)}</h2><p class="s-Poj6T0">${esc(copy.body)}</p></section>`;
+}
+
+function renderJourneyCompanies(
+  jobs: ReadonlyArray<SectorCountableJob>,
+  sector: SectorHubKey,
+  locale: JobBoardLocale,
+  target: ProfessionJourneyTarget,
+  roleJobs: ReadonlyArray<SectorCountableJob>,
+): string {
+  const sourceJobs = target.companyScope === 'role' ? roleJobs : jobs;
+  const companyCounts = new Map<string, { name: string; count: number }>();
+  for (const job of sourceJobs) {
+    const name = String(job.company || '').replace(/\s+/g, ' ').trim();
+    if (!name) continue;
+    const key = name.toLocaleLowerCase();
+    const previous = companyCounts.get(key);
+    if (previous) companyCounts.set(key, { ...previous, count: previous.count + 1 });
+    else companyCounts.set(key, { name, count: 1 });
+  }
+  const names = [...companyCounts.values()]
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, locale))
+    .slice(0, 8);
+  const copy = JOURNEY_COMPANY_COPY[locale];
+  const heading = target.companyScope === 'sector' && (sector === 'case-anziani' || sector === 'hotel' || sector === 'ristorazione')
+    ? copy.sectorHeadings[sector]
+    : copy.roleHeading;
+  const list = names.length > 0
+    ? `<ul class="s-Bidr8Y">${names.map(({ name, count }) => `<li class="s-Pkexk_">${esc(name)} <span class="text-subtle">(${count})</span></li>`).join('')}</ul>`
+    : `<p class="s-Poj6T0">${esc(copy.empty)}</p>`;
+  return `<section id="${PROFESSION_JOURNEY_ANCHORS.companies}" class="s-KZc0LQ"><h2 class="s-BEjFo9">${esc(heading)}</h2>${list}</section>`;
+}
 
 /**
  * Sector landings are primary job-listing pages, not three-card previews: the
@@ -511,12 +697,50 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   const statGridHtml = renderStatGrid(statTiles);
   const ctaHtml = `<a href="${sectionRootUrl}" class="${CTA_PRIMARY_CLASS}" style="margin:0 0 24px">${esc(openAllByLocale[locale])} →</a>`;
 
+  const journeyTarget = PROFESSION_JOURNEY_TARGETS[sector];
+  const roleJobs = journeyTarget?.roleTitle
+    ? matchingJobs.filter((job) => matchesJourneyRole(job, journeyTarget.roleTitle!))
+    : [];
+  const roleSalary = reportedSalarySummary(roleJobs.map((job) => job as SectorJourneySalaryJob));
+  const roleSearchHref = journeyTarget
+    ? buildProfessionJourneySearchHref(buildJobBoardUrl(locale), journeyTarget.alertKeyword[locale])
+    : '';
+  const journeyHtml = journeyTarget
+    ? renderProfessionJourney({
+        locale,
+        professionKey: journeyTarget.professionKey,
+        hrefs: {
+          // Hotel and restaurant pages carry broad sector inventories, so the
+          // role link must enter the exact receptionist/pastry-chef search.
+          offers: journeyTarget.roleTitle && journeyTarget.companyScope === 'sector'
+            ? roleSearchHref
+            : `#${PROFESSION_JOURNEY_ANCHORS.offers}`,
+          requirements: journeyTarget.professionLanding
+            ? `${buildProfessionLandingPath(locale, journeyTarget.professionLanding)}#${PROFESSION_JOURNEY_ANCHORS.requirements}`
+            : journeyTarget.nursingLanding
+              ? `${buildNursingLandingPath(locale, journeyTarget.nursingLanding)}#${PROFESSION_JOURNEY_ANCHORS.requirements}`
+              : `#${PROFESSION_JOURNEY_ANCHORS.requirements}`,
+          net: buildProfessionJourneyNetHref(CALCULATOR_PATH[locale], roleSalary.medianChf),
+          companies: `#${PROFESSION_JOURNEY_ANCHORS.companies}`,
+          alert: buildProfessionJourneyAlertHref(buildJobBoardUrl(locale), journeyTarget.alertKeyword[locale]),
+        },
+        roleLabel: journeyTarget.roleLabel[locale],
+        netSalaryPrefilled: roleSalary.medianChf !== null,
+      })
+    : '';
+  const journeyRequirementsHtml = journeyTarget
+    ? renderJourneyRoleRequirements(sector, locale)
+    : '';
+  const journeyCompaniesHtml = journeyTarget
+    ? renderJourneyCompanies(matchingJobs, sector, locale, journeyTarget, roleJobs)
+    : '';
+
   // No upstream inventory floor gates this page (unlike the canton/city
   // editorial hubs in jobsSeoPagesPlugin.ts) -- SECTOR_HUB_KEYS x LOCALES
   // emits unconditionally regardless of job count, so the robots tag must be
   // computed per-render from the actual assembled body content instead of
   // assumed indexable.
-  const sectorBodyHtml = `${jobsHtml}${prose.html}${faqHtml}${sectorContextHtml}${siblingRailHtml}${crossCantonRailHtml}`;
+  const sectorBodyHtml = `${jobsHtml}${prose.html}${journeyRequirementsHtml}${journeyCompaniesHtml}${faqHtml}${sectorContextHtml}${siblingRailHtml}${crossCantonRailHtml}`;
   const sectorRobotsTag = robotsMetaEnhancedForContent(sectorBodyHtml);
 
   return `<!doctype html>
@@ -567,13 +791,16 @@ ${alternates}
         </header>
         ${statGridHtml}
         ${ctaHtml}
-        <section class="s-ziawP1">
+        ${journeyHtml}
+        <section id="${PROFESSION_JOURNEY_ANCHORS.offers}" class="s-ziawP1">
           <div class="s-r2QmTP">
             <h2 class="s-CqexyJ">${esc(jobsSectionLabelByLocale[locale])}</h2>
           </div>
           ${jobsHtml}
         </section>
         ${prose.html}
+        ${journeyRequirementsHtml}
+        ${journeyCompaniesHtml}
         ${faqHtml}
         ${sectorContextHtml}
         ${siblingRailHtml}

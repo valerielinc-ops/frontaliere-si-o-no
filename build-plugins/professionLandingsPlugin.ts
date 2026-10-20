@@ -69,6 +69,7 @@ import {
   buildProfessionLandingCopy,
   buildProfessionLandingSections,
   buildProfessionLandingFaqs,
+  buildProfessionRoleLabel,
 } from './professionLandingsCopy';
 import {
   aggregateProfessionJobs,
@@ -98,6 +99,12 @@ import {
 } from './shared/employerCardHtml';
 import { renderProfessionJobsLocationSummary } from './shared/professionJobsLocationSummary';
 import { renderProfessionJobOfferInsights } from './shared/professionJobOfferInsights';
+import {
+  buildProfessionJourneyAlertHref,
+  buildProfessionJourneyNetHref,
+  PROFESSION_JOURNEY_ANCHORS,
+  renderProfessionJourney,
+} from './shared/professionJourney';
 import {
   buildSectorHubPath,
   type SectorHubKey,
@@ -274,7 +281,7 @@ function renderFeaturedJobs(
   const ctaLabel = visibleJobs.length > 0 && snapshot.liveCount > 0
     ? pickCtaAllJobs(id, locale, snapshot.liveCount)
     : (copy.featuredJobsCtaAllLabel ?? 'Vedi tutti gli annunci →');
-  return `<section class="s-KZc0LQ">
+  return `<section id="${PROFESSION_JOURNEY_ANCHORS.offers}" class="s-KZc0LQ">
     <h2 class="s-8dKmAe">${esc(copy.featuredJobsTitle)}</h2>
     ${listHtml}
     ${visibleJobs.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-flex;align-items:center;min-height:44px;padding:8px 0;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
@@ -294,8 +301,6 @@ function renderEmployerGrid(
     ? snapshot.topEmployers.map((e) => ({ name: e.name, count: e.count }))
     : PROFESSION_FACTS[id].topEmployers.slice(0, 6).map((n) => ({ name: n, count: null }));
 
-  if (rows.length === 0) return '';
-
   const items = rows.map((r) => ({
     employer: {
       name: r.name,
@@ -309,9 +314,15 @@ function renderEmployerGrid(
   const listHtml = renderEmployerCardListHtml(items, {
     locale,
     variant: 'compact',
+    emptyStateHtml: `<p class="s-card">${esc({
+      it: 'Non ci sono aziende da mostrare per questo ruolo.',
+      en: 'There are no employers to show for this role.',
+      de: 'Für diesen Beruf gibt es keine Unternehmen anzuzeigen.',
+      fr: 'Aucun employeur à afficher pour ce métier.',
+    }[locale])}</p>`,
   });
 
-  return `<section class="s-KZc0LQ">
+  return `<section id="${PROFESSION_JOURNEY_ANCHORS.companies}" class="s-KZc0LQ">
     <h2 class="s-8dKmAe">${esc(copy.employerGridTitle)}</h2>
     ${listHtml}
   </section>`;
@@ -342,14 +353,14 @@ interface RenderResult {
   wordCount: number;
 }
 
-function renderSection(title: string, paragraphs: string[]): string {
+function renderSection(title: string, paragraphs: string[], id?: string): string {
   const ps = paragraphs
     .map(
       (p) =>
         `<p class="s-Poj6T0">${inlineFormat(p)}</p>`,
     )
     .join('');
-  return `<section class="s-KZc0LQ"><h2 class="s-BEjFo9">${esc(title)}</h2>${ps}</section>`;
+  return `<section${id ? ` id="${esc(id)}"` : ''} class="s-KZc0LQ"><h2 class="s-BEjFo9">${esc(title)}</h2>${ps}</section>`;
 }
 
 function renderEmployersTable(
@@ -584,7 +595,13 @@ function renderPage(opts: {
   );
   const dividerHtml = renderApprofondisciDivider(copy.approfondisciHeading);
 
-  const sectionsHtml = sections.map((s) => renderSection(s.title, s.paragraphs)).join('');
+  const sectionsHtml = sections.map((s) => renderSection(
+    s.title,
+    s.paragraphs,
+    s.title === (locale === 'it' ? copy.sectionHeadings.application : copy.sectionHeadings.context)
+      ? PROFESSION_JOURNEY_ANCHORS.requirements
+      : undefined,
+  )).join('');
   const employersTable = renderEmployersTable(
     locale,
     id,
@@ -595,6 +612,22 @@ function renderPage(opts: {
   const faqHtml = renderFaqBlock(faqs);
   const relatedHtml = renderRelatedLinks(locale, copy.relatedLabel);
   const sourcesHtml = renderSourcesBlock(id, copy.sourcesLabel);
+  const reportedGrossChf = snapshot.reportedSalary?.medianChf ?? null;
+  const roleLabel = buildProfessionRoleLabel(locale, id);
+  const alertKeyword = roleLabel.replace(/\/[\-\wÀ-ÿ]+/g, '').replace(/\s+/g, ' ').trim();
+  const journeyHtml = renderProfessionJourney({
+    locale,
+    professionKey: id,
+    roleLabel,
+    hrefs: {
+      offers: `#${PROFESSION_JOURNEY_ANCHORS.offers}`,
+      requirements: `#${PROFESSION_JOURNEY_ANCHORS.requirements}`,
+      net: buildProfessionJourneyNetHref(CALCULATOR_URL[locale], reportedGrossChf),
+      companies: `#${PROFESSION_JOURNEY_ANCHORS.companies}`,
+      alert: buildProfessionJourneyAlertHref(buildJobBoardUrl(locale), alertKeyword),
+    },
+    netSalaryPrefilled: typeof reportedGrossChf === 'number' && reportedGrossChf > 0,
+  });
 
   const body = `
     <nav class="s-bcr">
@@ -611,6 +644,7 @@ function renderPage(opts: {
     <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
     ${statTilesHtml}
     ${primaryCtaHtml}
+    ${journeyHtml}
     ${featuredHtml}
     ${employerGridHtml}
     ${locationSummaryHtml}
@@ -943,4 +977,13 @@ export function renderProfessionFeaturedJobsForTest(
     employerGridTitle: copy.employerGridTitle,
   };
   return renderFeaturedJobs(id, locale, snapshot, copyView);
+}
+
+/** Test-only export that exercises the full page template used by the build. */
+export function renderProfessionLandingForJourneyTest(
+  id: ProfessionId,
+  locale: ProfessionLocale,
+  snapshot: ProfessionJobsSnapshot,
+): string {
+  return renderPage({ id, locale, dateStamp: '2026-10-20', snapshot }).html;
 }

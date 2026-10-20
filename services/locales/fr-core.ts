@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ 'whatsNew.v3993.title': 'Un parcours clair pour chercher un emploi dans votre secteur',
+ 'whatsNew.v3993.professionJourney.title': 'Du métier à la candidature, étape par étape',
+ 'whatsNew.v3993.professionJourney.desc': 'Les pages métiers et secteurs relient les offres, les repères pour le poste, une estimation du salaire net, les employeurs cités dans les annonces et les alertes pour les nouvelles offres correspondantes.',
  'whatsNew.v3991.title': "Des offres d’emploi plus proches de chez vous",
  'whatsNew.v3991.conciergeProximity.title': "La proximité aide à classer les postes proposés",
  'whatsNew.v3991.conciergeProximity.desc': "Indiquez votre commune ou votre code postal dans votre profil pour prioriser les offres compatibles près de chez vous. La correspondance avec votre CV reste le critère principal ; votre adresse complète n’est pas nécessaire.",
