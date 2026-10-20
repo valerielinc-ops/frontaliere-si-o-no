@@ -46,6 +46,7 @@ const QUESTION_PROPERTIES = {
   validation: ANSWER_VALIDATION_SCHEMA,
 };
 export const AGENT_SCHEMA = OBJ({
+  // The strict response broker requires every nested object property to be required.
   status: { type: 'string', enum: ['act', 'done', 'needs_candidate', 'stuck'] },
   reason: S,
   actions: LIST(OBJ(ACTION_PROPERTIES)),
