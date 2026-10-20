@@ -23,7 +23,12 @@ export async function traceCandidate(candidate, deps = {}) {
     domain = resolution.domain;
   }
   if (!domain && !candidate.careersUrl) {
-    return { c: candidate, verdict: 'retry', reason: 'dominio non risolto', resolution };
+    return {
+      c: candidate,
+      verdict: 'retry',
+      reason: resolution?.retryable ? 'dominio temporaneamente non verificabile' : 'dominio non risolto',
+      resolution,
+    };
   }
 
   // `traceFromCareersUrl` uses the supplied employer domain only as contextual
@@ -76,7 +81,14 @@ export async function traceCandidate(candidate, deps = {}) {
     domain = resolution?.domain ? registrableDomain(resolution.domain) : null;
   }
   if (!domain) {
-    return { c: candidate, domain: null, verdict: 'retry', reason: 'dominio non risolto', resolution, trail };
+    return {
+      c: candidate,
+      domain: null,
+      verdict: 'retry',
+      reason: resolution?.retryable ? 'dominio temporaneamente non verificabile' : 'dominio non risolto',
+      resolution,
+      trail,
+    };
   }
 
   // The trail helper can only call a direct URL self-hosted when its origin is
