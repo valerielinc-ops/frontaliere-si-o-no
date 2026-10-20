@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-20T01:20:56.668Z",
+  "generatedAt": "2026-10-20T02:20:30.519Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -49775,6 +49775,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T08:14:58.467Z"
+    },
+    "myswitzerland:0f2003af78604341a535d64acc003911::44a38c4815797a7c3d407fff65138d70014a6d5c9de7d4e0c006341f4bb4faa3": {
+      "id": "myswitzerland:0f2003af78604341a535d64acc003911",
+      "sourceDescriptionHash": "44a38c4815797a7c3d407fff65138d70014a6d5c9de7d4e0c006341f4bb4faa3",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Cinéma Capitole; comune: Nyon; cantone: VD; categoria: Theater; organizzatore: MySwitzerland; data: 2026-11-29; ora: 17:45. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Cinéma Capitole; comune: Nyon; cantone: VD; categoria: Theater; organizzatore: MySwitzerland; data: 2026-11-29; ora: 17:45. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Cinéma Capitole; municipality: Nyon; canton: VD; category: Theater; organiser: MySwitzerland; date: 2026-11-29; time: 17:45. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Cinéma Capitole; gemeinde: Nyon; kanton: VD; kategorie: Theater; veranstalter: MySwitzerland; datum: 2026-11-29; uhrzeit: 17:45. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Cinéma Capitole; commune: Nyon; canton: VD; catégorie: Theater; organisateur: MySwitzerland; date: 2026-11-29; heure: 17:45. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-20T02:16:23.525Z"
     },
     "myswitzerland:0f2360e65ee649a68f32297d9ca30e42::7032fc5bda4162a1beb00f7a33b7527bbdf8b7cfe79b017ad8cc2136cbecf507": {
       "id": "myswitzerland:0f2360e65ee649a68f32297d9ca30e42",
@@ -163067,15 +163081,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T20:29:09.772Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:0f2003af78604341a535d64acc003911::44a38c4815797a7c3d407fff65138d70014a6d5c9de7d4e0c006341f4bb4faa3": {
-      "id": "myswitzerland:0f2003af78604341a535d64acc003911",
-      "sourceDescriptionHash": "44a38c4815797a7c3d407fff65138d70014a6d5c9de7d4e0c006341f4bb4faa3",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-14T21:31:36.314Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
