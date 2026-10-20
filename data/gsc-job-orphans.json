@@ -1,11 +1,12 @@
 {
-  "generatedAt": "2026-06-01T09:18:05.993Z",
+  "generatedAt": "2026-10-20T09:11:21.000Z",
   "sources": [
-    "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    "frontaliereticino.ch-Coverage-Drilldown-2026-06-01",
+    "frontaliereticino.ch-Coverage-Drilldown-2026-10-20"
   ],
   "counts": {
     "matched": 222,
-    "expired": 123,
+    "expired": 125,
     "expired-tracked": 175
   },
   "orphans": [
@@ -4612,6 +4613,22 @@
       "kind": "expired-tracked",
       "company": "Hitachi Energy",
       "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "locale": "fr",
+      "slug": "fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl",
+      "url": "https://frontaliereticino.ch/fr/lavoro/fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl/",
+      "kind": "expired",
+      "company": "Fisiocare Sagl",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-10-20"
+    },
+    {
+      "locale": "de",
+      "slug": "fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl",
+      "url": "https://frontaliereticino.ch/de/lavoro/fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl/",
+      "kind": "expired",
+      "company": "Fisiocare Sagl",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-10-20"
     }
   ]
 }
