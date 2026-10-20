@@ -216,15 +216,25 @@ function configFromEnv(env) {
   };
 }
 
+function cancelR2ResponseBody(response) {
+  try {
+    return Promise.resolve(response?.body?.cancel?.()).catch(() => {});
+  } catch {
+    return Promise.resolve();
+  }
+}
+
 /**
  * Build the signed R2 transport. Keeping the transport injectable makes the
- * lease race testable without ever contacting the production bucket.
+ * lease race testable without ever contacting the production bucket. A
+ * caller-supplied deadline is an absolute Unix timestamp in milliseconds and
+ * bounds both the request and any response body the caller reads.
  */
 export function createR2Request(env = process.env, { fetchImpl = globalThis.fetch, now = () => new Date() } = {}) {
   const config = configFromEnv(env);
   if (typeof fetchImpl !== 'function') throw new Error('[r2-section-lock] fetch is unavailable');
 
-  return async ({ method, key, body = '', headers = {} }) => {
+  return async ({ method, key, body = '', headers = {}, deadline }) => {
     // Cloudflare can rewrite a strong R2 ETag to a weak validator when the
     // response is compressed. Weak validators are not safe for the If-Match
     // CAS used by the lease protocol, so metadata reads must stay unencoded.
@@ -241,13 +251,94 @@ export function createR2Request(env = process.env, { fetchImpl = globalThis.fetc
       }
       : headers;
     const signed = signRequest({ ...config, now: now(), method, key, body, headers: requestHeaders });
-    const response = await fetchImpl(signed.url, {
+    const deadlineAt = deadline === undefined ? Date.now() + 30_000 : deadline;
+    if (!Number.isFinite(deadlineAt)) throw new Error('[r2-section-lock] request deadline must be finite');
+    const timeoutMs = deadlineAt - Date.now();
+    const timeoutError = new Error('[r2-section-lock] R2 request deadline exceeded');
+    timeoutError.name = 'TimeoutError';
+    timeoutError.code = 'R2_REQUEST_TIMEOUT';
+    if (timeoutMs <= 0) throw timeoutError;
+
+    const controller = new AbortController();
+    let timedOut = false;
+    let timeoutId;
+    let receivedResponse;
+    const timeout = new Promise((resolve, reject) => {
+      timeoutId = setTimeout(() => {
+        timedOut = true;
+        controller.abort(timeoutError);
+        cancelR2ResponseBody(receivedResponse);
+        reject(timeoutError);
+      }, timeoutMs);
+    });
+    const responsePromise = Promise.resolve().then(() => fetchImpl(signed.url, {
       method,
       headers: signed.headers,
       ...(method === 'GET' || method === 'HEAD' || method === 'DELETE' ? {} : { body: signed.body }),
-      signal: typeof AbortSignal?.timeout === 'function' ? AbortSignal.timeout(30_000) : undefined,
+      signal: controller.signal,
+    })).then((response) => {
+      if (timedOut || Date.now() >= deadlineAt) {
+        timedOut = true;
+        controller.abort(timeoutError);
+        cancelR2ResponseBody(response);
+        throw timeoutError;
+      }
+      receivedResponse = response;
+      return response;
     });
-    return response;
+    try {
+      const response = await Promise.race([responsePromise, timeout]);
+      const responseNeedsBody = response?.body
+        && ((method === 'GET' || method === 'HEAD')
+          ? response.status !== 404
+          : !(response.status >= 200 && response.status < 300)
+            && response.status !== 409 && response.status !== 412);
+      if (responseNeedsBody && typeof response.text === 'function') {
+        const readText = response.text.bind(response);
+        try {
+          Object.defineProperty(response, 'text', {
+            configurable: true,
+            value: (...args) => {
+              if (Date.now() >= deadlineAt) {
+                timedOut = true;
+                controller.abort(timeoutError);
+                cancelR2ResponseBody(response);
+                clearTimeout(timeoutId);
+                return Promise.reject(timeoutError);
+              }
+              return Promise.race([
+                Promise.resolve().then(() => readText(...args)),
+                timeout,
+              ]).then((text) => {
+                if (Date.now() >= deadlineAt) {
+                  timedOut = true;
+                  controller.abort(timeoutError);
+                  cancelR2ResponseBody(response);
+                  throw timeoutError;
+                }
+                return text;
+              }).finally(() => clearTimeout(timeoutId));
+            },
+          });
+        } catch {
+          // The deadline timer still aborts/cancels a non-extensible response body.
+        }
+      } else {
+        await Promise.race([cancelR2ResponseBody(response), timeout]);
+        if (Date.now() >= deadlineAt) {
+          timedOut = true;
+          controller.abort(timeoutError);
+          cancelR2ResponseBody(response);
+          throw timeoutError;
+        }
+        clearTimeout(timeoutId);
+      }
+      return response;
+    } catch (error) {
+      clearTimeout(timeoutId);
+      if (timedOut) throw timeoutError;
+      throw error;
+    }
   };
 }
 
