@@ -172,6 +172,26 @@
       "provider": "openai-codex",
       "generatedAt": "2026-10-09T08:04:31.921Z"
     },
+    "article-acqua-domleschg-feldis-scheid": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-acqua-domleschg-feldis-scheid.webp",
+      "toCover": "/images/blog/article-acqua-domleschg-feldis-scheid.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-acqua-domleschg-feldis-scheid.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "canton-gr",
+          "id": "acqua-domleschg-feldis-scheid",
+          "category": "pratico",
+          "date": "2026-10-20T10:34:42.547Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
     "article-adesione-ocst-servizi-frontalieri": {
       "mode": "generated",
       "status": "queued",
@@ -978,6 +998,26 @@
           "date": "2026-10-13T12:14:54.578Z",
           "updatedAt": null,
           "authorSlug": "laura-bianchi"
+        }
+      ]
+    },
+    "article-axenstrasse-chiusa-quattro-notti": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-axenstrasse-chiusa-quattro-notti.webp",
+      "toCover": "/images/blog/article-axenstrasse-chiusa-quattro-notti.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-axenstrasse-chiusa-quattro-notti.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "axenstrasse-chiusa-quattro-notti",
+          "category": "pratico",
+          "date": "2026-10-20T09:56:09.960Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
         }
       ]
     },
@@ -3034,49 +3074,6 @@
           "authorSlug": "redazione"
         }
       ]
-    },
-    "article-easy-work-chiusura-264": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/article-easy-work-chiusura-264.webp",
-      "toCover": "/images/blog/article-easy-work-chiusura-264.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-easy-work-chiusura-264.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1792,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "easy-work-chiusura-264",
-          "category": "novita",
-          "date": "2026-10-14T07:30:20.276Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "article-economia-svizzera-fiducia-calante": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-economia-svizzera-fiducia-calante.webp",
-      "toCover": "/images/blog/article-economia-svizzera-fiducia-calante.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-economia-svizzera-fiducia-calante.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1792,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "economia-svizzera-fiducia-calante",
-          "category": "novita",
-          "date": "2026-10-09T15:01:33.936Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-economia-svizzera-fiducia-calante",
-      "provider": "openai-codex",
-      "generatedAt": "2026-10-09T15:31:29.658Z"
     }
   },
   "rewrittenArticles": 0,
@@ -3089,6 +3086,7 @@
     "article-accordo-commercio-elettronico-omc",
     "article-accordo-ue-sovranita-fiscale",
     "article-acof-70-anni-premio-confindustria-varese",
+    "article-acqua-domleschg-feldis-scheid",
     "article-adesione-ocst-servizi-frontalieri",
     "article-adv-varese-trieste-basket",
     "article-agenda-federale-voto-2026",
@@ -3129,6 +3127,7 @@
     "article-aumento-tassi-ipotecari-q3",
     "article-autobus-elettrici-mendrisiotto-amsa",
     "article-avs-voto-iva-il-29-novembre-per-la-13esima-rendita",
+    "article-axenstrasse-chiusa-quattro-notti",
     "article-axpo-concessioni-idroelettriche",
     "article-axpo-solare-argovia",
     "article-azalee-calcio-campo-pradisera",
@@ -3228,8 +3227,6 @@
     "article-dossier-friburgo-2027",
     "article-dosso-gaggiolo-disagi-frontalieri",
     "article-dosso-gaggiolo-sicurezza-lavoratori",
-    "article-due-arresti-malpra-varese",
-    "article-easy-work-chiusura-264",
-    "article-economia-svizzera-fiducia-calante"
+    "article-due-arresti-malpra-varese"
   ]
 }

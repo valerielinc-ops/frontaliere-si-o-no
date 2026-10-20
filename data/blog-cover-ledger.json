@@ -23,7 +23,7 @@
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
-    "generatedQueued": 133,
+    "generatedQueued": 134,
     "fallbackRepointed": 0,
     "inferredRecords": 4968
   },
@@ -203598,18 +203598,38 @@
       "evidence": "generated-engine-record",
       "recordFile": "packages/articles/content/image-credits/blog/article-acqua-domleschg-feldis-scheid.json",
       "inheritedFrom": null,
-      "action": "generated",
+      "action": "replace-generated",
       "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
       "priority": 1792,
       "verifiedAt": "2026-10-20",
       "provider": "openai-codex",
       "currentlyPublished": true,
-      "status": "generated",
+      "status": "no-credit",
       "generated": {
         "provider": "openai-codex",
         "assetId": "article-acqua-domleschg-feldis-scheid",
         "imageUrl": "/images/blog/article-acqua-domleschg-feldis-scheid.webp",
         "evidence": "generated-engine-record"
+      },
+      "replacement": {
+        "mode": "generated",
+        "status": "queued",
+        "fromCover": "/images/blog/article-acqua-domleschg-feldis-scheid.webp",
+        "toCover": "/images/blog/article-acqua-domleschg-feldis-scheid.webp",
+        "recordFile": "packages/articles/content/image-credits/blog/article-acqua-domleschg-feldis-scheid.json",
+        "proofLevel": 5,
+        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+        "priority": 1792,
+        "references": [
+          {
+            "section": "canton-gr",
+            "id": "acqua-domleschg-feldis-scheid",
+            "category": "pratico",
+            "date": "2026-10-20T10:34:42.547Z",
+            "updatedAt": null,
+            "authorSlug": "redazione"
+          }
+        ]
       }
     },
     "article-axenstrasse-chiusa-quattro-notti": {
@@ -203631,18 +203651,38 @@
       "evidence": "generated-engine-record",
       "recordFile": "packages/articles/content/image-credits/blog/article-axenstrasse-chiusa-quattro-notti.json",
       "inheritedFrom": null,
-      "action": "generated",
+      "action": "replace-generated",
       "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
       "priority": 1792,
       "verifiedAt": "2026-10-20",
       "provider": "openai-codex",
       "currentlyPublished": true,
-      "status": "generated",
+      "status": "no-credit",
       "generated": {
         "provider": "openai-codex",
         "assetId": "article-axenstrasse-chiusa-quattro-notti",
         "imageUrl": "/images/blog/article-axenstrasse-chiusa-quattro-notti.webp",
         "evidence": "generated-engine-record"
+      },
+      "replacement": {
+        "mode": "generated",
+        "status": "queued",
+        "fromCover": "/images/blog/article-axenstrasse-chiusa-quattro-notti.webp",
+        "toCover": "/images/blog/article-axenstrasse-chiusa-quattro-notti.webp",
+        "recordFile": "packages/articles/content/image-credits/blog/article-axenstrasse-chiusa-quattro-notti.json",
+        "proofLevel": 5,
+        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+        "priority": 1792,
+        "references": [
+          {
+            "section": "canton-ur",
+            "id": "axenstrasse-chiusa-quattro-notti",
+            "category": "pratico",
+            "date": "2026-10-20T09:56:09.960Z",
+            "updatedAt": null,
+            "authorSlug": "redazione"
+          }
+        ]
       }
     },
     "article-frontalieri-ticino-indagine-salari-2026": {
@@ -203714,8 +203754,8 @@
   },
   "repair": {
     "generatedLimit": 150,
-    "generatedQueued": 133,
-    "generatedCompleted": 17,
+    "generatedQueued": 134,
+    "generatedCompleted": 16,
     "inferredKept": 4968,
     "sourceProbe": "data/blog-cover-wikimedia-matches.json",
     "note": "Le copertine inferred restano sul proprio URL con record senza credito; la coda contiene solo generazioni article-hero su misura ordinate per traffico/recenza."
