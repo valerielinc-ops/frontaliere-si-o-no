@@ -209,6 +209,10 @@ describe('rerender-article-corpus.yml push filter covers the real article render
     expect(packageLock.packages?.['node_modules/@noble/hashes']?.version).toBeTruthy();
     expect(installer).toContain('node_modules/html-entities');
     expect(installer).toContain('node_modules/@noble/hashes');
+    expect(installer).toContain('mktemp -d');
+    expect(installer).toContain('--prefix "$NOBLE_DEPS_DIR"');
+    expect(installer).toContain('cp -a -- "$NOBLE_DEPS_DIR/node_modules/@noble/hashes"');
+    expect(installer).not.toMatch(/npm install\s+\\\s+--prefix "\$ROOT_DIR"/);
     expect(installer).toContain('--workspaces=false');
     expect(installer).toContain('--omit=peer');
     expect(installer).toContain('--ignore-scripts');

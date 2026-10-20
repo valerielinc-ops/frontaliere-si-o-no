@@ -19,8 +19,11 @@ LOCKED_HTML_ENTITIES_VERSION="$(
   ' "$ROOT_DIR/package-lock.json"
 )"
 
+NOBLE_DEPS_DIR="$(mktemp -d "${RUNNER_TEMP:-${TMPDIR:-/tmp}}/article-renderer-noble.XXXXXX")"
+trap 'rm -rf -- "$NOBLE_DEPS_DIR"' EXIT
+
 npm install \
-  --prefix "$ROOT_DIR" \
+  --prefix "$NOBLE_DEPS_DIR" \
   --workspaces=false \
   --omit=peer \
   --ignore-scripts \
@@ -29,6 +32,10 @@ npm install \
   --no-save \
   --package-lock=false \
   "@noble/hashes@$LOCKED_NOBLE_HASHES_VERSION"
+
+mkdir -p "$ROOT_DIR/node_modules/@noble"
+rm -rf -- "$ROOT_DIR/node_modules/@noble/hashes"
+cp -a -- "$NOBLE_DEPS_DIR/node_modules/@noble/hashes" "$ROOT_DIR/node_modules/@noble/hashes"
 
 npm install \
   --prefix "$ROOT_DIR/packages/articles" \
