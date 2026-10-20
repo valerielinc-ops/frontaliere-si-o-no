@@ -351,13 +351,52 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          # Blobless clone (#4189): con fetch-depth:0 il checkout scaricava TUTTI
-          # i blob storici di questo repo data-heavy, consumando l'intero budget
-          # job da 30min → "Run Codex Luna Max fix" non partiva mai. `filter: blob:none`
-          # prende il commit-graph completo + il working tree di HEAD ma salta i
-          # blob storici (fetch on-demand se mai servono): checkout da ~minuti a
-          # ~secondi, HEAD materializzato identico → il fixer lavora invariato.
+          # Storia completa + allow-list sparse: il push/rebase del fixer conserva
+          # il commit-graph intero, mentre il working tree porta codice, workflow,
+          # documentazione e package. I bucket generati pesanti restano fuori dal
+          # checkout iniziale; se il target di una issue o un fixture vive lì,
+          # l'agent lo materializza con `git sparse-checkout add` prima di usarlo.
           filter: blob:none
+          # Questa allow-list è intenzionalmente manuale: il prompt Codex contiene
+          # comandi di test documentali e non è codice eseguito dal job, quindi il
+          # profilo automatico non può distinguere quei comandi dalla superficie
+          # dinamica dell'agent. Le verifiche sparse controllano comunque la
+          # chiusura deterministica del job.
+          sparse-checkout: |
+            /.github/
+            /.codex/
+            /.claude/
+            /build-plugins/
+            /components/
+            /docs/
+            /functions/
+            /hooks/
+            /infra/
+            /packages/
+            /scripts/
+            /server/
+            /services/
+            /tests/
+            /.*
+            /*.cjs
+            /*.css
+            /*.csv
+            /*.html
+            /*.js
+            /*.json
+            /*.lock
+            /*.mjs
+            /*.md
+            /*.scss
+            /*.ts
+            /*.tsx
+            /*.txt
+            /*.yaml
+            /*.yml
+            /data/canton-municipalities.json
+            /data/swiss-locality-postal-codes.json
+            /data/swiss-postal-code-index.json
+          sparse-checkout-cone-mode: false
         # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
         # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
@@ -375,11 +414,10 @@ jobs:
         # #6001) non sono state riparate. Il rimedio era peggio del male — un
         # Checkout lento che finisce lascia comunque lavorare il fixer, il kill lo
         # annulla del tutto.
-        # Questo workflow e' strutturalmente il piu' lento dei quattro del ciclo:
-        # e' l'unico senza sparse-checkout, quindi materializza l'albero pieno.
-        # Nuovo tetto = 2,5x il massimo osservato (571s), e resta il 6,7% del
-        # budget del job (`timeout-minutes: 360`), quindi scatta sempre prima.
-        # Rimisurare quando il p99 si muove; non ri-derivare da un campione < 30.
+        # Il run 39442331917 (2026-10-20) ha confermato la causa di famiglia:
+        # l'albero pieno è arrivato al tetto di 1440s prima del fixer. La
+        # allow-list sopra riduce il checkout iniziale da ~6,8GB a ~0,5GB,
+        # mantenendo il tetto di 24min come watchdog diagnostico.
         timeout-minutes: 24
 
       - name: Setup Node.js
@@ -1469,7 +1507,8 @@ jobs:
             **Fix flow (vedi ISSUES.md):**
             1. Branch isolato — **resume-aware** (`resume=${{ steps.resume.outputs.resume }}`): se `resume=false`, `git checkout -b fix/issue-$ISSUE_NUMBER` (fresh, come sempre). Se `resume=true` esiste già un branch `fix/issue-$ISSUE_NUMBER` su origin (lasciato da un run precedente morto per max-turns DOPO il checkpoint WIP, vedi step 4) — fai `git fetch origin fix/issue-$ISSUE_NUMBER && git checkout fix/issue-$ISSUE_NUMBER` invece di ricreare da zero. Ispeziona cosa c'è già (`git log --oneline origin/main..HEAD --stat`): se il diff è pertinente alla issue corrente, CONTINUA da lì (non ridiagnosticare/rifare il lavoro già presente). Se il diff sembra stale/scollegato dal body della issue attuale → `git reset --hard origin/main` e riparti pulito — usa giudizio, non è un automatismo cieco.
                **Questo container CI è GIÀ un checkout isolato monouso** (step `Checkout` in cima al workflow, `actions/checkout@v7` fresh a ogni run). **NON creare un worktree interno `.claude/worktrees/**` qui**: la regola "worktree-first" di `AGENTS.md`/`CLAUDE.md` esiste per sessioni interattive locali con un `main` condiviso — non si applica in un container CI già isolato, e crearne uno dentro non aggiunge isolamento, brucia solo turni rifacendo la meccanica del checkout (osservato #4263: ~6 turni finali sprecati su un ciclo `git diff` → patch → fetch → `.claude/worktrees/... add` → apply mai completato, 0 PR). Lavora direttamente nella root del checkout.
-            2. Diagnosi root cause della issue (NON sintomo). **Scorciatoia scheda (issue da decomposizione):** se il body o un commento contiene una sezione `## Scheda` (issue nata dallo stadio `issue-decompose`, tipicamente label `from-decompose`), la scheda È la diagnosi già fatta — verifica la CAUSA in ≤3 turni col COMANDO della METRICA; se regge, salta direttamente al passo 3 e usa la METRICA come criterio di verifica del fix e l'OSSERVATORE come test da aggiungere. Se la verifica smentisce la CAUSA, prosegui con la diagnosi normale e dichiaralo nel commento finale. **Scorciatoia segnali (issue da reporter zero-Claude, ISSUES.md → "Contratto minimo"):** se il body contiene `## Segnali (raccolti automaticamente)`, NON è una diagnosi (nessuna CAUSA) — ma il `Comando di riproduzione` verifica lo stato attuale in un turno invece di ricostruirlo, `Metrica` dà osservato/atteso come criterio di successo, `Evidenza` punta a dove guardare. Usali per saltare la scoperta iniziale, poi diagnostica la CAUSA normalmente. Per categoria `crawler`: il selector è driftato → rigenera/aggiusta il parser; preferisci `node scripts/generate-company-parser.mjs` o l'edit mirato del parser/config citato nel body. **Turn-budget:** se dopo ~15 turni di esplorazione non emerge una root cause chiara, NON continuare a scavare sullo stesso vicolo cieco — restringi lo scope (issue aggregate: scegli un item più semplice, vedi circuit-breaker sopra) o termina pulito con l'outcome `no-root-cause` (già definito in fondo al prompt) invece di bruciare il resto del budget senza convergere.
+               **Il checkout dell'agent è sparse:** mantiene l'indice e la history complete, ma non materializza alcuni bucket generati pesanti. Prima di leggere, testare o modificare un path che non esiste nel working tree (target dell'issue, fixture o asset), esegui `git sparse-checkout add --no-cone <path>` e poi verifica che il path sia leggibile. Non reinterpretare un `ENOENT` come dato assente e non usare `git checkout` per aggirare il profilo.
+            2. Diagnosi root cause della issue (NON sintomo). **Scorciatoia scheda (issue da decomposizione):** se il body o un commento contiene una sezione `## Scheda` (issue nata dallo stadio `issue-decompose`, tipicamente label `from-decompose`), la scheda È la diagnosi già fatta — verifica la CAUSA in ≤3 turni col COMANDO della METRICA; se regge, salta direttamente al passo 3 e usa la METRICA come criterio di verifica del fix e l’OSSERVATORE come test da aggiungere. Se la verifica smentisce la CAUSA, prosegui con la diagnosi normale e dichiaralo nel commento finale. **Scorciatoia segnali (issue da reporter zero-Claude, ISSUES.md → "Contratto minimo"):** se il body contiene `## Segnali (raccolti automaticamente)`, NON è una diagnosi (nessuna CAUSA) — ma il `Comando di riproduzione` verifica lo stato attuale in un turno invece di ricostruirlo, `Metrica` dà osservato/atteso come criterio di successo, `Evidenza` punta a dove guardare. Usali per saltare la scoperta iniziale, poi diagnostica la CAUSA normalmente. Per categoria `crawler`: il selector è driftato → rigenera/aggiusta il parser; preferisci `node scripts/generate-company-parser.mjs` o l’edit mirato del parser/config citato nel body. **Turn-budget:** se dopo ~15 turni di esplorazione non emerge una root cause chiara, NON continuare a scavare sullo stesso vicolo cieco — restringi lo scope (issue aggregate: scegli un item più semplice, vedi circuit-breaker sopra) o termina pulito con l’outcome `no-root-cause` (già definito in fondo al prompt) invece di bruciare il resto del budget senza convergere.
             3. Applica fix CHIRURGICO alla **CLASSE del bug, NON al singolo file** (AGENTS.md non-negotiable #6): no drive-by refactor / no speculative abstraction, MA per un fix di pattern (regex/replace/guard/floor/threshold/selector/bullet-idiom) `rg`/`grep` i sibling funnel-critical (`scripts/update-*.mjs`, `scripts/lib/*-parser.mjs`, `build-plugins/**`) per lo STESSO costrutto → sweepa l'intera classe nella STESSA PR, oppure giustifica OGNI sibling non toccato in `## Non implementato`. Toccare i file gemelli con lo stesso antipattern NON è drive-by: è il fix completo. Pre-empt del 🔴 reviewer "stesso antipattern nel file gemello" (osservato #1083/#1073 il 2026-06-02: PR mono-file → 🔴 sibling → 2 cicli review+fix sprecati sulla quota Max condivisa).
             4. **Checkpoint WIP — commit immediato, push subordinato al diff gate (anti-100%-loss, #4337):** appena il fix del passo 3 è applicato (anche se non ancora testato dal gate del passo 6), committa tutto con `git add -A && git commit -m "wip(issue-$ISSUE_NUMBER): checkpoint pre-test"`. **NON eseguire `git push` né `gh pr create` prima del diff gate deterministico esterno:** lo step `Enforce F1/F7 output diff gate` classifica il diff completo e solo dopo il checkpoint deterministico può pushare. Se il gate nega, termina senza consegna e lascia `automation-deferred`/il job rosso: è un deny tecnico del ciclo, non una nuova domanda al proprietario. **Perché ORA:** prima di questo cambio commit+push+PR accadevano SOLO a fine flusso — un run morto per `--max-turns` prima di arrivarci perdeva il 100% del diff col container (#4337: 71 turni, $6.58, edit reali a `build-plugins/staticPagesPlugin.ts`, branch mai pushato, 404 su GitHub). Il checkpoint locale conserva il lavoro fino alla decisione fail-closed del workflow.
             5. Mai abbassare quality gate/test/validation per "far passare" (non-negotiable #1).

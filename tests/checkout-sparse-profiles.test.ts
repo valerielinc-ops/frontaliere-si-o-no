@@ -105,6 +105,29 @@ describe('profili di sparse-checkout', () => {
     expect(offenders).toEqual([]);
   });
 
+  it('mantiene l agent issue-fix sul codice ma non sull albero generato pesante', () => {
+    const workflow = YAML.parse(
+      fs.readFileSync(path.join(WF_DIR, 'issue-fix.yml'), 'utf8'),
+      { logLevel: 'silent' },
+    );
+    const checkout = workflow?.jobs?.fix?.steps?.find(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    const sparse = String(checkout?.with?.['sparse-checkout'] ?? '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
+
+    expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    expect(sparse).toContain('/scripts/');
+    expect(sparse).toContain('/packages/');
+    expect(sparse).toContain('/data/canton-municipalities.json');
+    expect(isExcludedBy(sparse, 'scripts/ci/report-workflow-failure.mjs')).toBe(false);
+    expect(isExcludedBy(sparse, 'packages/articles/content/it/example.ts')).toBe(false);
+    expect(isExcludedBy(sparse, 'public/images/example.webp')).toBe(true);
+    expect(isExcludedBy(sparse, 'data/jobs/example.json')).toBe(true);
+  });
+
   it('non escludono mai un file che il job carica come codice', () => {
     // Coperto da verifyCheckoutProfiles, ma esplicitato: e' l'invariante che, se saltasse,
     // produrrebbe un ENOENT su un import — il guasto piu' immediato.
