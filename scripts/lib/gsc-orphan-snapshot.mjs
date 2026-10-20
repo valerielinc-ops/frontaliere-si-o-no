@@ -51,13 +51,47 @@ export function gscOrphanRouteKey(entry) {
     if (error?.message?.startsWith('Unsupported GSC orphan URL')) throw error;
     throw new Error(`Invalid GSC orphan URL: ${entry.url}`);
   }
-  const segments = url.pathname.split('/').filter(Boolean);
+  return gscOrphanPathKey(url.pathname);
+}
+
+/** Normalize an already parsed site pathname to the bridge's emitted route. */
+export function gscOrphanPathKey(pathname) {
+  if (typeof pathname !== 'string' || !pathname.startsWith('/') || pathname.startsWith('//')
+    || pathname.includes('?') || pathname.includes('#') || pathname.includes(String.fromCharCode(92))) {
+    throw new Error(`Invalid GSC orphan pathname: ${pathname}`);
+  }
+  const segments = pathname.split('/').filter(Boolean);
+  if (segments.some((segment) => segment === '.' || segment === '..')) {
+    throw new Error(`Invalid GSC orphan pathname: ${pathname}`);
+  }
   return segments.length ? `/${segments.join('/')}/` : '/';
 }
 
 /** Merge a limited GSC sample without treating absent URLs as recovered. */
-export function mergeGscOrphanRecords(existing, incoming) {
+export function mergeGscOrphanRecords(existing, incoming, routeKey = gscOrphanRouteKey) {
   const byRoute = new Map();
-  for (const entry of [...existing, ...incoming]) byRoute.set(gscOrphanRouteKey(entry), entry);
+  for (const entry of [...existing, ...incoming]) byRoute.set(routeKey(entry), entry);
   return [...byRoute.values()];
+}
+
+/** Validate the path-based legacy-alias snapshot before replacing its data. */
+export function assertGscLegacyAliasSnapshot(snapshot, { file, validateRoute }) {
+  const aliases = snapshot?.aliases;
+  const valid = Array.isArray(aliases)
+    && aliases.every((entry) => {
+      if (!entry || !LOCALES.has(entry.locale)
+        || typeof entry.orphanPath !== 'string'
+        || typeof entry.canonicalPath !== 'string'
+        || !['matched', 'unmatched'].includes(entry.kind)
+        || typeof entry.cohort !== 'string'
+        || !entry.cohort) return false;
+      try {
+        return entry.orphanPath === gscOrphanPathKey(entry.orphanPath)
+          && entry.canonicalPath === gscOrphanPathKey(entry.canonicalPath)
+          && (!validateRoute || validateRoute(entry) === true);
+      } catch {
+        return false;
+      }
+    });
+  if (!valid) throw new Error(`${file} has an invalid aliases snapshot; refusing to overwrite it.`);
 }

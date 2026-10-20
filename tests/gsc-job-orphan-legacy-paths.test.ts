@@ -1,8 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { urlToOrphan } from '../scripts/lib/gsc-job-orphans.mjs';
-import { assertGscOrphanSnapshot, gscOrphanRouteKey, mergeGscOrphanRecords } from '../scripts/lib/gsc-orphan-snapshot.mjs';
+import {
+  assertGscLegacyAliasSnapshot,
+  assertGscOrphanSnapshot,
+  gscOrphanPathKey,
+  gscOrphanRouteKey,
+  mergeGscOrphanRecords,
+} from '../scripts/lib/gsc-orphan-snapshot.mjs';
 import { sectionPathFromOrphan } from '../build-plugins/jobOrphanBridgePlugin';
+import { legacyAliasPlugin } from '../build-plugins/legacyAliasPlugin';
 
 const jobSections = {
   it: new Set(['cerca-lavoro-ticino']),
@@ -51,6 +60,17 @@ describe('GSC job-orphan paths', () => {
     expect(mergeGscOrphanRecords([oldRoute, unrelated], [refreshedRoute])).toEqual([refreshedRoute, unrelated]);
   });
 
+  it('merges path-based legacy aliases by normalized route and keeps absent routes', () => {
+    const oldAlias = { orphanPath: '/fr/articles-frontalier/old/', canonicalPath: '/fr/articles-frontalier/', cohort: 'blogLocaleMismatch' };
+    const currentAlias = { ...oldAlias, orphanPath: '/fr//articles-frontalier/old/', canonicalPath: '/fr/articles-frontalier/new/' };
+    const retainedAlias = { orphanPath: '/de/grenzgaenger-artikel/other/', canonicalPath: '/de/grenzgaenger-artikel/', cohort: 'blogLocaleMismatch' };
+    expect(mergeGscOrphanRecords(
+      [oldAlias, retainedAlias],
+      [currentAlias],
+      (entry) => gscOrphanPathKey(entry.orphanPath),
+    )).toEqual([currentAlias, retainedAlias]);
+  });
+
   it('validates historical snapshots before allowing them to be rewritten', () => {
     const options = {
       file: 'gsc-job-orphans.json',
@@ -85,9 +105,41 @@ describe('GSC job-orphan paths', () => {
     })).toThrow(/refusing to overwrite/);
   });
 
+  it('validates path-based legacy alias snapshots before refreshing them', () => {
+    const alias = {
+      orphanPath: '/fr/articles-frontalier/old/',
+      locale: 'fr',
+      kind: 'unmatched',
+      canonicalPath: '/fr/articles-frontalier/',
+      cohort: 'blogLocaleMismatch',
+    };
+    const snapshot = { aliases: [alias] };
+    const validateRoute = (entry: typeof alias) => entry.locale === 'fr' && entry.cohort === 'blogLocaleMismatch';
+    expect(() => assertGscLegacyAliasSnapshot(snapshot, { file: 'legacy-aliases.json', validateRoute })).not.toThrow();
+    expect(() => assertGscLegacyAliasSnapshot({ aliases: [{ ...alias, orphanPath: '//evil.example/path' }] }, {
+      file: 'legacy-aliases.json',
+      validateRoute,
+    })).toThrow(/refusing to overwrite/);
+    expect(() => assertGscLegacyAliasSnapshot({ aliases: [{ ...alias, locale: 'de' }] }, {
+      file: 'legacy-aliases.json',
+      validateRoute,
+    })).toThrow(/refusing to overwrite/);
+    expect(() => assertGscLegacyAliasSnapshot({ aliases: [{ ...alias, canonicalPath: '//evil.example/path' }] }, {
+      file: 'legacy-aliases.json',
+      validateRoute,
+    })).toThrow(/refusing to overwrite/);
+    expect(() => assertGscLegacyAliasSnapshot({ aliases: [{ ...alias, orphanPath: '/jobs/../outside/' }] }, {
+      file: 'legacy-aliases.json',
+      validateRoute,
+    })).toThrow(/refusing to overwrite/);
+  });
+
   it('rejects unkeyable routes instead of silently creating a non-route identity', () => {
     expect(() => gscOrphanRouteKey({ url: 'ftp://example.com/job/' })).toThrow(/Unsupported/);
     expect(() => gscOrphanRouteKey({ url: 'https://evil.example/job/' })).toThrow(/host/);
+    expect(() => gscOrphanPathKey('/jobs/../outside/')).toThrow(/pathname/);
+    expect(() => gscOrphanPathKey('/jobs/./current/')).toThrow(/pathname/);
+    expect(() => gscOrphanPathKey(`/jobs/${String.fromCharCode(92)}outside/`)).toThrow(/pathname/);
     expect(gscOrphanRouteKey({ url: 'https://www.frontaliereticino.ch/fr/lavoro/old-job/' }))
       .toBe('/fr/lavoro/old-job/');
   });
@@ -105,6 +157,63 @@ describe('GSC job-orphan paths', () => {
       expect(source, file).toContain('refreshedExisting');
       expect(source, file).toContain('validateRoute:');
       expect(source, file).toContain('withSingleFlightLock');
+    }
+  });
+
+  it('protects the path-based legacy alias generator from capped-export pruning', () => {
+    const source = fs.readFileSync(new URL('../scripts/build-legacy-aliases.mjs', import.meta.url), 'utf8');
+    expect(source).toContain('assertGscLegacyAliasSnapshot');
+    expect(source).toContain('mergeGscOrphanRecords');
+    expect(source).toContain('refreshedExisting');
+    expect(source).toContain('withSingleFlightLock');
+    expect(source).toMatch(/function normalizePath\(rawUrl\)\s*\{\s*try\s*\{\s*return gscOrphanRouteKey\(\{ url: rawUrl \}\);\s*\}\s*catch\s*\{[\s\S]*?return null;/);
+  });
+
+  it('keeps malformed legacy alias paths from writing outside dist', async () => {
+    const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'legacy-alias-path-guard-'));
+    try {
+      const distDir = path.join(rootDir, 'dist');
+      const dataDir = path.join(rootDir, 'data');
+      const outsideDir = path.join(rootDir, 'outside');
+      fs.mkdirSync(distDir, { recursive: true });
+      fs.mkdirSync(dataDir, { recursive: true });
+      fs.mkdirSync(outsideDir, { recursive: true });
+      fs.writeFileSync(path.join(outsideDir, 'flat-target.html'), 'preserve');
+      fs.symlinkSync(outsideDir, path.join(distDir, 'linked-route'), 'dir');
+      fs.symlinkSync(path.join(outsideDir, 'flat-target.html'), path.join(distDir, 'flat-route.html'));
+      fs.writeFileSync(path.join(dataDir, 'legacy-aliases.json'), JSON.stringify({ aliases: [
+        {
+          orphanPath: '/../outside/',
+          locale: 'it',
+          kind: 'unmatched',
+          canonicalPath: '/cerca-lavoro-ticino/',
+          cohort: 'jobLegacySection',
+        },
+        {
+          orphanPath: '/linked-route/',
+          locale: 'it',
+          kind: 'unmatched',
+          canonicalPath: '/cerca-lavoro-ticino/',
+          cohort: 'jobLegacySection',
+        },
+        {
+          orphanPath: '/flat-route/',
+          locale: 'it',
+          kind: 'unmatched',
+          canonicalPath: '/cerca-lavoro-ticino/',
+          cohort: 'jobLegacySection',
+        },
+      ] }));
+
+      const plugin = legacyAliasPlugin(rootDir);
+      const closeBundle = plugin.closeBundle as { handler: () => Promise<void> };
+      await closeBundle.handler();
+
+      expect(fs.existsSync(path.join(outsideDir, 'index.html'))).toBe(false);
+      expect(fs.existsSync(path.join(distDir, 'flat-route', 'index.html'))).toBe(false);
+      expect(fs.readFileSync(path.join(outsideDir, 'flat-target.html'), 'utf8')).toBe('preserve');
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
     }
   });
 
