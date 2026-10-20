@@ -13,6 +13,7 @@ import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRu
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
 import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
 import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
+import { explicitLanguageEntries, explicitLanguageEntry, languageCodesIn, languageExplicitlyAbsent } from '../../../../functions/src/lib/languageFacts.js';
 import {
   BIRTH_FIELD_RE,
   NATIONALITY_FIELD_RE,
@@ -63,17 +64,17 @@ ${candidateRules(candidateLocale)}`;
 
 /** career-ops' apply rules, shared by the planner and the agentic fallback (agent.mjs). */
 export function candidateRules(candidateLocale) {
-  return `- Use ONLY the candidate data given. Never invent facts, numbers, dates, employers, degrees or answers.
+  return `- Use ONLY the candidate data given. Never invent facts, numbers, dates, employers, degrees or answers. Before marking a required field missing or asking the candidate, check all identity, profile and previous-answer data for the same fact under equivalent wording; reuse a supported answer instead of asking them to repeat CV information. Ask only when the required fact is genuinely absent or ambiguous.
 - Work permit, visa, nationality, date of birth, salary expectation, notice period, start date, availability, relocation, criminal record, disability, gender, ethnicity or any other legal or demographic question: answer only when the candidate data states it (answers or profile). Otherwise, for a demographic question (gender, ethnicity, disability) choose the "prefer not to say / keine Angabe" option when one exists; failing that, when the field is required, put it in missingRequired; when optional, skip it.
 - Swiss work permit, work authorisation, residence status, visa or sponsorship: swissStatus.statement is the candidate's own statement of their Swiss status today (null: the candidate did not choose one; then only what profile.workPermit states). Choose the option, or write the value, that says exactly that status, never one that says more (a permit pending, to be requested or not needed); never answer whether the candidate needs a permit, a visa or sponsorship, and never infer a status from the nationality, the address or the place of birth. When no option says it, the field is missing (required) or skipped (optional).
 - Nationality or citizenship: only profile.nationality, choosing the option that names the same country (italiana = Italien = Italy); never from the address, the languages or the place of birth.
 - Age-threshold questions (for example, "under 26" / "meno di 26 anni"): derive the yes/no answer only from an explicit profile.dateOfBirth, calculated against today's date. If the date of birth is absent or invalid, put the required question in missingRequired; never infer age from education, dates of study, the name or the current year.
-- Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). evidence is "" for every other field.
+- Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). If profile.languagesExplicitList is true, an absent language means the candidate does not speak it; answer "no" or "no knowledge" when the form asks about that specific language. If the language is listed but its level is missing, do not invent the level. evidence is "" for every other field.
 - Native language: an explicitly native/mother-tongue entry is sufficient. When profile.cvLanguage identifies the language the CV is written in, and the profile also lists at least one different language with an explicit level while giving no conflicting level for cvLanguage, treat cvLanguage as native/mother tongue for that language's level questions. Do not infer a native language from the CV language alone, and do not infer any other level.
 - Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given. For a date field, use a full calendar date only. Never type an ongoing or partial-period marker such as "ad oggi", "2015", "present" or "current" into a date field; leave the end blank. Do not invent an end date for an ongoing or overlapping CV entry; if the portal requires a full end date and the candidate did not state one, put it in missingRequired.
 - Current school or university: when profile.currentEducation.institution is non-empty, answer a current-school question from it. If the portal offers no matching institution but has an "Other/Autre/Andere" choice, select that choice; if it then exposes a text field for the name, fill the institution exactly as written. Never infer a current school from a completed or undated education entry.
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
-- Salutation or form of address (Title Mr/Ms, Anrede Herr/Frau, Titolo Signor/Signora, Civilité Monsieur/Madame): only from what the candidate said (answers.salutation, or an answer in portalQuestionsAnswered), choosing the option that means the same in the form's language. Never guess it from the first name: when the candidate has not said, a required one is missing.
+- Salutation or form of address (Title Mr/Ms, Anrede Herr/Frau, Titolo Signor/Signora, Civilité Monsieur/Madame): use answers.salutation, which is already filled from the CV's explicit gender or a first name with one clear form of address in the candidate's language, or an answer in portalQuestionsAnswered. Choose the equivalent option in the form's language. If no value is available, a required one is missing.
 - Marital or civil status (Marital status, Zivilstand, Stato civile, État civil): only from profile.civilStatus (the candidate's CV, in its own words) or an answer in portalQuestionsAnswered, choosing the option that means the same in the form's language. Never guess it: when the candidate data does not say, a required one is missing and an optional one is skipped.
 - A required choice (radio or select) on what happens to the data afterwards — kept for future openings or a talent pool, or deleted once this application is over: select the option that deletes it / does not keep it. It is the same rule as an unticked talent-pool box, not a question for the candidate.
 - Files: the CV goes to the resume/CV/Lebenslauf/curriculum field (document "cv"); the cover letter to a cover-letter/Motivationsschreiben/lettre field (document "cover_letter"). Other documents (school reports, test results, diplomas, references, certificates): the ones the candidate gave are listed in documents.extra, each with its slot (extra_1, extra_2…) and its label; upload the one that is the same document as the field asks (document = its slot), and in a generic "other documents / attachments / weitere Unterlagen / altri documenti / autres documents" field the first one not uploaded yet. Any other document is not available: skip it, or put it in missingRequired when required.
@@ -258,7 +259,7 @@ const LANGUAGE_ALIASES = [
   { code: 'it', pattern: /italienisch|italiano|italien|italian/i },
 ];
 const LANGUAGE_CODES = new Set(LANGUAGE_ALIASES.map(({ code }) => code));
-const LANGUAGE_LEVEL_RE = /language|lingua|langue|sprach|livello|niveau|level|kenntnisse|conoscenza|knowledge|proficiency|parlat[oa]|scritt[oa]|spoken|written|oral|mündlich|schriftlich|parlé|écrit/i;
+const LANGUAGE_LEVEL_RE = /language|lingua|langue|sprach|livello|niveau|level|kenntnis|conoscenz|connaiss|knowledge|proficien(?:cy|t)|parlat[oa]|parle[sz]?|scritt[oa]|speak|spoken|written|oral|communicat\w*|mündlich|schriftlich|parlé|écrit|\b[abc][12]\b/i;
 const NATIVE_LEVEL_RE = /^(?:native(?:\s+speaker)?|mother\s+tongue|first\s+language|lingua\s+madre|madrelingua|nativ[oa]|muttersprache|muttersprach(?:lich)?|langue\s+maternelle|langue\s+native|langue\s+premi[eè]re)(?:\s*[([{].*)?$/i;
 const LANGUAGE_CODE_RE = /^(it|de|fr|en)(?:[-_]\w+)?$/i;
 const languageCodeOf = (value) => {
@@ -362,9 +363,14 @@ export function ownStatusAnswer(candidate, label, value, { option = false } = {}
   if (isPermitField(label)) {
     // Whether the candidate needs a permit, a visa or sponsorship is never answered from the data: they say it.
     if (!asksHeldStatus(questionFromLabel(label))) return false;
-    const status = candidate.swissStatus?.code || '';
+    const status = candidate.swissStatus?.code || permitStatusOf(profile.workPermit);
     const code = option ? permitOptionCode(value) : permitStatusOf(value) || permitOptionCode(value);
-    if (status) return code === status || same(value, candidate.swissStatus.statement);
+    if (status) {
+      if (code === status || same(value, candidate.swissStatus?.statement)) return true;
+      const yesNo = booleanAnswer(value);
+      if (yesNo !== null) return yesNo === (status !== 'none');
+      return false;
+    }
     // Nothing chosen: only the CV's own words (decision 2).
     const own = permitStatusOf(profile.workPermit);
     return same(value, profile.workPermit) || (Boolean(own) && code === own);
@@ -624,10 +630,149 @@ function optionForAnswer(field, answer) {
   return '';
 }
 
+const NO_LANGUAGE_OPTION_RE = /^(?:none|no (?:knowledge|proficiency|skills?)|no language skills|not applicable|keine (?:sprach)?kenntnisse|aucune (?:connaissance|comp[eé]tence)|nessun[ae] conoscenz[ae]|nessun livello|non parl[oa])$/i;
+const FIRST_NAME_FIELD_RE = /\b(?:first name|given name|forename|vorname|pr[ée]nom|nome|nombre)\b/i;
+const LAST_NAME_FIELD_RE = /\b(?:last name|surname|family name|nachname|nom de famille|cognome|apellido)\b/i;
+const FULL_NAME_FIELD_RE = /^\s*(?:full name|complete name|vollst[äa]ndiger name|nome completo|nom complet)\s*$/i;
+const NON_CANDIDATE_NAME_RE = /\b(?:company|employer|organisation|organization|school|institution|university|azienda|datore|scuola|istituto|universit|entreprise|employeur|école|arbeitgeber|unternehmen|firma|reference|referee|emergency|contact person|supervisor|manager|recruiter|interviewer)\b/i;
+const AVAILABILITY_FIELD_RE = /availability|available to start|when can you start|notice period|k(?:ü|ue)ndigungsfrist|pr[ée]avis|preavviso|d[ée]lai de pr[ée]avis/i;
+const SALARY_FIELD_RE = /salary expectation|expected salary|desired salary|salary desired|pretese salarial|pr[ée]tentions salariales|lohnvorstellung|r[eé]mun[ée]ration souhait[ée]e|retribuzione desiderata|salario esperado/i;
+const YES_NO_LANGUAGE_QUESTION_RE = /\b(?:do you|does the candidate|are you|can you|speak|spoken|parl\w*|sprech\w*|parlez|parli|connaiss\w*|kenntnis\w*|communicat\w*)\b/i;
+const LANGUAGE_PROFICIENCY_QUESTION_RE = /\b(?:level|niveau|livello|proficien(?:cy|t)|fluen(?:t|cy)|how well|wie gut|quel niveau|quel point|native|mother tongue|langue maternelle|madrelingua|muttersprache|written|oral|mündlich|schriftlich|écrit)\b/i;
+const LANGUAGE_KNOWLEDGE_FIELD_RE = /\b(?:knowledge|kenntnis\w*|conoscenz\w*|connaiss\w*|language skills?)\b/i;
+const NATIVE_LANGUAGE_QUESTION_RE = /native|mother tongue|first language|lingua madre|madrelingua|muttersprache|langue maternelle|langue native/i;
+const CEFR_RE = /\b([abc][12])\b/i;
+
+function formLanguage(text, candidate) {
+  if (/\b(?:do you|does|are you|can you|which|what|language|spoken|proficiency)\b/i.test(text)) return 'en';
+  if (/\b(?:sprech\w*|sprache|kenntnis|m(?:ü|ue)ndlich|schriftlich)\w*/i.test(text)) return 'de';
+  if (/\b(?:parlez|connaiss|langue|niveau|parl[ée])\w*/i.test(text)) return 'fr';
+  if (/\b(?:parl\w*|conoscenz|lingua|livello|parlat[oa])\w*/i.test(text)) return 'it';
+  return String(candidate?.profile?.cvLanguage || 'it').slice(0, 2).toLowerCase();
+}
+
+function localizedBoolean(value, language) {
+  const labels = { en: ['Yes', 'No'], de: ['Ja', 'Nein'], fr: ['Oui', 'Non'], it: ['Sì', 'No'] };
+  return labels[language]?.[value ? 0 : 1] || labels.it[value ? 0 : 1];
+}
+
+function localizedNoLanguage(language) {
+  return ({ en: 'No knowledge', de: 'Keine Sprachkenntnisse', fr: 'Aucune connaissance', it: 'Nessuna conoscenza' })[language] || 'Nessuna conoscenza';
+}
+
+function languageAnswerForField(candidate, field) {
+  const label = String(field?.label || '');
+  if (!LANGUAGE_LEVEL_RE.test(label)) return null;
+  const codes = languageCodesIn(label);
+  if (codes.length !== 1) return null;
+  const entries = explicitLanguageEntries(candidate?.profile);
+  if (!entries.length) return null;
+  const code = codes[0];
+  const entry = explicitLanguageEntry(candidate?.profile, code);
+  const absent = !entry && languageExplicitlyAbsent(candidate?.profile, label);
+  if (!entry && !absent) return null;
+  const options = Array.isArray(field?.options) ? field.options : [];
+  const optionLabel = (option) => String(option?.label ?? option ?? '').trim();
+  const language = formLanguage(label, candidate);
+  const requiredLevel = CEFR_RE.exec(label)?.[1]?.toLowerCase() || '';
+  const levelQuestion = Boolean(requiredLevel) || LANGUAGE_PROFICIENCY_QUESTION_RE.test(label);
+  const levelField = levelQuestion || LANGUAGE_KNOWLEDGE_FIELD_RE.test(label);
+  const nativeQuestion = NATIVE_LANGUAGE_QUESTION_RE.test(label);
+
+  if (absent) {
+    const no = options.find((option) => booleanAnswer(optionLabel(option)) === false || NO_LANGUAGE_OPTION_RE.test(comparableAnswer(optionLabel(option))));
+    if (no) return { value: optionLabel(no), source: 'profile' };
+    if (options.length) return null;
+    if (field?.kind === 'number' && /\b(?:years?|jahre|anni|ann[ée]es)\b/i.test(label)) return { value: '0', source: 'profile' };
+    if (field?.kind === 'text' || field?.kind === 'textarea') {
+      return { value: levelField ? localizedNoLanguage(language) : localizedBoolean(false, language), source: 'profile' };
+    }
+    return null;
+  }
+
+  const statedLevel = String(entry.level || '').trim();
+  if (nativeQuestion && !NATIVE_LEVEL_RE.test(statedLevel)) return null;
+  const statedLevelCode = CEFR_RE.exec(statedLevel)?.[1]?.toLowerCase() || '';
+  const yesNo = yesOption(options);
+  if (yesNo) {
+    if (requiredLevel) {
+      if (!statedLevelCode) return null;
+      const positive = CEFR.indexOf(statedLevelCode) >= CEFR.indexOf(requiredLevel);
+      const selected = options.find((option) => booleanAnswer(optionLabel(option)) === positive);
+      return selected ? { value: optionLabel(selected), source: 'profile' } : null;
+    }
+    if (levelQuestion) return null;
+    const selected = options.find((option) => booleanAnswer(optionLabel(option)) === true);
+    return selected ? { value: optionLabel(selected), source: 'profile' } : null;
+  }
+  if (options.length) {
+    if (!statedLevel) return null;
+    const exact = options.find((option) => comparableAnswer(optionLabel(option)) === comparableAnswer(statedLevel));
+    if (exact) return { value: optionLabel(exact), source: 'profile' };
+    const level = statedLevelCode && options.filter((option) => levelsIn(optionLabel(option)).some((index) => CEFR[index] === statedLevelCode));
+    if (level?.length === 1) return { value: optionLabel(level[0]), source: 'profile' };
+    const native = NATIVE_LEVEL_RE.test(statedLevel) && options.find((option) => NATIVE_LEVEL_RE.test(optionLabel(option)));
+    if (native) return { value: optionLabel(native), source: 'profile' };
+    return null;
+  }
+  if (field?.kind !== 'text' && field?.kind !== 'textarea') return null;
+  if (nativeQuestion) return NATIVE_LEVEL_RE.test(statedLevel) ? { value: statedLevel, source: 'profile' } : null;
+  if (levelField) return statedLevel ? { value: statedLevel, source: 'profile' } : null;
+  if (requiredLevel) {
+    if (!statedLevelCode) return null;
+    return { value: localizedBoolean(CEFR.indexOf(statedLevelCode) >= CEFR.indexOf(requiredLevel), language), source: 'profile' };
+  }
+  return YES_NO_LANGUAGE_QUESTION_RE.test(label)
+    ? { value: localizedBoolean(true, language), source: 'profile' }
+    : null;
+}
+
+function isYesNoPermitQuestion(label) {
+  return /\b(?:do you|does the candidate|are you|hold|have|hast du|haben sie|hältst|halten sie|avez[- ]vous|détenez|detenez|avez|hai|detieni|possiedi|è in possesso|in possesso)\b/i.test(String(label || ''));
+}
+
+const SALUTATION_FIELD_RE = /\b(?:anrede|salutation|appellativo|civilit[ée]|form of address)\b/i;
+const SALUTATION_KIND = {
+  m: /^(?:mr|mister|herr|signor(?:e)?|sig|monsieur|m)$/i,
+  f: /^(?:mrs|ms|miss|frau|signora|sig ?ra|madame|mme|mademoiselle)$/i,
+  other: /^(?:mx|other|altro|altra|andere|autre|diverse|divers|non[- ]?binary)$/i,
+};
+
+function salutationKind(value) {
+  const text = comparableAnswer(value).replace(/\.$/, '');
+  return Object.entries(SALUTATION_KIND).find(([, pattern]) => pattern.test(text))?.[0] || '';
+}
+
+function isSalutationField(field) {
+  if (SALUTATION_FIELD_RE.test(String(field?.label || ''))) return true;
+  const kinds = new Set((field?.options || []).map((option) => salutationKind(option?.label ?? option)).filter(Boolean));
+  return (kinds.has('m') || kinds.has('f')) && kinds.size >= 2;
+}
+
+function salutationFieldAnswer(candidate, field, previous = '') {
+  if (!isSalutationField(field)) return null;
+  const answer = String(previous || candidate?.answers?.salutation || '').trim();
+  if (!answer) return null;
+  const options = Array.isArray(field?.options) ? field.options : [];
+  if (!options.length) return { value: answer, source: 'answers' };
+  const kind = salutationKind(answer);
+  if (!kind) return null;
+  const matches = options.filter((option) => salutationKind(option?.label ?? option) === kind);
+  return matches.length === 1 ? { value: String(matches[0]?.label ?? matches[0]), source: 'answers' } : null;
+}
+
+function isInferredProfileLanguageAnswer(candidate, field, answer) {
+  const inferred = languageAnswerForField(candidate, field);
+  return Boolean(inferred && inferred.source === 'profile'
+    && comparableAnswer(inferred.value) === comparableAnswer(answer));
+}
+
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
 export function candidateAnswerForField(candidate, field) {
   const topic = questionTopic(field?.label, field?.context);
   const previous = recordedAnswerForQuestion(candidate, field?.label, field?.context);
+  const salutation = salutationFieldAnswer(candidate, field, previous);
+  if (salutation) return salutation;
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
     const stated = previous || addressQuestionAnswer(candidate, topic);
     if (!stated) return null;
@@ -646,10 +791,60 @@ export function candidateAnswerForField(candidate, field) {
   if (previous) {
     const value = optionForAnswer(field, previous);
     if (value) return { value, source: 'answers' };
+    if (topic === 'permit') {
+      const status = permitStatusOf(previous);
+      if (status) {
+        const positive = status !== 'none';
+        const selected = positive ? yesOption(field?.options) : (field?.options || []).find((option) => booleanAnswer(String(option?.label ?? option)) === false);
+        if (selected) return { value: typeof selected === 'string' ? selected : String(selected?.label ?? ''), source: 'answers' };
+      }
+    }
     if (topic === 'current_school' && field?.options?.length) {
       const other = field.options.find((option) => OTHER_OPTION_RE.test(String(option.label || '')));
       if (other) return { value: other.label, source: 'answers' };
     }
+    if (['birth_date', 'nationality'].includes(topic) || AVAILABILITY_FIELD_RE.test(String(field?.label || '')) || SALARY_FIELD_RE.test(String(field?.label || ''))) {
+      return { value: field?.options?.length ? optionForAnswer(field, previous) : previous, source: 'answers' };
+    }
+    if (topic === 'permit' || LANGUAGE_LEVEL_RE.test(String(field?.label || ''))) return null;
+  }
+  const label = String(field?.label || '');
+  const identity = candidate?.identity || {};
+  const otherPersonField = NON_CANDIDATE_NAME_RE.test(`${label} ${field?.context || ''}`);
+  let identityValue = '';
+  if (FIRST_NAME_FIELD_RE.test(label) && !otherPersonField) identityValue = identity.firstName || '';
+  else if (LAST_NAME_FIELD_RE.test(label) && !otherPersonField) identityValue = identity.lastName || '';
+  else if (FULL_NAME_FIELD_RE.test(label) && !otherPersonField) identityValue = identity.fullName || '';
+  else if (IDENTITY_EMAIL_RE.test(label) && !otherPersonField) identityValue = identity.email || '';
+  else if (PHONE_CODE_FIELD_RE.test(label) && !PHONE_COUNTRY_CODE_LABEL_RE.test(label) && !otherPersonField) identityValue = identity.phone || '';
+  else if (/\blinkedin\b/i.test(label) && !otherPersonField) identityValue = identity.linkedin || '';
+  if (identityValue) {
+    const value = field?.options?.length ? optionForAnswer(field, identityValue) : identityValue;
+    if (value) return { value, source: 'identity' };
+  }
+  if (topic === 'birth_date' && candidate?.profile?.dateOfBirth) {
+    const value = normalizeDateAnswer(field, candidate.profile.dateOfBirth);
+    if (value) return { value, source: 'profile' };
+  }
+  if (topic === 'nationality' && candidate?.profile?.nationality) {
+    const value = field?.options?.length ? optionForAnswer(field, candidate.profile.nationality) : candidate.profile.nationality;
+    if (value) return { value, source: 'profile' };
+  }
+  if (AVAILABILITY_FIELD_RE.test(label)) {
+    const availability = String(candidate?.answers?.availability || candidate?.profile?.availability || '').trim();
+    const value = availability && (field?.options?.length ? optionForAnswer(field, availability) : availability);
+    if (value) return { value, source: candidate?.answers?.availability ? 'answers' : 'profile' };
+  }
+  if (SALARY_FIELD_RE.test(label)) {
+    const salary = String(candidate?.answers?.salary_expectation || '').trim();
+    const value = salary && (field?.options?.length ? optionForAnswer(field, salary) : salary);
+    if (value) return { value, source: 'answers' };
+  }
+  if (/\b(?:languages spoken|spoken languages|languages|lingue|langues|sprachen)\b/i.test(label) && languageCodesIn(label).length === 0
+    && (field?.kind === 'text' || field?.kind === 'textarea')) {
+    const languages = explicitLanguageEntries(candidate?.profile)
+      .map((item) => [item.language, item.level].filter(Boolean).join(' ')).join(', ');
+    if (languages) return { value: languages, source: 'profile' };
   }
   if (topic.startsWith('age_under_')) {
     const answer = ageAnswerForQuestion(candidate, field?.label);
@@ -657,6 +852,26 @@ export function candidateAnswerForField(candidate, field) {
       const value = optionForAnswer(field, answer);
       if (value) return { value, source: 'profile' };
     }
+    return null;
+  }
+  const language = languageAnswerForField(candidate, field);
+  if (language) return language;
+  if (topic === 'permit') {
+    const status = candidate?.swissStatus?.code || permitStatusOf(candidate?.profile?.workPermit);
+    if (!status || !asksHeldStatus(field?.label)) return null;
+    const options = Array.isArray(field?.options) ? field.options : [];
+    const matchingPermit = options.filter((option) => permitOptionCode(option.label) === status);
+    if (matchingPermit.length === 1) return { value: matchingPermit[0].label, source: candidate?.swissStatus?.code ? 'answers' : 'profile' };
+    const yesNo = yesOption(options);
+    if (yesNo) {
+      const positive = status !== 'none';
+      const selected = options.find((option) => booleanAnswer(String(option?.label ?? option)) === positive);
+      if (selected) return { value: String(selected?.label ?? selected), source: candidate?.swissStatus?.code ? 'answers' : 'profile' };
+    }
+    if (!options.length && isYesNoPermitQuestion(field?.label)) {
+      return { value: localizedBoolean(status !== 'none', formLanguage(field?.label, candidate)), source: candidate?.swissStatus?.code ? 'answers' : 'profile' };
+    }
+    if (!options.length) return { value: candidate?.swissStatus?.statement || candidate?.profile?.workPermit || '', source: candidate?.swissStatus?.code ? 'answers' : 'profile' };
     return null;
   }
   const native = nativeLanguageOption(field, candidate);
@@ -781,8 +996,8 @@ export function guardPlan(plan, fields, candidate = null) {
   const heldPick = new Map(fields.map((field) => [field.id, attachedDocumentYes(candidate, field)]).filter(([, value]) => value));
   for (const [fieldId, value] of heldPick) actions.push({ fieldId, action: 'select', value, document: 'none', source: 'documents', evidence: '' });
   // A current employment status is a direct consequence of an experience that
-  // the CV marks as ongoing. Keep the mapping deterministic: language levels,
-  // availability and other candidate-only facts still go to the candidate.
+  // the CV marks as ongoing. Language answers are resolved below only when a
+  // specific language and its presence or absence are explicit in the CV.
   const employmentPick = new Map(fields.map((field) => [field.id, currentEmploymentOption(field, candidate)]).filter(([, option]) => option));
   for (const [fieldId, option] of employmentPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'profile', evidence: '' });
   // A native language is explicit either in the language list or, conservatively,
@@ -809,6 +1024,10 @@ export function guardPlan(plan, fields, candidate = null) {
     let action = plannedAction;
     const field = byId.get(action.fieldId);
     if (!field) continue;
+    if (['fill', 'select'].includes(action.action)) {
+      const known = candidateAnswerForField(candidate, field);
+      if (known?.value) action = { ...action, action: field.options?.length ? 'select' : 'fill', value: known.value, source: known.source, evidence: '' };
+    }
     if (action.action === 'fill' && isDateField(field)) {
       const normalized = normalizeDateAnswer(field, action.value);
       if (!normalized) {
@@ -872,7 +1091,8 @@ export function guardPlan(plan, fields, candidate = null) {
     // Not "the value occurs somewhere in the data": a "Ja" occurs everywhere. The
     // candidate's own answer to this question, or a quote that supports the answer.
     const given = action.action === 'check' ? 'ja' : action.value;
-    const supported = knownValues === null || native || answeredByCandidate(candidate, field.label, given, field.context)
+    const supported = knownValues === null || native || isInferredProfileLanguageAnswer(candidate, field, given)
+      || answeredByCandidate(candidate, field.label, given, field.context)
       || (evidenceInData(knownValues, action.evidence) && evidenceSupports(field.label, given, action.evidence));
     if (KNOCK_OUT.test(field.label) && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {
       ask(field);

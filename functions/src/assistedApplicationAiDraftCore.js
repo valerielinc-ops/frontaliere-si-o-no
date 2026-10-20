@@ -9,6 +9,7 @@ import { buildFactIndex, checkGeneratedFacts, withPermitClaims } from './assiste
 import { sanitizeValidation } from './lib/answerRules.js';
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, isPermitField, permitLabel, permitOptions } from './lib/permitStatus.js';
 import { letterPlaceDate, letterSubject } from './assistedApplicationAiPrompts.js';
+import { languageExplicitlyAbsent } from './lib/languageFacts.js';
 import { SALUTATIONS } from './lib/personalFacts.js';
 
 export const LETTER_FILE_LABEL = {
@@ -50,6 +51,7 @@ export function sanitizeProfile(raw) {
     workPermit: clean(raw?.workPermit, 200),
     availability: clean(raw?.availability, 200),
     languages: list(raw?.languages, 12).map((item) => ({ language: clean(item?.language, 60), level: clean(item?.level, 60) })).filter((item) => item.language),
+    languagesExplicitList: raw?.languagesExplicitList === true,
     skills: list(raw?.skills, 40).map((item) => clean(item, 120)).filter(Boolean),
     experience: list(raw?.experience, 15).map((item) => ({
       role: clean(item?.role, 200),
@@ -225,6 +227,10 @@ export function ensureRequiredQuestions(questions, { requirements, profile, answ
   });
   const result = [];
   for (const item of questions) {
+    // An explicit CV language list is the candidate's declared list. If it
+    // names other languages but not the one in this question, do not ask them
+    // to confirm the absence; the requirement is already known to be unmet.
+    if (languageExplicitlyAbsent(profile, `${item.id} ${item.question}`)) continue;
     if (asksPermit(item)) {
       if (!result.some((other) => other.id === 'work_permit')) result.push(permitQuestion(item.source || 'match'));
       continue;
@@ -261,8 +267,8 @@ const asksSalutation = (question) => SALUTATION_RE.test(`${question?.question ||
 /**
  * The form of address, asked on the first review when the application leaves
  * through a portal's form. umantis (2026-10-03) requires «Title: Ms / Mr /
- * Other», as most Swiss portals require «Anrede»; it is never guessed from the
- * first name, so it used to come back as a second round at submit time.
+ * Other», as most Swiss portals require «Anrede»; an explicit CV gender or a
+ * first name with one clear form of address now fills it without a question.
  * Optional: a candidate who does not answer is not held, and the portal's own
  * question then comes at submit time as before. Never for an e-mail
  * application, nor when a question already asks it, nor when the candidate
