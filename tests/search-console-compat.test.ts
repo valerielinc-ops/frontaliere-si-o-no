@@ -136,6 +136,22 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
+  it('self-maps emitted health-facility section roots', () => {
+    const cases = [
+      ['/strutture-sanitarie', 'it'],
+      ['/en/healthcare-facilities/', 'en'],
+      ['/de/gesundheitseinrichtungen', 'de'],
+      ['/fr/etablissements-sante/', 'fr'],
+    ] as const;
+    for (const [path, locale] of cases) {
+      expect(resolveSearchConsoleCompatTarget(path)).toEqual({
+        canonicalPath: path.endsWith('/') ? path : `${path}/`,
+        kind: 'legacy',
+        locale,
+      });
+    }
+  });
+
   // Issue #3747 — per-canton sector hubs emit every (canton section × sector ×
   // locale) combo unconditionally: the full hub page, or a below-floor
   // noindex bridge (canton-level MIN_JOBS_FOR_CANTON_PAGE floor AND the finer

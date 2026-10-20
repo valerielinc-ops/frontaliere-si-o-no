@@ -16,7 +16,7 @@ import {
 import { isProfessionCantonPath } from './professionCantonData';
 import { isSalaryProfessionCantonPath } from './salaryProfessionCantonData';
 import { isProfessionCityPath } from './professionCityData';
-import { isHealthFacilityPath } from './healthFacilitiesData';
+import { isHealthFacilityPath, isHealthFacilitySectionPath } from './healthFacilitiesData';
 import { WEEKLY_EMPLOYERS_SECTION } from './weeklyEmployersData';
 import { CH_CANTON_SNAPSHOT_SEGMENT as SNAPSHOT_SEGMENT } from './jobMarketSnapshotChCantonPathsData';
 import { HUB_SLUG_BY_LOCALE } from './seoHubsData';
@@ -639,15 +639,15 @@ export function resolveSearchConsoleCompatTarget(
  };
  }
 
- // Health-facilities hub (healthFacilitiesPlugin.ts, epic #4455): every
- // committed facility (build-plugins/healthFacilitiesData.ts) emits, on
- // EVERY build, either a full indexable page (live jobs ≥ floor) or a
- // noindex,follow below-floor bridge — always at the SAME canonical path.
- // So a URL matching an enumerated facility path always has a live target
- // today, even if GSC captured it as 404 from before the page existed.
- // isHealthFacilityPath checks a module-load-precomputed Set (PATH_INDEX),
- // so this stays O(1) per call inside the 150k+-path compat loop.
- if (isHealthFacilityPath(path)) {
+ // Health-facilities hub (healthFacilitiesPlugin.ts, epic #4455): the four
+ // localised section roots are emitted as indexable collection hubs, while
+ // every committed facility emits either a full indexable page (live jobs ≥
+ // floor) or a noindex,follow below-floor bridge — always at the SAME
+ // canonical path. So a URL matching either enumerated family always has a
+ // live target today, even if GSC captured it as 404 from before emission.
+ // Both matchers use module-load-precomputed Sets, so this stays O(1) per
+ // call inside the 150k+-path compat loop.
+ if (isHealthFacilitySectionPath(path) || isHealthFacilityPath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
  kind: 'legacy',

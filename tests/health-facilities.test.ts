@@ -12,7 +12,10 @@ import {
   HEALTH_FACILITY_LOCALES,
   HEALTH_FACILITY_MIN_JOBS,
   buildHealthFacilityPath,
+  buildHealthFacilitySectionPath,
   isHealthFacilityPath,
+  isHealthFacilitySectionPath,
+  parseHealthFacilitySectionPath,
   getHealthFacility,
 } from '../build-plugins/healthFacilitiesData';
 import { aggregateHealthFacilityJobs } from '../build-plugins/healthFacilitiesJobsAggregate';
@@ -93,6 +96,18 @@ describe('healthFacilitiesData — committed registry + routing', () => {
     }
     expect(isHealthFacilityPath('/strutture-sanitarie/definitely-not-a-facility/')).toBe(false);
     expect(getHealthFacility(slug)?.slug).toBe(slug);
+  });
+
+  it('recognises every localised section root as a canonical hub', () => {
+    for (const locale of HEALTH_FACILITY_LOCALES) {
+      const path = buildHealthFacilitySectionPath(locale);
+      expect(path.endsWith('/')).toBe(true);
+      expect(isHealthFacilitySectionPath(path)).toBe(true);
+      expect(isHealthFacilitySectionPath(path.slice(0, -1))).toBe(true);
+      expect(parseHealthFacilitySectionPath(path)).toEqual({ locale });
+    }
+    expect(isHealthFacilitySectionPath('/strutture-sanitarie/not-a-real-facility/')).toBe(false);
+    expect(parseHealthFacilitySectionPath('/strutture-sanitarie/usz/')).toBeNull();
   });
 
   it('stores at least one company key per facility for build-time job selection', () => {
