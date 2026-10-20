@@ -281,6 +281,65 @@ describe('Prospector production validation', () => {
     }
   });
 
+  it('classifies opted-in definitive detail 404s as stale listing filters only after enough valid rows prove the source', async () => {
+    const { spec, urls, runtime } = fixtureSpec({ populationCount: 12, allLocationsSwiss: true });
+    spec.detailNotFoundPolicy = 'expected-filter';
+    spec.detailNotFoundMinimumPublished = 10;
+    const originalFetch = runtime.fetchImpl;
+    runtime.fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url === urls[0] || url === urls[1]) return new Response('gone', { status: 404 });
+      return originalFetch(input);
+    };
+    clearPoliteFetchStateForTests();
+    try {
+      const observed = await observeSpecInProduction(spec, runtime);
+      expect(observed.vacancies).toHaveLength(10);
+      expect(observed.observation).toMatchObject({
+        listingCount: 12,
+        publishableCount: 10,
+        runtimeOutputCount: 10,
+        snapshotAccepted: true,
+        complete: true,
+        expectedFilterCount: 2,
+        expectedFilters: { detail_not_found: 2 },
+        dropCounts: { detail_not_found_expected: 2 },
+        detailDrop: { candidates: 10, gone: 0, rejected: 0, dropped: 0 },
+      });
+    } finally {
+      clearPoliteFetchStateForTests();
+    }
+  });
+
+  it('keeps the 404s as fail-closed detail drops when the proof floor is not met', async () => {
+    const { spec, urls, runtime } = fixtureSpec({ populationCount: 3, allLocationsSwiss: true });
+    spec.detailNotFoundPolicy = 'expected-filter';
+    spec.detailNotFoundMinimumPublished = 2;
+    const originalFetch = runtime.fetchImpl;
+    runtime.fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url === urls[0] || url === urls[1]) return new Response('gone', { status: 404 });
+      return originalFetch(input);
+    };
+    clearPoliteFetchStateForTests();
+    try {
+      const observed = await observeSpecInProduction(spec, runtime);
+      expect(observed.vacancies).toHaveLength(1);
+      expect(observed.observation).toMatchObject({
+        listingCount: 3,
+        publishableCount: 1,
+        runtimeOutputCount: 0,
+        snapshotAccepted: false,
+        complete: false,
+        expectedFilterCount: 0,
+        dropCounts: { detail_fetch_or_extraction: 2 },
+        detailDrop: { candidates: 3, gone: 2, rejected: 0, dropped: 2 },
+      });
+    } finally {
+      clearPoliteFetchStateForTests();
+    }
+  });
+
   it('counts source-backed geography before a title drop and resets a small all-drop snapshot', async () => {
     const titleDropFixture = fixtureSpec({ genericListingTitleIndex: 2 });
     clearPoliteFetchStateForTests();
