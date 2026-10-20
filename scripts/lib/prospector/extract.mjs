@@ -1320,6 +1320,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     && structuredLocationClasses.some((entry) => entry.swiss)
     && structuredLocationClasses.some((entry) => entry.foreign);
   const location = primaryLocation.location || structured.location || renderedLocation;
+  const renderedJobLocationFields = renderedJobLocationValues(html, title);
   /** @type {BodyRange[]} */
   const bodyRanges = [];
   /** @type {Array<{start: number, end: number}>} */
@@ -1473,6 +1474,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     location,
     addressCountry: primaryLocation.addressCountry || structured.addressCountry || '',
     locationCandidates,
+    renderedJobLocationFields,
     authoritativeLocationConflict,
     description: descriptions[0] || '',
     workplaceLabels,
@@ -1501,6 +1503,62 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
  * a node pair no class name marks and no structured record carries.
  */
 const WORKPLACE_LABEL_RX = /^(?:arbeitsorte?|lieux? de travail|luog(?:o|hi) di lavoro)\s*:?\s*/i;
+
+const JOB_LOCATION_CLASS_TOKENS = new Set([
+  'job-location', 'job_location', 'job-detail-location', 'job_detail_location',
+  'job-region', 'job_region', 'job-detail-region', 'job_detail_region',
+  'vacancy-location', 'vacancy_location', 'vacancy-detail-location', 'vacancy_detail_location',
+  'vacancy-region', 'vacancy_region', 'vacancy-detail-region', 'vacancy_detail_region',
+]);
+
+/**
+ * Rendered, vacancy-scoped location fields that can be more precise than a
+ * page's structured JSON-LD. A few ATS templates publish a broad region in
+ * `jobLocation` while rendering the actual workplace in a dedicated
+ * `job-location`/`job-region` element. Keep that field as independent
+ * evidence; callers still decide whether it corroborates or conflicts with
+ * the structured candidate.
+ *
+ * Generic `.location` elements are deliberately excluded: they are common in
+ * search/navigation chrome and cannot stand in for a vacancy workplace.
+ *
+ * @param {string} html
+ * @param {string} [title]
+ * @returns {string[]}
+ */
+export function renderedJobLocationValues(html = '', title = '') {
+  const source = vacancyContentRegion(html, title)
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ');
+  const index = indexHtmlTags(source);
+  const chromeRanges = vacancyChromeRanges(source, index, [title], {
+    excludeWorkplaceChrome: true,
+  });
+  const inChrome = (opening) => chromeRanges.some((range) => (
+    opening.index >= range.start && opening.index < range.end
+  ));
+  const values = [];
+  const seen = new Set();
+  for (const opening of index.openings) {
+    if (inChrome(opening) || VOID_HTML_TAGS.has(opening.name)) continue;
+    const classTokens = [readAttr(opening.raw, 'class'), readAttr(opening.raw, 'id')]
+      .flatMap((value) => value.split(/\s+/))
+      .filter(Boolean)
+      .map((token) => token.toLowerCase());
+    if (!classTokens.some((token) => JOB_LOCATION_CLASS_TOKENS.has(token))) continue;
+    const bounds = index.boundsByStart.get(opening.index);
+    if (!bounds) continue;
+    const value = bodyTextOf(source.slice(opening.end, bounds.contentEnd))
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (!value || value.length > MAX_WORKPLACE_LABEL_VALUE) continue;
+    const key = value.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    values.push(value);
+  }
+  return values;
+}
 
 /** A workplace is an address, not a paragraph: longer values are prose. */
 const MAX_WORKPLACE_LABEL_VALUE = 120;

@@ -375,6 +375,7 @@ describe('source-detail fidelity checks', () => {
       ['Fribourg', 'Freiburg', 'Friburgo'],
       ['Biel', 'Bienne', 'Bienne-Biel'],
       ['Chur', 'Coira', 'Cuira'],
+      ['Soletta', 'Solothurn'],
     ]) {
       for (const left of aliases) {
         for (const right of aliases) expect(sourceLocationMatches(left, right), `${left} ↔ ${right}`).toBe(true);
@@ -383,6 +384,7 @@ describe('source-detail fidelity checks', () => {
     expect(sourceLocationMatches('Fribourg', 'Freiburg im Breisgau')).toBe(false);
     expect(sourceLocationMatches('Biel', 'Biel-Benken')).toBe(false);
     expect(sourceLocationMatches('Chur', 'Churwalden')).toBe(false);
+    expect(sourceLocationMatches('Biel / Solothurn / Mittelland', 'Solothurn')).toBe(false);
   });
 
   it('distinguishes authoritative location markup from generic page chrome', () => {
@@ -939,6 +941,53 @@ describe('source-detail fidelity checks', () => {
     expect(result.locationAuthority).toBe('source-internal-conflict');
     expect(result.locationChecked).toBe(false);
     expect(result.locationInconclusive).toBe(true);
+  });
+
+  it('keeps a rendered precise workplace beside a broad structured region inconclusive', async () => {
+    const description = 'Eine ausführliche Stellenbeschreibung mit Aufgaben und Anforderungen. '.repeat(12);
+    const url = 'https://medimeo.ch/job/hausarzt-hausaerztin-3612/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Hausarzt / Hausärztin',
+      description,
+      jobLocation: {
+        address: {
+          addressLocality: 'Biel / Solothurn / Mittelland',
+          addressCountry: 'CH',
+        },
+      },
+    })}</script><main><h1>Hausarzt / Hausärztin</h1>
+      <div class="job-location">Solothurn</div>
+      <div class="job-description">${description}</div></main>`;
+
+    expect(extractDetailFields(html, url).renderedJobLocationFields).toEqual(['Solothurn']);
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'medimeo',
+      url,
+      job: {
+        url,
+        title: 'Hausarzt / Hausärztin',
+        addressLocality: 'Soletta',
+        sourceLang: 'de',
+        description,
+      },
+    }], 1, {
+      fetchPage: async (pageUrl: string) => ({
+        ok: true,
+        status: 200,
+        url: pageUrl,
+        body: html,
+        host: 'medimeo.ch',
+      }),
+    });
+
+    expect(result).toMatchObject({
+      sourceLocation: 'Biel / Solothurn / Mittelland',
+      locationMismatch: false,
+      locationChecked: false,
+      locationInconclusive: true,
+      locationAuthority: 'source-internal-conflict',
+    });
   });
 
   it('keeps the mismatch when the source page never names the published place', () => {
