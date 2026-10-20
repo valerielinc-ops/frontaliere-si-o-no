@@ -336,6 +336,134 @@ describe('prospector candidate store — retryable trace failures', () => {
     expect(isTraceRetryDue(store.candidates[key], now)).toBe(true);
   });
 
+  it('refreshes changed retry evidence from the same source and reopens TRACE', () => {
+    const key = 'career-url-changed.example';
+    const sourceSeenAt = new Date(Date.now() - DAY_MS).toISOString();
+    const oldCareersUrl = 'https://old.example/jobs';
+    const newCareersUrl = 'https://new.example/jobs';
+    const store = storeWith({
+      [key]: {
+        key,
+        name: 'Employer',
+        careersUrl: oldCareersUrl,
+        status: 'new',
+        sources: ['web'],
+        sourceSeenAt: { web: sourceSeenAt },
+        reason: 'dominio non risolto',
+        traceAttempts: 4,
+        traceLastEvidenceSnapshot: {
+          version: 2,
+          name: 'employer',
+          domain: '',
+          careersUrl: oldCareersUrl,
+          city: '',
+          zip: '',
+          country: '',
+          sources: ['web'],
+        },
+      },
+    });
+
+    expect(isTraceRetryDue(store.candidates[key])).toBe(false);
+    upsertCandidate(store, { key, careersUrl: newCareersUrl }, 'web');
+
+    expect(store.candidates[key].careersUrl).toBe(newCareersUrl);
+    expect(isTraceRetryDue(store.candidates[key])).toBe(true);
+  });
+
+  it('fails closed on a malformed retry snapshot and repairs it on discovery', () => {
+    const key = 'malformed-retry-snapshot';
+    const store = storeWith({
+      [key]: {
+        key,
+        name: 'Employer',
+        domain: 'employer.example',
+        status: 'new',
+        sources: ['osm'],
+        sourceSeenAt: { osm: new Date(Date.now() - DAY_MS).toISOString() },
+        reason: 'dominio non risolto',
+        traceAttempts: 4,
+        traceLastEvidenceSnapshot: {
+          version: 2,
+          name: 'employer',
+          domain: 'employer.example',
+          careersUrl: '',
+          city: '',
+          zip: '',
+          country: '',
+          sources: ['osm', 'bogus'],
+        },
+      },
+    });
+
+    expect(isTraceRetryDue(store.candidates[key])).toBe(false);
+    upsertCandidate(store, { key, name: 'Employer', domain: 'employer.example' }, 'osm');
+
+    expect(store.candidates[key].traceLastEvidenceSnapshot.sources).toEqual(['osm']);
+    expect(isTraceRetryDue(store.candidates[key])).toBe(false);
+  });
+
+  it('preserves employer names when WEB refreshes its host-derived label', () => {
+    const key = 'employer-from-seco.example';
+    const store = storeWith({
+      [key]: {
+        key,
+        name: 'Employer AG',
+        domain: 'employer-from-seco.example',
+        careersUrl: 'https://employer-from-seco.example/jobs',
+        status: 'new',
+        sources: ['seco', 'web'],
+        sourceSeenAt: {
+          seco: new Date(Date.now() - 2 * DAY_MS).toISOString(),
+          web: new Date(Date.now() - DAY_MS).toISOString(),
+        },
+      },
+    });
+
+    upsertCandidate(store, {
+      key,
+      name: 'employer-from-seco',
+      careersUrl: 'https://employer-from-seco.example/Karriere',
+    }, 'web');
+
+    expect(store.candidates[key].name).toBe('Employer AG');
+    expect(store.candidates[key].careersUrl).toBe('https://employer-from-seco.example/Karriere');
+  });
+
+  it('reopens a retry when a careers URL changes only by path case', () => {
+    const key = 'case-sensitive-careers-path';
+    const oldCareersUrl = 'https://employer.example/Jobs?role=IT';
+    const newCareersUrl = 'https://employer.example/jobs?role=IT';
+    const store = storeWith({
+      [key]: {
+        key,
+        name: 'Employer',
+        careersUrl: oldCareersUrl,
+        status: 'new',
+        sources: ['web'],
+        sourceSeenAt: { web: new Date(Date.now() - DAY_MS).toISOString() },
+        reason: 'dominio non risolto',
+        traceAttempts: 4,
+        traceLastEvidenceSnapshot: {
+          version: 2,
+          name: 'employer',
+          domain: '',
+          careersUrl: oldCareersUrl,
+          city: '',
+          zip: '',
+          country: '',
+          sources: ['web'],
+        },
+      },
+    });
+
+    expect(isTraceRetryDue(store.candidates[key])).toBe(false);
+    upsertCandidate(store, { key, careersUrl: newCareersUrl }, 'web');
+
+    expect(store.candidates[key].careersUrl).toBe(newCareersUrl);
+    expect(isTraceRetryDue(store.candidates[key])).toBe(true);
+  });
+
   it('unlocks an exhausted domain guess when another trusted source corroborates it', () => {
     const now = Date.now();
     const lastAttemptAt = now - DAY_MS;
@@ -376,8 +504,37 @@ describe('prospector candidate store — retryable trace failures', () => {
       },
     });
 
-    const revived = reviveRetryableDeadCandidate(store, key, { sourceHint: 'osm' }, null);
+    const revived = reviveRetryableDeadCandidate(store, key, { sourceHint: 'osm' }, null, 'osm');
     expect(revived).toMatchObject({ status: 'new', reason: 'riscontro dopo una nuova scoperta' });
+    expect(store.candidates[key].traceRetryAt).toBeNull();
+  });
+
+  it('revives a dead candidate when a same-source upsert changes its careers URL', () => {
+    const key = 'dead-careers-url-refresh.example';
+    const oldCareersUrl = 'https://dead-careers-url-refresh.example/jobs-old';
+    const newCareersUrl = 'https://dead-careers-url-refresh.example/jobs';
+    const store = storeWith({
+      [key]: {
+        key,
+        status: 'dead',
+        name: 'Employer AG',
+        domain: key,
+        careersUrl: oldCareersUrl,
+        sources: ['web'],
+        sourceSeenAt: { web: new Date(Date.now() - DAY_MS).toISOString() },
+        reason: 'pagina non trovata',
+        firstSeenAt: OLD,
+        updatedAt: OLD,
+      },
+    });
+    const incoming = { key, name: 'dead-careers-url-refresh', domain: key, careersUrl: newCareersUrl };
+
+    reviveRetryableDeadCandidate(store, key, incoming, null, 'web');
+    upsertCandidate(store, incoming, 'web');
+
+    expect(store.candidates[key].status).toBe('new');
+    expect(store.candidates[key].name).toBe('Employer AG');
+    expect(store.candidates[key].careersUrl).toBe(newCareersUrl);
     expect(store.candidates[key].traceRetryAt).toBeNull();
   });
 
@@ -393,18 +550,62 @@ describe('prospector candidate store — retryable trace failures', () => {
       },
     });
 
-    reviveRetryableDeadCandidate(store, key, { sourceHint: 'osm' }, null);
+    reviveRetryableDeadCandidate(store, key, { sourceHint: 'osm' }, null, 'osm');
     expect(store.candidates[key].status).toBe('dead');
   });
 
-  it('reopens a non-retryable dead verdict only when a new careers URL arrives', () => {
+  it('reopens and refreshes a non-retryable dead verdict from a new WEB careers URL', () => {
     const key = 'employer.ch';
+    const newCareersUrl = 'https://careers.employer-group.com/jobs';
     const store = storeWith({
-      [key]: { key, status: 'dead', reason: 'nessuna pagina carriere', domain: key },
+      [key]: {
+        key,
+        status: 'dead',
+        reason: 'nessuna pagina carriere',
+        domain: key,
+        careersUrl: 'https://employer.ch/jobs-old',
+        sources: ['seco'],
+      },
     });
+    const incoming = { key, careersUrl: newCareersUrl };
 
-    reviveRetryableDeadCandidate(store, key, { careersUrl: 'https://careers.employer-group.com/jobs' }, null);
+    reviveRetryableDeadCandidate(store, key, incoming, null, 'web');
+    upsertCandidate(store, incoming, 'web');
     expect(store.candidates[key].status).toBe('new');
-    expect(store.candidates[key].careersUrl).toBe('https://careers.employer-group.com/jobs');
+    expect(store.candidates[key].careersUrl).toBe(newCareersUrl);
+  });
+
+  it('refreshes careers URL from WEB when that source was previously unseen', () => {
+    const key = 'unseen-web-source.example';
+    const oldCareersUrl = 'https://unseen-web-source.example/jobs-old';
+    const newCareersUrl = 'https://unseen-web-source.example/jobs';
+    const store = storeWith({
+      [key]: {
+        key,
+        status: 'dead',
+        name: 'Employer AG',
+        domain: key,
+        careersUrl: oldCareersUrl,
+        sources: ['seco'],
+        sourceSeenAt: { seco: new Date(Date.now() - DAY_MS).toISOString() },
+        reason: 'pagina non trovata',
+        firstSeenAt: OLD,
+        updatedAt: OLD,
+      },
+    });
+    const incoming = {
+      key,
+      name: 'unseen-web-source',
+      domain: key,
+      careersUrl: newCareersUrl,
+    };
+
+    reviveRetryableDeadCandidate(store, key, incoming, null, 'web');
+    upsertCandidate(store, incoming, 'web');
+
+    expect(store.candidates[key].status).toBe('new');
+    expect(store.candidates[key].name).toBe('Employer AG');
+    expect(store.candidates[key].careersUrl).toBe(newCareersUrl);
+    expect(store.candidates[key].sources).toContain('web');
   });
 });

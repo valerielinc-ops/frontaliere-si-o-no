@@ -30,6 +30,7 @@ import {
   loadCandidates,
   saveCandidates,
   upsertCandidate,
+  candidateKey,
   reviveRetryableDeadCandidate,
   statusCounts,
   pruneTerminal,
@@ -86,8 +87,9 @@ function file(candidate, source) {
   if (filed >= limit) return;
   const cov = isCovered(coverage, candidate);
   if (cov.covered) { skippedCovered++; return; }
-  const { key, created } = upsertCandidate(store, candidate, source);
-  if (!created) reviveRetryableDeadCandidate(store, key, candidate, dryRun ? null : undefined);
+  const key = candidate.key || candidateKey(candidate);
+  reviveRetryableDeadCandidate(store, key, candidate, dryRun ? null : undefined, source);
+  const { created } = upsertCandidate(store, candidate, source);
   if (created) { filed++; perSource[source] = (perSource[source] || 0) + 1; }
 }
 
