@@ -84,7 +84,7 @@ describe('workflow failure reporting stays coupled to the central scanner contra
     expect(byJob.get('validate-dist / validate-dist-postbuild')?.with['workflow-file'])
       .toBe('.github/workflows/post-deploy-validate-dist.yml');
     expect(byJob.get('validate-dist / validate-dist-postbuild')?.with['build-sha'])
-      .toBe('${{ github.event.workflow_run.head_sha }}');
+      .toBe('${{ inputs.source_sha }}');
     expect(byJob.get('validate-live / validate-live')?.with['workflow-file'])
       .toBe('.github/workflows/post-deploy-validate-live.yml');
     expect(byJob.get('publish / publish')?.with['workflow-file'])

@@ -1,27 +1,62 @@
 name: Publish to GitHub Pages (deploy + validate)
 
+run-name: Publish Pages build ${{ inputs.source_run_id }} @ ${{ inputs.source_sha }}
+
 # Second half of the build→publish split (see deploy.yml's concurrency comment).
 # deploy.yml now only BUILDS (matrix-setup → prep → build-locale ×4) under a
 # workflow-level `pages-build-run` lock that releases the moment the build
-# finishes. This workflow runs the rest — deploy to Pages + validate + publish —
-# triggered by a completed build run via `workflow_run`. It carries its own
+# finishes. The cheap deploy-request coordinator dispatches this workflow for
+# the latest successful build. It carries its own
 # stage-specific locks so a new build can proceed while the previous build's
 # validation and post-deploy tail run here independently. Publish admission
 # remains all-locale: a new IT snapshot must not be paired with an older
 # non-IT shard because the pages emit one cross-locale hreflang graph.
 #
 # Cross-run handoff: every artifact the deploy/validate/publish steps need was
-# produced by the BUILD run (`github.event.workflow_run.id`). The reusable
+# produced by the BUILD run (`inputs.source_run_id`). The reusable
 # validators already fetch by `deploy_run_id`; the github-pages Pages artifact is
 # re-materialised into THIS run below (actions/deploy-pages can only publish an
 # artifact that lives in the current run).
 
 on:
-  workflow_run:
-    workflows: ["Deploy to GitHub Pages"]
-    types: [completed]
-    branches:
-      - main
+  # The cheap coordinator admits one immutable source run explicitly. The
+  # source admission job below re-reads that run from GitHub before any plan or
+  # Pages job can start, so a manually forged dispatch cannot select an
+  # arbitrary artifact by supplying a plausible-looking SHA.
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: 'Successful Deploy to GitHub Pages run that produced the artifact'
+        required: true
+        type: string
+      source_sha:
+        description: 'Exact main SHA of the source build'
+        required: true
+        type: string
+      source_conclusion:
+        description: 'Verified source build conclusion'
+        required: true
+        type: string
+      source_branch:
+        description: 'Source build branch'
+        required: true
+        type: string
+      source_event_name:
+        description: 'Source build event'
+        required: true
+        type: string
+      source_workflow:
+        description: 'Source build workflow name'
+        required: true
+        type: string
+      source_workflow_path:
+        description: 'Source build workflow path'
+        required: true
+        type: string
+      source_workflow_id:
+        description: 'Source build workflow ID'
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -38,24 +73,94 @@ permissions:
 #
 # The Pages job's group remains CONDITIONAL on the per-locale admission plan
 # proving a publishable IT artifact. Do not collapse it back to a bare
-# `pages-deploy`: no-op or provenance-blocked runs would evict real pending
-# publishes. The group is also shared with restore-from-artifact.yml, so
-# recovery cannot race a live upload.
+# `pages-deploy`: provenance-blocked runs must not evict a real upload. The
+# group is also shared with restore-from-artifact.yml, so recovery cannot race
+# a live upload.
 #
-# Each job-scoped group routes its own no-op path per run. Legitimate deploys
-# and post-deploy side-effects use newest-wins with cancel=false: an in-flight
-# Pages upload or side-effect is never interrupted, while a newer cumulative
-# main build may supersede a pending older one.
+# The coordinator admits one source build at a time. `cancel-in-progress: false`
+# therefore protects the in-flight upload without relying on GitHub's one-entry
+# pending queue; the next coordinator tick dispatches the newest successful
+# build after this run releases the slot.
 jobs:
+  validate-source-build:
+    name: Validate canonical source build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v7
+        with:
+          ref: refs/heads/main
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Reject non-main publish dispatch
+        env:
+          PROMOTION_EVENT: ${{ github.event_name }}
+          PROMOTION_REF: ${{ github.ref }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          PROMOTION_SOURCE_REPOSITORY: ${{ github.repository }}
+          PROMOTION_HEAD_SHA: ${{ github.sha }}
+        run: node scripts/ci/production-promotion-gate.mjs trigger
+
+      - name: Validate source build identity and inputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          SOURCE_BRANCH: ${{ inputs.source_branch }}
+          SOURCE_CONCLUSION: ${{ inputs.source_conclusion }}
+          SOURCE_EVENT_NAME: ${{ inputs.source_event_name }}
+          SOURCE_WORKFLOW: ${{ inputs.source_workflow }}
+          SOURCE_WORKFLOW_PATH: ${{ inputs.source_workflow_path }}
+          SOURCE_WORKFLOW_ID: ${{ inputs.source_workflow_id }}
+        run: |
+          set -euo pipefail
+          case "$SOURCE_RUN_ID" in
+            ''|*[!0-9]*)
+              echo '::error::source_run_id must contain only decimal digits'
+              exit 1
+              ;;
+          esac
+          source_run_json="$RUNNER_TEMP/canonical-source-run.json"
+          gh api --method GET \
+            "repos/${PROMOTION_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" \
+            > "$source_run_json"
+          PROMOTION_SOURCE_RUN_ID="$SOURCE_RUN_ID" \
+            node scripts/ci/production-promotion-gate.mjs source-run < "$source_run_json"
+          jq -e \
+            --arg sha "$SOURCE_SHA" \
+            --arg branch "$SOURCE_BRANCH" \
+            --arg conclusion "$SOURCE_CONCLUSION" \
+            --arg event "$SOURCE_EVENT_NAME" \
+            --arg workflow "$SOURCE_WORKFLOW" \
+            --arg workflow_path "$SOURCE_WORKFLOW_PATH" \
+            --arg workflow_id "$SOURCE_WORKFLOW_ID" \
+            '(.head_sha == $sha) and
+             (.head_branch == $branch) and
+             (.conclusion == $conclusion) and
+             (.event == $event) and
+             (.name == $workflow) and
+             (.path == $workflow_path) and
+             ((.workflow_id | tostring) == $workflow_id)' \
+            "$source_run_json" >/dev/null
+
   # ───────────────────────────────────────────────────────────────────────
-  # resolve-publish-plan: turn the completed matrix into an explicit,
-  # fail-closed locale handoff plan. The aggregate workflow_run conclusion and
+  # resolve-publish-plan: turn the source build matrix into an explicit,
+  # fail-closed locale handoff plan. The source conclusion and
   # a successful IT leg are not enough: every locale source artifact must be
   # proven before the deferred shard tail can start. A cancelled/failed leg is
   # reported stale for recovery, but it blocks this snapshot rather than being
   # mixed with a new locale's SEO output.
   # ───────────────────────────────────────────────────────────────────────
   resolve-publish-plan:
+    needs: validate-source-build
+    if: needs.validate-source-build.result == 'success'
     name: Resolve per-locale publish plan
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -110,7 +215,7 @@ jobs:
       - name: Read source matrix jobs
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
         run: |
           set -euo pipefail
           gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/jobs?per_page=100" > "$RUNNER_TEMP/source-jobs.json"
@@ -126,16 +231,16 @@ jobs:
           pattern: locale-publish-provenance-*
           path: ${{ runner.temp }}/locale-publish-provenance
           merge-multiple: false
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ inputs.source_run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Resolve fail-closed locale plan
         id: plan
         if: always()
         env:
-          SOURCE_RUN_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
-          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
-          SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+          SOURCE_RUN_CONCLUSION: ${{ inputs.source_conclusion }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
         run: |
           set -euo pipefail
           node scripts/ci/resolve-locale-publish-plan.mjs \
@@ -193,8 +298,8 @@ jobs:
       - name: Dispatch a current build
         env:
           GH_TOKEN: ${{ env.APP_TOKEN }}
-          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
-          SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
         run: |
           set -euo pipefail
           gh workflow run deploy.yml --repo "$GITHUB_REPOSITORY" --ref main
@@ -239,8 +344,8 @@ jobs:
     env:
       BUILD_LOCALE: ${{ matrix.locale }}
       DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
-      SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
-      SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+      SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+      SOURCE_SHA: ${{ inputs.source_sha }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GH_REPO: ${{ github.repository }}
     steps:
@@ -257,7 +362,7 @@ jobs:
           # quindi per scripts/ci/checkout-profile-analyzer.mjs lo sparse
           # resterebbe sopra CROSSOVER_MB. Il profilo scritto a mano escludeva
           # quei bucket e tests/checkout-sparse-profiles.test.ts lo boccia.
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ inputs.source_sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -291,9 +396,9 @@ jobs:
         id: download-locale-source
         uses: actions/download-artifact@v8
         with:
-          name: locale-shard-source-${{ matrix.locale }}-${{ github.event.workflow_run.id }}
+          name: locale-shard-source-${{ matrix.locale }}-${{ inputs.source_run_id }}
           path: ${{ runner.temp }}/locale-shard-source
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ inputs.source_run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Extract non-IT source artifact
@@ -329,12 +434,12 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # The gate reads the IT leg from the jobs of the DEPLOY run, not of
           # this publish run. GitHub ignores any `env:` assignment to a default
-          # GITHUB_*/RUNNER_* variable, so `GITHUB_RUN_ID: <workflow_run.id>`
-          # here left the gate polling this run, where no `build-locale (it)`
+          # GITHUB_*/RUNNER_* variable, so using the publish run id here would
+          # leave the gate polling this run, where no `build-locale (it)`
           # exists: phase 1 answered `unobservable` for its whole 3 h budget and
           # every non-IT shard tail stayed unpublished (run 37255215160). The id
           # travels under a free name and becomes GITHUB_RUN_ID only in `run:`.
-          CDN_IT_RUN_ID: ${{ github.event.workflow_run.id }}
+          CDN_IT_RUN_ID: ${{ inputs.source_run_id }}
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           CDN_WAIT_TIMEOUT_S: 2700
           CDN_WAIT_MARGIN_WARN_S: 600
@@ -473,10 +578,10 @@ jobs:
           # scripts/lib/shard-cdn-rewrite.sh. Off = byte-identical to before.
           SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == 'changed' && 'changed' || '' }}
           SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
-          # The deploy's commit for the shard commit messages. Not GITHUB_SHA:
-          # GitHub ignores env assignments to default GITHUB_* variables, and in
-          # a workflow_run that one is main's tip (see the CDN gate above).
-          DEPLOY_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          # The source build's commit for the shard commit messages. Not
+          # GITHUB_SHA: GitHub ignores env assignments to default GITHUB_* vars,
+          # and this dispatch run's default SHA is not the source build SHA.
+          DEPLOY_HEAD_SHA: ${{ inputs.source_sha }}
           # Consumed by scripts/ci/report-shard-push-failure.mjs (gh CLI) when a
           # shard push stays unpublished. The job already grants `issues: write`.
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1014,7 +1119,7 @@ jobs:
           SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
           # Not GITHUB_SHA: env assignments to default GITHUB_* variables are
           # ignored (see the CDN gate above).
-          DEPLOY_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          DEPLOY_HEAD_SHA: ${{ inputs.source_sha }}
         run: |
           # Wall-time della fase (#7301) — vedi "Push section shards (IT ...)"
           # per il perche' del trap EXIT. Il trap non altera l'exit code dello
@@ -1286,8 +1391,8 @@ jobs:
       - name: Write non-IT locale publish provenance
         if: always()
         env:
-          PROVENANCE_SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
-          PROVENANCE_SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+          PROVENANCE_SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          PROVENANCE_SOURCE_SHA: ${{ inputs.source_sha }}
           PROVENANCE_ARTIFACT_RUN_ID: ${{ github.run_id }}
           PROVENANCE_BUILD_OUTCOME: success
           PROVENANCE_VALIDATE_OUTCOME: success
@@ -1370,8 +1475,8 @@ jobs:
         id: plan
         if: always()
         env:
-          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
-          SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
           EXPECTED_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           ARTIFACT_RUN_ID: ${{ github.run_id }}
           SOURCE_HEALTHY_LOCALES: ${{ needs.resolve-publish-plan.outputs.healthy_locales }}
@@ -1416,14 +1521,12 @@ jobs:
     timeout-minutes: 360
     # Only the actual Pages upload owns this cross-workflow lock. A long
     # validator in another run must not keep a newer build from reaching Pages.
-    # Keep the completed workflow_run guard explicit: only a complete source
-    # and post-build plan may enter the shared Pages group; every other no-op
-    # gets a run-unique group.
+    # Keep the source-conclusion guard explicit: only a complete source and
+    # post-build plan may enter the shared Pages group; every other no-op gets
+    # a run-unique group.
     concurrency:
       group: >-
-        ${{ (github.event.workflow_run.conclusion == 'success' ||
-            github.event.workflow_run.conclusion == 'failure' ||
-            github.event.workflow_run.conclusion == 'cancelled') &&
+        ${{ inputs.source_conclusion == 'success' &&
             needs.resolve-publish-plan.outputs.allowed == 'true' &&
             needs.resolve-publish-plan.outputs.it_admitted == 'true' &&
             'pages-deploy' ||
@@ -1528,15 +1631,15 @@ jobs:
       - name: Download and validate IT provenance
         uses: actions/download-artifact@v8
         with:
-          name: locale-publish-provenance-it-${{ github.event.workflow_run.id }}
+          name: locale-publish-provenance-it-${{ inputs.source_run_id }}
           path: ${{ runner.temp }}/locale-publish-provenance-it
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ inputs.source_run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Enforce IT provenance identity
         env:
           EXPECTED_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
-          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
-          SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
         run: |
           node scripts/ci/locale-publish-provenance.mjs \
             --validate-dir "$RUNNER_TEMP/locale-publish-provenance-it" \
@@ -1566,7 +1669,7 @@ jobs:
         with:
           name: github-pages
           path: pages-artifact
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ inputs.source_run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Re-upload github-pages artifact into this run
@@ -1758,13 +1861,14 @@ jobs:
           labels: Bug
           reopen-within-hours: '6'
           # I fatti del vecchio body che la jobs API non conosce: questo
-          # workflow è `workflow_run`, quindi il run che ha PRODOTTO l'artifact
-          # è un altro run, e senza il suo link la diagnosi parte dal posto
-          # sbagliato. Passano come dato via `with:`, non come testo di script.
+          # workflow è dispatchato dal coordinatore, quindi il run che ha
+          # PRODOTTO l'artifact è un altro run, e senza il suo link la diagnosi
+          # parte dal posto sbagliato. Passano come dato via `with:`, non come
+          # testo di script.
           context: |
-            - **Build run (quello che ha prodotto l'artifact):** https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
-            - **Branch del build:** ${{ github.event.workflow_run.head_branch }}
-            - **Trigger del build:** ${{ github.event.workflow_run.event }}
+            - **Build run (quello che ha prodotto l'artifact):** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.source_run_id }}
+            - **Branch del build:** ${{ inputs.source_branch }}
+            - **Trigger del build:** ${{ inputs.source_event_name }}
             - Se lo step fallito è `Deploy to GitHub Pages` o il poll esteso, il
               guasto è lato Pages e non nel dist: guardare prima lo stato dei
               deployment `github-pages` per questo SHA.
@@ -1804,10 +1908,10 @@ jobs:
       cancel-in-progress: false
     uses: ./.github/workflows/post-deploy-validate-dist.yml
     with:
-      deploy_run_id: ${{ github.event.workflow_run.id }}
+      deploy_run_id: ${{ inputs.source_run_id }}
       shard_artifact_run_id: ${{ github.run_id }}
-      deploy_event_name: ${{ github.event.workflow_run.event }}
-      deploy_ref: ${{ github.event.workflow_run.head_sha }}
+      deploy_event_name: ${{ inputs.source_event_name }}
+      deploy_ref: ${{ inputs.source_sha }}
     secrets: inherit
     permissions:
       contents: read    # checkout
@@ -1829,9 +1933,9 @@ jobs:
           needs.deploy.result == 'success' }}
     uses: ./.github/workflows/post-deploy-validate-live.yml
     with:
-      deploy_run_id: ${{ github.event.workflow_run.id }}
-      deploy_event_name: ${{ github.event.workflow_run.event }}
-      deploy_ref: ${{ github.event.workflow_run.head_sha }}
+      deploy_run_id: ${{ inputs.source_run_id }}
+      deploy_event_name: ${{ inputs.source_event_name }}
+      deploy_ref: ${{ inputs.source_sha }}
       healthy_locales: ${{ needs.resolve-nonit-publish.outputs.healthy_locales }}
       stale_locales: ${{ needs.resolve-nonit-publish.outputs.stale_locales }}
     secrets: inherit
@@ -1904,18 +2008,20 @@ jobs:
             'pages-post-deploy' ||
             format('pages-post-deploy-noop-{0}', github.run_id) }}
       cancel-in-progress: false
-    # Forward the complete source identity tuple from the workflow_run payload;
+    # Forward the complete source identity tuple from the coordinator inputs;
     # the reusable callee validates these values instead of inferring them from
     # the orchestrator before it can perform irreversible side effects.
     uses: ./.github/workflows/post-deploy-publish.yml
     with:
-      deploy_run_id: ${{ github.event.workflow_run.id }}
-      deploy_event_name: ${{ github.event.workflow_run.event }}
-      deploy_ref: ${{ github.event.workflow_run.head_sha }}
-      source_workflow: ${{ github.event.workflow_run.name }}
-      source_workflow_path: ${{ github.event.workflow_run.path }}
-      source_workflow_id: ${{ github.event.workflow_run.workflow_id }}
-      source_event_name: ${{ github.event.workflow_run.event }}
+      deploy_run_id: ${{ inputs.source_run_id }}
+      deploy_event_name: ${{ inputs.source_event_name }}
+      deploy_ref: ${{ inputs.source_sha }}
+      source_branch: ${{ inputs.source_branch }}
+      source_conclusion: ${{ inputs.source_conclusion }}
+      source_workflow: ${{ inputs.source_workflow }}
+      source_workflow_path: ${{ inputs.source_workflow_path }}
+      source_workflow_id: ${{ inputs.source_workflow_id }}
+      source_event_name: ${{ inputs.source_event_name }}
     secrets: inherit
     permissions:
       contents: write   # sync previous-slug winners (git push)
@@ -1923,11 +2029,11 @@ jobs:
       issues: write     # github-issue-creator on publish failure
       deployments: read # post-deploy-publish validates deployment provenance
 
-  # Dispatch the runtime watchdog after EVERY successful Pages deploy. GitHub
-  # does not deliver a `workflow_run` hop off this workflow (itself started by
-  # workflow_run): the watchdog's old trigger on this workflow fired 0 times in
-  # its last 100 runs, so this explicit dispatch is the only post-publish
-  # check. It used to also require `validate-live` to be green — i.e. it
+  # Dispatch the runtime watchdog after EVERY successful Pages deploy. This
+  # workflow is coordinator-dispatched, and the watchdog's explicit dispatch
+  # is the only post-publish check; relying on a second workflow_run hop would
+  # reintroduce the same pending-slot loss this workflow fixes. It used to also
+  # require `validate-live` to be green — i.e. it
   # skipped precisely the runs where the live site was broken. The watchdog
   # walks the full chunk graph and repairs a stale edge by exact-URL purge; it
   # reports on its own run and issue, and this job only dispatches it — it
@@ -2011,7 +2117,7 @@ jobs:
           workflow-file: .github/workflows/deploy-publish.yml
           context: |
             - Il job `deploy` del workflow chiamante è fallito durante il publish Pages.
-            - Il run build osservato è disponibile nel payload `workflow_run`.
+            - Il run build osservato è disponibile come `source_run_id` del dispatch.
 
       - name: Report non-IT shard tail failure
         if: always() && needs.publish-nonit-shards.result == 'failure'
@@ -2053,7 +2159,7 @@ jobs:
           # Questo workflow osserva una build prodotta da un'altra run. Passare
           # github.sha riaprirebbe la canonica su codice nuovo anche quando il
           # dist validato precede la fix; il guard vuole lo SHA dell'artifact.
-          build-sha: ${{ github.event.workflow_run.head_sha }}
+          build-sha: ${{ inputs.source_sha }}
           log-from-job: validate-dist / validate-dist-postbuild
           workflow-file: .github/workflows/post-deploy-validate-dist.yml
           context: |

@@ -70,12 +70,14 @@ permissions:
 # member. The in-progress build is never cancelled.
 #
 # Crucially, this run now ENDS at the build: deploy / validate / publish moved to
-# the separate `deploy-publish.yml` workflow (triggered by this run's success via
-# `workflow_run`). So the lock is released the moment the build finishes — the
-# next queued build starts immediately, while the prior build's deploy/validate/
-# publish tail proceeds independently in deploy-publish.yml (its own `pages-deploy`
-# lock). This gives "one build at a time, next starts when the build — not the
-# whole deploy cycle — is done", without the ~1h idle a whole-run lock caused.
+# the separate `deploy-publish.yml` workflow. The cheap `deploy-request.yml`
+# coordinator observes this run's completion and explicitly dispatches the
+# publish tail, so the handoff cannot be evicted by a workflow_run pending slot.
+# The lock is released the moment the build finishes — the next queued build
+# starts immediately, while the prior build's deploy/validate/publish tail
+# proceeds independently in deploy-publish.yml (its own `pages-deploy` lock).
+# This gives "one build at a time, next starts when the build — not the whole
+# deploy cycle — is done", without the ~1h idle a whole-run lock caused.
 #
 # Because one build runs at a time, the per-locale `build-locale` legs of a run
 # never race another run's same-locale CDN / frontaliere-<loc> force-push target,
@@ -87,9 +89,9 @@ concurrency:
 jobs:
   # Admit only an explicit main-branch production candidate before any build
   # leg can produce artifacts or mutate deploy targets.
-  # This file is the canonical build producer for the workflow_run handoff;
-  # post-deploy admission binds the source to this workflow's name, path, and
-  # immutable ID before any publish side effect is allowed.
+  # This file is the canonical build producer for the coordinator handoff;
+  # publish admission binds the source to this workflow's name, path, and
+  # immutable ID before any Pages or post-deploy side effect is allowed.
   validate-promotion-trigger:
     name: validate production promotion trigger
     runs-on: ubuntu-latest
