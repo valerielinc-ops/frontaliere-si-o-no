@@ -3960,7 +3960,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-40-mediamarkt-zurich-ch"
@@ -4052,7 +4051,20 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:57:57.181Z"
+      "firstSeenAt": "2026-10-05T21:57:57.181Z",
+      "previousSlugs": [
+        "gestione-negozio-100-m-f-d-mediamarkt-gumligen",
+        "gestionnaire-de-magasins-100-h-f-d-mediamarkt-gumligen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gestione-negozio-100-m-f-d-mediamarkt-gumligen",
+          "gestionnaire-de-magasins-100-h-f-d-mediamarkt-gumligen"
+        ],
+        "fr": [
+          "gestionnaire-de-magasins-100-h-f-d-mediamarkt-gumligen"
+        ]
+      }
     },
     {
       "id": "mediamarkt-99877",

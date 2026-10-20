@@ -1271,7 +1271,6 @@
           "associate-expert-drug-supply-novartis-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:02:10.216Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1287,8 +1286,7 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS",
-      "retranslationAttempts": 1
+      "addressRegion": "BS"
     },
     {
       "id": "novartis-72991996371d",
