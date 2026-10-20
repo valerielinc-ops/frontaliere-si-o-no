@@ -11,8 +11,8 @@
  * form fields, where the candidate can correct it.
  *
  * CV facts are never guessed from a first name, a photo, a trade («Vendeur») or
- * the posting's wording («Vendeuse/Vendeur»). A separate conservative first-name
- * lookup may prefill a form of address only; it never changes any other fact.
+ * the posting's wording («Vendeuse/Vendeur»). The form of address is filled
+ * only from the CV's own words or what the candidate answered or corrected.
  * Only a whole personal-data entry counts — a short line, or one of its parts
  * between commas or bars — so prose is never read; an inclusive form
  * («Marié(e)», «nato/a») gives the status and no gender; two entries that
@@ -108,33 +108,6 @@ export function salutationOptions(locale = 'it') {
 export function salutationFor(gender, locale = 'it') {
   const options = salutationOptions(locale);
   return gender === 'm' ? options[0] : gender === 'f' ? options[1] : '';
-}
-
-const COMMON_FEMININE_NAMES = new Set(`anna maria sara sofia sophia elena helena laura carla clara alessandra alice emma julia giulia francesca chiara martina elisa alessia federica valentina silvia paola monica nicole daniela isabella beatrice roberta serena bianca aurora camilla cristina michela margherita arianna veronica teresa valeria valerie angela barbara eva nina linda melanie nadine sandra sophie elisabeth aline amelie celine christine claudia fabienne florence julie lea lena nathalie patricia sabrina sylvie`.split(' '));
-const COMMON_MASCULINE_NAMES = new Set(`marco luca luigi giuseppe matteo mattia lorenzo giovanni francesco paolo davide david daniel thomas michael peter martin stefan patrick markus lukas lucas jonas simon riccardo filippo fabio fabrizio roberto alberto enrico giulio christian christoph bruno oliver olivier nicolas niklaus hans reto urs alain alexandre andre antoine bernard dominic eric frederic georges jean luc marc pascal philippe sandro sven yves`.split(' '));
-const LOCALE_NAME_GENDERS = {
-  it: { m: new Set(`andrea nicola gabriele simone daniele michele rosario`.split(' ')) },
-  de: { m: new Set(`andreas johannes matthias beat`.split(' ')) },
-  fr: {
-    m: new Set(`jean pierre philippe michel françois francois franck julien`.split(' ')),
-    f: new Set(`jeanne claire anne`.split(' ')),
-  },
-  en: {
-    m: new Set(`john james william george charles henry jack robert richard`.split(' ')),
-    f: new Set(`mary elizabeth jane rose grace kate`.split(' ')),
-  },
-};
-
-/** Best-effort gender inference for the form-of-address field only. */
-export function salutationGenderFromName(firstName, locale = 'it') {
-  const first = String(firstName ?? '').trim().split(/[\s'’\-]/u)[0]
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-  if (!first) return '';
-  const language = String(locale || '').slice(0, 2).toLowerCase();
-  const local = LOCALE_NAME_GENDERS[language];
-  const feminine = COMMON_FEMININE_NAMES.has(first) || Boolean(local?.f?.has(first));
-  const masculine = COMMON_MASCULINE_NAMES.has(first) || Boolean(local?.m?.has(first));
-  return feminine === masculine ? '' : feminine ? 'f' : 'm';
 }
 
 // The names of the two fields on the review page, in the candidate's language: sent with the field, next to
