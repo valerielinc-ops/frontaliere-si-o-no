@@ -97,6 +97,38 @@ export function extractFieldsInPage() {
     // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
     return [...new Set([headingBefore(element), zoneText(element)].filter(Boolean))].join(' · ') || names[0] || '';
   };
+  const hasRequiredMarker = (element, labelText) => {
+    const labels = new Set();
+    for (const label of element.labels || []) labels.add(label);
+    const direct = element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
+    if (direct) labels.add(direct);
+    const wrapping = element.closest('label');
+    if (wrapping) labels.add(wrapping);
+    for (const id of (element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
+      const node = document.getElementById(id);
+      if (node) labels.add(node);
+    }
+    const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
+    const groupLabel = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
+    if (groupLabel && !groupLabel.contains(element)
+      && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
+    const marker = (node) => {
+      const text = clean(node.innerText || node.textContent);
+      const className = String(node.className?.baseVal || node.className || '');
+      let pseudo = '';
+      try {
+        pseudo = `${window.getComputedStyle(node, '::before').content} ${window.getComputedStyle(node, '::after').content}`;
+      } catch {
+        // Some portal-owned nodes do not expose computed styles.
+      }
+      return REQUIRED_LABEL.test(text)
+        || /required|mandatory|pflichtfeld/i.test(className)
+        || /\*/.test(pseudo.replace(/["']/g, ''));
+    };
+    if ([...labels].some(marker)) return true;
+    return [...labels].some((label) => [...(label.parentElement?.children || [])]
+      .some((sibling) => sibling !== label && marker(sibling)));
+  };
   const SITE_SEARCH_TEXT_RE = /\b(?:search|suche|suchen|find(?:en)?|recherche|rechercher|cerca|buscar|busca|query)\b/i;
   const hasSiteSearchIdentity = (element) => [
     element.getAttribute('type'),
@@ -336,7 +368,7 @@ export function extractFieldsInPage() {
       label,
       context: sectionContext(element),
       section: headingBefore(element),
-      required: required || REQUIRED_LABEL.test(label),
+      required: required || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
       value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
       search: element.getAttribute('data-uxi-widget-type') === 'selectinput' || element.getAttribute('enterkeyhint') === 'search',
       maxLength: Number(element.getAttribute('maxlength')) > 0 ? Number(element.getAttribute('maxlength')) : (tag === 'textarea' || type === 'text' ? statedLimit(element) : null),

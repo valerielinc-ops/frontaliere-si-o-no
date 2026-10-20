@@ -1136,6 +1136,7 @@ export const EXPAND_ALL_RE = /^(alle abschnitte einblenden|alle einblenden|expan
 export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|attach(?:ed)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|attach(?:ed)?|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(a |an |the |your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
 export const COVER_LETTER_UPLOAD_RE = /((cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione))\s+(hochladen|upload(en)?|attach(?:ed)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|attach(?:ed)?|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(a |an |the |your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione)))/i;
 const ICON_ONLY_BUTTON_RE = /^[^\p{L}\p{N}]{1,12}$/u;
+const FILE_PICKER_ACTION_RE = /^(?:browse(?:\s+files?)?|choose(?:\s+(?:a\s+)?file)?|select(?:\s+(?:a\s+)?file)?|upload(?:\s+(?:a\s+)?file)?|attach(?:\s+(?:a\s+)?file)?|durchsuchen|datei\s+(?:auswählen|hochladen)|parcourir|choisir(?:\s+un)?\s+fichier|sélectionner(?:\s+un)?\s+fichier|sfoglia(?:\s+file)?|scegli(?:\s+(?:un\s+)?file)?|seleziona(?:re)?\s+file|carica(?:re)?\s+file|joindre|importer)\s*[.…]*$/i;
 // JavaScript's `\b` is ASCII-only and treats `_` as a word character. Document
 // labels can contain accents and filenames commonly use underscores, so only
 // Unicode letters, numbers and combining marks are token characters here.
@@ -1180,9 +1181,11 @@ export function uploadButtonFor(snapshot, kind) {
   const named = findButton(buttons, pattern);
   if (named) return named;
   const candidates = buttons.filter((button) => {
-    if (button.disabled || button.chrome || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return false;
+    if (button.disabled || button.chrome) return false;
     const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
-    return contextPattern.test(context);
+    const hasDocumentContext = contextPattern.test(context);
+    return hasDocumentContext && (ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())
+      || FILE_PICKER_ACTION_RE.test(String(button.text || '').trim()));
   });
   return candidates.length === 1 ? candidates[0] : null;
 }
@@ -1303,7 +1306,8 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   while (cvFile && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
     if (!attempt(cvKey)) break;
     const namedTriggerButton = uploadButtonFor(current, 'cv');
-    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page) && ownAccountForm(current)
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page)
+      && (sendsApplication(current) || hasApplicationForm(current))
       ? successFactorsIconButtonFor(current, 'cv')
       : null;
     const triggerButton = namedTriggerButton || iconTriggerButton;
@@ -1326,7 +1330,8 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   let coverLetter;
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
     const namedTriggerButton = uploadButtonFor(current, 'cover_letter');
-    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page) && ownAccountForm(current)
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page)
+      && (sendsApplication(current) || hasApplicationForm(current))
       ? successFactorsIconButtonFor(current, 'cover_letter')
       : null;
     const triggerButton = namedTriggerButton || iconTriggerButton;
@@ -1792,16 +1797,25 @@ async function typeOwnPassword({ page, snapshot, ctx, passwords }) {
  * read by the snapshot (`holdsValue` counts it empty), so its own `files` say
  * whether the CV went in; an upload widget that clears its input reads as empty.
  */
-async function requiredLeftEmpty(page, uploaded = new Set()) {
+async function requiredLeftEmpty(page, uploaded = new Set(), uploadedDocuments = new Set()) {
   const url = page.url();
-  for (const field of (await extractFields(page, NAVIGATION)).fields) {
-    if (!field.required) continue;
+  const snapshot = await extractFields(page, NAVIGATION);
+  const fields = snapshot.fields || [];
+  for (const field of fields) {
+    const cvField = isCvFileField(field);
+    if (!field.required && !cvField) continue;
     const uploadedKey = uploadedPortalFieldKey(url, field);
     const filled = field.kind === 'file' || field.inputType === 'file'
-      ? uploaded.has(uploadedKey) || await locatorFor(page, field).evaluate((element) => (element.files?.length || 0) > 0, null, { timeout: 2000 }).catch(() => false)
+      ? uploaded.has(uploadedKey) || (cvField && uploadedDocuments.has('cv'))
+        || await locatorFor(page, field).evaluate((element) => (element.files?.length || 0) > 0, null, { timeout: 2000 }).catch(() => false)
       : holdsValue(field);
     if (!filled) return true;
   }
+  const hasCvUploadControl = Boolean(uploadButtonFor(snapshot, 'cv')
+    || (isSuccessFactorsPage(page)
+      && (sendsApplication(snapshot) || hasApplicationForm(snapshot))
+      && successFactorsIconButtonFor(snapshot, 'cv')));
+  if (hasCvUploadControl && !uploadedDocuments.has('cv')) return true;
   return false;
 }
 
@@ -2177,8 +2191,12 @@ export async function submitViaPortal(ctx) {
     evidence.answers = [];
     // What went into the form's file fields, for the record of what left (submit.mjs `sent`): slots and counts only.
     evidence.uploads = [];
+    const uploadedDocuments = new Set();
     const noteUpload = (document, files = 1) => {
-      if (document) evidence.uploads.push({ document: String(document), files: Number(files) || 1 });
+      if (!document) return;
+      const name = String(document);
+      uploadedDocuments.add(name);
+      evidence.uploads.push({ document: name, files: Number(files) || 1 });
     };
     const record = (question, answer, source, context = '') => {
       if (!question || !String(answer ?? '').trim()) return;
@@ -2193,6 +2211,26 @@ export async function submitViaPortal(ctx) {
       });
       evidence.answers = [...given.values()].slice(0, 80);
     };
+    const candidateWithRecordedAnswers = (candidate, current) => {
+      const answerKey = (item) => portalQuestionKey(item.question, item.context)
+        || portalQuestionId(item.question, item.context);
+      const recorded = [...given.values()];
+      const recordedKeys = new Set(recorded.map(answerKey));
+      const visibleAnswers = (current?.fields || [])
+        .filter((field) => field.inputType !== 'password' && field.kind !== 'file' && field.inputType !== 'file' && holdsValue(field))
+        .map((field) => ({
+          question: String(field.label || field.name || field.id || '').slice(0, 200),
+          answer: field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim(),
+          context: String(field.context || '').slice(0, 240),
+          source: 'answers',
+        }))
+        .filter((item) => item.question && item.answer && !recordedKeys.has(answerKey(item)));
+      const currentAnswers = [...visibleAnswers, ...recorded];
+      const currentKeys = new Set(currentAnswers.map(answerKey));
+      const previous = (candidate?.portalQuestionsAnswered || [])
+        .filter((item) => !currentKeys.has(answerKey(item)));
+      return { ...candidate, portalQuestionsAnswered: [...previous, ...currentAnswers] };
+    };
     // The agentic fallback: once per page and reason, within the run's budget.
     let agentCalls = 0;
     const agentTried = new Set();
@@ -2206,7 +2244,7 @@ export async function submitViaPortal(ctx) {
           page,
           hint,
           errors: current.errors || [],
-          candidate: ctx.candidate,
+          candidate: candidateWithRecordedAnswers(ctx.candidate, current),
           candidateLocale: ctx.candidateLocale,
           codex: ctx.codex,
           files: ctx.files,
@@ -2435,7 +2473,12 @@ export async function submitViaPortal(ctx) {
       if (workable(snapshot)) {
         // The planner never sees a password field, nor what a retry finds typed in it.
         const planned = ownAccount ? { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') } : snapshot;
-        const plan = await planPage({ snapshot: planned, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+        const plan = await planPage({
+          snapshot: planned,
+          candidate: candidateWithRecordedAnswers(ctx.candidate, planned),
+          candidateLocale: ctx.candidateLocale,
+          codex: ctx.codex,
+        });
         const cvField = snapshot.fields.find(isCvFileField);
         // This synthetic action is executed by applyActions below, which resolves
         // the extracted fieldId through data-aa-id; agent.mjs aria-ref actions
@@ -2609,7 +2652,7 @@ export async function submitViaPortal(ctx) {
           // the agent names it, the runner presses it below, behind the submission guard,
           // only when nothing required is left empty on the page.
           if (!submit && !next && !advance && agent.submitRef) {
-            if (!await requiredLeftEmpty(page, uploaded)) finalByAgent = await submitLocator(page, agent.submitRef);
+            if (!await requiredLeftEmpty(page, uploaded, uploadedDocuments)) finalByAgent = await submitLocator(page, agent.submitRef);
           }
         }
       }
@@ -2681,7 +2724,7 @@ export async function submitViaPortal(ctx) {
       // A normal send button is not evidence that the portal form is complete.
       // Let the agent repair any required fields the deterministic fill missed;
       // never click Send while a required answer or upload is still empty.
-      if (await requiredLeftEmpty(page, uploaded)) {
+      if (await requiredLeftEmpty(page, uploaded, uploadedDocuments)) {
         evidence.steps.at(-1).requiredFieldsUnfilled = true;
         const repairUrl = page.url();
         const repair = await runAgent(after, 'required_fields_unfilled');
@@ -2693,7 +2736,7 @@ export async function submitViaPortal(ctx) {
           continue;
         }
         after = await extractFields(page, NAVIGATION);
-        if (await requiredLeftEmpty(page, uploaded)) return await handoff('portal_required_fields_unfilled');
+        if (await requiredLeftEmpty(page, uploaded, uploadedDocuments)) return await handoff('portal_required_fields_unfilled');
         const repairedControls = pageControls(after.buttons, known, page.url());
         if (repairedControls.next && !repairedControls.submit) {
           snapshot = after;
