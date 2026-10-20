@@ -865,7 +865,7 @@
       "slug": "digital-business-partner-in-service-applikationsmanager-in-kis-e-fm-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
         "it": "digital-business-partner-in-service-applikationsmanager-in-kis-e-fm-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "digital-business-partner-service-application-manager-kis-and-fm-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
+        "en": "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-spitalzentrum-biel-centre-hospitalier",
         "de": "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-szb-chb-biel",
         "fr": "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-spitalzentrum-biel-centre-hospitalier"
       },
@@ -913,14 +913,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-szb-chb-biel",
-        "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-spitalzentrum-biel-centre-hospitalier"
+        "digital-business-partner-service-application-manager-kis-and-fm-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-szb-chb-biel"
         ],
         "en": [
-          "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-spitalzentrum-biel-centre-hospitalier"
+          "digital-business-partner-service-application-manager-kis-and-fm-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel"
         ]
       },
       "salaryMin": 115000,
@@ -6567,12 +6567,12 @@
     },
     {
       "id": "szb-chb-2a9b7ad9fddc",
-      "slug": "teamleiterin-teamleiter-hr-administration-80-100-szb-chb-biel-bienne",
+      "slug": "responsabile-del-team-responsabile-del-team-amministrazione-hr-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-hr-administration-80-100-szb-chb-biel-bienne",
-        "it": "teamleiterin-teamleiter-hr-administration-80-100-szb-chb-biel-bienne",
-        "en": "teamleiterin-teamleiter-hr-administration-80-100-szb-chb-biel-bienne",
-        "fr": "teamleiterin-teamleiter-hr-administration-80-100-szb-chb-biel-bienne"
+        "it": "responsabile-del-team-responsabile-del-team-amministrazione-hr-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
+        "en": "team-leader-team-leader-hr-administration-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "fr": "cheffe-d-equipe-chef-d-equipe-administration-rh-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -6631,7 +6631,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:14:56.092Z"
+      "firstSeenAt": "2026-10-20T09:14:56.092Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-hr-administration-80-100-szb-chb-biel-bienne"
+        ],
+        "en": [
+          "teamleiterin-teamleiter-hr-administration-80-100-szb-chb-biel-bienne"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-hr-administration-80-100-szb-chb-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-hr-administration-80-100-szb-chb-biel-bienne"
+      ]
     },
     {
       "id": "szb-chb-f8b722892441",
@@ -6640,7 +6654,7 @@
         "it": "settore-personale-emergenza-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "en": "personnel-emergency-department-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "de": "sachbearbeiter-in-notfallaufnahme-50-60-szb-chb-biel-bienne",
-        "fr": "responsable-des-urgences-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "fr": "departement-personnel-urgence-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -6690,7 +6704,7 @@
         "sachbearbeiter-in-notfallaufnahme-60-90-szb-chb-biel-bienne",
         "sachbearbeiter-in-notfallaufnahme-50-60-szb-chb-biel-bienne",
         "sachbearbeiter-in-notfallaufnahme-60-szb-chb-biel-bienne",
-        "departement-personnel-urgence-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "responsable-des-urgences-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6703,7 +6717,7 @@
         ],
         "fr": [
           "sachbearbeiter-in-notfallaufnahme-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-          "departement-personnel-urgence-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+          "responsable-des-urgences-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-09-25T14:43:59.868Z",
