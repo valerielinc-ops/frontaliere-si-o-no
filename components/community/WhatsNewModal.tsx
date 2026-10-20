@@ -44,6 +44,14 @@ export const RELEASES: Release[] = [
     ],
   },
   {
+    version: '3.99.4',
+    date: '2026-10-20',
+    titleKey: 'whatsNew.v3994.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v3994.regionalJobs.title', descKey: 'whatsNew.v3994.regionalJobs.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
     version: '3.99.3',
     date: '2026-10-20',
     titleKey: 'whatsNew.v3993.title',
