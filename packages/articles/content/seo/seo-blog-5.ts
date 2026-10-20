@@ -40541,17 +40541,17 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-educatore-infanzia-ticino-stipendio-requisiti': {
-    title: 'Educatore dell\'infanzia in Ticino: stipendio e requisiti',
-    description: 'Scopri quanto guadagna un educatore dell\'infanzia in Ticino, i requisiti per lavorare e come ottenere il Permesso G. Dati aggiornati 2026 per frontalieri in',
-    keywords: 'frontalieri, ticino, svizzera, italia, educatore, dell, infanzia, stipendio',
-    ogTitle: 'Educatore infanzia Ticino stipendio requisiti',
-    ogDescription: 'Scopri quanto guadagna un educatore dell\'infanzia in Ticino, i requisiti per lavorare e come ottenere il Permesso G',
+    title: "Educatore dell’infanzia in Ticino: stipendio e requisiti",
+    description: "Concorso LIS 2026: retribuzione lorda per classi 12–14, titolo SSS o equivalente e requisiti da controllare prima di candidarsi come educatore in Ticino.",
+    keywords: "educatore, infanzia, ticino, stipendio, requisiti, LIS, SSS",
+    ogTitle: "Educatore dell’infanzia in Ticino: stipendio e requisiti",
+    ogDescription: "Concorso LIS 2026: retribuzione lorda per classi 12–14, titolo SSS o equivalente e requisiti da controllare prima di candidarsi come educatore in Ticino.",
     canonicalPath: '/articoli-frontaliere/educatore-infanzia-ticino-stipendio-requisiti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Educatore dell'infanzia in Ticino: stipendio e requisiti",
-      "description": "Scopri quanto guadagna un educatore dell'infanzia in Ticino, i requisiti per lavorare e come ottenere il Permesso G. Dati aggiornati 2026 per frontalieri in",
+      "headline": "Educatore dell’infanzia in Ticino: stipendio e requisiti",
+      "description": "Concorso LIS 2026: retribuzione lorda per classi 12–14, titolo SSS o equivalente e requisiti da controllare prima di candidarsi come educatore in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -40565,7 +40565,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "caption": "Un asilo nido in Ticino con educatori e bambini"
       },
       "datePublished": "2026-05-25T09:54:59+00:00",
-      "dateModified": "2026-05-25T09:54:59+00:00",
+      "dateModified": "2026-10-20T00:00:00+00:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -40770,17 +40770,17 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-educatore-infanzia-ticino-stipendi-2026': {
-    title: 'Lavorare come educatore dell\'infanzia in Ticino: stipendi e requisiti',
-    description: 'Guida completa per diventare educatore dell\'infanzia in Ticino: diploma SSS richiesto, stipendio CHF 73K–97K, LIS e altri datori di lavoro, processo per',
-    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, educatore, dell, infanzia',
-    ogTitle: 'Lavorare come educatore dell\'infanzia in Ticino: stipendi e requisiti',
-    ogDescription: 'Guida completa per diventare educatore dell\'infanzia in Ticino: diploma SSS richiesto, stipendio CHF 73K–97K, LIS e altri datori di lavoro, processo per',
+    title: "Educatore dell’infanzia in Ticino: stipendi LIS 2026",
+    description: "Le classi salariali lorde del concorso LIS 2026, il calcolo su 13 mensilità, la scadenza e i documenti richiesti per candidarsi come educatore dell’infanzia.",
+    keywords: "educatore, infanzia, ticino, stipendi, 2026, LIS, concorso",
+    ogTitle: "Educatore dell’infanzia in Ticino: stipendi LIS 2026",
+    ogDescription: "Le classi salariali lorde del concorso LIS 2026, il calcolo su 13 mensilità, la scadenza e i documenti richiesti per candidarsi come educatore dell’infanzia.",
     canonicalPath: '/articoli-frontaliere/educatore-infanzia-ticino-stipendi-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Lavorare come educatore dell'infanzia in Ticino: stipendi e requisiti",
-      "description": "Guida completa per diventare educatore dell'infanzia in Ticino: diploma SSS richiesto, stipendio CHF 73K–97K, LIS e altri datori di lavoro, processo per",
+      "headline": "Educatore dell’infanzia in Ticino: stipendi LIS 2026",
+      "description": "Le classi salariali lorde del concorso LIS 2026, il calcolo su 13 mensilità, la scadenza e i documenti richiesti per candidarsi come educatore dell’infanzia.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -40794,7 +40794,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "caption": "Un'educatrice dell'infanzia in un asilo ticinese con vista sul Lago di Lugano"
       },
       "datePublished": "2026-05-25T10:25:07+00:00",
-      "dateModified": "2026-05-25T10:25:07+00:00",
+      "dateModified": "2026-10-20T00:00:00+00:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -40887,17 +40887,17 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-educatore-infanzia-ticino-stipendi': {
-    title: 'Lavorare come educatore dell\'infanzia in Ticino: stipendio e requisiti',
-    description: 'Guida completa su come diventare educatore dell\'infanzia in Ticino: stipendio tra CHF 73K e CHF 97K, requisiti, datori di lavoro e confronto salariale con',
-    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, educatore, dell, infanzia',
-    ogTitle: 'Lavorare come educatore dell\'infanzia in Ticino: stipendio e requisiti',
-    ogDescription: 'Guida completa su come diventare educatore dell\'infanzia in Ticino: stipendio tra CHF 73K e CHF 97K, requisiti, datori di lavoro e confronto salariale con',
+    title: "Stipendio educatore dell’infanzia in Ticino: come leggerlo",
+    description: "Come interpretare i dati salariali: scala LIS 2026, differenza tra lordo e netto, 13 mensilità, titolo equivalente e verifiche fiscali per frontalieri.",
+    keywords: "educatore, stipendio, ticino, lordo, netto, frontalieri, LIS",
+    ogTitle: "Stipendio educatore dell’infanzia in Ticino: come leggerlo",
+    ogDescription: "Come interpretare i dati salariali: scala LIS 2026, differenza tra lordo e netto, 13 mensilità, titolo equivalente e verifiche fiscali per frontalieri.",
     canonicalPath: '/articoli-frontaliere/educatore-infanzia-ticino-stipendi/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Lavorare come educatore dell'infanzia in Ticino: stipendio e requisiti",
-      "description": "Guida completa su come diventare educatore dell'infanzia in Ticino: stipendio tra CHF 73K e CHF 97K, requisiti, datori di lavoro e confronto salariale con",
+      "headline": "Stipendio educatore dell’infanzia in Ticino: come leggerlo",
+      "description": "Come interpretare i dati salariali: scala LIS 2026, differenza tra lordo e netto, 13 mensilità, titolo equivalente e verifiche fiscali per frontalieri.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -40911,7 +40911,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "caption": "Un educatore dell'infanzia in Ticino con bambini in un asilo nido colorato"
       },
       "datePublished": "2026-05-25T12:06:48+00:00",
-      "dateModified": "2026-05-25T12:06:48+00:00",
+      "dateModified": "2026-10-20T00:00:00+00:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -40926,17 +40926,17 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-educatore-infanzia-ticino-stipendi-requisiti': {
-    title: 'Educatore dell\'infanzia in Ticino: stipendi e requisiti',
-    description: 'Scopri stipendi, requisiti e procedure per lavorare come educatore dell\'infanzia in Ticino, con confronto salariale Italia-Svizzera. Dati aggiornati 2026 per',
-    keywords: 'frontalieri, ticino, svizzera, italia, educatore, dell, infanzia, stipendi',
-    ogTitle: 'Educatore infanzia Ticino stipendi requisiti',
-    ogDescription: 'Scopri stipendi, requisiti e procedure per lavorare come educatore dell\'infanzia in Ticino, con confronto salariale Italia-Svizzera',
+    title: "Educatore dell’infanzia in Ticino: titoli e requisiti",
+    description: "Diploma SSS o titolo equivalente, riconoscimento delle qualifiche, documenti della candidatura LIS 2026 e distinzione tra permesso G e statuto fiscale.",
+    keywords: "educatore, infanzia, ticino, requisiti, SSS, riconoscimento, permesso G",
+    ogTitle: "Educatore dell’infanzia in Ticino: titoli e requisiti",
+    ogDescription: "Diploma SSS o titolo equivalente, riconoscimento delle qualifiche, documenti della candidatura LIS 2026 e distinzione tra permesso G e statuto fiscale.",
     canonicalPath: '/articoli-frontaliere/educatore-infanzia-ticino-stipendi-requisiti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Educatore dell'infanzia in Ticino: stipendi e requisiti",
-      "description": "Scopri stipendi, requisiti e procedure per lavorare come educatore dell'infanzia in Ticino, con confronto salariale Italia-Svizzera. Dati aggiornati 2026 per",
+      "headline": "Educatore dell’infanzia in Ticino: titoli e requisiti",
+      "description": "Diploma SSS o titolo equivalente, riconoscimento delle qualifiche, documenti della candidatura LIS 2026 e distinzione tra permesso G e statuto fiscale.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -40950,7 +40950,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "caption": "Un'educatrice dell'infanzia lavora con bambini in un asilo nido nel Canton Ticino"
       },
       "datePublished": "2026-05-25T12:31:15+00:00",
-      "dateModified": "2026-05-25T12:31:15+00:00",
+      "dateModified": "2026-10-20T00:00:00+00:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -43494,17 +43494,17 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-educatore-infanzia-ticino-stipendio': {
-    title: 'Educatore infanzia in Ticino: stipendio e requisiti',
-    description: 'Guida completa per educatori in Ticino: diploma SSS, stipendio 73-97k CHF, Permesso G e confronto salariale con Italia e Germania. Dati aggiornati 2026 per',
-    keywords: 'frontalieri, ticino, svizzera, italia, educatore, infanzia, stipendio, requisiti',
-    ogTitle: 'Educatore infanzia in Ticino: stipendio e requisiti',
-    ogDescription: 'Scopri quanto guadagna un educatore in Ticino, i requisiti SSS e come ottenere il Permesso G per frontalieri.',
+    title: "Stipendio e candidatura per educatori dell’infanzia in Ticino",
+    description: "Dati lordi LIS 2026, requisiti formativi e checklist pratica per la candidatura; permesso G e statuto fiscale richiedono verifiche separate.",
+    keywords: "educatore, infanzia, ticino, stipendio, candidatura, permesso G, tasse",
+    ogTitle: "Stipendio e candidatura per educatori dell’infanzia in Ticino",
+    ogDescription: "Dati lordi LIS 2026, requisiti formativi e checklist pratica per la candidatura; permesso G e statuto fiscale richiedono verifiche separate.",
     canonicalPath: '/articoli-frontaliere/educatore-infanzia-ticino-stipendio',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Educatore infanzia in Ticino: stipendio e requisiti",
-      "description": "Guida completa per educatori in Ticino: diploma SSS, stipendio 73-97k CHF, Permesso G e confronto salariale con Italia e Germania. Dati aggiornati 2026 per",
+      "headline": "Stipendio e candidatura per educatori dell’infanzia in Ticino",
+      "description": "Dati lordi LIS 2026, requisiti formativi e checklist pratica per la candidatura; permesso G e statuto fiscale richiedono verifiche separate.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -43518,7 +43518,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "caption": "Educatore dell'infanzia al lavoro in un asilo moderno in Ticino con panorama alpino."
       },
       "datePublished": "2026-06-05T07:00:40+00:00",
-      "dateModified": "2026-06-05T07:00:40+00:00",
+      "dateModified": "2026-10-20T00:00:00+00:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -54741,17 +54741,17 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliere-educatore-ticino-stipendio-requisiti': {
-    title: 'Lavorare come educatore in Ticino: stipendio e requisiti',
-    description: 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e prevede l\'esenzione di €7\'500 per i vecchi frontalieri e una franchigia di €10\'000 per i',
-    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, educatore, stipendio, requisiti',
-    ogTitle: 'Lavorare come educatore in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
-    ogDescription: 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e prevede l\'esenzione di €7\'500 per i vecchi frontalieri e una franchigia di €10\'000 per i',
+    title: "Lavorare come educatore in Ticino: stipendio LIS 2026 e requisiti",
+    description: "Stipendi lordi LIS 2026 per educatori dell’infanzia: classi 12–14, tredicesima, titolo SSS o equivalente, candidatura, permesso G e statuto fiscale.",
+    keywords: "educatore, infanzia, ticino, stipendio, LIS, requisiti, permesso G",
+    ogTitle: "Lavorare come educatore in Ticino: stipendio LIS 2026 e requisiti",
+    ogDescription: "Stipendi lordi LIS 2026 per educatori dell’infanzia: classi 12–14, tredicesima, titolo SSS o equivalente, candidatura, permesso G e statuto fiscale.",
     canonicalPath: '/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Lavorare come educatore in Ticino: stipendio e requisiti",
-      "description": "Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e prevede l'esenzione di €7'500 per i vecchi frontalieri e una franchigia di €10'000 per i",
+      "headline": "Lavorare come educatore in Ticino: stipendio LIS 2026 e requisiti",
+      "description": "Stipendi lordi LIS 2026 per educatori dell’infanzia: classi 12–14, tredicesima, titolo SSS o equivalente, candidatura, permesso G e statuto fiscale.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -54765,7 +54765,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "caption": "Una scena di Lugano, con il lago in primo piano, visto dalla città."
       },
       "datePublished": "2026-07-23T03:02:49+00:00",
-      "dateModified": "2026-07-23T03:02:49+00:00",
+      "dateModified": "2026-10-20T00:00:00+00:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -112407,6 +112407,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/indagine-disparita-salariali-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lega-misure-lugano': {
+    title: 'La Lega chiede misure sui frontalieri a Lugano',
+    description: 'Il rafforzamento è stato approvato il 29 settembre 2026 Wicht chiede al Municipio di Lugano di sollecitare il Cantone La richiesta riguarda il pacchetto',
+    keywords: 'frontalieri, ticino, svizzera, italia, lega, chiede, misure, lugano',
+    ogTitle: 'Lega e frontalieri: interrogazione al Municipio di Lugano',
+    ogDescription: 'Il rafforzamento è stato approvato il 29 settembre 2026 Wicht chiede al Municipio di Lugano di sollecitare il Cantone La richiesta riguarda il pacchetto',
+    canonicalPath: '/articoli-frontaliere/lega-misure-lugano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Lega chiede misure sui frontalieri a Lugano",
+      "description": "Il rafforzamento è stato approvato il 29 settembre 2026 Wicht chiede al Municipio di Lugano di sollecitare il Cantone La richiesta riguarda il pacchetto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lega-misure-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-20T14:47:12+00:00",
+      "dateModified": "2026-10-20T14:47:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lega-misure-lugano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-battaglia-frontalieri-tasse-diritti': {
+    title: 'La lunga battaglia dei frontalieri: tasse, diritti e disparità',
+    description: 'Circa 31 mila frontalieri nel Varesotto e 32 mila nel Comasco Varese resta esclusa dai ristorni dopo il ritorno del 4% Il 31,7% supera un\'ora e mezza di viaggio',
+    keywords: 'frontalieri, ticino, svizzera, italia, lunga, battaglia, tasse, diritti',
+    ogTitle: 'Frontalieri Varese e Como: la battaglia su tasse, ristorni e diritti',
+    ogDescription: 'Circa 31 mila frontalieri nel Varesotto e 32 mila nel Comasco Varese resta esclusa dai ristorni dopo il ritorno del 4% Il 31,7% supera un\'ora e mezza di viaggio',
+    canonicalPath: '/articoli-frontaliere/battaglia-frontalieri-tasse-diritti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La lunga battaglia dei frontalieri: tasse, diritti e disparità",
+      "description": "Circa 31 mila frontalieri nel Varesotto e 32 mila nel Comasco Varese resta esclusa dai ristorni dopo il ritorno del 4% Il 31,7% supera un'ora e mezza di viaggio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-battaglia-frontalieri-tasse-diritti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-20T15:23:15+00:00",
+      "dateModified": "2026-10-20T15:23:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/battaglia-frontalieri-tasse-diritti/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
