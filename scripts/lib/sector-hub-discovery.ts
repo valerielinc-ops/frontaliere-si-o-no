@@ -388,23 +388,18 @@ export function buildSectorHubDiscoveryReport({
   // generated HTML all agree about whether that page really exists.
   const existingCategoryJobCounts = new Map<string, number>();
   const existingCategoryJobIds = new Map<string, Map<string, number>>();
-  for (const rawJob of jobs) {
-    if (isFixtureJob(rawJob) || !isListingInventoryJob(rawJob)) continue;
-    const job = normalizeListingIdentity(rawJob);
-    const categorySlug = String(job.category || '').toLowerCase();
-    if (!isKnownExistingCategorySlug(categorySlug)) continue;
-    existingCategoryJobCounts.set(categorySlug, (existingCategoryJobCounts.get(categorySlug) || 0) + 1);
-    const ids = existingCategoryJobIds.get(categorySlug) || new Map<string, number>();
-    const id = String(job.id);
-    ids.set(id, (ids.get(id) || 0) + 1);
-    existingCategoryJobIds.set(categorySlug, ids);
-  }
-
   jobs.forEach((job, index) => {
     if (isFixtureJob(job) || !isListingInventoryJob(job)
       || !isSectorHubJobActive(job, 'it') || resolveJobCanton(job) !== 'TI') return;
     const listing = normalizeListingIdentity(job);
     const id = jobIdentity(listing, index);
+    const categorySlug = String(listing.category || '').toLowerCase();
+    if (isKnownExistingCategorySlug(categorySlug)) {
+      existingCategoryJobCounts.set(categorySlug, (existingCategoryJobCounts.get(categorySlug) || 0) + 1);
+      const ids = existingCategoryJobIds.get(categorySlug) || new Map<string, number>();
+      ids.set(id, (ids.get(id) || 0) + 1);
+      existingCategoryJobIds.set(categorySlug, ids);
+    }
     if (seenJobIds.has(id)) return;
     seenJobIds.add(id);
     const views = jobTrafficScore(listing, popularity);
