@@ -1229,7 +1229,21 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     opts.recordUrl,
     opts.recordTitle,
   );
-  const unresolvedStructuredIdentity = allStructuredRecords.length > 0 && !structuredRecords.length;
+  const requestedTitleIdentity = vacancyTitleIdentity(opts.recordTitle);
+  const renderedTitleIdentity = vacancyTitleIdentity(renderedTitle);
+  // A stale JobPosting node must not lend its location to another vacancy.
+  // When the rendered H1 independently confirms the requested listing title,
+  // however, the rendered detail body is still source-backed evidence for that
+  // same vacancy. Physioswiss serves exactly this shape: JSON-LD says
+  // "Header", while the detail H1 and address name the selected posting.
+  const renderedTitleConfirmsRequestedRecord = Boolean(
+    requestedTitleIdentity
+      && renderedTitleIdentity
+      && renderedTitleIdentity === requestedTitleIdentity,
+  );
+  const unresolvedStructuredIdentity = allStructuredRecords.length > 0
+    && !structuredRecords.length
+    && !renderedTitleConfirmsRequestedRecord;
   const structured = structuredRecords[0] || {};
   // The first H1 can be the employer or brand while the selected JobPosting
   // carries the vacancy title. Prefer the page-scoped structured record and
