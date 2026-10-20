@@ -13,7 +13,7 @@ import {
   salutationGenderFromName,
   salutationOptions,
 } from '../functions/src/lib/personalFacts.js';
-import { buildFormAnswers, salutationQuestion } from '../functions/src/assistedApplicationAiDraftCore.js';
+import { buildFormAnswers, candidateIdentity, salutationQuestion } from '../functions/src/assistedApplicationAiDraftCore.js';
 import { EDITABLE_FIELDS, candidateWithEdits, fieldView, formAnswersWithEdits, planCandidateEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { candidateAnswerForField, guardPlan, planSystemPrompt, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { autoAnswersForPortalQuestions, candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
@@ -139,6 +139,11 @@ describe('what the CV says is not asked again', () => {
     const ambiguous = candidateWithEdits({ order: { ...luca, fullName: 'Alex Morgan', applicantName: 'Alex Morgan' }, draft: draftOf('Alex Morgan'), flow: {} });
     expect(ambiguous.personal.salutation).toBe('');
     expect(salutationQuestion({ channel, questions: [], answers: ambiguous.answers, locale: 'en' })).toMatchObject({ id: 'salutation' });
+
+    const normalizedOrder = { locale: 'it', fullName: 'Luca Example' };
+    const normalizedDraft = { profile: { fullName: '' }, factSources: { text: '' }, questions: [], formAnswers: [] };
+    expect(candidateIdentity(normalizedOrder, normalizedDraft.profile).name).toBe('Luca Example');
+    expect(candidateWithEdits({ order: normalizedOrder, draft: normalizedDraft, flow: {} }).personal.salutation).toBe('Signor');
   });
 
   it('lets the candidate’s own word win over the CV, and an emptied field stay empty', () => {
