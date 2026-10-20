@@ -15,7 +15,7 @@
  * non-resolving paths so the commit is always test-clean (main stays green) and
  * the resolving paths still ship. Idempotent; exits 0 even with nothing to do.
  */
-import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
 
 // Sharded accumulator (issue #2988): the logical {paths} set lives across
 // data/seo-404-compat/part-*.json. Read/write only via the store helpers.
@@ -60,7 +60,7 @@ async function main(): Promise<void> {
     return;
   }
 
-  const data = readCompatPaths(ROOT) as { paths?: unknown; [k: string]: unknown };
+  const data = readCompatPathsStrict(ROOT) as { paths?: unknown; [k: string]: unknown };
   if (!Array.isArray(data.paths)) {
     console.log('[prune-404-compat] no `paths` — nothing to do.');
     return;
