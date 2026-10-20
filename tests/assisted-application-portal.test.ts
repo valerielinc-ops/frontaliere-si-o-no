@@ -1611,7 +1611,7 @@ describe('portal runner helpers', () => {
     expect(named({ name: 'Maria' })).toMatchObject({ firstName: 'Maria', lastName: '' });
     expect(candidate.identity.address).toEqual({ street: 'Via Roma 1', postalCode: '22100', city: 'Como', country: 'Italia' });
     expect(candidate.profile).toMatchObject({ nationality: 'italiana', dateOfBirth: '' });
-    expect(candidate.portalQuestionsAnswered).toEqual([{ question: 'Start date?', answer: '1.12.2026' }]);
+    expect(candidate.portalQuestionsAnswered).toEqual([{ question: 'Start date?', answer: '1.12.2026', source: 'answers' }]);
     expect(candidate.texts).toMatchObject({ motivationShort: 'Motivo', coverLetter: 'Lettera' });
   });
 
