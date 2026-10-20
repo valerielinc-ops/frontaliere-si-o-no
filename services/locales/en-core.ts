@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const enCore: Record<string, string> = {
+ 'whatsNew.v3992.title': "New jobs since your last visit",
+ 'whatsNew.v3992.returnVisit.title': "Show new jobs in your current search",
+ 'whatsNew.v3992.returnVisit.desc': "See which jobs were added since your previous visit. Your profession and active filters stay in place.",
  'whatsNew.v3991.title': "Job proposals closer to you",
  'whatsNew.v3991.conciergeProximity.title': "Distance helps rank proposed jobs",
  'whatsNew.v3991.conciergeProximity.desc': "Add your town or postal code to your profile so we can prioritise compatible opportunities in your area. CV relevance remains the main criterion; no full street address is needed.",
@@ -742,6 +745,10 @@ const enCore: Record<string, string> = {
  'jobBoard.homeCta.mobile.title': 'Find jobs in {canton}',
  'jobBoard.homeCta.mobile.button': 'See job listings',
  'jobBoard.filter.newOnly': 'New only',
+ 'jobBoard.returnVisit.message': 'jobs since your last visit',
+ 'jobBoard.returnVisit.show': 'Show new jobs',
+ 'jobBoard.returnVisit.showAll': 'Show all results',
+ 'jobBoard.returnVisit.dismiss': 'Hide new jobs notice',
  'jobBoard.filter.saved': 'Saved',
  'jobBoard.save.add': 'Save job',
  'jobBoard.save.remove': 'Remove from saved',

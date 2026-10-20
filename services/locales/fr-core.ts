@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ 'whatsNew.v3992.title': "Nouvelles offres depuis votre dernière visite",
+ 'whatsNew.v3992.returnVisit.title': "Voir les nouvelles offres dans votre recherche",
+ 'whatsNew.v3992.returnVisit.desc': "Découvrez les offres ajoutées depuis votre dernière visite. Votre profession et vos filtres restent actifs.",
  'whatsNew.v3991.title': "Des offres d’emploi plus proches de chez vous",
  'whatsNew.v3991.conciergeProximity.title': "La proximité aide à classer les postes proposés",
  'whatsNew.v3991.conciergeProximity.desc': "Indiquez votre commune ou votre code postal dans votre profil pour prioriser les offres compatibles près de chez vous. La correspondance avec votre CV reste le critère principal ; votre adresse complète n’est pas nécessaire.",
@@ -745,6 +748,10 @@ const frCore: Record<string, string> = {
  'jobBoard.homeCta.mobile.title': 'Emplois {cantonPrep}',
  'jobBoard.homeCta.mobile.button': 'Voir les offres d\'emploi',
  'jobBoard.filter.newOnly': 'Nouvelles uniquement',
+ 'jobBoard.returnVisit.message': 'offres depuis votre dernière visite',
+ 'jobBoard.returnVisit.show': 'Voir les nouveautés',
+ 'jobBoard.returnVisit.showAll': 'Voir tous les résultats',
+ 'jobBoard.returnVisit.dismiss': 'Masquer l’avis sur les nouvelles offres',
  'jobBoard.filter.saved': 'Enregistrées',
  'jobBoard.save.add': "Enregistrer l'offre",
  'jobBoard.save.remove': 'Retirer des offres enregistrées',

@@ -1,6 +1,9 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ 'whatsNew.v3992.title': "Le novità dalla tua ultima visita",
+ 'whatsNew.v3992.returnVisit.title': "Mostra le offerte nuove nella ricerca corrente",
+ 'whatsNew.v3992.returnVisit.desc': "Scopri quali offerte sono arrivate dalla visita precedente: professione e filtri attivi restano invariati.",
  'whatsNew.v3991.title': "Proposte di lavoro più vicine a te",
  'whatsNew.v3991.conciergeProximity.title': "La distanza aiuta a ordinare le posizioni proposte",
  'whatsNew.v3991.conciergeProximity.desc': "Indica il comune o il CAP nel profilo per dare priorità alle offerte compatibili nella tua zona. La corrispondenza con il CV resta il criterio principale: non serve l’indirizzo completo.",
@@ -781,6 +784,10 @@ const translations: Record<string, string> = {
  'jobBoard.homeCta.mobile.title': 'Cerca lavoro in {canton}',
  'jobBoard.homeCta.mobile.button': 'Vedi le offerte di lavoro',
  'jobBoard.filter.newOnly': 'Solo nuove offerte',
+ 'jobBoard.returnVisit.message': 'offerte dalla tua ultima visita',
+ 'jobBoard.returnVisit.show': 'Mostra novità',
+ 'jobBoard.returnVisit.showAll': 'Mostra tutti i risultati',
+ 'jobBoard.returnVisit.dismiss': 'Nascondi avviso sulle nuove offerte',
  'jobBoard.filter.saved': 'Salvati',
  'jobBoard.save.add': 'Salva annuncio',
  'jobBoard.save.remove': 'Rimuovi dai salvati',

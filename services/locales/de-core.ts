@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3992.title': "Neue Stellen seit deinem letzten Besuch",
+ 'whatsNew.v3992.returnVisit.title': "Neue Stellen in deiner aktuellen Suche anzeigen",
+ 'whatsNew.v3992.returnVisit.desc': "Sieh dir die seit deinem letzten Besuch hinzugekommenen Stellen an. Beruf und aktive Filter bleiben erhalten.",
  'whatsNew.v3991.title': "Passendere Stellen in deiner Nähe",
  'whatsNew.v3991.conciergeProximity.title': "Die Entfernung beeinflusst die Reihenfolge der Vorschläge",
  'whatsNew.v3991.conciergeProximity.desc': "Gib in deinem Profil deinen Wohnort oder deine Postleitzahl an, damit wir passende Stellen in deiner Nähe bevorzugen können. Die Übereinstimmung mit deinem Lebenslauf bleibt entscheidend; eine vollständige Adresse ist nicht nötig.",
@@ -745,6 +748,10 @@ const deCore: Record<string, string> = {
  'jobBoard.homeCta.mobile.title': 'Jobs {cantonPrep}',
  'jobBoard.homeCta.mobile.button': 'Stellenangebote ansehen',
  'jobBoard.filter.newOnly': 'Nur neue',
+ 'jobBoard.returnVisit.message': 'Stellen seit deinem letzten Besuch',
+ 'jobBoard.returnVisit.show': 'Neue Stellen anzeigen',
+ 'jobBoard.returnVisit.showAll': 'Alle Ergebnisse anzeigen',
+ 'jobBoard.returnVisit.dismiss': 'Hinweis auf neue Stellen ausblenden',
  'jobBoard.filter.saved': 'Gespeichert',
  'jobBoard.save.add': 'Stelle speichern',
  'jobBoard.save.remove': 'Aus Gespeicherten entfernen',
