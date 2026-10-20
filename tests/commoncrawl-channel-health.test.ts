@@ -52,9 +52,12 @@ describe('loadChannelHealth / recordChannelHealth', () => {
     expect(history[history.length - 1].pagesRead).toBe(64);
   });
 
-  it('falls back to an empty history for a malformed file', () => {
+  it('refuses to overwrite a malformed history', () => {
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(file, 'not json', 'utf-8');
-    expect(loadChannelHealth(file)).toEqual([]);
+    expect(() => loadChannelHealth(file)).toThrow(/Malformed Common Crawl health/);
+    expect(() => recordChannelHealth({ collection: 'a', totalPages: 100, pagesRead: 1, employers: 0 }, file))
+      .toThrow(/Malformed Common Crawl health/);
+    expect(fs.readFileSync(file, 'utf-8')).toBe('not json');
   });
 });

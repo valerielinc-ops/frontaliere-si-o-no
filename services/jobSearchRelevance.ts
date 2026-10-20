@@ -167,15 +167,19 @@ const SUPPORT_TITLE_PATTERNS = [
   /\b(?:student|studente|studierenden|studierend|etudiant|etudiante)\b/i,
 ];
 
-const jobSearchEvidenceCache = new WeakMap<object, Map<string, PreparedJobSearchEvidence>>();
+const jobSearchTitleEvidenceCache = new WeakMap<object, Map<string, PreparedJobSearchTitleEvidence>>();
+const jobSearchDescriptionEvidenceCache = new WeakMap<object, Map<string, PreparedJobSearchDescriptionEvidence>>();
 
-interface PreparedJobSearchEvidence {
+interface PreparedJobSearchTitleEvidence {
   readonly titles: readonly string[];
   readonly titleTokens: readonly string[];
   readonly professionIds: ReadonlySet<string>;
   readonly supportTitle: boolean;
   readonly titleQualifierFamilies: ReadonlySet<string>;
   readonly titleSpecialtyFamilies: ReadonlySet<string>;
+}
+
+interface PreparedJobSearchDescriptionEvidence {
   readonly descriptions: readonly string[];
   readonly descriptionTokens: readonly string[];
 }
@@ -240,12 +244,12 @@ function hasMedicoTitleSurface(tokens: readonly string[]): boolean {
   ));
 }
 
-function prepareJobSearchEvidence(job: JobOccupationFields, locale: string): PreparedJobSearchEvidence {
+function prepareJobSearchTitleEvidence(job: JobOccupationFields, locale: string): PreparedJobSearchTitleEvidence {
   const objectJob = job as object;
-  let byLocale = jobSearchEvidenceCache.get(objectJob);
+  let byLocale = jobSearchTitleEvidenceCache.get(objectJob);
   if (!byLocale) {
-    byLocale = new Map<string, PreparedJobSearchEvidence>();
-    jobSearchEvidenceCache.set(objectJob, byLocale);
+    byLocale = new Map<string, PreparedJobSearchTitleEvidence>();
+    jobSearchTitleEvidenceCache.set(objectJob, byLocale);
   }
   const cached = byLocale.get(locale);
   if (cached) return cached;
@@ -268,14 +272,30 @@ function prepareJobSearchEvidence(job: JobOccupationFields, locale: string): Pre
     if (specialtyFamily) titleSpecialtyFamilies.add(specialtyFamily);
   }
 
-  const descriptions = descriptionStrings(job, locale);
-  const prepared: PreparedJobSearchEvidence = {
+  const prepared: PreparedJobSearchTitleEvidence = {
     titles,
     titleTokens,
     professionIds,
     supportTitle: isSupportTitle(titles),
     titleQualifierFamilies,
     titleSpecialtyFamilies,
+  };
+  byLocale.set(locale, prepared);
+  return prepared;
+}
+
+function prepareJobSearchDescriptionEvidence(job: JobOccupationFields, locale: string): PreparedJobSearchDescriptionEvidence {
+  const objectJob = job as object;
+  let byLocale = jobSearchDescriptionEvidenceCache.get(objectJob);
+  if (!byLocale) {
+    byLocale = new Map<string, PreparedJobSearchDescriptionEvidence>();
+    jobSearchDescriptionEvidenceCache.set(objectJob, byLocale);
+  }
+  const cached = byLocale.get(locale);
+  if (cached) return cached;
+
+  const descriptions = descriptionStrings(job, locale);
+  const prepared: PreparedJobSearchDescriptionEvidence = {
     descriptions,
     descriptionTokens: unique(descriptions.flatMap(normalizedStemTokens)),
   };
@@ -343,13 +363,13 @@ export function getJobSearchRoleProfile(query: string): JobSearchRoleProfile {
   };
 }
 
-function matchesSpecialtyToken(token: string, evidence: PreparedJobSearchEvidence): boolean {
+function matchesSpecialtyToken(token: string, evidence: PreparedJobSearchTitleEvidence): boolean {
   const family = specialtyFamilyForToken(token);
   if (family) return evidence.titleSpecialtyFamilies.has(family);
   return tokenMatchesStem(evidence.titleTokens, token);
 }
 
-function matchesProfessionalCore(profile: JobSearchRoleProfile, evidence: PreparedJobSearchEvidence): boolean {
+function matchesProfessionalCore(profile: JobSearchRoleProfile, evidence: PreparedJobSearchTitleEvidence): boolean {
   // Support markers are negative evidence only when the query asks for the
   // physician profession. A nurse/anesthesia support title is a legitimate
   // answer to an explicitly nursing query, while the same title must not
@@ -394,7 +414,7 @@ function qualifierInContext(tokens: readonly string[], family: string): boolean 
     .some((token) => CONTEXT_RELATION_TOKENS.has(token) || [...CONTEXT_RELATION_TOKENS].some((prefix) => token.startsWith(prefix))));
 }
 
-function matchesTitleQualifier(profile: JobSearchRoleProfile, evidence: PreparedJobSearchEvidence): boolean {
+function matchesTitleQualifier(profile: JobSearchRoleProfile, evidence: PreparedJobSearchTitleEvidence): boolean {
   if (!profile.qualifierFamilies.every((family) => evidence.titleQualifierFamilies.has(family))) return false;
   // A bare "responsabile dell'assistenza" is a description of care, not
   // evidence of managerial responsibility. Explicit leadership wording (or a
@@ -405,7 +425,7 @@ function matchesTitleQualifier(profile: JobSearchRoleProfile, evidence: Prepared
   return true;
 }
 
-function matchesContextualQualifier(profile: JobSearchRoleProfile, evidence: PreparedJobSearchEvidence): boolean {
+function matchesContextualQualifier(profile: JobSearchRoleProfile, evidence: PreparedJobSearchDescriptionEvidence): boolean {
   if (evidence.descriptions.some(isGenericCareResponsibility)
     && !hasStrongQualifierSurface(evidence.descriptionTokens)) {
     // Do not let the common phrase "responsabile dell'assistenza" alone
@@ -429,12 +449,12 @@ export function classifyJobSearchOccupation(
   locale: string,
   profile: JobSearchRoleProfile,
 ): JobSearchOccupationEvidence {
-  const evidence = prepareJobSearchEvidence(job, locale);
-  const coreMatched = matchesProfessionalCore(profile, evidence);
+  const titleEvidence = prepareJobSearchTitleEvidence(job, locale);
+  const coreMatched = matchesProfessionalCore(profile, titleEvidence);
   if (!coreMatched) {
     return {
       tier: 'none',
-      professionId: evidence.professionIds.values().next().value || null,
+      professionId: titleEvidence.professionIds.values().next().value || null,
       coreMatched: false,
       titleQualifierMatched: false,
       contextualQualifierMatched: false,
@@ -444,18 +464,19 @@ export function classifyJobSearchOccupation(
   if (profile.qualifierFamilies.length === 0) {
     return {
       tier: 'core',
-      professionId: evidence.professionIds.values().next().value || null,
+      professionId: titleEvidence.professionIds.values().next().value || null,
       coreMatched: true,
       titleQualifierMatched: false,
       contextualQualifierMatched: false,
     };
   }
 
-  const titleQualifierMatched = matchesTitleQualifier(profile, evidence);
-  const contextualQualifierMatched = !titleQualifierMatched && matchesContextualQualifier(profile, evidence);
+  const titleQualifierMatched = matchesTitleQualifier(profile, titleEvidence);
+  const contextualQualifierMatched = !titleQualifierMatched
+    && matchesContextualQualifier(profile, prepareJobSearchDescriptionEvidence(job, locale));
   return {
     tier: titleQualifierMatched ? 'exact' : contextualQualifierMatched ? 'semantic' : 'core',
-    professionId: evidence.professionIds.values().next().value || null,
+    professionId: titleEvidence.professionIds.values().next().value || null,
     coreMatched: true,
     titleQualifierMatched,
     contextualQualifierMatched,
@@ -468,8 +489,16 @@ export function matchesJobSearchRoleProfile(
   profile: JobSearchRoleProfile,
   options: { readonly allowSemantic?: boolean } = {},
 ): boolean {
+  if (options.allowSemantic !== true) {
+    // Strict matches are used for indexability floors. They depend only on
+    // title evidence, so avoid tokenizing and retaining full descriptions.
+    const titleEvidence = prepareJobSearchTitleEvidence(job, locale);
+    if (!matchesProfessionalCore(profile, titleEvidence)) return false;
+    return profile.qualifierFamilies.length === 0 || matchesTitleQualifier(profile, titleEvidence);
+  }
+
   const tier = classifyJobSearchOccupation(job, locale, profile).tier;
   if (tier === 'none') return false;
   if (!profile.qualifierFamilies.length) return true;
-  return tier === 'exact' || (options.allowSemantic === true && tier === 'semantic');
+  return tier === 'exact' || tier === 'semantic';
 }

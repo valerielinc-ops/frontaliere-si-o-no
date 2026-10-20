@@ -73,6 +73,19 @@ function jobRouteSlugs(job) {
   return new Set([...jobActiveSlugs(job), ...jobHistoricalSlugs(job)]);
 }
 
+export function parseSliceSnapshot(content, context = 'slice snapshot') {
+  let payload;
+  try {
+    payload = JSON.parse(content);
+  } catch (error) {
+    throw new Error(`[scan-prev-slug-losses] malformed JSON in ${context}`, { cause: error });
+  }
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload) || !Array.isArray(payload.jobs)) {
+    throw new Error(`[scan-prev-slug-losses] invalid jobs snapshot in ${context}`);
+  }
+  return payload;
+}
+
 /**
  * Given a locale (or the flat legacy) previousSlugs array as it stood
  * before a commit and after it, split the slugs that disappeared into
@@ -366,8 +379,7 @@ async function buildCandidateOwnerFileIndex(candidates, historyIndex, catFile) {
 
   const inspect = (content, rel) => {
     if (!content || !needle.test(content)) return;
-    let payload;
-    try { payload = JSON.parse(content); } catch { return; }
+    const payload = parseSliceSnapshot(content, rel);
     addCandidateOwnerFiles(payload?.jobs, rel, candidates, candidatesByHash, bySlug);
   };
 
@@ -419,8 +431,7 @@ async function buildCurrentCandidateOwnerIndex(candidates, possibleOwnerFiles, c
       ? fs.readFileSync(abs, 'utf8')
       : await catFile.get(`HEAD:${rel}`);
     if (!content) continue;
-    let payload;
-    try { payload = JSON.parse(content); } catch { continue; }
+    const payload = parseSliceSnapshot(content, rel);
     for (const job of Array.isArray(payload?.jobs) ? payload.jobs : []) {
       const jobKey = resolveJobDiffKey(job);
       const hash = stableSlugHash(job);
@@ -477,7 +488,7 @@ async function loadJobsAtRef(ref, files, catFile, cache) {
       if (content == null) {
         payload = null;
       } else {
-        try { payload = JSON.parse(content); } catch { payload = null; }
+        payload = parseSliceSnapshot(content, cacheKey);
       }
       cache.set(cacheKey, payload);
     }
@@ -540,9 +551,7 @@ async function main() {
     for (const commit of commits) {
       const content = await catFile.get(`${commit}:${rel}`);
       if (content == null) continue;
-      let cur;
-      try { cur = JSON.parse(content); } catch { continue; }
-      if (!cur?.jobs) continue;
+      const cur = parseSliceSnapshot(content, `${commit}:${rel}`);
       if (prev && Array.isArray(prev.jobs)) {
         const fileBase = file.replace(`${ABS_DIR}/`, '');
         for (const removal of classifyJobSliceRemovals(prev.jobs, cur.jobs, { gscEvidence })) {

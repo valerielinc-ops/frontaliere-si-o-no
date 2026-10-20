@@ -22,8 +22,17 @@ import {
   formatJsonLines,
   isHistoricalOnlyLoss,
   isProvenCurrentCrossJobOwner,
+  parseSliceSnapshot,
 } from '../scripts/scan-prev-slug-losses.mjs';
 import { stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
+
+describe('parseSliceSnapshot', () => {
+  it('accepts a jobs snapshot and rejects malformed or incomplete history', () => {
+    expect(parseSliceSnapshot('{"jobs":[]}')).toEqual({ jobs: [] });
+    expect(() => parseSliceSnapshot('{broken', 'history.json')).toThrow(/malformed JSON in history.json/);
+    expect(() => parseSliceSnapshot('{"items":[]}', 'history.json')).toThrow(/invalid jobs snapshot in history.json/);
+  });
+});
 
 describe('diffJobSlices', () => {
   it('detects a lost slug for a normal job with .id present', () => {

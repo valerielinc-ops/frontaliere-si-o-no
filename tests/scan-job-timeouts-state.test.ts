@@ -64,6 +64,9 @@ describe('scan-job-timeouts — conserva lo stato restituito dal creator (#8032)
         if (endpoint.includes('actions/runs?status=failure')) {
           return JSON.stringify({ total_count: 0, workflow_runs: [] });
         }
+        if (endpoint.includes('actions/runs?status=startup_failure')) {
+          return JSON.stringify({ total_count: 0, workflow_runs: [] });
+        }
         if (endpoint.includes('/actions/runs/1/jobs')) {
           return JSON.stringify({ jobs: [{
             name: 'lighthouse-1',
@@ -109,6 +112,9 @@ describe('scan-job-timeouts — conserva lo stato restituito dal creator (#8032)
         if (endpoint.includes('actions/runs?status=failure')) {
           return JSON.stringify({ total_count: 0, workflow_runs: [] });
         }
+        if (endpoint.includes('actions/runs?status=startup_failure')) {
+          return JSON.stringify({ total_count: 0, workflow_runs: [] });
+        }
         if (endpoint.includes('/actions/runs/1/jobs')) {
           return JSON.stringify({ jobs: [{
             name: 'lighthouse-1',
@@ -149,6 +155,9 @@ describe('scan-job-timeouts — conserva lo stato restituito dal creator (#8032)
         if (endpoint.includes('actions/runs?status=failure')) {
           return JSON.stringify({ total_count: 0, workflow_runs: [] });
         }
+        if (endpoint.includes('actions/runs?status=startup_failure')) {
+          return JSON.stringify({ total_count: 0, workflow_runs: [] });
+        }
         if (endpoint.includes('/actions/runs/1/jobs')) {
           return JSON.stringify({ jobs: [{
             name: 'lighthouse-1',
@@ -185,6 +194,9 @@ describe('scan-job-timeouts — conserva lo stato restituito dal creator (#8032)
           return JSON.stringify({ total_count: 1, workflow_runs: [runs[0]] });
         }
         if (endpoint.includes('actions/runs?status=failure')) {
+          return JSON.stringify({ total_count: 0, workflow_runs: [] });
+        }
+        if (endpoint.includes('actions/runs?status=startup_failure')) {
           return JSON.stringify({ total_count: 0, workflow_runs: [] });
         }
         if (endpoint.includes('/actions/runs/1/jobs')) {

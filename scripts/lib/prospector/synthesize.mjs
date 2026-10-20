@@ -16,7 +16,7 @@
  */
 import { politeFetch } from './polite-fetch.mjs';
 import { extractVacancies, isSufficientVacancyDescription, textOf } from './extract.mjs';
-import { extractLinks } from './careers-trail.mjs';
+import { extractLinks, isRetryableTraceStatus } from './careers-trail.mjs';
 import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { normalizeHost, registrableDomain, tenantLabel } from './registrable.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
@@ -203,7 +203,7 @@ export function isExpectedSynthesisError(err) {
  * Learn a spec by crawling the candidate's careers page for real.
  *
  * @param {Record<string, any>} candidate
- * @returns {Promise<{ spec: CrawlerSpec|null, reason?: string, vacancies: any[] }>}
+ * @returns {Promise<{ spec: CrawlerSpec|null, reason?: string, vacancies: any[], retryable?: boolean }>}
  */
 export async function synthesizeSpec(candidate, runtime = {}) {
   const seed = candidate.careersUrl || (candidate.tenantHost ? `https://${candidate.tenantHost}/` : null)
@@ -215,7 +215,18 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     lookupImpl: runtime.lookupImpl,
     sleepImpl: runtime.sleepImpl,
   });
-  if (!res.ok) return { spec: null, reason: `seed irraggiungibile (${res.status})`, vacancies: [] };
+  if (!res.ok) {
+    const blocked = res.blockedByRobots || res.policyBlocked;
+    const status = Number(res.status) || 0;
+    return {
+      spec: null,
+      reason: `seed irraggiungibile (${res.status})`,
+      vacancies: [],
+      retryable: !blocked && (status > 0
+        ? isRetryableTraceStatus(status)
+        : Boolean(res.transportError)),
+    };
+  }
 
   const links = extractLinks(res.body, res.url);
   const { vacancies, via } = extractVacancies(res.body, res.url, links);

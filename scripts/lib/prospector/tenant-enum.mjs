@@ -33,66 +33,166 @@ import { CONCURRENCY } from './config.mjs';
 import { decodeEntities } from './entities.mjs';
 import { readAttr, readMetaContent } from '../html-attr.mjs';
 
+function httpFailureCode(response) {
+  const status = Number(response?.status);
+  return Number.isInteger(status) && status >= 100 && status <= 599 ? `http_${status}` : 'http_error';
+}
+
+function enumerationOutcome({ successes, failures, malformed, truncated = 0 }) {
+  if (failures === 0 && malformed === 0 && truncated === 0) return 'complete';
+  if (successes > 0) return 'partial';
+  if (failures > 0) return 'unavailable';
+  if (malformed > 0) return 'malformed';
+  return truncated > 0 ? 'partial' : 'malformed';
+}
+
+function isRetryableTenantResponse(response) {
+  if (response?.policyBlocked || response?.blockedByRobots) return false;
+  const status = Number(response?.status) || 0;
+  return status === 0 || status === 401 || status === 403 || status === 408
+    || status === 425 || status === 429 || status >= 500;
+}
+
+function isBlockedTenantResponse(response) {
+  return Boolean(response?.policyBlocked || response?.blockedByRobots);
+}
+
 /**
  * Query the Common Crawl URL index for every host under a platform domain.
  *
  * @param {string} platformDomain
- * @param {{ collections?: string[], limit?: number }} [opts]
- * @returns {Promise<string[]>} tenant hosts
+ * @param {{ collections?: string[], limit?: number, fetcher?: typeof politeFetch }} [opts]
+ * @returns {Promise<{ hosts: string[], outcome: 'complete'|'partial'|'unavailable'|'malformed', errorCode: string|null }>}
  */
 export async function enumerateViaCommonCrawl(platformDomain, opts = {}) {
   const limit = opts.limit ?? 800;
+  const fetcher = opts.fetcher || politeFetch;
   let collections = opts.collections;
   if (!collections) {
-    const idx = await politeFetch('https://index.commoncrawl.org/collinfo.json', { accept: 'application/json', ignoreRobots: true, retries: 3 });
+    let idx;
+    try {
+      idx = await fetcher('https://index.commoncrawl.org/collinfo.json', { accept: 'application/json', ignoreRobots: true, retries: 3 });
+    } catch {
+      return { hosts: [], outcome: 'unavailable', errorCode: 'collinfo_request' };
+    }
+    if (!idx.ok) return { hosts: [], outcome: 'unavailable', errorCode: httpFailureCode(idx) };
     try {
       const all = JSON.parse(idx.body);
+      if (!Array.isArray(all) || !all.every((item) => item && typeof item.id === 'string' && item.id.trim())) {
+        return { hosts: [], outcome: 'malformed', errorCode: 'invalid_collinfo' };
+      }
       collections = all.slice(0, 3).map((c) => c.id);
-    } catch { collections = []; }
+    } catch {
+      return { hosts: [], outcome: 'malformed', errorCode: 'invalid_collinfo_json' };
+    }
+    if (collections.length === 0) return { hosts: [], outcome: 'malformed', errorCode: 'empty_collinfo' };
   }
   const hosts = new Set();
+  let successes = 0;
+  let failures = 0;
+  let malformed = 0;
+  let truncated = 0;
+  let errorCode = null;
   for (const coll of collections) {
-    const res = await politeFetch(
-      `https://index.commoncrawl.org/${coll}-index?url=*.${encodeURIComponent(platformDomain)}&output=json&limit=${limit}`,
-      { accept: 'application/json', timeoutMs: 120000, ignoreRobots: true, retries: 3 },
-    );
-    if (!res.ok) continue;
+    let res;
+    try {
+      res = await fetcher(
+        `https://index.commoncrawl.org/${coll}-index?url=*.${encodeURIComponent(platformDomain)}&output=json&limit=${limit}`,
+        { accept: 'application/json', timeoutMs: 120000, ignoreRobots: true, retries: 3 },
+      );
+    } catch {
+      failures++;
+      errorCode ||= 'index_request';
+      continue;
+    }
+    if (!res.ok) {
+      failures++;
+      errorCode ||= httpFailureCode(res);
+      continue;
+    }
+    if (typeof res.body !== 'string') {
+      malformed++;
+      errorCode ||= 'invalid_index_body';
+      continue;
+    }
+    let validRows = 0;
+    let nonEmptyRows = 0;
     for (const line of res.body.split('\n')) {
-      if (!line.trim() || line.startsWith('<')) continue;
+      if (!line.trim()) continue;
+      nonEmptyRows++;
+      if (line.startsWith('<')) {
+        malformed++;
+        errorCode ||= 'html_index_response';
+        continue;
+      }
       try {
         const rec = JSON.parse(line);
+        if (typeof rec?.url !== 'string') throw new Error('missing URL');
         const h = normalizeHost(new URL(rec.url).hostname);
+        validRows++;
         if (h && registrableDomain(h) === platformDomain && h !== platformDomain) hosts.add(h);
-      } catch { /* index rows are occasionally truncated */ }
+      } catch {
+        malformed++;
+        errorCode ||= 'malformed_index_row';
+      }
+    }
+    // An empty 200 is a valid empty census. A non-empty response is a source
+    // success only when at least one row has a structurally valid URL.
+    if (validRows > 0 || nonEmptyRows === 0) successes++;
+    if (nonEmptyRows >= limit) {
+      truncated++;
+      errorCode ||= 'result_limit_reached';
     }
   }
-  return [...hosts];
+  const outcome = collections.length === 0
+    ? 'malformed'
+    : enumerationOutcome({ successes, failures, malformed, truncated });
+  return { hosts: [...hosts], outcome, errorCode: outcome === 'complete' ? null : errorCode || 'no_collections' };
 }
 
 /**
  * Query Certificate Transparency for subdomains of a platform.
  *
  * @param {string} platformDomain
- * @returns {Promise<string[]>}
+ * @param {{ fetcher?: typeof politeFetch }} [opts]
+ * @returns {Promise<{ hosts: string[], outcome: 'complete'|'partial'|'unavailable'|'malformed', errorCode: string|null }>}
  */
-export async function enumerateViaCertSpotter(platformDomain) {
-  const res = await politeFetch(
-    `https://api.certspotter.com/v1/issuances?domain=${encodeURIComponent(platformDomain)}&include_subdomains=true&expand=dns_names`,
-    { accept: 'application/json', ignoreRobots: true, retries: 2 },
-  );
-  if (!res.ok) return [];
+export async function enumerateViaCertSpotter(platformDomain, opts = {}) {
+  let res;
+  try {
+    res = await (opts.fetcher || politeFetch)(
+      `https://api.certspotter.com/v1/issuances?domain=${encodeURIComponent(platformDomain)}&include_subdomains=true&expand=dns_names`,
+      { accept: 'application/json', ignoreRobots: true, retries: 2 },
+    );
+  } catch {
+    return { hosts: [], outcome: 'unavailable', errorCode: 'issuance_request' };
+  }
+  if (!res.ok) return { hosts: [], outcome: 'unavailable', errorCode: httpFailureCode(res) };
   let rows;
-  try { rows = JSON.parse(res.body); } catch { return []; }
-  if (!Array.isArray(rows)) return [];
+  try { rows = JSON.parse(res.body); } catch { return { hosts: [], outcome: 'malformed', errorCode: 'invalid_issuance_json' }; }
+  if (!Array.isArray(rows)) return { hosts: [], outcome: 'malformed', errorCode: 'invalid_issuance_shape' };
   const hosts = new Set();
+  let malformed = 0;
   for (const r of rows) {
-    for (const n of r.dns_names || []) {
+    if (!r || typeof r !== 'object' || Array.isArray(r) || !Array.isArray(r.dns_names)) {
+      malformed++;
+      continue;
+    }
+    for (const n of r.dns_names) {
+      if (typeof n !== 'string') {
+        malformed++;
+        continue;
+      }
       const h = normalizeHost(n);
       if (h.includes('*')) continue;
       if (registrableDomain(h) === platformDomain && h !== platformDomain) hosts.add(h);
     }
   }
-  return [...hosts];
+  return {
+    hosts: [...hosts],
+    outcome: malformed ? (rows.length > malformed ? 'partial' : 'malformed') : 'complete',
+    errorCode: malformed ? 'malformed_issuance_row' : null,
+  };
 }
 
 /** Infrastructure subdomains every vendor has and no employer is. */
@@ -144,12 +244,15 @@ export function tenantIdsAreNameLike(platform) {
  * root serves a login form and the vacancies live at /Vacancies.
  *
  * @param {string} host
- * @param {{ minScore?: number, paths?: string[] }} [opts]
- * @returns {Promise<{ host: string, live: boolean, score: number, vacancyCount: number, company: string, url: string, signals: string[] }>}
+ * @param {{ minScore?: number, paths?: string[], fetcher?: typeof politeFetch }} [opts]
+ * @returns {Promise<{ host: string, live: boolean, score: number, vacancyCount: number, company: string, url: string, signals: string[], retryable: boolean, blocked: boolean, failureStatuses: number[] }>}
  */
 export async function probeTenant(host, opts = {}) {
   const minScore = opts.minScore ?? 3;
   const blank = { host, live: false, score: 0, vacancyCount: 0, company: '', url: `https://${host}/`, signals: [] };
+  const failureStatuses = [];
+  let blockedRequests = 0;
+  const fetcher = opts.fetcher || politeFetch;
   const bases = host.includes('/') ? [`https://${host}`] : [`https://${host}/`];
   const urls = [...bases];
   for (const p of opts.paths || []) urls.push(`https://${host.replace(/\/$/, '')}${p}`);
@@ -161,8 +264,14 @@ export async function probeTenant(host, opts = {}) {
     if (!scored || sc.score > scored.score) { res = r; scored = sc; links = l; }
   };
   for (const u of urls.slice(0, 4)) {
-    const r = await politeFetch(u);
-    if (!r.ok || r.body.length < 300) continue;
+    let r;
+    try { r = await fetcher(u); } catch { r = { ok: false, status: 0, url: u, body: '' }; }
+    if (!r.ok) {
+      if (isBlockedTenantResponse(r)) blockedRequests++;
+      else if (isRetryableTenantResponse(r)) failureStatuses.push(Number(r.status) || 0);
+      continue;
+    }
+    if (r.body.length < 300) continue;
     const l = extractLinks(r.body, r.url);
     consider(r, l, scoreVacancyPage(r.body, r.url, l));
     if (scored.score >= minScore + 2) break; // decisive, stop paying
@@ -179,14 +288,25 @@ export async function probeTenant(host, opts = {}) {
       .filter((l) => normalizeHost(l.host) === self && isCareerLink(l) && l.url !== res.url)
       .slice(0, 3);
     for (const l of hop) {
-      const r = await politeFetch(l.url);
-      if (!r.ok || r.body.length < 300) continue;
+      let r;
+      try { r = await fetcher(l.url); } catch { r = { ok: false, status: 0, url: l.url, body: '' }; }
+      if (!r.ok) {
+        if (isBlockedTenantResponse(r)) blockedRequests++;
+        else if (isRetryableTenantResponse(r)) failureStatuses.push(Number(r.status) || 0);
+        continue;
+      }
+      if (r.body.length < 300) continue;
       const ll = extractLinks(r.body, r.url);
       consider(r, ll, scoreVacancyPage(r.body, r.url, ll));
       if (scored.score >= minScore) break;
     }
   }
-  if (!res || !scored) return blank;
+  if (!res || !scored) return {
+    ...blank,
+    retryable: failureStatuses.length > 0,
+    blocked: blockedRequests > 0,
+    failureStatuses,
+  };
   // The <title> of a tenant page is nearly always the employer's own name —
   // "Cippà Trasporti S.A. | Lavora con noi" — so the platform hands us the
   // company identity for free, no name resolution needed.
@@ -205,6 +325,9 @@ export async function probeTenant(host, opts = {}) {
     company,
     url: res.url,
     signals: scored.signals,
+    retryable: failureStatuses.length > 0,
+    blocked: blockedRequests > 0,
+    failureStatuses,
   };
 }
 
@@ -307,13 +430,17 @@ export function employerNameFromPage(html = '', host = '', links = []) {
  * Full enumeration for one platform.
  *
  * @param {import('./platform-registry.mjs').Platform} platform
- * @param {{ nameSeeds?: string[], maxProbe?: number, useCommonCrawl?: boolean, useCertSpotter?: boolean }} [opts]
- * @returns {Promise<{ platform: string, discovered: string[], probed: any[], live: any[], byMethod: Record<string, number> }>}
+ * @param {{ nameSeeds?: string[], maxProbe?: number, useCommonCrawl?: boolean, useCertSpotter?: boolean, fetcher?: typeof politeFetch }} [opts]
+ * @returns {Promise<{ platform: string, discovered: string[], probed: any[], live: any[], byMethod: Record<string, number>, outcome: 'complete'|'partial'|'unavailable'|'malformed', sourceOutcomes: Record<string, { outcome: string, items: number, errorCode: string|null }>, probeLimitReached: boolean }>}
  */
 export async function enumerateTenants(platform, opts = {}) {
   const domain = platform.domain;
   const byMethod = {};
   const found = new Map();
+  const sourceOutcomes = {
+    commoncrawl: { outcome: 'skipped', items: 0, errorCode: null },
+    certspotter: { outcome: 'skipped', items: 0, errorCode: null },
+  };
   const paths = listingPathHints(platform);
   const pathTenant = tenantIsInPath(platform);
 
@@ -337,10 +464,30 @@ export async function enumerateTenants(platform, opts = {}) {
   };
 
   if (opts.useCommonCrawl !== false) {
-    for (const h of await enumerateViaCommonCrawl(domain)) add(h, 'commoncrawl');
+    try {
+      const result = await enumerateViaCommonCrawl(domain, { fetcher: opts.fetcher });
+      sourceOutcomes.commoncrawl = {
+        outcome: result.outcome,
+        items: result.hosts.length,
+        errorCode: result.errorCode,
+      };
+      for (const h of result.hosts) add(h, 'commoncrawl');
+    } catch {
+      sourceOutcomes.commoncrawl = { outcome: 'unavailable', items: 0, errorCode: 'enumerator_error' };
+    }
   }
   if (opts.useCertSpotter !== false) {
-    for (const h of await enumerateViaCertSpotter(domain)) add(h, 'certspotter');
+    try {
+      const result = await enumerateViaCertSpotter(domain, { fetcher: opts.fetcher });
+      sourceOutcomes.certspotter = {
+        outcome: result.outcome,
+        items: result.hosts.length,
+        errorCode: result.errorCode,
+      };
+      for (const h of result.hosts) add(h, 'certspotter');
+    } catch {
+      sourceOutcomes.certspotter = { outcome: 'unavailable', items: 0, errorCode: 'enumerator_error' };
+    }
   }
   // Slug probing only makes sense where the vendor derives tenant ids from the
   // employer's NAME. Umantis hands out `recruitingapp-122706`; probing 6'000
@@ -370,13 +517,40 @@ export async function enumerateTenants(platform, opts = {}) {
   const hosts = [...found.keys()]
     .sort((a, b) => (METHOD_RANK[found.get(a)] ?? 9) - (METHOD_RANK[found.get(b)] ?? 9))
     .slice(0, opts.maxProbe ?? 300);
-  const probed = (await mapPool(hosts, CONCURRENCY, (h) => probeTenant(h, { paths }))).filter(Boolean);
+  const probeLimitReached = found.size > hosts.length;
+  const probed = (await mapPool(hosts, CONCURRENCY, (h) => probeTenant(h, { paths, fetcher: opts.fetcher }))).filter(Boolean);
   for (const p of probed) p.method = found.get(p.host);
+  const retryableProbeFailures = probed.filter((result) => result.retryable).length;
+  const blockedProbeFailures = probed.filter((result) => result.blocked).length;
+  const incompleteProbeCount = retryableProbeFailures + blockedProbeFailures;
+  sourceOutcomes.probes = hosts.length
+    ? {
+      outcome: incompleteProbeCount ? 'partial' : 'complete',
+      items: hosts.length,
+      errorCode: retryableProbeFailures && blockedProbeFailures
+        ? 'mixed_probe_incomplete'
+        : retryableProbeFailures ? 'transient_probe_failures'
+          : blockedProbeFailures ? 'blocked_probe_requests' : null,
+    }
+    : { outcome: 'skipped', items: 0, errorCode: null };
+  const activeOutcomes = Object.values(sourceOutcomes).filter((source) => source.outcome !== 'skipped');
+  const sourceSucceeded = activeOutcomes.some((source) => source.outcome === 'complete' || source.outcome === 'partial');
+  const sourceFailed = activeOutcomes.some((source) => source.outcome === 'unavailable' || source.outcome === 'malformed');
+  const allMalformed = activeOutcomes.length > 0 && activeOutcomes.every((source) => source.outcome === 'malformed');
+  const outcome = probeLimitReached || (sourceSucceeded && sourceFailed)
+    || activeOutcomes.some((source) => source.outcome === 'partial')
+    ? 'partial'
+    : sourceSucceeded || activeOutcomes.length === 0
+      ? 'complete'
+      : allMalformed ? 'malformed' : 'unavailable';
   return {
     platform: domain,
     discovered: hosts,
     probed,
     live: probed.filter((p) => p.live),
     byMethod,
+    outcome,
+    sourceOutcomes,
+    probeLimitReached,
   };
 }

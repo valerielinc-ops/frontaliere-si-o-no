@@ -89,6 +89,9 @@ describe('workflow identity — run-name decorations never become recovery keys'
       if (args[0] === 'api') {
         const path = args[1];
         if (path.includes('actions/runs?status=cancelled')) return JSON.stringify({ workflow_runs: [run] });
+        if (path.includes('actions/runs?status=failure') || path.includes('actions/runs?status=startup_failure')) {
+          return JSON.stringify({ total_count: 0, workflow_runs: [] });
+        }
         if (path.includes(`actions/workflows/${run.workflow_id}`)) return JSON.stringify({ name: 'Revenue signal monitor' });
         if (path.includes(`actions/runs/${run.id}/jobs`)) return JSON.stringify({ jobs: [job] });
         if (path.endsWith('/annotations')) return JSON.stringify([[{ message: 'The job has exceeded the maximum execution time of 10m0s.' }]]);
@@ -130,6 +133,9 @@ describe('scan-job-timeouts end-to-end — a PR-branch timeout does not land on 
       if (args[0] === 'api') {
         const path = args[1];
         if (path.includes('actions/runs?status=cancelled')) return JSON.stringify({ workflow_runs: [PR_RUN] });
+        if (path.includes('actions/runs?status=failure') || path.includes('actions/runs?status=startup_failure')) {
+          return JSON.stringify({ total_count: 0, workflow_runs: [] });
+        }
         if (path.includes(`actions/runs/${PR_RUN.id}/jobs`)) return JSON.stringify({ jobs: [JOB] });
         if (path.endsWith('/annotations')) return JSON.stringify([ANNOTATIONS]);
         return '{}';

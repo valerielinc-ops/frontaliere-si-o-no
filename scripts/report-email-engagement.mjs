@@ -358,6 +358,13 @@ export function pickBaseline(snapshots, windowDays, generatedAt, minAgeFraction 
     .sort((a, b) => Date.parse(b.generated_at) - Date.parse(a.generated_at))[0] || null;
 }
 
+/** Distinguish a clean comparison from an unavailable baseline read. */
+export function baselineComparisonStatus({ previous, candidateCount = 0, readFailed = false }) {
+  if (readFailed) return 'read_failed';
+  if (previous) return 'compared';
+  return candidateCount > 0 ? 'no_compatible_baseline' : 'first_run';
+}
+
 function providerRatesExcludingJobAlert(byPair) {
   const out = {};
   for (const [key, cell] of Object.entries(byPair || {})) {
@@ -477,9 +484,12 @@ async function main() {
 
   const metaRef = db.collection('newsletter_subscribers').doc('_meta_').collection(SNAPSHOT_COLLECTION);
   let previous = null;
+  let baselineCandidateCount = 0;
+  let baselineReadFailed = false;
   try {
     const prevSnap = await metaRef.orderBy('generated_at', 'desc').limit(10).get();
     const candidates = prevSnap.docs.map((d) => d.data());
+    baselineCandidateCount = candidates.length;
     previous = pickBaseline(candidates, DAYS, snapshot.generated_at);
     if (!previous && candidates.length) {
       // Say why out loud. A silent `previous = null` reads exactly like "no
@@ -489,8 +499,14 @@ async function main() {
         + `${DAYS / 2} giorni. Nessun confronto sui tassi in questa run.`);
     }
   } catch (e) {
+    baselineReadFailed = true;
     console.warn('⚠️  Nessuno snapshot precedente leggibile:', e?.message || e);
   }
+  const baselineStatus = baselineComparisonStatus({
+    previous,
+    candidateCount: baselineCandidateCount,
+    readFailed: baselineReadFailed,
+  });
 
   const regressions = detectRegressions(snapshot, previous);
 
@@ -514,8 +530,15 @@ async function main() {
   if (regressions.length) {
     console.log('\n🔴 REGRESSIONI RILEVATE');
     for (const r of regressions) console.log(`  [${r.kind}] ${r.metric} — ${r.detail}`);
-  } else {
+  } else if (baselineStatus === 'compared') {
     console.log('\n✅ Nessuna regressione rispetto allo snapshot precedente.');
+  } else {
+    const reason = baselineStatus === 'read_failed'
+      ? 'lettura baseline fallita'
+      : baselineStatus === 'no_compatible_baseline'
+        ? 'nessuno snapshot compatibile'
+        : 'prima misurazione';
+    console.log(`\n⚠️  Confronto delle regressioni non disponibile: ${reason}.`);
   }
 
   if (WRITE_SNAPSHOT) {
@@ -533,11 +556,16 @@ async function main() {
   }
 
   if (OUT_PATH) {
-    fs.writeFileSync(OUT_PATH, JSON.stringify({ snapshot, previous_at: previous?.generated_at || null, regressions }, null, 2));
+    fs.writeFileSync(OUT_PATH, JSON.stringify({
+      snapshot,
+      previous_at: previous?.generated_at || null,
+      baseline_status: baselineStatus,
+      regressions,
+    }, null, 2));
     console.log(`📄 JSON scritto in ${OUT_PATH}`);
   }
 
-  if (FAIL_ON_REGRESSION && regressions.length) process.exitCode = 1;
+  if (FAIL_ON_REGRESSION && (regressions.length || baselineStatus === 'read_failed')) process.exitCode = 1;
 }
 
 const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();

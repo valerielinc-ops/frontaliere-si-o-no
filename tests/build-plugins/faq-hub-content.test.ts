@@ -26,7 +26,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import type { Plugin } from 'vite';
-import { faqHubPlugin } from '../../build-plugins/faqHubPlugin';
+import { faqHubPlugin, __renderFaqEntryPageForTest } from '../../build-plugins/faqHubPlugin';
 import {
   ALL_FAQ_HUB,
   FAQ_HUB_CATEGORIES,
@@ -197,6 +197,43 @@ describe('FAQ hub (AE-5) — new fisco entries link internally per-locale (#3653
       expect(hrefByLocale.it, `entry "${id}": EN href must differ from IT`).not.toBe(hrefByLocale.en);
       expect(hrefByLocale.it, `entry "${id}": DE href must differ from IT`).not.toBe(hrefByLocale.de);
       expect(hrefByLocale.it, `entry "${id}": FR href must differ from IT`).not.toBe(hrefByLocale.fr);
+    }
+  });
+});
+
+describe('FAQ hub — audit title lengths', () => {
+  it('keeps the reported Italian FAQ titles concise without changing their questions', () => {
+    const targets = [
+      ['diritti-cassa-integrazione-rht', 'RHT e frontalieri: cassa integrazione'],
+      ['diritti-disoccupazione-naspi-frontaliere', 'NASpI per frontalieri licenziati'],
+      ['fisco-credito-imposta-80-percento', 'Credito d’imposta: tasse svizzere'],
+      ['fisco-imposta-fonte-aliquote-ticino', 'Aliquote imposta fonte Ticino 2026'],
+      ['permessi-residenza-aire-italia', 'Permesso G e iscrizione AIRE'],
+      ['vita-quotidiana-parcheggio-multa-circolazione', 'Multe svizzere: pagare dall’Italia'],
+    ] as const;
+
+    for (const [id, expectedTitle] of targets) {
+      const entry = ALL_FAQ_HUB.find((candidate) => candidate.id === id);
+      expect(entry, `missing FAQ entry ${id}`).toBeDefined();
+      const rendered = __renderFaqEntryPageForTest(
+        entry!,
+        'it',
+        '2026-10-20',
+        new Set<string>(),
+        new Set(['it']),
+      );
+      const title = rendered.html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '';
+      expect(title, id).toContain(expectedTitle);
+      expect(title.length, id).toBeLessThanOrEqual(60);
+    }
+  });
+
+  it('keeps the English and German FAQ hub titles within the 60-character target', async () => {
+    const htmlByLocale = await buildAllLocaleHtml();
+    for (const locale of ['en', 'de'] as const) {
+      const title = htmlByLocale[locale].match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '';
+      expect(title, locale).toBeTruthy();
+      expect(title.length, locale).toBeLessThanOrEqual(60);
     }
   });
 });

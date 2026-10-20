@@ -202,7 +202,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
       fr: 'impot-source-tessin-baremes-a-b-c-h',
     },
     titles: {
-      it: 'Imposta alla fonte Ticino 2026: tabelle A, B, C, H per frontalieri',
+      it: 'Imposta alla fonte Ticino: tabelle 2026',
       en: 'Ticino withholding tax 2026: tables A, B, C, H explained',
       de: 'Quellensteuer Tessin 2026: Tabellen A, B, C, H erklärt',
       fr: 'Impôt à la source Tessin 2026: barèmes A, B, C, H expliqués',

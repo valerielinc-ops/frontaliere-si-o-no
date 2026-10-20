@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T16:24:17.992Z",
+  "generatedAt": "2026-10-20T17:28:37.181Z",
   "totalEvents": 14630,
   "events": [
     {
@@ -264746,7 +264746,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa visita guidata a Ginevra propone alle famiglie un incontro con una parte delle collezioni del MEG, incentrato sull’albero di Sobo. L’attività comprende anche la biblioteca e un’esposizione temporanea ed è gratuita con iscrizione.",
+      "descriptionByLocale": {
+        "it": "Questa visita guidata a Ginevra propone alle famiglie un incontro con una parte delle collezioni del MEG, incentrato sull’albero di Sobo. L’attività comprende anche la biblioteca e un’esposizione temporanea ed è gratuita con iscrizione.",
+        "en": "This guided family visit in Geneva explores part of the MEG collections through the subject of Sobo’s tree. The programme includes the library and a temporary exhibition, and participation is free with registration.",
+        "de": "Bei der kommentierten Familienbesichtigung in Genf geht es um einen Teil der Sammlungen des MEG und um den Baum von Sobo. Die Veranstaltung bezieht die Bibliothek sowie eine temporäre Ausstellung ein und ist nach Anmeldung kostenlos.",
+        "fr": "Cette visite commentée en famille à Genève présente une partie des collections du MEG autour de l’arbre de Sobo. Elle comprend la bibliothèque et une exposition temporaire; la participation est gratuite sur inscription."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64626",
@@ -274656,7 +274664,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento musicale al Temus club di Agno è dedicato ai ritmi latini. L’ingresso costa CHF 5 e non è consentito ai minori di 18 anni.",
+      "descriptionByLocale": {
+        "it": "L’evento musicale al Temus club di Agno è dedicato ai ritmi latini. L’ingresso costa CHF 5 e non è consentito ai minori di 18 anni.",
+        "en": "This music event at Temus club in Agno is dedicated to Latin rhythms. Admission costs CHF 5, and entry is restricted to people aged 18 and over.",
+        "de": "Die Musikveranstaltung im Temus club in Agno ist lateinamerikanischen Rhythmen gewidmet. Der Eintritt kostet CHF 5; Personen unter 18 Jahren haben keinen Zutritt.",
+        "fr": "Ce rendez-vous musical au Temus club à Agno est consacré aux rythmes latins. L’entrée coûte 5 CHF et l’accès est interdit aux personnes de moins de 18 ans."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:vanessa-riera-despossessions",
@@ -284097,7 +284113,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’esposizione riunisce proposte di architettura dedicate a sedici valli del Ticino. I lavori considerano territori abitati e collegati ai rispettivi fondovalle principali; l’appuntamento è ospitato da SpazioReale a Bellinzona.",
+      "descriptionByLocale": {
+        "it": "L’esposizione riunisce proposte di architettura dedicate a sedici valli del Ticino. I lavori considerano territori abitati e collegati ai rispettivi fondovalle principali; l’appuntamento è ospitato da SpazioReale a Bellinzona.",
+        "en": "The exhibition brings together architectural proposals concerning sixteen valleys in Ticino. The works consider inhabited areas and their links with the main valley floors, and the event is held at SpazioReale in Bellinzona.",
+        "de": "Die Ausstellung versammelt Architekturvorschläge zu sechzehn Tälern im Tessin. Die Arbeiten betrachten bewohnte Gebiete und ihre Verbindungen zu den jeweiligen Haupttälern; die Veranstaltung findet im SpazioReale in Bellinzona statt.",
+        "fr": "L’exposition réunit des propositions d’architecture consacrées à seize vallées du Tessin. Les travaux portent sur des territoires habités et leurs liens avec les vallées principales; le rendez-vous se tient à SpazioReale, à Bellinzone."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:12067a0f264140e69339896a21ce7f12",
@@ -390887,7 +390911,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il workshop di autodifesa femminista si svolge in LSF ed è condotto da una persona sorda. L’attività è destinata a donne sorde e persone queer sorde a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il workshop di autodifesa femminista si svolge in LSF ed è condotto da una persona sorda. L’attività è destinata a donne sorde e persone queer sorde a Ginevra.",
+        "en": "This feminist self-defence workshop is held in LSF and led by a deaf person. It is intended for deaf women and deaf queer people in Geneva.",
+        "de": "Dieser feministische Selbstverteidigungsworkshop findet in LSF statt und wird von einer gehörlosen Person geleitet. Er richtet sich an gehörlose Frauen und gehörlose queere Personen in Genf.",
+        "fr": "Ce stage d’autodéfense féministe se déroule en LSF et est animé par une personne sourde. Il s’adresse aux femmes sourdes et aux personnes queer sourdes à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:54d903848ecc4e9a9a4f58e446055d17",
@@ -398473,7 +398505,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma comprende danze tradizionali in costume eseguite da un gruppo di bambini e da partecipanti attivi. Segue una rappresentazione teatrale, poi la musica accompagna il ballo e viene organizzata anche una tombola.",
+      "descriptionByLocale": {
+        "it": "Il programma comprende danze tradizionali in costume eseguite da un gruppo di bambini e da partecipanti attivi. Segue una rappresentazione teatrale, poi la musica accompagna il ballo e viene organizzata anche una tombola.",
+        "en": "The programme features traditional dances in costume performed by a children’s group and active participants. A play is staged, after which music is provided for dancing; a tombola is also available.",
+        "de": "Auf dem Programm stehen Trachtentänze einer Kindergruppe und aktiver Mitwirkender. Nach einem Theaterstück gibt es Musik zum Tanzen; außerdem ist eine Tombola vorgesehen.",
+        "fr": "Le programme comprend des danses traditionnelles en costume, présentées par un groupe d’enfants et des participants actifs. Une pièce de théâtre est ensuite suivie de musique pour danser, et une tombola est également prévue."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AHZAr2v",
@@ -476576,7 +476616,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone degustazioni legate alla fine dell’anno. Il programma comprende anche un mercato dell’artigianato a Saint-Prex.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone degustazioni legate alla fine dell’anno. Il programma comprende anche un mercato dell’artigianato a Saint-Prex.",
+        "en": "The event brings together tastings associated with the end of the year. It also includes a craft market in Saint-Prex.",
+        "de": "Die Veranstaltung umfasst Weinverkostungen zum Jahresende. Dazu kommt ein Kunsthandwerksmarkt in Saint-Prex.",
+        "fr": "Le rendez-vous associe des dégustations liées à la fin de l’année. Il comprend également un marché artisanal à Saint-Prex."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AqdKesg",
@@ -589323,7 +589371,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Nicole Bernegger dà il nome a questo evento di soul. L’appuntamento si svolge alla Mühle Hunziken, a Rubigen.",
+      "descriptionByLocale": {
+        "it": "Nicole Bernegger dà il nome a questo evento di soul. L’appuntamento si svolge alla Mühle Hunziken, a Rubigen.",
+        "en": "Nicole Bernegger is the title of this soul event. The event takes place at Mühle Hunziken in Rubigen.",
+        "de": "Nicole Bernegger bezeichnet diese Soul-Veranstaltung. Sie findet in der Mühle Hunziken in Rubigen statt.",
+        "fr": "Nicole Bernegger donne son nom à ce rendez-vous de soul. L’événement a lieu à la Mühle Hunziken, à Rubigen."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6b3c6fc137e04d36b7d18761dbf646c9",
@@ -591872,7 +591928,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento hip-hop si svolge al Kursaal Bern di Berna. How To Heal è presentato come il primo nuovo singolo di Stress dopo il successo di MTV Unplugged.",
+      "descriptionByLocale": {
+        "it": "L’evento hip-hop si svolge al Kursaal Bern di Berna. How To Heal è presentato come il primo nuovo singolo di Stress dopo il successo di MTV Unplugged.",
+        "en": "The hip-hop event takes place at Kursaal Bern in Bern. How To Heal is presented as Stress’s first new single since the success of MTV Unplugged.",
+        "de": "Die Hip-Hop-Veranstaltung findet im Kursaal Bern in Bern statt. How To Heal wird als erste neue Single von Stress seit dem Erfolg von MTV Unplugged präsentiert.",
+        "fr": "Le rendez-vous hip-hop se déroule au Kursaal Bern, à Berne. How To Heal y est présenté comme le premier nouveau single de Stress depuis le succès de MTV Unplugged."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:dc73a192a3804cf9b63cb619b7b66b31",
@@ -601155,7 +601219,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Konkolo Orchestra è un appuntamento di musica africana che si svolge al Konservi di Seon, nel canton Argovia. Konservi è indicato come interprete, mentre Guidle figura come organizzatore.",
+      "descriptionByLocale": {
+        "it": "Konkolo Orchestra è un appuntamento di musica africana che si svolge al Konservi di Seon, nel canton Argovia. Konservi è indicato come interprete, mentre Guidle figura come organizzatore.",
+        "en": "Konkolo Orchestra is an African music event held at Konservi in Seon, in the canton of Aargau. Konservi is listed as the performer, while Guidle is listed as the organiser.",
+        "de": "Konkolo Orchestra gehört zum Bereich afrikanische Musik und findet im Konservi in Seon im Kanton Aargau statt. Konservi ist als auftretende Organisation und Guidle als Veranstalter eingetragen.",
+        "fr": "Konkolo Orchestra est un rendez-vous consacré à la musique africaine, organisé au Konservi à Seon, dans le canton d’Argovie. Konservi est indiqué comme interprète et Guidle comme organisateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7c26f3711e3149caaa928a326ee17098",
@@ -607998,7 +608070,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento propone musica blues di Philipp Fankhauser alla Mühle Hunziken. Il programma richiama le radici di Nashville e l’interesse dell’artista per la musica country.",
+      "descriptionByLocale": {
+        "it": "L’evento propone musica blues di Philipp Fankhauser alla Mühle Hunziken. Il programma richiama le radici di Nashville e l’interesse dell’artista per la musica country.",
+        "en": "The event presents a blues performance by Philipp Fankhauser at Mühle Hunziken. Its theme refers to Nashville roots and the artist’s interest in country music.",
+        "de": "Bei der Veranstaltung steht Blues von Philipp Fankhauser in der Mühle Hunziken im Mittelpunkt. Inhaltlich verweist sie auf Nashville-Wurzeln und das Interesse des Künstlers an Countrymusik.",
+        "fr": "L’événement propose un concert de blues de Philipp Fankhauser à la Mühle Hunziken. Le programme fait référence aux racines de Nashville et à l’intérêt de l’artiste pour la musique country."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:91132",
@@ -614121,7 +614201,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento appartiene alla categoria metal/hardcore e si tiene al Club Vaudeville di Lindau. Club Vaudeville è indicato come interprete e Guidle come organizzatore.",
+      "descriptionByLocale": {
+        "it": "L’evento appartiene alla categoria metal/hardcore e si tiene al Club Vaudeville di Lindau. Club Vaudeville è indicato come interprete e Guidle come organizzatore.",
+        "en": "This event belongs to the metal/hardcore category and takes place at Club Vaudeville in Lindau. Club Vaudeville is listed as the performer and Guidle as the organizer.",
+        "de": "Die Veranstaltung ist der Kategorie Metal/Hardcore zugeordnet und findet im Club Vaudeville in Lindau statt. Club Vaudeville wird als auftretende Organisation und Guidle als Veranstalter genannt.",
+        "fr": "Cet événement relève de la catégorie metal/hardcore et se déroule au Club Vaudeville à Lindau. Club Vaudeville est indiqué comme interprète et Guidle comme organisateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c1dfd40940f74b43bbc4e913c8ca0d84",
@@ -614664,7 +614752,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "AEIOU è un evento di musica pop con Lotus Effect alla Chollerhalle. Il biglietto costa 36,60 CHF.",
+      "descriptionByLocale": {
+        "it": "AEIOU è un evento di musica pop con Lotus Effect alla Chollerhalle. Il biglietto costa 36,60 CHF.",
+        "en": "AEIOU is a pop event featuring Lotus Effect at Chollerhalle. Admission costs CHF 36.60.",
+        "de": "AEIOU ist eine Popveranstaltung mit Lotus Effect in der Chollerhalle. Der Eintritt kostet CHF 36,60.",
+        "fr": "AEIOU est un événement de musique pop avec Lotus Effect à la Chollerhalle. L’entrée coûte 36,60 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b195ad5a83fd4098adbc126050b7f038",
@@ -622417,7 +622513,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Blanco White presenta un appuntamento di musica d’autore al Bierhübeli. L’ingresso costa 70,70 CHF.",
+      "descriptionByLocale": {
+        "it": "Blanco White presenta un appuntamento di musica d’autore al Bierhübeli. L’ingresso costa 70,70 CHF.",
+        "en": "Blanco White appears in a singer-songwriter event at Bierhübeli. Admission costs CHF 70.70.",
+        "de": "Blanco White tritt bei einer Veranstaltung mit Liedermachermusik im Bierhübeli auf. Der Eintritt kostet 70,70 CHF.",
+        "fr": "Blanco White se produit dans le cadre d’un rendez-vous de musique d’auteur au Bierhübeli. L’entrée coûte 70,70 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:216893a36fa34e23ba7e8fe474d46aee",
@@ -630803,7 +630907,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Loredana e Kilian partecipano a un evento di musica pop al Vaduzer Saal. L’appuntamento è organizzato da Guidle.",
+      "descriptionByLocale": {
+        "it": "Loredana e Kilian partecipano a un evento di musica pop al Vaduzer Saal. L’appuntamento è organizzato da Guidle.",
+        "en": "Loredana and Kilian are the performers at a pop music event held at Vaduzer Saal. The event is organized by Guidle.",
+        "de": "Loredana und Kilian treten bei einer Popmusikveranstaltung im Vaduzer Saal auf. Die Veranstaltung wird von Guidle organisiert.",
+        "fr": "Loredana et Kilian se produisent lors d’un événement de musique pop au Vaduzer Saal. Le rendez-vous est organisé par Guidle."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e672ba26b5eb4934ad1ed56e8420f4a7",

@@ -7,6 +7,7 @@ import {
   reachableSlugs,
   isGuardedSlicePath,
   GUARD_PER_LOCALE_CAP,
+  loadGuardDenylist,
   _resetDenylistCache,
   _resetGscIndexedSlugsCache,
 } from '../scripts/lib/slug-preservation-guard.mjs';
@@ -195,6 +196,34 @@ describe('slug-preservation-guard (issue #5157)', () => {
     expect(next.jobs[0].previousSlugsByLocale.en ?? []).not.toContain(poison);
     // The other four are still rescued — the denylist is surgical, not a mute.
     expect(result.restored).toBe(4);
+  });
+
+  it('fails closed when the restore denylist is missing', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-preservation-denylist-missing-'));
+    try {
+      expect(() => loadGuardDenylist(root)).toThrow(/Missing previous-slug restore denylist/);
+    } finally {
+      _resetDenylistCache();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it.each([
+    ['malformed JSON', '{ not json'],
+    ['invalid shape', '{"entries":[{"file":"banca-cler.json"}]}'],
+  ])('fails closed when the restore denylist is %s', (_label, contents) => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-preservation-denylist-invalid-'));
+    const dataDir = path.join(root, 'data');
+    fs.mkdirSync(dataDir, { recursive: true });
+    const file = path.join(dataDir, 'prev-slug-restore-denylist.json');
+    fs.writeFileSync(file, contents, 'utf8');
+    try {
+      expect(() => loadGuardDenylist(root)).toThrow(/previous-slug restore denylist/);
+      expect(fs.readFileSync(file, 'utf8')).toBe(contents);
+    } finally {
+      _resetDenylistCache();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('respects the per-locale cap instead of fighting documented LRU eviction', () => {
@@ -657,6 +686,11 @@ describe('writeJsonAtomic wiring (the guard cannot be bypassed by forgetting it)
   it('rescues dropped slugs on a real slice write without the caller doing anything', () => {
     const slicePath = path.join(tmpRoot, 'data', 'jobs', 'by-crawler', 'banca-cler.json');
     fs.mkdirSync(path.dirname(slicePath), { recursive: true });
+    fs.mkdirSync(path.join(tmpRoot, 'data'), { recursive: true });
+    fs.writeFileSync(
+      path.join(tmpRoot, 'data', 'prev-slug-restore-denylist.json'),
+      JSON.stringify({ entries: [] }),
+    );
     fs.writeFileSync(slicePath, JSON.stringify(bancaClerBefore(), null, 2));
 
     // A caller that never heard of addPreviousSlugForLocale — the exact

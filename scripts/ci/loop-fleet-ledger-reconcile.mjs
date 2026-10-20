@@ -169,6 +169,7 @@ export function missingEvidenceRecordIds(inputDir, ledgerDir, { loopId, runId, s
     return { ok: false, reason: error.message, missing: [] };
   }
   const records = {};
+  const declaredLedgerFiles = new Set(Array.isArray(summary.ledgerFiles) ? summary.ledgerFiles : []);
   for (const [type, fileName] of Object.entries({
     observation: 'loop-observations.jsonl',
     decision: 'loop-decisions.jsonl',
@@ -176,15 +177,22 @@ export function missingEvidenceRecordIds(inputDir, ledgerDir, { loopId, runId, s
     lifecycle: 'lifecycle-events.jsonl',
   })) {
     const file = findFile(inputDir, fileName);
+    if (!file && declaredLedgerFiles.has(fileName)) {
+      return { ok: false, reason: `${type} evidence is missing from a current-contract artifact`, missing: [] };
+    }
     records[type] = file ? jsonlRecords(file) : [];
   }
   if (records.health.length === 0) return { ok: false, reason: 'health evidence is missing', missing: [] };
+  const written = summary.written && typeof summary.written === 'object' && !Array.isArray(summary.written)
+    ? summary.written
+    : {};
+  for (const type of ['observation', 'decision']) {
+    if (written[type] === true && records[type].length === 0) {
+      return { ok: false, reason: `${type} evidence is empty although the summary marks it written`, missing: [] };
+    }
+  }
   const lifecycleExpected = Array.isArray(summary.ledgerFiles)
     && summary.ledgerFiles.includes('lifecycle-events.jsonl');
-  const lifecycleFile = findFile(inputDir, 'lifecycle-events.jsonl');
-  if (lifecycleExpected && !lifecycleFile) {
-    return { ok: false, reason: 'lifecycle evidence is missing from a current-contract artifact', missing: [] };
-  }
   if (lifecycleExpected && Array.isArray(summary.lifecycleEventTypes)) {
     const actualTypes = records.lifecycle.map((record) => record?.eventType);
     if (JSON.stringify(actualTypes) !== JSON.stringify(summary.lifecycleEventTypes)) {

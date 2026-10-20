@@ -306,6 +306,39 @@ describe('application concierge matching', () => {
     }
   });
 
+  it('fails matching when an HTTP-200 job index has an unknown JSON shape', async () => {
+    const { db, documents } = createMatchingDb({
+      'application_concierge_services/service-shape': {
+        userId: 'candidate-shape',
+        paymentStatus: 'paid',
+        serviceStatus: 'active',
+        maxPositions: 10,
+        acceptedPositionsCount: 0,
+        expiresAt: new Date(Date.now() + 60_000),
+      },
+      'user_cv_profiles/candidate-shape': {
+        status: 'ready',
+        profile: { searchText: 'infermiere triage', workPosition: 'Infermiere', skills: ['triage'] },
+      },
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, async json() { return { error: 'upstream unavailable' }; } })));
+
+    try {
+      await expect(runApplicationConciergeMatching({
+        db: db as never,
+        serviceId: 'service-shape',
+        jobIndexUrl: 'https://jobs.example.test/index.json',
+      })).rejects.toThrow('job_index_invalid_shape');
+      expect(documents.get('application_concierge_services/service-shape')).toMatchObject({
+        matchingStatus: 'failed',
+        matchingError: 'job_search_failed',
+      });
+      expect([...documents.keys()].some((path) => path.startsWith('application_concierge_services/service-shape/proposals/'))).toBe(false);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
   it('proposes the nearer compatible job first when the position cap is limited', async () => {
     const { db, documents } = createMatchingDb({
       'application_concierge_services/service-nearby': {

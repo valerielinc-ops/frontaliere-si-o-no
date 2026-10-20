@@ -24,7 +24,7 @@
  *   node scripts/prospect-expand.mjs --platform=example.com
  *   node scripts/prospect-expand.mjs --platforms=2 --max-probe=200
  */
-import { loadRegistry, saveRegistry, enumerablePlatforms, recordExpansionAttempt } from './lib/prospector/platform-registry.mjs';
+import { loadRegistry, saveRegistry, enumerablePlatforms, recordExpansionAttempt, recordExpansionResult } from './lib/prospector/platform-registry.mjs';
 import { loadCandidates, saveCandidates, upsertCandidate, setStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
 import { enumerateTenants } from './lib/prospector/tenant-enum.mjs';
 import { loadCoverage, isCovered } from './lib/prospector/coverage.mjs';
@@ -79,17 +79,20 @@ for (const platform of targets) {
   // vogliono.
   // Mark the attempt before any network call. An empty or failing vendor must
   // still yield the next run's budget to the rest of the confirmed registry.
-  recordExpansionAttempt(platform);
+  const expansionAt = new Date().toISOString();
+  recordExpansionAttempt(platform, expansionAt);
   let res;
   try {
     res = await enumerateTenants(platform, { nameSeeds: seeds, maxProbe });
   } catch (err) {
+    recordExpansionResult(platform, { outcome: 'unavailable' }, expansionAt);
     console.log(`${platform.domain}: enumerazione fallita — ${(err instanceof Error ? err.message : String(err)).slice(0, 120)}`);
     continue;
   }
+  recordExpansionResult(platform, res, expansionAt);
   const live = res.live;
   platform.tenantCount = Math.max(platform.tenantCount || 0, live.length);
-  console.log(`${platform.domain}: ${res.discovered.length} host candidati (${JSON.stringify(res.byMethod)}) → ${live.length} tenant VIVI`);
+  console.log(`${platform.domain}: ${res.discovered.length} host candidati (${JSON.stringify(res.byMethod)}) → ${live.length} tenant VIVI; esito=${res.outcome}, fonti=${JSON.stringify(res.sourceOutcomes)}`);
 
   for (const t of live) {
     const label = tenantLabel(t.host);

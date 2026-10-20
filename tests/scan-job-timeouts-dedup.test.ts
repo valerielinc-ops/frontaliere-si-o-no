@@ -71,6 +71,9 @@ describe('scan-job-timeouts — two timed-out jobs of one run ⇒ ONE issue', ()
       if (args[0] === 'api') {
         const path = args[1];
         if (path.includes('actions/runs?status=cancelled')) return JSON.stringify({ workflow_runs: [RUN] });
+        if (path.includes('actions/runs?status=failure') || path.includes('actions/runs?status=startup_failure')) {
+          return JSON.stringify({ total_count: 0, workflow_runs: [] });
+        }
         if (path.includes(`actions/runs/${RUN.id}/jobs`)) return JSON.stringify({ jobs: JOBS });
         if (path.endsWith('/annotations')) return JSON.stringify([ANNOTATIONS]);
         return '{}';
@@ -104,6 +107,9 @@ describe('scan-job-timeouts — two timed-out jobs of one run ⇒ ONE issue', ()
       if (args[0] === 'api') {
         const path = args[1];
         if (path.includes('actions/runs?status=cancelled')) return JSON.stringify({ workflow_runs: [RUN] });
+        if (path.includes('actions/runs?status=failure') || path.includes('actions/runs?status=startup_failure')) {
+          return JSON.stringify({ total_count: 0, workflow_runs: [] });
+        }
         if (path.includes(`actions/runs/${RUN.id}/jobs`)) return JSON.stringify({ jobs: JOBS });
         if (path.endsWith('/annotations')) return JSON.stringify([ANNOTATIONS]);
         return '{}';

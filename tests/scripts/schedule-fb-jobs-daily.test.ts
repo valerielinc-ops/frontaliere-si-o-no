@@ -463,22 +463,21 @@ describe('loadPosted', () => {
     expect(out.schemaVersion).toBe(1);
   });
 
-  it('returns empty on malformed JSON without throwing', () => {
+  it('throws on malformed JSON to preserve deduplication state', () => {
     const tmp = mkdtempSync(join(tmpdir(), 'fb-jobs-'));
     mkdirSync(join(tmp, 'data'), { recursive: true });
     writeFileSync(join(tmp, 'data', 'fb-posted-jobs.json'), 'not-json');
-    const out = loadPosted(tmp);
-    expect(out.posted).toEqual([]);
+    expect(() => loadPosted(tmp)).toThrow(/malformed social posted ledger JSON/i);
   });
 
-  it('returns empty when shape is wrong (no posted array)', () => {
+  it('throws when shape is wrong (no posted array)', () => {
     const tmp = mkdtempSync(join(tmpdir(), 'fb-jobs-'));
     mkdirSync(join(tmp, 'data'), { recursive: true });
     writeFileSync(
       join(tmp, 'data', 'fb-posted-jobs.json'),
       JSON.stringify({ schemaVersion: 1 }),
     );
-    expect(loadPosted(tmp).posted).toEqual([]);
+    expect(() => loadPosted(tmp)).toThrow(/invalid social posted ledger shape/i);
   });
 
   it('round-trips a valid ledger', () => {

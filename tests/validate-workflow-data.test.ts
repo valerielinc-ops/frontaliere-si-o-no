@@ -5,7 +5,7 @@ import { spawnSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 
 import { createCrawlerGenerationLedgerEntry } from '../scripts/crawler-group-generation-finalizer.mjs';
-import { parseWorkflowData, validateWorkflowData } from '../scripts/ci/validate-workflow-data.mjs';
+import { parseWorkflowData, readHeadFile, validateWorkflowData } from '../scripts/ci/validate-workflow-data.mjs';
 
 const NOW = new Date('2026-10-18T12:00:00.000Z');
 const NOW_ISO = NOW.toISOString();
@@ -113,6 +113,13 @@ const KINDS = [
 ] as const;
 
 describe('validate-workflow-data', () => {
+  it('distinguishes a missing HEAD path from other Git read failures', () => {
+    const root = path.resolve(import.meta.dirname, '..');
+    const missing = `data/__missing-workflow-baseline-${process.pid}.json`;
+    expect(readHeadFile(root, missing)).toBeNull();
+    expect(() => readHeadFile(os.tmpdir(), 'data/missing.json')).toThrow(/Impossibile leggere il baseline HEAD/);
+  });
+
   it.each(KINDS)('accepts a valid %s artifact', async (kind) => {
     expect(await validateWorkflowData(kind, fixtures()[kind], { now: NOW })).toEqual([]);
   });
@@ -142,6 +149,13 @@ describe('validate-workflow-data', () => {
     value.crawlers['example-crawler']._lastObservedAt = '2026-02-29T12:00:00.000Z';
     expect((await validateWorkflowData('crawler-health', value, { now: NOW })).join('\n'))
       .toContain('timestamp ISO non valido');
+  });
+
+  it('rejects counters outside JavaScript safe integer range', async () => {
+    const value: any = structuredClone(fixtures()['crawler-health']);
+    value.crawlers['example-crawler'].consecutiveEmptyRuns = Number.MAX_SAFE_INTEGER + 1;
+    expect((await validateWorkflowData('crawler-health', value, { now: NOW })).join('\n'))
+      .toContain('consecutiveEmptyRuns: intero non negativo sicuro richiesto');
   });
 
   it.each([

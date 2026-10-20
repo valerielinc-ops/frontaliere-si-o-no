@@ -178,6 +178,39 @@ async function readJsonSafe(filePath) {
   }
 }
 
+/** Missing monitor state is a first run; corrupt state must never reset streaks. */
+export async function readHealthState(filePath) {
+  let raw;
+  try {
+    raw = await fs.readFile(filePath, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return null;
+    throw new Error(`Cannot read crawler health state at ${filePath}`, { cause: error });
+  }
+  let state;
+  try {
+    state = JSON.parse(raw);
+  } catch (error) {
+    throw new Error(`Malformed crawler health state at ${filePath}`, { cause: error });
+  }
+  const counterFields = [
+    'lastNonZeroJobs',
+    'consecutiveEmptyRuns',
+    'consecutiveEmptyOkRuns',
+    '_lastObservedJobs',
+  ];
+  const validCrawlerRecord = (crawler) => crawler && typeof crawler === 'object' && !Array.isArray(crawler)
+    && counterFields.every((field) => crawler[field] === undefined
+      || (Number.isSafeInteger(crawler[field]) && crawler[field] >= 0));
+  if (!state || typeof state !== 'object' || Array.isArray(state)
+    || !state.crawlers || typeof state.crawlers !== 'object' || Array.isArray(state.crawlers)
+    || !Object.entries(state.crawlers).every(([slug, crawler]) => slug.trim()
+      && validCrawlerRecord(crawler))) {
+    throw new Error(`Invalid crawler health state shape at ${filePath}`);
+  }
+  return state;
+}
+
 /** List `*.json` slugs in a dir (best-effort; empty array on read failure). */
 async function listJsonSlugs(dir) {
   try {
@@ -1291,7 +1324,7 @@ async function main() {
     console.warn('[health] No crawler files found; nothing to check.');
   }
 
-  const prevState = (await readJsonSafe(HEALTH_STATE_PATH)) ?? {
+  const prevState = (await readHealthState(HEALTH_STATE_PATH)) ?? {
     _lastCheckedAt: null,
     crawlers: {},
   };

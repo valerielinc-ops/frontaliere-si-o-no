@@ -27,6 +27,13 @@ describe('STA Personal AG crawler parser', () => {
     expect(readDeclaredListingTotal('<span>1’822</span> Resultate', pagination, spec)).toBe(1822);
   });
 
+  it('treats definitive stale detail 404s as expected filters only after the shared proof floor', () => {
+    const spec = loadSpec(STA_KEY);
+
+    expect(spec.detailNotFoundPolicy).toBe('expected-filter');
+    expect(spec.detailNotFoundMinimumPublished).toBe(10);
+  });
+
   it('uses the current detail link when listing JSON-LD carries a stale URL', () => {
     const staleUrl = 'https://www.sta.jobs/stellen/legacy-dauerstelle-109941/';
     const currentUrl = 'https://www.sta.jobs/stellen/44545-stalu/';

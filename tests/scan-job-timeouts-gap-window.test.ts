@@ -56,6 +56,7 @@ function installGh({
       }
       if (path.includes('actions/runs?status=cancelled')) return JSON.stringify({ workflow_runs: [timedOutRun] });
       if (path.includes('actions/runs?status=failure')) return JSON.stringify({ workflow_runs: [] });
+      if (path.includes('actions/runs?status=startup_failure')) return JSON.stringify({ total_count: 0, workflow_runs: [] });
       if (path.includes(`/runs/${timedOutRun.id}/jobs`)) return JSON.stringify({ jobs: [timeoutJob] });
       if (path.endsWith('/annotations')) {
         return JSON.stringify([[{ message: 'The job has exceeded the maximum execution time of 6h0m0s' }]]);

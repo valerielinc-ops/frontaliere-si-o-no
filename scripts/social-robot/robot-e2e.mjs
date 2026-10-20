@@ -603,7 +603,10 @@ async function main() {
     const dispatched = [];
     const robot = (cliMode, rcMode, startUrl) => runRobot({
       cliMode, rcMode, platforms: ['instagram'], sleep: async () => {},
-      reader: { readQueue: () => ({ pending: [entry] }), readLedger: () => parseLedger('') },
+      reader: {
+        readQueue: () => ({ pending: [entry] }),
+        readLedger: () => parseLedger('{"schemaVersion":1,"posted":[]}'),
+      },
       journalStore: { load: () => journal, save: (j) => { journal = j; } },
       fetchImages: async () => files,
       diagnosticsFor: () => path.join(work, 'diagnostics', `robot-${cliMode}-${rcMode}`),

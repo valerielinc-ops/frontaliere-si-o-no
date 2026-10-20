@@ -558,20 +558,29 @@ function listRunsByStatus(status, cutoffMs, nowMs = Date.now()) {
     const pagePath = (page) => repoPath(
       `actions/runs?status=${status}&created=${created}&per_page=${perPage}&page=${page}`,
     );
-    const first = ghJson(pagePath(1));
-    if (!first) return;
+    const fetchRunsPage = (page) => {
+      const data = ghJson(pagePath(page));
+      if (!data || typeof data !== 'object' || Array.isArray(data)
+        || !Array.isArray(data.workflow_runs)) {
+        throw new Error(`[scan-job-timeouts] risposta runs ${status} non leggibile (page=${page})`);
+      }
+      return data;
+    };
+    const first = fetchRunsPage(1);
 
-    const totalCount = Number(first.total_count);
+    if (first.total_count !== undefined
+      && (!Number.isSafeInteger(first.total_count) || first.total_count < 0)) {
+      throw new Error(`[scan-job-timeouts] total_count non valido per runs ${status}`);
+    }
+    const totalCount = first.total_count;
     if (Number.isFinite(totalCount) && totalCount > RUN_SEARCH_RESULT_CAP) {
       const midpoint = Math.floor((startMs + endMs) / 2);
       if (depth >= RUN_SEARCH_MAX_SPLIT_DEPTH || midpoint < startMs || midpoint >= endMs) {
-        console.warn(
-          `::warning::[scan-job-timeouts] search ${status} ancora oltre il limite API `
-            + `(${totalCount} > ${RUN_SEARCH_RESULT_CAP}) dopo ${depth} split — `
-            + `possibile troncamento tra ${new Date(startMs).toISOString()} e ${new Date(endMs).toISOString()}.`,
+        throw new Error(
+          `[scan-job-timeouts] search ${status} oltre il limite API (${totalCount} > ${RUN_SEARCH_RESULT_CAP}) `
+            + `dopo ${depth} split; risultati incompleti tra ${new Date(startMs).toISOString()} `
+            + `e ${new Date(endMs).toISOString()}`,
         );
-        observe(first.workflow_runs || []);
-        return;
       }
       // Intervalli disgiunti al millisecondo: nessun buco, nessun doppio
       // conteggio sul confine (runsById resta comunque l'ultima difesa).
@@ -580,26 +589,38 @@ function listRunsByStatus(status, cutoffMs, nowMs = Date.now()) {
       return;
     }
 
-    const expectedPages = Number.isFinite(totalCount)
+    const expectedPages = Number.isSafeInteger(totalCount)
       ? Math.ceil(totalCount / perPage)
       : null;
     let page = 1;
     let data = first;
-    while (data) {
-      const batch = data.workflow_runs || [];
-      if (batch.length === 0) break;
-      observe(batch);
-      if (batch.length < perPage) break;
-      if (expectedPages !== null && page >= expectedPages) break;
-      if (expectedPages === null && page >= RUN_SEARCH_RESULT_CAP / perPage) {
-        console.warn(
-          `::warning::[scan-job-timeouts] search ${status} ha raggiunto il limite API `
-            + `senza total_count — possibile troncamento nella slice created.`,
-        );
+    while (true) {
+      const batch = data.workflow_runs;
+      if (batch.length === 0) {
+        if (expectedPages !== null && page <= expectedPages) {
+          throw new Error(`[scan-job-timeouts] pagina ${page}/${expectedPages} vuota per runs ${status}`);
+        }
         break;
       }
+      if (expectedPages !== null) {
+        const expectedRows = Math.min(perPage, Math.max(0, totalCount - ((page - 1) * perPage)));
+        if (batch.length !== expectedRows) {
+          throw new Error(
+            `[scan-job-timeouts] pagina ${page}/${expectedPages} attesa ${expectedRows}, ricevuta ${batch.length} per runs ${status}`,
+          );
+        }
+      }
+      observe(batch);
+      if (expectedPages !== null && page >= expectedPages) break;
+      if (expectedPages === null && batch.length < perPage) break;
+      if (expectedPages === null && page >= RUN_SEARCH_RESULT_CAP / perPage) {
+        throw new Error(
+          `[scan-job-timeouts] search ${status} ha raggiunto ${RUN_SEARCH_RESULT_CAP} risultati senza total_count; `
+            + 'risultati incompleti nella slice created',
+        );
+      }
       page += 1;
-      data = ghJson(pagePath(page));
+      data = fetchRunsPage(page);
     }
   };
 

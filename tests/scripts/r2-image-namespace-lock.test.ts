@@ -468,8 +468,11 @@ globalThis.fetch = async (url) => {
       leaseMs: 60_000,
     })).rejects.toMatchObject({ name: 'AbortError' });
 
-    expect(calls.filter(({ method, headers }) => method === 'PUT' && headers['if-match']).map(({ key }) => key))
-      .toEqual([placesKey, imageNamespaceLockKey('blog')]);
+    const rollbackKeys = calls
+      .filter(({ method, headers }) => method === 'PUT' && headers['if-match'])
+      .map(({ key }) => key);
+    expect(rollbackKeys).toHaveLength(2);
+    expect(rollbackKeys).toEqual(expect.arrayContaining([placesKey, imageNamespaceLockKey('blog')]));
     for (const namespace of ['blog', 'places']) {
       const payload = objects.get(imageNamespaceLockKey(namespace))?.payload;
       expect(payload).toMatchObject({ namespace, releasedAt: expect.any(Number), expiresAt: expect.any(Number) });

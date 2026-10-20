@@ -32,7 +32,6 @@ import path from 'node:path';
 import { politeFetch } from './../polite-fetch.mjs';
 import { normalizeHost, registrableDomain, safeDecodePath } from './../registrable.mjs';
 import { PROSPECTOR_DIR, WEB_CHANNEL_HEALTH_PATH } from './../config.mjs';
-import { loadGenericCursor, saveGenericCursor } from '../../crawl-checkpoint.mjs';
 
 const INDEX_HOST = 'https://index.commoncrawl.org';
 const CURSOR_PATH = path.join(PROSPECTOR_DIR, 'commoncrawl-cursor.json');
@@ -59,47 +58,90 @@ const CAREER_PATH_RX = new RegExp(
 
 /**
  * The newest collection the index offers.
- * @returns {Promise<string|null>}
+ * @returns {Promise<{ collection: string|null, outcome: 'complete'|'unavailable'|'malformed', errorCode: string|null }>}
  */
-export async function latestCollection() {
-  const res = await politeFetch(`${INDEX_HOST}/collinfo.json`, { accept: 'application/json', ignoreRobots: true, retries: 3 });
-  if (!res.ok) return null;
-  try { return JSON.parse(res.body)[0]?.id || null; } catch { return null; }
+export async function latestCollection(options = {}) {
+  let res;
+  try {
+    res = await politeFetch(`${INDEX_HOST}/collinfo.json`, {
+      accept: 'application/json', ignoreRobots: true, retries: 3,
+      fetchImpl: options.fetchImpl, sleepImpl: options.sleepImpl, lookupImpl: options.lookupImpl,
+    });
+  } catch {
+    return { collection: null, outcome: 'unavailable', errorCode: 'network_error' };
+  }
+  if (!res.ok) return { collection: null, outcome: 'unavailable', errorCode: `http_${res.status}` };
+  let rows;
+  try { rows = JSON.parse(res.body); } catch {
+    return { collection: null, outcome: 'malformed', errorCode: 'malformed_json' };
+  }
+  const collection = Array.isArray(rows) ? String(rows[0]?.id || '') : '';
+  return collection
+    ? { collection, outcome: 'complete', errorCode: null }
+    : { collection: null, outcome: 'malformed', errorCode: 'missing_collection_id' };
 }
 
 /**
  * How many index pages the `.ch` range spans in a collection.
  * @param {string} collection
- * @returns {Promise<number>}
+ * @returns {Promise<{ totalPages: number, outcome: 'complete'|'unavailable'|'malformed', errorCode: string|null }>}
  */
-export async function chPageCount(collection) {
-  const res = await politeFetch(
-    `${INDEX_HOST}/${collection}-index?url=*.ch&showNumPages=true&output=json`,
-    { accept: 'application/json', ignoreRobots: true, timeoutMs: 180000, retries: 3 },
-  );
-  if (!res.ok) return 0;
-  try { return Number(JSON.parse(res.body).pages) || 0; } catch { return 0; }
+export async function chPageCount(collection, options = {}) {
+  let res;
+  try {
+    res = await politeFetch(
+      `${INDEX_HOST}/${collection}-index?url=*.ch&showNumPages=true&output=json`,
+      {
+        accept: 'application/json', ignoreRobots: true, timeoutMs: 180000, retries: 3,
+        fetchImpl: options.fetchImpl, sleepImpl: options.sleepImpl, lookupImpl: options.lookupImpl,
+      },
+    );
+  } catch {
+    return { totalPages: 0, outcome: 'unavailable', errorCode: 'network_error' };
+  }
+  if (!res.ok) return { totalPages: 0, outcome: 'unavailable', errorCode: `http_${res.status}` };
+  let payload;
+  try { payload = JSON.parse(res.body); } catch {
+    return { totalPages: 0, outcome: 'malformed', errorCode: 'malformed_json' };
+  }
+  const totalPages = Number(payload?.pages);
+  if (!Number.isSafeInteger(totalPages) || totalPages <= 0) {
+    return { totalPages: 0, outcome: 'malformed', errorCode: 'invalid_page_count' };
+  }
+  return { totalPages, outcome: 'complete', errorCode: null };
 }
 
 /**
  * @param {string} collection
  * @param {number} page
- * @returns {Promise<{ host: string, url: string }[]>}
+ * @returns {Promise<{ employers: { host: string, url: string }[], outcome: 'complete'|'partial'|'unavailable'|'malformed', errorCode: string|null }>}
  */
-export async function careerPagesOnIndexPage(collection, page) {
-  const res = await politeFetch(
-    `${INDEX_HOST}/${collection}-index?url=*.ch&output=json&fl=url&page=${page}`,
-    { accept: 'application/json', ignoreRobots: true, timeoutMs: 240000, retries: 3 },
-  );
-  if (!res.ok) return [];
+export async function careerPagesOnIndexPage(collection, page, options = {}) {
+  let res;
+  try {
+    res = await politeFetch(
+      `${INDEX_HOST}/${collection}-index?url=*.ch&output=json&fl=url&page=${page}`,
+      {
+        accept: 'application/json', ignoreRobots: true, timeoutMs: 240000, retries: 3,
+        fetchImpl: options.fetchImpl, sleepImpl: options.sleepImpl, lookupImpl: options.lookupImpl,
+      },
+    );
+  } catch {
+    return { employers: [], outcome: 'unavailable', errorCode: 'network_error' };
+  }
+  if (!res.ok) return { employers: [], outcome: 'unavailable', errorCode: `http_${res.status}` };
+  if (!String(res.body || '').trim()) {
+    return { employers: [], outcome: 'malformed', errorCode: 'empty_index_page' };
+  }
   /** @type {Map<string, string>} */
   const byHost = new Map();
+  let malformedRows = 0;
   for (const line of res.body.split('\n')) {
     if (!line.trim()) continue;
     let url;
-    try { url = JSON.parse(line).url; } catch { continue; }
+    try { url = JSON.parse(line).url; } catch { malformedRows++; continue; }
     let u;
-    try { u = new URL(url); } catch { continue; }
+    try { u = new URL(url); } catch { malformedRows++; continue; }
     const p = safeDecodePath(u);
     if (!CAREER_PATH_RX.test(p)) continue;
     const host = normalizeHost(u.hostname);
@@ -109,7 +151,11 @@ export async function careerPagesOnIndexPage(collection, page) {
     const prev = byHost.get(domain);
     if (!prev || url.length < prev.length) byHost.set(domain, url);
   }
-  return [...byHost].map(([host, url]) => ({ host, url }));
+  return {
+    employers: [...byHost].map(([host, url]) => ({ host, url })),
+    outcome: malformedRows ? (byHost.size ? 'partial' : 'malformed') : 'complete',
+    errorCode: malformedRows ? 'malformed_rows' : null,
+  };
 }
 
 /**
@@ -121,125 +167,291 @@ export async function careerPagesOnIndexPage(collection, page) {
  * fluke or a trend" into something a report can answer instead of guess.
  *
  * @param {string} [file]
- * @returns {{ at: string, collection: string|null, totalPages: number, pagesRead: number, employers: number, outage: boolean }[]}
+ * @returns {{ at: string, collection: string|null, totalPages: number, pagesRead: number, employers: number, outcome?: string, errorCode?: string|null, failedPages?: any[], coverageRate?: number|null, outage: boolean }[]}
  */
 export function loadChannelHealth(file = WEB_CHANNEL_HEALTH_PATH) {
+  let text;
   try {
-    const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
+    text = fs.readFileSync(file, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return [];
+    throw new Error(`Cannot read Common Crawl health at ${file}`, { cause: error });
   }
+  let parsed;
+  try { parsed = JSON.parse(text); } catch (error) {
+    throw new Error(`Malformed Common Crawl health at ${file}`, { cause: error });
+  }
+  if (!Array.isArray(parsed)) throw new Error(`Invalid Common Crawl health shape at ${file}`);
+  return parsed;
 }
 
 /**
  * Appends one run's yield to the channel health history, capped to the most
- * recent {@link HEALTH_HISTORY_LIMIT} entries. `outage` is `totalPages === 0`:
- * the index responded to neither `latestCollection` nor `chPageCount`, which a
- * legitimately quiet night never produces (the `.ch` range is never empty).
+ * recent {@link HEALTH_HISTORY_LIMIT} entries. `outage` is true only for an
+ * `unavailable` source outcome; malformed responses and partial reads remain
+ * distinct states.
  *
- * @param {{ collection: string|null, totalPages: number, pagesRead: number, employers: number }} sample
+ * @param {{ collection: string|null, totalPages: number, pagesRead: number, employers: number, outcome?: string, errorCode?: string|null, failedPages?: Array<{page:number,outcome:string,errorCode:string|null}>, coverageRate?: number }} sample
  * @param {string} [file]
  */
 export function recordChannelHealth(sample, file = WEB_CHANNEL_HEALTH_PATH) {
   const history = loadChannelHealth(file);
+  const outcome = sample.outcome || (sample.totalPages === 0 ? 'unavailable' : 'complete');
   history.push({
     at: new Date().toISOString(),
     collection: sample.collection,
     totalPages: sample.totalPages,
     pagesRead: sample.pagesRead,
     employers: sample.employers,
-    outage: sample.totalPages === 0,
+    outcome,
+    errorCode: sample.errorCode || null,
+    failedPages: Array.isArray(sample.failedPages) ? sample.failedPages.slice(0, 100) : [],
+    coverageRate: Number.isFinite(sample.coverageRate) ? Number(sample.coverageRate.toFixed(4)) : null,
+    outage: outcome === 'unavailable',
   });
   const trimmed = history.slice(-HEALTH_HISTORY_LIMIT);
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, `${JSON.stringify(trimmed, null, 2)}\n`);
+  const temporary = `${file}.${process.pid}.tmp`;
+  try {
+    fs.writeFileSync(temporary, `${JSON.stringify(trimmed, null, 2)}\n`);
+    fs.renameSync(temporary, file);
+  } finally {
+    fs.rmSync(temporary, { force: true });
+  }
 }
 
-const EMPTY_CURSOR = { collection: null, nextPage: 0, sweptPages: [] };
+const EMPTY_CURSOR = { collection: null, nextPage: 0, totalPages: 0, sweptPages: [], collectionHistory: [] };
 
 /**
- * Resume position for the `.ch` sweep: collection + next page + the set of
- * pages already swept this pass. Shares `crawl-checkpoint.mjs`'s generic
- * read/write boilerplate instead of reimplementing it — the numeric
- * `loadCursor`/`saveCursor` there fix a different cursor shape (a single
- * `nextIndex`, matching the events-slice checkpoint in production) that
- * can't represent this one without changing a format already relied on.
+ * Resume position for the `.ch` sweep. A missing cursor is a first run;
+ * malformed or unreadable state is an error so a save cannot erase coverage.
  *
- * @returns {{ collection: string|null, nextPage: number, sweptPages: number[] }}
+ * @returns {{ collection: string|null, nextPage: number, totalPages: number, stride: number, sweptPages: number[], pendingPages: number[], collectionHistory: any[] }}
  */
-export function loadCursor() {
-  return loadGenericCursor(CURSOR_PATH, EMPTY_CURSOR);
+export function loadCursor(file = CURSOR_PATH) {
+  let text;
+  try {
+    text = fs.readFileSync(file, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return structuredClone(EMPTY_CURSOR);
+    throw new Error(`Cannot read Common Crawl cursor at ${file}`, { cause: error });
+  }
+  let cursor;
+  try { cursor = JSON.parse(text); } catch (error) {
+    throw new Error(`Malformed Common Crawl cursor at ${file}`, { cause: error });
+  }
+  if (!cursor || typeof cursor !== 'object' || Array.isArray(cursor)
+    || !(cursor.collection === null || typeof cursor.collection === 'string')
+    || !Number.isSafeInteger(cursor.nextPage) || cursor.nextPage < 0
+    || (cursor.totalPages !== undefined && (!Number.isSafeInteger(cursor.totalPages) || cursor.totalPages < 0))
+    || !Array.isArray(cursor.sweptPages)
+    || cursor.sweptPages.some((page) => !Number.isSafeInteger(page) || page < 0)
+    || (cursor.pendingPages !== undefined && (!Array.isArray(cursor.pendingPages)
+      || cursor.pendingPages.some((page) => !Number.isSafeInteger(page) || page < 0)))
+    || (cursor.collectionHistory !== undefined && !Array.isArray(cursor.collectionHistory))) {
+    throw new Error(`Invalid Common Crawl cursor shape at ${file}`);
+  }
+  return {
+    ...EMPTY_CURSOR,
+    ...cursor,
+    totalPages: Number(cursor.totalPages || 0),
+    stride: Number.isSafeInteger(cursor.stride) && cursor.stride > 0 ? cursor.stride : 0,
+    pendingPages: Array.isArray(cursor.pendingPages) ? cursor.pendingPages : [],
+    collectionHistory: Array.isArray(cursor.collectionHistory) ? cursor.collectionHistory : [],
+  };
 }
 
 /**
- * @param {{ collection: string|null, nextPage: number, sweptPages: number[] }} cursor
+ * @param {{ collection: string|null, nextPage: number, totalPages?: number, stride?: number, sweptPages: number[], pendingPages?: number[], collectionHistory?: any[] }} cursor
  */
-export function saveCursor(cursor) {
-  saveGenericCursor(CURSOR_PATH, cursor);
+export function saveCursor(cursor, file = CURSOR_PATH) {
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  const temporary = `${file}.${process.pid}.tmp`;
+  try {
+    fs.writeFileSync(temporary, `${JSON.stringify(cursor, null, 2)}\n`);
+    fs.renameSync(temporary, file);
+  } finally {
+    fs.rmSync(temporary, { force: true });
+  }
+}
+
+function gcd(a, b) {
+  let left = Math.abs(a);
+  let right = Math.abs(b);
+  while (right) [left, right] = [right, left % right];
+  return left;
+}
+
+/** Choose a near-even step that forms one complete permutation of the page range. */
+export function commonCrawlStride(totalPages, wanted) {
+  if (!Number.isSafeInteger(totalPages) || totalPages <= 1) return 1;
+  const target = Math.max(1, Math.floor(totalPages / Math.max(1, wanted)));
+  for (let distance = 0; distance < totalPages; distance++) {
+    const lower = target - distance;
+    const upper = target + distance;
+    if (lower > 0 && gcd(lower, totalPages) === 1) return lower;
+    if (upper < totalPages && gcd(upper, totalPages) === 1) return upper;
+  }
+  return 1;
+}
+
+/** Pure page planner: rotate retries fairly while continuing one full-range permutation. */
+export function planCommonCrawlPages(cursor, totalPages, wanted, requestedStride) {
+  const safeWanted = Math.max(0, Math.floor(Number(wanted) || 0));
+  if (!Number.isSafeInteger(totalPages) || totalPages <= 0 || safeWanted === 0) {
+    return { pages: [], stride: 1, nextPage: 0, pendingPages: [] };
+  }
+  const seen = new Set((Array.isArray(cursor.sweptPages) ? cursor.sweptPages : [])
+    .filter((page) => Number.isSafeInteger(page) && page >= 0 && page < totalPages));
+  const pending = [...new Set((Array.isArray(cursor.pendingPages) ? cursor.pendingPages : [])
+    .filter((page) => Number.isSafeInteger(page) && page >= 0 && page < totalPages && !seen.has(page)))];
+  const pendingSet = new Set(pending);
+  const hasUnseenPages = seen.size + pendingSet.size < totalPages;
+  const retryBudget = hasUnseenPages ? Math.floor(safeWanted / 2) : safeWanted;
+  const retryCount = Math.min(retryBudget, pending.length);
+  const pages = pending.slice(0, retryCount);
+  const stride = Number.isSafeInteger(requestedStride) && requestedStride > 0 && gcd(requestedStride, totalPages) === 1
+    ? requestedStride
+    : commonCrawlStride(totalPages, safeWanted);
+  let nextPage = Number.isSafeInteger(cursor.nextPage) ? cursor.nextPage % totalPages : 0;
+  if (Number(cursor.totalPages) !== totalPages || cursor.stride !== stride) nextPage = 0;
+  let lastNewOffset = -1;
+  for (let offset = 0; pages.length < safeWanted && offset < totalPages; offset++) {
+    const page = (nextPage + offset * stride) % totalPages;
+    if (seen.has(page) || pendingSet.has(page) || pages.includes(page)) continue;
+    pages.push(page);
+    lastNewOffset = offset;
+  }
+  return {
+    pages,
+    stride,
+    nextPage: lastNewOffset < 0 ? nextPage : (nextPage + (lastNewOffset + 1) * stride) % totalPages,
+    pendingPages: pending.slice(retryCount),
+  };
 }
 
 /**
  * Sweep part of the `.ch` range, resuming where the last run stopped.
  *
- * @param {{ pages?: number, collection?: string, stride?: number, persist?: boolean }} [opts]
- * @returns {Promise<{ employers: { host: string, url: string }[], pagesRead: number[], totalPages: number, collection: string|null }>}
+ * @param {{ pages?: number, collection?: string, stride?: number, persist?: boolean, fetchImpl?: typeof fetch, sleepImpl?: (ms:number) => Promise<unknown>, lookupImpl?: any, cursorFile?: string, healthFile?: string }} [opts]
+ * @returns {Promise<{ employers: { host: string, url: string }[], pagesRead: number[], failedPages: Array<{page:number,outcome:string,errorCode:string|null}>, totalPages: number, collection: string|null, outcome: string, errorCode: string|null, coverageRate: number }>}
  */
 export async function sweepSwissCareerPages(opts = {}) {
-  const wanted = opts.pages ?? 20;
+  const wanted = opts.pages ?? 40;
   // Recorded on every exit, including the outage ones below: a run that comes
   // back with `totalPages: 0` because the index answered nothing looks
   // identical, from a single console line, to a legitimately quiet night — the
   // history is what tells the two apart (see `recordChannelHealth`).
   const finish = (result) => {
     if (opts.persist !== false) {
-      recordChannelHealth({
+      try {
+        recordChannelHealth({
         collection: result.collection,
         totalPages: result.totalPages,
         pagesRead: result.pagesRead.length,
         employers: result.employers.length,
-      });
+        outcome: result.outcome,
+        errorCode: result.errorCode,
+        failedPages: result.failedPages,
+        coverageRate: result.coverageRate,
+        }, opts.healthFile || WEB_CHANNEL_HEALTH_PATH);
+      } catch {
+        console.error('::warning::Common Crawl health history non aggiornata; lo sweep prosegue senza sovrascrivere lo storico.');
+      }
     }
     return result;
   };
 
-  const collection = opts.collection || await latestCollection();
-  if (!collection) return finish({ employers: [], pagesRead: [], totalPages: 0, collection: null });
+  const collectionResult = opts.collection
+    ? { collection: opts.collection, outcome: 'complete', errorCode: null }
+    : await latestCollection(opts);
+  const collection = collectionResult.collection;
+  if (!collection) return finish({
+    employers: [], pagesRead: [], failedPages: [], totalPages: 0, collection: null,
+    outcome: collectionResult.outcome, errorCode: collectionResult.errorCode, coverageRate: 0,
+  });
 
-  const cursor = loadCursor();
-  if (cursor.collection !== collection) { cursor.collection = collection; cursor.nextPage = 0; cursor.sweptPages = []; }
-  const totalPages = await chPageCount(collection);
-  if (!totalPages) return finish({ employers: [], pagesRead: [], totalPages: 0, collection });
-
-  // Walk in strides so a short run samples the whole alphabet, not one slab.
-  const stride = opts.stride ?? Math.max(1, Math.floor(totalPages / Math.max(wanted, 1)));
-  const seen = new Set(cursor.sweptPages);
-  const pages = [];
-  for (let i = 0; pages.length < wanted && i < totalPages; i++) {
-    const p = (cursor.nextPage + i * stride) % totalPages;
-    if (seen.has(p)) continue;
-    pages.push(p);
-    seen.add(p);
+  const cursorFile = opts.cursorFile || CURSOR_PATH;
+  const cursor = loadCursor(cursorFile);
+  cursor.collectionHistory = Array.isArray(cursor.collectionHistory) ? cursor.collectionHistory : [];
+  if (cursor.collection !== collection) {
+    if (cursor.collection && Number(cursor.totalPages) > 0) {
+      const oldTotal = Number(cursor.totalPages);
+      const oldSwept = Array.isArray(cursor.sweptPages) ? cursor.sweptPages.length : 0;
+      cursor.collectionHistory.push({
+        collection: cursor.collection,
+        totalPages: oldTotal,
+        sweptPages: oldSwept,
+        coverageRate: Number((oldSwept / oldTotal).toFixed(4)),
+        completed: oldSwept >= oldTotal,
+        supersededAt: new Date().toISOString(),
+      });
+      cursor.collectionHistory = cursor.collectionHistory.slice(-6);
+    }
+    cursor.collection = collection;
+    cursor.nextPage = 0;
+    cursor.totalPages = 0;
+    cursor.sweptPages = [];
+    cursor.pendingPages = [];
+    cursor.stride = 0;
   }
+  const pageCount = await chPageCount(collection, opts);
+  const totalPages = pageCount.totalPages;
+  if (!totalPages) return finish({
+    employers: [], pagesRead: [], failedPages: [], totalPages: 0, collection,
+    outcome: pageCount.outcome, errorCode: pageCount.errorCode, coverageRate: 0,
+  });
+
+  const seen = new Set((Array.isArray(cursor.sweptPages) ? cursor.sweptPages : [])
+    .filter((page) => Number.isSafeInteger(page) && page >= 0 && page < totalPages));
+  const plan = planCommonCrawlPages(cursor, totalPages, wanted, opts.stride);
+  const pages = plan.pages;
+  const pendingPages = new Set(plan.pendingPages);
 
   /** @type {Map<string, string>} */
   const employers = new Map();
   const pagesRead = [];
+  const failedPages = [];
   for (const p of pages) {
-    const found = await careerPagesOnIndexPage(collection, p);
-    pagesRead.push(p);
-    for (const f of found) if (!employers.has(f.host)) employers.set(f.host, f.url);
+    const result = await careerPagesOnIndexPage(collection, p, opts);
+    for (const f of result.employers) if (!employers.has(f.host)) employers.set(f.host, f.url);
+    if (result.outcome === 'complete') {
+      pagesRead.push(p);
+      seen.add(p);
+    } else {
+      failedPages.push({ page: p, outcome: result.outcome, errorCode: result.errorCode });
+      pendingPages.add(p);
+    }
   }
 
+  const outcome = failedPages.length === 0
+    ? 'complete'
+    : pagesRead.length > 0 || failedPages.some((failure) => failure.outcome === 'partial')
+      ? 'partial'
+      : failedPages.every((failure) => failure.outcome === 'malformed') ? 'malformed' : 'unavailable';
+  const errorCode = failedPages[0]?.errorCode || null;
+  const coverageRate = seen.size / totalPages;
+
   if (opts.persist !== false) {
-    cursor.sweptPages = [...seen].sort((a, b) => a - b).slice(-2000);
-    cursor.nextPage = (cursor.nextPage + 1) % Math.max(stride, 1);
-    saveCursor(cursor);
+    cursor.totalPages = totalPages;
+    cursor.stride = plan.stride;
+    cursor.sweptPages = [...seen].sort((a, b) => a - b).slice(-5000);
+    // Preserve retry FIFO order: pages attempted this run are re-added at the
+    // tail, so a persistently malformed page cannot pin the front of the queue.
+    cursor.pendingPages = [...pendingPages];
+    cursor.nextPage = plan.nextPage;
+    try { saveCursor(cursor, cursorFile); } catch {
+      console.error('::warning::Common Crawl cursor non aggiornato; le pagine lette verranno ripetute al prossimo run.');
+    }
   }
   return finish({
     employers: [...employers].map(([host, url]) => ({ host, url })),
     pagesRead,
+    failedPages,
     totalPages,
     collection,
+    outcome,
+    errorCode,
+    coverageRate,
   });
 }
