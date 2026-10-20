@@ -954,20 +954,19 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   state.sessions.clear();
   const profileResult = await run(job, profileCandidate);
   const profileForm = workday.forms.at(-1) || {};
-  check('Workday: profile sections add complete experience and education entries in source order, skipping rows without month-level dates',
-    profileResult.event.type === 'submit_succeeded'
-    && JSON.stringify(profileForm.experience) === JSON.stringify([
-      'Retail Assistant|Mendrisio Market|2020-03|2022-04',
-      'Cashier|Lugano Foods|2022-05|2024-10',
-    ])
-    && JSON.stringify(profileForm.education) === JSON.stringify([
-      'Vocational Diploma|Scuola Cantonale|2015-09|2018-06',
-      'Secondary School|Liceo Lugano|2012-09|2015-06',
-    ])
-    && profileResult.evidence.steps.some((step) => JSON.stringify(step.profileSections) === JSON.stringify([
+  check('Workday: profile sections submit the application', profileResult.event.type === 'submit_succeeded');
+  check('Workday: experience rows are complete and retain source order', JSON.stringify(profileForm.experience) === JSON.stringify([
+    'Retail Assistant|Mendrisio Market|2020-03|2022-04',
+    'Cashier|Lugano Foods|2022-05|2024-10',
+  ]));
+  check('Workday: education rows are complete and retain source order', JSON.stringify(profileForm.education) === JSON.stringify([
+    'Vocational Diploma|Scuola Cantonale|2015-09|2018-06',
+    'Secondary School|Liceo Lugano|2012-09|2015-06',
+  ]));
+  check('Workday: rows without month-level dates are skipped', profileResult.evidence.steps.some((step) => JSON.stringify(step.profileSections) === JSON.stringify([
       { section: 'experience', added: 2, skipped: 1 },
       { section: 'education', added: 2, skipped: 0 },
-    ])));
+  ])));
 }
 
 async function main() {
