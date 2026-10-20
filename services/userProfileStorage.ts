@@ -27,7 +27,7 @@ function parseStoredProfile(raw: string | null): Record<string, unknown> | null 
   }
 }
 
-/** The ownerless legacy profile is offered for explicit recovery after sign-in. */
+/** The ownerless legacy profile can be migrated into the active account after sign-in. */
 export function hasLegacyStoredUserProfile(): boolean {
   try {
     return parseStoredProfile(localStorage.getItem(LEGACY_PROFILE_STORAGE_KEY)) !== null;
