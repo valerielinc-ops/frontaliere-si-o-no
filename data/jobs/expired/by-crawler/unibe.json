@@ -121,24 +121,30 @@
     "slugByLocale": {
       "it": "assistenza-scientifica-universitat-bern-bern",
       "en": "scientific-assistance-universitat-bern-bern",
-      "de": "wissenschaftliche-assistenz-unibe-bern",
+      "de": "wissenschaftliche-assistenz-unibe-bern-ed5fd563",
       "fr": "assistance-scientifique-universitat-bern-bern"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-19T09:36:08.438Z",
     "previousSlugs": [
+      "wissenschaftliche-assistenz-unibe-bern-ed5fd563",
+      "wissenschaftliche-assistenz-universitat-bern-bern-b31511c5",
       "wissenschaftliche-assistenz-unibe-bern",
       "wissenschaftliche-assistenz-universitat-bern-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "wissenschaftliche-assistenz-unibe-bern-ed5fd563",
+        "wissenschaftliche-assistenz-universitat-bern-bern-b31511c5",
         "wissenschaftliche-assistenz-unibe-bern",
         "wissenschaftliche-assistenz-universitat-bern-bern"
       ],
       "en": [
+        "wissenschaftliche-assistenz-universitat-bern-bern-b31511c5",
         "wissenschaftliche-assistenz-universitat-bern-bern"
       ],
       "fr": [
+        "wissenschaftliche-assistenz-universitat-bern-bern-b31511c5",
         "wissenschaftliche-assistenz-universitat-bern-bern"
       ]
     },
@@ -562,11 +568,14 @@
       "applikationsverantwortliche-r-it-unibe-bern",
       "applikationsverantwortliche-r-it-universitat-bern-bern",
       "amministratore-di-sistema-it-universitat-bern-bern",
+      "it-system-administrator-universitat-bern-bern-6c1eac0e",
+      "it-systemadministrator-in-unibe-bern-96bb7571",
+      "it-systemadministrator-in-universitat-bern-bern-8069ccec",
+      "application-manager-r-it-universitat-bern-bern",
+      "gestionnaire-d-applications-r-it-universitat-bern-bern",
       "it-system-administrator-universitat-bern-bern",
       "it-systemadministrator-in-unibe-bern",
-      "it-systemadministrator-in-universitat-bern-bern",
-      "application-manager-r-it-universitat-bern-bern",
-      "gestionnaire-d-applications-r-it-universitat-bern-bern"
+      "it-systemadministrator-in-universitat-bern-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -579,14 +588,18 @@
         "applikationsverantwortliche-r-it-unibe-bern",
         "applikationsverantwortliche-r-it-universitat-bern-bern",
         "amministratore-di-sistema-it-universitat-bern-bern",
+        "it-system-administrator-universitat-bern-bern-6c1eac0e",
+        "it-systemadministrator-in-unibe-bern-96bb7571",
+        "administrateur-du-systeme-informatique-universitat-bern-bern",
+        "it-systemadministrator-in-universitat-bern-bern-8069ccec",
         "it-system-administrator-universitat-bern-bern",
         "it-systemadministrator-in-unibe-bern",
-        "administrateur-du-systeme-informatique-universitat-bern-bern",
         "it-systemadministrator-in-universitat-bern-bern"
       ],
       "de": [
         "linux-systemadministrator-in-unibe-bern",
         "applikationsverantwortliche-r-it-unibe-bern",
+        "it-systemadministrator-in-unibe-bern-96bb7571",
         "it-systemadministrator-in-unibe-bern"
       ],
       "fr": [
@@ -600,6 +613,7 @@
         "linux-system-administrator-universitat-bern-bern",
         "application-manager-r-it-universitat-bern-bern",
         "applikationsverantwortliche-r-it-universitat-bern-bern",
+        "it-system-administrator-universitat-bern-bern-6c1eac0e",
         "it-system-administrator-universitat-bern-bern"
       ]
     },
@@ -1578,7 +1592,7 @@
     "firstSeenAt": "2026-08-26T10:23:19.587Z"
   },
   {
-    "slug": "assistenza-agli-studenti-universitat-bern-bern",
+    "slug": "assistenza-agli-studenti-universitat-bern-bern-cde227a1",
     "title": "Studentische Hilfsassistenz",
     "titleByLocale": {
       "it": "Assistenza agli studenti",
@@ -1597,28 +1611,28 @@
       "fr": "<b>UniBE est typiquement bernois.</b><br/>Nous nous attendons à ce que vous ayez une culture appréciatrice et un milieu de travail sain.\n\nTâches :\n• Soutien à la recherche et à l'enseignement, y compris dans les cours \"Plus que la communication de recherche\", \"Aspects sociaux de la durabilité\" et \"Im/mobilités, migration, in/justices\"\n\n• Organisation et communication au sein du groupe de recherche ainsi que soutien de notre site web\n\n• Collaboration au mLab (p. ex. prêt et introduction à la technologie MLAB) et co-organisation du Festival mondial du film scientifique Automne 2027\n\nExigences\n• Baccalauréat en géographie ou programme d'études et inscription à l'Université de Berne\n\n• Très bonne connaissance de MS Office ainsi que des programmes de présentation et de conception\n\n• Expérience dans le traitement des médias visuels ainsi que la volonté d'acquérir constamment de nouvelles connaissances\n\n• Intérêt pour les thèmes de recherche de l'unité\n\n• Travail proactif, flexible, fiable et soigné\n\n• Fortes compétences en communication et en équipe\n\n• Très bonne connaissance de l'allemand et de l'anglais\n\nNous offrons:\nBonnes infrastructures de recherche et réseau international"
     },
     "slugByLocale": {
-      "it": "assistenza-agli-studenti-universitat-bern-bern",
-      "en": "student-assistance-universitat-bern-bern",
+      "it": "assistenza-agli-studenti-universitat-bern-bern-cde227a1",
+      "en": "student-assistance-universitat-bern-bern-d3e8a948",
       "de": "studentische-hilfsassistenz-unibe-bern",
-      "fr": "aide-aux-etudiants-universitat-bern-bern"
+      "fr": "aide-aux-etudiants-universitat-bern-bern-ce67f63c"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-05T09:28:26.830Z",
     "previousSlugs": [
       "studentische-hilfsassistenz-unibe-bern",
       "wissenschaftliche-hilfsassistenz-unibe-bern",
-      "student-assistance-universitat-bern-bern",
+      "student-assistance-universitat-bern-bern-d3e8a948",
       "assistant-etudiant-universitat-bern",
-      "aide-aux-etudiants-universitat-bern-bern",
+      "aide-aux-etudiants-universitat-bern-bern-ce67f63c",
       "wissenschaftliche-hilfsassistenz-universitat-bern-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
         "studentische-hilfsassistenz-unibe-bern",
         "wissenschaftliche-hilfsassistenz-unibe-bern",
-        "student-assistance-universitat-bern-bern",
+        "student-assistance-universitat-bern-bern-d3e8a948",
         "assistant-etudiant-universitat-bern",
-        "aide-aux-etudiants-universitat-bern-bern",
+        "aide-aux-etudiants-universitat-bern-bern-ce67f63c",
         "wissenschaftliche-hilfsassistenz-universitat-bern-bern"
       ],
       "en": [
@@ -2324,23 +2338,27 @@
     },
     "slugByLocale": {
       "it": "postdoc-position-statistical-data-science-and-machine-learning-for-climate-change-ricerca-universitat-bern-bern",
-      "en": "postdoc-position-statistical-data-science-and-machine-learning-for-climate-change-research",
+      "en": "postdoc-position-statistical-data-science-and-machine-learning-for-climate-change-research-8ed7d7c9",
       "de": "postdoc-position-statistical-data-science-and-machine-learning-for-climate-change-forschung-universitat-bern-bern",
       "fr": "postdoc-position-statistical-data-science-and-machine-learning-for-climate-change-recherche-universitat-bern-bern"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-01T21:29:36.919Z",
     "previousSlugs": [
+      "postdoc-position-statistical-data-science-and-machine-learning-for-climate-change-research-8ed7d7c9",
       "postdoc-position-statistical-data-science-and-machine-learning-for-climate-change-research"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "postdoc-position-statistical-data-science-and-machine-learning-for-climate-change-research-8ed7d7c9",
         "postdoc-position-statistical-data-science-and-machine-learning-for-climate-change-research"
       ],
       "de": [
+        "postdoc-position-statistical-data-science-and-machine-learning-for-climate-change-research-8ed7d7c9",
         "postdoc-position-statistical-data-science-and-machine-learning-for-climate-change-research"
       ],
       "fr": [
+        "postdoc-position-statistical-data-science-and-machine-learning-for-climate-change-research-8ed7d7c9",
         "postdoc-position-statistical-data-science-and-machine-learning-for-climate-change-research"
       ]
     },
@@ -2404,7 +2422,7 @@
     "firstSeenAt": "2026-09-03T13:51:50.334Z"
   },
   {
-    "slug": "doktorierendenstelle-o-wissenschatfliche-r-mitarbeitender-in-der-nutztiermedizin-zum-thema-infektionsschutz-beim-kalb-universitat-bern",
+    "slug": "doktorierendenstelle-o-wissenschatfliche-r-mitarbeitender-in-der-nutztiermedizin-zum-thema-infektionsschutz-dd6e2b44",
     "title": "Doktorierendenstelle ODER wissenschatfliche:r Mitarbeitender in der Nutztiermedizin zum Thema Infektionsschutz beim Kalb",
     "titleByLocale": {
       "de": "Doktorierendenstelle ODER wissenschatfliche:r Mitarbeitender in der Nutztiermedizin zum Thema Infektionsschutz beim Kalb",
@@ -2423,19 +2441,19 @@
       "fr": "Die UniBE ist renommiert.\nBei uns profitieren Sie vom guten Ruf einer traditionsreichen Institution in der ganzen Welt.\n\n## Darauf können Sie sich freuen\nIn unseren Stallungen, Klinikräumlichkeiten und Büroplätzen an der Nutztierklinik Bern bieten wir ein Umfeld, das moderne Forschung ermöglicht. In Zusammenarbeit mit universitären Einrichtungen, die Innovation und Produktentwicklung unterstützen, entsteht derzeit eine Vorrichtung, die das Kalb mechanisch vor Atemwegserregern schützen soll. Aktuell wird diese an einer begrenzten Zahl Kälber getestet (Schweregrad des Tierversuchs: tief, 0 von 3; d.h. ohne Belastung). In einem weiteren Schritt, jenem, der im Rahmen dieser Arbeit begangen werden soll, wird die Praxistauglichkeit des Produkts konsolidiert.\n\n## Ihre Aufgaben\nDurchführung von Transport von Kälbern von Praxisbetrieben im weiteren Umland von Bern an die Klinik, tierärztliche Betreuung der Kälber mit Unterstützung der diensthabenden Ärztinnen und Ärzte. Erfassung von Daten mittels etablierten Methoden aus Bakteriologie, Ultrasonographie und klinischer Beobachtung.\nDie Kälber werden anschliessend auf Mastbetriebe verbracht.\nDie Einarbeitung durch die aktuell im Projekt beschäftigte Mitarbeiterin ist denkbar.\nDie Stelle ist noch nicht finanziert. Dafür ist im Vorhinein -ohne garantierten Erfolg- ein entsprechendes Gesuch zu stellen. Nach umfangreicher Abklärung steht fest, dass folgende Fördergefässe bestens geeignet sind.\nGesuchstellende Person sind Sie. Empfänger:in des Förderbeitrags sind ausschliesslich Sie. Bei der Erarbeitung kann mit umfassender Unterstützung gerechnet werden. Somit bleibt der Aufwand sehr (!) überschaubar. Die Gesuchsstellung findet im Laufe des Monats November statt.\nUniBE Venture Fellowship\nBridge Proof of Concept\nBei Fragen zum genauen Forschungsgegenstand, der vertraulich ist, kann ein persönliches Gespräch oder Online-Gespräch vereinbart werden.\nAnforderungen\nDie Anforderungen an Ihren Werdegang sind moderat spezifisch:\n• Offen für Master-, Doktor- oder medizinischen Abschluss – sowie Studierende, deren Abschluss innerhalb der nächsten sechs Monate bevorsteht.\n• Sie verfügen über Forschungserfahrung im Rahmen eines Bachelor- oder Masterabschlusses, der weniger als 4 Jahre zurückliegt, oder\n• Sie werden Ihr Doktorat in spätestens 6 Monaten abschliessen, oder\n• Sie haben Ihr Doktorat vor weniger als 4 Jahren abgeschlossen.\nGute Kenntnisse von Deutsch oder Französisch sind von Vorteil.\nZentrale Lage im Herzen von Bern\nBewerbung und Kontakt\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Projektbeschreibung\nAtemwegserkrankungen beim Mastkalb sind von grosser Bedeutung vor dem Hintergrund von Tierwohl, Antibiotikaeinsatz und -resistenz sowie ökonomischer Überlegungen. Es ist dringend nötig, Massnahmen zu entwickeln und umzusetzen, die in der Praxis zu Verbesserung führen. Das vorliegende Projekt soll an ein laufendes Projekt anschliessen, bei dem die Kälber auf dem Transport von Mastbetrieb vor Atemwegserregern geschützt werden.\nDarauf können Sie sich freuen\n\n## Ihre Aufgaben\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nSinnstiftende Arbeit und faire Entlöhnung\nGute Forschungsinfrastrukturen und internationales Netzwerk\nIndividuelle Betreuung und Unterstützung\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen"
     },
     "slugByLocale": {
-      "de": "doktorierendenstelle-oder-wissenschatfliche-r-mitarbeitender-in-der-nutztiermedizin-zum",
-      "it": "doktorierendenstelle-o-wissenschatfliche-r-mitarbeitender-in-der-nutztiermedizin-zum-thema-infektionsschutz-beim-kalb-universitat-bern",
-      "en": "doktorierendenstelle-oder-wissenschatfliche-r-mitarbeitender-in-der-nutztiermedizin-zum",
-      "fr": "doktorierendenstelle-oder-wissenschatfliche-r-mitarbeitender-in-der-nutztiermedizin-zum"
+      "de": "doktorierendenstelle-oder-wissenschatfliche-r-mitarbeitender-in-der-nutztiermedizin-zum-f9f7bac1",
+      "it": "doktorierendenstelle-o-wissenschatfliche-r-mitarbeitender-in-der-nutztiermedizin-zum-thema-infektionsschutz-dd6e2b44",
+      "en": "doktorierendenstelle-oder-wissenschatfliche-r-mitarbeitender-in-der-nutztiermedizin-zum-f9f7bac1",
+      "fr": "doktorierendenstelle-oder-wissenschatfliche-r-mitarbeitender-in-der-nutztiermedizin-zum-f9f7bac1"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-01T09:30:18.653Z",
     "previousSlugs": [
-      "doktorierendenstelle-oder-wissenschatfliche-r-mitarbeitender-in-der-nutztiermedizin-zum"
+      "doktorierendenstelle-oder-wissenschatfliche-r-mitarbeitender-in-der-nutztiermedizin-zum-f9f7bac1"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "doktorierendenstelle-oder-wissenschatfliche-r-mitarbeitender-in-der-nutztiermedizin-zum"
+        "doktorierendenstelle-oder-wissenschatfliche-r-mitarbeitender-in-der-nutztiermedizin-zum-f9f7bac1"
       ]
     },
     "postalCode": "3012",

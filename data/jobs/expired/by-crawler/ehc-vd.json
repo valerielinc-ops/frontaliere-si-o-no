@@ -30,10 +30,10 @@
       "assistant-medical-f-h-ehc-vd-ecublens",
       "segretario-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "servizio-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-      "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
-      "physician-assistant-internal-medicine-f-m-may-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
-      "assistenzarzt-innere-medizin-f-h-mai-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
-      "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges",
+      "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges-cb77fc70",
+      "physician-assistant-internal-medicine-f-m-may-2028-ensemble-hospitalier-de-la-cote-ehc-morges-7c8ad75d",
+      "assistenzarzt-innere-medizin-f-h-mai-2028-ensemble-hospitalier-de-la-cote-ehc-morges-3660a082",
+      "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges-c45487f8",
       "assistant-medical-f-h-ehc-vd-crissier",
       "stagiaire-assistant-formation-f-h-ehc-vd-morges",
       "assistente-in-ingegneria-biomedica-ensemble-hospitalier-de-la-cote-ehc-morges",
@@ -65,7 +65,11 @@
       "medecin-assistant-medecine-interne-f-h-novembre-2027-ehc-vd-morges",
       "assistente-di-tirocinante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "medizinischer-assistent-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
-      "assistant-medical-f-h-ehc-vd-morges"
+      "assistant-medical-f-h-ehc-vd-morges",
+      "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "physician-assistant-internal-medicine-f-m-may-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "assistenzarzt-innere-medizin-f-h-mai-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -206,8 +210,9 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-07T21:15:57.756Z",
     "previousSlugs": [
-      "assistant-socio-educatif-f-h-ehc-vd-morges",
-      "assistant-socio-educatif-f-h-ehc-vd-morges-jvn4ip"
+      "assistant-socio-educatif-f-h-ehc-vd-morges-97c4bf89",
+      "assistant-socio-educatif-f-h-ehc-vd-morges-jvn4ip",
+      "assistant-socio-educatif-f-h-ehc-vd-morges"
     ],
     "previousSlugsByLocale": {
       "fr": [
@@ -252,6 +257,7 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-07T21:15:57.756Z",
     "previousSlugs": [
+      "assistant-technique-en-sterilisation-f-h-ehc-vd-morges-c9d31227",
       "assistant-technique-en-sterilisation-f-h-ehc-vd-morges"
     ],
     "postalCode": "1110",
@@ -279,6 +285,7 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-07T21:15:57.756Z",
     "previousSlugs": [
+      "infirmier-en-chirurgie-f-h-ehc-vd-morges-a0566e0f",
       "infirmier-en-chirurgie-f-h-ehc-vd-morges"
     ],
     "postalCode": "1110",
@@ -306,6 +313,7 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-07T21:15:57.756Z",
     "previousSlugs": [
+      "stagiaire-mpc-f-h-ehc-vd-morges-df0adadd",
       "stagiaire-mpc-f-h-ehc-vd-morges"
     ],
     "postalCode": "1110",
@@ -405,19 +413,21 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-04T09:21:42.601Z",
     "previousSlugs": [
-      "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges",
+      "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-b609faa5",
       "assistente-assistenza-e-salute-comunitaria-assc-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
       "community-care-and-health-assistant-assc-in-ctr-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
       "gesundheits-und-sozialassistent-in-assc-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-      "assistant-soins-et-sante-communautaire-assc-en-ctr-f-h-ehc-vd-aubonne"
+      "assistant-soins-et-sante-communautaire-assc-en-ctr-f-h-ehc-vd-aubonne",
+      "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges",
+        "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-b609faa5",
         "assistente-assistenza-e-salute-comunitaria-assc-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "community-care-and-health-assistant-assc-in-ctr-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "gesundheits-und-sozialassistent-in-assc-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "assistant-soins-et-sante-communautaire-assc-en-ctr-f-h-ehc-vd-aubonne"
+        "assistant-soins-et-sante-communautaire-assc-en-ctr-f-h-ehc-vd-aubonne",
+        "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges"
       ],
       "en": [
         "community-care-and-health-assistant-assc-in-ctr-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne"
@@ -427,6 +437,7 @@
       ],
       "fr": [
         "assistant-soins-et-sante-communautaire-assc-en-ctr-f-h-ehc-vd-aubonne",
+        "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-b609faa5",
         "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges"
       ]
     },
@@ -997,15 +1008,17 @@
       "it": "apprendista-assc-assistente-cure-e-salute-comunitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "en": "apprentice-assc-assistant-care-and-community-health-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "de": "praktikant-assc-assistentin-pflege-und-gemeinschaftsgesundheit-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-      "fr": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
+      "fr": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges-05f1ac83"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-06-30T22:11:12.737Z",
     "previousSlugs": [
+      "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges-05f1ac83",
       "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges-05f1ac83",
         "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
       ]
     },
@@ -1169,15 +1182,17 @@
       "it": "assistente-cure-e-salute-comunitaria-assc-chirurgia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "en": "assistant-care-and-community-health-assc-surgery-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "de": "assistentin-pflege-und-gemeinschaftsgesundheit-assc-chirurgie-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-      "fr": "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges"
+      "fr": "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges-dd85483c"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-06-09T22:18:45.093Z",
     "previousSlugs": [
+      "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges-dd85483c",
       "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges-dd85483c",
         "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges"
       ]
     },
@@ -1304,15 +1319,17 @@
       "it": "apprendista-ghi-gestore-di-albergo-e-intendanza-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
       "en": "apprentice-ghi-hotel-and-hospitality-manager-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
       "de": "praktikant-ghi-hotel-und-gaststattenmanager-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
-      "fr": "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges"
+      "fr": "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges-2640f444"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-06-04T11:51:50.178Z",
     "previousSlugs": [
+      "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges-2640f444",
       "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges-2640f444",
         "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges"
       ]
     },

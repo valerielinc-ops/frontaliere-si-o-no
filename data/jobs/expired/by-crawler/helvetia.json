@@ -126,7 +126,7 @@
     "slugByLocale": {
       "it": "consulente-cliente-w-m-d-assicurazione-soletta-tempo-parziale-tempo-pieno-helvetia-versicherungen-solothurn",
       "en": "customer-consultant-f-m-d-insurance-solothurn-part-time-full-time-helvetia-versicherungen-solothurn",
-      "de": "kundenberater-w-m-d-versicherungen-solothurn-teilzeit-vollzeit-helvetia-solothurn",
+      "de": "kundenberater-w-m-d-versicherungen-solothurn-teilzeit-vollzeit-helvetia-solothurn-d467e59b",
       "fr": "consultant-client-f-m-d-assurance-soleure-temps-partiel-temps-plein-helvetia-versicherungen-solothurn"
     },
     "sector": "Sanità / Ospedali",
@@ -139,8 +139,9 @@
       "consultant-client-f-m-d-assurance-baignade-temps-partiel-temps-plein-helvetia-versicherungen-baden",
       "consulente-del-cliente-f-m-d-assicurazione-part-time-fulltime-helvetia-versicherungen-baden",
       "kundenberater-m-w-d-versicherungen-baden-teilzeit-vollzeit-helvetia-versicherungen-baden",
-      "kundenberater-w-m-d-versicherungen-solothurn-teilzeit-vollzeit-helvetia-solothurn",
-      "kundenberater-w-m-d-versicherungen-solothurn-teilzeit-vollzeit-helvetia-solothurn-vpuer9"
+      "kundenberater-w-m-d-versicherungen-solothurn-teilzeit-vollzeit-helvetia-solothurn-d467e59b",
+      "kundenberater-w-m-d-versicherungen-solothurn-teilzeit-vollzeit-helvetia-solothurn-vpuer9",
+      "kundenberater-w-m-d-versicherungen-solothurn-teilzeit-vollzeit-helvetia-solothurn"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -151,6 +152,7 @@
         "consultant-client-f-m-d-assurance-baignade-temps-partiel-temps-plein-helvetia-versicherungen-baden",
         "consulente-del-cliente-f-m-d-assicurazione-part-time-fulltime-helvetia-versicherungen-baden",
         "kundenberater-m-w-d-versicherungen-baden-teilzeit-vollzeit-helvetia-versicherungen-baden",
+        "kundenberater-w-m-d-versicherungen-solothurn-teilzeit-vollzeit-helvetia-solothurn-d467e59b",
         "kundenberater-w-m-d-versicherungen-solothurn-teilzeit-vollzeit-helvetia-solothurn"
       ],
       "en": [
@@ -995,16 +997,18 @@
     "slugByLocale": {
       "it": "senior-underwriter-specialisti-dell-assicurazione-personale-m-f-d-part-time-fulltime-helvetia-versicherungen-dubendorf",
       "en": "senior-underwriter-personal-insurance-specialists-m-f-d-part-time-full-time-helvetia-versicherungen-dubendorf",
-      "de": "senior-underwriter-personenversicherungen-fachexperten-w-m-d-teilzeit-vollzeit-helvetia",
+      "de": "senior-underwriter-personenversicherungen-fachexperten-w-m-d-teilzeit-vollzeit-helvetia-6e80642d",
       "fr": "senior-underwriter-specialistes-de-l-assurance-personnelle-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-14T09:13:59.140Z",
     "previousSlugs": [
+      "senior-underwriter-personenversicherungen-fachexperten-w-m-d-teilzeit-vollzeit-helvetia-6e80642d",
       "senior-underwriter-personenversicherungen-fachexperten-w-m-d-teilzeit-vollzeit-helvetia"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "senior-underwriter-personenversicherungen-fachexperten-w-m-d-teilzeit-vollzeit-helvetia-6e80642d",
         "senior-underwriter-personenversicherungen-fachexperten-w-m-d-teilzeit-vollzeit-helvetia"
       ]
     },
@@ -1171,17 +1175,21 @@
     "slugByLocale": {
       "it": "posizione-didattica-mediamatista-efz-m-f-d-2027-sede-di-basilea-helvetia-versicherungen-basel",
       "en": "teaching-position-mediamatist-efz-m-f-d-2027-headquarters-basel-helvetia-versicherungen-basel",
-      "de": "lehrstelle-mediamatiker-efz-w-m-d-2027-hauptsitz-basel-helvetia-basel",
+      "de": "lehrstelle-mediamatiker-efz-w-m-d-2027-hauptsitz-basel-helvetia-basel-37ca0f6c",
       "fr": "position-pedagogique-mediamatiste-efz-h-f-d-2027-siege-de-bale-helvetia-versicherungen-basel"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-10T21:15:21.466Z",
     "previousSlugs": [
+      "apprendistato-mediamatiker-cfc-m-w-d-2027-hauptsitz-basel-helvetia-versicherungen-basel-11568f40",
+      "lehrstelle-mediamatiker-efz-w-m-d-2027-hauptsitz-basel-helvetia-basel-37ca0f6c",
       "apprendistato-mediamatiker-cfc-m-w-d-2027-hauptsitz-basel-helvetia-versicherungen-basel",
       "lehrstelle-mediamatiker-efz-w-m-d-2027-hauptsitz-basel-helvetia-basel"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "apprendistato-mediamatiker-cfc-m-w-d-2027-hauptsitz-basel-helvetia-versicherungen-basel-11568f40",
+        "lehrstelle-mediamatiker-efz-w-m-d-2027-hauptsitz-basel-helvetia-basel-37ca0f6c",
         "apprendistato-mediamatiker-cfc-m-w-d-2027-hauptsitz-basel-helvetia-versicherungen-basel",
         "lehrstelle-mediamatiker-efz-w-m-d-2027-hauptsitz-basel-helvetia-basel"
       ]
@@ -1819,24 +1827,28 @@
     "slugByLocale": {
       "it": "consulente-clienti-f-m-d-assicurazioni-citta-di-zurigo-part-time-tempo-pieno-helvetia-versicherungen-zurich",
       "en": "customer-consultant-f-m-d-zurich-city-insurance-part-time-full-time-helvetia-versicherungen-zurich-79305a",
-      "de": "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich",
+      "de": "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich-0811aa01",
       "fr": "consultant-client-f-m-d-zurich-city-assurance-temps-partiel-temps-plein-helvetia-versicherungen-zurich-79305a"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-04T09:09:20.591Z",
     "previousSlugs": [
-      "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich",
-      "consulente-clienti-f-m-d-zurich-city-assicurazione-part-time-full-time-helvetia-versicherungen-zurich"
+      "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich-0811aa01",
+      "consulente-clienti-f-m-d-zurich-city-assicurazione-part-time-full-time-helvetia-versicherungen-zurich",
+      "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich",
-        "consulente-clienti-f-m-d-zurich-city-assicurazione-part-time-full-time-helvetia-versicherungen-zurich"
+        "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich-0811aa01",
+        "consulente-clienti-f-m-d-zurich-city-assicurazione-part-time-full-time-helvetia-versicherungen-zurich",
+        "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich"
       ],
       "en": [
+        "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich-0811aa01",
         "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich"
       ],
       "fr": [
+        "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich-0811aa01",
         "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich"
       ]
     },
@@ -1877,22 +1889,27 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-04T09:09:20.591Z",
     "previousSlugs": [
-      "kundenberater-w-m-d-versicherung-region-zurcher-oberland-teilzeit-vollzeit-helvetia-uster",
-      "kundenberater-w-m-d-versicherung-region-wetzikon-teilzeit-vollzeit-helvetia-uster"
+      "kundenberater-w-m-d-versicherung-region-zurcher-oberland-teilzeit-vollzeit-helvetia-uster-b69018b7",
+      "kundenberater-w-m-d-versicherung-region-wetzikon-teilzeit-vollzeit-helvetia-uster",
+      "kundenberater-w-m-d-versicherung-region-zurcher-oberland-teilzeit-vollzeit-helvetia-uster"
     ],
     "previousSlugsByLocale": {
       "de": [
         "kundenberater-w-m-d-versicherung-region-wetzikon-teilzeit-vollzeit-helvetia-uster",
+        "kundenberater-w-m-d-versicherung-region-zurcher-oberland-teilzeit-vollzeit-helvetia-uster-b69018b7",
         "kundenberater-w-m-d-versicherung-region-zurcher-oberland-teilzeit-vollzeit-helvetia-uster"
       ],
       "it": [
-        "kundenberater-w-m-d-versicherung-region-zurcher-oberland-teilzeit-vollzeit-helvetia-uster",
-        "kundenberater-w-m-d-versicherung-region-wetzikon-teilzeit-vollzeit-helvetia-uster"
+        "kundenberater-w-m-d-versicherung-region-zurcher-oberland-teilzeit-vollzeit-helvetia-uster-b69018b7",
+        "kundenberater-w-m-d-versicherung-region-wetzikon-teilzeit-vollzeit-helvetia-uster",
+        "kundenberater-w-m-d-versicherung-region-zurcher-oberland-teilzeit-vollzeit-helvetia-uster"
       ],
       "en": [
+        "kundenberater-w-m-d-versicherung-region-zurcher-oberland-teilzeit-vollzeit-helvetia-uster-b69018b7",
         "kundenberater-w-m-d-versicherung-region-zurcher-oberland-teilzeit-vollzeit-helvetia-uster"
       ],
       "fr": [
+        "kundenberater-w-m-d-versicherung-region-zurcher-oberland-teilzeit-vollzeit-helvetia-uster-b69018b7",
         "kundenberater-w-m-d-versicherung-region-zurcher-oberland-teilzeit-vollzeit-helvetia-uster"
       ]
     },
@@ -2526,7 +2543,7 @@
     "firstSeenAt": "2026-09-23T23:35:34.305Z"
   },
   {
-    "slug": "consulente-clienti-aziende-tutti-i-generi-regione-vevey-tempo-pieno-o-part-time-helvetia-versicherungen-vevey",
+    "slug": "consulente-clienti-aziende-tutti-i-generi-regione-vevey-tempo-pieno-o-part-time-helvetia-versicherungen-vevey-eb8c1df8",
     "title": "Conseiller clients entreprises (tous genres) région Vevey, temps plein ou partiel",
     "titleByLocale": {
       "it": "Consulente clienti aziende (tutti i generi) regione Vevey, tempo pieno o part-time",
@@ -2545,29 +2562,29 @@
       "fr": "Ensemble, redéfinissons les normes et façonnons l'avenir: chez nous, ton rôle ne se limite pas à traiter des tâches. Tu travailles avec des personnes qui assument des responsabilités, portées par de grandes ambitions, et qui ont le courage d'explorer de nouvelles voies. Chez nous, tu trouveras un environnement où la confiance et les performances vont de pair. Ici, nous comptons sur toi pour nous apporter tes idées, prendre des initiatives et contribuer activement. Tu as ainsi la possibilité de faire vraiment bouger les choses pour notre clientèle, ton équipe et ton développement personnel.\n\nAufgaben:\n• En tant que conseiller·ère clientèle entreprises, tu accompagnes de manière globale les PME et autres clients d'entreprise dans les domaines de l'assurance choses, de la responsabilité civile, des assurances de personnes et des assurances spéciales. Tu analyses les risques opérationnels, élabores des solutions d'assurance adaptées aux besoins et accompagnes tes clients sur le long terme en tant qu'interlocuteur·trice compétent·e.\n\n• Tu réalises des analyses de risques approfondies auprès des clients d'entreprise existants et potentiels, développes des concepts d'assurance sur mesure et assures une couverture durable des risques opérationnels.\n\n• Tu observes le marché de la clientèle entreprises, identifies les potentiels et acquiers de nouveaux clients de manière ciblée. Tu mets en œuvre des stratégies de développement du marché définies et développes systématiquement ton portefeuille clients.\n\n• Tu entretiens activement les relations existantes, construis des partenariats à long terme et te positionnes comme interlocuteur·trice fiable pour toutes les questions d'assurance dans le domaine des entreprises.\n\n• Tu travailles en étroite collaboration avec la souscription, la gestion des sinistres et les expert·e·s internes afin de garantir à tes clients des solutions optimales et un service de haute qualité.\n\nAnforderungen:\n• Tu disposes d'une solide formation ou d'un cursus universitaire ainsi que de plusieurs années d'expérience approfondie dans le secteur de l'assurance, idéalement dans le domaine de la clientèle entreprises.\n\n• Tu agis de manière entrepreneuriale, fais preuve d'initiative et prends plaisir à contribuer activement au développement du secteur entreprises à l'agence générale de Vevey, tout en collaborant avec différents interlocuteurs internes et externes.\n\n• Tu es une excellente communicatrice ou un excellent communicateur et tu sais transmettre des sujets complexes de manière claire, compréhensible et convaincante.\n\n• Tu possèdes un sens aigu des chiffres, tu réfléchis de manière transversale et analytique et tu fais preuve d'une grande capacité d'organisation et de planification.\n\n• La satisfaction durable de tes clients entreprises est au cœur de tes préoccupations. Tu identifies les besoins, développes des solutions adaptées et entretiens des relations clients à long terme.\n\n• Idéalement, tu habites dans la région de Vevey, au sein du secteur clientèle.\n\nNous croyons en une collaboration d'égal à égal, impliquant une confiance mutuelle, avec des personnes qui veulent prendre des responsabilités. La diversité des points de vue nous aide à trouver de meilleures solutions, tant pour notre clientèle qu'au sein de nos équipes."
     },
     "slugByLocale": {
-      "it": "consulente-clienti-aziende-tutti-i-generi-regione-vevey-tempo-pieno-o-part-time-helvetia-versicherungen-vevey",
-      "en": "client-advisor-company-all-kinds-region-vevey-full-or-part-time-helvetia-versicherungen-vevey",
-      "de": "unternehmenskundenberater-alle-geschlechter-region-vevey-vollzeit-oder-teilzeit-helvetia-versicherungen-vevey",
-      "fr": "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia"
+      "it": "consulente-clienti-aziende-tutti-i-generi-regione-vevey-tempo-pieno-o-part-time-helvetia-versicherungen-vevey-eb8c1df8",
+      "en": "client-advisor-company-all-kinds-region-vevey-full-or-part-time-helvetia-versicherungen-vevey-1db9e993",
+      "de": "unternehmenskundenberater-alle-geschlechter-region-vevey-vollzeit-oder-teilzeit-helvetia-versicherungen-vevey-e38ce924",
+      "fr": "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia-c151575c"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-29T21:12:10.612Z",
     "previousSlugs": [
-      "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia",
-      "azienda-di-consulenza-clienti-tutti-i-tipi-regione-vevey-tempo-pieno-o-parziale-helvetia-versicherungen-vevey",
-      "kundenberater-unternehmen-alle-arten-region-vevey-voll-oder-teilzeit-helvetia-versicherungen-vevey"
+      "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia-c151575c",
+      "azienda-di-consulenza-clienti-tutti-i-tipi-regione-vevey-tempo-pieno-o-parziale-helvetia-versicherungen-vevey-3cf76a2f",
+      "kundenberater-unternehmen-alle-arten-region-vevey-voll-oder-teilzeit-helvetia-versicherungen-vevey-0a386bf5"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia",
-        "azienda-di-consulenza-clienti-tutti-i-tipi-regione-vevey-tempo-pieno-o-parziale-helvetia-versicherungen-vevey"
+        "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia-c151575c",
+        "azienda-di-consulenza-clienti-tutti-i-tipi-regione-vevey-tempo-pieno-o-parziale-helvetia-versicherungen-vevey-3cf76a2f"
       ],
       "en": [
-        "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia"
+        "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia-c151575c"
       ],
       "de": [
-        "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia",
-        "kundenberater-unternehmen-alle-arten-region-vevey-voll-oder-teilzeit-helvetia-versicherungen-vevey"
+        "conseiller-clients-entreprises-tous-genres-region-vevey-temps-plein-ou-partiel-helvetia-c151575c",
+        "kundenberater-unternehmen-alle-arten-region-vevey-voll-oder-teilzeit-helvetia-versicherungen-vevey-0a386bf5"
       ]
     },
     "postalCode": "1800",
@@ -3192,6 +3209,10 @@
     "expiredAt": "2026-09-26T23:35:08.141Z",
     "previousSlugs": [
       "trainer-w-m-d-fur-unternehmenskunden-vertrieb-teilzeit-vollzeit-helvetia-basel",
+      "business-ingegnere-vertrieb-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel-ade0f185",
+      "business-engineer-sales-m-f-d-part-time-full-time-helvetia-versicherungen-basel-7f7f50be",
+      "business-engineer-vertrieb-w-m-d-teilzeit-vollzeit-helvetia-basel-fd43cd62",
+      "business-ingenieur-vertrieb-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel-49e320f3",
       "business-ingegnere-vertrieb-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
       "business-engineer-sales-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
       "business-engineer-vertrieb-w-m-d-teilzeit-vollzeit-helvetia-basel",
@@ -3200,6 +3221,10 @@
     "previousSlugsByLocale": {
       "it": [
         "trainer-w-m-d-fur-unternehmenskunden-vertrieb-teilzeit-vollzeit-helvetia-basel",
+        "business-ingegnere-vertrieb-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel-ade0f185",
+        "business-engineer-sales-m-f-d-part-time-full-time-helvetia-versicherungen-basel-7f7f50be",
+        "business-engineer-vertrieb-w-m-d-teilzeit-vollzeit-helvetia-basel-fd43cd62",
+        "business-ingenieur-vertrieb-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel-49e320f3",
         "business-ingegnere-vertrieb-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
         "business-engineer-sales-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
         "business-engineer-vertrieb-w-m-d-teilzeit-vollzeit-helvetia-basel",
@@ -3207,13 +3232,16 @@
       ],
       "en": [
         "trainer-w-m-d-fur-unternehmenskunden-vertrieb-teilzeit-vollzeit-helvetia-basel",
+        "business-engineer-sales-m-f-d-part-time-full-time-helvetia-versicherungen-basel-7f7f50be",
         "business-engineer-sales-m-f-d-part-time-full-time-helvetia-versicherungen-basel"
       ],
       "de": [
+        "business-engineer-vertrieb-w-m-d-teilzeit-vollzeit-helvetia-basel-fd43cd62",
         "business-engineer-vertrieb-w-m-d-teilzeit-vollzeit-helvetia-basel"
       ],
       "fr": [
         "trainer-w-m-d-fur-unternehmenskunden-vertrieb-teilzeit-vollzeit-helvetia-basel",
+        "business-ingenieur-vertrieb-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel-49e320f3",
         "business-ingenieur-vertrieb-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel"
       ]
     },
@@ -3263,7 +3291,7 @@
     "firstSeenAt": "2026-06-23T11:50:49.522Z"
   },
   {
-    "slug": "customer-care-specialista-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf",
+    "slug": "customer-care-specialista-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf-4bcd8b39",
     "title": "Customer Care Specialist (w/m/d) Teilzeit/Vollzeit",
     "titleByLocale": {
       "it": "Customer Care Specialista (w/m/d) Teilzeit/Vollzeit",
@@ -3282,22 +3310,22 @@
       "fr": "En Suisse et en Autriche, plus de 200 000 personnes comptent déjà sur Smile. <br/><br/ Avec ce rôle, vous devenez membre de notre équipe, apportez votre superpuissance et façonnez l'assurance de demain avec nous. <br/><br/><b> Apportez votre plein potentiel: Bien que le travail soit déjà possible à partir de 50%, idéalement nous recherchons un renforcement avec un engagement de 80-100%. </b>\n\nTâches :\n• Vous êtes le premier point de contact pour nos clients : l'intérieur et les partenaires. Vous répondez aux demandes rapidement, de manière fiable et compétente – par écrit et par téléphone\n\n• Vous prenez soin de nos clients tout au long du cycle de vie, traitez les mutations, clarifiez les problèmes de performance/contrat, coordonnez les bureaux internes et assurez la solution en temps opportun\n\n• Vous documentez clairement, travaillez de manière structurée, observez les lignes directrices internes et contribuez à la qualité du service\n\n• Vous fournissez une expérience client exceptionnelle sur tous les canaux de communication, que ce soit par téléphone, par courriel, par chat ou dans l'environnement numérique\n\nExigences\n• Vous apportez une formation commerciale terminée ou un diplôme comparable\n\n• Vous avez de l'expérience en contact client dans le secteur de l'assurance et avez complété avec succès la certification VBV\n\n• Vous marquez avec une très bonne connaissance de l'allemand; Connaissance du français et/ou de l'italien\n\n• Vous vous distinguez par la force de communication, le travail d'équipe, la résilience et un état d'esprit positif et trouvez toujours la meilleure solution pour les clients et les partenaires avec empathie et orientation de la solution.\n\nSmile est la plus grande compagnie d'assurance en ligne en Suisse – et nous continuons à croître.\nC'est pourquoi nous cherchons constamment de nouvelles personnes qui veulent poursuivre ce voyage avec nous.\n\nSmiler: Être dans ne signifie pas seulement 0815, mais être là avec cœur et passion. Parce qu'avec près de 80 employés, nous sommes relativement petits et c'est exactement pourquoi chaque vote compte pour nous. Donc tu peux bouger plus avec nous qu'ailleurs. Et parce que les relations réelles comptent pour nous, aperos sont tout aussi importants que la rétroaction honnête et la transparence.\n\nL'assurance ne doit pas être ennuyeux. Nous sommes curieux, enthousiastes à propos de la technologie et ouverts aux erreurs – tant que nous en apprenons. De courtes voies de décision sont tout aussi importantes pour nous que l'occasion de vous impliquer rapidement : créativement, courageusement et au-delà des limites de l'équipe.\n\nEt surtout : malgré les vibrations de démarrage, vous bénéficiez de la stabilité et des avantages d'une grande entreprise. Parce qu'en tant que filiale à 100% d'Helvetia, nous avons un employeur fort derrière nous."
     },
     "slugByLocale": {
-      "it": "customer-care-specialista-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf",
+      "it": "customer-care-specialista-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf-4bcd8b39",
       "en": "customer-care-specialist-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf-617610",
-      "de": "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
-      "fr": "customer-care-specialiste-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf"
+      "de": "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf-ae60265e",
+      "fr": "customer-care-specialiste-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf-d66b70b2"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-26T13:50:53.442Z",
     "previousSlugs": [
-      "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
+      "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf-ae60265e"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
+        "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf-ae60265e"
       ],
       "fr": [
-        "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
+        "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf-ae60265e"
       ]
     },
     "postalCode": "8602",

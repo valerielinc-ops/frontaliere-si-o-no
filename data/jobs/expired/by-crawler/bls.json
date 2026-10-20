@@ -403,24 +403,30 @@
     "slugByLocale": {
       "it": "meccanico-per-veicoli-ferroviari-bls-ag-bonigen",
       "en": "rail-vehicle-mechanic-bls-ag-bonigen",
-      "de": "mechaniker-in-schienenfahrzeuge-bls-ch",
+      "de": "mechaniker-in-schienenfahrzeuge-bls-ch-217c37b8",
       "fr": "mecanicien-de-vehicules-ferroviaires-bls-ag-bonigen"
     },
     "sector": "Trasporti / Ferrovia",
     "expiredAt": "2026-10-07T21:22:43.381Z",
     "previousSlugs": [
+      "mechaniker-in-schienenfahrzeuge-bls-ch-217c37b8",
+      "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-705aae7c",
       "mechaniker-in-schienenfahrzeuge-bls-ch",
       "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "mechaniker-in-schienenfahrzeuge-bls-ch-217c37b8",
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-705aae7c",
         "mechaniker-in-schienenfahrzeuge-bls-ch",
         "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
       ],
       "en": [
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-705aae7c",
         "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
       ],
       "fr": [
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-705aae7c",
         "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
       ]
     },
@@ -1027,31 +1033,35 @@
     "slugByLocale": {
       "it": "pulizia-e-manutenzione-specialistici-bls-ag-spiez",
       "en": "specialist-cleaning-and-maintenance-bls-ag-spiez",
-      "de": "fachperson-reinigung-und-unterhalt-bls-ch",
+      "de": "fachperson-reinigung-und-unterhalt-bls-ch-aa2c41d7",
       "fr": "nettoyage-et-entretien-specialises-bls-ag-spiez"
     },
     "sector": "Trasporti / Ferrovia",
     "expiredAt": "2026-09-11T17:22:23.578Z",
     "previousSlugs": [
-      "fachperson-reinigung-und-unterhalt-bls-ch",
+      "fachperson-reinigung-und-unterhalt-bls-ch-aa2c41d7",
       "fachperson-reinigung-e-unterhalt-bls-ag-spiez",
       "fachperson-reinigung-e-unterhalt-bls-ag-thun",
       "specialist-cleaning-and-maintenance-bls-ag-thun",
-      "nettoyage-et-entretien-specialises-bls-ag-thun"
+      "nettoyage-et-entretien-specialises-bls-ag-thun",
+      "fachperson-reinigung-und-unterhalt-bls-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "fachperson-reinigung-und-unterhalt-bls-ch",
+        "fachperson-reinigung-und-unterhalt-bls-ch-aa2c41d7",
         "fachperson-reinigung-e-unterhalt-bls-ag-spiez",
-        "fachperson-reinigung-e-unterhalt-bls-ag-thun"
+        "fachperson-reinigung-e-unterhalt-bls-ag-thun",
+        "fachperson-reinigung-und-unterhalt-bls-ch"
       ],
       "en": [
-        "fachperson-reinigung-und-unterhalt-bls-ch",
-        "specialist-cleaning-and-maintenance-bls-ag-thun"
+        "fachperson-reinigung-und-unterhalt-bls-ch-aa2c41d7",
+        "specialist-cleaning-and-maintenance-bls-ag-thun",
+        "fachperson-reinigung-und-unterhalt-bls-ch"
       ],
       "fr": [
-        "fachperson-reinigung-und-unterhalt-bls-ch",
-        "nettoyage-et-entretien-specialises-bls-ag-thun"
+        "fachperson-reinigung-und-unterhalt-bls-ch-aa2c41d7",
+        "nettoyage-et-entretien-specialises-bls-ag-thun",
+        "fachperson-reinigung-und-unterhalt-bls-ch"
       ]
     },
     "postalCode": "3700",
@@ -1348,9 +1358,10 @@
       "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
       "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
       "automechatroniker-in-camion-meccanico-in-automatico-in-bls-ag-bern",
-      "automatiker-in-bls-ch",
+      "automatiker-in-bls-ch-3cd6ea9c",
       "automechatroniker-in-truck-mechanic-in-automatic-in-bls-ag-bern",
-      "automechatroniker-in-camion-mecanicien-in-automatique-in-bls-ag-bern"
+      "automechatroniker-in-camion-mecanicien-in-automatique-in-bls-ag-bern",
+      "automatiker-in-bls-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1362,6 +1373,7 @@
         "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
         "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
         "automechatroniker-in-camion-meccanico-in-automatico-in-bls-ag-bern",
+        "automatiker-in-bls-ch-3cd6ea9c",
         "automatiker-in-bls-ch"
       ],
       "en": [
@@ -1414,7 +1426,7 @@
     ]
   },
   {
-    "slug": "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
+    "slug": "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf-678598d1",
     "title": "Elektroinstallateur:in / Monteur:in Signaltechnik",
     "titleByLocale": {
       "it": "Installatore/trice elettrico/a:in / Monteur:in Signaltechnik",
@@ -1433,25 +1445,25 @@
       "fr": "La technologie du transport ferroviaire évolue rapidement. De nouveaux systèmes et systèmes de sécurité rendent les trains encore plus sûrs malgré des horaires serrés. Cette évolution ne se produit pas seulement. Il est basé sur les compétences de personnes comme vous et votre ambition de se rapprocher un peu plus de 100% de la sécurité dans le transport ferroviaire chaque jour.\n\nCeci vous attend :\n\n• Nouvelle construction de boîtes de signalisation, passages à niveau, équipements de protection et de signalisation des trains\n\n• Entretien et réparation des boîtes de signalisation existantes, des passages à niveau, de l'équipement de protection et de signalisation des trains\n\n• Localisation et réparation indépendantes des perturbations dans toutes les installations de sécurité ferroviaire de la région de Mittelland\n\n• Piquettes périodiques\n\nC'est ce que vous apportez avec vous :\n\n• Installation électrique:dans EFZ, opérateur automatique:dans EFZ ou formation équivalente\n\n• Profitez du travail en plein air à n'importe quel moment du jour et de la nuit (environ 10% de la nuit) et le week-end individuel\n\n• L'expérience dans la gestion de projets nouveaux et de rénovation est un avantage\n\n• Permis de conduire Cat. B\n\n• Préparation à l'éducation et à la formation continues\n\n• Bonne santé avec pleine ouïe et vision\n\nVos avantages – vous pouvez vous attendre à:\n\n• Nous favorisons la planification la plus flexible possible de vos visites et de vos déplacements\n\n• Obtenez un GA 2ème classe, un GA 1ère classe. Classe ou demi-abonnement.\n\n• Vous avez du temps libre quand les autres travaillent. Pour les centimes la nuit et le week-end il y a des suppléments.\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an.\n\n• Un soutien financier pour une formation complémentaire externe et une offre de cours et d'apprentissage interne passionnants sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé\n\nÀ propos du BLS\n\nAvec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
     },
     "slugByLocale": {
-      "it": "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
-      "en": "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
-      "de": "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
-      "fr": "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
+      "it": "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf-678598d1",
+      "en": "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf-ffb38984",
+      "de": "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch-bc2e82c3",
+      "fr": "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf-bcb56f18"
     },
     "sector": "Trasporti / Ferrovia",
     "expiredAt": "2026-08-31T15:08:00.747Z",
     "previousSlugs": [
-      "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
+      "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch-bc2e82c3"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
+        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch-bc2e82c3"
       ],
       "en": [
-        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
+        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch-bc2e82c3"
       ],
       "fr": [
-        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
+        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch-bc2e82c3"
       ]
     },
     "postalCode": "3415",
@@ -1740,26 +1752,31 @@
       "construction-dans-la-construction-ferroviaire-bls-ag-bern",
       "costruzione-in-ingegneria-ferroviaria-bls-ag-bern",
       "construction-in-railway-engineering-bls-ag-bern",
-      "baufuhrer-in-bahntechnik-bls-ch",
-      "construction-en-genie-ferroviaire-bls-ag-bern"
+      "baufuhrer-in-bahntechnik-bls-ch-2507d039",
+      "construction-en-genie-ferroviaire-bls-ag-bern",
+      "baufuhrer-in-bahntechnik-bls-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
         "baufuhrer-in-bahnbau-bls-ch",
         "costruzione-in-costruzione-ferroviaria-bls-ag-bern",
+        "baufuhrer-in-bahntechnik-bls-ch-2507d039",
         "baufuhrer-in-bahntechnik-bls-ch"
       ],
       "en": [
         "baufuhrer-in-bahnbau-bls-ch",
         "construction-in-railway-construction-bls-ag-bern",
+        "baufuhrer-in-bahntechnik-bls-ch-2507d039",
         "baufuhrer-in-bahntechnik-bls-ch"
       ],
       "fr": [
         "baufuhrer-in-bahnbau-bls-ch",
         "construction-dans-la-construction-ferroviaire-bls-ag-bern",
+        "baufuhrer-in-bahntechnik-bls-ch-2507d039",
         "baufuhrer-in-bahntechnik-bls-ch"
       ],
       "de": [
+        "baufuhrer-in-bahntechnik-bls-ch-2507d039",
         "baufuhrer-in-bahntechnik-bls-ch"
       ]
     },
@@ -2736,32 +2753,37 @@
       "rechtsanwalt-in-bls-ch",
       "pre-lavoratore-bls-ag-bern",
       "preworker-in-bls-ag-bern",
-      "vorarbeiter-in-bls-ch",
+      "vorarbeiter-in-bls-ch-17d77996",
       "pretravailleur-bls-ag-bern",
       "prelavoratore-in-bls-ag-ferden",
       "preworker-in-bls-ag-ferden",
       "vorarbeiter-in-bls-ag-ferden",
-      "pretravailleur-bls-ag-ferden"
+      "pretravailleur-bls-ag-ferden",
+      "vorarbeiter-in-bls-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
         "rechtsanwalt-in-bls-ch",
-        "vorarbeiter-in-bls-ch",
-        "prelavoratore-in-bls-ag-ferden"
+        "vorarbeiter-in-bls-ch-17d77996",
+        "prelavoratore-in-bls-ag-ferden",
+        "vorarbeiter-in-bls-ch"
       ],
       "en": [
         "rechtsanwalt-in-bls-ch",
-        "vorarbeiter-in-bls-ch",
-        "preworker-in-bls-ag-ferden"
+        "vorarbeiter-in-bls-ch-17d77996",
+        "preworker-in-bls-ag-ferden",
+        "vorarbeiter-in-bls-ch"
       ],
       "fr": [
         "rechtsanwalt-in-bls-ch",
-        "vorarbeiter-in-bls-ch",
-        "pretravailleur-bls-ag-ferden"
+        "vorarbeiter-in-bls-ch-17d77996",
+        "pretravailleur-bls-ag-ferden",
+        "vorarbeiter-in-bls-ch"
       ],
       "de": [
-        "vorarbeiter-in-bls-ch",
-        "vorarbeiter-in-bls-ag-ferden"
+        "vorarbeiter-in-bls-ch-17d77996",
+        "vorarbeiter-in-bls-ag-ferden",
+        "vorarbeiter-in-bls-ch"
       ]
     },
     "postalCode": "3008",
@@ -3186,7 +3208,7 @@
     "firstSeenAt": "2026-06-02T22:46:35.993Z"
   },
   {
-    "slug": "automobilmechatroniker-in-automatiker-in-bls-ag-spiez",
+    "slug": "automobilmechatroniker-in-automatiker-in-bls-ag-spiez-b8c55071",
     "title": "Automobilmechatroniker:in / Automatiker:in",
     "titleByLocale": {
       "it": "Automobile meccatronica: in/automatico",
@@ -3205,16 +3227,16 @@
       "fr": "Selon les statistiques, le train est l'un des moyens de transport les plus sûrs au monde. Mais il y a des gens derrière les chiffres – des gens comme vous! 60 millions de passagers par an comptent sur vos compétences et votre ambition pour assurer la sécurité des véhicules. Ça vous rend fier en tant que spécialiste.\n• Travaux d'entretien divers sur les parcs de voitures particulières\n• Demandes de réparations sur les parcs de voitures particulières et leurs systèmes\n• Capturer les données d'entretien et de défaillance\n• Éliminer, traiter et finaliser les véhicules Vous apportez:\n• Formation comme opérateur mécatronique automobile: Très bonne connaissance de l'allemand\n• Prêt à travailler pour la nuit et le week-end Vos avantages – vous pouvez vous attendre à cela:\n• Nous promouvons la planification la plus flexible de vos tours et couches\n• Obtenez un GA 2ème classe, un GA 1ère classe ou un abonnement demi-taxe.\n• Vous avez du temps libre quand les autres travaillent. Il ya des suppléments pour les stylos dans la nuit et le week-end.\n• Il y a la possibilité d'acheter cinq à dix jours de vacances par an en plus.\n• Un soutien financier pour la formation externe et une offre de cours et d'apprentissage interne passionnante sont à votre disposition.\n• Avec des événements saisonniers et des cours, nous soutenons votre santé.À propos du BLS Avec près de 4000 employés, le BLS est la deuxième compagnie ferroviaire en Suisse. En savoir plus: Nous sommes également une compagnie maritime, une société immobilière, un train de marchandises international, une compagnie de bus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? La fierté de ce que nous faisons tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
     },
     "slugByLocale": {
-      "de": "automobilmechatroniker-in-automatiker-in-bls-ch"
+      "de": "automobilmechatroniker-in-automatiker-in-bls-ch-2eac4091"
     },
     "sector": "Trasporti / Ferrovia",
     "expiredAt": "2026-06-10T11:40:52.446Z",
     "previousSlugs": [
-      "automobilmechatroniker-in-automatiker-in-bls-ch"
+      "automobilmechatroniker-in-automatiker-in-bls-ch-2eac4091"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "automobilmechatroniker-in-automatiker-in-bls-ch"
+        "automobilmechatroniker-in-automatiker-in-bls-ch-2eac4091"
       ]
     },
     "postalCode": "3700",

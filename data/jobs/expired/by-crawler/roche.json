@@ -8464,22 +8464,24 @@
     },
     "slugByLocale": {
       "it": "manufacturing-team-lead-roche-ch-2",
-      "en": "manufacturing-team-lead-roche-ch",
+      "en": "manufacturing-team-lead-roche-ch-07bf7320",
       "de": "manufacturing-teamleiter-roche-basel",
       "fr": "manufacturing-chef-d-equipe-roche-basel"
     },
     "sector": "Farmaceutico",
     "expiredAt": "2026-09-26T23:35:17.287Z",
     "previousSlugs": [
-      "manufacturing-team-lead-roche-ch",
+      "manufacturing-team-lead-roche-ch-07bf7320",
       "manufacturing-capo-team-roche-singapore",
       "manufacturing-teamleiter-roche-singapore",
-      "manufacturing-chef-d-equipe-roche-singapore"
+      "manufacturing-chef-d-equipe-roche-singapore",
+      "manufacturing-team-lead-roche-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "manufacturing-team-lead-roche-ch",
-        "manufacturing-capo-team-roche-singapore"
+        "manufacturing-team-lead-roche-ch-07bf7320",
+        "manufacturing-capo-team-roche-singapore",
+        "manufacturing-team-lead-roche-ch"
       ],
       "de": [
         "manufacturing-teamleiter-roche-singapore"
