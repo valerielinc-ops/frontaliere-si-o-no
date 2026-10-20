@@ -22,6 +22,7 @@
  * Output: `data/gsc-location-hubs.json`, consumed by the build plugin.
  *
  * Mirrors the pattern of `ingest-gsc-job-orphans.mjs` (PR #88).
+ * GSC exports are capped samples: absent routes are retained between imports.
  *
  * Usage:
  *   node scripts/ingest-gsc-location-hubs.mjs              # write
@@ -33,6 +34,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import cantonSlugFile from '../data/canton-url-slugs.json' with { type: 'json' };
 import { SECTION_LEGACY_TI as LEGACY_TI_SECTIONS } from '../build-plugins/shared/cantonResolvers.mjs';
+import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
+import {
+  assertGscOrphanSnapshot,
+  gscOrphanRouteKey,
+  isAllowedGscOrphanUrl,
+  mergeGscOrphanRecords,
+} from './lib/gsc-orphan-snapshot.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(__filename, '..', '..');
@@ -76,7 +84,7 @@ function slugify(value) {
 function findCsvFiles() {
   if (!fs.existsSync(DOWNLOADS_DIR)) return [];
   const out = [];
-  for (const entry of fs.readdirSync(DOWNLOADS_DIR)) {
+  for (const entry of fs.readdirSync(DOWNLOADS_DIR).sort()) {
     if (!entry.startsWith('frontaliereticino.ch-Coverage-')) continue;
     const csv = path.join(DOWNLOADS_DIR, entry, 'Tabella.csv');
     if (fs.existsSync(csv)) out.push({ file: csv, basename: entry });
@@ -155,34 +163,59 @@ function classifyHub(hub, locIdx, csvBasename) {
 function main() {
   if (!fs.existsSync(JOBS_PATH)) {
     console.error(`✗ ${JOBS_PATH} not found.`);
-    process.exit(1);
+    process.exitCode = 1;
+    return;
   }
   const csvFiles = findCsvFiles();
   if (csvFiles.length === 0) {
     console.error('No GSC CSV exports found under download/frontaliereticino.ch-Coverage-*');
-    process.exit(1);
+    process.exitCode = 1;
+    return;
   }
 
   const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf-8'));
   const locIdx = buildLocationIndex(jobs);
   console.log(`Loaded ${jobs.length} jobs, ${locIdx.size} distinct location slugs.`);
 
-  const seen = new Set();
-  const hubs = [];
+  const importedByUrl = new Map();
   for (const { file, basename } of csvFiles) {
     const urls = parseCsvUrls(file);
     for (const url of urls) {
+      if (!isAllowedGscOrphanUrl(url)) continue;
       const h = urlToHub(url);
       if (!h) continue;
-      const key = new URL(h.url).pathname.replace(/\/+$/, '');
-      if (seen.has(key)) continue;
-      seen.add(key);
-      hubs.push(classifyHub(h, locIdx, basename));
+      const classified = classifyHub(h, locIdx, basename);
+      importedByUrl.set(gscOrphanRouteKey(classified), classified);
     }
   }
 
+  let existingFile = { sources: [], hubs: [] };
+  if (fs.existsSync(OUT_PATH)) {
+    existingFile = JSON.parse(fs.readFileSync(OUT_PATH, 'utf-8'));
+    assertGscOrphanSnapshot(existingFile, {
+      file: path.relative(ROOT, OUT_PATH),
+      recordsKey: 'hubs',
+      identityField: 'citySlug',
+      kinds: ['matched', 'unmatched'],
+      validateRoute: (entry) => {
+        const parsed = urlToHub(entry.url);
+        return parsed?.locale === entry.locale && parsed?.citySlug === entry.citySlug;
+      },
+    });
+  }
+  const imported = [...importedByUrl.values()];
+  const refreshedExisting = existingFile.hubs.map((old) => classifyHub(
+    { locale: old.locale, citySlug: old.citySlug, url: old.url },
+    locIdx,
+    old.csvOrigin,
+  ));
+  const hubs = mergeGscOrphanRecords(refreshedExisting, imported);
+  const retained = Math.max(0, hubs.length - imported.length);
+
   const counts = hubs.reduce((acc, h) => { acc[h.kind] = (acc[h.kind] || 0) + 1; return acc; }, {});
-  console.log(`\nTotal location-hub orphans: ${hubs.length}`);
+  console.log(`\nImported location-hub orphans: ${imported.length}`);
+  console.log(`Retained from prior imports (not present in this sample): ${retained}`);
+  console.log(`Total tracked location-hub orphans: ${hubs.length}`);
   console.log('By kind:', counts);
 
   if (DRY_RUN) {
@@ -197,12 +230,18 @@ function main() {
 
   const out = {
     generatedAt: new Date().toISOString(),
-    sources: csvFiles.map((c) => c.basename),
+    sources: [...new Set([...(existingFile.sources || []), ...csvFiles.map((c) => c.basename)])],
     counts,
     hubs,
   };
-  fs.writeFileSync(OUT_PATH, JSON.stringify(out, null, 2) + '\n', 'utf-8');
+  const tempPath = `${OUT_PATH}.${process.pid}.tmp`;
+  fs.writeFileSync(tempPath, JSON.stringify(out, null, 2) + '\n', 'utf-8');
+  fs.renameSync(tempPath, OUT_PATH);
   console.log(`\nWrote ${hubs.length} location-hub records to ${path.relative(ROOT, OUT_PATH)}`);
 }
 
-main();
+const lock = withSingleFlightLock(`${OUT_PATH}.lock`, main);
+if (!lock.acquired) {
+  console.error(`✗ ${path.relative(ROOT, OUT_PATH)} is already being updated; retry after it completes.`);
+  process.exitCode = 1;
+}
