@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-10-20T09:26:48.958Z",
+  "assembledAt": "2026-10-20T21:22:42.620Z",
   "jobs": [
     {
       "id": "fhgr-b96495651fa4",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:26:43.563Z",
+      "crawledAt": "2026-10-20T21:22:36.333Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
         "it": "assistenza-organizzativa-assistenza-diretta-fachhochschule-graubunden-chur",
         "en": "organizational-assistance-directional-assistance-fachhochschule-graubunden-chur",
         "de": "organisationsassistenz-direktionsassistenz-fhgr-ch",
-        "fr": "assistance-organisationnelle-assistance-directe-fachhochschule-graubunden-chur"
+        "fr": "organisationsassistenz-direktionsassistenz-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -162,7 +162,8 @@
       "previousSlugs": [
         "organisationsassistenz-direktionsassistenz-fhgr-ch",
         "organisationsassistenz-direktionsassistenz-fachhochschule-graubunden-chur",
-        "assistant-d-organisation-assistant-de-direction-fachhochschule-graubunden-chur"
+        "assistant-d-organisation-assistant-de-direction-fachhochschule-graubunden-chur",
+        "assistance-organisationnelle-assistance-directe-fachhochschule-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -174,7 +175,7 @@
         ],
         "fr": [
           "assistant-d-organisation-assistant-de-direction-fachhochschule-graubunden-chur",
-          "organisationsassistenz-direktionsassistenz-fachhochschule-graubunden-chur"
+          "assistance-organisationnelle-assistance-directe-fachhochschule-graubunden-chur"
         ]
       },
       "firstSeenAt": "2026-09-29T09:26:08.665Z",
@@ -191,7 +192,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "crawlerMissStreak": 1
     }
   ]
 }
