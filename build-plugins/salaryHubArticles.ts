@@ -262,7 +262,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
       fr: 'Quel est l\'impact des enfants sur le salaire net d\'un frontalier?',
     },
     descriptions: {
-      it: 'Analisi dell\'impatto dei figli sullo stipendio netto: assegni familiari, deduzioni fiscali e tabelle diverse. Confronto 0, 1, 2 e 3 figli con simulazioni reali.',
+      it: 'Come incidono i figli sullo stipendio netto: assegni familiari, deduzioni e tabelle. Confronto tra 0, 1, 2 e 3 figli con simulazioni.',
       en: 'Analysis of children\'s impact on net salary: family allowances, tax deductions and different tables. Comparison of 0, 1, 2 and 3 children with real simulations.',
       de: 'Analyse der Auswirkung von Kindern auf das Nettogehalt: Kinderzulagen, Steuerabzüge und verschiedene Tabellen. Vergleich von 0, 1, 2 und 3 Kindern.',
       fr: 'Analyse de l\'impact des enfants sur le salaire net: allocations familiales, déductions fiscales et barèmes différents. Comparaison avec 0, 1, 2 et 3 enfants.',

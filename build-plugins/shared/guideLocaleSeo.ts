@@ -62,7 +62,7 @@ const GUIDE_LOCALE_SEO: Record<GuideSeoLocale, Record<GuideSeoSection, GuideLoca
     },
     'border-map': {
       title: 'Italy-Switzerland Border Map',
-      description: 'Interactive Italy-Switzerland border map: 9 Ticino crossings (Chiasso, Brogeda, Gaggiolo, Ponte Tresa) with live waiting times, webcams and nearby towns.',
+      description: 'Interactive Italy-Switzerland border map: 9 Ticino crossings (Chiasso, Brogeda, Gaggiolo, Ponte Tresa) with live waits and webcams.',
     },
   },
   de: {

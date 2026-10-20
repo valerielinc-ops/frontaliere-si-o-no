@@ -3272,7 +3272,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  firstDay: {
  title: 'Primo Giorno da Frontaliere 2026: Checklist Permesso G e AIRE',
- description: 'Primo giorno da frontaliere 2026: checklist interattiva con ogni passaggio, permesso G, iscrizione AIRE, conto bancario svizzero e assicurazione LAMal.',
+ description: 'Primo giorno da frontaliere 2026: checklist passo passo con permesso G, iscrizione AIRE, conto bancario svizzero e assicurazione LAMal.',
  keywords: 'primo giorno frontaliere, checklist frontaliere, guida frontaliere passo passo, permesso G procedura, AIRE iscrizione, conto bancario svizzero, assicurazione LAMal',
  ogTitle: 'Primo Giorno da Frontaliere | Checklist Interattiva',
  ogDescription: '🚀 Checklist gamificata per il primo giorno da frontaliere: tutti i passaggi da seguire passo per passo.',
