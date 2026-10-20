@@ -225,7 +225,11 @@ function readStaticTsStringLiteral(source: string, start: number, sourcePath: st
   if (quote === '`' && char === '$' && source[cursor + 1] === '{') {
    throw new Error(`[og-pages] Interpolated template literal is not static article data: ${sourcePath}`);
   }
-  if (quote !== '`' && (char === '\n' || char === '\r' || char === '\u2028' || char === '\u2029')) {
+  // esbuild accepts U+2028/U+2029 inside generated corpus literals and
+  // preserves them as string data. Treat those separators like other body
+  // content so this source scanner stays aligned with the TS loader; raw LF
+  // and CR remain invalid in ordinary quoted literals.
+  if (quote !== '`' && (char === '\n' || char === '\r')) {
    throw new Error(`[og-pages] Unterminated string literal in ${sourcePath}`);
   }
   if (char === quote) {
@@ -311,7 +315,7 @@ function decodeStaticTsStringLiteral(raw: string, quote: string): string {
  * former quote-specific regex, this scans source tokens so keys inside comments
  * or body values cannot be mistaken for record properties.
  */
-function parseStaticBlogBodySource(source: string, sourcePath: string): Record<string, Record<string, string>> {
+export function parseStaticBlogBodySource(source: string, sourcePath: string): Record<string, Record<string, string>> {
  const out: Record<string, Record<string, string>> = {};
  const expectedArticleId = path.basename(sourcePath, '.ts');
  let bodyFieldCount = 0;
