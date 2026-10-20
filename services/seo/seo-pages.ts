@@ -2182,7 +2182,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  'car-cost': {
  title: 'Costo Auto Pendolare Frontaliere Ticino 2026 | Tabelle',
- description: 'Calcola i costi reali del pendolarismo come frontaliere: benzina, autostrada, usura auto, parcheggio, abbonamenti treno e bus transfrontalieri. Confronta.',
+ description: 'Calcola i costi del pendolarismo da frontaliere: benzina, autostrada, usura auto, parcheggio, treno e bus transfrontalieri. Confronta le opzioni.',
  keywords: 'costi pendolarismo frontaliere, spese viaggio frontaliere, benzina frontaliere, autostrada svizzera costi, parcheggio dogana, treno frontalieri, bus transfrontaliero',
  ogTitle: 'Costi Pendolarismo Frontaliere | Calcolo Spese Viaggio',
  ogDescription: '🚗 Calcola quanto spendi di pendolarismo: auto, treno, bus. Confronta le opzioni per risparmiare!',

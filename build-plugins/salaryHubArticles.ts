@@ -156,7 +156,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
       fr: 'Nouveau vs ancien frontalier: différences fiscales expliquées',
     },
     descriptions: {
-      it: 'Confronto dettagliato tra il regime fiscale dei vecchi frontalieri (pre-2024) e dei nuovi frontalieri (2024+). Quando conviene uno o l\'altro? Simulazioni reali.',
+      it: 'Regimi fiscali di vecchi frontalieri (pre-2024) e nuovi (dal 2024): differenze, convenienza e simulazioni reali.',
       en: 'Detailed comparison between old (pre-2024) and new (2024+) cross-border worker tax regimes. Which is better? Real simulations.',
       de: 'Detaillierter Vergleich zwischen dem alten (vor 2024) und neuen (2024+) Grenzgänger-Steuerregime. Was ist besser? Echte Simulationen.',
       fr: 'Comparaison détaillée entre l\'ancien (pré-2024) et le nouveau (2024+) régime fiscal frontalier. Lequel est le plus avantageux? Simulations réelles.',

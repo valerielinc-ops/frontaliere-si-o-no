@@ -2831,26 +2831,30 @@ export function buildClusterTitle(keyword: string, city: string | null, locale: 
  * guides, current data and useful". Appended whole, in order, only while the
  * description is under {@link META_DESCRIPTION_MIN_CHARS}.
  */
-const DESCRIPTION_CLOSINGS: Record<Locale, { apply: string; calculator: string; audience: string }> = {
+const DESCRIPTION_CLOSINGS: Record<Locale, { apply: string; calculator: string; audience: string; minimum: string }> = {
   it: {
     apply: 'Candidatura diretta sul sito del datore di lavoro.',
     calculator: 'Calcola anche lo stipendio netto da frontaliere.',
     audience: 'Per frontalieri e residenti in Svizzera.',
+    minimum: 'Esplora gli annunci.',
   },
   en: {
     apply: 'Apply directly on the employer’s website.',
     calculator: 'Estimate your cross-border net salary too.',
     audience: 'For cross-border commuters and Swiss residents.',
+    minimum: 'Browse listings.',
   },
   de: {
     apply: 'Direkt beim Arbeitgeber bewerben.',
     calculator: 'Nettolohn für Grenzgänger gratis berechnen.',
     audience: 'Für Grenzgänger und Einwohner der Schweiz.',
+    minimum: 'Stellen ansehen.',
   },
   fr: {
     apply: 'Postulez directement sur le site de l’employeur.',
     calculator: 'Calculez aussi votre salaire net de frontalier.',
     audience: 'Pour frontaliers et résidents en Suisse.',
+    minimum: 'Voir les annonces.',
   },
 };
 
@@ -2880,6 +2884,7 @@ export function buildClusterDescription(
   const ordered = input.jobCount === 0
     ? [closings.calculator, closings.audience]
     : [closings.apply, closings.calculator, closings.audience];
+  ordered.push(closings.minimum);
 
   const companies = input.topCompanies
     .map((c) => String(c || '').trim().replace(/\.+$/, ''))

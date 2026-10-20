@@ -3420,9 +3420,9 @@ interface DetailCopy {
  * floor (`roleBudget >= 12`, build-plugins/shared/titleSuffix.ts) — below
  * it the title collapses to a useless `…`/2-3 word stub while 20+ chars of
  * region boilerplate squat in the SERP. Under the tighter 60-char event cap,
- * the full suffix may be dropped for long canton names; the cascade still
- * drops the date before clipping a complete comune/canton; region and brand
- * remain optional boilerplate under budget pressure.
+ * a complete event title wins whenever an allowed suffix candidate can fit
+ * it; only when none can does the cascade choose its first 12-char fragment.
+ * Date, region and brand remain optional under budget pressure.
  */
 const MIN_DETAIL_TITLE_BUDGET = 12;
 
@@ -3463,9 +3463,10 @@ const MIN_DETAIL_TITLE_BUDGET = 12;
  * Rhodes-Extérieures (Appenzell Rhodes-Extérieures) | Événements` is 75
  * chars, 15 past the new event cap on its own) previously clamped the budget
  * to 1 and emitted `'…' + suffix`, pushing the output beyond the old
- * 66-character cap. The first candidate leaving at least
- * {@link MIN_DETAIL_TITLE_BUDGET} escaped chars
- * for the event title wins: region and brand are boilerplate (brand is
+ * 66-character cap. A candidate that preserves the complete event title wins
+ * when allowed by the locale's brand preference; otherwise, the first
+ * candidate leaving at least {@link MIN_DETAIL_TITLE_BUDGET} escaped chars
+ * is the fallback. Region and brand are boilerplate (brand is
  * droppable per the `buildTitleWithBrand` policy, region is recoverable from
  * breadcrumb/H1/JSON-LD), the comune is the local-SEO signal and is always
  * kept. The final whole-string shrink loop is a last-resort cap guarantee
@@ -3477,13 +3478,18 @@ const MIN_DETAIL_TITLE_BUDGET = 12;
  */
 const EVENT_DETAIL_META_TITLE_MAX_CHARS = 60;
 
+interface EventDetailTitleSuffixCandidate {
+  suffix: string;
+  brandless?: string;
+}
+
 function eventDetailMetaTitle(
   rawTitle: string,
   suffixes: readonly string[],
   dateToken = '',
   preferBrandSuffix = false,
 ): string {
-  const suffixCandidates = dateToken
+  const suffixCandidates: EventDetailTitleSuffixCandidate[] = dateToken
     ? suffixes.flatMap((suffix) => {
       const candidates: Array<{ suffix: string; brandless?: string }> = [
         { suffix: `${suffix} · ${dateToken}` },
@@ -3504,17 +3510,21 @@ function eventDetailMetaTitle(
       return candidates;
     })
     : suffixes.map((suffix) => ({ suffix }));
-  // First location candidate that leaves a meaningful title budget wins; a
-  // place-only fallback is considered before degrading to a shorter location.
-  // Prefer a complete event title whenever one of the useful place candidates
-  // can accommodate it; otherwise retain the most descriptive candidate that
-  // still leaves a meaningful title fragment. This prevents the date token
-  // from truncating a 25-character event title merely to keep a brand label.
+  // Prefer the first suffix that keeps the complete event title. If none fits,
+  // use the first location candidate that leaves a meaningful title budget;
+  // the cascade reaches a place-only fallback before shortening the location.
   const rawTitleBudget = esc(rawTitle).length;
+  const completeTitleCandidate = suffixCandidates.find(
+    ({ suffix }) => (!preferBrandSuffix || /\s\|\s/.test(suffix))
+      && EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length >= rawTitleBudget,
+  );
   const firstMeaningful = suffixCandidates.find(
     ({ suffix }) => EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length >= MIN_DETAIL_TITLE_BUDGET,
   );
-  let suffix = firstMeaningful?.suffix ?? suffixCandidates[suffixCandidates.length - 1]?.suffix ?? '';
+  let suffix = completeTitleCandidate?.suffix
+    ?? firstMeaningful?.suffix
+    ?? suffixCandidates[suffixCandidates.length - 1]?.suffix
+    ?? '';
   // If a brand-bearing candidate is meaningful but crowds out the complete
   // event title, use its brandless form when that preserves the title.
   if (!preferBrandSuffix && firstMeaningful?.brandless) {
@@ -3578,9 +3588,10 @@ function eventDetailHeading(rawTitle: string, dateToken: string, comune: string)
  *
  * #3799: each locale now returns a candidate CASCADE, longest first —
  * full (comune + region + brand) → drop the region parenthetical → bare
- * comune — consumed by {@link eventDetailMetaTitle}, which picks the first
- * candidate leaving at least {@link MIN_DETAIL_TITLE_BUDGET} chars for the
- * event title. Every candidate embeds the comune (the never-dropped
+ * comune — consumed by {@link eventDetailMetaTitle}, which prefers the first
+ * candidate that preserves the complete event title within the locale's
+ * brand preference, then falls back to the first candidate leaving at least
+ * {@link MIN_DETAIL_TITLE_BUDGET} chars. Every candidate embeds the comune (the never-dropped
  * local-SEO token), mirroring the `composePlaceTitle` candidate contract. */
 const DETAIL_TITLE_SUFFIXES: Record<Locale, (comune: string) => string[]> = {
   it: (c) => [` — ${c} (Ticino) | Eventi`, ` — ${c} | Eventi`, ` — ${c}`],

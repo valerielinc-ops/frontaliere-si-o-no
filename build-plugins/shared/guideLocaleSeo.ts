@@ -46,7 +46,7 @@ const GUIDE_LOCALE_SEO: Record<GuideSeoLocale, Record<GuideSeoSection, GuideLoca
     },
     unemployment: {
       title: 'Unemployment: Switzerland and Italy',
-      description: 'Unemployment for cross-border workers in Switzerland: when you need the PD U1 form, how to claim Italian NASpI, 2026 amounts and steps after dismissal.',
+      description: 'Unemployment for cross-border workers in Switzerland: when the PD U1 form is needed, claiming Italian NASpI, 2026 amounts and next steps.',
     },
     carTransfer: {
       title: 'Transfer Your Car to Switzerland',
