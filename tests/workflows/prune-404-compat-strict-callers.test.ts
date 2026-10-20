@@ -24,6 +24,11 @@ type Workflow = {
 };
 
 describe('404 compatibility prune workflow callers', () => {
+  it('fails closed by default even for future non-workflow callers', () => {
+    const source = fs.readFileSync(path.join(ROOT, PRUNE_SCRIPT), 'utf-8');
+    expect(source).toContain("const STRICT = process.env.PRUNE_404_STRICT !== '0';");
+  });
+
   it('fails closed in every workflow before committing or proposing a compatibility snapshot', () => {
     const callerFiles = new Set<string>();
     const unprotectedCallers: string[] = [];
