@@ -124,8 +124,8 @@ describe('profili di sparse-checkout', () => {
     expect(sparse).toContain('/data/canton-municipalities.json');
     expect(isExcludedBy(sparse, 'scripts/ci/report-workflow-failure.mjs')).toBe(false);
     expect(isExcludedBy(sparse, 'packages/articles/content/it/example.ts')).toBe(false);
-    expect(isExcludedBy(sparse, 'public/images/example.webp')).toBe(true);
-    expect(isExcludedBy(sparse, 'data/jobs/example.json')).toBe(true);
+    expect(sparse).not.toContain('/public/images/');
+    expect(sparse).not.toContain('/data/jobs/');
   });
 
   it('non escludono mai un file che il job carica come codice', () => {
