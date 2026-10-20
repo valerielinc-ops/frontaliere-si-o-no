@@ -653,6 +653,7 @@ globalThis.fetch = async (url, options = {}) => {
       const preload = join(temp, 'stub-fetch.mjs');
       writeFileSync(preload, `
 const locks = new Map();
+let placesPutAttempts = 0;
 globalThis.fetch = async (url, options = {}) => {
   const pathname = new URL(url).pathname;
   const method = options.method ?? 'GET';
@@ -671,8 +672,16 @@ globalThis.fetch = async (url, options = {}) => {
     return response(200, '', 'blog-created-etag');
   }
   if (method === 'PUT' && headers['if-none-match'] === '*' && places) {
-    return response(500, 'places acquisition failed');
+    const lease = JSON.parse(options.body);
+    if (Number.isFinite(lease.releasedAt)) {
+      locks.set(pathname, lease);
+      return response(200, '', 'places-cleanup-etag');
+    }
+    placesPutAttempts += 1;
+    if (placesPutAttempts === 1) return response(500, 'places acquisition failed');
+    return response(400, 'places retry failed');
   }
+  if (method === 'GET' && places) return response(404);
   if (method === 'GET' && blog && locks.has(pathname)) {
     return response(200, JSON.stringify(locks.get(pathname)), 'blog-created-etag');
   }
@@ -702,8 +711,8 @@ globalThis.fetch = async (url, options = {}) => {
       });
 
       expect(result.status).toBe(1);
-      expect(result.stderr).toContain('acquire places failed (500): places acquisition failed');
-      expect(result.stderr).toContain('release blog failed (500): blog rollback failed');
+      expect(result.stderr).toContain('acquire places failed (400): places retry failed');
+      expect(result.stderr).toContain('cleanup blog failed after 4 attempts');
     } finally {
       rmSync(temp, { recursive: true, force: true });
     }
