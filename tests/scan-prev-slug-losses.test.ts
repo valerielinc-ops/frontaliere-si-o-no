@@ -32,6 +32,12 @@ describe('parseSliceSnapshot', () => {
     expect(() => parseSliceSnapshot('{broken', 'history.json')).toThrow(/malformed JSON in history.json/);
     expect(() => parseSliceSnapshot('{"items":[]}', 'history.json')).toThrow(/invalid jobs snapshot in history.json/);
   });
+
+  it('normalizes the bare array shape used by expired crawler archives', () => {
+    const expired = [{ slug: 'expired-job', expiredAt: '2026-10-20T00:00:00.000Z' }];
+    expect(parseSliceSnapshot(JSON.stringify(expired), 'data/jobs/expired/by-crawler/example.json'))
+      .toEqual({ jobs: expired });
+  });
 });
 
 describe('diffJobSlices', () => {
