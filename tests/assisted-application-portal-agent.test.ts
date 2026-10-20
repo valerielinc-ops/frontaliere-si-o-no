@@ -376,7 +376,7 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
     });
 
-    const englishPronounIt = 'Can you speak English and use it?';
+    const englishPronounIt = 'Can you speak English at C2 level and use it?';
     const supportedEnglishPronounIt = guardAgentStep(turn('act', [act({
       ref: 'e41', action: 'select', value: 'Yes', question: englishPronounIt, answer: 'Yes',
       source: 'profile', evidence: 'English C2',

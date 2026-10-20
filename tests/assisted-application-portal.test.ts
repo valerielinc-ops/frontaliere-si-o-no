@@ -989,28 +989,28 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(partialEmDashEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: emDashReverseOrder.id })]);
 
     const singleLanguageQuestions = [
-      'What is your knowledge of German at C2?',
-      'Level of German at C2?',
-      'Level of German at C2 or higher?',
-      'What is your German level, particularly in writing?',
-      'What is your German level: C2 or at least B2?',
-      'Can you speak English and use it?',
-      'Can you read English and write it at C2 level?',
-      'Can you read English and do it at C2 level?',
-      'Quel est votre niveau d’anglais et de compétence orale ?',
-      'Quel est votre niveau en allemand au C2?',
-      'Niveau en allemand C2',
-      'Qual è il livello di tedesco?',
+      { question: 'What is your knowledge of German at C2?', evidence: 'German C2' },
+      { question: 'Level of German at C2?', evidence: 'German C2' },
+      { question: 'Level of German at C2 or higher?', evidence: 'German C2' },
+      { question: 'What is your German level, particularly in writing?', evidence: 'German C2' },
+      { question: 'What is your German level: C2 or at least B2?', evidence: 'German C2' },
+      { question: 'Can you speak English and use it?', evidence: 'English C2' },
+      { question: 'Can you read English and write it at C2 level?', evidence: 'English C2' },
+      { question: 'Can you read English and do it at C2 level?', evidence: 'English C2' },
+      { question: 'Quel est votre niveau d’anglais et de compétence orale ?', evidence: 'English C2' },
+      { question: 'Quel est votre niveau en allemand au C2?', evidence: 'German C2' },
+      { question: 'Niveau en allemand C2', evidence: 'German C2' },
+      { question: 'Qual è il livello di tedesco?', evidence: 'German C2' },
     ];
-    for (const question of singleLanguageQuestions) {
+    for (const { question, evidence } of singleLanguageQuestions) {
       const singleLanguage = {
         id: 'single-language', kind: 'select', label: question, required: true,
         options: [{ label: 'C2' }],
       };
       const supportedEvidence = guardPlan({
-        actions: [{ fieldId: singleLanguage.id, action: 'select', value: 'C2', source: 'profile', evidence: 'German C2' }],
+        actions: [{ fieldId: singleLanguage.id, action: 'select', value: 'C2', source: 'profile', evidence }],
         missingRequired: [],
-      }, [singleLanguage], { ...candidate, profile: { cvText: 'German C2' } });
+      }, [singleLanguage], { ...candidate, profile: { cvText: evidence } });
       expect(supportedEvidence.actions).toEqual([expect.objectContaining({ fieldId: singleLanguage.id, value: 'C2' })]);
       expect(supportedEvidence.missingRequired).toEqual([]);
     }
