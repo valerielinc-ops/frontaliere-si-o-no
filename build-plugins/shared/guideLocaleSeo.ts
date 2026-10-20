@@ -92,7 +92,7 @@ const GUIDE_LOCALE_SEO: Record<GuideSeoLocale, Record<GuideSeoSection, GuideLoca
     },
     'car-cost': {
       title: 'Autokosten-Rechner',
-      description: 'Vergleichen Sie die jährlichen Autobesitzkosten zwischen Italien und der Schweiz: Versicherung, Steuer, Kraftstoff, Wartung, Verzollung und Kennzeichen.',
+      description: 'Vergleichen Sie Autokosten in Italien und der Schweiz: Versicherung, Steuer, Kraftstoff, Wartung, Verzollung und Kennzeichen.',
     },
     'permit-compare': {
       title: 'Bewilligung G vs B',
