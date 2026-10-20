@@ -776,6 +776,7 @@ const documentContextRe = (terms) => new RegExp(
 const CV_DOCUMENT_CONTEXT_RE = documentContextRe(CV_DOCUMENT_TERMS);
 const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe(COVER_LETTER_DOCUMENT_TERMS);
 const CV_FILE_FIELD_RE = CV_DOCUMENT_CONTEXT_RE;
+const uploadedPortalFieldKey = (url, field) => `${url}|${field?.label || field?.id || ''}`;
 
 const isFileField = (field) => field?.kind === 'file' || field?.inputType === 'file';
 const isCvFileField = (field) => {
@@ -1213,11 +1214,11 @@ async function uploadThroughDialog(page, trigger, file) {
 }
 
 /**
- * Before a page is planned: its closed sections opened, and the CV put in a
- * dialog's file input when the page has no file field of its own. A page is
+ * Before a page is planned: its closed sections opened, and the CV attached
+ * through an upload control when the portal exposes no file field. A page is
  * done only once the action is seen to work (more fields in sight, the file
  * in); a failed try is tried again, at most MAX_SECTION_TRIES per page.
- * @returns {Promise<{snapshot: object, cv?: 'uploaded'|'uploaded_unconfirmed'|'unavailable'}>}
+ * @returns {Promise<{snapshot: object, cv?: 'uploaded'|'uploaded_unconfirmed'|'unavailable', cvFieldKey?: string}>}
  */
 export async function openFormSections(page, snapshot, { files = {}, done = new Set(), tries = new Map() } = {}) {
   let current = snapshot;
@@ -1267,7 +1268,12 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const cvFile = Array.isArray(files.cv) ? files.cv[0] : files.cv;
   const cvKey = `cv|${where}`;
   let cv;
+  let cvFieldKey;
+  // A discovered file field stays in the normal planning path. That path
+  // removes an earlier upload before replacing it and records the receipt and
+  // failure in the same evidence as other planned uploads.
   while (cvFile && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
+    if (!attempt(cvKey)) break;
     const namedTriggerButton = uploadButtonFor(current, 'cv');
     const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page) && ownAccountForm(current)
       ? successFactorsIconButtonFor(current, 'cv')
@@ -1279,9 +1285,11 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
         ? locatorFor(page, triggerButton)
         : null;
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
-    if (!trigger || !visible || !attempt(cvKey)) break;
+    if (!trigger || !visible) break;
     cv = await uploadThroughDialog(page, trigger, cvFile);
     current = await extractFields(page);
+    const uploadedCvField = current.fields.find(isCvFileField);
+    if (cv !== 'unavailable' && uploadedCvField) cvFieldKey = uploadedPortalFieldKey(page.url(), uploadedCvField);
     // A file that went in, confirmed or not, never goes in twice.
     if (cv !== 'unavailable') done.add(cvKey);
   }
@@ -1308,6 +1316,7 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   return {
     snapshot: current,
     ...(cv ? { cv } : {}),
+    ...(cvFieldKey ? { cvFieldKey } : {}),
     ...(coverLetter ? { coverLetter } : {}),
   };
 }
@@ -1419,7 +1428,17 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
       }
       current = await extractFields(page);
       const currentRows = current.fields.filter((field) => rowFields.some((row) => row.id === field.id));
-      if (rowFields.some((field) => field.required && !holdsValue(currentRows.find((item) => item.id === field.id) || field))) {
+      if (rowFields.some((field) => {
+        if (!field.required) return false;
+        const filled = currentRows.find((item) => item.id === field.id) || field;
+        if (holdsValue(filled)) return false;
+        // Work history dates are periods: a plain-text portal input may accept
+        // the exact month precision in the CV even though a full calendar date
+        // would invent a day. Calendar controls still need a valid full date.
+        const dateLabel = /^(?:start|end) date\s*[＊*]?$/i.test(String(field.label || '').trim());
+        const source = profileEntryAnswer(entry, kind, field)?.value;
+        return !(dateLabel && field.inputType === 'text' && source && String(filled.value || '').trim() === source);
+      })) {
         if (!await cancel()) return { snapshot: current, counts, handoff: 'profile_section_row_incomplete' };
         skipped += 1;
         continue;
@@ -2232,6 +2251,7 @@ export async function submitViaPortal(ctx) {
             record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
             noteUpload('cv');
           }
+          if (opened.cv !== 'unavailable' && opened.cvFieldKey) uploaded.add(opened.cvFieldKey);
           if (opened.cv !== 'uploaded') return await handoff('cv_upload_failed');
         }
         if (opened.coverLetter) {
@@ -2378,16 +2398,41 @@ export async function submitViaPortal(ctx) {
         // The planner never sees a password field, nor what a retry finds typed in it.
         const planned = ownAccount ? { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') } : snapshot;
         const plan = await planPage({ snapshot: planned, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+        const cvField = snapshot.fields.find(isCvFileField);
+        // This synthetic action is executed by applyActions below, which resolves
+        // the extracted fieldId through data-aa-id; agent.mjs aria-ref actions
+        // are a separate path and are not used for this deterministic upload.
+        const automaticCvUpload = cvField && documentPaths(ctx.files, 'cv').length
+          ? {
+              fieldId: cvField.id,
+              ref: cvField.ref,
+              action: 'upload',
+              value: '',
+              document: 'cv',
+              source: 'documents',
+              evidence: '',
+            }
+          : null;
+        const plannedActions = [...plan.actions];
+        if (automaticCvUpload && !plannedActions.some((action) => action.fieldId === cvField.id
+          && action.action === 'upload' && action.document === 'cv')) {
+          const skipIndex = plannedActions.findIndex((action) => action.fieldId === cvField.id && action.action === 'skip');
+          if (skipIndex >= 0) plannedActions.splice(skipIndex, 1);
+          plannedActions.push(automaticCvUpload);
+        }
+        const missingRequired = plan.missingRequired.filter((item) => !(automaticCvUpload && item.fieldId === cvField.id));
         // A required field with no readable label is no question for the
         // candidate ("select-input-_r_p_"): the agent finds its question on the page.
-        const unclear = plan.missingRequired.some((item) => machineLabel(snapshot.fields.find((field) => field.id === item.fieldId)?.label));
-        if (plan.missingRequired.length && !unclear) return askCandidate(plan.missingRequired);
-        if (unclear) unclearQuestions = plan.missingRequired;
+        const unclear = missingRequired.some((item) => machineLabel(snapshot.fields.find((field) => field.id === item.fieldId)?.label));
+        if (missingRequired.length && !unclear) return askCandidate(missingRequired);
+        if (unclear) unclearQuestions = missingRequired;
         if (unclear) agentHint = 'unclear_fields';
         // A file already uploaded on this page is not uploaded again when the
         // page is planned a second time (Personio empties the input after the upload).
-        const uploadKey = (fieldId) => `${page.url()}|${snapshot.fields.find((field) => field.id === fieldId)?.label || fieldId}`;
-        const actions = plan.actions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
+        const uploadKey = (fieldId) => uploadedPortalFieldKey(
+          page.url(), snapshot.fields.find((field) => field.id === fieldId) || { id: fieldId },
+        );
+        const actions = plannedActions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
         const plannedUrl = page.url();
         // Choices first: one of them may redraw the form (on Workday the name and address fields follow the
         // country), and what was typed before into fields that are no more is lost without a word (dry run of
@@ -2628,6 +2673,11 @@ export async function submitViaPortal(ctx) {
       if (outcome === 'captcha') return await handoff('captcha');
       if (outcome === 'validation' && validationRetries < 1) {
         validationRetries += 1;
+        // A server-side validation response can clear a required agreement
+        // that was accepted in the same URL (SIX resets its data privacy
+        // agreement after rejecting another field). Re-open required notices
+        // on the fresh page before retrying the submission.
+        privacyAcceptedPages.clear();
         snapshot = await extractFields(page);
         continue;
       }
