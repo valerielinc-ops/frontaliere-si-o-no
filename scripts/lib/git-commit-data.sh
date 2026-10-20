@@ -382,6 +382,7 @@ declare -A _BATCH_SNAPSHOT_STATE=()
 declare -A _BATCH_SNAPSHOT_MODE=()
 declare -A _BATCH_SNAPSHOT_BASE_BLOB=()
 declare -A _BATCH_SNAPSHOT_BLOB=()
+BATCH_HAS_CHANGES=false
 # Per-file result of the isolated-commit loop, reused by the NEXT push attempt
 # when the inputs of that file are unchanged (see commit_isolated_from_worktree).
 declare -A _ISOLATED_RESULT_KEY=()
@@ -616,6 +617,7 @@ if [ "$GROUP_BATCH" = true ]; then
     _BATCH_SNAPSHOT_MODE["$path_item"]="$snapshot_mode"
     _BATCH_SNAPSHOT_BASE_BLOB["$path_item"]="$snapshot_base_blob"
     _BATCH_SNAPSHOT_BLOB["$path_item"]="$snapshot_blob"
+    [ "$snapshot_operation" = "unchanged" ] || BATCH_HAS_CHANGES=true
   done < "$_batch_snapshots_file"
   # Observability for #7060: report, per path class, how many descriptors in
   # THIS run reached each non-"unchanged" snapshot operation. "unchanged" is
@@ -3088,8 +3090,18 @@ commit_isolated_from_worktree() {
     if [ "$new_tree" = "$remote_tree" ]; then
       isolated_phase_report "$push_attempt"
       emit_crawler_generation_receipt "noop" "$remote_sha" "$remote_sha" || return $?
-      echo "ℹ️ No effective changes for this crawler's files vs origin/main — nothing to commit"
-      [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
+      if [ "$GROUP_BATCH" = true ] && [ "$BATCH_HAS_CHANGES" = true ]; then
+        # A receipt retry reaches this branch after the first attempt already
+        # published the exact candidate tree. Keep the publication visible to
+        # downstream deploy steps; only a descriptor set with no changed
+        # snapshots is a genuine no-op.
+        echo "✅ Crawler group batch tree already published at ${remote_sha}; receipt delivery repaired"
+        [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
+        [ -n "${GITHUB_OUTPUT:-}" ] && echo "final_commit=$remote_sha" >> "$GITHUB_OUTPUT"
+      else
+        echo "ℹ️ No effective changes for this crawler's files vs origin/main — nothing to commit"
+        [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
+      fi
       return 0
     fi
 

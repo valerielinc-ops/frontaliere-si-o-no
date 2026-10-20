@@ -923,6 +923,7 @@ exec ${JSON.stringify(process.execPath)} "$@"
     const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-receipt-retry-'));
     const shimDir = mkdtempSync(join(tmpdir(), 'gcd-node-receipt-shim-'));
     const failureMarker = join(shimDir, 'failed-once');
+    const githubOutput = join(runnerTemp, 'github-output.txt');
     try {
       mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
       writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[]\n');
@@ -950,6 +951,7 @@ exec ${JSON.stringify(process.execPath)} "$@"
 
       const firstBatch = commitGroup(repoDir, runnerTemp, {
         PATH: `${shimDir}${delimiter}${process.env.PATH ?? ''}`,
+        GITHUB_OUTPUT: githubOutput,
       });
       const firstOutput = `${firstBatch.stdout}${firstBatch.stderr}`;
       expect(firstBatch.status, firstOutput).toBe(46);
@@ -960,15 +962,20 @@ exec ${JSON.stringify(process.execPath)} "$@"
         cwd: repoDir,
         encoding: 'utf8',
       })).toContain('a1');
+      const published = execFileSync('git', ['rev-parse', 'origin/main'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      }).trim();
       const receiptPath = join(runnerTemp, 'crawler-generation', 'receipts', 'a.json');
       expect(existsSync(receiptPath)).toBe(false);
 
-      const retry = commitGroup(repoDir, runnerTemp);
+      const retry = commitGroup(repoDir, runnerTemp, { GITHUB_OUTPUT: githubOutput });
       expect(retry.status, `${retry.stdout}${retry.stderr}`).toBe(0);
       expect(JSON.parse(readFileSync(receiptPath, 'utf8'))).toMatchObject({
         crawlerId: 'a',
         outcome: 'noop',
       });
+      expect(readFileSync(githubOutput, 'utf8')).toBe(`has_changes=true\nfinal_commit=${published}\n`);
     } finally {
       rmSync(shimDir, { recursive: true, force: true });
       rmSync(originDir, { recursive: true, force: true });
