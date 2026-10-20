@@ -61264,6 +61264,80 @@
           "notes": "Generic synthetic architectural illustration of a municipal-style building in Schaffhausen; no text, logos, people, or event-specific cues."
         }
       }
+    },
+    "generated:article-schleitheim-scooter-incidente-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-20T07:10:38.081Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-20",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-schleitheim-scooter-incidente-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "c4e21471a71822c7a074f7f0a8beb5944a540db54e0d7eac19704e0fe23ec5b0",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "83dafb2c42cb5a5f2aaf4183ffb04d7951c54284a966eb972965e97592b57f3c",
+        "bytes": 195640,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-20T07:10:38.081Z",
+        "verifiedAt": "2026-10-20T07:10:47.100Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-schleitheim-scooter-incidente-2026.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Synthetic photorealistic editorial illustration of a rural bridge and curving road; no people, text, logos, or visible accident."
+        }
+      }
     }
   },
   "covers": {
@@ -100913,6 +100987,10 @@
     },
     "article-svp-sciaffusa-candidati-2027": {
       "file": "generated:article-svp-sciaffusa-candidati-2027",
+      "modified": "resized"
+    },
+    "article-schleitheim-scooter-incidente-2026": {
+      "file": "generated:article-schleitheim-scooter-incidente-2026",
       "modified": "resized"
     }
   }

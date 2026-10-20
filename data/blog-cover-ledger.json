@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 692,
+      "5": 693,
       "6": 5054
     },
-    "publishedCovers": 7429,
+    "publishedCovers": 7430,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -201910,6 +201910,39 @@
         "provider": "openai-codex",
         "assetId": "article-svp-sciaffusa-candidati-2027",
         "imageUrl": "/images/blog/article-svp-sciaffusa-candidati-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-schleitheim-scooter-incidente-2026": {
+      "cover": "/images/blog/article-schleitheim-scooter-incidente-2026.webp",
+      "hash": "83dafb2c42cb5a5f2aaf4183ffb04d7951c54284a966eb972965e97592b57f3c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "schleitheim-scooter-incidente-2026",
+          "category": "novita",
+          "date": "2026-10-20T07:10:47.167Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-schleitheim-scooter-incidente-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-schleitheim-scooter-incidente-2026",
+        "imageUrl": "/images/blog/article-schleitheim-scooter-incidente-2026.webp",
         "evidence": "generated-engine-record"
       }
     }
