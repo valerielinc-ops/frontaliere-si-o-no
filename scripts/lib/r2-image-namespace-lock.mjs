@@ -598,9 +598,11 @@ async function acquireFromCli(namespaces, request, env = process.env) {
       return;
     }
     if (cleanupError) {
+      const acquisitionMessage = error instanceof Error ? error.message : String(error);
+      const cleanupMessage = cleanupError instanceof Error ? cleanupError.message : String(cleanupError);
       throw new AggregateError(
         [error, cleanupError],
-        `[r2-image-namespace-lock] acquire cleanup failed: ${cleanupError?.message ?? cleanupError}`,
+        `[r2-image-namespace-lock] acquire failed: ${acquisitionMessage}; candidate cleanup failed: ${cleanupMessage}`,
         { cause: error },
       );
     }
