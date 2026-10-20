@@ -1563,15 +1563,13 @@ export const EDGE_RETIRED_PATHS = {
   '/de/grenzgaenger-artikel/in-maslianico-wohnen-arbeiten-tessin-grenzganger/': '/de/leben-im-tessin/grenzgemeinden/maslianico/',
   '/fr/articles-frontalier/vivre-maslianico-travailler-tessin-frontalier/': '/fr/vivre-au-tessin/communes-frontiere/maslianico/',
 
-  // ── 301 — prompt-leak slug renames declared in data/article-redirects.json
-  // (6 URLs). Not retirements: the article is fine, the URL carried the prompt's
-  // own `slug-` placeholder. Both ends are live 200 `index, follow` self-canonical
-  // today, i.e. a duplicate pair, because push-article-shard-incremental.sh only
-  // ever ADDS. The 301 is the half that was missing. It does NOT touch the four
-  // `kebab-case-*` slugs tests/scripts/create-article-prompt-leak-slug.test.ts
-  // deliberately leaves live — those are excluded by the live-slug rule below.
+  // ── 301 — article aliases declared in data/article-redirects.json.
+  // These include prompt-leak slug renames and the GSC-reported DE slug for the
+  // seven Mendrisiotto site inspections; its live target reports the same 66
+  // workers and no irregularities. The redirect is exact, not to a section hub.
   '/en/cross-border-articles/slug-gaggiolo-traffic/': '/en/cross-border-articles/gaggiolo-traffic/',
   '/de/grenzgaenger-artikel/slug-gaggiolo-verkehr/': '/de/grenzgaenger-artikel/gaggiolo-verkehr/',
+  '/de/grenzgaenger-artikel/sette-cantieri-mendrisio-slug-de/': '/de/grenzgaenger-artikel/kontrolle-baustellen-mendrisiotto/',
   '/fr/articles-frontalier/slug-gaggiolo-traffic/': '/fr/articles-frontalier/gaggiolo-traffic/',
   '/fr/articles-frontalier/appels-shock-arrestations/': '/fr/articles-frontalier/appels-chocs-arrestations-locarnese-2024/',
   '/en/swiss-articles/slug-terzo-pilastro-3a-vantaggi-2026-basel/': '/en/swiss-articles/terzo-pilastro-3a-vantaggi-2026-basel/',

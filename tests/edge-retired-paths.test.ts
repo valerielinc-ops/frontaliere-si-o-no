@@ -370,20 +370,21 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
     ).toEqual([]);
   });
 
-  it('pins the measured shape of the 2026-08-14 repair', () => {
+  it('pins the measured retirements and the later GSC-verified alias', () => {
     const gone = actualKeys.filter((k) => RETIRED_TABLE[k] === null);
     const moved = actualKeys.filter((k) => RETIRED_TABLE[k] !== null);
     // 4 retired-with-no-substitute + 20 alias orphans; 36 declared redirects
-    // under the eight prefixes + 6 from data/article-redirects.json + 13 for
-    // nanako#356 (the original 12 cross-section paths plus this observed DE
-    // alias) + 8 for the nanako#915 / nanako#943
+    // under the eight prefixes + 7 unique from data/article-redirects.json
+    // (including the GSC-verified DE alias) + 13 for
+    // nanako#356 (the original 12 cross-section paths plus its previously
+    // observed DE alias) + 8 for the nanako#915 / nanako#943
     // same-section duplicate retirements of 2026-09-05 + 1 for the historical
     // unsuffixed FR transit-fee URL bridged by #8730 (Bing closed loop) + 12
     // upstream-aborted article URLs from the 2026-10-07 corpus sync.
     expect({ total: actualKeys.length, gone: gone.length, moved: moved.length }).toEqual({
-      total: 100,
+      total: 101,
       gone: 36,
-      moved: 64,
+      moved: 65,
     });
   });
 });
@@ -462,6 +463,15 @@ describe('the alias orphans stop being soft-404s', () => {
 });
 
 describe('retiredEdgeResponse behaviour', () => {
+  it('301s the GSC-observed German site-inspection alias to the live article', () => {
+    const from = '/de/grenzgaenger-artikel/sette-cantieri-mendrisio-slug-de/';
+    const resp = retiredEdgeResponse(new URL(`${APEX}${from}`)) as Response;
+    expect(resp.status).toBe(301);
+    expect(resp.headers.get('Location')).toBe(
+      '/de/grenzgaenger-artikel/kontrolle-baustellen-mendrisiotto/',
+    );
+  });
+
   it('301s carry the declared target, the query and the hash', () => {
     const from = '/articoli-frontaliere/caldo-torrido-lavoro-ticino/';
     const resp = retiredEdgeResponse(new URL(`${APEX}${from}?utm_source=gsc`)) as Response;
