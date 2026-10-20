@@ -103,6 +103,15 @@ describe('salary-hub evergreen guides — WebPage JSON-LD', () => {
     }
   });
 
+  it('keeps the withholding-tax guide title within the SERP target', () => {
+    const article = EVERGREEN_ARTICLES.find((candidate) => candidate.id === 'tabelle-imposta-fonte-ticino')!;
+    const html = generateArticleHtml(article, 'it', EMPTY_DATA, NO_DIST);
+    const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '';
+
+    expect(title).toContain('Imposta alla fonte Ticino: tabelle 2026');
+    expect(title.length).toBeLessThanOrEqual(60);
+  });
+
   it('omits the description field instead of emitting "" for a blank locale entry', () => {
     const blankDescArticle = { ...taxHub, descriptions: { ...taxHub.descriptions, it: '   ' } };
     const html = generateArticleHtml(blankDescArticle, 'it', EMPTY_DATA, NO_DIST);

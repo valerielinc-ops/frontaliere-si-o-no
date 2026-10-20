@@ -262,6 +262,9 @@ export const FAQ_vitaQuotidiana: ReadonlyArray<FaqHubEntry> = [
       de: 'Wie bezahle ich Schweizer Bussen aus Italien?',
       fr: 'Comment payer les amendes suisses depuis l\'Italie ?',
     },
+    titleShort: {
+      it: 'Multe svizzere: pagare dall’Italia',
+    },
     answer: {
       it:
         "Le multe svizzere vanno pagate entro 30 giorni via bonifico IBAN sul bollettino allegato o sul sito della polizia cantonale [fonte: Ti.ch, polizia]. Dal 2024 la Svizzera ha ratificato la Convenzione UE per il riconoscimento reciproco delle sanzioni pecuniarie: se non paghi, l'autorità italiana può riscuotere via Agenzia Entrate-Riscossione (art. 10 Accordo di cooperazione in materia di polizia e giustizia [fonte: Fedlex SR 0.360.268.1]). Per multe fino a CHF 100 (sanzione disciplinare, es. eccesso di velocità lieve, infrazione di parcheggio) si può usare la «Ordnungsbusse» che non richiede la notifica personale. Sopra CHF 300 è una «contravvenzione» con notifica. Non pagare espone al rinnovo negato di permessi di circolazione o all'arresto all'ingresso successivo in Svizzera. I ricorsi vanno presentati alla Pretura entro 20 giorni.",

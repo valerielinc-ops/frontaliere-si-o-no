@@ -59,6 +59,7 @@ import { buildSimplePage, type SimplePageOpts } from '../htmlTemplate';
 import { jobBoardHeadTags } from '../jobBoardGpt';
 import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from './hubChrome';
 import { normalizeShellTitle } from './titleSuffix';
+import { buildTwitterCardMetaTags } from './twitterCardMeta';
 import { minifyHtml } from './htmlMinify';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from './spaEntryFilenames';
 import { normalizeStructuredData } from '../../services/seo/schema-normalizers';
@@ -362,6 +363,13 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     : { subnavHtml: '', bodyHtml };
 
   const heroPreload = buildSeoHeroPreload(wrappedBody, extraHeadHtml ?? '');
+  const twitterCardHead = buildTwitterCardMetaTags({
+    title: normalizeShellTitle(opts.title),
+    description: opts.description,
+    locale,
+    image: opts.ogImage,
+    existingHead: extraHeadHtml,
+  });
 
   const simpleOpts: SimplePageOpts = {
     locale,
@@ -377,7 +385,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ogImageHeight,
     ogImageType,
     ogImageAlt,
-    extraHeadHtml: `${heroPreload}${extraHeadHtml ?? ''}${jobBoardHeadTags(canonicalUrl)}`,
+    extraHeadHtml: `${heroPreload}${twitterCardHead}${extraHeadHtml ? `\n${extraHeadHtml}` : ''}${jobBoardHeadTags(canonicalUrl)}`,
     jsonLdScripts: normalizeStaticJsonLdScripts(jsonLdScripts, { allowNameOnlyOrganizationIds }),
     entryJs: assets.entryJs || undefined,
     entryCss: assets.entryCss || undefined,

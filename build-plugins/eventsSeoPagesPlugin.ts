@@ -291,9 +291,9 @@ function renderLicensedEventImageCredit(event: SiteEvent, locale: Locale): strin
   if (!isLicensedEventLibraryPhoto(event)) return '';
   const author = event.imageAuthor?.name || event.imageCredit || '';
   const authorLink = event.imageSourcePageUrl
-    ? `<a href="${esc(event.imageSourcePageUrl)}" rel="nofollow noopener" target="_blank">${esc(author)}</a>`
+    ? `<a href="${esc(event.imageSourcePageUrl)}" rel="noopener" target="_blank">${esc(author)}</a>`
     : esc(author);
-  const licenseLink = `<a href="${esc(event.imageLicenseUrl!)}" rel="license nofollow noopener" target="_blank">${esc(event.imageLicense!)}</a>`;
+  const licenseLink = `<a href="${esc(event.imageLicenseUrl!)}" rel="license noopener" target="_blank">${esc(event.imageLicense!)}</a>`;
   const modification = Array.isArray(event.imageModifications) && event.imageModifications.length
     ? ` · ${esc(COPY[locale].modifiedImageLabel)}`
     : '';
@@ -388,7 +388,7 @@ export function renderOpenAgendaAttribution(event: SiteEvent, locale: Locale): s
   }).format(updated);
   const label = `OpenAgenda — ${event.sourceAgenda}`;
   const link = event.url
-    ? `<a class="ev-lnk" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(label)}</a>`
+    ? `<a class="ev-lnk" href="${esc(event.url)}" rel="noopener" target="_blank">${esc(label)}</a>`
     : esc(label);
   const credit = isEventImageSourceAllowed(event.sourceKey) && event.imageCredit && event.imageUrl?.startsWith('/')
     ? ` · ${esc(copy.image)}: ${esc(event.imageCredit)}`
@@ -592,7 +592,7 @@ interface Copy {
 
 const COPY: Record<Locale, Copy> = {
   it: {
-    hubTitle: 'Eventi in Ticino: agenda per comune aggiornata',
+    hubTitle: 'Eventi in Ticino: agenda aggiornata',
     hubH1: 'Eventi in Ticino, comune per comune',
     hubLede: 'Concerti, mostre, feste e appuntamenti in Ticino raccolti dalle agende ufficiali e raggruppati per comune.',
     comuneTitle: (c) => composePlaceTitle([
@@ -1846,7 +1846,7 @@ function cardExcerpt(event: SiteEvent, locale: Locale): string {
 /**
  * One event card. When `detailHref` is provided the title links to OUR internal
  * event detail page (indexable); otherwise it falls back to the external
- * event URL (nofollow) — used for events without a comune that have no
+ * event URL — used for events without a comune that have no
  * detail page.
  */
 function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string | null): string {
@@ -1864,7 +1864,7 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
   // positioning context.
   const titleLink = detailHref
     ? `<a class="ev-a" href="${esc(detailHref)}">${esc(cardTitle)}</a>`
-    : `<a class="ev-a" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(cardTitle)}</a>`;
+    : `<a class="ev-a" href="${esc(eventReferralUrl(event.url, event))}" rel="noopener" target="_blank">${esc(cardTitle)}</a>`;
   // `imageUrl` only ever holds a mirrored site-relative path (see
   // `mirrorEventImage()`); a raw third-party URL is never rendered here
   // (defense-in-depth, mirrors the same guard in `mirroredEventImageObject`).
@@ -2052,8 +2052,8 @@ const OVERFLOW_INDEX_COPY: Record<
  * prevent.
  *
  * Only events WITH a detail page are listed: `detailHref` returns null for an
- * event that has none, and linking its external source URL instead would add a
- * `nofollow` outbound without making our page reachable.
+ * event that has none, and linking its external source URL instead would add
+ * an external destination without making our own event detail discoverable.
  */
 type OverflowRow = { event: SiteEvent; href: string };
 
@@ -3769,8 +3769,8 @@ function detailCopyFor(canton: string, locale: Locale): DetailCopy {
 
 /** Plain OpenStreetMap link — precise pin when the event has coordinates,
  * else a text search fallback from address/venue/comune. No embed script, no
- * third-party tracker/iframe: a `nofollow` outbound link, same policy as the
- * official-site CTA and the source attribution links. */
+ * third-party tracker/iframe: a plain link to OpenStreetMap, the established
+ * map source used for the event location. */
 function osmLink(event: SiteEvent, comune: string): { href: string; place: string } {
   const venue = eventVenue(event);
   const street = cleanRenderableEventText(event.address?.street);
@@ -3820,7 +3820,7 @@ function renderLocationCard(event: SiteEvent, comune: string, dc: DetailCopy, ma
     <div class="p-5">
       <h2 class="ev-loc-h"><span aria-hidden="true">📍</span> ${esc(dc.whereLabel)}</h2>
       <p class="ev-p-sm">${esc(venueOrComune)}${addressText ? ` · ${esc(addressText)}` : ''}</p>
-      <a class="ev-btn" href="${esc(map.href)}" rel="nofollow noopener" target="_blank" aria-label="${esc(dc.mapLinkLabel(map.place))}">${esc(dc.mapLinkLabel(map.place))} →</a>
+      <a class="ev-btn" href="${esc(map.href)}" rel="noopener" target="_blank" aria-label="${esc(dc.mapLinkLabel(map.place))}">${esc(dc.mapLinkLabel(map.place))} →</a>
     </div>
   </section>`;
 }
@@ -3946,11 +3946,11 @@ export function renderEventDetailPage(params: {
     ${renderLocationCard(event, displayComune, dc, map)}
 
     <section class="ev-cta">
-      <a class="${CTA_PRIMARY_CLASS}" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(dc.officialSite)} →</a>
+      <a class="${CTA_PRIMARY_CLASS}" href="${esc(eventReferralUrl(event.url, event))}" rel="noopener" target="_blank">${esc(dc.officialSite)} →</a>
       <a class="ev-btn2" href="${comunePath}">${esc(dc.allInComune(displayComune))} →</a>
     </section>
     ${renderOpenAgendaAttribution(event, locale)}
-    ${isEphemeralEvent(event) ? `<p class="ev-p-sm">${esc(copy.source)}: <a class="ev-lnk" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(eventSourceRecord(event.sourceKey).label)}</a></p>` : ''}
+    ${isEphemeralEvent(event) ? `<p class="ev-p-sm">${esc(copy.source)}: <a class="ev-lnk" href="${esc(eventReferralUrl(event.url, event))}" rel="noopener" target="_blank">${esc(eventSourceRecord(event.sourceKey).label)}</a></p>` : ''}
 
     <section class="ev-copy">
       <h2 class="ev-h2b">${esc(dc.aboutTitle)}</h2>

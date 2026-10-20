@@ -153,6 +153,7 @@ import {
   TITLE_MAX_CHARS,
   truncateHeadlineToMeasuredBudget,
 } from './shared/titleSuffix';
+import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { resolveGuideLocaleSeoByPath } from './shared/guideLocaleSeo';
 // Border-crossing <title> cascade + its slug→label transform. Leaf module so
 // the #4828 regression suite can assert the 66-char cap over every id in
@@ -726,12 +727,14 @@ function replaceTagAttribute(
 
 function replaceHomepageSeoHead(html: string, locale: HpSeoLocale): string {
  const copy = HOMEPAGE_SEO_META[locale];
+ const description = clampMetaDescription(copy.description, undefined, locale);
+ const socialDescription = clampMetaDescription(copy.ogDescription, undefined, locale);
  let out = html.replace(/(<title\b[^>]*>)[\s\S]*?(<\/title>)/i, '$1' + esc(copy.title) + '$2');
- out = replaceTagAttribute(out, 'meta', 'name', 'description', 'content', copy.description);
+ out = replaceTagAttribute(out, 'meta', 'name', 'description', 'content', description);
  out = replaceTagAttribute(out, 'meta', 'property', 'og:title', 'content', copy.title);
- out = replaceTagAttribute(out, 'meta', 'property', 'og:description', 'content', copy.ogDescription);
+ out = replaceTagAttribute(out, 'meta', 'property', 'og:description', 'content', socialDescription);
  out = replaceTagAttribute(out, 'meta', 'name', 'twitter:title', 'content', copy.title);
- out = replaceTagAttribute(out, 'meta', 'name', 'twitter:description', 'content', copy.ogDescription);
+ out = replaceTagAttribute(out, 'meta', 'name', 'twitter:description', 'content', socialDescription);
  out = replaceTagAttribute(out, 'meta', 'property', 'og:locale', 'content', copy.ogLocale);
  out = replaceTagAttribute(out, 'meta', 'name', 'citation_language', 'content', locale);
  out = replaceTagAttribute(out, 'meta', 'property', 'og:url', 'content', BASE_URL + '/' + locale + '/');
@@ -5578,6 +5581,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const ogImageW = glossaryHero ? SEO_HERO_WIDTH : blogDetailHeroSize ? blogDetailHeroSize.width : 1200;
  const ogImageH = glossaryHero ? SEO_HERO_HEIGHT : blogDetailHeroSize ? blogDetailHeroSize.height : 630;
  const ogImageMime = glossaryHero ? 'image/webp' : blogDetailHeroSrc ? blogDetailHeroMime : 'image/png';
+ const twitterCardMeta = buildTwitterCardMetaTags({
+   title: capTitle70(seoData.title, canonicalPath),
+   description: seoData.ogD,
+   locale: h1Locale,
+   image: ogImageUrl,
+ });
 
  // #5001 punto 3 — la terza sorgente. L'ImageObject del JSON-LD viene dal
  // blocco `structuredData` scritto a mano nei sorgenti SEO, e su queste pagine
@@ -5812,6 +5821,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:alt" content="${esc(seoData.ogT)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
+ ${twitterCardMeta}
 ${hrefTags}
  ${FAVICON_LINKS}
  ${SEO_STATIC_CSS_LINK}
@@ -5988,6 +5998,7 @@ ${staticHubMainHtml}${isJobBoardHub ? '' : railGridClose}
  <meta property="og:image:alt" content="${esc(seoData.ogT)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
+ ${twitterCardMeta}
  <meta property="fb:app_id" content="891036063797338">
 ${hrefTags}
  ${FAVICON_LINKS}
@@ -6029,6 +6040,7 @@ ${hrefTags}
  <meta property="og:image:alt" content="${esc(seoData.ogT)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
+ ${twitterCardMeta}
  <meta property="fb:app_id" content="891036063797338">
 ${hrefTags}
  ${FAVICON_LINKS}

@@ -83,7 +83,7 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(title).toBe(HOMEPAGE_SEO_TITLES[locale]);
     expect(title.length).toBeLessThanOrEqual(60);
     expect(description.length).toBeGreaterThanOrEqual(120);
-    expect(description.length).toBeLessThanOrEqual(160);
+    expect(description.length).toBeLessThanOrEqual(150);
     expect(html).toContain('content="' + HOMEPAGE_SEO_TITLES[locale] + '"');
     expect(html).toContain('href="https://frontaliereticino.ch/' + locale + '/"');
     expect(html).toContain('content="' + locale + '_CH"');

@@ -203,6 +203,7 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       fr: 'Comment calculer le crédit d\'impôt sur l\'impôt suisse déjà payé ?',
     },
     titleShort: {
+      it: 'Credito d’imposta: tasse svizzere',
       de: 'Wie berechne ich die Steueranrechnung für Schweizer Steuern?',
     },
     answer: {
@@ -268,6 +269,9 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       en: 'What are the 2026 withholding tax rates in Ticino?',
       de: 'Wie hoch sind die Quellensteuersätze im Tessin 2026?',
       fr: 'Quels sont les taux de l\'impôt à la source au Tessin en 2026 ?',
+    },
+    titleShort: {
+      it: 'Aliquote imposta fonte Ticino 2026',
     },
     answer: {
       it:

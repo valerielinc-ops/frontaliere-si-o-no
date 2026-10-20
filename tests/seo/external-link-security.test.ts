@@ -15,10 +15,10 @@ describe('static external link security', () => {
     expect(faqHub).toContain('rel="noopener" target="_blank"');
     expect(faqHub).not.toContain('rel="nofollow noopener" target="_blank"');
     expect(comparisonsHub).not.toContain('rel="nofollow" style=');
-    expect(events).toContain('href="${esc(event.url)}" rel="nofollow noopener" target="_blank"');
-    expect(events).toContain('href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank"');
+    expect(events).toContain('href="${esc(event.url)}" rel="noopener" target="_blank"');
+    expect(events).toContain('href="${esc(eventReferralUrl(event.url, event))}" rel="noopener" target="_blank"');
     expect(events).toContain('href="${esc(s.homepage)}" rel="noopener" target="_blank"');
-    expect(events).toContain('rel="license nofollow noopener" target="_blank"');
+    expect(events).toContain('rel="license noopener" target="_blank"');
     expect(publisherAds).toContain("rel=\"nofollow${target.external ? ' noopener' : ''}\"${target.external ? ' target=\"_blank\"' : ''}");
     expect(annualReport).toContain('rel="nofollow noopener" target="_blank"');
   });

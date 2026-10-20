@@ -239,6 +239,32 @@ describe('static SEO JSON-LD identities', () => {
   });
 });
 
+describe('static SEO X cards', () => {
+  it('emits complete cards with escaped text and absolute images', () => {
+    const options = {
+      locale: 'it',
+      title: 'Evento <speciale> & novità',
+      description: 'Una descrizione dell’evento.',
+      canonicalUrl: 'https://frontaliereticino.ch/eventi/esempio/',
+      ogImage: '/images/events/esempio.webp',
+      bodyHtml: '<main><h1>Evento</h1></main>',
+    } as const;
+    const html = buildSeoPageHtml(options);
+
+    expect(html).toContain('name=twitter:card content=summary_large_image');
+    expect(html).toMatch(/name=twitter:title content="Evento &lt;speciale&gt; &amp; novità/);
+    expect(html).toContain('name=twitter:description');
+    expect(html).toContain('name=twitter:image content=https://frontaliereticino.ch/images/events/esempio.webp');
+
+    const overridden = buildSeoPageHtml({
+      ...options,
+      extraHeadHtml: '<meta name="twitter:title" content="Titolo personalizzato">',
+    });
+    expect(overridden).toContain('name=twitter:title content="Titolo personalizzato"');
+    expect(overridden).not.toContain('name=twitter:title content="Evento');
+  });
+});
+
 describe('static SEO hero LCP preload', () => {
   const heroBody = '<figure><img data-seo-hero="faq-hub/permesso/de" src="/og/seo/faq-hub/permesso-de.webp" width="1200" height="630"></figure>';
 
