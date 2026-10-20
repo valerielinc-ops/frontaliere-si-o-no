@@ -321,7 +321,20 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     return response;
   };
   const capturingDetailExtractor = (html, pageUrl, opts = {}) => {
-    const base = upstreamDetailExtractor(html, pageUrl, opts);
+    // iPersonal's Simple Job Board uses a marketing-rich H1/listing title
+    // (for example, `Elektroplaner 100% in der Region Mels – Direkte
+    // Festanstellung`) while its schema.org JobPosting carries the shorter
+    // source identity (`Elektroplaner – Region Mels`). The detail URL is
+    // already the identity selected by the learned `/jobs/*/` template, and
+    // this runtime visits one detail document per candidate, so replaying the
+    // generic rendered-title stale-schema veto here would discard the valid
+    // source-backed JSON-LD location and the authored body. Keep the generic
+    // selector fail-closed everywhere else, but let this source-specific
+    // adapter select its own single JobPosting record.
+    const base = upstreamDetailExtractor(html, pageUrl, {
+      ...opts,
+      recordTitle: undefined,
+    });
     // The Simple Job Board body is the description this runtime publishes (see
     // the `enriched` map below), so it belongs to the verdict this extractor
     // returns, not to a later fill. Returning the generic reading and counting
