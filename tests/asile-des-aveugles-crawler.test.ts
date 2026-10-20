@@ -44,7 +44,7 @@ const OUT_OF_SCOPE_DETAIL_HTML = `<!doctype html>
     écoute, autonomie, rigueur, collaboration, disponibilité et une bonne maîtrise du français.
     Les professionnels participent aux transmissions, à la sécurité, à l'accueil et au suivi
     des situations complexes dans un environnement médico-social dynamique.</p>
-    <p>Taux d'activité: 80-100%<br>Nature du contrat: Contrat de durée indéterminée<br>
+    <p>Taux d'activité: 100%<br>Nature du contrat: CDI<br>
     Entrée en fonction: à convenir<br>Lieu de travail: EMS Clair-Soleil, Ecublens</p>
   </div>
 </body></html>`;
@@ -124,6 +124,8 @@ describe('Fondation Asile des aveugles source-backed crawler', () => {
   it('distinguishes a same-title Vaud vacancy outside the configured Lausanne scope', () => {
     expect(isAsileDesAveuglesTargetLocation('Hôpital ophtalmique Jules-Gonin, Lausanne')).toBe(true);
     expect(isAsileDesAveuglesTargetLocation('EMS Clair-Soleil, Ecublens')).toBe(false);
+    expect(isAsileDesAveuglesTargetLocation('Route de Lausanne 1, 1024 Ecublens')).toBe(false);
+    expect(isAsileDesAveuglesTargetLocation('Lausanne, Avenue de Béthusy 10')).toBe(true);
   });
 
   it('removes the recruiter contact block without inventing replacement prose', () => {
@@ -199,6 +201,33 @@ describe('Fondation Asile des aveugles source-backed crawler', () => {
 
     expect(jobs).toHaveLength(1);
     expect(jobs[0].id).toBe('asile-des-aveugles-1919');
+  });
+
+  it('recognizes a multi-word Vaud municipality as a skippable sibling', () => {
+    const detail = parseAsileDetailPage(
+      OUT_OF_SCOPE_DETAIL_HTML.replace('EMS Clair-Soleil, Ecublens', 'Bourg-en-Lavaux (VD)'),
+      OUT_OF_SCOPE_DETAIL_URL,
+      'Assistant-e en soins et santé communautaire',
+      { allowSameCantonNonTargetLocation: true },
+    );
+
+    expect(detail).toMatchObject({
+      location: 'Bourg-en-Lavaux (VD)',
+      canton: 'VD',
+    });
+  });
+
+  it('keeps the 100% CDI contract guard active for skipped siblings', () => {
+    const invalidContract = OUT_OF_SCOPE_DETAIL_HTML
+      .replace('Taux d\'activité: 100%', 'Taux d\'activité: 50%')
+      .replace('Nature du contrat: CDI', 'Nature du contrat: CDD');
+
+    expect(() => parseAsileDetailPage(
+      invalidContract,
+      OUT_OF_SCOPE_DETAIL_URL,
+      'Assistant-e en soins et santé communautaire',
+      { allowSameCantonNonTargetLocation: true },
+    )).toThrow('Asile des aveugles detail no longer proves a 100% CDI contract');
   });
 
   it('accepts a proven target-empty table but rejects an unreadable table', async () => {
