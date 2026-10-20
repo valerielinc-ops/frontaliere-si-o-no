@@ -9,9 +9,16 @@ name: Post-Build Matrix Test
 # scripts/lib/post-build-tasks.sh) the largest bucket sums ~232s →
 # per-shard wall ~116s + 60-90s setup = ~3 min total vs current 5.75 min.
 #
-# Does NOT touch deploy.yml. Manual-only via workflow_dispatch.
+# Does NOT touch deploy.yml. Normal matrix runs remain manual-only; checkout
+# measurements also run automatically for PRs that change the issue-fix
+# checkout profile, so the claim cannot be merged without a same-HEAD sample.
 
 on:
+  pull_request:
+    paths:
+      - '.github/workflows/issue-fix.yml'
+      - '.github/workflows/post-build-matrix-test.yml'
+      - 'scripts/ci/measure-checkout-profile.mjs'
   workflow_dispatch:
     inputs:
       profile_jobs_seo:
@@ -56,7 +63,7 @@ env:
 
 jobs:
   build:
-    if: ${{ inputs.checkout_measurement != true }}
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.checkout_measurement != true }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -126,7 +133,7 @@ jobs:
 
   shards:
     needs: build
-    if: ${{ inputs.checkout_measurement != true && github.event.inputs.build_only != 'true' }}
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.checkout_measurement != true && github.event.inputs.build_only != 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     strategy:
@@ -290,7 +297,7 @@ jobs:
   aggregate:
     needs: [build, shards]
     runs-on: ubuntu-latest
-    if: ${{ always() && inputs.checkout_measurement != true && github.event.inputs.build_only != 'true' }}
+    if: ${{ always() && github.event_name == 'workflow_dispatch' && inputs.checkout_measurement != true && github.event.inputs.build_only != 'true' }}
     steps:
       - uses: actions/download-artifact@v8
         with:
@@ -341,14 +348,14 @@ jobs:
   # checkout to every normal post-build run while making the issue-fix claim
   # reproducible on the exact PR HEAD under review.
   checkout_measurement:
-    if: ${{ inputs.checkout_measurement == true }}
+    if: ${{ github.event_name == 'pull_request' || inputs.checkout_measurement == true }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - name: Full checkout baseline
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
           fetch-depth: 0
           filter: blob:none
           path: checkout-full
@@ -356,7 +363,7 @@ jobs:
       - name: Issue-fix sparse checkout
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
           fetch-depth: 0
           filter: blob:none
           path: checkout-sparse

@@ -148,8 +148,8 @@ describe('profili di sparse-checkout', () => {
       .map((entry: string) => entry.trim())
       .filter(Boolean);
 
-    expect(fullCheckout?.with?.ref).toBe('${{ github.ref }}');
-    expect(sparseCheckout?.with?.ref).toBe('${{ github.ref }}');
+    expect(fullCheckout?.with?.ref).toBe('${{ github.event.pull_request.head.sha || github.ref }}');
+    expect(sparseCheckout?.with?.ref).toBe('${{ github.event.pull_request.head.sha || github.ref }}');
     expect(fullCheckout?.with?.['fetch-depth']).toBe(0);
     expect(sparseCheckout?.with?.['fetch-depth']).toBe(0);
     expect(fullCheckout?.with?.filter).toBe('blob:none');
