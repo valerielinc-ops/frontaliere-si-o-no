@@ -1,0 +1,23 @@
+{
+  "companyKey": "beratop-ch",
+  "companyName": "beratop",
+  "companyHost": "adcubum.com",
+  "platform": "adcubum.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.adcubum.com/de/home"
+  ],
+  "detailTemplate": "/de/job/detail/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 20,
+  "sampleTitles": [
+    "Senior Cloud & DevOps Engineer",
+    "Senior Development Experience Engineer & Technical Lead",
+    "HR Payroll Specialist / Generalist (40-60 %)",
+    "AI-Native Software Engineer (Java/DevOps)",
+    "AI-Native Software Engineer (Java/DevOps)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-20T09:29:56.022Z"
+}

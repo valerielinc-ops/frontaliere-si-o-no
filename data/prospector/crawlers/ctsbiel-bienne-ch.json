@@ -1,0 +1,20 @@
+{
+  "companyKey": "ctsbiel-bienne-ch",
+  "companyName": "ctsbiel-bienne",
+  "companyHost": "ctsbiel-bienne.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://ctsbiel-bienne.ch/jobs/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Kaufmännische/r Praktikant/in (d/f) 100% Unser vielfälliger Betrieb bietet ein breites Spektrum an Fachbereichen und Abteilungen, in denen es viel zu lernen gib",
+    "Leiter/in Facility Management 100% Wir suchen per sofort oder nach Vereinbarung für unseren Bereich Facility Management eine versierte, lösungsorientierte und k"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-20T09:31:30.166Z"
+}

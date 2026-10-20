@@ -1,0 +1,22 @@
+{
+  "companyKey": "cte-ch",
+  "companyName": "cte",
+  "companyHost": "cte.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://cte.ch/jobs"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Mehr Erfahren",
+    "Schnupperlehre als Informatiker*in Plattformentwicklung EFZ Entfessle den IT-Ninja in dir. Bei uns dürfen Informatik interessierte Schüler eine 1-tägige Schnupp",
+    "Lehre als Informatiker*in Plattformentwicklung EFZ Lerne die IT-Künste bei uns kennen. Die Ausbildung der nächsten Generation liegt uns am Herzen. Deshalb bilde"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-20T09:31:27.192Z"
+}

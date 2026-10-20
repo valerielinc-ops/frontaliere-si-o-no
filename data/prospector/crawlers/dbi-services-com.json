@@ -1,0 +1,22 @@
+{
+  "companyKey": "dbi-services-com",
+  "companyName": "dbi services",
+  "companyHost": "dbi-services.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.dbi-services.com/career/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Microsoft SQL Server Consultant – Nyon Widespread both in Switzerland and abroad, Microsoft includes many advanced features and technologies. The software publi",
+    "Open Infrastructure Consultant – Basel At dbi services, we value and support various open source communities and encourage our consultants to continuously learn",
+    "Oracle Consultant – Nyon As a leading database management system, Oracle offers high-tech solutions, such as engineered systems (ODA, exadata, etc.), container"
+  ],
+  "canton": "JU",
+  "sourceLang": "en",
+  "learnedAt": "2026-10-20T09:31:33.748Z"
+}
