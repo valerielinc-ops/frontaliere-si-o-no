@@ -8,6 +8,8 @@
     "https://www.sta.jobs/stellen/"
   ],
   "detailTemplate": "/stellen/*/",
+  "detailNotFoundPolicy": "expected-filter",
+  "detailNotFoundMinimumPublished": 10,
   "pagination": {
     "maxPages": 150,
     "declaredTotalPattern": "([\\d'’.,]+)\\s*(?:<[^>]*>\\s*)*Resultate"
