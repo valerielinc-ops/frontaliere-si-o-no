@@ -24,13 +24,15 @@
  *
  * Reads every `Tabella.csv` under `download/frontaliereticino.ch-Coverage-*`
  * + `data/jobs.json` + `data/expired-jobs.json` (optional, may be missing).
- * Idempotent.
+ * Additive and idempotent: GSC exports are limited samples, so URLs absent
+ * from a later export are retained rather than treated as resolved.
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
+import { gscJobOrphanRouteKey, mergeGscJobOrphans, urlToOrphan } from './lib/gsc-job-orphans.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(__filename, '..', '..');
@@ -72,24 +74,10 @@ function loadJobSectionSlugs() {
 
 const JOB_SECTION_SLUGS = loadJobSectionSlugs();
 
-/** Reserved hub prefixes — slugs starting with these are NOT job-details. */
-const HUB_PREFIXES = [
-  /^(ricerca|search|suche|recherche)-/,
-  /^(azienda|company|localita|location|standort|ort|stadt|unternehmen|firma|entreprise|societe|ville|lieu|localite)-/,
-  /^(categoria|category|kategorie|categorie)-/,
-  /^(pagina|page|seite)-\d+$/,
-];
-
-const HUB_EXACT_SLUGS = new Set([
-  'tutti', 'all', 'alle', 'tous',
-  'settori', 'sectors', 'branchen', 'secteurs',
-  'aziende', 'companies', 'unternehmen', 'entreprises',
-]);
-
 function findCsvFiles() {
   if (!fs.existsSync(DOWNLOADS_DIR)) return [];
   const out = [];
-  for (const entry of fs.readdirSync(DOWNLOADS_DIR)) {
+  for (const entry of fs.readdirSync(DOWNLOADS_DIR).sort()) {
     if (!entry.startsWith('frontaliereticino.ch-Coverage-')) continue;
     const csv = path.join(DOWNLOADS_DIR, entry, 'Tabella.csv');
     if (fs.existsSync(csv)) out.push({ file: csv, basename: entry });
@@ -100,25 +88,6 @@ function findCsvFiles() {
 function parseCsvUrls(file) {
   const text = fs.readFileSync(file, 'utf-8');
   return text.split(/\r?\n/).slice(1).filter(Boolean).map((l) => l.split(',')[0]).filter(Boolean);
-}
-
-function urlToOrphan(url) {
-  let pathname;
-  try { pathname = new URL(url).pathname; } catch { return null; }
-  const segments = pathname.split('/').filter(Boolean);
-  let locale = 'it';
-  let cursor = 0;
-  if (['en', 'de', 'fr'].includes(segments[0])) {
-    locale = segments[0];
-    cursor = 1;
-  }
-  const section = segments[cursor];
-  const slug = segments[cursor + 1];
-  if (!section || !slug || segments.length !== cursor + 2) return null;
-  if (!JOB_SECTION_SLUGS[locale]?.has(section)) return null;
-  if (HUB_EXACT_SLUGS.has(slug)) return null;
-  if (HUB_PREFIXES.some((rx) => rx.test(slug))) return null;
-  return { locale, slug, url };
 }
 
 /**
@@ -298,24 +267,36 @@ function main() {
 
   console.log(`Loaded ${jobs.length} jobs, ${expiredArr.length} expired-job records.`);
 
-  const seen = new Set();
-  const orphans = [];
+  const importedByUrl = new Map();
 
   for (const { file, basename } of csvFiles) {
     const urls = parseCsvUrls(file);
     for (const url of urls) {
-      const o = urlToOrphan(url);
+      const o = urlToOrphan(url, JOB_SECTION_SLUGS);
       if (!o) continue;
-      const key = `${o.locale}::${o.slug}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      orphans.push(classifyOrphan(o, jobs, expiredIdx, basename));
+      const classified = classifyOrphan(o, jobs, expiredIdx, basename);
+      importedByUrl.set(gscJobOrphanRouteKey(classified), classified);
     }
   }
 
+  let existingFile = { sources: [], orphans: [] };
+  if (fs.existsSync(OUT_PATH)) {
+    existingFile = JSON.parse(fs.readFileSync(OUT_PATH, 'utf-8'));
+    if (!Array.isArray(existingFile.orphans)) {
+      throw new Error(`${path.relative(ROOT, OUT_PATH)} has no valid orphans array; refusing to overwrite it.`);
+    }
+  }
+  const imported = [...importedByUrl.values()];
+  // GSC's export is a capped sample: disappearance from a later sample is not
+  // evidence that the source URL resolved, so the registry is never pruned here.
+  const orphans = mergeGscJobOrphans(existingFile.orphans || [], imported);
+  const retained = Math.max(0, orphans.length - imported.length);
+
   // Summary
   const counts = orphans.reduce((acc, o) => { acc[o.kind] = (acc[o.kind] || 0) + 1; return acc; }, {});
-  console.log(`\nTotal job-orphans: ${orphans.length}`);
+  console.log(`\nImported job-orphans: ${imported.length}`);
+  console.log(`Retained from prior imports (not present in this sample): ${retained}`);
+  console.log(`Total tracked job-orphans: ${orphans.length}`);
   console.log('By kind:');
   for (const [k, n] of Object.entries(counts)) console.log(`  ${k}: ${n}`);
 
@@ -331,11 +312,13 @@ function main() {
 
   const out = {
     generatedAt: new Date().toISOString(),
-    sources: csvFiles.map((c) => c.basename),
+    sources: [...new Set([...(existingFile.sources || []), ...csvFiles.map((c) => c.basename)])],
     counts,
     orphans,
   };
-  fs.writeFileSync(OUT_PATH, JSON.stringify(out, null, 2) + '\n', 'utf-8');
+  const tempPath = `${OUT_PATH}.${process.pid}.tmp`;
+  fs.writeFileSync(tempPath, JSON.stringify(out, null, 2) + '\n', 'utf-8');
+  fs.renameSync(tempPath, OUT_PATH);
   console.log(`\nWrote ${orphans.length} job-orphan records to ${path.relative(ROOT, OUT_PATH)}`);
 }
 
