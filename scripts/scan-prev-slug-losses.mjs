@@ -82,10 +82,12 @@ export function parseSliceSnapshot(content, context = 'slice snapshot') {
   }
   // Active crawler slices use the `{ jobs: [...] }` envelope, while expired
   // per-crawler archives are intentionally persisted as a bare `[...]` array
-  // by archiveRemovedJobsToSlice(). The owner-proof scan reads both trees;
-  // normalize the archive shape here instead of treating every expired file
-  // as a corrupt snapshot (#10777).
-  if (Array.isArray(payload)) return { jobs: payload };
+  // by archiveRemovedJobsToSlice(). Normalize that second shape only when the
+  // caller identifies the expired archive path: an array in an active slice
+  // must remain a hard failure so recovery cannot silently skip a bad writer.
+  const normalizedContext = String(context).replaceAll('\\', '/');
+  const isExpiredArchive = normalizedContext.includes('data/jobs/expired/by-crawler/');
+  if (Array.isArray(payload) && isExpiredArchive) return { jobs: payload };
   if (!payload || typeof payload !== 'object' || !Array.isArray(payload.jobs)) {
     throw new Error(`[scan-prev-slug-losses] invalid jobs snapshot in ${context}`);
   }

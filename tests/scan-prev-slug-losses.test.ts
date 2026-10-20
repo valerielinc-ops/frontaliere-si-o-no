@@ -38,6 +38,11 @@ describe('parseSliceSnapshot', () => {
     expect(parseSliceSnapshot(JSON.stringify(expired), 'data/jobs/expired/by-crawler/example.json'))
       .toEqual({ jobs: expired });
   });
+
+  it('rejects a bare array in an active crawler slice', () => {
+    expect(() => parseSliceSnapshot('[]', 'data/jobs/by-crawler/example.json'))
+      .toThrow(/invalid jobs snapshot/);
+  });
 });
 
 describe('diffJobSlices', () => {
