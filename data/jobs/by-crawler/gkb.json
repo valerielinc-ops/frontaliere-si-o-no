@@ -1218,7 +1218,7 @@
       "slug": "stagista-asb-bancario-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
       "slugByLocale": {
         "it": "stagista-asb-bancario-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
-        "en": "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
+        "en": "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european",
         "de": "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch",
         "fr": "stagist-asb-banking-roveredo-a-partir-d-aout-2027-graubundner-kantonalbank-thusis"
       },
@@ -1265,14 +1265,14 @@
       "previousSlugs": [
         "stagist-asb-banking-roveredo-ab-august-2027-graubundner-kantonalbank-thusis",
         "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch",
-        "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european"
+        "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch"
         ],
         "en": [
-          "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european"
+          "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis"
         ],
         "de": [
           "stagist-asb-banking-roveredo-ab-august-2027-graubundner-kantonalbank-thusis"
@@ -1949,12 +1949,12 @@
     },
     {
       "id": "gkb-d09301235030",
-      "slug": "data-analyst-80-100-gkb-ch",
+      "slug": "data-analista-80-100-graubundner-kantonalbank-chur",
       "slugByLocale": {
         "de": "data-analyst-80-100-gkb-ch",
-        "it": "data-analyst-80-100-gkb-ch",
+        "it": "data-analista-80-100-graubundner-kantonalbank-chur",
         "en": "data-analyst-80-100-graubundner-kantonalbank-chur",
-        "fr": "data-analyst-80-100-gkb-ch"
+        "fr": "data-analyste-80-100-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -2016,14 +2016,25 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-20T09:15:25.805Z"
+      "firstSeenAt": "2026-10-20T09:15:25.805Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-analyst-80-100-gkb-ch"
+        ],
+        "fr": [
+          "data-analyst-80-100-gkb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-analyst-80-100-gkb-ch"
+      ]
     },
     {
       "id": "gkb-7f75d57d60d9",
-      "slug": "data-ai-engineer-80-100-gkb-ch",
+      "slug": "data-ai-ingegnere-80-100-graubundner-kantonalbank-chur",
       "slugByLocale": {
         "de": "data-ai-engineer-80-100-gkb-ch",
-        "it": "data-ai-engineer-80-100-gkb-ch",
+        "it": "data-ai-ingegnere-80-100-graubundner-kantonalbank-chur",
         "en": "data-ai-engineer-80-100-graubundner-kantonalbank-chur",
         "fr": "data-ai-engineer-80-100-gkb-ch"
       },
@@ -2086,7 +2097,15 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-20T09:15:24.864Z"
+      "firstSeenAt": "2026-10-20T09:15:24.864Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-ai-engineer-80-100-gkb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-ai-engineer-80-100-gkb-ch"
+      ]
     },
     {
       "id": "gkb-4a54c4ca309d",

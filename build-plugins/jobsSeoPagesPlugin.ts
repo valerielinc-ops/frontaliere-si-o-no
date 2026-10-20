@@ -230,7 +230,7 @@ import {
  assertSectorHubTablesComplete,
  type SectorHubKey,
 } from './jobSectorLanding';
-import { SEO_HUB_RESERVED_SLUGS, hubSlugFor } from './seoHubsData';
+import { HUB_SLUG_BY_LOCALE, SEO_HUB_RESERVED_SLUGS, hubSlugFor } from './seoHubsData';
 import { buildCantonHubEditorial, buildCantonRealDataBlock } from './shared/cantonHubEditorial';
 // Issue #4303 item 1 — real BFS/BAG-sourced axes for the cathedral canton
 // real-data block (wage-level factor + LAMal premium vs Ticino; no
@@ -244,7 +244,7 @@ import {
 import { aggregateLamalCantonMedians } from './comparisonsHubAggregate';
 import type { CantonRealDataSectorRow, CantonRealDataEmployer } from './shared/cantonHubEditorial';
 // F3a — Job Page CTR Optimization: shared 50-60 char title templates and
-// 140-160 char meta-description templates that drive SERP CTR on the
+// 140-150 char meta-description templates that drive SERP CTR on the
 // top-20 job listing pages. See services/seo/job-board-titles.ts and
 // services/seo/meta-descriptions.ts for details.
 import {
@@ -332,6 +332,26 @@ const COMPANY_JOB_PAYLOAD_CAP = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1
 // helpers; the emitted format is unchanged.
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
+
+/**
+ * Build the slug guard shared by expired-job cleanup and page emission.
+ * Includes localized canton job hubs as well as sector, city and paginated
+ * archive roots so stale job-history entries cannot overwrite live hubs.
+ */
+export function buildReservedHubSlugs(): Set<string> {
+ const reserved = new Set<string>();
+ for (const sector of SECTOR_HUB_KEYS) {
+  for (const locale of JOB_SEO_LOCALES) reserved.add(SECTOR_HUB_SLUG[locale][sector]);
+ }
+ for (const city of CITY_HUB_KEYS) {
+  for (const locale of JOB_SEO_LOCALES) reserved.add(CITY_HUB_SLUG[locale][city]);
+ }
+ for (const locale of JOB_SEO_LOCALES) {
+  for (const slug of Object.values(HUB_SLUG_BY_LOCALE[locale])) reserved.add(slug);
+ }
+ for (const slug of SEO_HUB_RESERVED_SLUGS) reserved.add(slug);
+ return reserved;
+}
 
 /**
  * Old job URLs stay useful for bookmarks and crawlers, but only the current
@@ -3691,7 +3711,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
  // Build an SEO-friendly meta description with source context and a
  // locale-aware completeness fallback. The helper keeps this active-job
- // emitter in sync with its 120–160 character contract. `cleanDesc` is
+ // emitter in sync with its 120–150 character contract. `cleanDesc` is
  // already decoded once by cleanMetaDescription: it goes in as
  // `decodedDescription`, which the helper never decodes again.
  const description = buildJobMetaDescription({
@@ -4653,7 +4673,7 @@ ${staticAnalyticsHtml}
  const frPrep = frenchCantonPrep(getCantonDisplayLabel(cantonCode, 'fr'));
  const dePrep = germanCantonPrep(getCantonDisplayLabel(cantonCode, 'de'));
  // F3a — title delegates to buildEmployerHubTitle (50-60 visible chars).
- // description delegates to buildEmployerHubMeta (140-160 visible chars).
+ // description delegates to buildEmployerHubMeta (140-150 visible chars).
  // Heading / viewAll / editorial stay unchanged (used on-page, not in head).
  const ctrYear = new Date().getFullYear();
  const ctrTitle = (loc: 'it' | 'en' | 'de' | 'fr') => (companyName: string) =>
@@ -8409,7 +8429,7 @@ ${staticAnalyticsHtml}
  const catUniqueCompanies = [...new Set(catJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
  const catUniqueLocations = [...new Set(catJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
  // F3a — CTR-optimized 50-60 char title for page 1, paginated suffix for >1.
- // Description uses the shared 140-160 char template from meta-descriptions.
+ // Description uses the shared 140-150 char template from meta-descriptions.
  const catPrimaryTitle = buildRoleHubTitle({
  locale,
  roleDisplay: catLabel,
@@ -9873,7 +9893,7 @@ ${staticAnalyticsHtml}
  const kwCanonicalUrl = `${BASE_URL}${kwCanonicalPath}`;
  const kwQueryDisplay = String(kwPage.query || '').trim();
  // F3a — delegate title/description to the shared CTR-optimized helpers so
- // keyword landing pages get the same 50-60 / 140-160 char treatment as
+ // keyword landing pages get the same 50-60 / 140-150 char treatment as
  // role / city / employer hubs. The Italian landing preserves its curated
  // `itCopy.title` because that was hand-tuned per query in keyword config.
  const kwTitle = locale === 'it'
@@ -11367,7 +11387,7 @@ ${staticAnalyticsHtml}
      }
      const labels = buildCantonLocaleLabels(entry.locale, display, cantonCount, cantonTitleYear);
      // The visible `lede` stays short (header tagline); the SEO meta + JSON-LD
-     // description use a 140-160 char canton+count-aware snippet so GSC no
+     // description use a 140-150 char canton+count-aware snippet so GSC no
      // longer flags "Description too short" (issue #2996). The thin
      // `labels.lede` ("...per il cantone X.") was ~50 chars.
      const cantonMetaDescription = buildCantonHubMeta({
@@ -12233,31 +12253,11 @@ ${staticAnalyticsHtml}
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Cleaned ${searchCombosRemoved} search combo slugs from tracking`);
  }
 
- // Reserved hub slugs — sector + city hub URLs (e.g. /cerca-lavoro-ticino/infermieri/,
- // /cerca-lavoro-ticino/lugano/) MUST NOT be registered as orphan/compat job slugs.
- // If they were, jobsSeoPagesPlugin would emit a soft-landing page that overwrites
- // the legitimate sector/city hub HTML and points the canonical at the closest
- // matching expired job slug — killing the IT hub in SERPs (only the EN sibling
- // ranks because its slug differs, e.g. "nurses" vs "infermieri").
- const RESERVED_HUB_SLUGS = new Set<string>();
- for (const sector of SECTOR_HUB_KEYS) {
- for (const loc of ['it', 'en', 'de', 'fr'] as const) {
- RESERVED_HUB_SLUGS.add(SECTOR_HUB_SLUG[loc][sector]);
- }
- }
- for (const city of CITY_HUB_KEYS) {
- for (const loc of ['it', 'en', 'de', 'fr'] as const) {
- RESERVED_HUB_SLUGS.add(CITY_HUB_SLUG[loc][city]);
- }
- }
- // SEO archive-hub trailing slugs (jobs/sectors/companies/articles "all" pages).
- // Without this guard, an expired-job tracking key with slug e.g. "tutti" would
- // soft-land at `/cerca-lavoro-ticino/tutti/index.html` AFTER seoHubsPlugin
- // emitted the paginated index there, severing the page-1 → page-N chain and
- // orphaning every paginated variant in sitemap-seo-hubs.xml.
- for (const slug of SEO_HUB_RESERVED_SLUGS) {
- RESERVED_HUB_SLUGS.add(slug);
- }
+ // Keep localized canton hub roots such as `aziende` / `companies` out of
+ // expired-job tracking: a stale key can otherwise overwrite the live hub
+ // with the noindex fallback page, as happened at `/cerca-lavoro-ticino/aziende/`.
+ // The helper also includes sector/city and paginated archive roots.
+ const RESERVED_HUB_SLUGS = buildReservedHubSlugs();
 
  // Matches hub-pagination compound keys `<hub-slug>/page-N` (requires a leading
  // path segment; bare `page-N` is NOT matched). Used by the strip block below.

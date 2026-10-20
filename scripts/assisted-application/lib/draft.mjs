@@ -149,7 +149,7 @@ export async function buildDraft(ctx) {
   let requirements;
   if (reuse) {
     // Capped and defaulted as a fresh read.
-    profile = sanitizeProfile(previousDraft.profile);
+    profile = sanitizeProfile(previousDraft.profile, { legacy: true });
     requirements = previousDraft.requirementsRaw;
     log('reusing profile and requirements of the previous round');
   } else {

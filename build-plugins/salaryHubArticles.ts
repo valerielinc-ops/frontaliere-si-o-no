@@ -100,7 +100,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
       fr: 'Salaire net frontalier 2026: guide complet du calcul',
     },
     descriptions: {
-      it: 'Come calcolare lo stipendio netto di un frontaliere in Ticino nel 2026. Tabelle fiscali, contributi sociali, IRPEF e confronto tra regimi vecchio e nuovo.',
+      it: 'Calcolo dello stipendio netto frontaliere in Ticino 2026: tabelle fiscali, contributi AVS/LPP, IRPEF e confronto tra vecchio e nuovo regime.',
       en: 'How to calculate a cross-border worker\'s net salary in Ticino in 2026. Tax tables, social contributions, IRPEF and comparison between old and new regimes.',
       de: 'So berechnen Sie das Nettogehalt eines Grenzgängers im Tessin 2026. Steuertabellen, Sozialabgaben, IRPEF und Vergleich zwischen altem und neuem Regime.',
       fr: 'Comment calculer le salaire net d\'un frontalier au Tessin en 2026. Barèmes fiscaux, cotisations sociales, IRPEF et comparaison entre ancien et nouveau régime.',
@@ -156,7 +156,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
       fr: 'Nouveau vs ancien frontalier: différences fiscales expliquées',
     },
     descriptions: {
-      it: 'Confronto dettagliato tra il regime fiscale dei vecchi frontalieri (pre-2024) e dei nuovi frontalieri (2024+). Quando conviene uno o l\'altro? Simulazioni reali.',
+      it: 'Regimi fiscali di vecchi frontalieri (pre-2024) e nuovi (dal 2024): differenze, convenienza e simulazioni reali.',
       en: 'Detailed comparison between old (pre-2024) and new (2024+) cross-border worker tax regimes. Which is better? Real simulations.',
       de: 'Detaillierter Vergleich zwischen dem alten (vor 2024) und neuen (2024+) Grenzgänger-Steuerregime. Was ist besser? Echte Simulationen.',
       fr: 'Comparaison détaillée entre l\'ancien (pré-2024) et le nouveau (2024+) régime fiscal frontalier. Lequel est le plus avantageux? Simulations réelles.',
@@ -262,7 +262,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
       fr: 'Quel est l\'impact des enfants sur le salaire net d\'un frontalier?',
     },
     descriptions: {
-      it: 'Analisi dell\'impatto dei figli sullo stipendio netto: assegni familiari, deduzioni fiscali e tabelle diverse. Confronto 0, 1, 2 e 3 figli con simulazioni reali.',
+      it: 'Come incidono i figli sullo stipendio netto: assegni familiari, deduzioni e tabelle. Confronto tra 0, 1, 2 e 3 figli con simulazioni.',
       en: 'Analysis of children\'s impact on net salary: family allowances, tax deductions and different tables. Comparison of 0, 1, 2 and 3 children with real simulations.',
       de: 'Analyse der Auswirkung von Kindern auf das Nettogehalt: Kinderzulagen, Steuerabzüge und verschiedene Tabellen. Vergleich von 0, 1, 2 und 3 Kindern.',
       fr: 'Analyse de l\'impact des enfants sur le salaire net: allocations familiales, déductions fiscales et barèmes différents. Comparaison avec 0, 1, 2 et 3 enfants.',
@@ -380,7 +380,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
       fr: 'De 50.000 à 150.000 CHF: comment le net d\'un frontalier change',
     },
     descriptions: {
-      it: 'Analisi della progressione fiscale per frontalieri dal CHF 50\'000 al CHF 150\'000 lordi. Come aumenta la pressione fiscale e quanto resta netto a ogni fascia.',
+      it: 'Progressione fiscale dei frontalieri da CHF 50\'000 a 150\'000 lordi: pressione fiscale e stipendio netto per fascia.',
       en: 'Tax progression analysis for cross-border workers from CHF 50,000 to CHF 150,000 gross. How tax pressure increases and what remains net.',
       de: 'Steuerprogression-Analyse für Grenzgänger von CHF 50.000 bis CHF 150.000 brutto.',
       fr: 'Analyse de la progression fiscale pour frontaliers de CHF 50.000 à CHF 150.000 bruts.',
@@ -486,7 +486,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
       fr: 'Le coût caché du change CHF-EUR sur le salaire net',
     },
     descriptions: {
-      it: 'Come il tasso di cambio CHF-EUR impatta sullo stipendio reale dei frontalieri. Strategie per minimizzare le perdite: Wise, Fineco e banche convenzionate.',
+      it: 'Come il cambio CHF-EUR incide sul netto dei frontalieri. Strategie per ridurre le perdite: Wise, Fineco e banche convenzionate.',
       en: 'How the CHF-EUR exchange rate impacts cross-border workers\' real salary. Strategies to minimize losses: Wise, Fineco and partner banks.',
       de: 'Wie der CHF-EUR Wechselkurs das reale Gehalt von Grenzgängern beeinflusst. Strategien zur Minimierung von Verlusten.',
       fr: 'Comment le taux de change CHF-EUR impacte le salaire réel des frontaliers. Stratégies pour minimiser les pertes.',

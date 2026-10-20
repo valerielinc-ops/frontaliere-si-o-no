@@ -1165,13 +1165,12 @@ const IT_SHELL: LocaleShell = {
     liveCount > 0
       ? `Lavoro da ${role} in Ticino: ${liveCount} offerte`
       : `Lavoro da ${role} in Ticino 2026`,
-  // Was 186 chars, so clampMetaDescription cut it at 160 and the trailing
-  // "Aggiornato <mese> <anno>." — the entire freshness signal — never reached
-  // the SERP. Both branches below stay under 160 with the month label intact.
+  // Keep the live count, salary estimate, CCL and Italian-title recognition
+  // complete inside the shared 150-character SERP budget.
   descriptionTemplate: (role, median, liveCount) =>
     liveCount > 0
-      ? `${liveCount} offerte di lavoro da ${role} in Ticino, aggiornate ${buildMonthYearLabel('it')}. Stima editoriale CHF ${median.toLocaleString('it-CH')}, CCL e riconoscimento del titolo italiano.`
-      : `Lavoro da ${role} in Ticino: stima editoriale CHF ${median.toLocaleString('it-CH')}, CCL applicabile, riconoscimento del titolo italiano. Aggiornato ${buildMonthYearLabel('it')}.`,
+      ? `${liveCount} offerte per ${role} in Ticino (${buildMonthYearLabel('it')}). Stipendio lordo stimato CHF ${median.toLocaleString('it-CH')}/anno; CCL e titoli italiani riconosciuti.`
+      : `Lavoro da ${role} in Ticino: nessuna offerta attiva. Stima editoriale lorda CHF ${median.toLocaleString('it-CH')}/anno; CCL e titoli italiani riconosciuti.`,
   h1Template: (role) => `Lavoro da ${role} in Ticino: guida 2026 per frontalieri`,
   ledeTemplate: (s, median, jobs) =>
     jobs > 0
@@ -1236,8 +1235,8 @@ const EN_SHELL: LocaleShell = {
       : `${role.charAt(0).toUpperCase()}${role.slice(1)} jobs Ticino 2026`,
   descriptionTemplate: (role, median, liveCount) =>
     liveCount > 0
-      ? `${liveCount} ${role} jobs in Ticino, updated ${buildMonthYearLabel('en')}. Editorial estimate CHF ${median.toLocaleString('en-CH')} gross/year, collective agreement and Italian diploma recognition.`
-      : `${role} jobs in Ticino: editorial estimate CHF ${median.toLocaleString('en-CH')} gross/year, collective agreement, Italian diploma recognition. Updated ${buildMonthYearLabel('en')}.`,
+      ? `${liveCount} ${role} jobs in Ticino (${buildMonthYearLabel('en')}). Estimated gross CHF ${median.toLocaleString('en-CH')}/year; collective agreement, Italian diploma recognition.`
+      : `${role} jobs in Ticino (${buildMonthYearLabel('en')}): no current openings. Estimated gross CHF ${median.toLocaleString('en-CH')}/year; collective agreement, diploma recognition.`,
   h1Template: (role) =>
     `${role.charAt(0).toUpperCase()}${role.slice(1)} jobs in Ticino: 2026 cross-border guide`,
   ledeTemplate: (s, median, jobs) =>
@@ -1301,8 +1300,8 @@ const DE_SHELL: LocaleShell = {
     liveCount > 0 ? `${role} im Tessin: ${liveCount} Stellen` : `${role} im Tessin 2026`,
   descriptionTemplate: (role, median, liveCount) =>
     liveCount > 0
-      ? `${liveCount} Stellen als ${role} im Tessin, Stand ${buildMonthYearLabel('de')}. Redaktionelle Schätzung CHF ${median.toLocaleString('de-CH')} brutto/Jahr, GAV, Anerkennung ital. Diplome.`
-      : `${role} im Tessin: Redaktionelle Schätzung CHF ${median.toLocaleString('de-CH')} brutto/Jahr, geltender GAV, Anerkennung italienischer Diplome. Stand ${buildMonthYearLabel('de')}.`,
+      ? `${liveCount} Stellen für ${role} im Tessin (${buildMonthYearLabel('de')}). Brutto CHF ${median.toLocaleString('de-CH')}/Jahr; GAV, ital. Diplomanerkennung.`
+      : `Keine Stellen für ${role} im Tessin (${buildMonthYearLabel('de')}). Brutto CHF ${median.toLocaleString('de-CH')}/Jahr; GAV, ital. Diplomanerkennung.`,
   h1Template: (role) => `${role} im Tessin: Grenzgänger-Leitfaden 2026`,
   ledeTemplate: (s, median, jobs) =>
     jobs > 0
@@ -1371,8 +1370,8 @@ const FR_SHELL: LocaleShell = {
   // and keeps the longest profession under META_DESCRIPTION_MAX_CHARS.
   descriptionTemplate: (role, median, liveCount) =>
     liveCount > 0
-      ? `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin : ${liveCount} offres (${buildMonthYearLabel('fr')}). Estimation éditoriale CHF ${median.toLocaleString('fr-CH')} brut/an, CCT, reconnaissance du diplôme.`
-      : `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin (${buildMonthYearLabel('fr')}) : estimation éditoriale CHF ${median.toLocaleString('fr-CH')} brut/an, CCT, reconnaissance du diplôme.`,
+      ? `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin : ${liveCount} offres (${buildMonthYearLabel('fr')}). Brut estimé CHF ${median.toLocaleString('fr-CH')}/an ; CCT, reconnaissance du diplôme italien.`
+      : `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin (${buildMonthYearLabel('fr')}) : aucune offre. Brut estimé CHF ${median.toLocaleString('fr-CH')}/an ; CCT et diplôme italien reconnu.`,
   h1Template: (role) =>
     `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin : guide frontalier 2026`,
   ledeTemplate: (s, median, jobs) =>

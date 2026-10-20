@@ -8453,12 +8453,12 @@
     },
     {
       "id": "uzh-dc1fd404283c",
-      "slug": "dermatologie-internship-uzh-zurich",
+      "slug": "interno-di-dermatologia-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "dermatologie-internship-uzh-zurich",
-        "it": "dermatologie-internship-uzh-zurich",
+        "it": "interno-di-dermatologia-universitat-zurich-zurich",
         "en": "dermatologie-internship-universitat-zurich-zurich",
-        "fr": "dermatologie-internship-uzh-zurich"
+        "fr": "stage-de-dermatologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8517,7 +8517,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:16:52.805Z"
+      "firstSeenAt": "2026-10-20T09:16:52.805Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dermatologie-internship-uzh-zurich"
+        ],
+        "fr": [
+          "dermatologie-internship-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dermatologie-internship-uzh-zurich"
+      ]
     }
   ]
 }

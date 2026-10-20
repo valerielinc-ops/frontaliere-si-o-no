@@ -475,11 +475,11 @@
     },
     {
       "id": "breitling-3d5fcb3eb447",
-      "slug": "universal-geneve-executive-assistant-f-m-x-breitling-geneva-ge",
+      "slug": "universal-geneve-assistente-esecutivo-m-f-x-breitling-geneva-ge",
       "slugByLocale": {
         "en": "universal-geneve-executive-assistant-f-m-x-breitling-geneva-ge",
         "de": "universal-geneve-executive-assistent-f-m-x-breitling-geneva",
-        "it": "universal-geneve-executive-assistant-f-m-x-breitling-geneva-ge",
+        "it": "universal-geneve-assistente-esecutivo-m-f-x-breitling-geneva-ge",
         "fr": "universal-geneve-executive-assistant-f-m-x-breitling-geneva-ge"
       },
       "company": "Breitling",
@@ -540,7 +540,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T09:58:13.698Z"
+      "firstSeenAt": "2026-08-21T09:58:13.698Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "universal-geneve-executive-assistant-f-m-x-breitling-geneva-ge"
+        ]
+      },
+      "previousSlugs": [
+        "universal-geneve-executive-assistant-f-m-x-breitling-geneva-ge"
+      ]
     },
     {
       "id": "breitling-ec28d2fbca40",

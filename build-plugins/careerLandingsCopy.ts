@@ -219,12 +219,12 @@ const IT_CONCORSI: CareerLandingCopy = {
   // 43 chars, so the " | Frontaliere Ticino" suffix (21) lands at 64 — inside
   // TITLE_MAX_CHARS (66) with headroom rather than exactly on the boundary.
   title: 'Concorsi pubblici a Lugano e in Ticino 2026',
-  // Front-loaded and kept under 160 so clampMetaDescription never truncates
-  // it: the old 243-char string was cut at 160 with an ellipsis, which threw
+  // Front-loaded and kept under 150 so clampMetaDescription never truncates
+  // it: the old 243-char string was cut at the prior 160-char cap with an ellipsis, which threw
   // away the source, the frontalieri angle and the application procedure —
   // everything after "stage cantonali." never reached a SERP snippet.
   description:
-    'Bandi e concorsi pubblici aperti a Lugano e in Canton Ticino: Città di Lugano, EOC, OSC e amministrazione cantonale. Requisiti per frontalieri e scadenze.',
+    'Concorsi pubblici aperti a Lugano e in Ticino: bandi di Città, EOC, OSC e amministrazione cantonale. Requisiti per frontalieri e scadenze.',
   h1: 'Concorsi pubblici aperti in Ticino: guida 2026',
   lede: 'L\'Amministrazione cantonale ticinese pubblica ogni anno centinaia di concorsi per profili amministrativi, sanitari, scolastici e tecnici. Questa guida raccoglie i concorsi attualmente aperti al 2026, con scadenze, enti coinvolti e link alla scheda ufficiale. Valida anche per frontalieri italiani — molte posizioni sono aperte a candidati con permesso G.',
   updatedLabel: 'Aggiornato',

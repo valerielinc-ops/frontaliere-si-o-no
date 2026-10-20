@@ -13525,6 +13525,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scuola-inoltre-ventanni-formazione-carcere.title': 'Scuola InOltre: twenty years of education in cantonal prisons',
     'blog.article.scuola-inoltre-ventanni-formazione-carcere.excerpt': 'La Scuola InOltre turns twenty in 2026 Active since 2006 in the cantonal prison facilities In June, certificates were awarded to around thirty female inmates and nearly 230',
     'blog.article.scuola-inoltre-ventanni-formazione-carcere.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.indagine-disparita-salariali-frontalieri.title': 'Cross-border workers: 55.6% receive lower salaries than residents',
+    'blog.article.indagine-disparita-salariali-frontalieri.excerpt': '1.542 responses collected from female and male workers 55,6% feel they are paid less than a Swiss resident The research will be presented on October 24 at Varese',
+    'blog.article.indagine-disparita-salariali-frontalieri.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;
