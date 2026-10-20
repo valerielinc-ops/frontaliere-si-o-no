@@ -52,6 +52,10 @@ case "$1" in
         if [ "\${LEASE_TEST_REQUIRE_FENCED:-0}" = 1 ]; then
           [ "\${3:-}" = "--fence-missing-candidate" ] || exit 94
           [ "\${4:-}" = "true" ] || exit 95
+          case "\${2:-}" in
+            *'"acquiredAt":'*) ;;
+            *) exit 97 ;;
+          esac
         else
           [ -z "\${3:-}" ] || exit 96
         fi

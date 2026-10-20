@@ -179,10 +179,14 @@ function parseLeaseContext(value) {
     if (lease.etag !== undefined && !etag) {
       throw new Error(`[r2-image-namespace-lock] lease context has no strong ETag for ${lease.namespace}`);
     }
+    if (lease.acquiredAt !== undefined && !Number.isFinite(lease.acquiredAt)) {
+      throw new Error('[r2-image-namespace-lock] lease context has an invalid acquiredAt');
+    }
     return {
       namespace: lease.namespace,
       owner: lease.owner,
       leaseId: lease.leaseId,
+      ...(Number.isFinite(lease.acquiredAt) ? { acquiredAt: lease.acquiredAt } : {}),
       expiresAt: lease.expiresAt,
       ...(etag ? { etag } : {}),
     };
@@ -341,6 +345,7 @@ export async function acquireImageNamespaceLock(
     timeoutMs = IMAGE_LOCK_ACQUIRE_TIMEOUT_MS,
     pollMs = IMAGE_LOCK_POLL_MS,
     leaseMs = IMAGE_LOCK_LEASE_MS,
+    acquiredAt: acquiredAtOverride,
     onWait = () => {},
     onLeaseWritten = () => {},
     signal,
@@ -350,11 +355,15 @@ export async function acquireImageNamespaceLock(
   positiveDuration(timeoutMs, 'acquire timeout');
   positiveDuration(pollMs, 'poll interval');
   positiveDuration(leaseMs, 'lease duration');
+  if (acquiredAtOverride !== undefined && !Number.isFinite(acquiredAtOverride)) {
+    throw new Error('[r2-image-namespace-lock] acquiredAt must be finite');
+  }
 
   const owner = ownerOverride === undefined ? randomUUID() : requiredString(ownerOverride, 'owner');
   const leaseId = leaseIdOverride === undefined ? randomUUID() : requiredString(leaseIdOverride, 'lease ID');
-  const acquiredAt = now();
-  const deadline = acquiredAt + timeoutMs;
+  const acquisitionStartedAt = now();
+  const acquiredAt = acquiredAtOverride ?? acquisitionStartedAt;
+  const deadline = acquisitionStartedAt + timeoutMs;
   // Keep the exact payload stable across retries. If an earlier conditional
   // PUT is still in flight, a later 409/404 must still be recognizable as the
   // same acquisition when that write becomes visible.
@@ -714,7 +723,8 @@ async function acquireFromCli(namespaces, request, env = process.env) {
   const controller = new AbortController();
   const owner = env.FRONTALIERE_R2_IMAGE_LEASE_OWNER ?? randomUUID();
   const leaseId = env.FRONTALIERE_R2_IMAGE_LEASE_ID ?? randomUUID();
-  const pendingAcquiredAt = Date.now();
+  const requestedAcquiredAt = Number(env.FRONTALIERE_R2_IMAGE_LEASE_ACQUIRED_AT);
+  const pendingAcquiredAt = Number.isFinite(requestedAcquiredAt) ? requestedAcquiredAt : Date.now();
   const pendingLeases = namespaces.map((namespace) => ({
     namespace,
     owner,
@@ -741,6 +751,7 @@ async function acquireFromCli(namespaces, request, env = process.env) {
       signal: controller.signal,
       owner,
       leaseId,
+      acquiredAt: pendingAcquiredAt,
     });
     if (signalExitStatus !== 0) {
       // A signal can race with the final promise resolution. In that case the
