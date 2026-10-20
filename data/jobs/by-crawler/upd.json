@@ -6944,9 +6944,9 @@
     },
     {
       "id": "upd-0154c61f0ee5",
-      "slug": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd",
       "slugByLocale": {
-        "it": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern",
+        "it": "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd",
         "en": "assistant-psychologist-assistant-psychologist-ii-outpatient-crisis-intervention-universitare-psychiatrische-dienste-bern",
         "de": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
         "fr": "psychologue-adjoint-psychologue-adjoint-ii-intervention-de-crise-ambulatoire-universitare-psychiatrische-dienste-bern"
@@ -6995,12 +6995,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
-        "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd"
+        "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
-          "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd"
+          "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "en": [
           "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern"
@@ -8487,12 +8487,12 @@
     },
     {
       "id": "upd-4b1a210f3920",
-      "slug": "fachperson-gesundheit-forensische-psychiatrie-upd-bern",
+      "slug": "professionista-della-salute-psichiatria-forense-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "fachperson-gesundheit-forensische-psychiatrie-upd-bern",
-        "it": "fachperson-gesundheit-forensische-psychiatrie-upd-bern",
-        "en": "fachperson-gesundheit-forensische-psychiatrie-upd-bern",
-        "fr": "fachperson-gesundheit-forensische-psychiatrie-upd-bern"
+        "it": "professionista-della-salute-psichiatria-forense-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "health-professional-forensic-psychiatry-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "professionnels-de-la-sante-psychiatrie-legale-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8551,16 +8551,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T21:20:09.425Z"
+      "firstSeenAt": "2026-10-19T21:20:09.425Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-forensische-psychiatrie-upd-bern"
+        ],
+        "en": [
+          "fachperson-gesundheit-forensische-psychiatrie-upd-bern"
+        ],
+        "fr": [
+          "fachperson-gesundheit-forensische-psychiatrie-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-forensische-psychiatrie-upd-bern"
+      ]
     },
     {
       "id": "upd-3cb55327a38c",
-      "slug": "assistenz-stab-upd-bern",
+      "slug": "personale-di-assistenza-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "assistenz-stab-upd-bern",
-        "it": "assistenz-stab-upd-bern",
-        "en": "assistenz-stab-upd-bern",
-        "fr": "assistenz-stab-upd-bern"
+        "it": "personale-di-assistenza-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "assistance-staff-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "personnel-d-assistance-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8619,7 +8633,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T21:20:09.414Z"
+      "firstSeenAt": "2026-10-19T21:20:09.414Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-stab-upd-bern"
+        ],
+        "en": [
+          "assistenz-stab-upd-bern"
+        ],
+        "fr": [
+          "assistenz-stab-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "assistenz-stab-upd-bern"
+      ]
     },
     {
       "id": "upd-f9dc5c11f2cb",

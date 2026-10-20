@@ -478,12 +478,12 @@
     },
     {
       "id": "apleona-schweiz-ag-8f9e74ea2614",
-      "slug": "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel",
+      "slug": "responsabile-della-proprieta-m-f-d-apleona-schweiz-ag-basel",
       "slugByLocale": {
         "de": "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel",
-        "it": "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel",
-        "en": "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel",
-        "fr": "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel"
+        "it": "responsabile-della-proprieta-m-f-d-apleona-schweiz-ag-basel",
+        "en": "property-manager-m-f-d-apleona-schweiz-ag-basel",
+        "fr": "gestionnaire-immobilier-h-f-d-apleona-schweiz-ag-basel"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -541,16 +541,30 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-19T21:36:22.527Z"
+      "firstSeenAt": "2026-10-19T21:36:22.527Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel"
+        ],
+        "en": [
+          "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel"
+        ],
+        "fr": [
+          "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-1caccc08a8d1",
-      "slug": "zhaw-praktikant-in-coc-center-of-competence-facility-management-apleona-schweiz-ag",
+      "slug": "tirocinante-zhaw-coc-centro-di-competenza-facility-management-apleona-schweiz-ag-wallisellen",
       "slugByLocale": {
         "de": "zhaw-praktikant-in-coc-center-of-competence-facility-management-apleona-schweiz-ag",
-        "it": "zhaw-praktikant-in-coc-center-of-competence-facility-management-apleona-schweiz-ag",
+        "it": "tirocinante-zhaw-coc-centro-di-competenza-facility-management-apleona-schweiz-ag-wallisellen",
         "en": "zhaw-praktikant-in-coc-center-of-competence-facility-management-apleona-schweiz-ag",
-        "fr": "zhaw-praktikant-in-coc-center-of-competence-facility-management-apleona-schweiz-ag"
+        "fr": "zhaw-stagiaire-coc-centre-de-competences-facility-management-apleona-schweiz-ag-wallisellen"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -608,7 +622,18 @@
         }
       },
       "postalCode": "8304",
-      "firstSeenAt": "2026-10-19T21:36:22.226Z"
+      "firstSeenAt": "2026-10-19T21:36:22.226Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zhaw-praktikant-in-coc-center-of-competence-facility-management-apleona-schweiz-ag"
+        ],
+        "fr": [
+          "zhaw-praktikant-in-coc-center-of-competence-facility-management-apleona-schweiz-ag"
+        ]
+      },
+      "previousSlugs": [
+        "zhaw-praktikant-in-coc-center-of-competence-facility-management-apleona-schweiz-ag"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-8e202599f916",
@@ -617,7 +642,7 @@
         "de": "zhaw-praktikant-in-key-account-management-apleona-schweiz-ag-wallisellen",
         "it": "zhaw-praktikant-in-key-account-management-apleona-schweiz-ag-wallisellen",
         "en": "zhaw-praktikant-in-key-account-management-apleona-schweiz-ag-wallisellen",
-        "fr": "zhaw-praktikant-in-key-account-management-apleona-schweiz-ag-wallisellen"
+        "fr": "zhaw-stagiaire-en-gestion-des-grands-comptes-apleona-schweiz-ag-wallisellen"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",

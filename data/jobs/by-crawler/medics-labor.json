@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "medics-labor-d0655eb7bc72",
-      "slug": "collaboratore-trice-einpackdienst-im-stundenlohn-medics-labor-ag-bern",
+      "slug": "collaboratore-trice-del-servizio-di-imballaggio-con-salario-orario-medics-labor-ag-bern",
       "slugByLocale": {
         "de": "mitarbeiter-in-einpackdienst-im-stundenlohn-medics-labor-bern",
-        "it": "collaboratore-trice-einpackdienst-im-stundenlohn-medics-labor-ag-bern",
-        "en": "mitarbeiter-in-einpackdienst-im-stundenlohn-medics-labor-bern",
-        "fr": "mitarbeiter-in-einpackdienst-im-stundenlohn-medics-labor-bern"
+        "it": "collaboratore-trice-del-servizio-di-imballaggio-con-salario-orario-medics-labor-ag-bern",
+        "en": "packing-service-employee-paid-by-the-hour-medics-labor-ag-bern",
+        "fr": "collaborateur-trice-au-service-d-emballage-paye-e-a-l-heure-medics-labor-ag-bern"
       },
       "company": "Medics Labor AG",
       "companyKey": "medics-labor",
@@ -57,11 +57,19 @@
       "externalId": "0141",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-einpackdienst-im-stundenlohn-medics-labor-bern",
+          "collaboratore-trice-einpackdienst-im-stundenlohn-medics-labor-ag-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-einpackdienst-im-stundenlohn-medics-labor-bern"
+        ],
+        "fr": [
           "mitarbeiter-in-einpackdienst-im-stundenlohn-medics-labor-bern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-einpackdienst-im-stundenlohn-medics-labor-bern"
+        "mitarbeiter-in-einpackdienst-im-stundenlohn-medics-labor-bern",
+        "collaboratore-trice-einpackdienst-im-stundenlohn-medics-labor-ag-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

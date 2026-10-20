@@ -401,7 +401,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -462,7 +462,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -470,7 +470,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
@@ -7689,7 +7689,7 @@
         "it": "risorse-umane-business-partner-emmi-bischofszell",
         "en": "hr-business-partner-emmi-ch",
         "de": "hr-business-partner-emmi-ch",
-        "fr": "hr-business-partner-emmi-bischofszell"
+        "fr": "partenaire-rh-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7746,14 +7746,14 @@
       },
       "previousSlugs": [
         "hr-business-partner-emmi-ch",
-        "partenaire-rh-emmi-bischofszell-thurgau"
+        "hr-business-partner-emmi-bischofszell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-emmi-ch"
         ],
         "fr": [
-          "partenaire-rh-emmi-bischofszell-thurgau"
+          "hr-business-partner-emmi-bischofszell"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -7778,7 +7778,7 @@
         "it": "hr-business-partner-emmi-ch-2",
         "en": "hr-business-partner-emmi-ch-2",
         "de": "hr-business-partner-emmi-ch",
-        "fr": "hr-business-partner-emmi-suhr"
+        "fr": "partenaire-rh-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7836,11 +7836,11 @@
         ]
       },
       "previousSlugs": [
-        "partenaire-rh-emmi-suhr-aargau"
+        "hr-business-partner-emmi-suhr"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-rh-emmi-suhr-aargau"
+          "hr-business-partner-emmi-suhr"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -8134,9 +8134,9 @@
     },
     {
       "id": "emmi-2c911f7030c9",
-      "slug": "collaborateur-affinage-de-fromage-emmi-saignelegier",
+      "slug": "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura",
       "slugByLocale": {
-        "it": "collaborateur-affinage-de-fromage-emmi-saignelegier",
+        "it": "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura",
         "en": "collaborative-cheese-refining-emmi-saignelegier",
         "de": "verbundkaseraffination-emmi-saignelegier",
         "fr": "collaborateur-affinage-de-fromage-emmi-ch"
@@ -8201,12 +8201,12 @@
         "collaborateur-affinage-de-fromage-emmi-ch",
         "collaborative-cheese-refining-emmi-saignelegier-jura",
         "verbundkaseraffination-emmi-saignelegier-jura",
-        "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura"
+        "collaborateur-affinage-de-fromage-emmi-saignelegier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-affinage-de-fromage-emmi-ch",
-          "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura"
+          "collaborateur-affinage-de-fromage-emmi-saignelegier"
         ],
         "en": [
           "collaborateur-affinage-de-fromage-emmi-ch",
@@ -8328,12 +8328,12 @@
     },
     {
       "id": "emmi-31a4c56f105d",
-      "slug": "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch",
+      "slug": "collaboratore-trice-operativo-a-nella-logistica-centrale-operativa-emmi-emmen-luzern",
       "slugByLocale": {
         "de": "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch",
-        "it": "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch",
-        "en": "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch",
-        "fr": "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch"
+        "it": "collaboratore-trice-operativo-a-nella-logistica-centrale-operativa-emmi-emmen-luzern",
+        "en": "logistics-operations-employee-control-center-emmi-emmen-luzern",
+        "fr": "collaborateur-trice-d-exploitation-logistique-centre-de-controle-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8405,7 +8405,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-16T09:21:22.315Z"
+      "firstSeenAt": "2026-09-16T09:21:22.315Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch"
+        ],
+        "en": [
+          "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch"
+        ],
+        "fr": [
+          "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsmitarbeiter-in-logistik-leitstand-emmi-ch"
+      ]
     },
     {
       "id": "emmi-6593eb5a15e1",
@@ -8503,12 +8517,12 @@
     },
     {
       "id": "emmi-f14a9b5a6064",
-      "slug": "anlagenfuhrer-in-emmi-ch",
+      "slug": "operatore-trice-di-impianti-emmi-frenkendorf-basel-landschaft",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-emmi-ch",
-        "it": "anlagenfuhrer-in-emmi-ch",
-        "en": "anlagenfuhrer-in-emmi-ch",
-        "fr": "anlagenfuhrer-in-emmi-ch"
+        "it": "operatore-trice-di-impianti-emmi-frenkendorf-basel-landschaft",
+        "en": "plant-operator-emmi-frenkendorf-basel-landschaft",
+        "fr": "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8576,16 +8590,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T15:10:44.232Z"
+      "firstSeenAt": "2026-09-07T15:10:44.232Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-emmi-ch"
+        ],
+        "en": [
+          "anlagenfuhrer-in-emmi-ch"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-emmi-ch"
+      ]
     },
     {
       "id": "emmi-0dc8b3b1f60d",
-      "slug": "betriebsmitarbeiter-in-logistik-emmi-dagmersellen",
+      "slug": "operatore-trice-di-logistica-emmi-dagmersellen-luzern",
       "slugByLocale": {
         "de": "betriebsmitarbeiter-in-logistik-emmi-ch",
-        "it": "betriebsmitarbeiter-in-logistik-emmi-dagmersellen",
-        "en": "betriebsmitarbeiter-in-logistik-emmi-dagmersellen",
-        "fr": "betriebsmitarbeiter-in-logistik-emmi-dagmersellen"
+        "it": "operatore-trice-di-logistica-emmi-dagmersellen-luzern",
+        "en": "logistics-operations-employee-emmi-dagmersellen-luzern",
+        "fr": "collaborateur-trice-d-exploitation-logistique-emmi-dagmersellen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8646,11 +8674,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmitarbeiter-in-logistik-emmi-ch"
+          "betriebsmitarbeiter-in-logistik-emmi-ch",
+          "betriebsmitarbeiter-in-logistik-emmi-dagmersellen"
+        ],
+        "en": [
+          "betriebsmitarbeiter-in-logistik-emmi-dagmersellen"
+        ],
+        "fr": [
+          "betriebsmitarbeiter-in-logistik-emmi-dagmersellen"
         ]
       },
       "previousSlugs": [
-        "betriebsmitarbeiter-in-logistik-emmi-ch"
+        "betriebsmitarbeiter-in-logistik-emmi-ch",
+        "betriebsmitarbeiter-in-logistik-emmi-dagmersellen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

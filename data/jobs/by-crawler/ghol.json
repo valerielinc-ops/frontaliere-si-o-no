@@ -7,8 +7,8 @@
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -78,8 +78,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -87,10 +87,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -485,12 +485,12 @@
     },
     {
       "id": "ghol-05bfa91fa669",
-      "slug": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slug": "collaboratore-di-fatturazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "it": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "it": "collaboratore-di-fatturazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "invoicing-collaborator-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "fakturierungsmitarbeiter-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
@@ -544,7 +544,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T21:29:33.210Z"
+      "firstSeenAt": "2026-10-19T21:29:33.210Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ]
     }
   ]
 }

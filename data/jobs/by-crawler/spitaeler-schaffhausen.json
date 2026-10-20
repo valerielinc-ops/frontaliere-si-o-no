@@ -878,7 +878,7 @@
         "it": "fisioterapisti-spitaler-schaffhausen-schaffhausen",
         "en": "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "de": "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "fr": "physiotherapeute-spitaler-schaffhausen"
+        "fr": "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -927,7 +927,7 @@
         "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "physiotherapeut-in-spitaler-schaffhausen",
         "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+        "physiotherapeute-spitaler-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -937,7 +937,7 @@
         "fr": [
           "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
           "physiotherapeut-in-spitaler-schaffhausen",
-          "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+          "physiotherapeute-spitaler-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:49.682Z",
@@ -4563,12 +4563,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-337e5a420753",
-      "slug": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+      "slug": "operatore-trice-sociosanitario-a-afc-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
-        "it": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
-        "en": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2",
-        "fr": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2"
+        "it": "operatore-trice-sociosanitario-a-afc-spitaler-schaffhausen-schaffhausen",
+        "en": "healthcare-specialist-efz-spitaler-schaffhausen-schaffhausen",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-cfc-spitaler-schaffhausen-schaffhausen-3146db"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4616,11 +4616,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2",
+          "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen"
+        ],
+        "en": [
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2"
+        ],
+        "fr": [
           "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2"
         ]
       },
       "previousSlugs": [
-        "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2"
+        "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2",
+        "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4639,12 +4647,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-5a6aef2e2a60",
-      "slug": "dipl-pflegefachperson-hf-fh-spitaler-schaffhausen-schaffhausen",
+      "slug": "dipl-professionista-hf-fh-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-spitaeler-schaffhausen-schaffhausen",
-        "it": "dipl-pflegefachperson-hf-fh-spitaler-schaffhausen-schaffhausen",
-        "en": "dipl-pflegefachperson-hf-fh-spitaler-schaffhausen-schaffhausen",
-        "fr": "dipl-pflegefachperson-hf-fh-spitaler-schaffhausen-schaffhausen"
+        "it": "dipl-professionista-hf-fh-spitaler-schaffhausen-schaffhausen",
+        "en": "dipl-care-professional-hf-fh-spitaler-schaffhausen-schaffhausen",
+        "fr": "dipl-soins-professionnels-hf-fh-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4692,11 +4700,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-spitaeler-schaffhausen-schaffhausen"
+          "dipl-pflegefachperson-hf-fh-spitaeler-schaffhausen-schaffhausen",
+          "dipl-pflegefachperson-hf-fh-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-spitaeler-schaffhausen-schaffhausen"
+        "dipl-pflegefachperson-hf-fh-spitaeler-schaffhausen-schaffhausen",
+        "dipl-pflegefachperson-hf-fh-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

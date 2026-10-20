@@ -964,7 +964,7 @@
         "it": "consulente-nutrizionale-w-m-d-a-ore-triaplus-ag-oberwil",
         "en": "nutrition-consultant-w-m-d-hourly-triaplus-ag-oberwil",
         "de": "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ernaehrungsberaterin-w-m-d-im",
-        "fr": "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
+        "fr": "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -1037,7 +1037,7 @@
         "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ernaehrungsberaterin-w-m-d-im",
         "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ag-oberwil",
         "ernahrungsberaterin-hf-w-m-d-triaplus-ernaehrungsberaterin-w-m-d-im-stundenlohn",
-        "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil"
+        "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1048,7 +1048,7 @@
           "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ag-oberwil"
         ],
         "fr": [
-          "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil"
+          "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
         ]
       },
       "firstSeenAt": "2026-05-19T21:17:13.784Z",
@@ -1505,7 +1505,7 @@
         "it": "medico-senior-m-f-d-ambulatorio-triaplus-ag-goldau",
         "en": "senior-physician-m-f-d-ambulatory-triaplus-ag-goldau",
         "de": "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-        "fr": "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
+        "fr": "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -1550,7 +1550,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-        "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau"
+        "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1561,7 +1561,7 @@
         ],
         "fr": [
           "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-          "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau"
+          "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
         ]
       },
       "firstSeenAt": "2026-08-31T17:07:24.738Z",
@@ -1991,12 +1991,12 @@
     },
     {
       "id": "triaplus-aeae7f973371",
-      "slug": "assistenzarzt-m-w-d-per-kinder-e-jugendpsychiatrie-80-100-ambulant-triaplus-ag-goldau",
+      "slug": "medico-assistente-m-f-d-per-la-psichiatria-infantile-e-dell-adolescenza-80-100-ambulatoriale-triaplus-ag-goldau",
       "slugByLocale": {
         "de": "assistenzarzt-m-w-d-fur-kinder-und-jugendpsychiatrie-80-100-ambulant-triaplus",
-        "it": "assistenzarzt-m-w-d-per-kinder-e-jugendpsychiatrie-80-100-ambulant-triaplus-ag-goldau",
-        "en": "assistenzarzt-m-w-d-fur-kinder-und-jugendpsychiatrie-80-100-ambulant-triaplus",
-        "fr": "assistenzarzt-m-w-d-fur-kinder-und-jugendpsychiatrie-80-100-ambulant-triaplus"
+        "it": "medico-assistente-m-f-d-per-la-psichiatria-infantile-e-dell-adolescenza-80-100-ambulatoriale-triaplus-ag-goldau",
+        "en": "assistant-physician-m-f-d-for-child-and-adolescent-psychiatry-80-100-ambulatory-triaplus-ag-goldau",
+        "fr": "medecin-adjoint-h-f-d-pour-la-psychiatrie-des-enfants-et-des-adolescents-triaplus-ag-goldau"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -2043,11 +2043,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarzt-m-w-d-fur-kinder-und-jugendpsychiatrie-80-100-ambulant-triaplus",
+          "assistenzarzt-m-w-d-per-kinder-e-jugendpsychiatrie-80-100-ambulant-triaplus-ag-goldau"
+        ],
+        "en": [
+          "assistenzarzt-m-w-d-fur-kinder-und-jugendpsychiatrie-80-100-ambulant-triaplus"
+        ],
+        "fr": [
           "assistenzarzt-m-w-d-fur-kinder-und-jugendpsychiatrie-80-100-ambulant-triaplus"
         ]
       },
       "previousSlugs": [
-        "assistenzarzt-m-w-d-fur-kinder-und-jugendpsychiatrie-80-100-ambulant-triaplus"
+        "assistenzarzt-m-w-d-fur-kinder-und-jugendpsychiatrie-80-100-ambulant-triaplus",
+        "assistenzarzt-m-w-d-per-kinder-e-jugendpsychiatrie-80-100-ambulant-triaplus-ag-goldau"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

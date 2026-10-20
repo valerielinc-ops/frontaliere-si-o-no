@@ -3907,12 +3907,12 @@
     },
     {
       "id": "mediamarkt-100629",
-      "slug": "collaboratore-trice-in-vendita-40-mediamarkt-zurich",
+      "slug": "addetto-a-alle-vendite-40-mediamarkt-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-40-mediamarkt-zurich-ch",
-        "it": "collaboratore-trice-in-vendita-40-mediamarkt-zurich",
-        "en": "mitarbeiter-in-verkauf-40-mediamarkt-zurich-ch",
-        "fr": "mitarbeiter-in-verkauf-40-mediamarkt-zurich-ch"
+        "it": "addetto-a-alle-vendite-40-mediamarkt-zurich",
+        "en": "sales-associate-40-mediamarkt-zurich",
+        "fr": "employe-e-de-vente-40-mediamarkt-zurich"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3962,11 +3962,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-40-mediamarkt-zurich-ch",
+          "collaboratore-trice-in-vendita-40-mediamarkt-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-40-mediamarkt-zurich-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-40-mediamarkt-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-40-mediamarkt-zurich-ch"
+        "mitarbeiter-in-verkauf-40-mediamarkt-zurich-ch",
+        "collaboratore-trice-in-vendita-40-mediamarkt-zurich"
       ],
       "salaryMin": 33200,
       "salaryMax": 51000,
@@ -3985,10 +3993,10 @@
     },
     {
       "id": "mediamarkt-98576",
-      "slug": "store-manager-100-m-w-d-mediamarkt-gumligen-ch",
+      "slug": "gestione-negozio-100-m-f-d-mediamarkt-gumligen",
       "slugByLocale": {
         "de": "store-manager-100-m-w-d-mediamarkt-gumligen-ch",
-        "it": "store-manager-100-m-w-d-mediamarkt-gumligen-ch",
+        "it": "gestione-negozio-100-m-f-d-mediamarkt-gumligen",
         "en": "store-manager-100-m-w-d-mediamarkt-gumligen-ch",
         "fr": "store-manager-100-m-w-d-mediamarkt-gumligen-ch"
       },
@@ -4054,12 +4062,14 @@
       "firstSeenAt": "2026-10-05T21:57:57.181Z",
       "previousSlugs": [
         "gestione-negozio-100-m-f-d-mediamarkt-gumligen",
-        "gestionnaire-de-magasins-100-h-f-d-mediamarkt-gumligen"
+        "gestionnaire-de-magasins-100-h-f-d-mediamarkt-gumligen",
+        "store-manager-100-m-w-d-mediamarkt-gumligen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestione-negozio-100-m-f-d-mediamarkt-gumligen",
-          "gestionnaire-de-magasins-100-h-f-d-mediamarkt-gumligen"
+          "gestionnaire-de-magasins-100-h-f-d-mediamarkt-gumligen",
+          "store-manager-100-m-w-d-mediamarkt-gumligen-ch"
         ],
         "fr": [
           "gestionnaire-de-magasins-100-h-f-d-mediamarkt-gumligen"

@@ -402,10 +402,10 @@
     },
     {
       "id": "hrc-abfa4f0ce41d",
-      "slug": "agent-d-exploitation-h-f-a-100-hrc-rennaz",
+      "slug": "100-m-f-agente-operativo-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
         "fr": "agent-d-exploitation-h-f-a-100-hrc-rennaz",
-        "it": "agent-d-exploitation-h-f-a-100-hrc-rennaz",
+        "it": "100-m-f-agente-operativo-hopital-riviera-chablais-hrc-rennaz",
         "en": "agent-d-exploitation-h-f-a-100-hrc-rennaz",
         "de": "agent-d-exploitation-h-f-a-100-hrc-rennaz"
       },
@@ -465,7 +465,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T21:38:07.632Z"
+      "firstSeenAt": "2026-10-19T21:38:07.632Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-d-exploitation-h-f-a-100-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "agent-d-exploitation-h-f-a-100-hrc-rennaz"
+      ]
     },
     {
       "id": "hrc-26bfd3ffe196",
