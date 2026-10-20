@@ -507,7 +507,7 @@ jobs:
             ' "$run_list" "$run_ids"
           fi
           download_failures=0
-          while IFS= read -r run_id; do
+          while IFS= read -r -u 9 run_id; do
             [ -n "$run_id" ] || continue
             target="$history_dir/$run_id"
             mkdir -p "$target"
@@ -523,7 +523,7 @@ jobs:
               download_failures=$((download_failures + 1))
               echo "::warning::prior ledger benchmark artifact for run $run_id was unavailable (status $download_status)"
             fi
-          done < "$run_ids"
+          done 9< "$run_ids"
           if [ "$download_failures" -gt 0 ]; then
             echo "- Historical benchmark artifact downloads unavailable: $download_failures." >> "$GITHUB_STEP_SUMMARY"
           fi
