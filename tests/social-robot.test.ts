@@ -633,7 +633,10 @@ describe('cadence', () => {
     const queue = { pending: [reel] };
     const reader = {
       readQueue: () => queue,
-      readLedger: () => ({ posted: [{ queueId: 'article-2026-10-03' }, { queueId: 'job-2026-10-03' }] }),
+      readLedger: () => ({ posted: [
+        { id: 'article-slug', kind: 'article', queueId: 'article-2026-10-03' },
+        { id: 'job-slug', kind: 'job', queueId: 'job-2026-10-03' },
+      ] }),
     };
     const h = harness({ queue, journal });
 

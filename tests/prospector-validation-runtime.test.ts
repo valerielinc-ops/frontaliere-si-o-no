@@ -184,12 +184,13 @@ describe('Prospector production validation', () => {
         .toEqual(publishableRoles.map((role) => role.canton));
       expect(observed.observation.dropCounts).toMatchObject({ source_backed_geography_missing: 1 });
 
+      const sampleDate = new Date();
       const report = await gradeExtraction(spec, observed.vacancies, {
         sampleSize: 3,
         runtimeObservation: observed.observation,
         observedDetailsByUrl: observed.detailPagesByUrl,
         titleEvidenceByUrl: observed.titleEvidenceByUrl,
-        sampleDate: '2026-10-20T12:00:00.000Z',
+        sampleDate,
         lookupImpl: async () => PUBLIC_IP,
         fetchImpl,
         sleepImpl: async () => {},
@@ -256,11 +257,12 @@ describe('Prospector production validation', () => {
         titleSource: 'listing',
       });
 
+      const sampleDate = new Date();
       const report = await gradeExtraction(spec, observed.vacancies, {
         sampleSize: 3,
         runtimeObservation: observed.observation,
         observedDetailsByUrl: observed.detailPagesByUrl || undefined,
-        sampleDate: '2026-10-19T12:00:00.000Z',
+        sampleDate,
         lookupImpl: async () => PUBLIC_IP,
         fetchImpl: runtime.fetchImpl,
         sleepImpl: async () => {},
@@ -268,10 +270,10 @@ describe('Prospector production validation', () => {
       expect(report.vacancyCount).toBe(8);
       expect(report.locationSourceRate).toBe(0.8);
       expect(report.sampleSelection).toMatchObject({
-        algorithmVersion: 'utc-cyclic-strata-v1',
+        algorithmVersion: 'utc-cyclic-strata-anomaly-v2',
         populationCount: 8,
         sampleCount: 3,
-        day: '2026-10-19',
+        day: sampleDate.toISOString().slice(0, 10),
       });
       expect(report.sampleSelection.selected).toHaveLength(3);
       expect(report.samples.every((sample) => sample.titleMatch > 0.8)).toBe(true);
@@ -790,6 +792,29 @@ describe('Prospector validation sample and schedule', () => {
     expect(order.slice(1).every((spec) => spec.companyKey.startsWith('new-'))).toBe(true);
   });
 
+  it('does not let a continuous stream of new specs starve an older validation retry', () => {
+    const candidates: Record<string, any> = {
+      'older-retry.example': {
+        firstSeenAt: '2026-09-20T09:00:00.000Z',
+        validationHistory: [{ at: '2026-10-01T09:00:00.000Z', verdict: 'weak', runtimeSnapshotComplete: true }],
+      },
+    };
+    const newSpecs = Array.from({ length: 12 }, (_, index) => {
+      const companyKey = `new-${String(index).padStart(2, '0')}.example`;
+      candidates[companyKey] = { firstSeenAt: '2026-10-18T09:00:00.000Z' };
+      return { companyKey };
+    });
+    const specs = [...newSpecs, { companyKey: 'older-retry.example' }];
+
+    const order = prioritizeValidationSpecs(specs, (spec) => candidates[spec.companyKey], {
+      limit: 5,
+      date: '2026-10-20T12:00:00Z',
+    });
+
+    expect(order.map((spec) => spec.companyKey)).toContain('older-retry.example');
+    expect(order[0].companyKey).toBe('older-retry.example');
+  });
+
   it('does not treat a prior runtime-incomplete candidate as already stable', () => {
     const specs = [
       { companyKey: 'retry.example' },
@@ -879,13 +904,13 @@ describe('Prospector promotion reconciliation', () => {
     expect(store.candidates['employer.example']).toEqual(before);
   });
 
-  it('marks an exact merged PR as production', async () => {
+  it('marks an exact merged PR as awaiting its first published crawl', async () => {
     const store = storeWith();
     const result = await reconcileOpenPromotions(store, async () => ({
       number: 42, state: 'MERGED', mergedAt: '2026-10-18T18:00:00Z',
     }), null);
     expect(result).toEqual({ landed: 1, reopened: 0 });
-    expect(store.candidates['employer.example'].status).toBe('production');
+    expect(store.candidates['employer.example'].status).toBe('awaiting_first_crawl');
   });
 
   it('records the closed-PR transition in normal mode and omits the ledger in dry-run mode', async () => {

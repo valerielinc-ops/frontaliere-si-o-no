@@ -184,8 +184,18 @@ export function gitMainReader({ repoDir, exec = execFileSync, log = console }) {
     }
   };
   return {
-    readQueue: (channel) => parseQueue(show(`data/${channel}-queue.json`) ?? ''),
-    readLedger: (channel) => parseLedger(show(`data/${channel}-posted.json`) ?? ''),
+    readQueue: (channel) => {
+      const rel = `data/${channel}-queue.json`;
+      const raw = show(rel);
+      if (raw === null) throw new Error(`Cannot read required queue from origin/main: ${rel}`);
+      return parseQueue(raw);
+    },
+    readLedger: (channel) => {
+      const rel = `data/${channel}-posted.json`;
+      const raw = show(rel);
+      if (raw === null) throw new Error(`Cannot read required posted ledger from origin/main: ${rel}`);
+      return parseLedger(raw);
+    },
     readInsights: () => {
       const raw = show('data/instagram-insights.json');
       if (!raw) return null;

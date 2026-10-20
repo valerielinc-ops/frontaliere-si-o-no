@@ -11,10 +11,10 @@
  *   - which platforms are paused after a login wall or a challenge, or held
  *     after a press that showed no confirmation.
  */
-import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
-import { ledgerKey } from '../../lib/social-publish-queue.mjs';
+import { ledgerKey, SOCIAL_CHANNELS } from '../../lib/social-publish-queue.mjs';
 
 /** Posts pressed per platform per calendar day (Europe/Zurich). */
 export const MAX_POSTS_PER_DAY_PER_PLATFORM = 2;
@@ -52,18 +52,50 @@ export function emptyJournal() {
   return { schemaVersion: 1, attempts: [], pausedUntil: {} };
 }
 
+const JOURNAL_OUTCOMES = new Set(['published', 'dry-run', 'unconfirmed', 'error']);
+const JOURNAL_CHANNELS = new Set(SOCIAL_CHANNELS);
+
+function isRecord(value) {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+}
+
+function validJournalTimestamp(value) {
+  if (typeof value !== 'string') return false;
+  const milliseconds = Date.parse(value);
+  return Number.isFinite(milliseconds) && new Date(milliseconds).toISOString() === value;
+}
+
 export function parseJournal(raw) {
+  let parsed;
   try {
-    const parsed = typeof raw === 'string' ? JSON.parse(raw) : raw;
-    if (!parsed || !Array.isArray(parsed.attempts)) return emptyJournal();
-    return {
-      schemaVersion: 1,
-      attempts: parsed.attempts.filter((a) => a && typeof a === 'object'),
-      pausedUntil: parsed.pausedUntil && typeof parsed.pausedUntil === 'object' ? { ...parsed.pausedUntil } : {},
-    };
+    parsed = typeof raw === 'string' ? JSON.parse(raw) : raw;
   } catch {
-    return emptyJournal();
+    throw new Error('Malformed social robot journal JSON');
   }
+  const pausedUntil = parsed?.pausedUntil;
+  const validAttempt = (attempt) => isRecord(attempt)
+    && JOURNAL_CHANNELS.has(attempt.channel)
+    && typeof attempt.queueId === 'string' && Boolean(attempt.queueId.trim())
+    && validJournalTimestamp(attempt.at)
+    && JOURNAL_OUTCOMES.has(attempt.outcome)
+    && (attempt.confirmDispatched === undefined || typeof attempt.confirmDispatched === 'boolean')
+    && (attempt.confirmDispatchedAt === undefined || validJournalTimestamp(attempt.confirmDispatchedAt))
+    && (attempt.resolvedAt === undefined || validJournalTimestamp(attempt.resolvedAt))
+    && (attempt.ledgerEntries === undefined || (Array.isArray(attempt.ledgerEntries)
+      && attempt.ledgerEntries.every((entry) => isRecord(entry)
+        && typeof entry.id === 'string' && Boolean(entry.id.trim())
+        && typeof entry.kind === 'string' && Boolean(entry.kind.trim()))));
+  if (!isRecord(parsed) || (parsed.schemaVersion !== undefined && parsed.schemaVersion !== 1)
+    || !Array.isArray(parsed.attempts) || !parsed.attempts.every(validAttempt)
+    || (pausedUntil !== undefined && (!isRecord(pausedUntil)
+      || !Object.values(pausedUntil).every(validJournalTimestamp)))) {
+    throw new Error('Invalid social robot journal shape');
+  }
+  return {
+    schemaVersion: 1,
+    attempts: parsed.attempts,
+    pausedUntil: pausedUntil ? { ...pausedUntil } : {},
+  };
 }
 
 /** A journal stored as JSON in `dir`, written atomically. */
@@ -72,11 +104,19 @@ export function fileJournalStore(dir) {
   return {
     file,
     load() {
-      return existsSync(file) ? parseJournal(readFileSync(file, 'utf8')) : emptyJournal();
+      let raw;
+      try {
+        raw = readFileSync(file, 'utf8');
+      } catch (error) {
+        if (error?.code === 'ENOENT') return emptyJournal();
+        throw new Error(`Cannot read social robot journal at ${file}`, { cause: error });
+      }
+      return parseJournal(raw);
     },
     save(journal) {
       mkdirSync(dir, { recursive: true });
       const trimmed = { ...journal, attempts: journal.attempts.slice(-JOURNAL_LIMIT) };
+      parseJournal(trimmed);
       const tmp = `${file}.tmp`;
       writeFileSync(tmp, `${JSON.stringify(trimmed, null, 2)}\n`, 'utf8');
       renameSync(tmp, file);

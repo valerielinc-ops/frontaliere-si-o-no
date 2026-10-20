@@ -30,11 +30,15 @@
  */
 
 import { describe, it, expect } from 'vitest';
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
 
 import {
   buildHealthScheda,
   corpusObservationFromPayloads,
   nextCrawlerState,
+  readHealthState,
   selectNewestCrawlerObservation,
   TRANSPORT_ABORT_STALE_FLOOR_DAYS,
 } from '../../scripts/check-crawler-health.mjs';
@@ -44,6 +48,35 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 // Anchor "now" so the tests are deterministic regardless of clock.
 const NOW_MS = Date.parse('2026-05-13T06:30:00.000Z');
 const NOW_ISO = new Date(NOW_MS).toISOString();
+
+describe('readHealthState', () => {
+  it('treats an absent monitor state as a first run', async () => {
+    const file = path.join(os.tmpdir(), `crawler-health-state-missing-${process.pid}.json`);
+    await expect(readHealthState(file)).resolves.toBeNull();
+  });
+
+  it('refuses malformed or structurally invalid state instead of resetting streak history', async () => {
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), 'crawler-health-state-'));
+    const file = path.join(root, 'crawler-health.json');
+    try {
+      await fs.writeFile(file, '{ not json', 'utf8');
+      await expect(readHealthState(file)).rejects.toThrow(/Malformed crawler health state/);
+      expect(await fs.readFile(file, 'utf8')).toBe('{ not json');
+
+      const invalid = JSON.stringify({ crawlers: { 'empty-ok': [] } });
+      await fs.writeFile(file, invalid, 'utf8');
+      await expect(readHealthState(file)).rejects.toThrow(/Invalid crawler health state shape/);
+      expect(await fs.readFile(file, 'utf8')).toBe(invalid);
+
+      const invalidCounter = JSON.stringify({ crawlers: { 'empty-ok': { consecutiveEmptyRuns: '2' } } });
+      await fs.writeFile(file, invalidCounter, 'utf8');
+      await expect(readHealthState(file)).rejects.toThrow(/Invalid crawler health state shape/);
+      expect(await fs.readFile(file, 'utf8')).toBe(invalidCounter);
+    } finally {
+      await fs.rm(root, { recursive: true, force: true });
+    }
+  });
+});
 
 interface Observation {
   slug: string;

@@ -54,7 +54,8 @@ function readBuildId(distDir) {
 }
 
 function normalizeStatuses(input = {}) {
-  return Object.fromEntries(STATUS_KEYS.map((key) => [key, status(input[key])]));
+  const source = input && typeof input === 'object' && !Array.isArray(input) ? input : {};
+  return Object.fromEntries(STATUS_KEYS.map((key) => [key, status(source[key])]));
 }
 
 function requiredChecks(locale, outcomes) {
@@ -207,6 +208,7 @@ export function validateLocalePublishProvenance(manifest, {
   if (!manifest || typeof manifest !== 'object' || Array.isArray(manifest)) {
     return { valid: false, errors: ['manifest is not an object'] };
   }
+  const outcomes = normalizeStatuses(manifest.outcomes);
   if (manifest.schemaVersion !== PROVENANCE_SCHEMA_VERSION) pushError(errors, 'schemaVersion is unsupported');
   if (manifest.kind !== PROVENANCE_KIND) pushError(errors, 'kind is not locale-publish-provenance');
   if (!LOCALES.includes(manifest.locale)) pushError(errors, `locale ${JSON.stringify(manifest.locale)} is unsupported`);
@@ -248,10 +250,13 @@ export function validateLocalePublishProvenance(manifest, {
     if (manifest.stale !== true) pushError(errors, 'source receipt is not marked stale');
     if (manifest.cdnStatus !== 'deferred') pushError(errors, `cdnStatus is ${JSON.stringify(manifest.cdnStatus)}`);
     if (manifest.cdnBuildId !== '') pushError(errors, 'source receipt has a CDN build id before the tail');
-    for (const [name, value] of sourceReadyChecks(manifest.locale, manifest.outcomes)) {
+    for (const [name, value] of sourceReadyChecks(manifest.locale, outcomes)) {
       if (status(value) !== SUCCESS) pushError(errors, `${name} outcome is ${JSON.stringify(status(value))}`);
     }
   } else {
+    for (const [name, value] of requiredChecks(manifest.locale, outcomes)) {
+      if (value !== SUCCESS) pushError(errors, `${name} outcome is ${JSON.stringify(value)}`);
+    }
     if (manifest.cdnStatus !== 'coherent') pushError(errors, `cdnStatus is ${JSON.stringify(manifest.cdnStatus)}`);
     if (manifest.cdnBuildId !== manifest.buildId) pushError(errors, 'cdnBuildId differs from buildId');
     if (manifest.payloadStatus !== 'complete') pushError(errors, `payloadStatus is ${JSON.stringify(manifest.payloadStatus)}`);

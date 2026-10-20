@@ -34,7 +34,6 @@ const DEFAULT_FILTERS = [
   'nwr["name"]["website"]["office"](area.a);',
   'nwr["name"]["website"]["craft"](area.a);',
   'nwr["name"]["website"]["industrial"](area.a);',
-  'nwr["name"]["website"]["man_made"](area.a);',
   'nwr["name"]["website"]["healthcare"](area.a);',
   'nwr["name"]["website"]["shop"](area.a);',
   'nwr["name"]["website"]["tourism"](area.a);',
@@ -45,8 +44,8 @@ const DEFAULT_FILTERS = [
 
 /**
  * @param {string} canton two-letter code, e.g. `TI`
- * @param {{ limit?: number, filters?: string[], timeoutSec?: number }} [opts]
- * @returns {Promise<{ name: string, domain: string, website: string, city: string, canton: string, tags: Record<string,string> }[]>}
+ * @param {{ limit?: number, filters?: string[], timeoutSec?: number, fetchImpl?: typeof fetch, sleepImpl?: (ms:number) => Promise<unknown>, lookupImpl?: any }} [opts]
+ * @returns {Promise<{ businesses: { name: string, domain: string, website: string, city: string, canton: string, tags: Record<string,string> }[], outcome: 'complete'|'partial'|'unavailable'|'malformed', errorCode: string|null }>}
  */
 export async function fetchOsmBusinesses(canton, opts = {}) {
   const limit = opts.limit ?? 4000;
@@ -58,34 +57,57 @@ area["ISO3166-2"="CH-${canton}"]->.a;
 );
 out tags ${limit};`;
 
-  const res = await politeFetch(ENDPOINT, {
-    method: 'POST',
-    accept: 'application/json',
-    ignoreRobots: true,
-    timeoutMs: 180000,
-    // Overpass answers 406 to a User-Agent containing the token "Bot" —
-    // isolated by bisecting the headers against a working curl (UA is the only
-    // one that flips it; Accept and Accept-Language do not). Their usage policy
-    // asks callers to identify themselves, so we still do: project name and
-    // contact URL, minus the token their filter rejects.
-    headers: { 'User-Agent': 'frontaliereticino.ch/2.0 (+https://frontaliereticino.ch/)' },
-    body: `data=${encodeURIComponent(query)}`,
-    contentType: 'application/x-www-form-urlencoded',
-  });
-  if (!res.ok) return [];
+  let res;
+  try {
+    res = await politeFetch(ENDPOINT, {
+      method: 'POST',
+      accept: 'application/json',
+      ignoreRobots: true,
+      timeoutMs: 180000,
+      // Overpass answers 406 to a User-Agent containing the token "Bot" —
+      // isolated by bisecting the headers against a working curl (UA is the only
+      // one that flips it; Accept and Accept-Language do not). Their usage policy
+      // asks callers to identify themselves, so we still do: project name and
+      // contact URL, minus the token their filter rejects.
+      headers: { 'User-Agent': 'frontaliereticino.ch/2.0 (+https://frontaliereticino.ch/)' },
+      body: `data=${encodeURIComponent(query)}`,
+      contentType: 'application/x-www-form-urlencoded',
+      fetchImpl: opts.fetchImpl,
+      sleepImpl: opts.sleepImpl,
+      lookupImpl: opts.lookupImpl,
+    });
+  } catch {
+    return { businesses: [], outcome: 'unavailable', errorCode: 'network_error' };
+  }
+  if (!res.ok) return { businesses: [], outcome: 'unavailable', errorCode: `http_${res.status}` };
   let payload;
-  try { payload = JSON.parse(res.body); } catch { return []; }
+  try { payload = JSON.parse(res.body); } catch {
+    return { businesses: [], outcome: 'malformed', errorCode: 'malformed_json' };
+  }
+  if (!payload || !Array.isArray(payload.elements)) {
+    return { businesses: [], outcome: 'malformed', errorCode: 'unexpected_payload' };
+  }
 
   const seen = new Set();
   const out = [];
+  let malformedRows = 0;
   for (const el of payload.elements || []) {
-    const t = el.tags || {};
+    if (!el || typeof el !== 'object' || Array.isArray(el)
+      || !el.tags || typeof el.tags !== 'object' || Array.isArray(el.tags)) {
+      malformedRows++;
+      continue;
+    }
+    const t = el.tags;
     const name = String(t.name || '').trim();
     const website = String(t.website || t['contact:website'] || '').trim();
-    if (!name || !website) continue;
+    if (!name || !website) { malformedRows++; continue; }
     let domain;
-    try { domain = registrableDomain(normalizeHost(new URL(website.startsWith('http') ? website : `https://${website}`).hostname)); } catch { continue; }
-    if (!domain || seen.has(domain)) continue;
+    try { domain = registrableDomain(normalizeHost(new URL(website.startsWith('http') ? website : `https://${website}`).hostname)); } catch {
+      malformedRows++;
+      continue;
+    }
+    if (!domain) { malformedRows++; continue; }
+    if (seen.has(domain)) continue;
     seen.add(domain);
     out.push({
       name,
@@ -93,8 +115,19 @@ out tags ${limit};`;
       website,
       city: String(t['addr:city'] || '').trim(),
       canton,
-      tags: Object.fromEntries(Object.entries(t).filter(([k]) => /^(office|craft|industrial|healthcare|amenity|man_made)$/.test(k))),
+      tags: Object.fromEntries(Object.entries(t).filter(([k]) => /^(office|craft|industrial|healthcare|amenity)$/.test(k))),
     });
   }
-  return out;
+  // Overpass' `out tags <limit>` truncates the response at the requested
+  // element count. At the boundary we cannot distinguish an exact census from
+  // a truncated one, so preserve the findings but report incomplete coverage.
+  const limitReached = payload.elements.length >= limit;
+  const outcome = limitReached || (malformedRows > 0 && out.length > 0)
+    ? 'partial'
+    : malformedRows > 0 ? 'malformed' : 'complete';
+  return {
+    businesses: out,
+    outcome,
+    errorCode: limitReached ? 'result_limit_reached' : malformedRows ? 'malformed_records' : null,
+  };
 }

@@ -6,6 +6,7 @@ import {
   aggregateMessages,
   detectRegressions,
   pickBaseline,
+  baselineComparisonStatus,
   REGRESSION_RULES,
   ZERO_ENGAGEMENT_MIN_SENDS,
 } from '../scripts/report-email-engagement.mjs';
@@ -243,5 +244,14 @@ describe('pickBaseline', () => {
     // A strict non-overlap rule would silently drop the comparison whenever
     // the lag flips sign; half a window absorbs it.
     expect(pickBaseline([s('2026-08-29T23:59:00.000Z')], 7, now)).not.toBeNull();
+  });
+});
+
+describe('baselineComparisonStatus', () => {
+  it('only calls the comparison clean when a compatible baseline was loaded', () => {
+    expect(baselineComparisonStatus({ previous: { generated_at: '2026-08-01T00:00:00Z' } })).toBe('compared');
+    expect(baselineComparisonStatus({ previous: null, candidateCount: 0 })).toBe('first_run');
+    expect(baselineComparisonStatus({ previous: null, candidateCount: 2 })).toBe('no_compatible_baseline');
+    expect(baselineComparisonStatus({ previous: null, candidateCount: 2, readFailed: true })).toBe('read_failed');
   });
 });

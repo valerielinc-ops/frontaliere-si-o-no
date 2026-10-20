@@ -16,7 +16,7 @@
  * Options:
  *   --cantons=<list|all>  default TI
  *   --sources=<list>      own,seco,osm,web    (default: all four)
- *   --pages=<n>           index pages to sweep for `web`, default 20
+ *   --pages=<n>           index pages to sweep for `web`, default 40
  *   --days=<n>            SECO window, default 30
  *   --limit=<n>           cap candidates filed per run
  *   --dry-run             report only, write nothing
@@ -39,6 +39,7 @@ import { loadRegistry, saveRegistry, observePlatform } from './lib/prospector/pl
 import { registrableDomain, sameOrg } from './lib/prospector/registrable.mjs';
 import { CANTONS } from './lib/prospector/config.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
+import { appendDiscoveryHealth, recordDiscoverySourceOutcome, startDiscoveryHealthRun } from './lib/prospector/source-health.mjs';
 
 const argv = process.argv.slice(2);
 // `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
@@ -52,14 +53,31 @@ const arg = (name, fallback) => {
   return hit ? hit.slice(name.length + 3) : fallback;
 };
 const flag = (name) => argv.includes(`--${name}`);
+const boundedInt = (name, raw, fallback, min, max) => {
+  if (raw === undefined) return fallback;
+  if (!/^\d+$/.test(String(raw))) throw new Error(`--${name} must be an integer between ${min} and ${max}`);
+  const value = Number(raw);
+  if (!Number.isSafeInteger(value) || value < min || value > max) {
+    throw new Error(`--${name} must be an integer between ${min} and ${max}`);
+  }
+  return value;
+};
 
 const cantonArg = String(arg('cantons', 'TI'));
-const cantons = cantonArg === 'all' ? CANTONS : cantonArg.split(',').map((c) => c.trim().toUpperCase()).filter(Boolean);
-const sources = String(arg('sources', 'own,seco,osm,web')).split(',').map((s) => s.trim());
-const pages = Number(arg('pages', 20));
-const days = Number(arg('days', 30));
-const limit = Number(arg('limit', 100000));
+const cantons = [...new Set(cantonArg === 'all' ? CANTONS : cantonArg.split(',').map((c) => c.trim().toUpperCase()).filter(Boolean))];
+if (!cantons.length || cantons.some((canton) => !CANTONS.includes(canton))) {
+  throw new Error(`--cantons must contain valid Swiss canton codes: ${CANTONS.join(',')}`);
+}
+const sources = [...new Set(String(arg('sources', 'own,seco,osm,web')).split(',').map((s) => s.trim()).filter(Boolean))];
+const knownSources = new Set(['own', 'seco', 'osm', 'web']);
+if (!sources.length || sources.some((source) => !knownSources.has(source))) {
+  throw new Error('--sources must be a comma-separated list of own,seco,osm,web');
+}
+const pages = boundedInt('pages', arg('pages', undefined), 40, 1, 100);
+const days = boundedInt('days', arg('days', undefined), 30, 1, 365);
+const limit = boundedInt('limit', arg('limit', undefined), 100000, 0, 1000000);
 const dryRun = flag('dry-run');
+const discoveryHealthRun = startDiscoveryHealthRun();
 
 const coverage = loadCoverage();
 const store = loadCandidates();
@@ -78,6 +96,7 @@ const perSource = {};
 // cantons reachable) is normal flakiness, not an outage.
 const sourceAttempts = { seco: 0, osm: 0, web: 0 };
 const sourceFailures = { seco: 0, osm: 0, web: 0 };
+const sourcePartial = { seco: 0, osm: 0, web: 0 };
 
 /**
  * @param {Record<string, any>} candidate
@@ -91,6 +110,14 @@ function file(candidate, source) {
   reviveRetryableDeadCandidate(store, key, candidate, dryRun ? null : undefined, source);
   const { created } = upsertCandidate(store, candidate, source);
   if (created) { filed++; perSource[source] = (perSource[source] || 0) + 1; }
+}
+
+function recordSourceOutcome(source, result) {
+  const outcome = recordDiscoverySourceOutcome(discoveryHealthRun, source, result);
+  sourceAttempts[source]++;
+  if (outcome === 'unavailable' || outcome === 'malformed') sourceFailures[source]++;
+  if (outcome === 'partial') sourcePartial[source]++;
+  return outcome;
 }
 
 /* ── Our own crawls, read as a platform census (no network) ───── */
@@ -126,16 +153,15 @@ if (sources.includes('seco')) {
     // Una sorgente esterna che cade non deve azzerare il giro: con 26 cantoni,
     // un timeout sul quinto butterebbe via i quattro gia' raccolti e i venti
     // ancora da fare.
-    let employers; let adCount; let hostHistogram;
-    sourceAttempts.seco++;
+    let employers; let adCount; let hostHistogram; let outcome; let errorCode;
     try {
-      ({ employers, adCount, hostHistogram } = await fetchSecoEmployers({ cantons: [canton], onlineSince: days }));
+      ({ employers, adCount, hostHistogram, outcome, errorCode } = await fetchSecoEmployers({ cantons: [canton], onlineSince: days }));
     } catch (err) {
-      sourceFailures.seco++;
+      recordSourceOutcome('seco', { outcome: 'unavailable', errorCode: 'source_exception' });
       console.log(`SECO ${canton}: non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
       continue;
     }
-    console.log(`SECO ${canton}: ${adCount} annunci, ${employers.length} datori distinti`);
+    const filedBefore = perSource.seco || 0;
     for (const e of employers) {
       file({
         name: e.name,
@@ -149,6 +175,11 @@ if (sources.includes('seco')) {
         applyHosts: e.applyHosts,
       }, 'seco');
     }
+    outcome = recordSourceOutcome('seco', {
+      outcome, errorCode, recordsSeen: employers.length,
+      newCandidatesFiled: (perSource.seco || 0) - filedBefore,
+    });
+    console.log(`SECO ${canton}: ${adCount} annunci, ${employers.length} datori distinti${outcome !== 'complete' ? ` · ${outcome}${errorCode ? ` (${errorCode})` : ''}` : ''}`);
 
     // Platform learning, for free: which host do UNRELATED employers send
     // applications to? Two independent employers on one host is a vendor.
@@ -189,9 +220,10 @@ if (sources.includes('osm')) {
   // 26 days and visits each canton twice. Advancing by the slice covers the
   // country in `ceil(26 / slice)` days — a fortnight at slice 2 — with no
   // repeats inside a cycle.
-  const slice = Number(arg('osm-cantons', cantons.length > 4 ? 2 : cantons.length));
-  const day = Number(arg('osm-offset', Math.floor(Date.now() / 86400000)));
-  const offset = (day * slice) % Math.max(cantons.length, 1);
+  const defaultSlice = cantons.length > 4 ? 3 : Math.max(1, cantons.length);
+  const slice = boundedInt('osm-cantons', arg('osm-cantons', undefined), defaultSlice, 1, CANTONS.length);
+  const day = boundedInt('osm-offset', arg('osm-offset', undefined), Math.floor(Date.now() / 86400000), 0, Number.MAX_SAFE_INTEGER);
+  const offset = ((day % Math.max(cantons.length, 1)) * slice) % Math.max(cantons.length, 1);
   const osmCantons = cantons.length > slice
     ? Array.from({ length: slice }, (_, i) => cantons[(offset + i) % cantons.length])
     : cantons;
@@ -199,38 +231,49 @@ if (sources.includes('osm')) {
     console.log(`OSM : fetta a rotazione ${osmCantons.join(',')} (di ${cantons.length} cantoni)`);
   }
   for (const canton of osmCantons) {
-    let businesses;
-    sourceAttempts.osm++;
+    let businesses; let outcome; let errorCode;
     try {
-      businesses = await fetchOsmBusinesses(canton);
+      ({ businesses, outcome, errorCode } = await fetchOsmBusinesses(canton));
     } catch (err) {
-      sourceFailures.osm++;
+      recordSourceOutcome('osm', { outcome: 'unavailable', errorCode: 'source_exception' });
       console.log(`OSM  ${canton}: non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
       continue;
     }
-    console.log(`OSM  ${canton}: ${businesses.length} imprese con dominio`);
+    const filedBefore = perSource.osm || 0;
+    console.log(`OSM  ${canton}: ${businesses.length} imprese con dominio${outcome !== 'complete' ? ` · ${outcome}${errorCode ? ` (${errorCode})` : ''}` : ''}`);
     for (const b of businesses) {
       file({ name: b.name, domain: b.domain, city: b.city, canton, country: 'CH', osmTags: b.tags }, 'osm');
     }
+    recordSourceOutcome('osm', {
+      outcome, errorCode, recordsSeen: businesses.length,
+      newCandidatesFiled: (perSource.osm || 0) - filedBefore,
+    });
   }
 }
 
 /* ── The Swiss web's own careers pages, via the crawl index ───── */
 if (sources.includes('web')) {
-  let sweep = { collection: null, pagesRead: [], totalPages: 0, employers: [] };
-  sourceAttempts.web++;
+  let sweep = { collection: null, pagesRead: [], totalPages: 0, employers: [], outcome: 'unavailable', errorCode: 'source_exception' };
   try {
     sweep = await sweepSwissCareerPages({ pages });
   } catch (err) {
-    sourceFailures.web++;
+    recordSourceOutcome('web', { outcome: 'unavailable', errorCode: 'source_exception' });
+    sweep.outcome = null;
     console.log(`WEB : indice non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
   }
-  console.log(`WEB : ${sweep.collection} · ${sweep.pagesRead.length}/${sweep.totalPages} pagine d'indice → ${sweep.employers.length} datori con pagina carriere`);
+  console.log(`WEB : ${sweep.collection} · ${sweep.pagesRead.length}/${sweep.totalPages} pagine d'indice → ${sweep.employers.length} datori con pagina carriere${sweep.outcome && sweep.outcome !== 'complete' ? ` · ${sweep.outcome}${sweep.errorCode ? ` (${sweep.errorCode})` : ''}` : ''}`);
+  const filedBefore = perSource.web || 0;
   for (const e of sweep.employers) {
     // The careers URL is already known, so these skip domain resolution
     // entirely — the most expensive and most failure-prone step in TRACE.
     file({ name: e.host.split('.')[0], domain: e.host, careersUrl: e.url, country: 'CH' }, 'web');
   }
+  if (sweep.outcome) recordSourceOutcome('web', {
+    outcome: sweep.outcome,
+    errorCode: sweep.errorCode,
+    recordsSeen: sweep.employers.length,
+    newCandidatesFiled: (perSource.web || 0) - filedBefore,
+  });
 }
 
 /* ── Outage detection ─────────────────────────────────────────── */
@@ -242,10 +285,12 @@ if (sources.includes('web')) {
 const downSources = ['seco', 'osm', 'web'].filter(
   (s) => sources.includes(s) && sourceAttempts[s] > 0 && sourceFailures[s] === sourceAttempts[s],
 );
-const requestedExternal = ['seco', 'osm', 'web'].filter((s) => sources.includes(s));
+const requestedExternal = ['seco', 'osm', 'web'].filter((s) => sources.includes(s) && sourceAttempts[s] > 0);
 if (requestedExternal.length > 0 && downSources.length === requestedExternal.length) {
   console.error(`\n⚠️  OUTAGE TOTALE: tutte le fonti esterne richieste (${downSources.join('+').toUpperCase()}) sono fallite in questo giro — zero candidati filed non e' "nessuna novita'".`);
   process.exitCode = 1;
+} else if (Object.values(sourcePartial).some((count) => count > 0)) {
+  console.warn(`\n⚠️  Copertura parziale: alcuni tentativi hanno restituito risultati e altri richiedono retry (${JSON.stringify(sourcePartial)}).`);
 }
 
 /* ── Report ───────────────────────────────────────────────────── */
@@ -266,5 +311,8 @@ if (dryRun) {
 } else {
   saveCandidates(store);
   saveRegistry(registry);
+  try { appendDiscoveryHealth(discoveryHealthRun); } catch {
+    console.error('::warning::Telemetria discovery non aggiornata; lo storico corrotto o non scrivibile e\' stato preservato.');
+  }
   console.log('\nscritti data/prospector/candidates.json e platforms.json');
 }

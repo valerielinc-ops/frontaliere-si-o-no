@@ -61,4 +61,19 @@ describe('buildPromotionPrBody — contratto del prospector', () => {
     expect(contract.warnings).toEqual([]);
     expect(body).toContain(`\`${workflowPath}\``);
   });
+
+  it('riporta solo i giorni validati con il quality contract corrente', () => {
+    const body = build({
+      shipped: [{
+        ...SHIPPED[0],
+        qualityContractVersion: 3,
+        validationHistory: [
+          { verdict: 'good', at: '2026-09-17T08:00:00Z', qualityContractVersion: 2 },
+          { verdict: 'good', at: '2026-09-18T08:00:00Z', qualityContractVersion: 3 },
+        ],
+      }],
+    });
+
+    expect(body).toContain('qualita\' 0.97 su 1 giorni distinti');
+  });
 });

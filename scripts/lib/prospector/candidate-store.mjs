@@ -16,7 +16,8 @@
  *   validated   -> extraction graded against the live page
  *   promoted    -> graded good; eligible for the promotion gate
  *   promoting   -> shipped into an OPEN promotion PR, not merged yet
- *   production  -> passed the promotion gate and shipped as a real crawler
+ *   awaiting_first_crawl -> promotion PR merged; waiting for a fresh non-empty jobs slice
+ *   production  -> first fresh public jobs slice verified after the merge
  *   rejected    -> measured and dismissed, with a reason
  *
  * The ledger records every transition so a later run can answer "why is this
@@ -28,7 +29,7 @@ import { CANDIDATES_PATH, LEDGER_PATH } from './config.mjs';
 import { registrableDomain } from './registrable.mjs';
 import { normalizeCompanyName } from './coverage.mjs';
 
-/** @typedef {'new'|'resolved'|'traced'|'dead'|'synthesized'|'validated'|'promoted'|'promoting'|'production'|'rejected'} CandidateStatus */
+/** @typedef {'new'|'resolved'|'traced'|'dead'|'synthesized'|'validated'|'promoted'|'promoting'|'awaiting_first_crawl'|'production'|'rejected'} CandidateStatus */
 
 /**
  * Stable key for an employer. Domain when we have one — it is the only truly
@@ -67,7 +68,7 @@ export const MAX_REJECTED_TOMBSTONES = 10_000;
  * later run retry it instead of turning one outage into a 90-day tombstone.
  */
 const RETRYABLE_TRACE_REASON_RX = /(?:sito|dominio|pagina|rete|host|dns|timeout|http|fetch).*(?:irraggiungibile|non risolto|non raggiungibile|tempor|errore|blocc|timeout)|(?:irraggiungibile|non raggiungibile|timeout)/i;
-const TRACE_RETRY_DELAYS_DAYS = [1, 3, 7, 14, 30];
+const STAGE_RETRY_DELAYS_DAYS = [1, 3, 7, 14, 30];
 const DOMAIN_RETRY_FRESH_OBSERVATION_AFTER = 4;
 const SECO_SIGNAL_FIELDS = new Set(['adCount', 'sampleTitles', 'applyHosts']);
 const TRACE_RETRY_EVIDENCE_FIELDS = ['name', 'domain', 'careersUrl', 'city', 'zip', 'country'];
@@ -88,6 +89,14 @@ const TOMBSTONE_COUNTS = new WeakMap();
 /** @param {unknown} value */
 function isObjectMap(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+/** @param {Record<string, any>} candidate */
+function synthesisSeedFor(candidate) {
+  if (candidate?.careersUrl) return String(candidate.careersUrl);
+  if (candidate?.tenantHost) return `https://${candidate.tenantHost}/`;
+  if (candidate?.domain) return `https://${candidate.domain}/`;
+  return '';
 }
 
 /** @param {Record<string, any>} candidate */
@@ -252,13 +261,24 @@ function normalizeStore(raw) {
  * @param {string} [file]
  */
 export function loadCandidates(file = CANDIDATES_PATH) {
+  let rawText;
   try {
-    const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
-    if (!raw?.candidates) return structuredClone(EMPTY);
-    return normalizeStore(raw);
-  } catch {
-    return structuredClone(EMPTY);
+    rawText = fs.readFileSync(file, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return structuredClone(EMPTY);
+    throw new Error(`Cannot read Prospector candidate store at ${file}`, { cause: error });
   }
+
+  let raw;
+  try {
+    raw = JSON.parse(rawText);
+  } catch (error) {
+    throw new Error(`Malformed Prospector candidate store at ${file}`, { cause: error });
+  }
+  if (!isObjectMap(raw) || !isObjectMap(raw.candidates)) {
+    throw new Error(`Invalid Prospector candidate store shape at ${file}`);
+  }
+  return normalizeStore(raw);
 }
 
 /**
@@ -307,7 +327,7 @@ export function isTraceRetryDue(candidate, now = Date.now()) {
  */
 export function scheduleTraceRetry(candidate, reason, now = Date.now()) {
   const attempts = Math.max(0, Number(candidate?.traceAttempts) || 0);
-  const delayDays = TRACE_RETRY_DELAYS_DAYS[Math.min(attempts, TRACE_RETRY_DELAYS_DAYS.length - 1)];
+  const delayDays = STAGE_RETRY_DELAYS_DAYS[Math.min(attempts, STAGE_RETRY_DELAYS_DAYS.length - 1)];
   const attemptedAt = new Date(now).toISOString();
   return {
     reason,
@@ -316,6 +336,40 @@ export function scheduleTraceRetry(candidate, reason, now = Date.now()) {
     traceLastAttemptAt: attemptedAt,
     traceRetryAt: new Date(now + delayDays * 86_400_000).toISOString(),
     traceLastEvidenceSnapshot: traceEvidenceSnapshot(candidate),
+  };
+}
+
+/**
+ * A candidate whose last synthesis fetch failed transiently stays in the
+ * traced queue, but is skipped until its bounded retry time.
+ *
+ * @param {Record<string, any>} candidate
+ * @param {number} [now]
+ * @returns {boolean}
+ */
+export function isSynthesisRetryDue(candidate, now = Date.now()) {
+  const at = Date.parse(String(candidate?.synthesisRetryAt || ''));
+  return !Number.isFinite(at) || at <= now;
+}
+
+/**
+ * Build bounded retry metadata for a transient SYNTHESIZE fetch failure.
+ *
+ * @param {Record<string, any>} candidate
+ * @param {string} reason
+ * @param {number} [now]
+ * @returns {Record<string, any>}
+ */
+export function scheduleSynthesisRetry(candidate, reason, now = Date.now()) {
+  const attempts = Math.max(0, Number(candidate?.synthesisAttempts) || 0);
+  const delayDays = STAGE_RETRY_DELAYS_DAYS[Math.min(attempts, STAGE_RETRY_DELAYS_DAYS.length - 1)];
+  const attemptedAt = new Date(now).toISOString();
+  return {
+    reason,
+    synthesisRetryable: true,
+    synthesisAttempts: attempts + 1,
+    synthesisLastAttemptAt: attemptedAt,
+    synthesisRetryAt: new Date(now + delayDays * 86_400_000).toISOString(),
   };
 }
 
@@ -388,6 +442,7 @@ export function upsertCandidate(store, incoming, source) {
     rememberRejected(store, existing);
     return { key, created: false };
   }
+  const previousSynthesisSeed = existing ? synthesisSeedFor(existing) : '';
   if (existing && !Array.isArray(existing.sources)) existing.sources = [];
   const sourcePreviouslySeen = Boolean(existing && (
     existing.sources.includes(source)
@@ -432,12 +487,20 @@ export function upsertCandidate(store, incoming, source) {
     }
     if (existing[k] === undefined || existing[k] === '' || existing[k] === null) existing[k] = v;
   }
+  const nextSynthesisSeed = synthesisSeedFor(existing);
+  if (existing.status === 'traced' && nextSynthesisSeed && nextSynthesisSeed !== previousSynthesisSeed) {
+    existing.synthesisRetryable = false;
+    existing.synthesisAttempts = 0;
+    existing.synthesisLastAttemptAt = null;
+    existing.synthesisRetryAt = null;
+    if (String(existing.reason || '').startsWith('sintesi fallita:')) existing.reason = null;
+  }
   if (!existing.sources.includes(source)) existing.sources.push(source);
   existing.updatedAt = now;
   return { key, created: false };
 }
 
-const ORDER = ['rejected', 'dead', 'new', 'resolved', 'traced', 'synthesized', 'validated', 'promoted', 'promoting', 'production'];
+const ORDER = ['rejected', 'dead', 'new', 'resolved', 'traced', 'synthesized', 'validated', 'promoted', 'promoting', 'awaiting_first_crawl', 'production'];
 
 /**
  * @param {ReturnType<typeof loadCandidates>} store

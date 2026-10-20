@@ -111,16 +111,30 @@ function denylistKey(file, slug) {
 export function loadGuardDenylist(root) {
   if (_denylistCache) return _denylistCache;
   const file = path.join(root, 'data', 'prev-slug-restore-denylist.json');
-  const set = new Set();
+  let text;
   try {
-    const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
-    for (const e of parsed?.entries || []) {
-      if (e && e.file && e.slug) set.add(denylistKey(e.file, e.slug));
+    text = fs.readFileSync(file, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') {
+      throw new Error(`Missing previous-slug restore denylist at ${file}`, { cause: error });
     }
-  } catch {
-    /* absent or unparsable denylist → guard everything (fail open, never throw
-       inside a write) */
+    throw new Error(`Cannot read previous-slug restore denylist at ${file}`, { cause: error });
   }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(text);
+  } catch (error) {
+    throw new Error(`Malformed previous-slug restore denylist at ${file}`, { cause: error });
+  }
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed) || !Array.isArray(parsed.entries)
+    || !parsed.entries.every((entry) => entry && typeof entry === 'object' && !Array.isArray(entry)
+      && typeof entry.file === 'string' && entry.file.trim()
+      && typeof entry.slug === 'string' && entry.slug.trim())) {
+    throw new Error(`Invalid previous-slug restore denylist shape at ${file}`);
+  }
+
+  const set = new Set(parsed.entries.map((entry) => denylistKey(entry.file, entry.slug)));
   _denylistCache = set;
   return set;
 }

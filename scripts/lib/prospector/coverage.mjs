@@ -87,15 +87,36 @@ export function loadCoverage(root = ROOT) {
   } catch { /* scripts/ always exists in-repo; tolerate a bare fixture root */ }
 
   const autoPath = path.join(root, 'data', 'crawler-companies-auto.json');
+  let autoText = null;
   try {
-    const list = JSON.parse(fs.readFileSync(autoPath, 'utf8'));
-    for (const c of Array.isArray(list) ? list : []) {
-      if (c.key) keys.add(String(c.key));
-      if (c.name) names.add(normalizeCompanyName(c.name));
+    autoText = fs.readFileSync(autoPath, 'utf8');
+  } catch (error) {
+    if (error?.code !== 'ENOENT') {
+      throw new Error(`Cannot read crawler-company coverage source at ${autoPath}`, { cause: error });
+    }
+    // Not materialised in a sparse checkout — crawler keys still cover us.
+  }
+  if (autoText !== null) {
+    let list;
+    try {
+      list = JSON.parse(autoText);
+    } catch (error) {
+      throw new Error(`Malformed crawler-company coverage source at ${autoPath}`, { cause: error });
+    }
+    const validEntry = (entry) => entry && typeof entry === 'object' && !Array.isArray(entry)
+      && typeof entry.key === 'string' && entry.key.trim()
+      && typeof entry.name === 'string' && entry.name.trim()
+      && ['website', 'companyDomain'].every((field) => entry[field] === undefined || typeof entry[field] === 'string');
+    if (!Array.isArray(list) || !list.every(validEntry)) {
+      throw new Error(`Invalid crawler-company coverage source shape at ${autoPath}`);
+    }
+    for (const c of list) {
+      keys.add(c.key);
+      names.add(normalizeCompanyName(c.name));
       if (c.website) domains.add(registrableDomain(c.website));
       if (c.companyDomain) domains.add(registrableDomain(c.companyDomain));
     }
-  } catch { /* not materialised in a sparse checkout — keys still cover us */ }
+  }
 
   // Crawler keys are themselves a name signal (`artisa-group` -> `artisa`).
   for (const k of keys) names.add(normalizeCompanyName(k.replace(/-/g, ' ')));

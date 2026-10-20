@@ -134,16 +134,20 @@ describe('WOKIN cameriere:TG crawler', () => {
       distinctRate: 1,
       detailDistinctRate: 1,
       jobLikeRate: 1,
+      jobLikeEvidenceRate: 1,
+      employerIdentityRate: 1,
+      employerIdentityMismatchCount: 0,
       logoFound: true,
     };
     const gate = evaluatePromotion({
       status: 'promoted',
+      qualityContractVersion: 3,
       crawlerKey: WOKIN_KEY,
       tenantHost: 'wokin.ch',
       aggregator: false,
       validationHistory: [
-        { ...observed, at: '2026-10-14T10:00:00.000Z' },
-        { ...observed, at: '2026-10-15T10:00:00.000Z' },
+        { ...observed, qualityContractVersion: 3, at: '2026-10-14T10:00:00.000Z' },
+        { ...observed, qualityContractVersion: 3, at: '2026-10-15T10:00:00.000Z' },
       ],
     }, { existingKeys: new Set(), hostOwners: new Map() });
     expect(gate.passed, gate.reasons.join('\n')).toBe(true);

@@ -16,6 +16,7 @@ const SCRIPT = path.resolve(__dirname, '..', 'scripts', 'prospect-promote-diagno
 
 const good = (day: number, over: Record<string, unknown> = {}) => ({
   at: `2026-08-${String(10 + day).padStart(2, '0')}T03:00:00Z`,
+  qualityContractVersion: 3,
   verdict: 'good',
   score: 0.97,
   sampled: 4,
@@ -24,6 +25,9 @@ const good = (day: number, over: Record<string, unknown> = {}) => ({
   contentfulRate: 1,
   locationSourceRate: 1,
   distinctRate: 1,
+  jobLikeEvidenceRate: 1,
+  employerIdentityRate: 1,
+  employerIdentityMismatchCount: 0,
   jobLikeRate: 1,
   logoFound: true,
   vacancyCount: 6,
@@ -31,7 +35,7 @@ const good = (day: number, over: Record<string, unknown> = {}) => ({
 });
 
 const candidate = (key: string, history: Record<string, unknown>[], status = 'promoted') => ({
-  key, status, crawlerKey: key, vacancyCount: 6, validationHistory: history,
+  key, status, crawlerKey: key, vacancyCount: 6, qualityContractVersion: 3, validationHistory: history,
 });
 
 function run(args: string[]) {

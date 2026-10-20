@@ -20,7 +20,15 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { loadCandidates, saveCandidates, setStatus, byStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
+import {
+  loadCandidates,
+  saveCandidates,
+  setStatus,
+  byStatus,
+  isSynthesisRetryDue,
+  scheduleSynthesisRetry,
+  statusCounts,
+} from './lib/prospector/candidate-store.mjs';
 import { synthesizeSpec, isExpectedSynthesisError } from './lib/prospector/synthesize.mjs';
 import { PROSPECTOR_DIR } from './lib/prospector/config.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
@@ -41,6 +49,7 @@ const store = loadCandidates();
 const queue = onlyKey
   ? [store.candidates[onlyKey]].filter(Boolean)
   : byStatus(store, 'traced')
+    .filter((candidate) => isSynthesisRetryDue(candidate))
     // Most vacancies first: the point of a new crawler is the ads it adds.
     .sort((a, b) => (b.vacancyCount || 0) - (a.vacancyCount || 0))
     .slice(0, limit);
@@ -87,11 +96,22 @@ for (const c of queue) {
     }
     continue;
   }
-  const { spec, reason, vacancies: found } = synth;
+  const { spec, reason, vacancies: found, retryable } = synth;
   if (!spec) {
     refused++;
-    setStatus(store, c.key, 'rejected', { reason: `sintesi fallita: ${reason}` });
-    console.log(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} ${reason}`);
+    const failureReason = `sintesi fallita: ${reason}`;
+    if (retryable) {
+      const retry = scheduleSynthesisRetry(c, failureReason);
+      setStatus(store, c.key, 'traced', retry);
+      console.log(`  ↻ ${String(c.name).slice(0, 34).padEnd(36)} ${reason} — riprovo dopo ${retry.synthesisRetryAt}`);
+    } else {
+      setStatus(store, c.key, 'rejected', {
+        reason: failureReason,
+        synthesisRetryable: false,
+        synthesisRetryAt: null,
+      });
+      console.log(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} ${reason}`);
+    }
     continue;
   }
   written++;
@@ -105,6 +125,10 @@ for (const c of queue) {
     mode: spec.mode,
     vacancyCount: found.length,
     sourceLang: spec.sourceLang,
+    synthesisRetryable: false,
+    synthesisAttempts: 0,
+    synthesisLastAttemptAt: null,
+    synthesisRetryAt: null,
   });
   console.log(`  ✓ ${String(spec.companyName).slice(0, 34).padEnd(36)} ${spec.mode.padEnd(10)} ${String(found.length).padStart(3)} annunci  ${spec.companyHost}`);
 }

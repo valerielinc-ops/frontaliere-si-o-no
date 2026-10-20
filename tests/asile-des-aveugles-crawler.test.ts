@@ -194,16 +194,20 @@ describe('Fondation Asile des aveugles source-backed crawler', () => {
       distinctRate: 1,
       detailDistinctRate: 1,
       jobLikeRate: 1,
+      jobLikeEvidenceRate: 1,
+      employerIdentityRate: 1,
+      employerIdentityMismatchCount: 0,
       logoFound: true,
     };
     const gate = evaluatePromotion({
       status: 'promoted',
+      qualityContractVersion: 3,
       crawlerKey: ASILE_DES_AVEUGLES_KEY,
       tenantHost: 'asiledesaveugles.ch',
       aggregator: false,
       validationHistory: [
-        { ...observed, at: '2026-10-14T12:00:00Z' },
-        { ...observed, at: '2026-10-15T12:00:00Z' },
+        { ...observed, qualityContractVersion: 3, at: '2026-10-14T12:00:00Z' },
+        { ...observed, qualityContractVersion: 3, at: '2026-10-15T12:00:00Z' },
       ],
     }, { existingKeys: new Set(), hostOwners: new Map() });
     expect(gate.passed, gate.reasons.join('\n')).toBe(true);

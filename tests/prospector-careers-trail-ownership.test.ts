@@ -16,6 +16,7 @@ import {
   traceCareers,
   verifyAtsHost,
 } from '../scripts/lib/prospector/careers-trail.mjs';
+import { traceCandidate } from '../scripts/lib/prospector/trace-candidate.mjs';
 
 const response = (url: string, body: string) => ({ ok: true, status: 200, url, body, host: url ? new URL(url).hostname : '' });
 const filler = '<p>Informazioni autorevoli sulla struttura alberghiera, i servizi e il territorio.</p>'.repeat(6);
@@ -52,7 +53,7 @@ describe('prospector careers ownership trail', () => {
   });
 
   it('does not promote a homepage fallback or its partner-logo footer', async () => {
-    const homepage = `<html><title>Villa Garni Gardenia</title><body><main>Benvenuti a Caslano${filler}</main><footer><a href="https://www.hotelleriesuisse.ch/it/"><img alt="Partner"></a></footer></body></html>`;
+    const homepage = `<html><title>Villa Garni Gardenia</title><body><main>Benvenuti a Caslano${filler}</main><footer><a href="https://www.hotelleriesuisse.ch/it/"><img src="/assets/logo.svg" alt="Partner"></a></footer></body></html>`;
     mocks.politeFetch.mockImplementation(async (url: string) => response(url, homepage));
 
     const result = await traceCareers('albergo-gardenia.ch');
@@ -69,6 +70,94 @@ describe('prospector careers ownership trail', () => {
     const result = await traceCareers('transient.example');
 
     expect(result).toMatchObject({ reachable: false, retryable: true, failureStatuses: [503, 503] });
+  });
+
+  it('keeps a candidate retryable when sitemap requests fail before empty path probes', async () => {
+    const homepage = `<html><title>Hotel</title><body><main>${filler}</main></body></html>`;
+    mocks.politeFetch.mockImplementation(async (url: string = '') => {
+      if (!url) return { ok: false, status: 404, url, body: '', host: '' };
+      if (url === 'https://hotel.example/') return response(url, homepage);
+      if (url.endsWith('/sitemap.xml') || url.endsWith('/sitemap_index.xml')) {
+        return { ok: false, status: 503, url, body: '', host: new URL(url).hostname };
+      }
+      return { ok: false, status: 404, url, body: '', host: new URL(url).hostname };
+    });
+
+    const trail = await traceCareers('hotel.example');
+    const result = await traceCandidate(
+      { key: 'hotel.example', name: 'Hotel', domain: 'hotel.example' },
+      { traceCareers: async () => trail },
+    );
+
+    expect(result.verdict).toBe('retry');
+    expect(result.trail).toMatchObject({ retryable: true });
+    expect(result.trail.failureStatuses).toContain(503);
+  });
+
+  it('keeps path-hint timeouts retryable after a reachable homepage and empty sitemaps', async () => {
+    const homeUrl = 'https://hotel.example/';
+    const homepage = `<html><title>Hotel</title><body><main>${filler}</main></body></html>`;
+    mocks.politeFetch.mockImplementation(async (url: string = '') => {
+      if (url === homeUrl) return response(url, homepage);
+      if (url.endsWith('/sitemap.xml') || url.endsWith('/sitemap_index.xml')) {
+        return response(url, '<urlset></urlset>');
+      }
+      return { ok: false, status: 503, url, body: '', host: 'hotel.example' };
+    });
+
+    const trail = await traceCareers('hotel.example');
+    const result = await traceCandidate(
+      { key: 'hotel.example', name: 'Hotel', domain: 'hotel.example' },
+      { traceCareers: async () => trail },
+    );
+
+    expect(trail).toMatchObject({ reachable: true, retryable: true });
+    expect(trail.failureStatuses).toContain(503);
+    expect(result.verdict).toBe('retry');
+  });
+
+  it('keeps a candidate retryable when a sitemap responds with an invalid body', async () => {
+    const homepage = `<html><title>Hotel</title><body><main>${filler}</main></body></html>`;
+    mocks.politeFetch.mockImplementation(async (url: string = '') => {
+      if (!url) return { ok: false, status: 404, url, body: '', host: '' };
+      if (url === 'https://hotel.example/') return response(url, homepage);
+      if (url.endsWith('/sitemap.xml')) return response(url, 'not an XML sitemap');
+      if (url.endsWith('/sitemap_index.xml')) return response(url, '<html>gateway response</html>');
+      return { ok: false, status: 404, url, body: '', host: new URL(url).hostname };
+    });
+
+    const trail = await traceCareers('hotel.example');
+    const result = await traceCandidate(
+      { key: 'hotel.example', name: 'Hotel', domain: 'hotel.example' },
+      { traceCareers: async () => trail },
+    );
+
+    expect(result.verdict).toBe('retry');
+    expect(result.trail).toMatchObject({ retryable: true, failureStatuses: [200, 200, 200] });
+  });
+
+  it.each([
+    ['robots.txt', { blockedByRobots: true }],
+    ['public URL policy', { policyBlocked: true }],
+  ])('does not retry deterministic sitemap denial by %s', async (_label, denial) => {
+    const homepage = `<html><title>Hotel</title><body><main>${filler}</main></body></html>`;
+    mocks.politeFetch.mockImplementation(async (url: string = '') => {
+      if (!url) return { ok: false, status: 404, url, body: '', host: '' };
+      if (url === 'https://hotel.example/') return response(url, homepage);
+      if (url.endsWith('/sitemap.xml') || url.endsWith('/sitemap_index.xml')) {
+        return { ok: false, status: 0, url, body: '', host: new URL(url).hostname, ...denial };
+      }
+      return { ok: false, status: 404, url, body: '', host: new URL(url).hostname };
+    });
+
+    const trail = await traceCareers('hotel.example');
+    const result = await traceCandidate(
+      { key: 'hotel.example', name: 'Hotel', domain: 'hotel.example' },
+      { traceCareers: async () => trail },
+    );
+
+    expect(result.verdict).toBe('dead');
+    expect(result.trail).toMatchObject({ retryable: false, failureStatuses: [200, 0, 0] });
   });
 
   it.each([
@@ -136,6 +225,65 @@ describe('prospector careers ownership trail', () => {
     expect(result.externalHosts).toHaveLength(1);
     expect(result.externalHosts[0]).toMatchObject({ host: 'tenant.real-ats.example', verified: true });
     expect(result.externalHosts.some(({ host }) => host === 'partner.example')).toBe(false);
+  });
+
+  it('retries ATS verification failures instead of classifying the employer as self-hosted', async () => {
+    const homeUrl = 'https://hotel.example/';
+    const careerUrl = 'https://hotel.example/jobs';
+    const atsUrl = 'https://tenant.real-ats.example/openings';
+    const homepage = `<html><title>Hotel</title><body><a href="/jobs">Jobs</a><main>${filler}</main></body></html>`;
+    const careers = `<html><title>Hotel jobs</title><body><h1>Join our hotel</h1><main>${filler}</main><a href="${atsUrl}">Apply</a></body></html>`;
+    mocks.politeFetch.mockImplementation(async (url: string) => {
+      if (url === homeUrl) return response(url, homepage);
+      if (url === careerUrl) return response(url, careers);
+      if (url === atsUrl) return { ok: false, status: 503, url, body: '', host: new URL(url).hostname };
+      return { ok: false, status: 404, url, body: '', host: url ? new URL(url).hostname : '' };
+    });
+
+    const trail = await traceCareers('hotel.example');
+    const result = await traceCandidate(
+      { key: 'hotel.example', name: 'Hotel', domain: 'hotel.example' },
+      { traceCareers: async () => trail },
+    );
+
+    expect(trail).toMatchObject({
+      careersUrls: [careerUrl],
+      externalHosts: [],
+      retryable: true,
+      selfHosted: false,
+    });
+    expect(trail.rejectedHosts).toContainEqual(expect.objectContaining({
+      host: 'tenant.real-ats.example',
+      retryable: true,
+      failureStatus: 503,
+    }));
+    expect(result.verdict).toBe('retry');
+  });
+
+  it.each([
+    ['robots.txt', { blockedByRobots: true }],
+    ['public URL policy', { policyBlocked: true }],
+  ])('leaves self-hosting unknown when ATS verification is blocked by %s', async (_label, denial) => {
+    const careerUrl = 'https://hotel.example/jobs';
+    const atsUrl = 'https://tenant.real-ats.example/openings';
+    const careers = `<html><title>Hotel jobs</title><body><h1>Join our hotel</h1><main>${filler}</main><a href="${atsUrl}">Apply</a></body></html>`;
+    mocks.politeFetch.mockImplementation(async (url: string) => {
+      if (url === careerUrl) return response(url, careers);
+      if (url === atsUrl) return { ok: false, status: 0, url, body: '', host: new URL(url).hostname, ...denial };
+      return { ok: false, status: 404, url, body: '', host: url ? new URL(url).hostname : '' };
+    });
+
+    const trail = await traceFromCareersUrl(careerUrl, 'hotel.example');
+    const result = await traceCandidate(
+      { key: 'hotel.example', name: 'Hotel', domain: 'hotel.example', careersUrl: careerUrl },
+      { traceFromCareersUrl: async () => trail },
+    );
+
+    expect(trail.retryable).toBe(false);
+    expect(trail.selfHosted).toBeNull();
+    expect(trail.rejectedHosts).toContainEqual(expect.objectContaining(denial));
+    expect(result.verdict).toBe('traced');
+    expect(result.selfHosted).toBeNull();
   });
 
   it('keeps the ownership check aligned with a cross-origin homepage redirect', async () => {
