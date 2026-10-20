@@ -339,7 +339,8 @@
       const question = groupQuestion(element);
       const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), section: headingBefore(element), required, value: '', options: [] };
       // Required natively on any option, or by the group's own label ("Geschlecht* (erforderlich)").
-      entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question));
+      entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question))
+        || hasRequiredMarker(element, question || labelFor(element));
       entry.options.push({ value: element.value, label: labelFor(element), aaId: idFor(element) });
       // The chosen option, so a page planned again does not choose it again.
       if (element.checked) entry.value = labelFor(element);
@@ -402,7 +403,7 @@
       name: '',
       label,
       context: sectionContext(element),
-      required: element.hasAttribute('required') || REQUIRED_LABEL.test(label),
+      required: element.hasAttribute('required') || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
       value: clean(element.value || element.getAttribute('value') || ''),
       search: false,
       maxLength: null,
@@ -438,7 +439,7 @@
     let entry = ariaGroups.get(container);
     if (!entry) {
       const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element) || headingBefore(element);
-      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question), value: '', options: [] };
+      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question) || hasRequiredMarker(container, question), value: '', options: [] };
       ariaGroups.set(container, entry);
     }
     entry.options.push({ value: label, label, aaId: idFor(element) });
@@ -453,15 +454,16 @@
     // The site's own language menu is not part of the application, nor any other menu of its header,
     // navigation or footer (Workday's «settingsSelectorButton», read as a field of every page of the form).
     if (/language.?selector|sprachauswahl/i.test(`${label} ${element.getAttribute('data-automation-id') || ''}`) || isSiteChromeControl(element)) continue;
+    const fieldLabel = label === clean(element.innerText) ? groupQuestion(element) || label : label;
     fields.push({
       id: idFor(element),
       kind: 'listbox',
       ...dialogMeta(element),
       inputType: 'listbox',
       name: clean(element.getAttribute('name') || ''),
-      label: label === clean(element.innerText) ? groupQuestion(element) || label : label,
+      label: fieldLabel,
       context: sectionContext(element),
-      required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(label),
+      required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: clean(element.innerText || element.textContent),
       invalid: element.getAttribute('aria-invalid') === 'true',
     });
