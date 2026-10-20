@@ -112,6 +112,7 @@ import { professionCantonLandingsLinksPlugin } from './build-plugins/professionC
 import { salaryProfessionCantonLinksPlugin } from './build-plugins/salaryProfessionCantonLinksPlugin';
 import { salaryHubIndexLinkPlugin } from './build-plugins/salaryHubIndexLinkPlugin';
 import { sectorHubLinksPlugin } from './build-plugins/sectorHubLinksPlugin';
+import { autoSectorHubPagesPlugin } from './build-plugins/autoSectorHubPagesPlugin';
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
 import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandingsPlugin';
@@ -225,6 +226,7 @@ export default defineConfig(({ mode }) => {
  ...(process.env.SKIP_JOB_OG_IMAGES !== '1' ? [jobOgImagesPlugin()] : []),
  jobRecencyPagesPlugin(__dirname),
  jobSectorPagesPlugin(__dirname),
+ autoSectorHubPagesPlugin(__dirname),
  fuelDailyPagesPlugin(__dirname),
  weatherCityPagesPlugin(__dirname),
  weatherAlertPagesPlugin(__dirname),

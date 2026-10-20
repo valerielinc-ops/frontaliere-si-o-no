@@ -176,6 +176,17 @@ jobs:
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; node scripts/audit-related-search-candidates.mjs || true; node scripts/ingest-gsc-orphans-into-candidates.mjs || true; if [ -s data/jobs.json ]; then npm run data:sector-hub-candidates -- --traffic-input '$RUNNER_TEMP/sector-hub-traffic.json'; fi; bash scripts/lib/stage-weekly-snapshot-files.sh"
 
+      - name: Refresh deploy token from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Deploy weekly inventory and automatically promoted sector hubs
+        run: |
+          if [ -z "${GITHUB_PAT:-${GH_TOKEN:-}}" ]; then
+            echo "::error::Weekly snapshot deployment requires a GitHub workflow token from Remote Config."
+            exit 1
+          fi
+          EXPECTED_SHA="$(git rev-parse HEAD)" bash scripts/lib/trigger-deploy.sh
+
       - name: Cleanup Codex auth broker
         if: always()
         continue-on-error: true

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-19T21:15:47.242Z",
+  "sourceWeek": "2026-W43",
+  "hubs": [
+    {
+      "slug": "admin",
+      "routeKind": "static-category",
+      "label": "admin",
+      "labelByLocale": {
+        "it": "Amministrazione",
+        "en": "Administration",
+        "de": "Verwaltung",
+        "fr": "Administration"
+      },
+      "sourceFields": [
+        "category"
+      ],
+      "matchLabels": [
+        "admin"
+      ],
+      "firstPublishedAt": "2026-10-19T21:15:47.242Z",
+      "status": "active"
+    },
+    {
+      "slug": "finance",
+      "routeKind": "static-category",
+      "label": "finance",
+      "labelByLocale": {
+        "it": "Finanza",
+        "en": "Finance",
+        "de": "Finanzen",
+        "fr": "Finance"
+      },
+      "sourceFields": [
+        "category"
+      ],
+      "matchLabels": [
+        "finance"
+      ],
+      "firstPublishedAt": "2026-10-19T21:15:47.242Z",
+      "status": "active"
+    }
+  ]
+}

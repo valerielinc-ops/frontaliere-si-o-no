@@ -3,7 +3,7 @@
  *
  * Generates 4 hub families × 4 locales of paginated index pages:
  *   - JobsHub      → all known job slugs (28k+) → ~284 pages × 4 locales
- *   - SectorsHub   → curated 50-sector list   → 1 page × 4 locales
+ *   - SectorsHub   → curated sectors + qualified automatic hubs → paginated × 4 locales
  *   - CompaniesHub → known-company-slugs.json → paginated directory × 4 locales
  *   - ArticlesHub  → blog-meta-{lang}.ts      → ~9 pages × 4 locales
  *
@@ -84,6 +84,9 @@ import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from '
 import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { logoUrlForRenderedOutput } from '../services/jobDataNormalization';
+import { readAutoSectorHubInventory, countAutoSectorHubEmployers } from './shared/autoSectorHubPublicationData';
+import { isIndexableSectorHubPublication } from '../data/sector-hub-publications';
+import { buildAutoSectorHubPath } from './shared/autoSectorHubPaths';
 
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_CH',
@@ -2724,6 +2727,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     cantonEmployerCounts,
   } = readJobsData(fs, np, rootDir);
   const crawledLogos = readCrawledCompanyLogos(fs, np, rootDir);
+  const autoSectorInventory = readAutoSectorHubInventory(rootDir);
 
   const ensuredDirs = new Set<string>();
   function writeFile(canonicalPath: string, html: string): void {
@@ -2752,7 +2756,6 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
         items.push({ href, label: humanizeSlug(slug) });
       }
     } else if (hubKey === 'sectors') {
-      pageSize = HUB_SECTORS.length;
       const sectionRoot = legacyTiSectionRoot(locale);
       // Sectors with a curated static hub get the canonical URL; the rest fall
       // back to the TI job-board root. NEVER `?q=`: robots.txt disallows
@@ -2767,6 +2770,21 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
           : `${sectionRoot}/`;
         items.push({ href, label: sector[locale], emoji: sectorEmojiFor(sector.key) });
       }
+      for (const publication of autoSectorInventory.registry.hubs) {
+        const jobs = autoSectorInventory.jobsBySlug.get(publication.slug) || [];
+        const label = publication.labelByLocale[locale];
+        if (!label || !isIndexableSectorHubPublication(
+          publication, jobs.length, countAutoSectorHubEmployers(jobs), locale,
+        )) continue;
+        items.push({
+          href: buildAutoSectorHubPath(locale, publication.slug, publication.routeKind),
+          label,
+          emoji: '🔎',
+        });
+      }
+      // Keep the single-page index for the current curated set, then paginate
+      // dynamic growth at 100 items and emit those pages in all locales.
+      pageSize = Math.max(HUB_SECTORS.length, Math.min(100, items.length));
     } else {
       pageSize = COMPANIES_PAGE_SIZE;
       const sectionRoot = legacyTiSectionRoot(locale);
@@ -2799,7 +2817,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     // pages in every locale; navigation must use the same emission policy.
     // Page-1 hreflang remains reciprocal; page-N entries self-reference
     // their actual locale (buildHtml emits no page-N head alternates).
-    const emitNonItPageN = hubKey === 'companies';
+    const emitNonItPageN = hubKey === 'companies' || hubKey === 'sectors';
     const renderTotalPages = locale === 'it' || emitNonItPageN ? totalPages : 1;
     for (let page = 1; page <= totalPages; page++) {
       if (page > 1 && locale !== 'it' && !emitNonItPageN) continue;

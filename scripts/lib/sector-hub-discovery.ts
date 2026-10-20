@@ -7,14 +7,26 @@ import {
   SECTOR_HUB_SLUG,
   type SectorHubKey,
 } from '../../build-plugins/jobSectorLanding';
+import { isKnownExistingCategorySlug } from '../../build-plugins/shared/autoSectorHubPaths';
+import {
+  CATEGORY_LISTING_PAGE_SIZE,
+  compareCategoryListingJobs,
+} from '../../build-plugins/shared/categoryListingInventory';
 import { resolveJobCanton, SECTION_LEGACY_TI } from '../../build-plugins/shared/cantonSection';
+import { resolveJobsSeoSample, selectJobsSeoSample } from '../../build-plugins/shared/jobsSeoSample';
+import { isListingInventoryJob, normalizeListingIdentity } from '../../services/jobBoardInventory';
 import { jobQueuedAtMs, jobTrafficScore } from './job-traffic-priority.mjs';
+import { isFixtureJob } from './fixture-data-filter.mjs';
+import {
+  type SectorHubPublication,
+  type SectorHubPublicationRegistry,
+} from '../../data/sector-hub-publications';
 
 export const HUB_DISCOVERY_WINDOW_DAYS = 28;
 export const MIN_TRACKED_JOBS = 3;
 export const MIN_PROMISING_JOBS = 8;
-export const MIN_REVIEW_JOBS = 15;
-export const MIN_REVIEW_EMPLOYERS = 4;
+export const MIN_REVIEW_JOBS = 5;
+export const MIN_REVIEW_EMPLOYERS = 2;
 export const MIN_REVIEW_WEEKS = 3;
 export const CANDIDATE_RETENTION_WEEKS = 12;
 export const MAX_CANDIDATES = 250;
@@ -61,6 +73,33 @@ const QUERY_STOP_WORDS = new Set([
 
 const JOB_INTENT_RE = /\b(job|jobs|lavor|offert|occup|impieg|emploi|carri[eè]r|stellen|arbeitsplatz|arbeitsstelle|gesucht|recruit|vacan|posto|posti|assunzion|impiego)\w*/i;
 
+const AUTO_LABELS_BY_SLUG: Readonly<Record<string, SectorHubPublication['labelByLocale']>> = {
+  finance: { it: 'Finanza', en: 'Finance', de: 'Finanzen', fr: 'Finance' },
+  admin: { it: 'Amministrazione', en: 'Administration', de: 'Verwaltung', fr: 'Administration' },
+  'public-admin': { it: 'Amministrazione pubblica', en: 'Public administration', de: 'Öffentliche Verwaltung', fr: 'Administration publique' },
+  accounting: { it: 'Contabilità', en: 'Accounting', de: 'Buchhaltung', fr: 'Comptabilité' },
+  'human-resources': { it: 'Risorse umane', en: 'Human resources', de: 'Personalwesen', fr: 'Ressources humaines' },
+  sales: { it: 'Vendite', en: 'Sales', de: 'Vertrieb', fr: 'Ventes' },
+  marketing: { it: 'Marketing', en: 'Marketing', de: 'Marketing', fr: 'Marketing' },
+  logistics: { it: 'Logistica', en: 'Logistics', de: 'Logistik', fr: 'Logistique' },
+  engineering: { it: 'Ingegneria', en: 'Engineering', de: 'Ingenieurwesen', fr: 'Ingénierie' },
+  healthcare: { it: 'Sanità', en: 'Healthcare', de: 'Gesundheitswesen', fr: 'Santé' },
+  hospitality: { it: 'Ospitalità e ristorazione', en: 'Hospitality', de: 'Gastgewerbe', fr: 'Hôtellerie-restauration' },
+  education: { it: 'Istruzione', en: 'Education', de: 'Bildung', fr: 'Éducation' },
+  construction: { it: 'Edilizia', en: 'Construction', de: 'Bauwesen', fr: 'Construction' },
+  manufacturing: { it: 'Industria manifatturiera', en: 'Manufacturing', de: 'Fertigung', fr: 'Industrie manufacturière' },
+  'customer-service': { it: 'Servizio clienti', en: 'Customer service', de: 'Kundenservice', fr: 'Service client' },
+  legal: { it: 'Servizi legali', en: 'Legal services', de: 'Rechtswesen', fr: 'Services juridiques' },
+};
+
+const AUTO_PUBLISH_FAST_TRACK = Object.freeze({
+  minActiveJobs: 5,
+  minDistinctEmployers: 2,
+  minJobsWithViews: 12,
+  minStrongTrafficSignals: 2,
+  strongSignalThresholds: Object.freeze({ viewsPerLiveDay: 10, ga4Sessions28d: 100, gscJobPageImpressions28d: 1500 }),
+});
+
 export interface DiscoveryJob {
   id?: string;
   slug?: string;
@@ -84,6 +123,7 @@ export interface DiscoveryJob {
   postedDate?: string;
   datePosted?: string;
   crawledAt?: string;
+  qualityScore?: number | null;
 }
 
 export interface TrafficSnapshot {
@@ -100,7 +140,6 @@ export interface TrafficSnapshot {
     error?: string;
   };
 }
-
 export type PreviousSectorHubCandidate = {
   suggestedSlug?: string;
   observedWeeks?: string[];
@@ -165,6 +204,14 @@ function employerIdentity(job: DiscoveryJob): string {
 
 function jobIdentity(job: DiscoveryJob, index: number): string {
   return text(job.id) || text(job.slug) || `${text(job.companyKey)}:${text(job.title)}:${index}`;
+}
+
+function hasPopularityRecord(job: DiscoveryJob, popularity: Record<string, number>): boolean {
+  const slugs = [job.slug, ...Object.values(job.slugByLocale || {})].map(text).filter(Boolean);
+  return slugs.some((slug) => Object.prototype.hasOwnProperty.call(popularity, slug)
+    && typeof popularity[slug] === 'number'
+    && Number.isFinite(popularity[slug])
+    && popularity[slug] >= 0);
 }
 
 function isoWeekKey(value: Date): string {
@@ -254,21 +301,28 @@ function queryTokens(value: string): string[] {
   return normalizePhrase(value).split(' ').filter((token) => token.length >= 3 && !QUERY_STOP_WORDS.has(token));
 }
 
-function relatedQueryMetrics(label: string, queries: TrafficSnapshot['gsc']['queries']): { impressions: number; clicks: number } {
+function relatedQueryMetrics(
+  label: string,
+  queries: TrafficSnapshot['gsc']['queries'],
+  landingPagesComplete: boolean,
+): { impressions: number; clicks: number; completeMatchedQueries: number } {
   const tokens = queryTokens(label);
-  if (!tokens.length) return { impressions: 0, clicks: 0 };
+  if (!tokens.length) return { impressions: 0, clicks: 0, completeMatchedQueries: 0 };
   const requiredMatches = tokens.length >= 3 ? 2 : 1;
   let impressions = 0;
   let clicks = 0;
+  let completeMatchedQueries = 0;
   for (const [query, metrics] of Object.entries(queries)) {
     const matched = new Set(queryTokens(query).filter((token) => tokens.includes(token)));
     if (matched.size < requiredMatches) continue;
+    const hasJobIntent = JOB_INTENT_RE.test(query);
     const landingIsJobPage = Boolean(metrics.topLandingPage && jobDetailSlug(metrics.topLandingPage));
-    if (!landingIsJobPage && !JOB_INTENT_RE.test(query)) continue;
+    if (!landingIsJobPage && !hasJobIntent) continue;
+    if (hasJobIntent || landingPagesComplete) completeMatchedQueries += 1;
     impressions += finiteNonNegative(metrics.imp);
     clicks += finiteNonNegative(metrics.clicks);
   }
-  return { impressions, clicks };
+  return { impressions, clicks, completeMatchedQueries };
 }
 
 function scoreCandidate(metrics: {
@@ -335,6 +389,19 @@ export function buildSectorHubDiscoveryReport({
   const currentWeek = isoWeekKey(now);
   const popularityScanMs = Date.parse(popularityScannedAt || '');
   const popularityFresh = Number.isFinite(popularityScanMs) && now.getTime() - popularityScanMs <= 7 * DAY_MS;
+  const gscPasses = traffic.gsc.error || '';
+  const gscStatus = sourceCoverageStatus(traffic.gsc.error);
+  // The fetcher reports pass failures with markers; a raw token/provider error
+  // means no individual pass can be trusted as complete.
+  const gscErrorsArePassScoped = gscPasses.split(' | ').filter(Boolean)
+    .every((error) => /^(?:pass1 \(query\)|pass2 \(query\+page\)|pass3 \(page\)):/.test(error));
+  const gscAvailable = gscStatus !== 'unavailable' && gscErrorsArePassScoped;
+  const gscQueryAggregationComplete = gscAvailable && !gscPasses.includes('pass1 (query):');
+  const gscQueryLandingPagesComplete = gscAvailable && !gscPasses.includes('pass2 (query+page):');
+  const gscPageImpressionsComplete = gscAvailable && !gscPasses.includes('pass3 (page):');
+  const ga4Error = traffic.ga4.error
+    || (traffic.ga4.coverage?.complete === false ? 'GA4 coverage is incomplete or restricted' : undefined);
+  const ga4Complete = sourceCoverageStatus(ga4Error) === 'complete';
   const liveJobs: Array<{ job: DiscoveryJob; id: string; views: number; viewsPerLiveDay: number }> = [];
   const seenJobIds = new Set<string>();
   let activeJobsOutsideCuratedHubs = 0;
@@ -349,19 +416,50 @@ export function buildSectorHubDiscoveryReport({
     labels: Map<string, number>;
     fields: Set<string>;
   }>();
-
+  // Mirror the valid listing pool and first-page ordering used by
+  // jobsSeoPagesPlugin. A static category route covers candidates when every
+  // active Ticino candidate appears in the first page it emits; unrelated
+  // listings in that page are allowed.
+  const existingCategoryJobCounts = new Map<string, number>();
+  const existingCategoryJobIds = new Map<string, Set<string>>();
+  const categoryListingEntries = jobs.flatMap((job, index) => {
+    if (isFixtureJob(job) || !isListingInventoryJob(job)) return [];
+    const listing = normalizeListingIdentity(job);
+    if (!listing.slug || !isKnownExistingCategorySlug(String(listing.category || '').toLowerCase())) return [];
+    return [{ job: listing as DiscoveryJob, id: jobIdentity(listing, index) }];
+  });
+  const jobsSeoSample = resolveJobsSeoSample();
+  const sampledCategoryJobs = jobsSeoSample === null
+    ? null
+    : new Set(selectJobsSeoSample(
+      categoryListingEntries.map(({ job }) => job as unknown as Record<string, unknown>),
+      jobsSeoSample,
+    ));
+  const sortedCategoryListingEntries = categoryListingEntries
+    .filter(({ job }) => sampledCategoryJobs === null || sampledCategoryJobs.has(job as unknown as Record<string, unknown>))
+    .sort((a, b) => compareCategoryListingJobs(a.job, b.job));
+  for (const { job, id } of sortedCategoryListingEntries) {
+    const categorySlug = String(job.category || '').toLowerCase();
+    const count = (existingCategoryJobCounts.get(categorySlug) || 0) + 1;
+    existingCategoryJobCounts.set(categorySlug, count);
+    const ids = existingCategoryJobIds.get(categorySlug) || new Set<string>();
+    if (count <= CATEGORY_LISTING_PAGE_SIZE) ids.add(id);
+    existingCategoryJobIds.set(categorySlug, ids);
+  }
   jobs.forEach((job, index) => {
-    if (!isSectorHubJobActive(job, 'it') || resolveJobCanton(job) !== 'TI') return;
-    const id = jobIdentity(job, index);
+    if (isFixtureJob(job) || !isListingInventoryJob(job)
+      || !isSectorHubJobActive(job, 'it') || resolveJobCanton(job) !== 'TI') return;
+    const listing = normalizeListingIdentity(job);
+    const id = jobIdentity(listing, index);
     if (seenJobIds.has(id)) return;
     seenJobIds.add(id);
-    const views = jobTrafficScore(job, popularity);
-    const queuedAt = jobQueuedAtMs(job);
+    const views = jobTrafficScore(listing, popularity);
+    const queuedAt = jobQueuedAtMs(listing);
     const ageDays = Number.isFinite(queuedAt) && queuedAt <= now.getTime()
       ? Math.max(1, (now.getTime() - queuedAt) / DAY_MS)
       : 30;
     const viewsPerLiveDay = views / ageDays;
-    liveJobs.push({ job, id, views, viewsPerLiveDay });
+    liveJobs.push({ job: listing, id, views, viewsPerLiveDay });
 
     const matchedHubs: SectorHubKey[] = [];
     for (const key of SECTOR_HUB_KEYS) {
@@ -436,6 +534,9 @@ export function buildSectorHubDiscoveryReport({
     const jobEntries = [...acc.jobs.values()];
     const employers = new Set(jobEntries.map(({ job }) => employerIdentity(job)).filter(Boolean));
     const activeJobCount = jobEntries.length;
+    const staticCategoryIds = existingCategoryJobIds.get(slug);
+    const existingCategoryInventoryMatches = Boolean(staticCategoryIds)
+      && jobEntries.every(({ id }) => staticCategoryIds?.has(id));
     if (activeJobCount < MIN_TRACKED_JOBS) continue;
     currentSlugs.add(slug);
     let activeJobViews = 0;
@@ -456,7 +557,12 @@ export function buildSectorHubDiscoveryReport({
       }
       if (gsc) gscJobPageImpressions28d += gsc.impressions;
     }
-    const queryMetrics = relatedQueryMetrics(label, traffic.gsc.queries);
+    const queryMetrics = relatedQueryMetrics(label, traffic.gsc.queries, gscQueryLandingPagesComplete);
+    const hasCompleteTrafficEvidence = (popularityFresh
+        && jobEntries.some(({ job }) => hasPopularityRecord(job, popularity)))
+      || (ga4Complete && jobEntries.some(({ id }) => ga4ByJob.has(id)))
+      || (gscPageImpressionsComplete && jobEntries.some(({ id }) => gscByJob.has(id)))
+      || (gscQueryAggregationComplete && queryMetrics.completeMatchedQueries > 0);
     const old = previousBySlug.get(slug);
     const observedWeeks = [...new Set([...(old?.observedWeeks || []), currentWeek])].sort().slice(-CANDIDATE_RETENTION_WEEKS);
     const candidateAgeWeeks = consecutiveWeekCount(observedWeeks);
@@ -486,6 +592,9 @@ export function buildSectorHubDiscoveryReport({
       label,
       suggestedSlug: slug,
       sourceFields: [...acc.fields].sort(),
+      existingCategoryJobCount: existingCategoryJobCounts.get(slug) || 0,
+      existingCategoryInventoryMatches,
+      hasCompleteTrafficEvidence,
       alternateLabels: entries.slice(1, 6).map(([name]) => name),
       activeJobCount,
       employerCount: employers.size,
@@ -538,24 +647,25 @@ export function buildSectorHubDiscoveryReport({
     || b.activeJobCount - a.activeJobCount
     || a.suggestedSlug.localeCompare(b.suggestedSlug));
 
-  const gscStatus = sourceCoverageStatus(traffic.gsc.error);
-  const ga4Error = traffic.ga4.error
-    || (traffic.ga4.coverage?.complete === false ? 'GA4 coverage is incomplete or restricted' : undefined);
   const ga4Status = sourceCoverageStatus(ga4Error);
-  const gscPasses = traffic.gsc.error || '';
   return {
     schemaVersion: 1,
     generatedAt,
     week: currentWeek,
     window: traffic.window,
-    publicationMode: 'proposal-only',
+    publicationMode: 'automatic-quality-gated',
     promotionRules: {
       minActiveJobs: MIN_REVIEW_JOBS,
       minDistinctEmployers: MIN_REVIEW_EMPLOYERS,
       minConsecutiveWeeks: MIN_REVIEW_WEEKS,
       requiresTrafficEvidence: true,
-      trafficEvidenceRule: 'At least one listed traffic source must cross its threshold.',
+      trafficEvidenceRule: 'Sustained promotion needs one traffic threshold; fast-track promotion needs two of the three strong, complete traffic signals plus minimum inventory and employer counts.',
       trafficSources: ['active-ad views', 'GA4 job-page sessions', 'GSC impressions and clicks'],
+      automaticFastTrack: AUTO_PUBLISH_FAST_TRACK,
+      fastTrackSourceRule: 'Count only fresh popularity exports, complete GA4 page data and GSC page impressions marked complete.',
+      automaticSustainedTrack: 'eligible-for-review status for 3 consecutive weeks with the normal inventory, employer and traffic gates',
+      staticCategoryRouteRule: 'Reuse a static category URL only when the first emitted category page contains every active candidate job ID; additional unrelated jobs on that page are allowed.',
+      localizedLabelRule: 'Only locales with an explicit localized label are emitted, linked and indexed.',
     },
     scoring: SCORING,
     sourceCoverage: {
@@ -583,9 +693,9 @@ export function buildSectorHubDiscoveryReport({
         status: gscStatus,
         returnedQueries: Object.keys(traffic.gsc.queries).length,
         returnedPages: Object.keys(traffic.gsc.pages).length,
-        queryAggregationComplete: !gscPasses.includes('pass1 (query):'),
-        queryLandingPagesComplete: !gscPasses.includes('pass2 (query+page):'),
-        pageImpressionsComplete: !gscPasses.includes('pass3 (page):'),
+        queryAggregationComplete: gscQueryAggregationComplete,
+        queryLandingPagesComplete: gscQueryLandingPagesComplete,
+        pageImpressionsComplete: gscPageImpressionsComplete,
         error: traffic.gsc.error || null,
       },
     },
@@ -595,9 +705,175 @@ export function buildSectorHubDiscoveryReport({
       'Candidates are grouped only from active Ticino ads whose title/category does not match any of the '
         + SECTOR_HUB_KEYS.length + ' curated hubs.',
       'The popularity export is cumulative; only views attached to active ads are counted and the score uses views per live day from the best available posting date.',
-      'Eligible candidates require 15 active ads, 4 distinct employers, traffic evidence and 3 consecutive weekly observations.',
-      'Eligibility means ready for editorial review. New indexed routes still require localized labels, a matcher, unique SEO copy, canonical/hreflang and thin-content checks.',
-      'A missing or partial GA4/GSC source is reported as such; its absent rows are not interpreted as measured zero demand.',
+      'Eligible candidates require at least 5 active ads, 2 distinct employers, traffic evidence and 3 consecutive weekly observations.',
+      'Automatic publication accepts every candidate that passes either the sustained three-week gate or the fast-track inventory and multi-source traffic gate; there is no one-hub promotion slot.',
+      'Generated pages use localized templates, exact publisher category fields, live inventory floors, canonical/hreflang and noindex retirement bridges.',
+      'Static category URLs are reused when the first emitted category page contains every active candidate job ID; additional unrelated jobs on that page are allowed.',
+      'Missing candidate rows in complete traffic sources do not advance active-hub retirement; partial or unavailable GA4/GSC sources are not interpreted as measured zero demand.',
     ],
+  };
+}
+
+type AutomaticHubCandidate = {
+  label: string;
+  suggestedSlug: string;
+  sourceFields: string[];
+  existingCategoryJobCount?: number;
+  existingCategoryInventoryMatches?: boolean;
+  hasCompleteTrafficEvidence?: boolean;
+  alternateLabels: string[];
+  activeJobCount: number;
+  employerCount: number;
+  activeJobsWithViews: number;
+  viewsPerLiveDay: number;
+  ga4Sessions28d: number;
+  gscJobPageImpressions28d: number;
+  consecutiveWeeks: number;
+  status: string;
+  slugConflict: boolean;
+};
+
+function qualifiesForAutomaticPublication(
+  candidate: AutomaticHubCandidate,
+  sources: { popularityFresh: boolean; ga4Complete: boolean; gscPageImpressionsComplete: boolean },
+): boolean {
+  if (candidate.slugConflict || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(candidate.suggestedSlug)) return false;
+  const fastThresholds = AUTO_PUBLISH_FAST_TRACK.strongSignalThresholds;
+  const strongSignals = [
+    sources.popularityFresh
+      && candidate.activeJobsWithViews >= AUTO_PUBLISH_FAST_TRACK.minJobsWithViews
+      && candidate.viewsPerLiveDay >= fastThresholds.viewsPerLiveDay,
+    sources.ga4Complete && candidate.ga4Sessions28d >= fastThresholds.ga4Sessions28d,
+    sources.gscPageImpressionsComplete
+      && candidate.gscJobPageImpressions28d >= fastThresholds.gscJobPageImpressions28d,
+  ].filter(Boolean).length;
+  const fastTrack = candidate.activeJobCount >= AUTO_PUBLISH_FAST_TRACK.minActiveJobs
+    && candidate.employerCount >= AUTO_PUBLISH_FAST_TRACK.minDistinctEmployers
+    && strongSignals >= AUTO_PUBLISH_FAST_TRACK.minStrongTrafficSignals;
+  const sustainedTrack = candidate.status === 'eligible-for-review'
+    && candidate.activeJobCount >= MIN_REVIEW_JOBS
+    && candidate.employerCount >= MIN_REVIEW_EMPLOYERS
+    && candidate.consecutiveWeeks >= MIN_REVIEW_WEEKS;
+  return fastTrack || sustainedTrack;
+}
+
+function labelsForCandidate(candidate: AutomaticHubCandidate): SectorHubPublication['labelByLocale'] {
+  // Unknown labels remain in the promotion registry, but only explicitly
+  // translated locales may be emitted or indexed. Repeating a source label
+  // across every language would create misleading localized SEO pages.
+  return AUTO_LABELS_BY_SLUG[candidate.suggestedSlug] || {};
+}
+
+function samePublicationState(
+  left: readonly SectorHubPublication[],
+  right: readonly SectorHubPublication[],
+): boolean {
+  return JSON.stringify(left) === JSON.stringify(right);
+}
+
+/**
+ * Promote all quality-qualified candidates into the compact public registry.
+ * The weekly lifecycle has hysteresis: a missing gate moves an active hub to
+ * cooling-off, a second consecutive miss retires it, and a recovered hub is
+ * reactivated. The registry changes only when its published state changes,
+ * so weekly evidence refreshes do not dispatch a needless site deployment.
+ */
+export function buildAutomaticSectorHubPublicationRegistry({
+  report,
+  previous,
+}: {
+  report: {
+    generatedAt: string;
+    week: string;
+    candidates: readonly AutomaticHubCandidate[];
+    sourceCoverage?: {
+      popularity?: { status?: string };
+      ga4?: { status?: string };
+      gsc?: { pageImpressionsComplete?: boolean };
+    };
+  };
+  previous?: SectorHubPublicationRegistry | null;
+}): SectorHubPublicationRegistry {
+  const previousHubs = previous?.schemaVersion === 1 && Array.isArray(previous.hubs)
+    ? previous.hubs
+    : [];
+  const sources = {
+    popularityFresh: report.sourceCoverage?.popularity?.status === 'complete',
+    ga4Complete: report.sourceCoverage?.ga4?.status === 'complete',
+    gscPageImpressionsComplete: report.sourceCoverage?.gsc?.pageImpressionsComplete === true,
+  };
+  const previousBySlug = new Map(previousHubs.map((hub) => [hub.slug, hub]));
+  const qualifying = report.candidates
+    .filter((candidate) => qualifiesForAutomaticPublication(candidate, sources))
+    .sort((a, b) => b.activeJobCount - a.activeJobCount || a.suggestedSlug.localeCompare(b.suggestedSlug));
+  const qualifyingSlugs = new Set(qualifying.map((candidate) => candidate.suggestedSlug));
+  const currentBySlug = new Map(report.candidates.map((candidate) => [candidate.suggestedSlug, candidate]));
+  const hubs: SectorHubPublication[] = [];
+
+  for (const candidate of qualifying) {
+    const old = previousBySlug.get(candidate.suggestedSlug);
+    const matchLabels = [...new Set([candidate.label, ...candidate.alternateLabels]
+      .map((label) => label.trim()).filter(Boolean))];
+    const sourceFields = candidate.sourceFields.filter((field): field is 'category' | 'sector' =>
+      field === 'category' || field === 'sector');
+    const routeKind = candidate.existingCategoryJobCount === undefined
+      ? old?.routeKind || 'dynamic'
+      : candidate.existingCategoryInventoryMatches === true
+        && candidate.existingCategoryJobCount >= 3
+        && isKnownExistingCategorySlug(candidate.suggestedSlug)
+        ? 'static-category'
+        : 'dynamic';
+    hubs.push({
+      slug: candidate.suggestedSlug,
+      routeKind,
+      label: candidate.label,
+      labelByLocale: labelsForCandidate(candidate),
+      sourceFields: sourceFields.length ? sourceFields : old?.sourceFields || ['category'],
+      matchLabels: matchLabels.length ? matchLabels : old?.matchLabels || [candidate.label],
+      firstPublishedAt: old?.firstPublishedAt || report.generatedAt,
+      status: 'active',
+    });
+  }
+
+  for (const old of previousHubs) {
+    if (qualifyingSlugs.has(old.slug)) continue;
+    // The report is capped. An absent slug may have fallen below MAX_CANDIDATES
+    // rather than lost its live inventory, so only an observed miss advances
+    // the retirement lifecycle.
+    const current = currentBySlug.get(old.slug);
+    if (!current && report.candidates.length >= MAX_CANDIDATES) {
+      hubs.push(old);
+      continue;
+    }
+    // Missing candidate rows are not zero demand, even when another candidate
+    // has data in a globally complete source. Wait for candidate-level evidence
+    // before advancing an otherwise active publication toward retirement.
+    // Older reports have no row-presence flag, so retain positive metrics only
+    // when their corresponding source is known complete.
+    const legacyCandidateHasMeasuredTraffic = current?.hasCompleteTrafficEvidence === undefined && current && (
+      (sources.popularityFresh && current.activeJobsWithViews > 0)
+      || (sources.ga4Complete && current.ga4Sessions28d > 0)
+      || (sources.gscPageImpressionsComplete && current.gscJobPageImpressions28d > 0)
+    );
+    if (current && current.hasCompleteTrafficEvidence !== true && !legacyCandidateHasMeasuredTraffic
+      && current.activeJobCount >= MIN_REVIEW_JOBS) {
+      hubs.push(old);
+      continue;
+    }
+    const status = old.status === 'active' ? 'cooling-off'
+      : old.status === 'cooling-off' ? 'retired'
+      : 'retired';
+    hubs.push(status === old.status ? old : { ...old, status });
+  }
+
+  hubs.sort((a, b) => a.slug.localeCompare(b.slug));
+  const unchanged = previous?.schemaVersion === 1 && previous.sourceWeek
+    && samePublicationState(previous.hubs, hubs);
+  if (unchanged) return previous;
+  return {
+    schemaVersion: 1,
+    generatedAt: report.generatedAt,
+    sourceWeek: report.week,
+    hubs,
   };
 }

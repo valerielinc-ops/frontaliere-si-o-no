@@ -44,6 +44,8 @@ import { isAustrianBorderMunicipalityPath } from './austrianBorderMunicipalityDa
 import { isBorderMunicipalityPath, isBorderMunicipalityHubPath } from './borderMunicipalityData';
 import { isBorderWaitPath } from './borderWaitData';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
+import { parseAutoSectorHubPath } from './shared/autoSectorHubPaths';
+import autoSectorHubPublicationRegistry from '../data/sector-hub-publications.json';
 
 type SupportedLocale = CantonLocale;
 
@@ -118,6 +120,29 @@ const SELF_MAPPABLE_SECTOR_HUB_SLUGS: Record<SupportedLocale, ReadonlySet<string
  const s = new Set<string>();
  for (const key of SECTOR_HUB_KEYS) s.add(SECTOR_HUB_SLUG[locale][key]);
  out[locale] = s;
+ }
+ return out;
+})();
+
+// Dynamic TI sector pages are emitted for every registered localized slug:
+// above the live-inventory floor as a full page and below it as a same-URL
+// noindex bridge. Precompute their route membership once so old Search Console
+// 404 snapshots resolve to the current page without rebuilding sets per URL.
+const SELF_MAPPABLE_AUTO_SECTOR_HUB_SLUGS: Record<SupportedLocale, ReadonlySet<string>> = (() => {
+ const data = autoSectorHubPublicationRegistry as {
+  hubs?: Array<{ slug?: unknown; routeKind?: unknown; labelByLocale?: Partial<Record<SupportedLocale, unknown>> }>;
+ };
+ const out = {} as Record<SupportedLocale, ReadonlySet<string>>;
+ const locales: SupportedLocale[] = ['it', 'en', 'de', 'fr'];
+ for (const locale of locales) {
+  const slugs = new Set<string>();
+  for (const hub of data.hubs || []) {
+   const slug = typeof hub.slug === 'string' ? hub.slug : '';
+   if (!slug || hub.routeKind === 'static-category') continue;
+   const localizedLabel = hub.labelByLocale?.[locale];
+   if (typeof localizedLabel === 'string' && localizedLabel.trim()) slugs.add(slug);
+  }
+  out[locale] = slugs;
  }
  return out;
 })();
@@ -554,6 +579,17 @@ export function resolveSearchConsoleCompatTarget(
  }
 
  const locale = inferLocale(path);
+
+ const localeParts = path.split('/').filter(Boolean);
+ if (locale !== 'it' && localeParts[0] === locale) localeParts.shift();
+ const autoSectorSlug = parseAutoSectorHubPath(localeParts, locale);
+ if (autoSectorSlug && SELF_MAPPABLE_AUTO_SECTOR_HUB_SLUGS[locale].has(autoSectorSlug)) {
+  return {
+   canonicalPath: ensureTrailingSlash(path),
+   kind: 'legacy',
+   locale,
+  };
+ }
 
  if (isEmittedEventArchivePath(path)) {
  return { canonicalPath: ensureTrailingSlash(path), kind: 'legacy', locale };

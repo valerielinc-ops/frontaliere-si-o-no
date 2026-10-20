@@ -8,23 +8,27 @@ import { DEFAULT_GA4_PROPERTY_ID, ga4DateRange } from './lib/ga4-service-account
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
   buildSectorHubDiscoveryReport,
+  buildAutomaticSectorHubPublicationRegistry,
   type DiscoveryJob,
   HUB_DISCOVERY_WINDOW_DAYS,
   type PreviousSectorHubCandidate,
   type TrafficSnapshot,
 } from './lib/sector-hub-discovery';
+import type { SectorHubPublicationRegistry } from '../data/sector-hub-publications';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_JOBS = path.join(ROOT, 'data/jobs.json');
 const DEFAULT_POPULARITY = path.join(ROOT, 'data/job-popularity.json');
 const DEFAULT_POPULARITY_META = path.join(ROOT, 'data/job-popularity.meta.json');
 const DEFAULT_OUTPUT = path.join(ROOT, 'data/sector-hub-candidates.json');
+const DEFAULT_PUBLICATIONS_OUTPUT = path.join(ROOT, 'data/sector-hub-publications.json');
 
 type Args = {
   jobsFile: string;
   popularityFile: string;
   popularityMetaFile: string;
   outputFile: string;
+  publicationsOutputFile: string;
   trafficInput?: string;
   trafficOutput?: string;
   windowDays: number;
@@ -37,6 +41,7 @@ function parseArgs(argv: string[]): Args {
     popularityFile: DEFAULT_POPULARITY,
     popularityMetaFile: DEFAULT_POPULARITY_META,
     outputFile: DEFAULT_OUTPUT,
+    publicationsOutputFile: DEFAULT_PUBLICATIONS_OUTPUT,
     windowDays: HUB_DISCOVERY_WINDOW_DAYS,
     help: false,
   };
@@ -45,6 +50,7 @@ function parseArgs(argv: string[]): Args {
     ['--popularity-file', 'popularityFile'],
     ['--popularity-meta-file', 'popularityMetaFile'],
     ['--output', 'outputFile'],
+    ['--publications-output', 'publicationsOutputFile'],
     ['--traffic-input', 'trafficInput'],
     ['--traffic-output', 'trafficOutput'],
   ]);
@@ -115,6 +121,7 @@ function usage(): string {
     '  --popularity-file <path>      Firestore job_views export',
     '  --popularity-meta-file <path> Popularity export metadata',
     '  --output <path>               Candidate report destination',
+    '  --publications-output <path>   Automatically promoted hub registry destination',
     `  --window-days <7..90>         Settled GA4/GSC traffic window (default: ${HUB_DISCOVERY_WINDOW_DAYS})`,
     '  --traffic-output <path>       Save the fetched evidence for a retry',
     '  --traffic-input <path>        Reuse a previously fetched evidence snapshot',
@@ -147,6 +154,7 @@ async function main() {
   const popularity = readJson<Record<string, number>>(args.popularityFile, {});
   const popularityMeta = readJson<{ scannedAt?: string }>(args.popularityMetaFile, {});
   const previous = readJson<{ candidates?: PreviousSectorHubCandidate[] }>(args.outputFile, {});
+  const previousPublications = readJson<SectorHubPublicationRegistry | null>(args.publicationsOutputFile, null);
   const report = buildSectorHubDiscoveryReport({
     jobs,
     popularity,
@@ -156,11 +164,16 @@ async function main() {
     now,
   });
   writeJsonAtomic(args.outputFile, report);
+  const publications = buildAutomaticSectorHubPublicationRegistry({ report, previous: previousPublications });
+  writeJsonAtomic(args.publicationsOutputFile, publications);
 
   const eligible = report.candidates.filter((candidate) => candidate.status === 'eligible-for-review').length;
   const promising = report.candidates.filter((candidate) => candidate.status === 'promising').length;
-  console.log(`[sector-hub-discovery] ${report.sourceCoverage.jobs.activeTicinoJobs} active TI ads; ${report.existingHubPerformance.length} curated hubs measured; ${report.candidates.length} candidates retained (${promising} promising, ${eligible} eligible for review).`);
-  console.log(`[sector-hub-discovery] GA4 ${report.sourceCoverage.ga4.status}; GSC ${report.sourceCoverage.gsc.status}; wrote ${path.relative(ROOT, args.outputFile)}.`);
+  const activePublications = publications.hubs.filter((hub) => hub.status === 'active').length;
+  const coolingPublications = publications.hubs.filter((hub) => hub.status === 'cooling-off').length;
+  console.log(`[sector-hub-discovery] ${report.sourceCoverage.jobs.activeTicinoJobs} active TI ads; ${report.existingHubPerformance.length} curated hubs measured; ${report.candidates.length} candidates retained (${promising} promising, ${eligible} sustained-gate candidates).`);
+  console.log(`[sector-hub-discovery] ${activePublications} automatic hubs active, ${coolingPublications} cooling off; GA4 ${report.sourceCoverage.ga4.status}; GSC ${report.sourceCoverage.gsc.status}.`);
+  console.log(`[sector-hub-discovery] wrote ${path.relative(ROOT, args.outputFile)} and ${path.relative(ROOT, args.publicationsOutputFile)}.`);
 }
 
 main().catch((error) => {
