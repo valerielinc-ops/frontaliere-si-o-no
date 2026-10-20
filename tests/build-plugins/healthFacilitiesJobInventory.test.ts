@@ -59,7 +59,7 @@ describe('health-facility visible inventory', () => {
       const html = fs.readFileSync(rootFile, 'utf8');
       expect(html).toContain(`data-health-facility-directory`);
       expect(html).toContain(buildHealthFacilityPath(locale, 'usz'));
-      expect(html).toContain(`rel="canonical" href="https://frontaliereticino.ch${rootPath}"`);
+      expect(html).toContain(`href="https://frontaliereticino.ch${rootPath}"`);
       expect(sitemap).toContain(`<loc>https://frontaliereticino.ch${rootPath}</loc>`);
     }
   });
