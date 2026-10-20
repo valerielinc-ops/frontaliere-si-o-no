@@ -163,6 +163,28 @@ describe('slug-preservation-guard (issue #5157)', () => {
     expect(next.jobs[0].previousSlugsByLocale.en).toContain('old-en');
   });
 
+  it('recaptures an active slug when the same text moves to another locale', () => {
+    const previousValue = {
+      jobs: [{ id: 'j1', slugByLocale: { en: 'shared-slug' } }],
+    };
+    const next = {
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { it: 'shared-slug' },
+        previousSlugsByLocale: { en: [] as string[] },
+      }],
+    };
+
+    const result = preserveSlugHistory(SLICE, next, {
+      previousValue,
+      denylist: new Set(),
+    });
+
+    expect(next.jobs[0].previousSlugsByLocale.en).toContain('shared-slug');
+    expect(result.restored).toBe(1);
+    expect(result.capTrimmed).toBe(0);
+  });
+
   it('never resurrects slugs on the decontamination denylist (#4055/#4056)', () => {
     const poison = 'individual-customer-advisor-lugano-f-m-80-100-banca-cler-8440-iva-che';
     const next = bancaClerAfterUnguarded();
@@ -286,6 +308,53 @@ describe('slug-preservation-guard (issue #5157)', () => {
       expect(next.jobs[0].previousSlugsByLocale.en).toContain(indexedHistorySlug);
       expect(next.jobs[0].previousSlugsByLocale.en).toHaveLength(GUARD_PER_LOCALE_CAP);
       expect(result.restored).toBe(2);
+      expect(result.capTrimmed).toBe(0);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      _resetGscIndexedSlugsCache();
+    }
+  });
+
+  it('does not evict an active route already moved into history while recapturing GSC history', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-preservation-historic-active-before-gsc-'));
+    const dataDir = path.join(root, 'data');
+    fs.mkdirSync(dataDir, { recursive: true });
+    const activeSlug = 'active-route-moved-to-history';
+    const indexedHistory = Array.from({ length: GUARD_PER_LOCALE_CAP - 1 }, (_, i) => `indexed-history-${i}`);
+    const missingIndexedSlug = 'indexed-history-to-recapture';
+    const previousHistory = [missingIndexedSlug, ...indexedHistory];
+    const nextHistory = [activeSlug, ...indexedHistory];
+    fs.writeFileSync(path.join(dataDir, 'gsc-job-urls.json'), '[]');
+    fs.writeFileSync(
+      path.join(dataDir, 'gsc-orphan-job-slugs.json'),
+      JSON.stringify([missingIndexedSlug, ...indexedHistory]),
+    );
+    const previousValue = {
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { en: activeSlug },
+        previousSlugsByLocale: { en: previousHistory },
+      }],
+    };
+    const next = {
+      jobs: [{
+        id: 'j1',
+        slugByLocale: { en: 'replacement-route' },
+        previousSlugsByLocale: { en: nextHistory },
+      }],
+    };
+
+    try {
+      const result = preserveSlugHistory(SLICE, next, {
+        previousValue,
+        denylist: new Set(),
+        root,
+      });
+
+      expect(next.jobs[0].previousSlugsByLocale.en).toContain(activeSlug);
+      expect(next.jobs[0].previousSlugsByLocale.en).toContain(missingIndexedSlug);
+      expect(next.jobs[0].previousSlugsByLocale.en).toHaveLength(GUARD_PER_LOCALE_CAP + 1);
+      expect(result.restored).toBe(1);
       expect(result.capTrimmed).toBe(0);
     } finally {
       fs.rmSync(root, { recursive: true, force: true });

@@ -239,21 +239,26 @@ export function isGuardedSlicePath(filePath) {
   return normalized.includes(GUARDED_DIR) && normalized.endsWith('.json');
 }
 
+/** Route identity includes locale: equal slug text under `/en/` and `/it/` is
+ * still two independently reachable URLs. */
+function slugRouteKey(locale, slug) {
+  return JSON.stringify([locale, slug]);
+}
+
 /**
- * Every slug a job can still serve: active master slug, active per-locale
- * slugs, flat `previousSlugs`, and every `previousSlugsByLocale` bucket.
+ * Every route a job can still serve, retaining separate locale routes when
+ * their slug text is equal. A flat legacy slug is attributed to a real locale
+ * when that same slug already has locale-specific storage.
  *
  * @param {object} job
- * @returns {Map<string, string|null>} slug → locale it is attributed to
- *          (null = unattributed / flat legacy entry)
+ * @returns {Map<string, {slug: string, locale: string|null}>}
  */
-export function reachableSlugs(job) {
+function reachableSlugRoutes(job) {
   const out = new Map();
   const add = (slug, locale) => {
     const norm = normalize(slug);
     if (!norm) return;
-    // First attribution wins, but a real locale always beats `null`.
-    if (!out.has(norm) || (out.get(norm) === null && locale !== null)) out.set(norm, locale);
+    out.set(slugRouteKey(locale, norm), { slug: norm, locale });
   };
 
   add(job?.slug, 'it'); // master slug serves the IT path
@@ -268,6 +273,29 @@ export function reachableSlugs(job) {
   }
   if (Array.isArray(job?.previousSlugs)) for (const s of job.previousSlugs) add(s, null);
 
+  const localizedSlugs = new Set(
+    [...out.values()].filter((route) => route.locale !== null).map((route) => route.slug),
+  );
+  for (const [key, route] of out) {
+    if (route.locale === null && localizedSlugs.has(route.slug)) out.delete(key);
+  }
+
+  return out;
+}
+
+/**
+ * Backwards-compatible slug-only view for diagnostics and callers that do not
+ * need to distinguish equal slug text served under different locales.
+ *
+ * @param {object} job
+ * @returns {Map<string, string|null>} slug → locale it is attributed to
+ *          (null = unattributed / flat legacy entry)
+ */
+export function reachableSlugs(job) {
+  const out = new Map();
+  for (const { slug, locale } of reachableSlugRoutes(job).values()) {
+    if (!out.has(slug) || (out.get(slug) === null && locale !== null)) out.set(slug, locale);
+  }
   return out;
 }
 
@@ -281,17 +309,15 @@ function priorBucket(beforeJob, locale) {
   return out;
 }
 
-/** Slugs actively served by the prior version of a job (not its history). */
-function activeSlugs(job) {
-  const out = new Set();
-  const add = (slug) => {
+/** Routes actively served by the prior version of a job (not its history). */
+function activeSlugRoutes(job) {
+  const out = new Map();
+  const add = (slug, locale) => {
     const normalized = normalize(slug);
-    if (normalized) out.add(normalized);
+    if (normalized) out.set(slugRouteKey(locale, normalized), { slug: normalized, locale });
   };
-  add(job?.slug);
-  if (job?.slugByLocale && typeof job.slugByLocale === 'object') {
-    for (const slug of Object.values(job.slugByLocale)) add(slug);
-  }
+  add(job?.slug, 'it');
+  for (const locale of LOCALES) add(job?.slugByLocale?.[locale], locale);
   return out;
 }
 
@@ -315,14 +341,21 @@ function activeSlugs(job) {
  * published: make room by dropping the newest unindexed entry this write
  * introduced.
  *
- * @param {Set<string>} [protectedActiveSlugs] active slugs that must survive this write
+ * @param {Set<string>} [protectedActiveRoutes] active routes that must survive this write
+ * @param {string|null} [bucketLocale] locale of the history bucket; null for the flat legacy mirror
  * @returns {{ next: string[], outcome: 'present'|'restored'|'cap-trim' }}
  */
-function bankPreservingHistory(slug, bucket, prior, cap, gscEvidence, protectedActiveSlugs = new Set()) {
-  const mustPreserve = protectedActiveSlugs.has(normalize(slug));
+function bankPreservingHistory(slug, bucket, prior, cap, gscEvidence, protectedActiveRoutes = new Set(), bucketLocale = null) {
   const isGscIndexed = (value) => !gscEvidence.complete
     || gscEvidence.slugs.has(normalize(value).normalize('NFC'));
-  const isProtectedActive = (value) => protectedActiveSlugs.has(normalize(value));
+  const isProtectedActive = (value) => {
+    const normalized = normalize(value);
+    if (bucketLocale === null) {
+      return LOCALES.some((locale) => protectedActiveRoutes.has(slugRouteKey(locale, normalized)));
+    }
+    return protectedActiveRoutes.has(slugRouteKey(bucketLocale, normalized));
+  };
+  const mustPreserve = isProtectedActive(slug);
   if (bucket.includes(slug)) return { next: bucket, outcome: 'present' };
   // Oldest-first position: a rescued slug is older than whatever is banked.
   if (bucket.length < cap) return { next: [slug, ...bucket], outcome: 'restored' };
@@ -332,8 +365,8 @@ function bankPreservingHistory(slug, bucket, prior, cap, gscEvidence, protectedA
   // evidence; if every entry is protected, let the proven route overflow the
   // soft cap. Current-GSC status is not required for an active route: the
   // active field itself proves that this URL was served before this write.
-  // Protect every such route together so later recaptures cannot evict an
-  // active route restored earlier in the same write.
+  // Protect every route active before the write, including one the payload
+  // already moved into history, so later recaptures cannot evict it.
   if (prior.length >= cap) {
     if (!mustPreserve && !isGscIndexed(slug)) return { next: bucket, outcome: 'cap-trim' };
     const victimIndex = bucket.findIndex((candidate) => !isGscIndexed(candidate) && !isProtectedActive(candidate));
@@ -366,7 +399,7 @@ function bankPreservingHistory(slug, bucket, prior, cap, gscEvidence, protectedA
  * destination bucket was already full BEFORE this write and the slug has no
  * current GSC evidence and was not an active route, or 'present' when already there.
  */
-function recapture(job, slug, locale, beforeJob, gscEvidence, protectedActiveSlugs = new Set()) {
+function recapture(job, slug, locale, beforeJob, gscEvidence, protectedActiveRoutes = new Set()) {
   const norm = normalize(slug);
   if (!norm) return 'present';
 
@@ -374,7 +407,7 @@ function recapture(job, slug, locale, beforeJob, gscEvidence, protectedActiveSlu
     // Unattributed legacy entry → flat array only.
     if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
     const { next, outcome } = bankPreservingHistory(
-      norm, job.previousSlugs, priorBucket(beforeJob, null), GUARD_LEGACY_CAP, gscEvidence, protectedActiveSlugs,
+      norm, job.previousSlugs, priorBucket(beforeJob, null), GUARD_LEGACY_CAP, gscEvidence, protectedActiveRoutes, null,
     );
     job.previousSlugs = next;
     if (outcome === 'cap-trim') {
@@ -394,7 +427,7 @@ function recapture(job, slug, locale, beforeJob, gscEvidence, protectedActiveSlu
     ? job.previousSlugsByLocale[locale]
     : [];
   const banked = bankPreservingHistory(
-    norm, bucket, priorBucket(beforeJob, locale), GUARD_PER_LOCALE_CAP, gscEvidence, protectedActiveSlugs,
+    norm, bucket, priorBucket(beforeJob, locale), GUARD_PER_LOCALE_CAP, gscEvidence, protectedActiveRoutes, locale,
   );
   job.previousSlugsByLocale[locale] = banked.next;
 
@@ -412,7 +445,7 @@ function recapture(job, slug, locale, beforeJob, gscEvidence, protectedActiveSlu
   // previousSlugsByLocale still emit the redirect.
   if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
   const mirrored = bankPreservingHistory(
-    norm, job.previousSlugs, priorBucket(beforeJob, null), GUARD_LEGACY_CAP, gscEvidence, protectedActiveSlugs,
+    norm, job.previousSlugs, priorBucket(beforeJob, null), GUARD_LEGACY_CAP, gscEvidence, protectedActiveRoutes, null,
   );
   job.previousSlugs = mirrored.next;
   return 'restored';
@@ -471,24 +504,24 @@ export function preserveSlugHistory(filePath, nextValue, opts = {}) {
     const before = previousByKey.get(key);
     if (!before) continue; // brand-new job — no history to lose
 
-    const beforeSlugs = reachableSlugs(before);
-    if (beforeSlugs.size === 0) continue;
-    const afterSlugs = reachableSlugs(job);
-    const beforeActiveSlugs = activeSlugs(before);
-    const protectedActiveSlugs = new Set(
-      [...beforeActiveSlugs].filter((slug) => (
-        !afterSlugs.has(slug) && !denylist.has(denylistKey(base, slug))
-      )),
+    const beforeRoutes = reachableSlugRoutes(before);
+    if (beforeRoutes.size === 0) continue;
+    const afterRoutes = reachableSlugRoutes(job);
+    const protectedActiveRoutes = new Set(
+      [...activeSlugRoutes(before)].filter(([, route]) => (
+        !denylist.has(denylistKey(base, route.slug))
+      )).map(([routeKey]) => routeKey),
     );
 
-    for (const [slug, locale] of beforeSlugs) {
-      if (afterSlugs.has(slug)) continue;
+    for (const [routeKey, route] of beforeRoutes) {
+      const { slug, locale } = route;
+      if (afterRoutes.has(routeKey)) continue;
       if (denylist.has(denylistKey(base, slug))) continue; // removed on purpose
 
       // The evidence snapshot can be several megabytes, so load it lazily and
       // only after a real candidate loss has been found in this write.
       gscEvidence ??= loadGscIndexedSlugEvidence(root);
-      const outcome = recapture(job, slug, locale, before, gscEvidence, protectedActiveSlugs);
+      const outcome = recapture(job, slug, locale, before, gscEvidence, protectedActiveRoutes);
       if (outcome === 'restored') {
         restored++;
         touched.add(key);
