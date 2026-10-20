@@ -26,7 +26,13 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fetchRetry, getServiceAccountToken } from './lib/ga4-service-account.mjs';
 import { buildNearWinQueries } from './lib/analytics-opportunity-utils.mjs';
-import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
+import {
+  assessGscFinalWindow,
+  gscCalendarDay as gscDay,
+  normalizeGscFirstIncompleteDate,
+  gscWindowDates,
+  shiftGscDay as shiftDay,
+} from './lib/gsc-final-window.mjs';
 
 const SITE = 'sc-domain:frontaliereticino.ch';
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -73,8 +79,6 @@ async function getToken() {
   );
 }
 
-const fmt = (d) => d.toISOString().slice(0, 10);
-
 function toCsvValue(value) {
   const s = String(value ?? '');
   return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
@@ -89,12 +93,7 @@ export const TOP50_SNIPPET_PAGES = [
   '/prezzi-benzina/oggi/', '/prezzi-diesel/oggi/', '/concorsi-pubblici-lugano/',
 ];
 export const TOP50_BASELINE = { start: '2026-09-01', end: '2026-09-30' };
-const DAY_MS = 86400000;
-const gscDay = (now) => new Intl.DateTimeFormat('en-CA', {
-  timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit',
-}).format(now);
-const shiftDay = (day, delta) => fmt(utcDaysBefore(new Date(`${day}T12:00:00Z`), -delta));
-const daysInWindow = (window) => Math.round((Date.parse(window.end) - Date.parse(window.start)) / DAY_MS) + 1;
+const daysInWindow = (window) => gscWindowDates(window).length;
 
 export function monitoringWindows(deployedAt, now = new Date()) {
   const settledThrough = shiftDay(gscDay(now), -2);
@@ -132,20 +131,29 @@ export async function exportPage({ page, window, token, rowLimit = DEFAULT_ROW_L
   // A fixed reporting lag is only the earliest attempt, never proof that
   // Google has finalized every day. Probe unfiltered site dates as Google
   // recommends: no impressions on one page must not look like missing data.
-  const dateProbe = await fetchImpl(endpoint, {
+  const dateProbeBody = { startDate: window.start, endDate: window.end, type: 'web', dimensions: ['date'], rowLimit: 25000 };
+  const metadataResponse = await fetchImpl(endpoint, {
     method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ startDate: window.start, endDate: window.end, type: 'web', dataState: 'all',
-      dimensions: ['date'], rowLimit: 25000 }),
+    body: JSON.stringify({ ...dateProbeBody, dataState: 'all' }),
   }, 2, 30000);
-  if (!dateProbe.ok) throw new Error(`GSC date availability probe failed (${dateProbe.status})`);
-  const dateData = await dateProbe.json();
-  const availableDates = new Set((dateData.rows || []).map((row) => row.keys[0]));
-  const expectedDates = Array.from({ length: daysInWindow(window) }, (_, i) => shiftDay(window.start, i));
-  const firstIncompleteDate = dateData.metadata?.first_incomplete_date || null;
-  const missingDates = expectedDates.filter((date) => !availableDates.has(date));
-  const settlement = { firstIncompleteDate, missingDates,
-    complete: missingDates.length === 0 && (!firstIncompleteDate || firstIncompleteDate > window.end),
-    probe: 'site dates, dataState=all; missing dates are unknown, not zero' };
+  if (!metadataResponse.ok) throw new Error(`GSC date metadata probe failed (${metadataResponse.status})`);
+  const metadataData = await metadataResponse.json();
+  const dateResponse = await fetchImpl(endpoint, {
+    method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ...dateProbeBody, dataState: 'final' }),
+  }, 2, 30000);
+  if (!dateResponse.ok) throw new Error(`GSC final date availability probe failed (${dateResponse.status})`);
+  const dateData = await dateResponse.json();
+  const metadataDates = (metadataData.rows || []).map((row) => row.keys[0]);
+  const { firstIncompleteDate, error: metadataError } = normalizeGscFirstIncompleteDate(metadataData.metadata);
+  const settlement = {
+    ...assessGscFinalWindow(window, {
+      availableDates: (dateData.rows || []).map((row) => row.keys[0]),
+      firstIncompleteDate,
+      metadataError,
+    }),
+    metadataProbe: { dataState: 'all', returnedDateRows: metadataDates.length, availableDates: metadataDates },
+  };
   const request = async (dimensions) => {
     const rows = [];
     let exhausted = false;
