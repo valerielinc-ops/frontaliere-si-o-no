@@ -8534,6 +8534,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.water-summit-zurich-2024.title': 'EurEau Water Summit a Zurigo: 60% acqua senza trattamento',
     'blog.article.water-summit-zurich-2024.excerpt': 'Siccità e inquinamento minacciano l\'acqua potabile Il summit riunisce esperti e gestori a Zurigo In Svizzera il 60% può avere zero o semplice trattamento L\'80%',
     'blog.article.water-summit-zurich-2024.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.accordo-commercio-elettronico-omc.title': 'Commercio elettronico: Svizzera avvia consultazione per l\'ACE',
+    'blog.article.accordo-commercio-elettronico-omc.excerpt': 'Consultazione avviata il 14 ottobre 2026 ACE tra 67 membri dell\'OMC Termine fissato al 28 gennaio 2027 Vietati i dazi sulle trasmissioni elettroniche Cosa →',
+    'blog.article.accordo-commercio-elettronico-omc.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

@@ -107817,6 +107817,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-accordo-commercio-elettronico-omc': {
+    title: 'Commercio elettronico: Svizzera avvia consultazione per l\'ACE',
+    description: 'Consultazione avviata il 14 ottobre 2026 ACE tra 67 membri dell\'OMC Termine fissato al 28 gennaio 2027 Vietati i dazi sulle trasmissioni elettroniche Cosa →',
+    keywords: 'frontalieri, ticino, svizzera, italia, commercio, elettronico, avvia, consultazione',
+    ogTitle: 'Commercio elettronico: Svizzera avvia consultazione per l\'ACE',
+    ogDescription: 'Consultazione avviata il 14 ottobre 2026 ACE tra 67 membri dell\'OMC Termine fissato al 28 gennaio 2027 Vietati i dazi sulle trasmissioni elettroniche Cosa →',
+    canonicalPath: '/articoli-svizzera/accordo-commercio-elettronico-omc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Commercio elettronico: Svizzera avvia consultazione per l'ACE",
+      "description": "Consultazione avviata il 14 ottobre 2026 ACE tra 67 membri dell'OMC Termine fissato al 28 gennaio 2027 Vietati i dazi sulle trasmissioni elettroniche Cosa →",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-accordo-commercio-elettronico-omc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-19T18:02:10+00:00",
+      "dateModified": "2026-10-19T18:02:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/accordo-commercio-elettronico-omc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -8534,6 +8534,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.water-summit-zurich-2024.title': 'EurEau Water Summit in Zürich: 60% Wasser ohne Aufbereitung',
     'blog.article.water-summit-zurich-2024.excerpt': 'Dürre und Verschmutzung bedrohen das Trinkwasser Der Gipfel bringt Experten und Wasserversorger in Zürich zusammen In der Schweiz kann 60% ohne oder mit einfacher Aufbereitung auskommen Die 80%',
     'blog.article.water-summit-zurich-2024.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.accordo-commercio-elettronico-omc.title': 'Elektronischer Handel: Schweiz leitet Konsultation zum ACE ein',
+    'blog.article.accordo-commercio-elettronico-omc.excerpt': 'Konsultation am 14.',
+    'blog.article.accordo-commercio-elettronico-omc.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

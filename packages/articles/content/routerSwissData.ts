@@ -2867,6 +2867,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'impatto-glp1-industria-alimentare': { it: 'impatto-glp1-industria-alimentare', en: 'glp1-impact-food-industry', de: 'glp1-einfluss-lebensmittelindustrie', fr: 'impact-glp1-industrie-alimentaire' },
  'lenu-referendum-firme-valide': { it: 'lenu-referendum-firme-valide', en: 'nuclear-law-referendum-successful', de: 'kernenergiegesetz-referendum-erfolgreich', fr: 'referendum-loi-energie-nucleaire-reussi' },
  'water-summit-zurich-2024': { it: 'water-summit-zurich-2024', en: 'eureau-water-summit-in-zurich-60-untreated-water', de: 'wasser-gipfel-zuerich-2024', fr: 'sommet-eau-zurich-2024' },
+ 'accordo-commercio-elettronico-omc': { it: 'accordo-commercio-elettronico-omc', en: 'e-commerce-agreement-wto', de: 'e-commerce-abkommen-wto', fr: 'accord-commerce-electronique-omc' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

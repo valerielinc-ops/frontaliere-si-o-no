@@ -8534,6 +8534,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.water-summit-zurich-2024.title': 'EurEau Water Summit à Zurich : 60% d’eau sans traitement',
     'blog.article.water-summit-zurich-2024.excerpt': 'La sécheresse et la pollution menacent l’eau potable Le sommet réunit des experts et des gestionnaires à Zurich En Suisse, 60% peuvent ne recevoir aucun traitement ou un traitement simple Les 80%',
     'blog.article.water-summit-zurich-2024.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.accordo-commercio-elettronico-omc.title': 'Commerce électronique : la Suisse lance une consultation sur l\'ACE',
+    'blog.article.accordo-commercio-elettronico-omc.excerpt': 'Consultation lancée le 14 octobre 2026 ACE entre 67 membres de l\'OMC Date limite fixée au 28 janvier 2027 Droits de douane interdits sur les transmissions électroniques Quoi →',
+    'blog.article.accordo-commercio-elettronico-omc.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

@@ -60154,6 +60154,302 @@
           "notes": "Generic synthetic editorial illustration of a water sustainability conference in Zurich with Alpine scenery; no readable text, logos, or identifiable people."
         }
       }
+    },
+    "generated:article-accordo-commercio-elettronico-omc": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T18:02:02.998Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-accordo-commercio-elettronico-omc",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "efc959423b7ab6b2ae16561dea35e737625ce47388457f905c2c7804ca9433b2",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "617cc90393b296b683c2d226ab932220586e5379b9a63e8565df1e0f64b5773d",
+        "bytes": 137080,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T18:02:02.998Z",
+        "verifiedAt": "2026-10-19T18:02:09.886Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-accordo-commercio-elettronico-omc.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic editorial illustration of a modern Swiss office building with abstract digital connectivity elements; no people, text, logos, or signage."
+        }
+      }
+    },
+    "generated:article-berna-governo-kita-gratuite": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T18:53:59.102Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-berna-governo-kita-gratuite",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "21f4012d744e76019fde21ec76755b867a971f9921972748f603ca6e40db777e",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "8da59e845fe42553881b052c3b3f9344d17696a1a96e754902aa199423dbeeb0",
+        "bytes": 176632,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T18:53:59.102Z",
+        "verifiedAt": "2026-10-19T18:54:07.032Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-berna-governo-kita-gratuite.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic editorial illustration of a childcare centre with arriving families; no readable text, logos, or identifiable people."
+        }
+      }
+    },
+    "generated:article-julmy-corsa-consiglio-stato": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T19:11:55.436Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-julmy-corsa-consiglio-stato",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "4989f4b447953127b344c0f0c03a20a1cbd338840db1185a1cb9c4590418e00f",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "59c829c4fbb2cea18faf06cf9cf3206a2dbccce5972c906882ac35fa17380dcc",
+        "bytes": 154838,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T19:11:55.436Z",
+        "verifiedAt": "2026-10-19T19:12:12.773Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-julmy-corsa-consiglio-stato.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic photorealistic Swiss street scene matching the requested editorial setting; no readable text, logos, people, or specific event."
+        }
+      }
+    },
+    "generated:article-proporz-gran-consiglio-appenzello": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-19T18:26:10.487Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-19",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-proporz-gran-consiglio-appenzello",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "12e0b28ed60294801b55ff31f72f3dbc97903ccfec01f9064eb8590d57c1637a",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "b13b3c05fb6281db0bc6f0e8ecf56f6706288ab54348ac927358355422075090",
+        "bytes": 170798,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-19T18:26:10.487Z",
+        "verifiedAt": "2026-10-19T18:26:19.376Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-proporz-gran-consiglio-appenzello.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Photorealistic synthetic editorial illustration of a quiet Appenzell civic square; no people, readable text, signage, logos, or event-specific documentation."
+        }
+      }
     }
   },
   "covers": {
@@ -65458,349 +65754,349 @@
     "bollettino-frontaliere-2026-08-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-09": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-12": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-19": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-20": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-21": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-22": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-23": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-24": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-25": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-26": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-27": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-28": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-29": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-30": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-31": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-01": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-02": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-03": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-05": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-06": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-07": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-12": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-15": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-19": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-20": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-21": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-22": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-23": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-24": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-25": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-26": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-27": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-28": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-29": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-30": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-01": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-02": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-03": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-04": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-05": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-06": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollini-rossi-traffico-san-gottardo-2026": {
@@ -98418,31 +98714,31 @@
     "bollettino-frontaliere-2026-10-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-15": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "article-agevolazioni-doganali-impiego": {
@@ -98688,13 +98984,13 @@
     "bollettino-frontaliere-2026-10-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "article-como-orabasta-famiglie": {
@@ -99570,7 +99866,7 @@
     "bollettino-frontaliere-2026-10-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-10-19",
+      "verifiedAt": "2026-10-20",
       "status": "no-credit"
     },
     "article-cassano-indagine-schianto": {
@@ -99743,6 +100039,22 @@
     },
     "article-water-summit-zurich-2024": {
       "file": "generated:article-water-summit-zurich-2024",
+      "modified": "resized"
+    },
+    "article-accordo-commercio-elettronico-omc": {
+      "file": "generated:article-accordo-commercio-elettronico-omc",
+      "modified": "resized"
+    },
+    "article-berna-governo-kita-gratuite": {
+      "file": "generated:article-berna-governo-kita-gratuite",
+      "modified": "resized"
+    },
+    "article-julmy-corsa-consiglio-stato": {
+      "file": "generated:article-julmy-corsa-consiglio-stato",
+      "modified": "resized"
+    },
+    "article-proporz-gran-consiglio-appenzello": {
+      "file": "generated:article-proporz-gran-consiglio-appenzello",
       "modified": "resized"
     }
   }
