@@ -48,6 +48,8 @@ function successfulBuilds(builds) {
       && text(run?.conclusion) === 'success'
       && text(run?.headBranch || run?.head_branch) === BRANCH
       && text(run?.headSha || run?.head_sha)
+      && text(run?.event)
+      && numericId(run?.workflowId || run?.workflow_id)
       && numericId(run?.id)
     ))
     .sort((a, b) => (
@@ -265,4 +267,3 @@ if (isInvokedDirectly(import.meta.url)) {
     process.exitCode = 1;
   });
 }
-

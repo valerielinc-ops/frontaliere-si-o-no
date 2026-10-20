@@ -122,7 +122,7 @@ describe('production promotion admission', () => {
     }).valid).toBe(false);
   });
 
-  it('ties post-deploy publishing to the canonical workflow_run caller', () => {
+  it('ties post-deploy publishing to the canonical caller and source build', () => {
     const buildSha = '0123456789abcdef0123456789abcdef01234567';
     // A reusable workflow inherits the caller's workflow_ref, so GitHub
     // reports deploy-publish.yml here rather than this callee's path.
@@ -147,7 +147,8 @@ describe('production promotion admission', () => {
     };
 
     expect(validateDeployPublishCaller(caller).valid).toBe(true);
-    expect(validateDeployPublishCaller({ ...caller, eventName: 'workflow_dispatch' }).valid).toBe(false);
+    expect(validateDeployPublishCaller({ ...caller, eventName: 'workflow_dispatch' }).valid).toBe(true);
+    expect(validateDeployPublishCaller({ ...caller, sourceRef: 'feature/not-main' }).valid).toBe(false);
     expect(validateDeployPublishCaller({
       ...caller,
       sourceWorkflowPath: '.github/workflows/other.yml',
@@ -168,6 +169,18 @@ describe('production promotion admission', () => {
     // gate, so admission has to be re-asserted in its own condition.
     expect(needs(workflow.jobs.rearm)).toContain('validate-promotion-trigger');
     expect(workflow.jobs.rearm.if).toContain("needs.validate-promotion-trigger.result == 'success'");
+  });
+
+  it('rechecks the dispatched source run before the publish plan can start', () => {
+    const workflow = readWorkflow('deploy-publish.yml');
+    const source = workflow.jobs['validate-source-build'];
+    const resolver = workflow.jobs['resolve-publish-plan'];
+
+    expect(findStep(source, 'trigger')).toBeDefined();
+    expect(findStep(source, 'source-run')).toBeDefined();
+    expect(JSON.stringify(source.steps)).toContain('.head_sha == $sha');
+    expect(needs(resolver)).toContain('validate-source-build');
+    expect(resolver.if).toContain("needs.validate-source-build.result == 'success'");
   });
 
   it('protects artifact restore before downloading or deploying', () => {
@@ -192,6 +205,8 @@ describe('production promotion admission', () => {
     expect(dispatch.inputs.source_run_id).toMatchObject({ required: true, type: 'string' });
     expect(dispatch.inputs.deploy_run_id).toBeUndefined();
     expect(workflowCallInputs).toMatchObject({
+      source_branch: { required: true, type: 'string' },
+      source_conclusion: { required: true, type: 'string' },
       source_workflow: { required: true, type: 'string' },
       source_workflow_path: { required: true, type: 'string' },
       source_workflow_id: { required: true, type: 'string' },
@@ -204,15 +219,22 @@ describe('production promotion admission', () => {
     expect(callerStep?.env?.PROMOTION_SOURCE_WORKFLOW_ID).toBe('${{ inputs.source_workflow_id }}');
     expect(callerStep?.env?.PROMOTION_SOURCE_EVENT).toBe('${{ inputs.source_event_name }}');
     expect(caller.with).toMatchObject({
-      source_workflow: '${{ github.event.workflow_run.name }}',
-      source_workflow_path: '${{ github.event.workflow_run.path }}',
-      source_workflow_id: '${{ github.event.workflow_run.workflow_id }}',
-      source_event_name: '${{ github.event.workflow_run.event }}',
+      source_branch: '${{ inputs.source_branch }}',
+      source_conclusion: '${{ inputs.source_conclusion }}',
+      source_workflow: '${{ inputs.source_workflow }}',
+      source_workflow_path: '${{ inputs.source_workflow_path }}',
+      source_workflow_id: '${{ inputs.source_workflow_id }}',
+      source_event_name: '${{ inputs.source_event_name }}',
     });
     expect(findStep(workflow.jobs['validate-recovery-trigger'], 'trigger')).toBeDefined();
     expect(findStep(workflow.jobs['validate-recovery-source'], 'source-run')).toBeDefined();
+    expect(findStep(workflow.jobs['validate-dispatch-caller'], 'caller')).toBeDefined();
+    expect(workflow.jobs['validate-dispatch-caller'].permissions.actions).toBe('read');
+    expect(workflow.jobs['validate-dispatch-caller'].steps.map((step: any) => step.name))
+      .toContain('Reconfirm canonical source build');
     expect(needs(publish)).toEqual(expect.arrayContaining([
       'validate-deploy-publish-caller',
+      'validate-dispatch-caller',
       'validate-recovery-source',
     ]));
     expect(publish.if).toContain("github.event_name == 'workflow_run'");

@@ -20,7 +20,6 @@ const build = (id: number, headSha: string, completedAt: string, conclusion = 's
   event: 'workflow_dispatch',
   completedAt,
 });
-
 const deployment = (sha: string, publishedAt: string) => ({ sha, publishedAt });
 
 describe('decideLatestPublish', () => {
@@ -124,4 +123,3 @@ describe('Pages publish queue wiring', () => {
     expect(publish).toContain('cancel-in-progress: false');
   });
 });
-

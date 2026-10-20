@@ -20,9 +20,10 @@ name: Post-deploy Publish (side-effects + mark good)
 # bad-dist URLs, baking the bad version into search engines.
 #
 # Inputs match validate-live (deploy_run_id + deploy_event_name) and carry the
-# complete source-workflow identity tuple. The caller must pass the tuple from
-# its `workflow_run` payload; recovery has a separate source-run input and
-# cannot select arbitrary artifacts.
+# complete source-workflow identity tuple. The caller passes the tuple from the
+# durable Pages publish coordinator; the caller gate and source-build gate have
+# already tied it to the canonical successful build. Recovery has a separate
+# source-run input and cannot select arbitrary artifacts.
 on:
   workflow_call:
     inputs:
@@ -39,20 +40,28 @@ on:
         required: false
         type: string
         default: ''
+      source_branch:
+        description: 'Branch of the canonical source build.'
+        required: true
+        type: string
+      source_conclusion:
+        description: 'Conclusion of the canonical source build.'
+        required: true
+        type: string
       source_workflow:
-        description: 'Canonical source workflow name from the workflow_run payload.'
+        description: 'Canonical source workflow name from the coordinator.'
         required: true
         type: string
       source_workflow_path:
-        description: 'Canonical source workflow path from the workflow_run payload.'
+        description: 'Canonical source workflow path from the coordinator.'
         required: true
         type: string
       source_workflow_id:
-        description: 'Immutable source workflow ID from the workflow_run payload.'
+        description: 'Immutable source workflow ID from the coordinator.'
         required: true
         type: string
       source_event_name:
-        description: 'Approved source event from the workflow_run payload.'
+        description: 'Approved source event from the coordinator.'
         required: true
         type: string
   workflow_dispatch:
@@ -64,7 +73,7 @@ on:
 
 jobs:
   validate-deploy-publish-caller:
-    name: validate deploy-publish workflow_run caller
+    name: validate legacy deploy-publish caller
     if: github.event_name == 'workflow_run'
     runs-on: ubuntu-latest
     permissions:
@@ -76,7 +85,7 @@ jobs:
           sparse-checkout: |
             /scripts/ci/production-promotion-gate.mjs
           sparse-checkout-cone-mode: false
-      - name: Reject non-canonical workflow_run caller
+      - name: Reject non-canonical legacy caller
         # Keep the source identity tuple together: the gate validates the
         # workflow name, canonical path, immutable ID, and approved event.
         env:
@@ -97,6 +106,85 @@ jobs:
           INPUT_DEPLOY_EVENT_NAME: ${{ inputs.deploy_event_name }}
           INPUT_DEPLOY_REF: ${{ inputs.deploy_ref }}
         run: node scripts/ci/production-promotion-gate.mjs caller
+
+  validate-dispatch-caller:
+    name: validate deploy-publish dispatch caller
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      github.workflow_ref == format('{0}/.github/workflows/deploy-publish.yml@refs/heads/main', github.repository)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+      - name: Reject non-canonical dispatch caller
+        env:
+          PROMOTION_EVENT: ${{ github.event_name }}
+          PROMOTION_CALLER_WORKFLOW: ${{ github.workflow }}
+          PROMOTION_CALLER_WORKFLOW_REF: ${{ github.workflow_ref }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          PROMOTION_SOURCE_REPOSITORY: ${{ github.repository }}
+          PROMOTION_SOURCE_REF: ${{ inputs.source_branch }}
+          PROMOTION_CONCLUSION: ${{ inputs.source_conclusion }}
+          PROMOTION_SOURCE_WORKFLOW: ${{ inputs.source_workflow }}
+          PROMOTION_SOURCE_WORKFLOW_PATH: ${{ inputs.source_workflow_path }}
+          PROMOTION_SOURCE_WORKFLOW_ID: ${{ inputs.source_workflow_id }}
+          PROMOTION_SOURCE_EVENT: ${{ inputs.source_event_name }}
+          PROMOTION_HEAD_SHA: ${{ inputs.deploy_ref }}
+          PROMOTION_SOURCE_RUN_ID: ${{ inputs.deploy_run_id }}
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          INPUT_DEPLOY_EVENT_NAME: ${{ inputs.deploy_event_name }}
+          INPUT_DEPLOY_REF: ${{ inputs.deploy_ref }}
+        run: node scripts/ci/production-promotion-gate.mjs caller
+
+      - name: Reconfirm canonical source build
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          SOURCE_RUN_ID: ${{ inputs.deploy_run_id }}
+          SOURCE_SHA: ${{ inputs.deploy_ref }}
+          SOURCE_BRANCH: ${{ inputs.source_branch }}
+          SOURCE_CONCLUSION: ${{ inputs.source_conclusion }}
+          SOURCE_EVENT_NAME: ${{ inputs.source_event_name }}
+          SOURCE_WORKFLOW: ${{ inputs.source_workflow }}
+          SOURCE_WORKFLOW_PATH: ${{ inputs.source_workflow_path }}
+          SOURCE_WORKFLOW_ID: ${{ inputs.source_workflow_id }}
+        run: |
+          set -euo pipefail
+          case "$SOURCE_RUN_ID" in
+            ''|*[!0-9]*)
+              echo '::error::source build run id must contain only decimal digits'
+              exit 1
+              ;;
+          esac
+          source_run_json="$RUNNER_TEMP/canonical-source-run.json"
+          gh api --method GET \
+            "repos/${PROMOTION_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" \
+            > "$source_run_json"
+          PROMOTION_SOURCE_RUN_ID="$SOURCE_RUN_ID" \
+            node scripts/ci/production-promotion-gate.mjs source-run < "$source_run_json"
+          jq -e \
+            --arg sha "$SOURCE_SHA" \
+            --arg branch "$SOURCE_BRANCH" \
+            --arg conclusion "$SOURCE_CONCLUSION" \
+            --arg event "$SOURCE_EVENT_NAME" \
+            --arg workflow "$SOURCE_WORKFLOW" \
+            --arg workflow_path "$SOURCE_WORKFLOW_PATH" \
+            --arg workflow_id "$SOURCE_WORKFLOW_ID" \
+            '(.head_sha == $sha) and
+             (.head_branch == $branch) and
+             (.conclusion == $conclusion) and
+             (.event == $event) and
+             (.name == $workflow) and
+             (.path == $workflow_path) and
+             ((.workflow_id | tostring) == $workflow_id)' \
+            "$source_run_json" >/dev/null
 
   validate-recovery-trigger:
     name: validate recovery promotion trigger
@@ -171,19 +259,31 @@ jobs:
   # layered on top: see tests/deploy-no-human-approval-gate.test.ts.
 
   publish:
-    needs: [validate-deploy-publish-caller, validate-recovery-source]
+    needs: [validate-deploy-publish-caller, validate-dispatch-caller, validate-recovery-source]
     if: >-
       always() &&
       ((github.event_name == 'workflow_run' &&
         needs.validate-deploy-publish-caller.result == 'success') ||
        (github.event_name == 'workflow_dispatch' &&
+        github.workflow_ref == format('{0}/.github/workflows/deploy-publish.yml@refs/heads/main', github.repository) &&
+        needs.validate-dispatch-caller.result == 'success') ||
+       (github.event_name == 'workflow_dispatch' &&
         github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository) &&
         needs.validate-recovery-source.result == 'success'))
     runs-on: ubuntu-latest
     env:
-      EFFECTIVE_DEPLOY_RUN_ID: ${{ github.event_name == 'workflow_dispatch' && inputs.source_run_id || inputs.deploy_run_id }}
-      EFFECTIVE_DEPLOY_EVENT_NAME: ${{ github.event_name == 'workflow_dispatch' && 'workflow_dispatch' || inputs.deploy_event_name }}
-      EFFECTIVE_DEPLOY_REF: ${{ github.event_name == 'workflow_dispatch' && needs.validate-recovery-source.outputs.head_sha || inputs.deploy_ref }}
+      EFFECTIVE_DEPLOY_RUN_ID: >-
+        ${{ github.event_name == 'workflow_dispatch' &&
+            github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository) &&
+            inputs.source_run_id || inputs.deploy_run_id }}
+      EFFECTIVE_DEPLOY_EVENT_NAME: >-
+        ${{ github.event_name == 'workflow_dispatch' &&
+            github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository) &&
+            'workflow_dispatch' || inputs.deploy_event_name }}
+      EFFECTIVE_DEPLOY_REF: >-
+        ${{ github.event_name == 'workflow_dispatch' &&
+            github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository) &&
+            needs.validate-recovery-source.outputs.head_sha || inputs.deploy_ref }}
     permissions:
       contents: write   # for git push in sync-previous-slug-winners
       actions: read     # for download-artifact same-run
@@ -229,7 +329,8 @@ jobs:
 
       # Small JSON artifacts only — NO github-pages download here. All keyed on
       # `deploy_run_id` (the BUILD run); run-id + token makes the fetch work both
-      # same-run (legacy caller) and cross-run (deploy-publish.yml workflow_run).
+      # same-run (legacy caller) and cross-run (coordinator-dispatched
+      # deploy-publish.yml).
       - name: Download pre-deploy sitemap snapshot (optional)
         uses: actions/download-artifact@v8
         continue-on-error: true

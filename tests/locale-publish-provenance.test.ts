@@ -489,6 +489,8 @@ describe('locale publish workflow wiring', () => {
     const deployJob = publish.jobs.deploy;
     const validateDist = publish.jobs['validate-dist'];
     expect(resolver).toBeDefined();
+    expect(resolver.needs).toBe('validate-source-build');
+    expect(String(resolver.if)).toContain("needs.validate-source-build.result == 'success'");
     expect(resolver.outputs.allowed).toContain('steps.plan.outputs.allowed');
     expect(resolver.outputs.recovery_required).toContain('steps.plan.outputs.recovery_required');
     expect(deployJob.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish']);

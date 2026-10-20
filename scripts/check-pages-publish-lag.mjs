@@ -3,15 +3,17 @@ import { realpathSync } from 'node:fs';
  * check-pages-publish-lag.mjs — Watchdog for the deploy→PUBLISH gap.
  *
  * `deploy.yml` only BUILDS and uploads a `github-pages` artifact. A separate
- * workflow, `deploy-publish.yml` (triggered via `workflow_run` on deploy.yml
- * completion), does the actual `actions/deploy-pages` PUBLISH in the
+ * workflow, `deploy-publish.yml` (explicitly dispatched by the durable
+ * coordinator after deploy.yml completion), does the actual
+ * `actions/deploy-pages` PUBLISH in the
  * deploy job's `concurrency: { group: pages-deploy, cancel-in-progress: false }`.
  * Per GitHub's documented 1-running+1-pending cap for a concurrency group, a
  * burst-triggered build completions (bot articles, jobs-sync,
  * dist-history-append commits...) can supersede pending publish attempts
  * before `actions/deploy-pages` ever runs — deploy-starvation. The build
- * request queue now coalesces those arrivals before `deploy.yml`, while this
- * watchdog still observes the independent publish tail.
+ * request queue coalesces arrivals before `deploy.yml`, and its publish
+ * reconciliation rechecks completed builds until the independent tail is
+ * admitted; this watchdog still observes that tail.
  *
  * Content is not permanently lost — a later successful publish carries every
  * earlier commit forward, since main is linear — but it can sit

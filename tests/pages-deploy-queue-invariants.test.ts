@@ -12,8 +12,8 @@
  * and another ten silent days.
  *
  * Two independent mechanisms, two groups of assertions:
- *   1) no-op `workflow_run` runs must not contend for the shared group, or they
- *      evict real publishes on arrival;
+ *   1) the dispatch-only handoff must admit only a successful source build, and
+ *      the Pages job must retain its shared lock;
  *   2) the unwedger must only ever cancel runs that have not started executing,
  *      or it becomes the cause of the errored-latch outage it exists to avoid.
  */
@@ -42,17 +42,12 @@ describe('deploy-publish.yml — pages-deploy concurrency', () => {
   const deploy = document.jobs.deploy;
   const group = deploy.concurrency?.group ?? '';
 
-  it('routes no-op runs (upstream build not successful) to a per-run group', () => {
-    // `workflow_run: types: [completed]` fires for CANCELLED builds too, and
-    // deploy.yml's own newest-wins lock cancels 121 of 141 builds per 48 h
-    // (#5251). Those runs skip every job — 200 of the last 300 runs here — but a
-    // run joins its concurrency group BEFORE any job `if:` is evaluated, and an
-    // arrival into a full group (1 running + 1 pending) cancels the pending
-    // member. Measured 2026-08-06: no-op 31100260885 arrived 12:10:14, killed
-    // pending run 31100206740 at 12:10:15, then skipped at 12:14:48.
-    expect(group).toContain('workflow_run.conclusion');
+  it('admits only an explicit successful source build to the shared group', () => {
+    // The publish workflow is dispatch-only. The coordinator filters cancelled
+    // and failed source builds before dispatch, while a blocked provenance plan
+    // still takes the unique no-op branch and cannot evict a real upload.
+    expect(group).toContain('inputs.source_conclusion');
     expect(group).toContain("'success'");
-    // …and the fallback must be unique per run, not another shared constant.
     expect(group).toContain('github.run_id');
   });
 
