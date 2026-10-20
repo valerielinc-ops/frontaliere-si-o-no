@@ -1024,7 +1024,7 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  },
  '/compara-servizi/costo-della-vita': {
  it: [
- 'Il confronto del costo vita svizzera vs italia e lo strumento piu importante per chi deve scegliere tra permesso G (residenza in Italia, pendolare) e permesso B (residenza in Svizzera). Vivere in Italia puo ridurre le spese fisse del 30-50% rispetto al Ticino, ma bisogna considerare i costi di trasporto e il <a href="https://frontaliereticino.ch/guida-frontaliere/tempi-attesa-dogana/">tempo perso alla dogana</a>.',
+ 'Il confronto del costo vita svizzera vs italia e lo strumento piu importante per chi deve scegliere tra permesso G (residenza in Italia, pendolare) e permesso B (residenza in Svizzera). Vivere in Italia puo ridurre le spese fisse del 30-50% rispetto al Ticino, ma bisogna considerare i costi di trasporto e il <a href="https://frontaliereticino.ch/traffico-dogane/">tempo perso alla dogana</a>.',
  'Il confronto copre affitti, spesa alimentare, trasporti, sanita e istruzione tra citta di frontiera come Lugano, Mendrisio, Como e Varese. Usa il nostro <a href="https://frontaliereticino.ch/calcola-stipendio/">calcolatore stipendio netto</a> per calcolare il tuo budget mensile effettivo come frontaliere.',
  'I <a href="https://frontaliereticino.ch/tasse-e-pensione/festivita-ticino/">giorni festivi in Ticino</a> influenzano anche il costo della vita: durante i ponti e le festivita i prezzi di trasporto e ristorazione possono aumentare significativamente nelle zone di frontiera.',
  ],

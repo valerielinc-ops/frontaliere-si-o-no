@@ -1428,7 +1428,7 @@ function renderSourceAttribution(events: SiteEvent[], copy: Copy, dateStamp: str
   const links = distinctEventSources(events)
     .map(
       (s) =>
-        `<a class="text-link hover:text-link-hover" href="${esc(s.homepage)}" rel="nofollow noopener" target="_blank">${esc(s.label)}</a>`,
+        `<a class="text-link hover:text-link-hover" href="${esc(s.homepage)}" rel="noopener" target="_blank">${esc(s.label)}</a>`,
     )
     .join(', ');
   return `${esc(copy.updated)}: <time datetime="${dateStamp}">${dateStamp}</time> · ${esc(copy.source)}: ${links}`;
@@ -1845,8 +1845,8 @@ function cardExcerpt(event: SiteEvent, locale: Locale): string {
 
 /**
  * One event card. When `detailHref` is provided the title links to OUR internal
- * event detail page (indexable, no nofollow); otherwise it falls back to the
- * external source URL (nofollow) — used for events without a comune that have no
+ * event detail page (indexable); otherwise it falls back to the external
+ * event URL (nofollow) — used for events without a comune that have no
  * detail page.
  */
 function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string | null): string {
@@ -3419,10 +3419,9 @@ interface DetailCopy {
  * suffix. 12 mirrors `composeSerpJobTitle`'s "meaningful role fragment"
  * floor (`roleBudget >= 12`, build-plugins/shared/titleSuffix.ts) — below
  * it the title collapses to a useless `…`/2-3 word stub while 20+ chars of
- * region boilerplate squat in the SERP. 12 also exactly preserves the
- * pre-#3799 output for every previously-healthy combo: the worst full-suffix
- * case that shipped correctly (fr/AR + "Herisau", 54-char suffix) leaves
- * precisely 12.
+ * region boilerplate squat in the SERP. Under the tighter 60-char event cap,
+ * the full suffix may be dropped for long canton names; the cascade still
+ * keeps the event title, comune and date ahead of region/brand boilerplate.
  */
 const MIN_DETAIL_TITLE_BUDGET = 12;
 
@@ -3443,7 +3442,7 @@ const MIN_DETAIL_TITLE_BUDGET = 12;
  * the `measureLength` pattern in {@link buildTitleWithBrand} /
  * {@link composeSerpJobTitle} (`titleSuffix.ts`). A raw `&`/`<`/`>`/`"` in a
  * crawled title (e.g. "Rock & Blues Night") expands on escape, so a title
- * that looks in-budget pre-escape can still overflow the 66-char cap
+ * that looks in-budget pre-escape can still overflow the 60-char event cap
  * post-escape. `truncateHeadline` itself truncates on RAW code units, so an
  * already-in-raw-budget title can still escape-overflow (a retained `&`
  * survives truncation) — shrink the raw ceiling and retry until the escaped
@@ -3461,17 +3460,22 @@ const MIN_DETAIL_TITLE_BUDGET = 12;
  * comune+canton combo (worst dataset case: the comune-less "other events"
  * bucket, where the comune IS the canton display label — fr/AR ` — Appenzell
  * Rhodes-Extérieures (Appenzell Rhodes-Extérieures) | Événements` is 75
- * chars, 9 past the cap on its own) previously clamped the budget to 1 and
- * emitted `'…' + suffix`, silently past TITLE_MAX_CHARS. Now the first
- * candidate leaving at least {@link MIN_DETAIL_TITLE_BUDGET} escaped chars
+ * chars, 15 past the new event cap on its own) previously clamped the budget
+ * to 1 and emitted `'…' + suffix`, pushing the output beyond the old
+ * 66-character cap. The first candidate leaving at least
+ * {@link MIN_DETAIL_TITLE_BUDGET} escaped chars
  * for the event title wins: region and brand are boilerplate (brand is
  * droppable per the `buildTitleWithBrand` policy, region is recoverable from
  * breadcrumb/H1/JSON-LD), the comune is the local-SEO signal and is always
  * kept. The final whole-string shrink loop is a last-resort cap guarantee
  * (mirrors `composePlaceTitle`'s `truncateHeadline` fallback) for a
  * pathological place name that overflows the cap even bare — the emitted
- * <title> can never exceed TITLE_MAX_CHARS.
+ * <title> can never exceed the event-detail cap, which is deliberately tighter
+ * than the site-wide character cap so these date-and-place suffixes fit the
+ * audit's narrower SERP pixel budget.
  */
+const EVENT_DETAIL_META_TITLE_MAX_CHARS = 60;
+
 function eventDetailMetaTitle(
   rawTitle: string,
   suffixes: readonly string[],
@@ -3497,7 +3501,7 @@ function eventDetailMetaTitle(
   // from truncating a 25-character event title merely to keep a brand label.
   const rawTitleBudget = esc(rawTitle).length;
   const firstMeaningfulIndex = datedSuffixes.findIndex(
-    (s) => TITLE_MAX_CHARS - esc(s).length >= MIN_DETAIL_TITLE_BUDGET,
+    (s) => EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(s).length >= MIN_DETAIL_TITLE_BUDGET,
   );
   let suffix = firstMeaningfulIndex >= 0
     ? datedSuffixes[firstMeaningfulIndex]
@@ -3509,20 +3513,20 @@ function eventDetailMetaTitle(
   // disambiguator than a complete but location-poor title.
   if (!preferBrandSuffix && dateToken && firstMeaningfulIndex >= 0 && firstMeaningfulIndex % 2 === 0) {
     const brandless = datedSuffixes[firstMeaningfulIndex + 1];
-    if (brandless && TITLE_MAX_CHARS - esc(brandless).length >= rawTitleBudget) suffix = brandless;
+    if (brandless && EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(brandless).length >= rawTitleBudget) suffix = brandless;
   }
-  const budget = Math.max(1, TITLE_MAX_CHARS - esc(suffix).length);
+  const budget = Math.max(1, EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length);
   let title = rawTitle;
   for (let max = budget; esc(title).length > budget && max > 0; max -= 1) {
     title = truncateHeadline(rawTitle, max);
   }
   const composed = `${title}${suffix}`;
-  if (esc(composed).length <= TITLE_MAX_CHARS) return composed;
+  if (esc(composed).length <= EVENT_DETAIL_META_TITLE_MAX_CHARS) return composed;
   // Unreachable for gazetteer/canton-label comuni (the bare ` — ${comune}`
   // candidate always leaves budget); guards pathological place names so the
   // deploy-blocking audit:title-length gate can never trip on this page type.
   let out = composed;
-  for (let max = TITLE_MAX_CHARS; esc(out).length > TITLE_MAX_CHARS && max > 0; max -= 1) {
+  for (let max = EVENT_DETAIL_META_TITLE_MAX_CHARS; esc(out).length > EVENT_DETAIL_META_TITLE_MAX_CHARS && max > 0; max -= 1) {
     out = truncateHeadline(composed, max);
   }
   return out;
@@ -3542,7 +3546,7 @@ function eventDateToken(startDate: string, endDate: string | undefined, locale: 
   }) || normalizedStart;
 }
 
-const EVENT_H1_MAX_CHARS = 120;
+const EVENT_H1_MAX_CHARS = 100;
 
 /** The visible heading carries the two facts that distinguish same-titled
  * events in the crawl: scheduled date and municipality. Keep the source title
@@ -3562,8 +3566,8 @@ function eventDetailHeading(rawTitle: string, dateToken: string, comune: string)
  * string `eventDetailMetaTitle` returned (assuming TI's short
  * "Ticino"/"Tessin"), with no re-check — a long canton display name (e.g.
  * "Appenzell Rhodes-Extérieures", 28 chars vs "Tessin"'s 6) silently pushed
- * the final `<title>` past TITLE_MAX_CHARS for every affected event-detail
- * page.
+ * the final `<title>` past the old 66-character cap for every affected
+ * event-detail page.
  *
  * #3799: each locale now returns a candidate CASCADE, longest first —
  * full (comune + region + brand) → drop the region parenthetical → bare
@@ -4413,6 +4417,7 @@ function patchInboundLink(distDir: string, relIndex: string, locale: Locale): bo
     <h2 class="text-2xl font-bold text-heading">${esc(copy.hubH1)}</h2>
     <p class="mt-2 max-w-3xl text-sm leading-6 text-body">${esc(copy.hubLede)}</p>
     <a class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor(locale, 'TI')}">${esc(copy.allEvents)} →</a>
+    <a class="mt-3 ml-4 inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${nationalIndexPath(locale)}">${esc(NATIONAL_COPY[locale].breadcrumbLabel)} →</a>
   </section>`;
   if (html.includes('</main>')) {
     html = html.replace('</main>', `${block}</main>`);

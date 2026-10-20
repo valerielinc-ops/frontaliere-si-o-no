@@ -2855,7 +2855,7 @@ const DESCRIPTION_CLOSINGS: Record<Locale, { apply: string; calculator: string; 
 };
 
 /**
- * Build the meta description (120-160 chars), from whole parts only: the
+ * Build the meta description (120-150 chars), from whole parts only: the
  * tagline, then as many top employers as fit (2 → 1 → 0, never a name cut
  * mid-word — production shipped "Universitäre Psych…"), then whole closing
  * sentences until the {@link META_DESCRIPTION_MIN_CHARS} floor.
@@ -2876,7 +2876,7 @@ export function buildClusterDescription(
   const closings = DESCRIPTION_CLOSINGS[locale];
   // Keep enough room for at least the shortest complete closing sentence. A
   // tagline at 118–119 chars otherwise leaves every whole closing over the
-  // 160-char cap, making the result violate the 120-char floor.
+  // 150-char cap, making the result violate the 120-char floor.
   const ordered = input.jobCount === 0
     ? [closings.calculator, closings.audience]
     : [closings.apply, closings.calculator, closings.audience];

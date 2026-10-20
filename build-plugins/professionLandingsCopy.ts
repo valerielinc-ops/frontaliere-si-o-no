@@ -1165,9 +1165,9 @@ const IT_SHELL: LocaleShell = {
     liveCount > 0
       ? `Lavoro da ${role} in Ticino: ${liveCount} offerte`
       : `Lavoro da ${role} in Ticino 2026`,
-  // Was 186 chars, so clampMetaDescription cut it at 160 and the trailing
-  // "Aggiornato <mese> <anno>." — the entire freshness signal — never reached
-  // the SERP. Both branches below stay under 160 with the month label intact.
+  // Was 186 chars, so the old 160-char clamp dropped its trailing freshness
+  // signal. Keep the useful context near the front; the shared 150-char render
+  // clamp is the final guard.
   descriptionTemplate: (role, median, liveCount) =>
     liveCount > 0
       ? `${liveCount} offerte di lavoro da ${role} in Ticino, aggiornate ${buildMonthYearLabel('it')}. Stima editoriale CHF ${median.toLocaleString('it-CH')}, CCL e riconoscimento del titolo italiano.`
