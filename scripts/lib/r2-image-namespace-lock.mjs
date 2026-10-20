@@ -8,6 +8,7 @@ export const IMAGE_LEASE_PROTOCOL_VERSION = 1;
 export const IMAGE_LOCK_KEY_PREFIX = 'internal/ci/image-namespace-locks';
 export const IMAGE_LOCK_LEASE_MS = 7 * 60 * 60 * 1000;
 export const IMAGE_LOCK_ACQUIRE_TIMEOUT_MS = 15 * 60 * 1000;
+export const IMAGE_LEASE_RELEASE_TIMEOUT_MS = 30_000;
 export const IMAGE_LOCK_POLL_MS = 5_000;
 export const IMAGE_LEASE_CONTEXT_ENV = 'FRONTALIERE_R2_IMAGE_LEASE_CONTEXT';
 
@@ -303,17 +304,15 @@ async function reconcileAmbiguousLeaseWrite(request, namespace, lease, error) {
 }
 
 async function acquisitionFailureAfterCleanup(namespace, lease, request, now, error, staleWriteConditions) {
-  let cleanupError;
-  try {
-    await releaseImageNamespaceLock(lease, {
-      request,
-      now,
-      fenceMissingCandidate: true,
-      staleWriteConditions,
-    });
-  } catch (caughtCleanupError) {
-    cleanupError = caughtCleanupError;
-  }
+  const cleanup = await releaseImageNamespaceLeasesWithDeadline([lease], {
+    request,
+    now,
+    fenceMissingCandidate: true,
+    staleWriteConditions,
+  });
+  const cleanupError = cleanup.status === 'released'
+    ? null
+    : cleanup.error ?? new Error(`[r2-image-namespace-lock] cleanup ${namespace} did not finish`);
   if (!cleanupError) return error;
 
   const acquisitionMessage = error instanceof Error ? error.message : String(error);
@@ -503,9 +502,15 @@ export async function acquireImageNamespaceLeases(namespaces, options = {}) {
   } catch (error) {
     const rollbackOptions = { ...options };
     delete rollbackOptions.signal;
-    try {
-      await releaseImageNamespaceLeases(acquired, rollbackOptions);
-    } catch (rollbackError) {
+    const rollbackTimeoutMs = rollbackOptions.rollbackTimeoutMs ?? IMAGE_LEASE_RELEASE_TIMEOUT_MS;
+    delete rollbackOptions.rollbackTimeoutMs;
+    const rollback = await releaseImageNamespaceLeasesWithDeadline(acquired, {
+      ...rollbackOptions,
+      timeoutMs: rollbackTimeoutMs,
+      perLease: true,
+    });
+    if (rollback.status !== 'released') {
+      const rollbackError = rollback.error ?? new Error('[r2-image-namespace-lock] rollback did not finish');
       const acquisitionMessage = error instanceof Error ? error.message : String(error);
       const rollbackMessage = rollbackError instanceof Error ? rollbackError.message : String(rollbackError);
       throw new AggregateError(
@@ -541,6 +546,7 @@ export async function releaseImageNamespaceLock(
   {
     request = createR2Request(),
     now = Date.now,
+    deadline,
     fenceMissingCandidate = false,
     staleWriteConditions = [],
   } = {},
@@ -554,6 +560,9 @@ export async function releaseImageNamespaceLock(
     throw new Error(`[r2-image-namespace-lock] candidate cleanup for ${parsedLease.namespace} requires acquiredAt`);
   }
   const namespace = normalized.namespace;
+  const releaseRequest = Number.isFinite(deadline)
+    ? (input) => request({ ...input, deadline })
+    : request;
   const candidateTombstone = tombstonePayload(normalized, now);
   let lastAttempt = null;
   let lastError = null;
@@ -561,7 +570,7 @@ export async function releaseImageNamespaceLock(
   for (let attempt = 0; attempt < IMAGE_LOCK_CLEANUP_ATTEMPTS; attempt += 1) {
     let current;
     try {
-      current = await readCurrentLease(request, namespace);
+      current = await readCurrentLease(releaseRequest, namespace);
     } catch (readError) {
       if (!lastAttempt) {
         const staleCondition = staleWriteConditions.find(({ payload }) => payload.expiresAt <= now());
@@ -621,7 +630,7 @@ export async function releaseImageNamespaceLock(
     }
 
     try {
-      const written = await putLease(request, namespace, lastAttempt.payload, lastAttempt.condition, 'release');
+      const written = await putLease(releaseRequest, namespace, lastAttempt.payload, lastAttempt.condition, 'release');
       if (written) return true;
       lastError = new Error(`[r2-image-namespace-lock] cleanup ${namespace} conflicted with a concurrent write`);
     } catch (writeError) {
@@ -638,7 +647,7 @@ export async function releaseImageNamespaceLock(
 
   let latest;
   try {
-    latest = await readCurrentLease(request, namespace);
+    latest = await readCurrentLease(releaseRequest, namespace);
   } catch (reconciliationError) {
     const errors = lastError ? [lastError, reconciliationError] : [reconciliationError];
     throw new AggregateError(
@@ -688,6 +697,67 @@ export async function releaseImageNamespaceLeases(leases, options = {}) {
     throw new AggregateError(errors, messages.join('; '), { cause: errors[0] });
   }
   return released;
+}
+
+/**
+ * Release image leases within one absolute budget. `perLease` starts each
+ * namespace independently so a slow lease cannot prevent the others starting.
+ */
+export async function releaseImageNamespaceLeasesWithDeadline(
+  leases,
+  {
+    timeoutMs = IMAGE_LEASE_RELEASE_TIMEOUT_MS,
+    perLease = false,
+    releaseImpl = releaseImageNamespaceLeases,
+    ...options
+  } = {},
+) {
+  if (!Array.isArray(leases)) throw new Error('[r2-image-namespace-lock] leases must be an array');
+  positiveDuration(timeoutMs, 'image lease release timeout');
+  if (leases.length === 0) return { status: 'released', timedOut: false, released: [] };
+
+  const deadline = Date.now() + timeoutMs;
+  const timeoutError = new Error(`[r2-image-namespace-lock] rilascio lease immagini oltre il limite (${timeoutMs}ms)`);
+  timeoutError.code = 'IMAGE_LEASE_RELEASE_TIMEOUT';
+  timeoutError.timeoutMs = timeoutMs;
+  const groups = perLease ? leases.map((lease) => [lease]) : [leases];
+  let timeoutId;
+  const timeout = new Promise((resolve) => {
+    timeoutId = setTimeout(() => resolve({ timedOut: true }), timeoutMs);
+  });
+  const work = Promise.allSettled(groups.map((group) => {
+    if (Date.now() >= deadline) return Promise.reject(timeoutError);
+    return Promise.resolve().then(() => releaseImpl(group, { ...options, deadline }));
+  })).then((results) => ({ timedOut: false, results }));
+  const outcome = await Promise.race([work, timeout]);
+  clearTimeout(timeoutId);
+  if (outcome.timedOut || Date.now() >= deadline) {
+    return { status: 'timeout', timedOut: true, released: null, error: timeoutError };
+  }
+
+  const released = [];
+  const errors = [];
+  for (const [index, result] of outcome.results.entries()) {
+    if (result.status === 'rejected') {
+      errors.push(result.reason);
+      continue;
+    }
+    if (Array.isArray(result.value)) released.push(...result.value);
+    else if (result.value === true) released.push(groups[index][0]?.namespace);
+  }
+  if (errors.length > 0) {
+    if (errors.some((error) => error?.code === 'R2_REQUEST_TIMEOUT'
+      || error?.code === 'IMAGE_LEASE_RELEASE_TIMEOUT')) {
+      return { status: 'timeout', timedOut: true, released: null, error: timeoutError };
+    }
+    return {
+      status: 'failed',
+      timedOut: false,
+      released,
+      error: new AggregateError(errors, errors.map((error) => error?.message ?? String(error)).join('; '), { cause: errors[0] }),
+    };
+  }
+  return { status: 'released', timedOut: false, released: released.filter(Boolean) };
 }
 
 function parseCommandOptions(command, args) {
