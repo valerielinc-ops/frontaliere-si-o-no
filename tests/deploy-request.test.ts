@@ -15,6 +15,7 @@ import {
 
 const HEAD = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 const OLD = 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
+const MID = 'cccccccccccccccccccccccccccccccccccccccc';
 
 const done = (id: number, headSha: string, conclusion: string) => ({
   id,
@@ -22,7 +23,7 @@ const done = (id: number, headSha: string, conclusion: string) => ({
   status: 'completed',
   conclusion,
 });
-const live = (id: number, status: string) => ({ id, headSha: HEAD, status, conclusion: null });
+const live = (id: number, status: string, headSha = HEAD) => ({ id, headSha, status, conclusion: null });
 
 describe('decideLatestDeploy', () => {
   it.each(['queued', 'in_progress', 'waiting', 'requested', 'pending'])('waits while a build is %s', (status) => {
@@ -30,6 +31,48 @@ describe('decideLatestDeploy', () => {
       action: 'skip',
       reason: 'pipeline-moving',
     });
+  });
+
+  it('queues the latest SHA behind an older build that is still running', () => {
+    expect(decideLatestDeploy({ headSha: HEAD, runs: [live(1, 'in_progress', OLD)] })).toMatchObject({
+      action: 'dispatch',
+      reason: 'queue-latest-behind-running-build',
+      headSha: HEAD,
+    });
+  });
+
+  it('replaces an obsolete pending SHA even when the latest SHA is already building', () => {
+    expect(decideLatestDeploy({
+      headSha: HEAD,
+      runs: [live(1, 'in_progress'), live(2, 'pending', OLD)],
+    })).toMatchObject({
+      action: 'dispatch',
+      reason: 'refresh-stale-pending',
+      headSha: HEAD,
+    });
+  });
+
+  it('refreshes a stale pending SHA even when the latest SHA reached its retry cap', () => {
+    expect(decideLatestDeploy({
+      headSha: HEAD,
+      runs: [
+        live(1, 'in_progress', OLD),
+        done(2, HEAD, 'failure'),
+        done(3, HEAD, 'failure'),
+        live(4, 'pending', OLD),
+      ],
+    })).toMatchObject({
+      action: 'dispatch',
+      reason: 'refresh-stale-pending',
+      headSha: HEAD,
+    });
+  });
+
+  it('does not queue a duplicate when the latest SHA is already pending behind an older build', () => {
+    expect(decideLatestDeploy({
+      headSha: HEAD,
+      runs: [live(1, 'in_progress', OLD), live(2, 'pending')],
+    })).toMatchObject({ action: 'skip', reason: 'pipeline-moving' });
   });
 
   it('dispatches the current tip after a burst superseded older commits', () => {
@@ -256,10 +299,52 @@ describe('the deploy request reads a queue larger than a pipe buffer', () => {
 
   it('still sees the live build in that listing and waits for it', () => {
     const runs = sixtyOldRuns();
-    runs[37] = { id: 999, head_sha: OLD, status: 'in_progress', conclusion: null };
+    runs[37] = { id: 999, head_sha: HEAD, status: 'in_progress', conclusion: null };
     const run = requestDeploy({ runs });
     expect(run.rawRunsBytes).toBeGreaterThan(DEFAULT_EXEC_BUFFER_BYTES);
     expect(run.output).toContain('→ skip (pipeline-moving)');
+    expect(run.status, run.output).toBe(0);
+    expect(run.calls.filter((call) => call[0] === 'workflow')).toHaveLength(0);
+  });
+
+  it('queues main behind a stale live build when deployable paths changed', () => {
+    const run = requestDeploy({
+      runs: [{ id: 999, head_sha: OLD, status: 'in_progress', conclusion: null }],
+      compareFiles: ['components/App.tsx'],
+      env: { DEPLOY_EVENT_NAME: 'schedule' },
+    });
+    expect(run.output).toContain('1 deploy-bound path(s) since newest live build 999');
+    expect(run.output).toContain('→ dispatch (queue-latest-behind-running-build)');
+    expect(run.status, run.output).toBe(0);
+    expect(run.calls).toContainEqual(['workflow', 'run', 'deploy.yml', '--repo', 'fixture/site', '--ref', 'main']);
+  });
+
+  it('compares a workflow_run completion to the newest live candidate, not its completed SHA', () => {
+    const run = requestDeploy({
+      runs: [
+        { id: 101, head_sha: MID, status: 'pending', conclusion: null },
+        { id: 100, head_sha: OLD, status: 'in_progress', conclusion: null },
+      ],
+      compareFiles: ['components/App.tsx'],
+      env: { DEPLOY_EVENT_NAME: 'workflow_run', DEPLOY_BUILT_SHA: OLD },
+    });
+    expect(run.output).toContain('1 deploy-bound path(s) since newest live build 101');
+    expect(run.output).toContain('→ dispatch (refresh-stale-pending)');
+    expect(run.calls).toContainEqual([
+      'api',
+      `repos/fixture/site/compare/${MID}...${HEAD}`,
+      '--jq',
+      COMPARE_FILES_PROJECTION,
+    ]);
+  });
+
+  it('keeps an older live candidate when main only changed ignored paths', () => {
+    const run = requestDeploy({
+      runs: [{ id: 999, head_sha: OLD, status: 'in_progress', conclusion: null }],
+      compareFiles: ['data/build-history/2026-10-08.json'],
+      env: { DEPLOY_EVENT_NAME: 'schedule' },
+    });
+    expect(run.output).toContain('→ skip (live-build-ignored-only)');
     expect(run.status, run.output).toBe(0);
     expect(run.calls.filter((call) => call[0] === 'workflow')).toHaveLength(0);
   });

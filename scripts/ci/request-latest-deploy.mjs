@@ -13,7 +13,9 @@ import { createdSinceQuery } from './lib/run-listing-window.mjs';
  * member when another event arrives. That is safe for a cheap job, but it
  * makes a six-hour production build look starved when main moves every few
  * minutes. This control-plane step never builds or publishes: it only starts
- * one build for the current tip when no build is live.
+ * one build for the current tip when it is not already the active or pending
+ * candidate. If main advances while a build is live, the dispatch becomes the
+ * latest pending candidate and replaces an obsolete pending run.
  */
 
 const LIVE_STATUSES = new Set([
@@ -53,22 +55,77 @@ export function decideLatestDeploy({
 
   const all = Array.isArray(runs) ? runs : [];
   const live = all.filter((run) => LIVE_STATUSES.has(String(run?.status || '')));
-  if (live.length > 0) {
+  const queued = live.filter((run) => String(run?.status || '') !== 'in_progress');
+  const staleQueued = queued.filter((run) => String(run?.headSha || '') !== head);
+
+  // A new dispatch does not interrupt the running build. With the shared
+  // `pages-build-run` group it takes the pending slot, replacing an older
+  // pending SHA so that the next build contains the latest deployable changes.
+  // This freshness repair deliberately precedes the per-SHA retry cap: leaving
+  // the stale pending run in place could publish that older SHA after this
+  // active run finishes. The replacement is bounded because the latest SHA
+  // then occupies the pending slot and the next reconcile skips it.
+  if (staleQueued.length > 0) {
+    return {
+      action: 'dispatch',
+      reason: 'refresh-stale-pending',
+      detail: `${staleQueued.length} pending deploy run(s) are behind main; dispatching ${head} to refresh the pending candidate`,
+      headSha: head,
+    };
+  }
+
+  if (queued.some((run) => String(run?.headSha || '') === head)) {
     return skip(
       'pipeline-moving',
-      `${live.length} deploy run(s) are already queued or running; waiting for the owner of the build lock`,
+      `the latest main SHA ${head} is already queued; waiting for the build lock`,
     );
   }
 
   const forHead = all.filter((run) => String(run?.headSha || '') === head);
-  if (forHead.some((run) => String(run?.conclusion || '') === 'success')) {
-    return skip('head-already-built', `${head} already has a successful build`);
+  const alreadyBuilt = forHead.some((run) => String(run?.conclusion || '') === 'success');
+  const staleRunning = live.some((run) => (
+    String(run?.status || '') === 'in_progress' && String(run?.headSha || '') !== head
+  ));
+
+  if (staleRunning && alreadyBuilt) {
+    return {
+      action: 'dispatch',
+      reason: 'queue-latest-behind-running-build',
+      detail: `an older build is still running; queueing ${head} behind it to keep the final candidate current`,
+      headSha: head,
+    };
+  }
+
+  if (!staleRunning && live.some((run) => (
+    String(run?.status || '') === 'in_progress' && String(run?.headSha || '') === head
+  ))) {
+    return skip('pipeline-moving', `the latest main SHA ${head} is already building`);
   }
 
   const cap = Number.isSafeInteger(maxBuildsPerSha) && maxBuildsPerSha > 0
     ? maxBuildsPerSha
     : DEFAULT_MAX_BUILDS_PER_SHA;
   const attempts = forHead.filter((run) => String(run?.status || '') === 'completed').length;
+
+  if (staleRunning) {
+    if (attempts >= cap) {
+      return skip(
+        'attempt-cap',
+        `${head} already has ${attempts} completed build attempt(s) (cap ${cap}); not queueing another attempt behind the older live build`,
+      );
+    }
+    return {
+      action: 'dispatch',
+      reason: 'queue-latest-behind-running-build',
+      detail: `an older build is running; dispatching ${head} as the next candidate`,
+      headSha: head,
+    };
+  }
+
+  if (alreadyBuilt) {
+    return skip('head-already-built', `${head} already has a successful build`);
+  }
+
   if (attempts >= cap) {
     return skip(
       'attempt-cap',
@@ -79,7 +136,7 @@ export function decideLatestDeploy({
   return {
     action: 'dispatch',
     reason: 'pipeline-idle',
-    detail: `no deploy run is live and ${head} has no successful build (${attempts} attempt(s)); dispatching one build`,
+    detail: `no deploy run covers ${head} and it has no successful build (${attempts} attempt(s)); dispatching one build`,
     headSha: head,
   };
 }
@@ -103,6 +160,14 @@ export function changedFilesRequiringDeploy(changedFiles, pathsIgnore) {
  */
 export const DEPLOY_RUNS_PROJECTION = '[.workflow_runs[] | {id, headSha: .head_sha, status, conclusion}]';
 export const COMPARE_FILES_PROJECTION = '{files: [.files[].filename], count: (.files | length)}';
+
+function newestLiveRun(runs) {
+  return (Array.isArray(runs) ? runs : [])
+    .filter((run) => LIVE_STATUSES.has(String(run?.status || '')))
+    .reduce((newest, run) => (
+      newest && Number(newest.id) > Number(run?.id) ? newest : run
+    ), null);
+}
 
 // The second line of defence, should a projection ever grow: execFileSync
 // stops reading at `maxBuffer`, 1 MiB when it is not given.
@@ -255,31 +320,38 @@ function main() {
     });
   }
 
-  // workflow_run has no paths filter. If main only moved through paths that
-  // the push trigger ignores since the completed build, do not re-arm a full
-  // Pages build for a data-only update. A compare failure is fail-closed and
-  // gets the same durable retry treatment as a queue read failure.
-  if (eventName === 'workflow_run' && completedBuildSha && completedBuildSha !== headSha) {
+  // Push ignores and workflow_run completions share one path check. When a
+  // build is already live, compare main to the newest live candidate: ignored
+  // data-only commits need not replace that candidate, but deployable commits
+  // must refresh it even while the older build is still running.
+  const latestLive = newestLiveRun(runs);
+  const compareBaseSha = String(latestLive?.headSha || '')
+    || (eventName === 'workflow_run' ? completedBuildSha : '');
+  if (compareBaseSha && compareBaseSha !== headSha) {
+    const compareLabel = latestLive
+      ? `newest live build ${latestLive.id}`
+      : `completed build ${completedBuildSha}`;
     try {
-      const comparison = changedFilesSince({ repo, baseSha: completedBuildSha, headSha });
+      const comparison = changedFilesSince({ repo, baseSha: compareBaseSha, headSha });
       const pending = changedFilesRequiringDeploy(comparison.files, deployRequestPathsIgnore());
       if (!comparison.truncated && pending.length === 0) {
-        const detail = `${headSha} only adds ${comparison.files.length} ignored path(s) since completed build ${completedBuildSha}`;
-        console.log(`[deploy-request] ${detail} → skip (workflow-run-ignored-only)`);
-        appendSummary(`✅ **Deploy request queue**: no action — workflow-run completion contains only ignored paths since \`${completedBuildSha}\`.`);
+        const reason = latestLive ? 'live-build-ignored-only' : 'workflow-run-ignored-only';
+        const detail = `${headSha} only adds ${comparison.files.length} ignored path(s) since ${compareLabel}`;
+        console.log(`[deploy-request] ${detail} → skip (${reason})`);
+        appendSummary(`✅ **Deploy request queue**: no action — changes since ${compareLabel} contain only ignored paths.`);
         return 0;
       }
       if (comparison.truncated) {
-        console.log('[deploy-request] compare response reached GitHub’s 300-file cap; re-arming conservatively');
+        console.log('[deploy-request] compare response reached GitHub’s 300-file cap; refreshing conservatively');
       }
-      console.log(`[deploy-request] workflow-run completion has ${pending.length} deploy-bound path(s) since ${completedBuildSha}`);
+      console.log(`[deploy-request] ${pending.length} deploy-bound path(s) since ${compareLabel}`);
     } catch (error) {
       return recoverAfterFailure({
         repo,
         workflow: 'deploy-request.yml',
         branch,
         headSha,
-        reason: 'workflow-run-path-compare-failed',
+        reason: 'deploy-path-compare-failed',
         error,
       });
     }
