@@ -388,15 +388,20 @@ async function parsePayload(
     || !isRecord(value.translations)) {
     throw new ArticleBodyApiError('invalid', 'Documento articolo non valido.');
   }
-  if (typeof value.meta.title !== 'string' || !value.meta.title.trim()
-    || typeof value.meta.excerpt !== 'string'
-    || (value.meta.imageAlt !== null && typeof value.meta.imageAlt !== 'string')) {
+  const metaTitle = value.meta.title;
+  const metaExcerpt = value.meta.excerpt;
+  const metaImageAlt = value.meta.imageAlt;
+  if (typeof metaTitle !== 'string' || !metaTitle.trim() || typeof metaExcerpt !== 'string') {
     throw new ArticleBodyApiError('invalid', 'Metadati articolo incompleti.');
   }
+  if (metaImageAlt !== null && typeof metaImageAlt !== 'string') {
+    throw new ArticleBodyApiError('invalid', 'Metadati articolo incompleti.');
+  }
+  const imageAlt: string | null = typeof metaImageAlt === 'string' ? metaImageAlt : null;
   const meta: ArticleBodyApiPayload['meta'] = {
-    title: value.meta.title,
-    excerpt: value.meta.excerpt,
-    imageAlt: value.meta.imageAlt,
+    title: metaTitle,
+    excerpt: metaExcerpt,
+    imageAlt,
   };
 
   const rawTranslations: Record<string, string> = {};
