@@ -291,6 +291,28 @@ function lockMatches(current, payload) {
   );
 }
 
+async function acquisitionFailureAfterCleanup(section, payload, request, error) {
+  let cleanupError;
+  try {
+    await releaseSectionLock(section, {
+      owner: payload.owner,
+      leaseId: payload.leaseId,
+      request,
+    });
+  } catch (caughtCleanupError) {
+    cleanupError = caughtCleanupError;
+  }
+  if (!cleanupError) return error;
+
+  const acquisitionMessage = error instanceof Error ? error.message : String(error);
+  const cleanupMessage = cleanupError instanceof Error ? cleanupError.message : String(cleanupError);
+  return new AggregateError(
+    [error, cleanupError],
+    `${acquisitionMessage}; candidate cleanup failed: ${cleanupMessage}`,
+    { cause: error },
+  );
+}
+
 async function reconcileAmbiguousLockWrite(request, section, payload, error) {
   let current;
   try {
@@ -349,59 +371,71 @@ export async function acquireSectionLock(
     expiresAt: startedAt + leaseMs,
   };
 
-  while (now() <= deadline) {
-    let currentAfterWrite;
-    let created;
-    try {
-      created = await putLock(request, section, payload, { name: 'if-none-match', value: '*' });
-    } catch (error) {
-      if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
-      const reconciled = await reconcileAmbiguousLockWrite(request, section, payload, error);
-      if (reconciled.lock) return reconciled.lock;
-      currentAfterWrite = reconciled.current;
-    }
-    if (created) {
-      return { section, owner, leaseId: payload.leaseId, key: lockKey(section), etag: created.etag };
-    }
-
-    const current = currentAfterWrite === undefined
-      ? await readCurrentLock(request, section)
-      : currentAfterWrite;
-    if (lockMatches(current, payload)) {
-      if (!current.etag) {
-        throw new Error(`[r2-section-lock] ${section} acquisition could not be confirmed with an ETag`);
-      }
-      return { section, owner, leaseId: payload.leaseId, key: lockKey(section), etag: current.etag };
-    }
-    if (!current) {
-      await sleep(100);
-      continue;
-    }
-    if (isLockExpired(current.payload, now())) {
-      if (!current.etag) {
-        throw new Error(`[r2-section-lock] lock ${section} has no ETag; refusing an unsafe takeover`);
-      }
-      let replacement;
+  let candidateMayExist = false;
+  try {
+    while (now() <= deadline) {
+      let currentAfterWrite;
+      let created;
       try {
-        replacement = await putLock(request, section, payload, { name: 'if-match', value: current.etag });
+        created = await putLock(request, section, payload, { name: 'if-none-match', value: '*' });
       } catch (error) {
         if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
+        candidateMayExist = true;
         const reconciled = await reconcileAmbiguousLockWrite(request, section, payload, error);
         if (reconciled.lock) return reconciled.lock;
+        currentAfterWrite = reconciled.current;
       }
-      if (replacement) {
-        return { section, owner, leaseId: payload.leaseId, key: lockKey(section), etag: replacement.etag };
+      if (created) {
+        candidateMayExist = true;
+        return { section, owner, leaseId: payload.leaseId, key: lockKey(section), etag: created.etag };
       }
-      continue;
+
+      const current = currentAfterWrite === undefined
+        ? await readCurrentLock(request, section)
+        : currentAfterWrite;
+      if (lockMatches(current, payload)) {
+        candidateMayExist = true;
+        if (!current.etag) {
+          throw new Error(`[r2-section-lock] ${section} acquisition could not be confirmed with an ETag`);
+        }
+        return { section, owner, leaseId: payload.leaseId, key: lockKey(section), etag: current.etag };
+      }
+      if (!current) {
+        await sleep(100);
+        continue;
+      }
+      if (isLockExpired(current.payload, now())) {
+        if (!current.etag) {
+          throw new Error(`[r2-section-lock] lock ${section} has no ETag; refusing an unsafe takeover`);
+        }
+        let replacement;
+        try {
+          replacement = await putLock(request, section, payload, { name: 'if-match', value: current.etag });
+        } catch (error) {
+          if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
+          candidateMayExist = true;
+          const reconciled = await reconcileAmbiguousLockWrite(request, section, payload, error);
+          if (reconciled.lock) return reconciled.lock;
+        }
+        if (replacement) {
+          candidateMayExist = true;
+          return { section, owner, leaseId: payload.leaseId, key: lockKey(section), etag: replacement.etag };
+        }
+        continue;
+      }
+
+      onWait({ section, owner: current.payload.owner, expiresAt: current.payload.expiresAt });
+      const remaining = deadline - now();
+      if (remaining <= 0) break;
+      await sleep(Math.min(pollMs, remaining));
     }
-
-    onWait({ section, owner: current.payload.owner, expiresAt: current.payload.expiresAt });
-    const remaining = deadline - now();
-    if (remaining <= 0) break;
-    await sleep(Math.min(pollMs, remaining));
+    throw new Error(`[r2-section-lock] timed out waiting for section ${section}`);
+  } catch (error) {
+    if (candidateMayExist) {
+      throw await acquisitionFailureAfterCleanup(section, payload, request, error);
+    }
+    throw error;
   }
-
-  throw new Error(`[r2-section-lock] timed out waiting for section ${section}`);
 }
 
 export async function acquireSectionLocks(sections, options = {}) {

@@ -12,6 +12,7 @@ export const IMAGE_LOCK_POLL_MS = 5_000;
 export const IMAGE_LEASE_CONTEXT_ENV = 'FRONTALIERE_R2_IMAGE_LEASE_CONTEXT';
 
 const CONTEXT_VERSION = 1;
+const IMAGE_LOCK_CLEANUP_ATTEMPTS = 4;
 const COMMAND_OPTION_RULES = new Map([
   ['acquire', { allowed: ['--namespace'], required: ['--namespace'] }],
   ['verify', { allowed: ['--namespace', '--context'], required: ['--namespace', '--context'] }],
@@ -216,7 +217,7 @@ async function readCurrentLease(request, namespace) {
   return { payload, etag: readHeader(response, 'etag') };
 }
 
-async function putLease(request, namespace, payload, condition) {
+async function putLease(request, namespace, payload, condition, operation = 'acquire') {
   const response = await request({
     method: 'PUT',
     key: imageNamespaceLockKey(namespace),
@@ -232,7 +233,7 @@ async function putLease(request, namespace, payload, condition) {
   }
   if (response.status === 409 || response.status === 412) return null;
   const body = await responseText(response);
-  throw r2ResponseError(`[r2-image-namespace-lock] acquire ${namespace} failed (${response.status}): ${body.slice(0, 300)}`, response.status);
+  throw r2ResponseError(`[r2-image-namespace-lock] ${operation} ${namespace} failed (${response.status}): ${body.slice(0, 300)}`, response.status);
 }
 
 function leaseMatches(current, lease) {
@@ -243,6 +244,25 @@ function leaseMatches(current, lease) {
       // the stable identity used for reconciliation and safe release.
       && current.payload.leaseId === lease.leaseId,
   );
+}
+
+function tombstonePayload(payload, now, { rotateEtag = false } = {}) {
+  const releasedAt = Math.max(
+    now(),
+    payload.acquiredAt,
+    rotateEtag && Number.isFinite(payload.releasedAt) ? payload.releasedAt + 1 : 0,
+  );
+  return { ...payload, releasedAt, expiresAt: releasedAt };
+}
+
+function matchingStaleWriteCondition(current, staleWriteConditions, now, { allowMissingEtag = false } = {}) {
+  if (!current || (!current.etag && !allowMissingEtag)) return null;
+  return staleWriteConditions.find(({ etag, payload }) => (
+    (!current.etag || etag === current.etag)
+      && payload.owner === current.payload.owner
+      && payload.leaseId === current.payload.leaseId
+      && current.payload.expiresAt <= now()
+  )) ?? null;
 }
 
 async function reconcileAmbiguousLeaseWrite(request, namespace, lease, error) {
@@ -268,6 +288,29 @@ async function reconcileAmbiguousLeaseWrite(request, namespace, lease, error) {
     return { current, lease: recoveredLease };
   }
   return { current, lease: null };
+}
+
+async function acquisitionFailureAfterCleanup(namespace, lease, request, now, error, staleWriteConditions) {
+  let cleanupError;
+  try {
+    await releaseImageNamespaceLock(lease, {
+      request,
+      now,
+      fenceMissingCandidate: true,
+      staleWriteConditions,
+    });
+  } catch (caughtCleanupError) {
+    cleanupError = caughtCleanupError;
+  }
+  if (!cleanupError) return error;
+
+  const acquisitionMessage = error instanceof Error ? error.message : String(error);
+  const cleanupMessage = cleanupError instanceof Error ? cleanupError.message : String(cleanupError);
+  return new AggregateError(
+    [error, cleanupError],
+    `[r2-image-namespace-lock] acquire ${namespace} failed; candidate cleanup also failed: ${cleanupMessage}; ${acquisitionMessage}`,
+    { cause: error },
+  );
 }
 
 async function confirmAcquiredLease(request, lease) {
@@ -315,77 +358,97 @@ export async function acquireImageNamespaceLock(
     expiresAt: acquiredAt + leaseMs,
   };
 
-  while (now() <= deadline) {
-    throwIfAborted(signal);
-    let currentAfterWrite;
-    let created;
-    try {
-      created = await putLease(request, namespace, lease, { name: 'if-none-match', value: '*' });
-    } catch (error) {
-      if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
-      const reconciled = await reconcileAmbiguousLeaseWrite(request, namespace, lease, error);
-      if (reconciled.lease) {
-        onLeaseWritten(reconciled.lease);
-        return reconciled.lease;
-      }
-      currentAfterWrite = reconciled.current;
-    }
-    if (created) {
-      const writtenLease = { ...lease, etag: created.etag };
-      // Record ownership before the confirmation read can fail: a successful
-      // PUT may have created a live lock even when its response is incomplete.
-      onLeaseWritten(writtenLease);
-      return confirmAcquiredLease(request, writtenLease);
-    }
-
-    throwIfAborted(signal);
-    const current = currentAfterWrite === undefined
-      ? await readCurrentLease(request, namespace)
-      : currentAfterWrite;
-    throwIfAborted(signal);
-    if (leaseMatches(current, lease)) {
-      if (!current.etag) {
-        throw new Error(`[r2-image-namespace-lock] ${namespace} acquisition could not be confirmed with an ETag`);
-      }
-      const recoveredLease = { ...lease, etag: current.etag };
-      onLeaseWritten(recoveredLease);
-      return recoveredLease;
-    }
-    if (!current) {
-      await waitForRetry(Math.min(100, Math.max(0, deadline - now())), sleep, signal);
-      continue;
-    }
-    if (current.payload.expiresAt <= now()) {
-      if (!current.etag) {
-        throw new Error(`[r2-image-namespace-lock] lock ${namespace} has no ETag; refusing an unsafe takeover`);
-      }
-      let replaced;
+  let candidateMayExist = false;
+  const staleWriteConditions = [];
+  try {
+    while (now() <= deadline) {
+      throwIfAborted(signal);
+      let currentAfterWrite;
+      let created;
       try {
-        replaced = await putLease(request, namespace, lease, { name: 'if-match', value: current.etag });
+        created = await putLease(request, namespace, lease, { name: 'if-none-match', value: '*' });
       } catch (error) {
         if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
+        candidateMayExist = true;
         const reconciled = await reconcileAmbiguousLeaseWrite(request, namespace, lease, error);
         if (reconciled.lease) {
           onLeaseWritten(reconciled.lease);
           return reconciled.lease;
         }
+        currentAfterWrite = reconciled.current;
       }
-      if (replaced) {
-        const writtenLease = { ...lease, etag: replaced.etag };
+      if (created) {
+        candidateMayExist = true;
+        const writtenLease = { ...lease, etag: created.etag };
+        // Record ownership before the confirmation read can fail: a successful
+        // PUT may have created a live lock even when its response is incomplete.
         onLeaseWritten(writtenLease);
-        return confirmAcquiredLease(request, writtenLease);
+        return await confirmAcquiredLease(request, writtenLease);
       }
+
       throwIfAborted(signal);
-      continue;
+      const current = currentAfterWrite === undefined
+        ? await readCurrentLease(request, namespace)
+        : currentAfterWrite;
+      throwIfAborted(signal);
+      if (leaseMatches(current, lease)) {
+        candidateMayExist = true;
+        if (!current.etag) {
+          throw new Error(`[r2-image-namespace-lock] ${namespace} acquisition could not be confirmed with an ETag`);
+        }
+        const recoveredLease = { ...lease, etag: current.etag };
+        onLeaseWritten(recoveredLease);
+        return recoveredLease;
+      }
+      if (!current) {
+        await waitForRetry(Math.min(100, Math.max(0, deadline - now())), sleep, signal);
+        continue;
+      }
+      if (current.payload.expiresAt <= now()) {
+        if (!current.etag) {
+          throw new Error(`[r2-image-namespace-lock] lock ${namespace} has no ETag; refusing an unsafe takeover`);
+        }
+        let replaced;
+        try {
+          replaced = await putLease(request, namespace, lease, { name: 'if-match', value: current.etag });
+        } catch (error) {
+          if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
+          candidateMayExist = true;
+          staleWriteConditions.push({ etag: current.etag, payload: current.payload });
+          const reconciled = await reconcileAmbiguousLeaseWrite(request, namespace, lease, error);
+          if (reconciled.lease) {
+            onLeaseWritten(reconciled.lease);
+            return reconciled.lease;
+          }
+        }
+        if (replaced) {
+          candidateMayExist = true;
+          const writtenLease = { ...lease, etag: replaced.etag };
+          onLeaseWritten(writtenLease);
+          return await confirmAcquiredLease(request, writtenLease);
+        }
+        throwIfAborted(signal);
+        continue;
+      }
+
+      onWait({ namespace, expiresAt: current.payload.expiresAt });
+      const remaining = deadline - now();
+      if (remaining <= 0) break;
+      await waitForRetry(Math.min(pollMs, remaining), sleep, signal);
     }
 
-    onWait({ namespace, expiresAt: current.payload.expiresAt });
-    const remaining = deadline - now();
-    if (remaining <= 0) break;
-    await waitForRetry(Math.min(pollMs, remaining), sleep, signal);
+    throw new Error(`[r2-image-namespace-lock] timed out waiting for namespace ${namespace}`);
+  } catch (error) {
+    if (!candidateMayExist) throw error;
+    throw await acquisitionFailureAfterCleanup(
+      namespace,
+      lease,
+      request,
+      now,
+      error,
+      staleWriteConditions,
+    );
   }
-
-  throw new Error(`[r2-image-namespace-lock] timed out waiting for namespace ${namespace}`);
 }
 
 export async function acquireImageNamespaceLeases(namespaces, options = {}) {
@@ -458,42 +521,130 @@ export async function verifyImageNamespaceLease(
 
 export async function releaseImageNamespaceLock(
   lease,
-  { request = createR2Request(), now = Date.now } = {},
+  {
+    request = createR2Request(),
+    now = Date.now,
+    fenceMissingCandidate = false,
+    staleWriteConditions = [],
+  } = {},
 ) {
-  const normalized = parseLeaseContext({ version: CONTEXT_VERSION, leases: [lease] }).leases[0];
-  const current = await readCurrentLease(request, normalized.namespace);
-  if (!current || !leaseMatches(current, normalized)) return false;
-  if (!current.etag) {
-    throw new Error(`[r2-image-namespace-lock] lock ${normalized.namespace} has no ETag; refusing an unsafe release`);
-  }
-  const releasedAt = Math.max(now(), current.payload.acquiredAt);
-  const tombstone = {
-    ...current.payload,
-    releasedAt,
-    expiresAt: releasedAt,
+  const parsedLease = parseLeaseContext({ version: CONTEXT_VERSION, leases: [lease] }).leases[0];
+  const normalized = {
+    ...parsedLease,
+    ...(Number.isFinite(lease.acquiredAt) ? { acquiredAt: lease.acquiredAt } : {}),
   };
-  const response = await request({
-    method: 'PUT',
-    key: imageNamespaceLockKey(normalized.namespace),
-    body: JSON.stringify(tombstone),
-    headers: {
-      'cache-control': 'no-store',
-      'content-type': 'application/json',
-      'if-match': current.etag,
-    },
-  });
-  if (response.status === 409 || response.status === 412) {
-    const latest = await readCurrentLease(request, normalized.namespace);
-    if (leaseMatches(latest, normalized)) {
-      throw new Error(`[r2-image-namespace-lock] release ${normalized.namespace} conflicted while this lease is still owned`);
+  if (fenceMissingCandidate && !Number.isFinite(normalized.acquiredAt)) {
+    throw new Error(`[r2-image-namespace-lock] candidate cleanup for ${parsedLease.namespace} requires acquiredAt`);
+  }
+  const namespace = normalized.namespace;
+  const candidateTombstone = tombstonePayload(normalized, now);
+  let lastAttempt = null;
+  let lastError = null;
+
+  for (let attempt = 0; attempt < IMAGE_LOCK_CLEANUP_ATTEMPTS; attempt += 1) {
+    let current;
+    try {
+      current = await readCurrentLease(request, namespace);
+    } catch (readError) {
+      if (!lastAttempt) {
+        const staleCondition = staleWriteConditions.find(({ payload }) => payload.expiresAt <= now());
+        if (staleCondition) {
+          lastAttempt = {
+            payload: tombstonePayload(staleCondition.payload, now, { rotateEtag: true }),
+            condition: { name: 'if-match', value: staleCondition.etag },
+            staleWriteCondition: true,
+          };
+        } else if (fenceMissingCandidate) {
+          lastAttempt = {
+            payload: candidateTombstone,
+            condition: { name: 'if-none-match', value: '*' },
+          };
+        } else {
+          throw readError;
+        }
+      }
+      lastError = lastError ? new AggregateError(
+        [lastError, readError],
+        `[r2-image-namespace-lock] cleanup ${namespace} could not reconcile a conditional write`,
+        { cause: lastError },
+      ) : readError;
     }
-    return false;
+
+    if (current) {
+      if (leaseMatches(current, normalized)) {
+        if (Number.isFinite(current.payload.releasedAt)) return true;
+        if (!current.etag) {
+          throw new Error(`[r2-image-namespace-lock] lock ${namespace} has no ETag; refusing an unsafe release`);
+        }
+        lastAttempt = {
+          payload: tombstonePayload(current.payload, now),
+          condition: { name: 'if-match', value: current.etag },
+        };
+      } else {
+        const staleCondition = matchingStaleWriteCondition(
+          current,
+          staleWriteConditions,
+          now,
+          { allowMissingEtag: true },
+        );
+        if (!staleCondition) return false;
+        lastAttempt = {
+          payload: tombstonePayload(staleCondition.payload, now, { rotateEtag: true }),
+          condition: { name: 'if-match', value: staleCondition.etag },
+          staleWriteCondition: true,
+        };
+      }
+    } else if (current === null) {
+      if (!fenceMissingCandidate) return false;
+      lastAttempt = {
+        payload: candidateTombstone,
+        condition: { name: 'if-none-match', value: '*' },
+      };
+    }
+
+    try {
+      const written = await putLease(request, namespace, lastAttempt.payload, lastAttempt.condition, 'release');
+      if (written) return true;
+      lastError = new Error(`[r2-image-namespace-lock] cleanup ${namespace} conflicted with a concurrent write`);
+    } catch (writeError) {
+      if (writeError?.r2Status !== undefined && writeError.r2Status < 500 && writeError.r2Status !== 408) {
+        throw writeError;
+      }
+      lastError = lastError ? new AggregateError(
+        [lastError, writeError],
+        `[r2-image-namespace-lock] cleanup ${namespace} encountered repeated ambiguous writes`,
+        { cause: lastError },
+      ) : writeError;
+    }
   }
-  if (response.status < 200 || response.status >= 300) {
-    const body = await responseText(response);
-    throw new Error(`[r2-image-namespace-lock] release ${normalized.namespace} failed (${response.status}): ${body.slice(0, 300)}`);
+
+  let latest;
+  try {
+    latest = await readCurrentLease(request, namespace);
+  } catch (reconciliationError) {
+    const errors = lastError ? [lastError, reconciliationError] : [reconciliationError];
+    throw new AggregateError(
+      errors,
+      `[r2-image-namespace-lock] cleanup ${namespace} could not confirm the final lease state`,
+      { cause: lastError ?? reconciliationError },
+    );
   }
-  return true;
+  if (latest && leaseMatches(latest, normalized) && Number.isFinite(latest.payload.releasedAt)) return true;
+  if (latest && !leaseMatches(latest, normalized)
+      && !matchingStaleWriteCondition(latest, staleWriteConditions, now, { allowMissingEtag: true })) return false;
+  if (!latest && !fenceMissingCandidate) return false;
+
+  const detail = latest
+    ? `lease ${latest.payload.leaseId} remains active or a takeover may still be pending`
+    : 'candidate absence is not fenced against a delayed acquisition write';
+  const unresolvedError = new Error(`[r2-image-namespace-lock] cleanup ${namespace} unresolved: ${detail}`);
+  throw lastError
+    ? new AggregateError(
+      [lastError, unresolvedError],
+      `[r2-image-namespace-lock] cleanup ${namespace} failed after ${IMAGE_LOCK_CLEANUP_ATTEMPTS} attempts`,
+      { cause: lastError },
+    )
+    : unresolvedError;
 }
 
 export async function releaseImageNamespaceLeases(leases, options = {}) {
