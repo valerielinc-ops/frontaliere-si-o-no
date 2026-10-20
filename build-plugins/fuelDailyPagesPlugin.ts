@@ -44,15 +44,11 @@ import { WriteCollector } from './batchWrite';
 import {
   FUEL_DAILY_LOCALES,
   FUEL_SITEMAP_FILES,
-  FUEL_LOCALE_PREFIX,
-  FUEL_SECTION_SLUG,
-  FUEL_TODAY_SLUG,
   FUEL_TYPES,
   FUEL_TYPE_LABEL,
   FUEL_ZONES,
   FUEL_ZONE_DISPLAY,
   FUEL_ITALIAN_CITIES,
-  FUEL_ITALY_SLUG,
   frFuelOf,
   frFuelThe,
   frFuelDe,
@@ -1790,7 +1786,7 @@ function renderPage(inp: PageInputs): string {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/` },
+      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${buildFuelTodayPath(locale, fuel)}` },
       { '@type': 'ListItem', position: 3, name: zoneLabel, item: canonicalUrl },
     ],
   });
@@ -2091,7 +2087,7 @@ function renderArchive(inp: ArchiveInputs): string {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/` },
+      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${buildFuelTodayPath(locale, fuel, zone)}` },
       { '@type': 'ListItem', position: 3, name: `${zoneLabel} ${monthKey}`, item: canonicalUrl },
     ],
   });
@@ -3058,7 +3054,7 @@ function renderStationPage(opts: {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: locale === 'it' ? 'Home' : locale === 'de' ? 'Startseite' : locale === 'fr' ? 'Accueil' : 'Home', item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/` },
+      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${buildFuelTodayPath(locale, fuel)}` },
       { '@type': 'ListItem', position: 3, name: zoneLabel, item: `${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}` },
       { '@type': 'ListItem', position: 4, name: ctx.brandDisplay + ' ' + ctx.streetDisplay, item: canonicalUrl },
     ],
@@ -3200,7 +3196,7 @@ function renderStationPage(opts: {
   <nav aria-label="Breadcrumb" class="s-bcr">
     <a href="/" class="s-bcl">Home</a>
     <span> / </span>
-    <a href="${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" class="s-bcl">${esc(fuelLabel)}</a>
+    <a href="${buildFuelTodayPath(locale, fuel)}" class="s-bcl">${esc(fuelLabel)}</a>
     <span> / </span>
     <a href="${buildFuelTodayPath(locale, fuel, ctx.zone)}" class="s-bcl">${esc(zoneLabel)}</a>
     <span> / </span>
@@ -3831,9 +3827,8 @@ function renderItalianCityPage(opts: {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: locale === 'it' ? 'Home' : locale === 'de' ? 'Startseite' : locale === 'fr' ? 'Accueil' : 'Home', item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/` },
-      { '@type': 'ListItem', position: 3, name: locale === 'it' ? 'Italia' : locale === 'de' ? 'Italien' : locale === 'fr' ? 'Italie' : 'Italy', item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_ITALY_SLUG[locale]}/` },
-      { '@type': 'ListItem', position: 4, name: entry.display, item: canonicalUrl },
+      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${buildFuelTodayPath(locale, fuel)}` },
+      { '@type': 'ListItem', position: 3, name: entry.display, item: canonicalUrl },
     ],
   });
 
@@ -3882,7 +3877,7 @@ function renderItalianCityPage(opts: {
   <nav aria-label="Breadcrumb" class="s-bcr">
     <a href="/" class="s-bcl">Home</a>
     <span> / </span>
-    <a href="${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" class="s-bcl">${esc(fuelLabel)}</a>
+    <a href="${buildFuelTodayPath(locale, fuel)}" class="s-bcl">${esc(fuelLabel)}</a>
     <span> / </span>
     <span>${esc(entry.display)}</span>
   </nav>
@@ -4832,10 +4827,9 @@ function renderItalianStationPage(opts: {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/` },
-      { '@type': 'ListItem', position: 3, name: copy.italyLabel, item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_ITALY_SLUG[locale]}/` },
-      { '@type': 'ListItem', position: 4, name: cityName, item: `${BASE_URL}${buildFuelItalianCityPath(locale, fuel, ctx.cityEntry.slug)}` },
-      { '@type': 'ListItem', position: 5, name: `${ctx.brandDisplay} ${ctx.streetDisplay}`.trim(), item: canonicalUrl },
+      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${buildFuelTodayPath(locale, fuel)}` },
+      { '@type': 'ListItem', position: 3, name: cityName, item: `${BASE_URL}${buildFuelItalianCityPath(locale, fuel, ctx.cityEntry.slug)}` },
+      { '@type': 'ListItem', position: 4, name: `${ctx.brandDisplay} ${ctx.streetDisplay}`.trim(), item: canonicalUrl },
     ],
   });
 
@@ -4965,7 +4959,7 @@ function renderItalianStationPage(opts: {
   <nav aria-label="Breadcrumb" class="s-bcr">
     <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" class="s-bcl">${esc(fuelLabel)}</a>
+    <a href="${buildFuelTodayPath(locale, fuel)}" class="s-bcl">${esc(fuelLabel)}</a>
     <span> / </span>
     <a href="${cityHubPath}" class="s-bcl">${esc(cityName)}</a>
     <span> / </span>
