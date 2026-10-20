@@ -1009,6 +1009,22 @@ function isTerminalNotFound(error) {
     && !error?.antiBotExhausted;
 }
 
+const DETAIL_NOT_FOUND_EXPECTED_FILTER_POLICY = 'expected-filter';
+const MIN_EXPECTED_DETAIL_NOT_FOUND_PUBLISHED = 10;
+
+/**
+ * A few employer indexes retain stale vacancy links after the detail is gone.
+ * This is an explicit source contract, not a generic 404 exemption: the
+ * caller must opt in and require enough independently publishable detail rows
+ * to prove that the index still serves the source's vacancy shape.
+ *
+ * @param {Record<string, any>} spec
+ * @returns {boolean}
+ */
+function allowsExpectedDetailNotFound(spec) {
+  return spec?.detailNotFoundPolicy === DETAIL_NOT_FOUND_EXPECTED_FILTER_POLICY;
+}
+
 function numericPathPage(url) {
   const match = String(url.pathname || '').match(/^(.*\/page\/)(\d+)(\/.*)?$/i);
   if (!match) return null;
@@ -1843,6 +1859,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
     let geographyDrops = 0;
     let descriptionDrops = 0;
     let detailCandidateDrops = 0;
+    let detailNotFound = 0;
     let detailTenantMatches = 0;
     let detailTenantMismatches = 0;
     let detailTenantMissing = 0;
@@ -1952,6 +1969,14 @@ export async function runSpecInProduction(spec, runtime = {}) {
           });
         } catch (err) {
           if (err?.antiBotExhausted) detailAntiBotFailures++;
+          // Some indexes keep withdrawn vacancy URLs in their listing for a
+          // while. A definitive 404 is an expected source filter only when the
+          // spec explicitly declares that contract; all other detail failures
+          // remain fail-closed parser/source evidence.
+          if (isTerminalNotFound(err) && allowsExpectedDetailNotFound(spec)) {
+            detailNotFound++;
+            continue;
+          }
           // A failed detail fetch/extraction carries no source-backed tenant
           // evidence. Never let index-only fields satisfy the detail gate.
           detailCandidateDrops++;
@@ -1986,12 +2011,26 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const expectedTenantFilters = detailTenantMatches > 0 ? detailTenantMismatches : 0;
     const unmatchedTenantFailures = detailTenantMatches > 0 ? 0 : detailTenantMismatches;
     const publishedRows = enriched.filter(Boolean);
-    const locationDenominator = Math.max(0, rows.length - expectedGeographyFilters - expectedTenantFilters);
+    const configuredMinimumPublished = Number(spec.detailNotFoundMinimumPublished);
+    const minimumPublishedForNotFoundFilter = Number.isInteger(configuredMinimumPublished)
+      && configuredMinimumPublished > 0
+      ? Math.max(MIN_EXPECTED_DETAIL_NOT_FOUND_PUBLISHED, configuredMinimumPublished)
+      : MIN_EXPECTED_DETAIL_NOT_FOUND_PUBLISHED;
+    const expectedNotFoundFilters = allowsExpectedDetailNotFound(spec)
+      && detailNotFound > 0
+      && publishedRows.length >= minimumPublishedForNotFoundFilter
+      ? detailNotFound
+      : 0;
+    const unexpectedNotFound = detailNotFound - expectedNotFoundFilters;
+    const locationDenominator = Math.max(
+      0,
+      rows.length - expectedGeographyFilters - expectedTenantFilters - expectedNotFoundFilters,
+    );
     const detailDrop = {
       candidates: locationDenominator,
-      gone: detailCandidateDrops + detailTenantMissing + unmatchedTenantFailures,
+      gone: detailCandidateDrops + detailTenantMissing + unmatchedTenantFailures + unexpectedNotFound,
       rejected: geographyDrops + descriptionDrops + titleDrops,
-      dropped: detailCandidateDrops + detailTenantMissing + unmatchedTenantFailures
+      dropped: detailCandidateDrops + detailTenantMissing + unmatchedTenantFailures + unexpectedNotFound
         + geographyDrops + descriptionDrops + titleDrops,
     };
     copySpecFetchMetadata(publishedRows, { detailDrop });
@@ -2019,7 +2058,8 @@ export async function runSpecInProduction(spec, runtime = {}) {
       && detailDrop.dropped > 0;
     const complete = snapshotAccepted && !allUnexpectedDropsNoOutput;
     const dropCounts = {
-      detail_fetch_or_extraction: detailCandidateDrops,
+      detail_fetch_or_extraction: detailCandidateDrops + unexpectedNotFound,
+      ...(expectedNotFoundFilters ? { detail_not_found_expected: expectedNotFoundFilters } : {}),
       tenant_identity_missing: detailTenantMissing + unmatchedTenantFailures,
       source_backed_geography_missing: geographyDrops,
       publishable_description_missing: descriptionDrops,
@@ -2041,10 +2081,11 @@ export async function runSpecInProduction(spec, runtime = {}) {
       promotionObservationComplete: complete,
       qualityDropDenominator: detailDrop.candidates,
       fetchOutcome: listingOutcome.outcome,
-      expectedFilterCount: expectedGeographyFilters + expectedTenantFilters,
+      expectedFilterCount: expectedGeographyFilters + expectedTenantFilters + expectedNotFoundFilters,
       expectedFilters: {
         source_geography: expectedGeographyFilters,
         tenant_scope: expectedTenantFilters,
+        detail_not_found: expectedNotFoundFilters,
       },
       dropCounts,
       sourceBackedLocationCount,

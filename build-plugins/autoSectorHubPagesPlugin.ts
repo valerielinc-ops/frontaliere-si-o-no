@@ -8,7 +8,7 @@ import {
   readAutoSectorHubInventory,
   type AutoSectorJob,
 } from './shared/autoSectorHubPublicationData';
-import { autoSectorHubUsesExistingCategoryPath, buildAutoSectorHubPath } from './shared/autoSectorHubPaths';
+import { autoSectorHubPathOwner, buildAutoSectorHubPath } from './shared/autoSectorHubPaths';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { renderJobCardListHtml, type JobCardJob, type JobCardListItem } from './shared/jobCardHtml';
@@ -323,7 +323,7 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
         // Existing static category pages already own these canonical URLs.
         // They may be auto-promoted into the sector index, but their HTML and
         // sitemap entries remain owned by jobsSeoPagesPlugin.
-        if (autoSectorHubUsesExistingCategoryPath(publication.routeKind)) continue;
+        if (autoSectorHubPathOwner(publication.routeKind) !== 'autoSectorHubPagesPlugin') continue;
         const jobs = jobsBySlug.get(publication.slug) || [];
         for (const locale of LOCALES) {
           if (!shouldEmitLocale(locale)) continue;

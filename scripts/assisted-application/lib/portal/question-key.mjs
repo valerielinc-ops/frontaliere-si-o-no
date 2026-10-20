@@ -32,10 +32,14 @@ export function portalQuestionId(question, context = '') {
   return normalizedPortalContext(surrounding) ? `${base}_${portalQuestionHash(label, surrounding)}` : base;
 }
 
-/** Dedupe reworded questions only when both their semantic topic and context match. */
+/** Dedupe reworded questions by a proven candidate fact; keep context when it selects which fact is meant. */
 export function portalQuestionKey(question, context = '') {
   const label = typeof question === 'object' ? question?.question : question;
   const surrounding = typeof question === 'object' ? question?.context : context;
   const topic = questionTopic(label, surrounding);
-  return topic ? `${topic}|${normalizedPortalContext(surrounding)}` : portalQuestionId(label, surrounding);
+  if (!topic) return portalQuestionId(label, surrounding);
+  const contextSensitive = /^(?:address|address_street|address_house_number|residence_|current_school$)/.test(topic);
+  return contextSensitive && normalizedPortalContext(surrounding)
+    ? `${topic}|${normalizedPortalContext(surrounding)}`
+    : topic;
 }

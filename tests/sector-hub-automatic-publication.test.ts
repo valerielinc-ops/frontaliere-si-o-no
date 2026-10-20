@@ -10,6 +10,13 @@ import {
   type DiscoveryJob,
   type TrafficSnapshot,
 } from '../scripts/lib/sector-hub-discovery';
+import {
+  JOB_CATEGORY_KEYS,
+  autoSectorHubPathOwner,
+  buildAutoSectorHubPath,
+  buildJobCategoryPath,
+} from '../build-plugins/shared/autoSectorHubPaths';
+import { SECTOR_HUB_SECTION } from '../build-plugins/shared/jobSectorPaths';
 
 const DESCRIPTION = Array.from({ length: 60 }, () => 'contenuto').join(' ');
 
@@ -34,6 +41,31 @@ function jobsForCategory(
 }
 
 describe('automatic sector hub publication', () => {
+  it('keeps static category paths owned by the job-board emitter in every locale', () => {
+    const locales = ['it', 'en', 'de', 'fr'] as const;
+    const cantonSections = {
+      it: ['cerca-lavoro-ticino', 'cerca-lavoro-zurigo'],
+      en: ['find-jobs-ticino', 'find-jobs-zurich'],
+      de: ['jobs-im-tessin', 'jobs-in-zurich'],
+      fr: ['trouver-emploi-tessin', 'trouver-emploi-zurich'],
+    } as const;
+
+    expect(autoSectorHubPathOwner('static-category')).toBe('jobsSeoPagesPlugin');
+    expect(autoSectorHubPathOwner('dynamic')).toBe('autoSectorHubPagesPlugin');
+
+    for (const locale of locales) {
+      for (const category of JOB_CATEGORY_KEYS) {
+        expect(buildAutoSectorHubPath(locale, category, 'static-category'))
+          .toBe(buildJobCategoryPath(locale, SECTOR_HUB_SECTION[locale], category));
+        for (const section of cantonSections[locale]) {
+          const path = buildJobCategoryPath(locale, section, category);
+          expect(path).toMatch(/^\/[^\s]+\/$/);
+          expect(path).not.toContain('//');
+        }
+      }
+    }
+  });
+
   it('publishes every candidate meeting the 5-ad, 2-employer and measured-traffic gates in the first report', () => {
     const now = new Date('2026-10-19T12:00:00.000Z');
     const jobs = [

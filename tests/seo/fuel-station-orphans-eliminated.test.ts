@@ -53,10 +53,12 @@ import {
   FUEL_ITALIAN_CITIES,
   buildFuelItalianCityPath,
   buildFuelStationPath,
+  isFuelDailyPath,
   type FuelDailyLocale,
   type FuelType,
 } from '../../build-plugins/fuelDailyData';
 import { generateFuelStationPages } from '../../build-plugins/fuelDailyPagesPlugin';
+import { extractFuelBreadcrumbTargets } from '../utils/fuelBreadcrumbs';
 import { createAuditor, MAX_HTML_BYTES } from '../../scripts/audit-page-weight.mjs';
 import {
   createAuditor as createTextHtmlRatioAuditor,
@@ -173,6 +175,18 @@ describe('fuel-station orphans — index pages exist for every locale × fuel', 
       }
     }
   }
+
+  it('breadcrumb targets use emitted fuel routes', () => {
+    for (const [path, html] of Object.entries(pages)) {
+      const targets = extractFuelBreadcrumbTargets(html);
+      expect(targets.jsonLd, `page ${path} has no JSON-LD breadcrumbs`).not.toHaveLength(0);
+      expect(targets.visible, `page ${path} has no visible breadcrumbs`).not.toHaveLength(0);
+      for (const target of [...targets.jsonLd, ...targets.visible]) {
+        if (target === '/') continue;
+        expect(isFuelDailyPath(target), `${path} breadcrumb target ${target}`).toBe(true);
+      }
+    }
+  });
 });
 
 describe('fuel-station orphans — every emitted leaf is linked from its index', () => {
