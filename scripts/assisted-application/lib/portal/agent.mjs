@@ -90,7 +90,7 @@ function optionAnswerMatches(expected, target) {
 }
 
 function hasLanguageActionAnswer(action) {
-  if (action.action === 'click' && !String(action.answer || '').trim()
+  if (action.action === 'click' && !String(action.question || '').trim() && !String(action.answer || '').trim()
     && (isWidgetNavigationTarget(action.value)
       || (isAddLanguageTarget(action.value) && languageActionKind(action).languageLabelOnly))) return false;
   if (action.action === 'press' && !String(action.answer || '').trim()
@@ -416,19 +416,19 @@ async function describe(locator) {
 
 /** Why the action must not run on this element, or '' (the runner alone moves on and submits). */
 export function refusal(action, info) {
-  const { languageIntent, languageAbility, languageLabelOnly } = languageActionKind(action);
-  const languageAction = languageIntent || languageAbility || languageLabelOnly;
+  const { languageIntent, languageAbility, languageLabelOnly, languageContextPresent } = languageActionKind(action);
+  const languageAction = languageIntent || languageAbility || languageLabelOnly || languageContextPresent;
   if (action.action === 'press' && languageIntent) {
     return 'language_choice_keyboard_selection_unsupported';
   }
-  if (action.action === 'press' && (languageAbility || languageLabelOnly) && action.value === 'Enter') {
+  if (action.action === 'press' && languageAction && action.value === 'Enter') {
     if (!String(action.answer || '').trim()) return 'language_answer_requires_candidate';
     if (!optionAnswerMatches(action.answer, info.name)) return 'answer_option_mismatch';
   }
   if (action.action === 'click' && languageAction) {
     const hasQuestion = Boolean(String(action.question || '').trim());
     const hasCandidateAnswer = Boolean(String(action.answer || '').trim());
-    if (!hasCandidateAnswer && isWidgetNavigationTarget(info.name)) {
+    if (!hasQuestion && !hasCandidateAnswer && isWidgetNavigationTarget(info.name)) {
       return '';
     }
     if (!hasQuestion && !hasCandidateAnswer && languageLabelOnly && isAddLanguageTarget(info.name)) {

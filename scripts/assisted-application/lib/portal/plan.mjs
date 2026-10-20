@@ -328,6 +328,11 @@ export function evidenceSupports(question, answer, evidence) {
   if (!value || !quote) return false;
   if (!YES_RE.test(value)) return quote.includes(value);
   const required = levelsIn(question);
+  // A generic ability question ("Do you speak German?") needs the
+  // candidate's own answer or an explicit language list, not an arbitrary
+  // quote such as a city name elsewhere in the CV. Quotes may support a
+  // proficiency answer only when the form asks for a level.
+  if (isLanguageAbilityQuestion(question) && !required.length) return false;
   if (required.length) {
     // Levels read only where the quote names the language asked: "Deutsch B2;
     // Englisch C2" holds no German C2 (second review of #10715).

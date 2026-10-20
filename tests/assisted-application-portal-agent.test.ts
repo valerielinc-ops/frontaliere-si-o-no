@@ -175,6 +175,17 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       questions: [expect.objectContaining({ question })],
     });
 
+    const unrelatedEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e21', action: 'click', value: 'Yes', question, answer: 'Yes', source: 'profile', evidence: 'Berlin',
+    })]), {
+      answers: {}, profile: { residenceCity: 'Berlin' }, portalQuestionsAnswered: [],
+    });
+    expect(unrelatedEvidence).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question })],
+    });
+
     const listed = {
       answers: {},
       profile: { languagesExplicitList: true, languages: [{ language: 'German', level: 'C1' }] },
@@ -198,6 +209,10 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     })]), candidate);
     expect(abilityNavigation).toMatchObject({ status: 'act', questions: [] });
     expect(refusal(abilityNavigation.actions[0], { name: 'Open options', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false })).toBe('');
+    expect(refusal(act({
+      action: 'click', value: 'Yes', context: 'Language answers', answer: 'Yes',
+    }), { name: 'No', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
+      .toBe('answer_option_mismatch');
 
     let navigationClicks = 0;
     const navigationLocator = {
