@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T21:15:47.242Z",
+  "generatedAt": "2026-10-20T08:22:55.192Z",
   "sourceWeek": "2026-W43",
   "hubs": [
     {
       "slug": "admin",
-      "routeKind": "static-category",
+      "routeKind": "dynamic",
       "label": "admin",
       "labelByLocale": {
         "it": "Amministrazione",
@@ -24,7 +24,7 @@
     },
     {
       "slug": "finance",
-      "routeKind": "static-category",
+      "routeKind": "dynamic",
       "label": "finance",
       "labelByLocale": {
         "it": "Finanza",
@@ -39,6 +39,39 @@
         "finance"
       ],
       "firstPublishedAt": "2026-10-19T21:15:47.242Z",
+      "status": "active"
+    },
+    {
+      "slug": "sanita-ospedali",
+      "routeKind": "dynamic",
+      "label": "Sanità / Ospedali",
+      "labelByLocale": {
+        "it": "Sanità / Ospedali"
+      },
+      "sourceFields": [
+        "category",
+        "sector"
+      ],
+      "matchLabels": [
+        "Sanità / Ospedali"
+      ],
+      "firstPublishedAt": "2026-10-20T08:22:55.192Z",
+      "status": "active"
+    },
+    {
+      "slug": "tecnica",
+      "routeKind": "dynamic",
+      "label": "Tecnica",
+      "labelByLocale": {
+        "it": "Tecnica"
+      },
+      "sourceFields": [
+        "category"
+      ],
+      "matchLabels": [
+        "Tecnica"
+      ],
+      "firstPublishedAt": "2026-10-20T08:22:55.192Z",
       "status": "active"
     }
   ]
