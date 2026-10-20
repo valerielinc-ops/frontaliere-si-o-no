@@ -143,6 +143,7 @@ const MorningDashboard = lazyRetry(() => import('@/components/vita/MorningDashbo
 const PharmacyDirectory = lazyRetry(() => import('@/components/pages/PharmacyDirectory'));
 // UserProfile component is lazy-loaded; utility functions loaded on demand
 const UserProfile = lazyRetry(() => import('@/components/pages/UserProfile'));
+const PaidAssistedApplicationsPage = lazyRetry(() => import('@/components/pages/PaidAssistedApplicationsPage'));
 const BlogArticles = lazyRetry(() => {
  // Prefetch blog meta translations + slug map in parallel with component
  // chunk. preloadBlogData is paired with every loadBlogMeta call site so
@@ -3323,7 +3324,9 @@ const App: React.FC = () => {
  </div>
  ) : activeTab === 'profile' ? (
  <div className="max-w-7xl mx-auto">
- <UserProfile />
+ {authUser && typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('profile_view') === 'applications'
+  ? <PaidAssistedApplicationsPage user={authUser} />
+  : <UserProfile />}
  </div>
  ) : activeTab === 'morning' ? (
  <div className="max-w-7xl mx-auto">

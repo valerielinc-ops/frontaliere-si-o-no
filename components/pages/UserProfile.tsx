@@ -23,7 +23,7 @@ import {
  Shield, Save, CheckCircle2, MapPin, Heart, Baby, Loader2, Edit3, Sparkles,
  Plus, Trash2, Calculator, BookOpen, ArrowRightLeft, Award,
  AlertCircle, Building2, Navigation, Globe, Banknote,
- Clock, FileCheck, Mail, ExternalLink, Newspaper, Bookmark,
+ Clock, FileCheck, Mail, ExternalLink, Newspaper, Bookmark, ChevronRight,
 } from 'lucide-react';
 import { useTranslation, type Locale, setLocale as setGlobalLocale, getLocale, LOCALE_LABELS } from '@/services/i18n';
 import { buildPath, ensureJobSlugMapLoaded, getApplicationConciergePath } from '@/services/router';
@@ -1628,6 +1628,30 @@ const UserProfile: React.FC = () => {
      </div>
    </div>
  </a>
+ )}
+
+ {user && (
+ <div className="mx-6 mt-4 border-y border-edge">
+   <a
+     href={`${buildPath({ activeTab: 'profile' }, locale)}?profile_view=applications`}
+     onClick={(event) => {
+       // profile_view is query state, not part of the SPA route model. Reload
+       // this same route so App reads the new view on mount.
+       event.preventDefault();
+       window.location.assign(event.currentTarget.href);
+     }}
+     className="flex min-h-16 items-center justify-between gap-4 py-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+   >
+     <span className="flex min-w-0 items-center gap-3">
+       <FileCheck size={18} className="shrink-0 text-accent" aria-hidden="true" />
+       <span className="min-w-0">
+         <span className="block text-sm font-semibold text-strong">{t('profile.paidApplications.linkTitle')}</span>
+         <span className="mt-0.5 block text-sm leading-5 text-subtle">{t('profile.paidApplications.linkSubtitle')}</span>
+       </span>
+     </span>
+     <ChevronRight size={18} className="shrink-0 text-accent" aria-hidden="true" />
+   </a>
+ </div>
  )}
 
  {cvProfile && (
