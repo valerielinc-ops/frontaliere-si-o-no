@@ -176,6 +176,88 @@ describe('Prospector discovery source outcomes', () => {
     expect(thirdRun.employers.map(({ name }) => name)).toEqual(['A', 'B']);
   });
 
+  it('preserves the last stable SECO head boundary across an all-malformed page', async () => {
+    const ad = (id: string) => ({
+      id,
+      jobAdvertisement: { jobContent: { company: { name: id }, jobDescriptions: [] } },
+    });
+    const malformedAd = { jobAdvertisement: { jobContent: { company: { name: 'No stable ID' } } } };
+    const firstRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      pageSize: 1,
+      maxPages: 1,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        return response(String(url), 200, JSON.stringify(page === 0 ? [ad('A')] : []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    const secondRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      headId: firstRun.headId,
+      startAfterId: firstRun.nextAfterId,
+      startPageHint: firstRun.nextAfterPageHint,
+      headSearchPages: 2,
+      pageSize: 1,
+      maxPages: 1,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        return response(String(url), 200, JSON.stringify([[ad('X')], [malformedAd], [ad('A')]][page] || []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(secondRun).toMatchObject({
+      outcome: 'partial', errorCode: 'head_cursor_not_found', headId: 'X', nextAfterId: 'X', nextAfterPageHint: 0,
+    });
+
+    const thirdRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      headId: secondRun.headId,
+      startAfterId: secondRun.nextAfterId,
+      startPageHint: secondRun.nextAfterPageHint,
+      pageSize: 1,
+      maxPages: 2,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        return response(String(url), 200, JSON.stringify([
+          [ad('X')], [malformedAd], [ad('Y')], [ad('A')], [ad('B')],
+        ][page] || []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(thirdRun.employers.map(({ name }) => name)).toEqual(['Y']);
+    expect(thirdRun).toMatchObject({ outcome: 'partial', nextAfterId: 'Y', nextAfterPageHint: 2 });
+  });
+
+  it('skips an SECO row without an ID and advances to the next stable ad', async () => {
+    const ad = (id: string) => ({
+      id,
+      jobAdvertisement: { jobContent: { company: { name: id }, jobDescriptions: [] } },
+    });
+    const result = await fetchSecoEmployers({
+      cantons: ['TI'],
+      pageSize: 3,
+      maxPages: 1,
+      fetchImpl: async (url) => response(String(url), 200, JSON.stringify([
+        ad('A'),
+        { jobAdvertisement: { jobContent: { company: { name: 'No stable ID' } } } },
+        ad('B'),
+      ])),
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(result.outcome).toBe('partial');
+    expect(result.employers.map(({ name }) => name)).toEqual(['A', 'B']);
+    expect(result).toMatchObject({ headId: 'A', nextAfterId: 'B', nextAfterPageHint: 0 });
+  });
+
   it('loads and saves per-canton SECO page cursors without sharing mutable defaults', () => {
     dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-seco-cursors-'));
     const cursorFile = path.join(dir, 'seco-page-cursors.json');

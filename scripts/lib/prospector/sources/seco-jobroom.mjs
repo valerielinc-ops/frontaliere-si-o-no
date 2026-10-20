@@ -134,7 +134,9 @@ export async function fetchSecoEmployers(opts = {}) {
     const id = advertisementId(row);
     if (!id) {
       malformedRows++;
-      return { ok: false, errorCode: 'missing_advertisement_id' };
+      // The row cannot become a cursor, but it must not hide later valid ads
+      // in the same page. Keep the run partial and advance on the next stable ID.
+      return { ok: true, skipped: true };
     }
     if (advanceCursor) {
       nextAfterId = id;
@@ -201,7 +203,7 @@ export async function fetchSecoEmployers(opts = {}) {
       if (!responsePage.ok) return failedOutcome(responsePage.outcome, responsePage.errorCode);
       const { batch } = responsePage;
       if (page === 0 && batch.length) {
-        firstId = advertisementId(batch[0]);
+        firstId = batch.map(advertisementId).find(Boolean) || null;
         if (!firstId) return failedOutcome('malformed', 'missing_advertisement_id');
       }
       if (!batch.length) { reachedEnd = true; break; }
@@ -214,8 +216,11 @@ export async function fetchSecoEmployers(opts = {}) {
         headId = firstId || savedHeadId;
         break;
       }
-      lastHeadScanId = advertisementId(batch[batch.length - 1]);
-      lastHeadScanPage = page;
+      const pageLastId = [...batch].reverse().map(advertisementId).find(Boolean);
+      if (pageLastId) {
+        lastHeadScanId = pageLastId;
+        lastHeadScanPage = page;
+      }
       if (batch.length < pageSize) { reachedEnd = true; break; }
     }
     if (!foundHead) {
@@ -324,7 +329,7 @@ export async function fetchSecoEmployers(opts = {}) {
       return finish();
     }
     if (page === 0) {
-      headId = advertisementId(batch[0]);
+      headId = batch.map(advertisementId).find(Boolean) || null;
       if (!headId) return finish('partial', 'missing_advertisement_id');
     }
     const processed = processRows(batch, page, 0, batch.length, true);
