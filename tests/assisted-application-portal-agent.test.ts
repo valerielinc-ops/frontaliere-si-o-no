@@ -365,6 +365,50 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: ambiguousLanguageCode })],
     });
 
+    const frenchDePreposition = 'Quel est votre niveau d’anglais et de compétence orale ?';
+    const supportedFrenchDePreposition = guardAgentStep(turn('act', [act({
+      ref: 'e40', action: 'select', value: 'C2', question: frenchDePreposition, answer: 'C2',
+      source: 'profile', evidence: 'English C2',
+    })]), {
+      answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
+    });
+    expect(supportedFrenchDePreposition).toMatchObject({
+      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+    });
+
+    const englishPronounIt = 'Can you speak English and use it?';
+    const supportedEnglishPronounIt = guardAgentStep(turn('act', [act({
+      ref: 'e41', action: 'select', value: 'Yes', question: englishPronounIt, answer: 'Yes',
+      source: 'profile', evidence: 'English C2',
+    })]), {
+      answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
+    });
+    expect(supportedEnglishPronounIt).toMatchObject({
+      status: 'act', actions: [expect.objectContaining({ value: 'Yes' })], questions: [],
+    });
+
+    const englishPronounItWithLevel = 'Can you read English and write it at C2 level?';
+    const supportedEnglishPronounItWithLevel = guardAgentStep(turn('act', [act({
+      ref: 'e42', action: 'select', value: 'C2', question: englishPronounItWithLevel, answer: 'C2',
+      source: 'profile', evidence: 'English C2',
+    })]), {
+      answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
+    });
+    expect(supportedEnglishPronounItWithLevel).toMatchObject({
+      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+    });
+
+    const englishPronounItAfterDo = 'Can you read English and do it at C2 level?';
+    const supportedEnglishPronounItAfterDo = guardAgentStep(turn('act', [act({
+      ref: 'e43', action: 'select', value: 'C2', question: englishPronounItAfterDo, answer: 'C2',
+      source: 'profile', evidence: 'English C2',
+    })]), {
+      answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
+    });
+    expect(supportedEnglishPronounItAfterDo).toMatchObject({
+      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+    });
+
     const atLeastUnknownLanguage = 'What is your German level and at least Xhosa?';
     const partialAtLeastUnknownLanguage = guardAgentStep(turn('act', [act({
       ref: 'e37', action: 'select', value: 'C2', question: atLeastUnknownLanguage, answer: 'C2',

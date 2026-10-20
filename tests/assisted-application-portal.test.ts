@@ -994,6 +994,10 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       'Level of German at C2 or higher?',
       'What is your German level, particularly in writing?',
       'What is your German level: C2 or at least B2?',
+      'Can you speak English and use it?',
+      'Can you read English and write it at C2 level?',
+      'Can you read English and do it at C2 level?',
+      'Quel est votre niveau d’anglais et de compétence orale ?',
       'Quel est votre niveau en allemand au C2?',
       'Niveau en allemand C2',
       'Qual è il livello di tedesco?',
@@ -1075,6 +1079,18 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       missingRequired: [],
     }, [ambiguousLanguageCode], { ...candidate, profile: { cvText: 'English C2' } });
     expect(partialAmbiguousLanguageCode.missingRequired).toEqual([expect.objectContaining({ fieldId: ambiguousLanguageCode.id })]);
+
+    const frenchDePreposition = {
+      id: 'french-de-preposition', kind: 'select',
+      label: 'Quel est votre niveau d’anglais et de compétence orale ?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const supportedFrenchDePreposition = guardPlan({
+      actions: [{ fieldId: frenchDePreposition.id, action: 'select', value: 'C2', source: 'profile', evidence: 'English C2' }],
+      missingRequired: [],
+    }, [frenchDePreposition], { ...candidate, profile: { cvText: 'English C2' } });
+    expect(supportedFrenchDePreposition.actions).toEqual([expect.objectContaining({ fieldId: frenchDePreposition.id, value: 'C2' })]);
+    expect(supportedFrenchDePreposition.missingRequired).toEqual([]);
 
     const atLeastUnknownLanguage = {
       id: 'at-least-unknown-language', kind: 'select',

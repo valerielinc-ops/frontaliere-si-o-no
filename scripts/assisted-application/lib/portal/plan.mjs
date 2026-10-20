@@ -384,14 +384,26 @@ const LANGUAGE_TARGET_QUALIFIERS = new Set([
   'scritto', 'scritta', 'scritti', 'scritte', 'ecrit', 'ecrite', 'ecrits', 'ecrites',
   'geschrieben', 'gesprochen', 'mundlich', 'schriftlich',
 ]);
+const LANGUAGE_CODE_PRONOUN_PREDECESSORS = new Set([
+  'answer', 'choose', 'copy', 'describe', 'did', 'do', 'does', 'edit', 'enter', 'hear', 'include',
+  'know', 'learn', 'make', 'paste', 'provide', 'read', 'repeat', 'say', 'select', 'speak', 'spell',
+  'translate', 'type', 'understand', 'use', 'write',
+]);
 
 function isPotentialLanguageTarget(value, knownLanguageCodes = []) {
-  const words = String(value || '').match(/[\p{L}][\p{L}\p{M}'-]*/gu) || [];
-  for (const word of words) {
+  const text = String(value || '');
+  const words = [...text.matchAll(/[\p{L}][\p{L}\p{M}'-]*/gu)];
+  for (let index = 0; index < words.length; index += 1) {
+    const match = words[index];
+    const word = match[0];
     const lower = word.toLowerCase();
     const normalized = lower.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const languageCode = languageCodeOf(word);
-    if (languageCode) {
+    const previousWord = words[index - 1]?.[0]?.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const isPronounIt = normalized === 'it' && LANGUAGE_CODE_PRONOUN_PREDECESSORS.has(previousWord);
+    const followingLevel = /^\s*(?:(?:at(?:\s+least)?|level|proficiency|niveau|livello)\s+)?[abc][12]\b/iu
+      .test(text.slice(match.index + word.length));
+    if (languageCode && !isPronounIt && (word.length > 2 || normalized === 'zh' || followingLevel)) {
       if (knownLanguageCodes.includes(languageCode)) continue;
       return true;
     }
