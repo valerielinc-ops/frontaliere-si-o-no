@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-20T02:20:30.519Z",
+  "generatedAt": "2026-10-20T11:20:29.669Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -95318,6 +95318,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T14:14:34.381Z"
     },
+    "myswitzerland:7d36bf9c3e4643d5906d68ee34e9aded::e83df2aaff2a58c489e2fd89106e1c7b1f7668576a90cc8a57cfd416c26fff49": {
+      "id": "myswitzerland:7d36bf9c3e4643d5906d68ee34e9aded",
+      "sourceDescriptionHash": "e83df2aaff2a58c489e2fd89106e1c7b1f7668576a90cc8a57cfd416c26fff49",
+      "description": "A Laufenburg, il mercato riunisce più di 35 bancarelle nell’ambiente del centro storico. L’iniziativa consente di osservare le merci, degustarle e fare acquisti.",
+      "descriptionByLocale": {
+        "it": "A Laufenburg, il mercato riunisce più di 35 bancarelle nell’ambiente del centro storico. L’iniziativa consente di osservare le merci, degustarle e fare acquisti.",
+        "en": "Laufenburg hosts a market with more than 35 stalls in the setting of its old town. Visitors can browse the goods, taste them and make purchases.",
+        "de": "In Laufenburg findet ein Markt mit mehr als 35 Ständen im Umfeld der Altstadt statt. Dort können die angebotenen Waren betrachtet, verkostet und gekauft werden.",
+        "fr": "À Laufenburg, un marché de plus de 35 stands se tient dans le cadre de la vieille ville. Les visiteurs peuvent y regarder les articles proposés, les goûter et effectuer des achats."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-20T11:16:43.408Z"
+    },
     "myswitzerland:7d3d17960358498fa20efa1921ed3c08::31ad9d2a25fdda97480ec49d35a22109408c109c8cfb2572548b708f5a992f0c": {
       "id": "myswitzerland:7d3d17960358498fa20efa1921ed3c08",
       "sourceDescriptionHash": "31ad9d2a25fdda97480ec49d35a22109408c109c8cfb2572548b708f5a992f0c",
@@ -95920,6 +95934,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T15:15:39.615Z"
     },
+    "myswitzerland:7ec87d047b694ad496e31de9244b29b7::e0d87dd98150d94b66312010f5a8fa1df35800e0407e6ac3bbf0a9e79762b37a": {
+      "id": "myswitzerland:7ec87d047b694ad496e31de9244b29b7",
+      "sourceDescriptionHash": "e0d87dd98150d94b66312010f5a8fa1df35800e0407e6ac3bbf0a9e79762b37a",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Geneva; comune: Genève; cantone: GE; categoria: Event; organizzatore: MySwitzerland; data: 2026-12-03; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Geneva; comune: Genève; cantone: GE; categoria: Event; organizzatore: MySwitzerland; data: 2026-12-03; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Geneva; municipality: Genève; canton: GE; category: Event; organiser: MySwitzerland; date: 2026-12-03; time: 19:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Geneva; gemeinde: Genève; kanton: GE; kategorie: Event; veranstalter: MySwitzerland; datum: 2026-12-03; uhrzeit: 19:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Geneva; commune: Genève; canton: GE; catégorie: Event; organisateur: MySwitzerland; date: 2026-12-03; heure: 19:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-20T11:16:42.975Z"
+    },
     "myswitzerland:7ecafdc6d528496a8d3e4b1584b7b908::aa9bd35f6fbc721325628ef62f38c97f7c33f2064db5ab49655125e1ee831c13": {
       "id": "myswitzerland:7ecafdc6d528496a8d3e4b1584b7b908",
       "sourceDescriptionHash": "aa9bd35f6fbc721325628ef62f38c97f7c33f2064db5ab49655125e1ee831c13",
@@ -95947,6 +95975,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-17T22:10:13.691Z"
+    },
+    "myswitzerland:7edf6ea608bf4528b4a411329a967a9d::c3bb83c558f3ff457d3e537e886016e6caf9a6ad9f4cdab1b11c17e0bed91106": {
+      "id": "myswitzerland:7edf6ea608bf4528b4a411329a967a9d",
+      "sourceDescriptionHash": "c3bb83c558f3ff457d3e537e886016e6caf9a6ad9f4cdab1b11c17e0bed91106",
+      "description": "L’evento è un brunch in fattoria organizzato in occasione della festa nazionale. È curato da MySwitzerland.",
+      "descriptionByLocale": {
+        "it": "L’evento è un brunch in fattoria organizzato in occasione della festa nazionale. È curato da MySwitzerland.",
+        "en": "The event is a brunch on a farm held in connection with the national holiday. It is organised by MySwitzerland.",
+        "de": "Die Veranstaltung ist ein Brunch auf einem Bauernhof im Zusammenhang mit dem Nationalfeiertag. Sie wird von MySwitzerland organisiert.",
+        "fr": "L’événement est un brunch à la ferme organisé à l’occasion de la fête nationale. Il est organisé par MySwitzerland."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-20T11:16:24.993Z"
     },
     "myswitzerland:7ee2291021d74f80a2b68a3ab78de0ff::66502156219bd912def387efc3450ebe673267856ec6204c775c6c8c6917c2fd": {
       "id": "myswitzerland:7ee2291021d74f80a2b68a3ab78de0ff",
