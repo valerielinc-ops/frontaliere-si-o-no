@@ -45,6 +45,7 @@ import { gradeJobLike } from '../job-like.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { extractRuntimeDetailFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
 import { selectValidationSample } from './validation-sample.mjs';
+import { qualityContractVersionOf } from './quality-contract.mjs';
 import {
   isGenericVacancyTitle,
   rawDetailTitleEvidence,
@@ -373,6 +374,7 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
 /**
  * @typedef {Object} QualityReport
  * @property {string} companyKey
+ * @property {number} qualityContractVersion
  * @property {number} vacancyCount
  * @property {number} sampled
  * @property {number} reachableRate
@@ -393,7 +395,7 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
 /**
  * Grade a whole spec's output.
  *
- * @param {{ companyKey: string }} spec
+ * @param {{ companyKey: string, qualityContractVersion?: number }} spec
  * @param {any[]} vacancies
  * @param {{ sampleSize?: number, goodAt?: number, weakAt?: number, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown>, detailExtractor?: (html: string, url: string) => any, observedDetailsByUrl?: Map<string, any>, requireObservedDetails?: boolean, titleEvidenceByUrl?: Map<string, any>, runtimeObservation?: Record<string, any>, sampleDate?: Date|string|number }} [opts]
  * @returns {Promise<QualityReport>}
@@ -504,6 +506,7 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
 
   return {
     companyKey: spec.companyKey,
+    qualityContractVersion: qualityContractVersionOf(spec),
     vacancyCount: vacancies.length,
     sampled: graded.length,
     reachableRate: Number(reachableRate.toFixed(3)),

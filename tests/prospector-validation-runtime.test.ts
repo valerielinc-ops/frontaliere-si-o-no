@@ -143,6 +143,7 @@ describe('Prospector production validation', () => {
       detailTemplate: '/unternehmen/karriere/jobportal/*',
       detailEnrichment: true,
       detailLocationLabel: 'Arbeitsort',
+      qualityContractVersion: 2,
       detailFetchWorkers: 3,
     } as any;
     const runtime = {
@@ -183,6 +184,7 @@ describe('Prospector production validation', () => {
         sleepImpl: async () => {},
       });
       expect(report).toMatchObject({
+        qualityContractVersion: 2,
         vacancyCount: 3,
         sampled: 3,
         titleMatchRate: 1,
