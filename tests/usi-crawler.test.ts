@@ -4,6 +4,7 @@ import {
   classifyUsiFetchError,
   dropUsiFabricatedText,
   fetchPage,
+  fetchUsiPageViaBrowser,
   looksLikeUsiListingHtml,
   stripUsiWrapper,
 } from '../scripts/update-usi-jobs.mjs';
@@ -109,6 +110,45 @@ describe('classifyUsiFetchError', () => {
 describe('USI listing transport rescue', () => {
   const listingUrl = 'https://www.usi.ch/it/universita/collabora-con-noi/concorsi-e-offerte-di-lavoro';
   const listingHtml = '<html><body><h1>Concorsi e le offerte di lavoro</h1></body></html>';
+
+  it('keeps a verified listing after a non-2xx browser navigation response', async () => {
+    const page = {
+      goto: vi.fn(async () => ({ ok: () => false, status: () => 403 })),
+      content: vi.fn(async () => listingHtml),
+    };
+    const context = { newPage: vi.fn(async () => page) };
+    const browser = {
+      newContext: vi.fn(async () => context),
+      close: vi.fn(async () => {}),
+    };
+
+    await expect(fetchUsiPageViaBrowser(listingUrl, 1000, {
+      launchBrowser: vi.fn(async () => browser),
+    })).resolves.toBe(listingHtml);
+    expect(page.goto).toHaveBeenCalledWith(listingUrl, expect.objectContaining({ waitUntil: 'domcontentloaded' }));
+    expect(browser.close).toHaveBeenCalledTimes(1);
+  });
+
+  it('allows a browser challenge to settle before rejecting the document', async () => {
+    const challenge = '<html><body>Just a moment... enable JavaScript and cookies to continue</body></html>';
+    const page = {
+      goto: vi.fn(async () => ({ ok: () => false, status: () => 403 })),
+      content: vi.fn()
+        .mockResolvedValueOnce(challenge)
+        .mockResolvedValueOnce(listingHtml),
+      waitForTimeout: vi.fn(async () => {}),
+    };
+    const context = { newPage: vi.fn(async () => page) };
+    const browser = {
+      newContext: vi.fn(async () => context),
+      close: vi.fn(async () => {}),
+    };
+
+    await expect(fetchUsiPageViaBrowser(listingUrl, 1000, {
+      launchBrowser: vi.fn(async () => browser),
+    })).resolves.toBe(listingHtml);
+    expect(page.waitForTimeout).toHaveBeenCalledWith(2500);
+  });
 
   it('uses a browser-like source UA and escalates a WAF response to Chromium', async () => {
     const fetchHtmlImpl = vi.fn(async () => {
