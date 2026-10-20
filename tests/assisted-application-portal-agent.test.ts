@@ -222,21 +222,82 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       questions: [expect.objectContaining({ question: 'German C2?' })],
     });
 
-    const connectors = ['and', 'or', 'und', 'oder', 'et', 'ou', 'e', 'o', 'y', 'en', 'of', 'och', 'og', 'si', 'și', 'sau', 'sowie', 'samt', 'plus', '&', ';', ',', '/', '+', '-', 'as well as', 'along with', 'together with', 'in addition to', 'ainsi que', 'de même que', 'oltre a', 'così come', 'insieme a', 'así como', 'bem como'];
+    const connectors = ['and', 'or', 'nor', 'und', 'oder', 'et', 'ou', 'e', 'o', 'y', 'en', 'of', 'och', 'og', 'si', 'și', 's\u0326i', 'sau', 'sowie', 'samt', 'plus', 'ni', 'né', 'noch', 'nem', '&', ';', ',', '/', '+', '-', '–', '—', 'as well as', 'along with', 'together with', 'in addition to', 'ainsi que', 'de même que', 'oltre a', 'così come', 'insieme a', 'así como', 'bem como'];
     for (const connector of connectors) {
-      const questionWithUnknownLanguage = `Do you speak German ${connector} Xhosa at C2?`;
-      const unrecognizedLanguageEvidence = guardAgentStep(turn('act', [act({
-        ref: 'e25', action: 'select', value: 'Yes', question: questionWithUnknownLanguage,
-        answer: 'Yes', source: 'profile', evidence: 'German C2',
-      })]), {
-        answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
-      });
-      expect(unrecognizedLanguageEvidence).toMatchObject({
-        status: 'needs_candidate',
-        actions: [],
-        questions: [expect.objectContaining({ question: questionWithUnknownLanguage })],
-      });
+      for (const language of ['Xhosa', 'xhosa']) {
+        const questionWithUnknownLanguage = `Do you speak German ${connector} ${language} at C2?`;
+        const unrecognizedLanguageEvidence = guardAgentStep(turn('act', [act({
+          ref: 'e25', action: 'select', value: 'Yes', question: questionWithUnknownLanguage,
+          answer: 'Yes', source: 'profile', evidence: 'German C2',
+        })]), {
+          answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+        });
+        expect(unrecognizedLanguageEvidence).toMatchObject({
+          status: 'needs_candidate',
+          actions: [],
+          questions: [expect.objectContaining({ question: questionWithUnknownLanguage })],
+        });
+      }
     }
+
+    const pairedGerman = 'Sprichst du sowohl Deutsch als auch xhosa auf C2?';
+    const partialPairedEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e26', action: 'select', value: 'Yes', question: pairedGerman, answer: 'Yes',
+      source: 'profile', evidence: 'Deutsch C2',
+    })]), {
+      answers: {}, profile: { cvText: 'Deutsch C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialPairedEvidence).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question: pairedGerman })],
+    });
+
+    const neitherNor = 'Do you speak neither German nor xhosa at C2?';
+    const partialNeitherNorEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e29', action: 'select', value: 'Yes', question: neitherNor, answer: 'Yes',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialNeitherNorEvidence).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: neitherNor })],
+    });
+
+    const pairedEnglish = 'Do you speak not only German but also xhosa at C2?';
+    const partialEnglishPair = guardAgentStep(turn('act', [act({
+      ref: 'e28', action: 'select', value: 'Yes', question: pairedEnglish, answer: 'Yes',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialEnglishPair).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: pairedEnglish })],
+    });
+
+    const reversedLanguageOrder = 'Parlez-vous xhosa et allemand au niveau C2 ?';
+    const reversedPartialEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e27', action: 'select', value: 'Yes', question: reversedLanguageOrder, answer: 'Yes',
+      source: 'profile', evidence: 'allemand C2',
+    })]), {
+      answers: {}, profile: { cvText: 'allemand C2' }, portalQuestionsAnswered: [],
+    });
+    expect(reversedPartialEvidence).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question: reversedLanguageOrder })],
+    });
+
+    const emDashReverseOrder = 'Parlez-vous xhosa — allemand au niveau C2 ?';
+    const partialEmDashEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e30', action: 'select', value: 'Yes', question: emDashReverseOrder, answer: 'Yes',
+      source: 'profile', evidence: 'allemand C2',
+    })]), {
+      answers: {}, profile: { cvText: 'allemand C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialEmDashEvidence).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: emDashReverseOrder })],
+    });
 
     const listed = {
       answers: {},

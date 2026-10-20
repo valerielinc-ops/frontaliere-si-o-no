@@ -62,7 +62,7 @@ export const PLAN_SCHEMA = OBJ({
 });
 
 const LANGUAGE_NAMES = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
-const MULTI_LANGUAGE_CONNECTOR_RE = /[,;\/|+&-]|\b(?:and|or|und|oder|et|ou|e|o|y|en|of|och|og|si|sau|sowie|samt|plus)\b|\b(?:as well as|along with|together with|in addition to|ainsi que|de meme que|oltre a|cosi come|asi como|insieme a|bem como)\b/i;
+const MULTI_LANGUAGE_CONNECTOR_RE = /[,;\/|+&]|\s[-–—]\s|(?<![\p{L}])(?:and|or|nor|und|oder|et|ou|e|o|y|en|of|och|og|si|și|sau|sowie|samt|plus|ni|né|noch|nem|as well as|along with|together with|in addition to|ainsi que|de même que|de meme que|oltre a|così come|cosi come|insieme a|así como|asi como|bem como)(?![\p{L}])/iu;
 
 export function planSystemPrompt(candidateLocale) {
   return `You fill one page of an online job application form on behalf of a candidate who gave Frontaliere Ticino the mandate to apply for this job. You receive the form fields and the candidate's data. Return one action per field.
@@ -294,7 +294,7 @@ function languageQuestionCode(fieldOrQuestion, context = '') {
   const text = typeof fieldOrQuestion === 'object'
     ? `${fieldOrQuestion?.label || ''} ${fieldOrQuestion?.context || ''}`
     : `${fieldOrQuestion || ''} ${context}`;
-  return isLanguageAbilityQuestion(text) ? languageCodeOf(text) : '';
+  return isLanguageAbilityQuestion(text) ? singleLanguageCode(text) : '';
 }
 
 /** Whether the candidate's own data establishes a native language for a field/question. */
@@ -333,15 +333,14 @@ export function evidenceSupports(question, answer, evidence) {
     // quote such as a city name elsewhere in the CV. A level quote must name
     // the requested language and support the answer. A yes/no answer also
     // needs an explicit minimum level in the question.
-    const asked = languageCodesIn(question);
     // A conjunction or list may include an unrecognized language name, so one
     // recognized code is not enough to prove the question asks about one language.
-    const normalizedQuestion = String(question || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ß/g, 'ss');
-    if (asked.length !== 1 || MULTI_LANGUAGE_CONNECTOR_RE.test(normalizedQuestion)) return false;
+    const asked = singleLanguageCode(question);
+    if (!asked) return false;
     const parts = quote.split(/[;,|\/\n+]|\s[-–—]\s|\s+(?:and|or|und|et|e|y)\s+/i)
       .filter((part) => {
         const languages = languageCodesIn(part);
-        return languages.length === 1 && languages[0] === asked[0];
+        return languages.length === 1 && languages[0] === asked;
       });
     const held = parts.flatMap(levelsIn);
     if (!held.length) return false;
@@ -354,6 +353,87 @@ export function evidenceSupports(question, answer, evidence) {
   }
   if (!YES_RE.test(value)) return quote.includes(value);
   return !/\d/.test(String(question));
+}
+
+
+const LANGUAGE_TARGET_STOP_WORDS = new Set([
+  'a', 'able', 'above', 'ability', 'also', 'and', 'at', 'basic', 'below', 'can', 'could', 'c1', 'c2',
+  'communication', 'competence', 'competences', 'connaissance', 'connaissances', 'conoscenza', 'conoscenze',
+  'do', 'does', 'did', 'ecrit', 'enough', 'fluent', 'fluency', 'for', 'good', 'hablar', 'hablo', 'has', 'have', 'had', 'how',
+  'in', 'knowledge', 'know', 'level', 'levels', 'livello', 'minimum', 'mother', 'mundlich', 'multiple', 'native', 'need',
+  'higher', 'lower', 'greater', 'less', 'more', 'equivalent', 'equivalently', 'better', 'besser', 'mejor', 'migliore',
+  'meilleur', 'superior', 'superiore', 'superieur', 'superieure', 'hoher', 'hoehere', 'hoherer',
+  'especially', 'particularly', 'preferably', 'ideally', 'specifically', 'including', 'with', 'without', 'if', 'as',
+  'but', 'yet', 'though', 'although', 'however', 'whether', 'regarding', 'advanced', 'intermediate', 'beginner',
+  'niveau', 'not', 'of', 'on', 'oral', 'orally', 'parla', 'qual', 'quale', 'is', 'are', 'was', 'were', 'parle', 'parler', 'parlez', 'parli', 'proficiency',
+  'read', 'reads', 'reading', 'required', 'speak', 'speaks', 'speaking', 'spoken', 'sprachkenntnis',
+  'sprachkenntnisse', 'skill', 'skills', 'schriftlich', 'sufficient', 'understand', 'understands', 'understood',
+  'use', 'uses', 'using', 'well', 'what', 'which', 'write', 'writes', 'writing', 'written', 'your',
+]);
+const LANGUAGE_TARGET_ARTICLES = new Set([
+  'a', 'an', 'das', 'de', 'der', 'des', 'die', 'do', 'dos', 'du', 'el', 'la', 'las', 'le', 'les',
+  'lo', 'los', 'o', 'os', 'um', 'uma', 'un', 'una', 'une', 'the', 'il', 'i', 'gli', 'aux', 'au',
+]);
+
+function isPotentialLanguageTarget(value) {
+  let text = String(value || '').trimStart();
+  const leadingWord = /^([\p{L}][\p{L}\p{M}'-]*)/u;
+  let word = leadingWord.exec(text)?.[1] || '';
+  while (word && LANGUAGE_TARGET_ARTICLES.has(word.toLowerCase())) {
+    text = text.slice(word.length).trimStart();
+    word = leadingWord.exec(text)?.[1] || '';
+  }
+  if (word.length < 3) return false;
+  const normalized = word.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  return !LANGUAGE_TARGET_STOP_WORDS.has(normalized);
+}
+
+function hasMultipleLanguageTargets(question) {
+  const text = String(question || '').normalize('NFC');
+  const connectors = new RegExp(MULTI_LANGUAGE_CONNECTOR_RE.source, 'giu');
+  const ambiguousPrepositions = new Set(['en', 'of']);
+  const strictListConnectors = new Set([
+    'and', 'or', 'nor', 'und', 'oder', 'et', 'ou', 'e', 'o', 'y', 'och', 'og', 'si', 'și', 'sau', 'sowie', 'samt', 'plus', 'ni', 'né', 'noch', 'nem',
+    'as well as', 'along with', 'together with', 'in addition to', 'ainsi que', 'de même que', 'de meme que',
+    'oltre a', 'così come', 'cosi come', 'insieme a', 'así como', 'asi como', 'bem como', ',', ';', '/', '|', '+', '&', '-', '–', '—',
+  ]);
+
+  for (const match of text.matchAll(connectors)) {
+    const connector = match[0].trim().toLowerCase();
+    const before = text.slice(0, match.index);
+    const after = text.slice(match.index + match[0].length).trimStart();
+    if (languageCodesIn(before).length > 0 && isPotentialLanguageTarget(after)) return true;
+
+    // Reverse order: an unknown language can precede the recognized one.
+    // Common prepositions are excluded so "Level of German" stays monolingual.
+    if (ambiguousPrepositions.has(connector) || !strictListConnectors.has(connector)) continue;
+    const previousTarget = /([\p{L}][\p{L}\p{M}'-]*)\s*$/u.exec(before.trim())?.[1] || '';
+    if (previousTarget && isPotentialLanguageTarget(previousTarget) && languageCodesIn(after).length > 0) return true;
+  }
+
+  const pairedLanguagePatterns = [
+    /\bsowohl\b([\s\S]*?)\bals\s+auch\b([\s\S]*)/iu,
+    /\bnot\s+only\b([\s\S]*?)\bbut\s+also\b([\s\S]*)/iu,
+    /\bnon\s+solo\b([\s\S]*?)\bma\s+anche\b([\s\S]*)/iu,
+    /\bnon\s+seulement\b([\s\S]*?)\bmais\s+aussi\b([\s\S]*)/iu,
+    /\bno\s+solo\b([\s\S]*?)\bsino\s+tambie?n\b([\s\S]*)/iu,
+  ];
+  for (const pattern of pairedLanguagePatterns) {
+    const paired = pattern.exec(text);
+    if (!paired) continue;
+    const first = paired[1];
+    const second = paired[2];
+    if ((languageCodesIn(first).length > 0 && isPotentialLanguageTarget(second))
+      || (isPotentialLanguageTarget(first) && languageCodesIn(second).length > 0)) return true;
+  }
+
+  return false;
+}
+
+function singleLanguageCode(question) {
+  if (hasMultipleLanguageTargets(question)) return '';
+  const codes = languageCodesIn(question);
+  return codes.length === 1 ? codes[0] : '';
 }
 
 /**
@@ -678,11 +758,10 @@ function languageAnswerForField(candidate, field) {
   const label = String(field?.label || '');
   const question = `${label} ${String(field?.context || '')}`.trim();
   if (!isLanguageAbilityQuestion(question)) return null;
-  const codes = languageCodesIn(question);
-  if (codes.length !== 1) return null;
+  const code = singleLanguageCode(question);
+  if (!code) return null;
   const entries = explicitLanguageEntries(candidate?.profile);
   if (!entries.length) return null;
-  const code = codes[0];
   const entry = explicitLanguageEntry(candidate?.profile, code);
   const absent = !entry && languageExplicitlyAbsent(candidate?.profile, question);
   if (!entry && !absent) return null;
