@@ -95,7 +95,6 @@ on:
         options:
           - '1'
           - '2'
-          - '4'
         required: false
         default: '1'
       cpu_profile:

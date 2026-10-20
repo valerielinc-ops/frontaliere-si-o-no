@@ -57,7 +57,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(inputs.stop_after_jobs_seo).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.fallback_workers).toMatchObject({
       type: 'choice',
-      options: ['1', '2', '4'],
+      options: ['1', '2'],
       default: '1',
     });
     expect(WORKFLOW.jobs['build-locale'].env.JOBS_SEO_FALLBACK_WORKERS)
