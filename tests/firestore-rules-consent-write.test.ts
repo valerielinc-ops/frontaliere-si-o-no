@@ -5,7 +5,7 @@ import {
   initializeTestEnvironment,
   type RulesTestEnvironment,
 } from '@firebase/rules-unit-testing';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
 import { afterAll, beforeAll, beforeEach, describe, it } from 'vitest';
 
 // #6378 (phase 4 of #5928): both subscriber roots split `create` (unchanged,
@@ -18,6 +18,8 @@ import { afterAll, beforeAll, beforeEach, describe, it } from 'vitest';
 const SUBSCRIBER_EMAIL = 'existing-subscriber@example.com';
 const ALERT_EMAIL = 'existing-alert-subscriber@example.com';
 const MIXED_CASE_EMAIL = 'Legacy.Owner@Example.com';
+const ASSISTED_ORDER_ID = 'paid-assisted-order';
+const ASSISTED_ORDER_OWNER_UID = 'assisted-order-owner';
 const EXISTING_DOC = {
   email: SUBSCRIBER_EMAIL,
   consent_text: 'testo di consenso originale',
@@ -25,8 +27,25 @@ const EXISTING_DOC = {
   consent_given: true,
   name: 'Original Name',
 };
+// Older paid orders were created without cvFileName; the rules must still
+// allow their owner to record the mandate before uploading a CV.
+const PAID_ASSISTED_ORDER = {
+  orderId: ASSISTED_ORDER_ID,
+  userId: ASSISTED_ORDER_OWNER_UID,
+  paymentStatus: 'paid',
+  submissionStatus: 'awaiting_upload',
+  applicantName: null,
+  applicantEmail: null,
+  applicantPhone: null,
+  consentVersion: null,
+  consentedAt: null,
+  cvStorageKey: null,
+  cvUploadedAt: null,
+  coverLetterStorageKey: null,
+  submittedAt: null,
+};
 
-describe('firestore.rules — newsletter_subscribers consent field guard', () => {
+describe('firestore.rules — consent field guards', () => {
   let testEnv: RulesTestEnvironment;
 
   beforeAll(async () => {
@@ -63,7 +82,33 @@ describe('firestore.rules — newsletter_subscribers consent field guard', () =>
         doc(context.firestore(), 'job_alert_subscribers', MIXED_CASE_EMAIL),
         { ...EXISTING_DOC, email: MIXED_CASE_EMAIL },
       );
+      await setDoc(
+        doc(context.firestore(), 'assisted_applications', ASSISTED_ORDER_ID),
+        PAID_ASSISTED_ORDER,
+      );
     });
+  });
+
+  it('allows only the owner to record the mandate on a paid legacy order without cvFileName', async () => {
+    const owner = testEnv.authenticatedContext(ASSISTED_ORDER_OWNER_UID);
+    const mandateUpdate = {
+      consentVersion: 'assisted-application-v2',
+      consentedAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+    };
+
+    const otherAccount = testEnv.authenticatedContext('different-account');
+    await assertFails(
+      updateDoc(doc(otherAccount.firestore(), 'assisted_applications', ASSISTED_ORDER_ID), {
+        consentVersion: 'assisted-application-v2',
+        consentedAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      }),
+    );
+
+    await assertSucceeds(
+      updateDoc(doc(owner.firestore(), 'assisted_applications', ASSISTED_ORDER_ID), mandateUpdate),
+    );
   });
 
   it('an unauthenticated client can no longer overwrite consent_text on an existing doc', async () => {

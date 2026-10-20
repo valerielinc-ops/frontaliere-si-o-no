@@ -228,6 +228,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       stripeCheckoutSessionId: 'cs_assisted_1',
       consentVersion: null,
       consentedAt: null,
+      cvFileName: null,
       copyVariant: 'time_saved',
     }));
   });

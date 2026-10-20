@@ -235,6 +235,7 @@ function pendingOrderData(order, orderId, userId, requestKeyHash, checkoutAttemp
     applicantPhone: null,
     cvStorageKey: null,
     cvUploadedAt: null,
+    cvFileName: null,
     coverLetterStorageKey: null,
     consentVersion: null,
     consentedAt: null,
