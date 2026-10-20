@@ -39,7 +39,8 @@ function parseCandidateApplication(value: unknown): CandidateAssistedApplication
   if (!isRecord(value)) return null;
   if (typeof value.orderId !== 'string' || !value.orderId.trim()) return null;
   if (typeof value.jobTitle !== 'string' || typeof value.companyName !== 'string') return null;
-  if (value.source !== 'single' && value.source !== 'concierge') return null;
+  const source = value.source;
+  if (source !== 'single' && source !== 'concierge') return null;
   if (typeof value.status !== 'string' || !CANDIDATE_STATUSES.has(value.status as AssistedApplicationCandidateStatus)) return null;
   if (typeof value.requiresCvUpload !== 'boolean') return null;
   const updatedAt = value.updatedAt;
@@ -50,7 +51,7 @@ function parseCandidateApplication(value: unknown): CandidateAssistedApplication
     orderId: value.orderId,
     jobTitle: value.jobTitle,
     companyName: value.companyName,
-    source: value.source,
+    source,
     status: value.status as AssistedApplicationCandidateStatus,
     updatedAt,
     requiresCvUpload: value.requiresCvUpload,
