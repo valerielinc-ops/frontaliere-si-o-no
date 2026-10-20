@@ -10,8 +10,8 @@ import { randomUUID } from 'node:crypto';
 import { FieldValue } from 'firebase-admin/firestore';
 import { db } from './stripePublisherCore.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { ASSISTED_APPLICATION_PRICE_EUR_CENTS } from './assistedApplicationConstants.js';
 import {
-  ASSISTED_APPLICATION_PRICE_EUR_CENTS,
   createSumUpPaymentTestCheckout,
   retrieveSumUpCheckout,
   SUMUP_ENVIRONMENTS,
