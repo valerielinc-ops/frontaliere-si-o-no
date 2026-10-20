@@ -7,6 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import {
+  jobStatsHistoryCompactionCutoffDate,
   JOB_STATS_HISTORY_LEGACY_FILE,
   JOB_STATS_HISTORY_SHARD_MAX_BYTES,
   readJobsStatsHistory,
@@ -290,20 +291,53 @@ describe('job stats history store', () => {
 
   it('allows the intentional compaction of a verbose past-day shard', () => {
     withTempRoot((root) => {
-      const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      const compactionCutoffDate = jobStatsHistoryCompactionCutoffDate('2026-10-21T12:00:00.000Z');
+      expect(compactionCutoffDate).toBe('2026-09-21');
+
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-20.json');
       fs.mkdirSync(path.dirname(shardPath), { recursive: true });
-      const verbose = entry('2026-09-19', {
+      const verbose = entry('2026-09-20', {
+        added: 2_463,
         updated: 30_000,
+        removed: 11,
+        addedKeys: Array.from({ length: 2_463 }, (_, i) => `url:https://example.ch/added/${i}`),
         updatedKeys: Array.from({ length: 30_000 }, (_, i) => `url:https://example.ch/job/${i}`),
+        removedKeys: Array.from({ length: 11 }, (_, i) => `url:https://example.ch/removed/${i}`),
+        companyStats: [{ key: 'company',
+          addedKeys: ['url:https://example.ch/added/0'],
+          updatedKeys: ['url:https://example.ch/job/0'],
+          removedKeys: ['url:https://example.ch/removed/0'],
+        }],
+        locationStats: [{ key: 'location',
+          addedKeys: ['url:https://example.ch/added/0'],
+          updatedKeys: ['url:https://example.ch/job/0'],
+          removedKeys: ['url:https://example.ch/removed/0'],
+        }],
+        titleStats: [{ key: 'title',
+          addedKeys: ['url:https://example.ch/added/0'],
+          updatedKeys: ['url:https://example.ch/job/0'],
+          removedKeys: ['url:https://example.ch/removed/0'],
+        }],
       });
       fs.writeFileSync(shardPath, JSON.stringify({ entries: [verbose] }, null, 2) + '\n');
-      const compacted = entry('2026-09-19', { updated: 30_000 });
+      const compacted = entry('2026-09-20', { added: 2_463, updated: 30_000, removed: 11 });
 
-      writeJobsStatsHistory({ entries: [compacted, entry('2026-09-20')] }, root, {
-        currentDate: '2026-09-20',
+      expect(() => writeJobsStatsHistory({ entries: [compacted, entry('2026-10-21')] }, root, {
+        currentDate: '2026-10-21',
+      })).toThrow(/ABORT write.*2026-09-20\.json/);
+
+      expect(() => writeJobsStatsHistory({ entries: [compacted, entry('2026-10-21')] }, root, {
+        currentDate: '2026-10-21',
+        compactionCutoffDate: '2026-09-20',
+      })).toThrow(/ABORT write.*2026-09-20\.json/);
+
+      writeJobsStatsHistory({ entries: [compacted, entry('2026-10-21')] }, root, {
+        currentDate: '2026-10-21',
+        compactionCutoffDate,
       });
 
-      expect(readShard(root, '2026-09-19.json').entries).toEqual([compacted]);
+      expect(readShard(root, '2026-09-20.json').entries).toEqual([compacted]);
+      expect(readShard(root, 'manifest.json').compactionCutoffDate).toBe(compactionCutoffDate);
     });
   });
 

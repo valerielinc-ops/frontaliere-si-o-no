@@ -34,6 +34,7 @@ import {
 } from '../lib/accumulator-byte-floor-guard.mjs';
 import {
   isJobStatsHistoryDailyShardPath,
+  JOB_STATS_HISTORY_MANIFEST_FILE,
   isSafeJobStatsHistoryShardRewrite,
 } from '../lib/job-stats-history-store.mjs';
 import {
@@ -44,9 +45,9 @@ import {
 
 // Path-glob dei file-dati protetti. I file che cambiano size legittimamente
 // (snapshot rigenerati, cache volatili) restano coperti: la soglia size+pct li
-// salva dai falsi positivi. L'unica eccezione semantica è la migrazione di uno
-// shard storico job-stats: viene ammessa solo dopo la stessa prova di
-// contatori/payload usata dal writer.
+// salva dai falsi positivi. L'eccezione semantica per uno shard storico
+// job-stats richiede la prova del writer: contatori/payload conservati durante
+// la migrazione, oppure compattazione oltre la soglia esplicita.
 const DATA_PREFIXES = ['data/', 'public/data/'];
 
 function git(args) {
@@ -78,7 +79,18 @@ function blobAt(ref, file) {
   }
 }
 
-function isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file, currentDate) {
+function jobStatsHistoryCompactionCutoffAtRef(ref) {
+  const raw = blobAt(ref, JOB_STATS_HISTORY_MANIFEST_FILE);
+  if (raw === null) return '';
+  try {
+    const cutoff = JSON.parse(raw)?.compactionCutoffDate;
+    return /^\d{4}-(?:0[1-9]|1[0-2])-\d{2}$/.test(String(cutoff || '')) ? cutoff : '';
+  } catch {
+    return '';
+  }
+}
+
+function isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file, currentDate, compactionCutoffDate) {
   if (!isJobStatsHistoryDailyShardPath(file)) return false;
   const shardName = String(file).replace(/\\/g, '/').split('/').at(-1) || '';
   const shardDate = shardName.slice(0, -'.json'.length);
@@ -87,7 +99,7 @@ function isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file, currentDa
   const nextRaw = blobAt(afterSha, file);
   return previousRaw !== null
     && nextRaw !== null
-    && isSafeJobStatsHistoryShardRewrite(previousRaw, nextRaw);
+    && isSafeJobStatsHistoryShardRewrite(previousRaw, nextRaw, { compactionCutoffDate });
 }
 
 function isSafeCrawlerSliceRewriteAtRefs(beforeSha, afterSha, file) {
@@ -149,7 +161,12 @@ export function main() {
     return;
   }
 
-  const currentDate = new Date().toISOString().slice(0, 10);
+  const now = new Date();
+  const currentDate = now.toISOString().slice(0, 10);
+  // The writer records its cutoff in the after-manifest. Reusing that exact
+  // value keeps this post-push proof stable if Zurich midnight passes before
+  // the guard starts.
+  const compactionCutoffDate = jobStatsHistoryCompactionCutoffAtRef(afterSha);
   const violations = [];
   for (const file of changed) {
     const prevBytes = sizeAt(beforeSha, file);
@@ -159,10 +176,17 @@ export function main() {
       floorBytes: ACCUMULATOR_SANITY_FLOOR_BYTES,
       maxShrinkPct: ACCUMULATOR_MAX_SHRINK_PCT,
     })) {
-      // The writer intentionally compacts/re-keys historical title descriptors
-      // only after proving that all counters and action-bearing payload survive.
+      // The writer may re-key historical title descriptors while preserving
+      // action payload, or drop detail from entries older than its explicit
+      // compaction cutoff while preserving all scalar history counters.
       // Keep the generic byte guard fail-closed for every other data path.
-      if (isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file, currentDate)) continue;
+      if (isSafeJobStatsHistoryRewriteAtRefs(
+        beforeSha,
+        afterSha,
+        file,
+        currentDate,
+        compactionCutoffDate,
+      )) continue;
       // A source-geography migration can legitimately remove legacy foreign
       // jobs after the filter is applied, and housekeeping can archive dead
       // listings into the paired expired slice. Both proofs are exact and

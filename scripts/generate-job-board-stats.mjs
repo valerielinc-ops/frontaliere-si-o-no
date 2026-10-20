@@ -8,7 +8,11 @@ import { fileURLToPath } from 'node:url';
 
 import { buildJobsStatsArtifacts, buildJobKeysSnapshot } from './lib/job-board-stats.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
-import { readJobsStatsHistory, writeJobsStatsHistory } from './lib/job-stats-history-store.mjs';
+import {
+  jobStatsHistoryCompactionCutoffDate,
+  readJobsStatsHistory,
+  writeJobsStatsHistory,
+} from './lib/job-stats-history-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -64,7 +68,10 @@ export function generateJobBoardStats(now = new Date().toISOString()) {
     now,
   });
 
-  writeJobsStatsHistory(history, ROOT, { currentDate: history.entries.at(-1)?.date });
+  writeJobsStatsHistory(history, ROOT, {
+    currentDate: history.entries.at(-1)?.date,
+    compactionCutoffDate: jobStatsHistoryCompactionCutoffDate(now),
+  });
   writeJson(DATA_SUMMARY_PATH, summary);
   writeJson(PUBLIC_SUMMARY_PATH, summary);
 

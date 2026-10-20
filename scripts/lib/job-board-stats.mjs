@@ -7,7 +7,7 @@ import {
   jobsDiffer,
 } from './job-identity.mjs';
 import {
-  JOB_STATS_HISTORY_COMPACT_AFTER_DAYS,
+  jobStatsHistoryCompactionCutoffDate,
   JOB_STATS_HISTORY_RETENTION_LIMIT,
 } from './job-stats-history-store.mjs';
 import { AGGREGATE_KEY, createCantonResolvers } from '../../build-plugins/shared/cantonResolvers.mjs';
@@ -24,7 +24,6 @@ const BASE_URL = 'https://frontaliereticino.ch';
 // title-stat entries merged across jobs from potentially different cantons).
 const JOB_BOARD_AGGREGATE_URL = `${BASE_URL}/${resolveCantonSection('it', AGGREGATE_KEY)}`;
 const HISTORY_LIMIT = JOB_STATS_HISTORY_RETENTION_LIMIT;
-const COMPACT_AFTER_DAYS = JOB_STATS_HISTORY_COMPACT_AFTER_DAYS;
 const ZURICH_TIMEZONE = 'Europe/Zurich';
 
 // Retention / file-size ceiling — the logical job stats history store grows on
@@ -412,9 +411,7 @@ export function updateJobsStatsHistory(existingHistory = {}, diff = {}, currentJ
 
   // Compact old entries: strip verbose fields for entries older than COMPACT_AFTER_DAYS
   // to keep each history shard under GitHub's 100 MB file size limit.
-  const compactCutoff = zurichDate(
-    new Date(new Date(now).getTime() - COMPACT_AFTER_DAYS * 86_400_000).toISOString()
-  );
+  const compactCutoff = jobStatsHistoryCompactionCutoffDate(now);
   for (const e of history.entries) {
     if (e.date < compactCutoff) {
       e.addedKeys = [];

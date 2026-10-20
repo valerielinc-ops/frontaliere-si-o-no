@@ -21,6 +21,20 @@ export const JOB_STATS_HISTORY_MANIFEST_FILE = `${JOB_STATS_HISTORY_SHARD_DIR}/m
 export const JOB_STATS_HISTORY_RETENTION_LIMIT = 180;
 export const JOB_STATS_HISTORY_COMPACT_AFTER_DAYS = 30;
 
+export function jobStatsHistoryCompactionCutoffDate(now = new Date()) {
+  const cutoff = new Date(
+    new Date(now).getTime() - JOB_STATS_HISTORY_COMPACT_AFTER_DAYS * 86_400_000,
+  );
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Zurich',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(cutoff);
+  const map = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${map.year}-${map.month}-${map.day}`;
+}
+
 const MONTH_RE = /^\d{4}-(?:0[1-9]|1[0-2])$/;
 const DATE_RE = /^\d{4}-(?:0[1-9]|1[0-2])-\d{2}$/;
 const MONTH_SHARD_RE = /^(\d{4}-(?:0[1-9]|1[0-2]))\.json$/;
@@ -248,6 +262,12 @@ function isCompactedHistoryEntry(entry = {}) {
   );
 }
 
+function isFullyCompactedHistoryEntry(entry = {}) {
+  return isCompactedHistoryEntry(entry)
+    && entry.addedKeys.length === 0
+    && ['companyStats', 'locationStats', 'titleStats'].every((bucket) => entry[bucket].length === 0);
+}
+
 function hasSameHistoryCounters(previous = {}, next = {}) {
   return previous.date === next.date
     && ['totalJobs', 'added', 'updated', 'removed'].every((field) =>
@@ -349,23 +369,27 @@ function preservesCompactionPayload(previous = {}, next = {}) {
 }
 
 /**
- * Prove that a compacted historical rewrite preserves the logical counters
- * and every action-bearing payload. Descriptor-only title rows may be
- * re-keyed or collapsed during locale migration; they are not consumed by
- * the history leaders and therefore are not part of the retained payload.
+ * Prove that a historical rewrite either preserves counters and action
+ * payloads during locale migration, or drops all detail only after the
+ * explicit compaction cutoff while retaining the scalar counters.
  *
  * This predicate is shared with the post-push byte guard. Keeping the proof
  * in one place prevents a semantically safe locale migration from being
  * written by the producer and then auto-reverted by the generic detector.
  */
-export function isSafeJobStatsHistoryRewrite(previous = {}, next = {}) {
+export function isSafeJobStatsHistoryRewrite(previous = {}, next = {}, options = {}) {
+  const compactionCutoffDate = String(options.compactionCutoffDate || '');
+  const isExplicitCompaction = DATE_RE.test(compactionCutoffDate)
+    && previous.date < compactionCutoffDate
+    && isFullyCompactedHistoryEntry(next);
+
   return DATE_RE.test(String(previous.date || ''))
     && hasSameHistoryCounters(previous, next)
     && isCompactedHistoryEntry(next)
-    && preservesCompactionPayload(previous, next);
+    && (preservesCompactionPayload(previous, next) || isExplicitCompaction);
 }
 
-export function isSafeJobStatsHistoryShardRewrite(previousRaw, nextRaw) {
+export function isSafeJobStatsHistoryShardRewrite(previousRaw, nextRaw, options = {}) {
   try {
     const previousDocument = JSON.parse(String(previousRaw));
     const nextDocument = JSON.parse(String(nextRaw));
@@ -376,7 +400,7 @@ export function isSafeJobStatsHistoryShardRewrite(previousRaw, nextRaw) {
     const nextEntries = historyEntries(nextDocument);
     if (previousEntries.length !== 1 || nextEntries.length !== 1) return false;
 
-    return isSafeJobStatsHistoryRewrite(previousEntries[0], nextEntries[0]);
+    return isSafeJobStatsHistoryRewrite(previousEntries[0], nextEntries[0], options);
   } catch {
     return false;
   }
@@ -492,7 +516,9 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
     const existingEntry = existing.entries.find((item) => item.date === date);
     const isControlledHistoricalRewrite = date < currentDate
       && existing.ok
-      && isSafeJobStatsHistoryRewrite(existingEntry || {}, entry);
+      && isSafeJobStatsHistoryRewrite(existingEntry || {}, entry, {
+        compactionCutoffDate: options.compactionCutoffDate,
+      });
     if (fs.existsSync(shardFile) && !isControlledHistoricalRewrite) {
       assertAccumulatorByteFloor(
         fs.statSync(shardFile).size,
@@ -545,6 +571,9 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
       version: 2,
       format: 'daily-entry-shards',
       legacyFallback: JOB_STATS_HISTORY_LEGACY_FILE,
+      ...(DATE_RE.test(String(options.compactionCutoffDate || ''))
+        ? { compactionCutoffDate: options.compactionCutoffDate }
+        : {}),
       days,
     }, null, 2) + '\n',
   );
