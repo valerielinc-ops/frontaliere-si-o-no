@@ -25,8 +25,8 @@ import {
 export const HUB_DISCOVERY_WINDOW_DAYS = 28;
 export const MIN_TRACKED_JOBS = 3;
 export const MIN_PROMISING_JOBS = 8;
-export const MIN_REVIEW_JOBS = 15;
-export const MIN_REVIEW_EMPLOYERS = 4;
+export const MIN_REVIEW_JOBS = 5;
+export const MIN_REVIEW_EMPLOYERS = 2;
 export const MIN_REVIEW_WEEKS = 3;
 export const CANDIDATE_RETENTION_WEEKS = 12;
 export const MAX_CANDIDATES = 250;
@@ -93,8 +93,8 @@ const AUTO_LABELS_BY_SLUG: Readonly<Record<string, SectorHubPublication['labelBy
 };
 
 const AUTO_PUBLISH_FAST_TRACK = Object.freeze({
-  minActiveJobs: 20,
-  minDistinctEmployers: 5,
+  minActiveJobs: 5,
+  minDistinctEmployers: 2,
   minJobsWithViews: 12,
   minStrongTrafficSignals: 2,
   strongSignalThresholds: Object.freeze({ viewsPerLiveDay: 10, ga4Sessions28d: 100, gscJobPageImpressions28d: 1500 }),
@@ -705,7 +705,7 @@ export function buildSectorHubDiscoveryReport({
       'Candidates are grouped only from active Ticino ads whose title/category does not match any of the '
         + SECTOR_HUB_KEYS.length + ' curated hubs.',
       'The popularity export is cumulative; only views attached to active ads are counted and the score uses views per live day from the best available posting date.',
-      'Eligible candidates require 15 active ads, 4 distinct employers, traffic evidence and 3 consecutive weekly observations.',
+      'Eligible candidates require at least 5 active ads, 2 distinct employers, traffic evidence and 3 consecutive weekly observations.',
       'Automatic publication accepts every candidate that passes either the sustained three-week gate or the fast-track inventory and multi-source traffic gate; there is no one-hub promotion slot.',
       'Generated pages use localized templates, exact publisher category fields, live inventory floors, canonical/hreflang and noindex retirement bridges.',
       'Static category URLs are reused when the first emitted category page contains every active candidate job ID; additional unrelated jobs on that page are allowed.',
