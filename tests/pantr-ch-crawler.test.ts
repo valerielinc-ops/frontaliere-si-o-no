@@ -8,12 +8,17 @@ import {
   buildPantrChJobFromListing,
 } from '../scripts/lib/pantr-ch-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { loadSpec } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('Pantr GmbH crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(PANTR_CH_KEY).toBe('pantr-ch');
     expect(PANTR_CH_COMPANY_NAME).toBe('Pantr GmbH');
+  });
+
+  it('follows the bounded archive pagination contract', () => {
+    expect(loadSpec(PANTR_CH_KEY).pagination).toMatchObject({ maxPages: 20 });
   });
 
   // ── isCompanyJob ──
