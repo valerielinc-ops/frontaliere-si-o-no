@@ -51,6 +51,15 @@ import { isCanaryJob } from './lib/canaryAd.mjs';
 import { fetchManualSlotReport, renderManualSlotReport } from './lib/adsense-manual-slot-report.mjs';
 import { requireCompleteAdsenseReport } from './lib/adsense-report-coverage.mjs';
 import { settledWindow } from './lib/analytics-settled-window.mjs';
+import {
+  assessGscFinalWindow,
+  GSC_FINAL_WINDOW_DAYS,
+  GSC_FINAL_WINDOW_LOOKBACK_DAYS,
+  gscCalendarDay,
+  normalizeGscFirstIncompleteDate,
+  selectLatestGscFinalWindow,
+  shiftGscDay,
+} from './lib/gsc-final-window.mjs';
 import { checkGa4Liveness, declareNotMeasurable } from './lib/source-liveness.mjs';
 import {
   fetchGa4WebVitals,
@@ -98,6 +107,7 @@ export const BASELINE = {
       '/articoli-frontaliere/':  3.1,
       '/fisco/':                 3.9,
       '/guida-frontaliere/':     3.5,
+      '/cerca-lavoro-ticino/':   null,
     },
   },
   posthog: {
@@ -118,6 +128,7 @@ export const MAX_BASELINE_AGE_DAYS = 30;
 // URL buckets for GSC CTR tracking. Matched as URL-contains on the page dimension.
 export const GSC_BUCKETS = [
   '/job-board/',
+  '/cerca-lavoro-ticino/',
   '/calcola-stipendio/',
   '/articoli-frontaliere/',
   '/fisco/',
@@ -310,60 +321,239 @@ async function gscQuery(token, body) {
   return await r2.json();
 }
 
-async function fetchGscMetrics(token) {
-  const { start, end } = last7Days();
+export const GSC_PAGE_ROW_LIMIT = 25000;
+export const GSC_PAGE_ROW_CAP = 100000;
 
-  // Top-line totals
-  const totals = await gscQuery(token, {
-    startDate: start,
-    endDate: end,
-    dimensions: [],
-    rowLimit: 1,
+/**
+ * Probe site-level Pacific dates, then choose the latest consecutive seven
+ * days explicitly returned by dataState=final. Keep an all/date probe for
+ * firstIncompleteDate provenance and fail closed on malformed metadata.
+ */
+export async function fetchGscFinalWindow(token, { now = new Date(), queryImpl = gscQuery } = {}) {
+  const today = gscCalendarDay(now);
+  const probeWindow = {
+    start: shiftGscDay(today, -(GSC_FINAL_WINDOW_LOOKBACK_DAYS - 1)),
+    end: today,
+  };
+  const probeRequest = {
+    startDate: probeWindow.start,
+    endDate: probeWindow.end,
+    type: 'web',
+    dimensions: ['date'],
+    rowLimit: GSC_FINAL_WINDOW_LOOKBACK_DAYS,
+  };
+  const allData = await queryImpl(token, { ...probeRequest, dataState: 'all' });
+  const finalData = await queryImpl(token, { ...probeRequest, dataState: 'final' });
+  const metadataDates = (allData.rows || []).map((row) => row.keys?.[0]).filter(Boolean);
+  const availableDates = (finalData.rows || []).map((row) => row.keys?.[0]).filter(Boolean);
+  const { firstIncompleteDate, error: metadataError } = normalizeGscFirstIncompleteDate(allData.metadata);
+  const selected = selectLatestGscFinalWindow({
+    today,
+    days: GSC_FINAL_WINDOW_DAYS,
+    lookbackDays: GSC_FINAL_WINDOW_LOOKBACK_DAYS,
+    availableDates,
+    firstIncompleteDate,
+    metadataError,
   });
+  return {
+    ...selected,
+    probe: {
+      source: 'Google Search Console Search Analytics',
+      searchType: 'web',
+      dataState: 'final',
+      dimensions: ['date'],
+      window: probeWindow,
+      firstIncompleteDate: firstIncompleteDate || null,
+      metadataError,
+      returnedDateRows: availableDates.length,
+      availableDates,
+      metadataProbe: { dataState: 'all', returnedDateRows: metadataDates.length, availableDates: metadataDates },
+      note: 'Final date dimension is authoritative; missing dates are unknown, never zero. Metadata is read from a separate all/date probe.',
+    },
+  };
+}
+
+function gscSourceError(type, window, reason) {
+  return {
+    status: 'unmeasurable',
+    source: 'Google Search Console Search Analytics',
+    searchType: type,
+    dataState: 'final',
+    window: window || null,
+    reason,
+  };
+}
+
+/** Fetch web totals and page CTR with explicit, bounded pagination. */
+export async function fetchGscMetrics(token, window, {
+  queryImpl = gscQuery,
+  pageRowLimit = GSC_PAGE_ROW_LIMIT,
+  maxPageRows = GSC_PAGE_ROW_CAP,
+  previousWindow = null,
+  previousStatus = 'unmeasurable',
+} = {}) {
+  if (!window?.start || !window?.end) throw new Error('A selected final GSC window is required');
+  if (!Number.isInteger(pageRowLimit) || pageRowLimit < 1 || pageRowLimit > GSC_PAGE_ROW_LIMIT) {
+    throw new Error(`pageRowLimit must be 1..${GSC_PAGE_ROW_LIMIT}`);
+  }
+  if (!Number.isInteger(maxPageRows) || maxPageRows < 1) throw new Error('maxPageRows must be positive');
+  const queryWindow = { startDate: window.start, endDate: window.end, type: 'web', dataState: 'final' };
+  const totals = await queryImpl(token, { ...queryWindow, dimensions: [], rowLimit: 1 });
   const totalsRow = totals.rows?.[0];
-  const clicks = totalsRow?.clicks ?? 0;
-  const position = totalsRow?.position ?? null;
+  if (!totalsRow || !Number.isFinite(totalsRow.clicks) || !Number.isFinite(totalsRow.impressions)) {
+    throw new Error('GSC web totals returned no valid totals row for the selected final window');
+  }
+  const clicks = totalsRow.clicks;
+  const impressions = totalsRow.impressions;
+  const position = Number.isFinite(totalsRow.position) ? totalsRow.position : null;
 
-  // CTR by page bucket — pull top 5000 pages and aggregate client-side.
-  const byPage = await gscQuery(token, {
-    startDate: start,
-    endDate: end,
-    dimensions: ['page'],
-    rowLimit: 5000,
-  });
+  const pageRows = [];
+  let exhausted = false;
+  while (pageRows.length < maxPageRows) {
+    const limit = Math.min(pageRowLimit, maxPageRows - pageRows.length);
+    const pageData = await queryImpl(token, {
+      ...queryWindow,
+      dimensions: ['page'],
+      startRow: pageRows.length,
+      rowLimit: limit,
+    });
+    const batch = pageData.rows || [];
+    pageRows.push(...batch.slice(0, maxPageRows - pageRows.length));
+    if (batch.length < limit) {
+      exhausted = true;
+      break;
+    }
+  }
+  const coverage = {
+    rowLimitPerPage: pageRowLimit,
+    clientRowCap: maxPageRows,
+    rowsReturned: pageRows.length,
+    paginationExhausted: exhausted,
+    truncatedAtClientCap: !exhausted,
+    completeCoverage: false,
+    note: 'GSC may omit rows internally; exhausted pagination is not a guarantee of complete page coverage.',
+  };
 
-  const ctrByBucket = bucketCtrFromRows(byPage.rows || [], GSC_BUCKETS);
+  let previous = null;
+  if (previousStatus === 'measurable' && previousWindow) {
+    try {
+      const previousTotals = await queryImpl(token, {
+        startDate: previousWindow.start,
+        endDate: previousWindow.end,
+        type: 'web',
+        dataState: 'final',
+        dimensions: [],
+        rowLimit: 1,
+      });
+      const row = previousTotals.rows?.[0];
+      if (!row || !Number.isFinite(row.clicks) || !Number.isFinite(row.impressions)) {
+        throw new Error('GSC returned no valid totals row for the previous final window');
+      }
+      const previousClicks = row.clicks;
+      const previousImpressions = row.impressions;
+      previous = {
+        status: 'measurable',
+        source: 'Google Search Console Search Analytics',
+        searchType: 'web',
+        dataState: 'final',
+        window: previousWindow,
+        clicks: previousClicks,
+        impressions: previousImpressions,
+        ctr: previousImpressions ? previousClicks / previousImpressions : null,
+        avgPosition: Number.isFinite(row.position) ? row.position : null,
+      };
+    } catch (error) {
+      previous = gscSourceError('web', previousWindow, `Previous final-window totals failed: ${error.message}`);
+    }
+  } else {
+    previous = gscSourceError('web', previousWindow, 'Previous seven-day window is not fully represented in the date probe');
+  }
 
   return {
-    window: { start, end },
+    status: 'measurable',
+    source: 'Google Search Console Search Analytics',
+    searchType: 'web',
+    dataState: 'final',
+    window,
     clicks7d: clicks,
-    clicksPerDay: Number((clicks / 7).toFixed(1)),
+    clicksPerDay: Number((clicks / GSC_FINAL_WINDOW_DAYS).toFixed(1)),
+    impressions7d: impressions,
+    ctr: impressions ? clicks / impressions : null,
     avgPosition: position !== null ? Number(position.toFixed(2)) : null,
-    ctrByBucket,
+    ctrByBucket: bucketCtrFromRows(pageRows, GSC_BUCKETS),
+    pageCoverage: coverage,
+    previous,
   };
 }
 
 /**
  * Totals for a non-web GSC search type ('discover' | 'googleNews') over the
- * same 7-day window. `gscQuery` forwards the body verbatim, so `type` rides
- * along unchanged. Discover supports no query/device dimensions and has no
- * position; totals need `dimensions: []` only — same shape as the web branch.
+ * shared web window. Each type gets an all/date metadata probe and a final/date
+ * coverage probe; a successful empty totals response is zero only after those
+ * seven dates are explicitly confirmed by the final-state date dimension.
  */
-async function fetchGscSearchTypeTotals(token, type) {
-  const { start, end } = last7Days();
-  const totals = await gscQuery(token, {
-    startDate: start,
-    endDate: end,
+export async function fetchGscSearchTypeTotals(token, type, window, { queryImpl = gscQuery } = {}) {
+  if (!window?.start || !window?.end) throw new Error('A selected final GSC window is required');
+  const probeRequest = {
+    startDate: window.start,
+    endDate: window.end,
     type,
+    dimensions: ['date'],
+    rowLimit: GSC_FINAL_WINDOW_DAYS,
+  };
+  const metadataProbe = await queryImpl(token, { ...probeRequest, dataState: 'all' });
+  const dateProbe = await queryImpl(token, { ...probeRequest, dataState: 'final' });
+  const metadataDates = (metadataProbe.rows || []).map((row) => row.keys?.[0]).filter(Boolean);
+  const { firstIncompleteDate, error: metadataError } = normalizeGscFirstIncompleteDate(metadataProbe.metadata);
+  const finality = assessGscFinalWindow(window, {
+    availableDates: (dateProbe.rows || []).map((row) => row.keys?.[0]).filter(Boolean),
+    firstIncompleteDate,
+    metadataError,
+  });
+  const finalityProbe = {
+    source: 'Google Search Console Search Analytics',
+    searchType: type,
+    dataState: 'final',
+    dimensions: ['date'],
+    window,
+    firstIncompleteDate: firstIncompleteDate || null,
+    metadataError,
+    availableDates: finality.availableDates,
+    missingDates: finality.missingDates,
+    metadataProbe: { dataState: 'all', returnedDateRows: metadataDates.length, availableDates: metadataDates },
+    status: finality.status,
+    reason: finality.reason,
+  };
+  if (!finality.complete) {
+    return {
+      ...gscSourceError(type, window, `Search-type finality probe is incomplete: ${finality.reason}`),
+      finalityProbe,
+    };
+  }
+  const totals = await queryImpl(token, {
+    startDate: window.start,
+    endDate: window.end,
+    type,
+    dataState: 'final',
     dimensions: [],
     rowLimit: 1,
   });
   const row = totals.rows?.[0];
+  if (row && (!Number.isFinite(row.clicks) || !Number.isFinite(row.impressions))) {
+    throw new Error(`GSC ${type} totals returned an invalid row`);
+  }
+  const clicks = row ? row.clicks : 0;
+  const impressions = row ? row.impressions : 0;
   return {
-    window: { start, end },
-    clicks7d: row?.clicks ?? 0,
-    impressions7d: row?.impressions ?? 0,
-    ctrPct: row?.ctr != null ? Number((row.ctr * 100).toFixed(2)) : null,
+    status: 'measurable',
+    source: 'Google Search Console Search Analytics',
+    searchType: type,
+    dataState: 'final',
+    window,
+    clicks7d: clicks,
+    impressions7d: impressions,
+    ctrPct: impressions ? Number(((clicks / impressions) * 100).toFixed(2)) : null,
+    finalityProbe,
   };
 }
 
@@ -511,6 +701,22 @@ function selectPosthogBaseline(posthog, baseline) {
   return posthog.source === 'ga4-fallback' ? baseline.posthogGa4 ?? null : baseline.posthog;
 }
 
+function sourceIsMeasurable(source) {
+  return Boolean(source) && source.status !== 'unmeasurable';
+}
+
+function unavailableSourceRow(metric, source) {
+  const reason = source?.reason ? `: ${source.reason}` : '';
+  return {
+    metric,
+    baseline: null,
+    current: 'unmeasurable',
+    delta: null,
+    deltaPct: null,
+    verdict: `⚪ unmeasurable${reason}`,
+  };
+}
+
 export function buildComparisonRows(current, baseline = BASELINE) {
   const rows = [];
   const adsense = current.adsense;
@@ -536,23 +742,37 @@ export function buildComparisonRows(current, baseline = BASELINE) {
     rows.push({ metric: 'AdSense metrics', baseline: '—', current: 'skipped', delta: null, deltaPct: null, verdict: '⚪ auth missing' });
   }
 
-  if (gsc) {
+  if (sourceIsMeasurable(gsc)) {
     rows.push({ metric: 'GSC clicks / day', baseline: b.gsc.clicksPerDay, current: gsc.clicksPerDay, ...compare(gsc.clicksPerDay, b.gsc.clicksPerDay) });
     rows.push({ metric: 'GSC avg position', baseline: b.gsc.avgPosition, current: gsc.avgPosition, ...compare(gsc.avgPosition, b.gsc.avgPosition, { higherIsBetter: false }) });
+    if (gsc.previous?.status === 'measurable') {
+      const previousClicksPerDay = Number((gsc.previous.clicks / GSC_FINAL_WINDOW_DAYS).toFixed(1));
+      rows.push({
+        metric: 'GSC clicks / day vs previous final 7d',
+        baseline: previousClicksPerDay,
+        current: gsc.clicksPerDay,
+        ...compare(gsc.clicksPerDay, previousClicksPerDay),
+      });
+    } else {
+      rows.push(unavailableSourceRow('GSC clicks / day vs previous final 7d', gsc.previous));
+    }
     if (gsc.ctrByBucket) {
       for (const bucket of GSC_BUCKETS) {
         const baselineCtr = b.gsc.ctrByBucket?.[bucket] ?? null;
         const currentCtr = gsc.ctrByBucket[bucket] ?? null;
+        const partialPageCoverage = gsc.pageCoverage?.truncatedAtClientCap;
         rows.push({
           metric: `GSC CTR ${bucket} (%)`,
           baseline: baselineCtr,
           current: currentCtr,
-          ...compare(currentCtr, baselineCtr),
+          ...(partialPageCoverage
+            ? { delta: null, deltaPct: null, verdict: '⚪ partial page coverage' }
+            : compare(currentCtr, baselineCtr)),
         });
       }
     }
   } else {
-    rows.push({ metric: 'GSC metrics', baseline: '—', current: 'skipped', delta: null, deltaPct: null, verdict: '⚪ auth missing' });
+    rows.push(unavailableSourceRow('GSC metrics', gsc));
   }
 
   // Discover / Google News (issue-40 corpus plan, fase 6). Baseline is a REAL
@@ -561,15 +781,19 @@ export function buildComparisonRows(current, baseline = BASELINE) {
   // webmasters scope). compare(x, 0) yields an absolute delta with a neutral
   // verdict (deltaPct needs a nonzero base), so these rows inform without
   // ever polluting `regressions`. Growth shows up as delta.
-  if (current.gscDiscover) {
+  if (sourceIsMeasurable(current.gscDiscover)) {
     const d = current.gscDiscover;
     rows.push({ metric: 'Discover clicks (7d)', baseline: 0, current: d.clicks7d, ...compare(d.clicks7d, 0) });
     rows.push({ metric: 'Discover impressions (7d)', baseline: 0, current: d.impressions7d, ...compare(d.impressions7d, 0) });
+  } else if (current.gscDiscover) {
+    rows.push(unavailableSourceRow('Discover metrics (7d)', current.gscDiscover));
   }
-  if (current.gscNews) {
+  if (sourceIsMeasurable(current.gscNews)) {
     const n = current.gscNews;
     rows.push({ metric: 'Google News clicks (7d)', baseline: 0, current: n.clicks7d, ...compare(n.clicks7d, 0) });
     rows.push({ metric: 'Google News impressions (7d)', baseline: 0, current: n.impressions7d, ...compare(n.impressions7d, 0) });
+  } else if (current.gscNews) {
+    rows.push(unavailableSourceRow('Google News metrics (7d)', current.gscNews));
   }
 
   if (posthog) {
@@ -670,8 +894,12 @@ export function renderMarkdown(rows, current, baseline = BASELINE) {
   const lines = [];
   lines.push(`# Revenue monitor — ${new Date().toISOString().slice(0, 10)}`);
   lines.push('');
-  const anyWindow = current.adsense?.window || current.gsc?.window || current.posthog?.window;
-  lines.push(`Window: ${anyWindow?.start || 'n/a'} → ${anyWindow?.end || 'n/a'}`);
+  if (current.adsense?.window) {
+    lines.push(`AdSense window: ${current.adsense.window.start} → ${current.adsense.window.end}`);
+  }
+  if (current.posthog?.window) {
+    lines.push(`GA4 CLS window: ${current.posthog.window.start} → ${current.posthog.window.end}`);
+  }
   lines.push(`Baseline: ${baseline.period}`);
   lines.push('');
   lines.push('| Metric | Baseline | Current | Δ | Δ% | Verdict |');
@@ -683,6 +911,40 @@ export function renderMarkdown(rows, current, baseline = BASELINE) {
     lines.push(`| ${r.metric} | ${baseline} | ${r.current ?? '—'} | ${d} | ${p} | ${r.verdict} |`);
   }
   lines.push('');
+  const gscSources = [
+    ['Web', current.gsc],
+    ['Discover', current.gscDiscover],
+    ['Google News', current.gscNews],
+  ].filter(([, source]) => source);
+  if (gscSources.length) {
+    lines.push('## GSC source provenance');
+    lines.push('');
+    lines.push('| Source | Status | Window | Search type | Data state | Coverage / reason |');
+    lines.push('|--------|--------|--------|-------------|------------|-------------------|');
+    for (const [label, source] of gscSources) {
+      const status = source.status || (source.window ? 'measurable' : 'unmeasurable');
+      const window = source.window ? `${source.window.start} → ${source.window.end}` : 'n/a';
+      const coverage = source.pageCoverage
+        ? `${source.pageCoverage.rowsReturned}/${source.pageCoverage.clientRowCap} page rows; exhausted=${source.pageCoverage.paginationExhausted}; completeCoverage=false`
+        : source.finalityProbe
+          ? `${source.finalityProbe.availableDates.length}/${GSC_FINAL_WINDOW_DAYS} final dates; first incomplete=${source.finalityProbe.firstIncompleteDate || 'not returned'}${source.reason ? `; ${source.reason}` : ''}`
+          : source.reason || 'successful totals query';
+      lines.push(`| ${label} | ${status} | ${window} | ${source.searchType || 'n/a'} | ${source.dataState || 'n/a'} | ${coverage} |`);
+      if (source.previous) {
+        const previousWindow = source.previous.window
+          ? `${source.previous.window.start} → ${source.previous.window.end}` : 'n/a';
+        const previousDetail = source.previous.reason || `${source.previous.clicks} clicks, ${source.previous.impressions} impressions`;
+        lines.push(`| Previous web 7d | ${source.previous.status} | ${previousWindow} | web | ${source.previous.dataState || 'n/a'} | ${previousDetail} |`);
+      }
+    }
+    if (current.gscWindowProbe) {
+      const probe = current.gscWindowProbe;
+      lines.push('');
+      lines.push(`Probe: ${probe.probe?.window?.start || 'n/a'} → ${probe.probe?.window?.end || 'n/a'} (${probe.probe?.dataState || 'n/a'} / date; metadata all/date); first incomplete date: ${probe.probe?.firstIncompleteDate || 'not returned'}.`);
+      if (probe.reason) lines.push(`Window selection: unmeasurable — ${probe.reason}.`);
+    }
+  }
+  lines.push('');
   const regressions = rows.filter((r) => r.verdict.startsWith('🔴') || r.verdict.startsWith('⚠️'));
   if (regressions.length) {
     lines.push('## Regressions');
@@ -690,6 +952,8 @@ export function renderMarkdown(rows, current, baseline = BASELINE) {
       const baseline = r.baselineDate ? `${r.baseline} (${r.baselineDate})` : r.baseline;
       lines.push(`- ${r.verdict} **${r.metric}** — ${r.current} vs baseline ${baseline} (${r.deltaPct}%)`);
     }
+  } else if (current.errors?.length || rows.some((r) => r.verdict.startsWith('⚪ unmeasurable') || r.verdict.startsWith('⚪ partial'))) {
+    lines.push('## No regressions among measurable metrics; unavailable metrics require review.');
   } else {
     lines.push('## All metrics healthy — no regressions flagged.');
   }
@@ -698,6 +962,11 @@ export function renderMarkdown(rows, current, baseline = BASELINE) {
     lines.push('');
     lines.push('## Warnings');
     for (const w of current.warnings) lines.push(`- ⚠️ ${w}`);
+  }
+  if (current.errors?.length) {
+    lines.push('');
+    lines.push('## Errors');
+    for (const error of current.errors) lines.push(`- ${error}`);
   }
   return lines.join('\n');
 }
@@ -730,9 +999,31 @@ export function buildHistoryEntry(current, rows, dateStr) {
       : null,
     gsc: current.gsc
       ? {
+          status: current.gsc.status ?? (current.gsc.window ? 'measurable' : 'unmeasurable'),
           clicksPerDay: current.gsc.clicksPerDay ?? null,
+          clicks7d: current.gsc.clicks7d ?? null,
+          impressions7d: current.gsc.impressions7d ?? null,
+          ctr: current.gsc.ctr ?? null,
           avgPosition: current.gsc.avgPosition ?? null,
           ctrByBucket: current.gsc.ctrByBucket ?? null,
+          source: current.gsc.source ?? null,
+          searchType: current.gsc.searchType ?? null,
+          dataState: current.gsc.dataState ?? null,
+          window: current.gsc.window ?? null,
+          pageCoverage: current.gsc.pageCoverage ?? null,
+          reason: current.gsc.reason ?? null,
+          previous: current.gsc.previous ? {
+            status: current.gsc.previous.status ?? 'unmeasurable',
+            source: current.gsc.previous.source ?? null,
+            searchType: current.gsc.previous.searchType ?? null,
+            dataState: current.gsc.previous.dataState ?? null,
+            window: current.gsc.previous.window ?? null,
+            clicks: current.gsc.previous.clicks ?? null,
+            impressions: current.gsc.previous.impressions ?? null,
+            ctr: current.gsc.previous.ctr ?? null,
+            avgPosition: current.gsc.previous.avgPosition ?? null,
+            reason: current.gsc.previous.reason ?? null,
+          } : null,
         }
       : null,
     posthog: current.posthog
@@ -757,18 +1048,33 @@ export function buildHistoryEntry(current, rows, dateStr) {
     // unknown keys. Baseline registered at 0/0 (measured, 90 days pre-launch).
     gscDiscover: current.gscDiscover
       ? {
+          status: current.gscDiscover.status ?? (current.gscDiscover.window ? 'measurable' : 'unmeasurable'),
           clicks7d: current.gscDiscover.clicks7d ?? null,
           impressions7d: current.gscDiscover.impressions7d ?? null,
           ctrPct: current.gscDiscover.ctrPct ?? null,
+          source: current.gscDiscover.source ?? null,
+          searchType: current.gscDiscover.searchType ?? null,
+          dataState: current.gscDiscover.dataState ?? null,
+          window: current.gscDiscover.window ?? null,
+          reason: current.gscDiscover.reason ?? null,
+          finalityProbe: current.gscDiscover.finalityProbe ?? null,
         }
       : null,
     gscNews: current.gscNews
       ? {
+          status: current.gscNews.status ?? (current.gscNews.window ? 'measurable' : 'unmeasurable'),
           clicks7d: current.gscNews.clicks7d ?? null,
           impressions7d: current.gscNews.impressions7d ?? null,
           ctrPct: current.gscNews.ctrPct ?? null,
+          source: current.gscNews.source ?? null,
+          searchType: current.gscNews.searchType ?? null,
+          dataState: current.gscNews.dataState ?? null,
+          window: current.gscNews.window ?? null,
+          reason: current.gscNews.reason ?? null,
+          finalityProbe: current.gscNews.finalityProbe ?? null,
         }
       : null,
+    gscWindowProbe: current.gscWindowProbe ?? null,
     affiliate: current.affiliate
       ? {
           status: current.affiliate.status ?? 'unmeasurable',
@@ -824,7 +1130,7 @@ export function loadLatestPosthogBaseline(
 
 // ── Main ────────────────────────────────────────────────────
 async function main() {
-  const current = { adsense: null, gsc: null, gscDiscover: null, gscNews: null, posthog: null, publisher: null, affiliate: null, errors: [], warnings: [] };
+  const current = { adsense: null, gsc: null, gscDiscover: null, gscNews: null, gscWindowProbe: null, posthog: null, publisher: null, affiliate: null, errors: [], warnings: [] };
 
   const affiliateWindow = last7Days();
   if (!AFFILIATE_EXPORT_FILE) {
@@ -892,26 +1198,71 @@ async function main() {
   try {
     const gscToken = await getGscToken();
     if (gscToken) {
-      current.gsc = await fetchGscMetrics(gscToken);
-      // Discover + Google News (issue-40 corpus plan, fase 6): fetched
-      // separately and fail-soft per type, so a 4xx on a search type GSC has
-      // not yet activated for the property cannot take down the web metrics.
-      // These two are WHY the daily edition exists — a 90-day zero passed
-      // unobserved precisely because nothing looked at them.
+      let selection;
       try {
-        current.gscDiscover = await fetchGscSearchTypeTotals(gscToken, 'discover');
+        selection = await fetchGscFinalWindow(gscToken);
+        current.gscWindowProbe = selection;
       } catch (e) {
-        log('⚪', `GSC discover skipped: ${e.message}`);
+        current.errors.push(`gsc-date-probe: ${e.message}`);
+        selection = { status: 'unmeasurable', complete: false, window: null, reason: `GSC final-date probe failed: ${e.message}` };
+        current.gscWindowProbe = selection;
+        log('⚠️', selection.reason);
       }
-      try {
-        current.gscNews = await fetchGscSearchTypeTotals(gscToken, 'googleNews');
-      } catch (e) {
-        log('⚪', `GSC news skipped: ${e.message}`);
+
+      if (selection.status !== 'measurable' || !selection.window) {
+        const reason = selection.reason || 'GSC could not establish seven consecutive final dates';
+        current.gsc = gscSourceError('web', null, reason);
+        current.gscDiscover = gscSourceError('discover', null, `Shared final window unavailable: ${reason}`);
+        current.gscNews = gscSourceError('googleNews', null, `Shared final window unavailable: ${reason}`);
+        current.errors.push(`gsc-final-window: ${reason}`);
+        log('⚠️', `GSC metrics unmeasurable: ${reason}`);
+      } else {
+        const { window, previousWindow, previous } = selection;
+        try {
+          current.gsc = await fetchGscMetrics(gscToken, window, {
+            previousWindow,
+            previousStatus: previous?.status || 'unmeasurable',
+          });
+          current.gsc.finalWindowProbe = selection.probe;
+          log('🔎', `GSC web final ${window.start} → ${window.end}: ${current.gsc.clicks7d} clicks; page coverage ${current.gsc.pageCoverage.rowsReturned}/${current.gsc.pageCoverage.clientRowCap}`);
+          if (current.gsc.pageCoverage.truncatedAtClientCap) {
+            current.warnings.push(`GSC page CTR buckets are partial: the ${current.gsc.pageCoverage.clientRowCap}-row client cap was reached`);
+          }
+        } catch (e) {
+          current.gsc = gscSourceError('web', window, `GSC web query failed: ${e.message}`);
+          current.errors.push(`gsc-web: ${e.message}`);
+          log('⚠️', `GSC web query failed: ${e.message}`);
+        }
+
+        for (const [type, key, label] of [
+          ['discover', 'gscDiscover', 'Discover'],
+          ['googleNews', 'gscNews', 'Google News'],
+        ]) {
+          try {
+            current[key] = await fetchGscSearchTypeTotals(gscToken, type, window);
+          } catch (e) {
+            current[key] = gscSourceError(type, window, `GSC ${label} query failed: ${e.message}`);
+            current.errors.push(`gsc-${type}: ${e.message}`);
+            log('⚠️', `GSC ${label} query failed: ${e.message}`);
+          }
+        }
       }
-    } else log('⚪', 'GSC skipped (GSC_REFRESH_TOKEN not set)');
+    } else {
+      const reason = 'GSC_REFRESH_TOKEN is not configured';
+      current.gsc = gscSourceError('web', null, reason);
+      current.gscDiscover = gscSourceError('discover', null, reason);
+      current.gscNews = gscSourceError('googleNews', null, reason);
+      current.gscWindowProbe = { status: 'unmeasurable', reason };
+      current.warnings.push(`GSC metrics unmeasurable: ${reason}`);
+      log('⚪', `GSC metrics unmeasurable: ${reason}`);
+    }
   } catch (e) {
+    const reason = `GSC setup failed: ${e.message}`;
+    current.gsc = gscSourceError('web', null, reason);
+    current.gscDiscover = gscSourceError('discover', null, reason);
+    current.gscNews = gscSourceError('googleNews', null, reason);
     current.errors.push(`gsc: ${e.message}`);
-    log('⚠️', `GSC failed: ${e.message}`);
+    log('⚠️', reason);
   }
 
   // CLS: GA4 is the only source (H9). The guard runs inside measureCls().
