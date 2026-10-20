@@ -112372,6 +112372,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-indagine-disparita-salariali-frontalieri': {
+    title: 'Frontalieri: il 55,6% percepisce salari inferiori ai residenti',
+    description: '1.542 risposte raccolte tra lavoratrici e lavoratori Il 55,6% si sente pagato meno di un residente svizzero La ricerca sarà presentata il 24 ottobre a Varese',
+    keywords: 'frontalieri, ticino, svizzera, italia, percepisce, salari, inferiori, residenti',
+    ogTitle: 'Frontalieri: uno su due si sente pagato meno degli svizzeri',
+    ogDescription: '1.542 risposte raccolte tra lavoratrici e lavoratori Il 55,6% si sente pagato meno di un residente svizzero La ricerca sarà presentata il 24 ottobre a Varese',
+    canonicalPath: '/articoli-frontaliere/indagine-disparita-salariali-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: il 55,6% percepisce salari inferiori ai residenti",
+      "description": "1.542 risposte raccolte tra lavoratrici e lavoratori Il 55,6% si sente pagato meno di un residente svizzero La ricerca sarà presentata il 24 ottobre a Varese",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-indagine-disparita-salariali-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-20T10:53:09+00:00",
+      "dateModified": "2026-10-20T10:53:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/indagine-disparita-salariali-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -13524,6 +13524,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scuola-inoltre-ventanni-formazione-carcere.title': 'Scuola InOltre: 20 Jahre Bildung in Kantonsgefängnissen',
     'blog.article.scuola-inoltre-ventanni-formazione-carcere.excerpt': 'Die Scuola InOltre wird 2026 zwanzig Jahre alt Seit 2006 in den kantonalen Justizvollzugsanstalten tätig Im Juni Zertifikate für rund dreißig inhaftierte Frauen und fast 230',
     'blog.article.scuola-inoltre-ventanni-formazione-carcere.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.indagine-disparita-salariali-frontalieri.title': 'Grenzgänger: 55,6% verdienen weniger als die Einwohner',
+    'blog.article.indagine-disparita-salariali-frontalieri.excerpt': '1.542 Antworten von Arbeitnehmerinnen und Arbeitnehmern gesammelt 55,6% fühlen sich schlechter bezahlt als eine in der Schweiz ansässige Person Die Studie wird am 24. (Varese)',
+    'blog.article.indagine-disparita-salariali-frontalieri.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

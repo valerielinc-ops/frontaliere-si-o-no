@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 695,
+      "5": 697,
       "6": 5054
     },
-    "publishedCovers": 7432,
+    "publishedCovers": 7434,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -203579,6 +203579,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-acqua-domleschg-feldis-scheid": {
+      "cover": "/images/blog/article-acqua-domleschg-feldis-scheid.webp",
+      "hash": "32ef494352798e7cd20b473ceed0ed5a41a10fc07a20b900811291b0e6f05fe9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-gr",
+          "id": "acqua-domleschg-feldis-scheid",
+          "category": "pratico",
+          "date": "2026-10-20T10:34:42.547Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-acqua-domleschg-feldis-scheid.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-acqua-domleschg-feldis-scheid",
+        "imageUrl": "/images/blog/article-acqua-domleschg-feldis-scheid.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-axenstrasse-chiusa-quattro-notti": {
       "cover": "/images/blog/article-axenstrasse-chiusa-quattro-notti.webp",
       "hash": "42b83b9ff70b53e641edd13d3d674fa791e7044912c3fbe3faeeedd558d7ef97",
@@ -203642,6 +203675,39 @@
         "provider": "openai-codex",
         "assetId": "article-frontalieri-ticino-indagine-salari-2026",
         "imageUrl": "/images/blog/article-frontalieri-ticino-indagine-salari-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-indagine-disparita-salariali-frontalieri": {
+      "cover": "/images/blog/article-indagine-disparita-salariali-frontalieri.webp",
+      "hash": "89f0d7a234f0965b2d07df2fe89595f0fd463f31375e986f96f7057537290406",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "indagine-disparita-salariali-frontalieri",
+          "category": "pratico",
+          "date": "2026-10-20T10:53:09.319Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-indagine-disparita-salariali-frontalieri.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-indagine-disparita-salariali-frontalieri",
+        "imageUrl": "/images/blog/article-indagine-disparita-salariali-frontalieri.webp",
         "evidence": "generated-engine-record"
       }
     }

@@ -13527,6 +13527,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scuola-inoltre-ventanni-formazione-carcere.title': 'Scuola InOltre : vingt ans de formation dans les prisons cantonales',
     'blog.article.scuola-inoltre-ventanni-formazione-carcere.excerpt': 'La Scuola InOltre fête ses vingt ans en 2026 Active depuis 2006 dans les établissements pénitentiaires cantonaux En juin attestations remises à une trentaine de détenues et à près de 230',
     'blog.article.scuola-inoltre-ventanni-formazione-carcere.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.indagine-disparita-salariali-frontalieri.title': 'Frontaliers : 55,6% gagnent moins que les résidents',
+    'blog.article.indagine-disparita-salariali-frontalieri.excerpt': '1.542 réponses recueillies auprès de travailleuses et travailleurs 55,6% se sentent moins bien payés qu’un résident suisse L’étude sera présentée le 24 octobre à Varese',
+    'blog.article.indagine-disparita-salariali-frontalieri.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;
