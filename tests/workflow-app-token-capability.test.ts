@@ -168,6 +168,11 @@ const ALLOWED: Record<string, { reason: AllowReason; why: string }> = {
   'campaign-goal-check.yml :: check :: Run campaign goal check': { reason: 'no-publish', why: 'legge metriche e apre/aggiorna issue' },
   'crawler-content-plausibility-audit.yml :: verify :: Verify shortlist and open issues': { reason: 'agent-bridge', why: 'corsia agente che apre issue' },
   'deploy-request.yml :: request :: Request one build for the current main tip': { reason: 'no-publish', why: 'dispatch del deploy dopo guardia actions: write' },
+  // The step guard in deploy-request.yml requires both APP_TOKEN_ACTIONS and
+  // APP_TOKEN_DEPLOYMENTS_READ before it invokes request-latest-publish.mjs.
+  // That script only GETs Deployments and POSTs a workflow dispatch; it never
+  // pushes refs, opens PRs, or writes repository content.
+  'deploy-request.yml :: request :: Reconcile the latest successful Pages publish': { reason: 'no-publish', why: 'legge Deployments e dispatcha il publish dopo le guardie actions:write + deployments:read' },
   'deploy-publish.yml :: recover-legacy-publish-contract :: Dispatch a current build': { reason: 'no-publish', why: 'dispatch del deploy di recovery dopo guardia actions: write' },
   'followup-drainer.yml :: drain :: Probe capacità workflow del token di push (zero-Claude)': { reason: 'no-publish', why: 'sonda in sola lettura dello scope del token' },
   'followup-drainer.yml :: drain :: Drain follow-up queue (deterministic, no Claude)': { reason: 'no-publish', why: 'etichetta e smista issue, non pusha' },

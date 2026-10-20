@@ -95,6 +95,7 @@ import {
   GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT,
   GLOBAL_DATA_PIPELINE_LEASE_TRANSIENT_ERROR_EXIT,
 } from './lib/global-data-pipeline-lease.mjs';
+import { CRAWLER_GENERATION_RECEIPT_FAILURE_EXIT } from './lib/crawler-generation-receipt.mjs';
 import {
   QUARANTINE_OUTCOMES_NOTICE_TITLE,
   assertQuarantineMembership,
@@ -790,11 +791,13 @@ const CRAWLER_SHELL_PREAMBLE = Object.freeze(['set -uo pipefail', 'set +e', ''])
 const GROUP_SHARED_PRECONDITION_EXIT = 43;
 const GLOBAL_LEASE_BUSY_EXIT = GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT;
 const GLOBAL_LEASE_TRANSIENT_ERROR_EXIT = GLOBAL_DATA_PIPELINE_LEASE_TRANSIENT_ERROR_EXIT;
+const RECEIPT_FAILURE_EXIT = CRAWLER_GENERATION_RECEIPT_FAILURE_EXIT;
 // A token-bound group must finish its commit in the same generation. The
 // helper already retries individual pushes, but a whole group can still lose
 // the final ref race after that budget. Retry the complete atomic operation a
-// few times so a transient convoy does not leave a green run with an orphaned
-// receipt; exhaustion remains a real workflow failure.
+// few times so a transient convoy or receipt-write failure does not leave a
+// green run with an orphaned receipt; exhaustion remains a real workflow
+// failure.
 export const TOKEN_BOUND_COMMIT_RETRY_ATTEMPTS = 3;
 export const TOKEN_BOUND_COMMIT_RETRY_DELAY_SECONDS = 15;
 // Runner shutdown (SIGTERM) is a fourth systemic class. A hosted runner can
@@ -892,7 +895,7 @@ function buildTokenBoundCommitRetryRun({ command, label, nonRetryableFailureLine
     '  if [ "$git_commit_exit" -eq 0 ]; then',
     '    exit 0',
     '  fi',
-    `  if [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; then`,
+    `  if [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RECEIPT_FAILURE_EXIT} ]; then`,
     ...failureLines,
     '    exit "$git_commit_exit"',
     '  fi',

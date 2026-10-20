@@ -43,6 +43,7 @@ import {
   DEFAULT_TIKTOK_MUSIC_MODE,
   acceptsInstagramImageUpload,
   extractTikTokAuthenticatedUsername,
+  findFirst,
   hasVisibleDialogLoading,
   resolveTikTokMusicVariant,
   RobotError,
@@ -64,6 +65,26 @@ describe('Instagram image upload accept guard', () => {
     expect(acceptsInstagramImageUpload('image/jpeg,image/png,image/heic')).toBe(true);
     expect(acceptsInstagramImageUpload('image/*')).toBe(true);
     expect(acceptsInstagramImageUpload('application/pdf')).toBe(false);
+  });
+});
+
+describe('shared locator polling', () => {
+  it('skips a hidden first match and returns a later visible match', async () => {
+    const hidden = {
+      count: async () => 1,
+      isVisible: async () => false,
+    };
+    const visible = {
+      count: async () => 1,
+      isVisible: async () => true,
+    };
+    const locator = {
+      count: async () => 2,
+      first: () => hidden,
+      nth: (index: number) => [hidden, visible][index],
+    };
+
+    await expect(findFirst([locator as never], { timeout: 0 })).resolves.toBe(visible);
   });
 });
 

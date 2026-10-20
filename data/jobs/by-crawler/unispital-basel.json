@@ -4967,7 +4967,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:16:10.667Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -10096,9 +10095,9 @@
     },
     {
       "id": "unispital-basel-07d0562abde3",
-      "slug": "study-coordinator-kardiologie-universitatsspital-basel",
+      "slug": "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "study-coordinator-kardiologie-universitatsspital-basel",
+        "it": "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel",
         "en": "study-coorindator-cardiology-universitatsspital-basel-basel",
         "de": "study-coordinator-kardiologie-unispital-basel-ch",
         "fr": "coordonateur-de-l-etude-cardiologie-universitatsspital-basel-basel"
@@ -10148,14 +10147,14 @@
         "studio-coorindator-cardiologia-universitatsspital-basel-basel",
         "study-coordinator-kardiologie-unispital-basel-ch",
         "study-coorindator-kardiologie-unispital-basel-ch",
-        "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel"
+        "study-coordinator-kardiologie-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studio-coorindator-cardiologia-universitatsspital-basel-basel",
           "study-coordinator-kardiologie-unispital-basel-ch",
           "study-coorindator-kardiologie-unispital-basel-ch",
-          "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel"
+          "study-coordinator-kardiologie-universitatsspital-basel"
         ]
       },
       "firstSeenAt": "2026-10-14T21:24:36.351Z",
@@ -11006,7 +11005,6 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27718",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leitende-hebamme-unispital-basel-ch"
@@ -11032,12 +11030,12 @@
     },
     {
       "id": "unispital-basel-04cd3d2ced99",
-      "slug": "teamleitung-hr-administration-unispital-basel-ch",
+      "slug": "responsabile-del-team-amministrazione-hr-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "teamleitung-hr-administration-unispital-basel-ch",
-        "it": "teamleitung-hr-administration-unispital-basel-ch",
-        "en": "teamleitung-hr-administration-unispital-basel-ch",
-        "fr": "teamleitung-hr-administration-unispital-basel-ch"
+        "it": "responsabile-del-team-amministrazione-hr-universitatsspital-basel-basel",
+        "en": "team-management-hr-administration-universitatsspital-basel-basel",
+        "fr": "responsable-de-l-administration-rh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11082,7 +11080,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -11096,16 +11093,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:02:19.848Z"
+      "firstSeenAt": "2026-09-19T23:02:19.848Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-hr-administration-unispital-basel-ch"
+        ],
+        "en": [
+          "teamleitung-hr-administration-unispital-basel-ch"
+        ],
+        "fr": [
+          "teamleitung-hr-administration-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-hr-administration-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-a82a6a45381f",
-      "slug": "medizinphysiker-in-universitatsspital-basel-basel",
+      "slug": "fisico-a-medico-a-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "medizinphysiker-in-unispital-basel-ch",
-        "it": "medizinphysiker-in-universitatsspital-basel-basel",
-        "en": "medizinphysiker-in-universitatsspital-basel-basel",
-        "fr": "medizinphysiker-in-universitatsspital-basel-basel"
+        "it": "fisico-a-medico-a-universitatsspital-basel-basel",
+        "en": "medical-physicist-universitatsspital-basel-basel",
+        "fr": "physicien-ne-medical-e-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11150,14 +11161,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "medizinphysiker-in-unispital-basel-ch"
+          "medizinphysiker-in-unispital-basel-ch",
+          "medizinphysiker-in-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "medizinphysiker-in-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "medizinphysiker-in-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "medizinphysiker-in-unispital-basel-ch"
+        "medizinphysiker-in-unispital-basel-ch",
+        "medizinphysiker-in-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

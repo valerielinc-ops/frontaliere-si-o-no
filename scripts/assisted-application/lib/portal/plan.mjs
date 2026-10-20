@@ -527,7 +527,8 @@ const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|
 const EMPLOYMENT_CONTEXT_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
 const PREFERRED_WORKLOAD_RE = /\b(?:workload|work(?:ing)? percentage|employment percentage|employment level|pensum|carico di lavoro|percentuale di lavoro|grado di occupazione|tasso di occupazione|taux d['’]activit[ée]|pourcentage de travail)\b/i;
 const CURRENT_WORKLOAD_RE = /\b(?:current|currently|present|actual|attuale|attualmente|derzeit|zurzeit|actuel(?:le)?|gegenw(?:ä|ae)rtig)\b/i;
-const START_DATE_QUESTION_RE = /\b(?:earliest|when can you start|available to start|start(?:ing)? date|date of starting|date you can start|begin(?:ning)? of employment|entry date|date d['’]entr[ée]e|date de prise de fonction|data di inizio|data di assunzione|eintrittsdatum|fr(?:ü|ueh)estm(?:ö|oe)glicher start)\b/i;
+const START_DATE_QUESTION_RE = /\b(?:earliest (?:possible )?(?:start(?:ing)? date|date (?:you can|to) start)|when can you start|available to start|start(?:ing)? date|date of starting|date you can start|begin(?:ning)? of employment|entry date|date d['’]entr[ée]e|date de prise de fonction|data di inizio|data di assunzione|eintrittsdatum|fr(?:ü|ueh)estm(?:ö|oe)glicher start)\b/i;
+const CONTEXTUAL_START_DATE_LABEL_RE = /^\s*(?:start(?:ing)? date|date of starting|entry date|date d['’]entr[ée]e|data di inizio)(?:\s*(?::\s*)?\(?\s*(?:[dtgj]{1,4}[./-]m{1,4}[./-][ayj]{2,4}|[ayj]{4}[./-]m{1,2}[./-][dtgj]{1,2})\s*\)?)?\s*[?:]?\s*$/i;
 const AVAILABILITY_QUESTION_RE = /\b(?:availability|available for work|disponibilit[àa]|verf(?:ü|ue)gbarkeit|disponibilit[ée])\b/i;
 const NOTICE_PERIOD_QUESTION_RE = /\b(?:notice period|notice time|period of notice|preavviso|d['’]lai de pr(?:é|e)avis|k(?:ü|ue)ndigungsfrist|notice required)\b/i;
 const CRIMINAL_RECORD_QUESTION_RE = /\b(?:criminal record|police record|casellario giudiziale|casier judiciaire|strafregister|polizeiliches f(?:ü|ue)hrungszeugnis)\b/i;
@@ -598,7 +599,7 @@ export function questionTopic(label, context = '') {
   if (SALUTATION_FIELD_RE.test(text) || titleInPersonalDetails) return 'salutation';
   if (PREFERRED_WORKLOAD_RE.test(text) && !CURRENT_WORKLOAD_RE.test(text)) return 'preferred_workload';
   if (NOTICE_PERIOD_QUESTION_RE.test(text)) return 'notice_period';
-  if (START_DATE_QUESTION_RE.test(text)) return 'start_date';
+  if (START_DATE_QUESTION_RE.test(text)) return CONTEXTUAL_START_DATE_LABEL_RE.test(text) ? 'start_date_contextual' : 'start_date';
   if (AVAILABILITY_QUESTION_RE.test(text) && !CURRENT_WORKLOAD_RE.test(text)) return 'availability';
   if (CRIMINAL_RECORD_QUESTION_RE.test(text)) {
     return CRIMINAL_CERTIFICATE_QUESTION_RE.test(text) ? 'criminal_record_certificate' : 'criminal_record_status';
@@ -704,15 +705,107 @@ function comparableContext(context) {
 }
 
 function topicNeedsMatchingContext(topic) {
-  return /^(?:address|address_street|address_house_number|residence_|current_school$)/.test(topic);
+  return /^(?:address|address_street|address_house_number|residence_|current_school$|start_date_contextual$)/.test(topic);
+}
+
+function percentageAnswer(value) {
+  const match = /^\s*(\d+(?:[.,]\d+)?)\s*%?\s*$/.exec(String(value || ''));
+  if (!match) return null;
+  const percentage = Number(match[1].replace(',', '.'));
+  return Number.isFinite(percentage) && percentage >= 0 && percentage <= 100 ? percentage : null;
+}
+
+function salaryCurrency(value) {
+  const text = String(value || '');
+  const match = SALARY_CURRENCY_RE.exec(text);
+  if (match) return match[1]?.toUpperCase() || 'CHF';
+  if (/€/.test(text)) return 'EUR';
+  if (/£/.test(text)) return 'GBP';
+  return /\$/.test(text) ? 'DOLLAR' : '';
+}
+
+function salaryPeriod(value) {
+  const text = String(value || '');
+  return HOURLY_SALARY_RE.test(text) ? 'hourly'
+    : MONTHLY_SALARY_RE.test(text) ? 'monthly'
+      : SALARY_UNIT_RE.test(text) ? 'annual' : '';
+}
+
+function salaryAmountAnswer(topic, value) {
+  const [, expectedPeriod = 'unspecified', expectedCurrency = 'unspecified'] = topic.split(':');
+  const raw = String(value || '').trim();
+  if (!raw) return null;
+  const explicitCurrency = salaryCurrency(raw);
+  if (explicitCurrency && expectedCurrency !== 'unspecified' && explicitCurrency !== expectedCurrency
+    && !(explicitCurrency === 'DOLLAR' && ['USD', 'CAD', 'AUD'].includes(expectedCurrency))) return null;
+  const explicitPeriod = salaryPeriod(raw);
+  if (explicitPeriod && expectedPeriod !== 'unspecified' && explicitPeriod !== expectedPeriod) return null;
+
+  let text = raw
+    .replace(new RegExp(SALARY_CURRENCY_RE.source, 'gi'), '')
+    .replace(/[€£$]/g, '')
+    .replace(new RegExp(SALARY_UNIT_RE.source, 'gi'), '')
+    .replace(new RegExp(MONTHLY_SALARY_RE.source, 'gi'), '')
+    .replace(new RegExp(HOURLY_SALARY_RE.source, 'gi'), '')
+    .replace(/\b(?:gross|net|salary|expectation|expected|desired|compensation|wage)\b/gi, '')
+    .replace(/[\s'’]/g, '');
+  if (!/^\d[\d.,]*$/.test(text)) return null;
+  const commaCount = (text.match(/,/g) || []).length;
+  const dotCount = (text.match(/\./g) || []).length;
+  if (!commaCount && !dotCount) return Number.isFinite(Number(text)) ? Number(text) : null;
+
+  const separators = [...text.matchAll(/[.,]/g)].map((match) => match.index);
+  const lastSeparator = separators.at(-1);
+  const fractionalDigits = text.length - lastSeparator - 1;
+  const hasBothSeparators = commaCount > 0 && dotCount > 0;
+  if (hasBothSeparators) {
+    if (fractionalDigits < 1 || fractionalDigits > 2) return null;
+    const integer = text.slice(0, lastSeparator).replace(/[.,]/g, '');
+    const fraction = text.slice(lastSeparator + 1);
+    const amount = Number(`${integer}.${fraction}`);
+    return Number.isFinite(amount) ? amount : null;
+  }
+  const parts = text.split(commaCount ? ',' : '.');
+  if (parts.length > 2) {
+    if (parts.slice(1).every((part) => part.length === 3)) {
+      const amount = Number(parts.join(''));
+      return Number.isFinite(amount) ? amount : null;
+    }
+    return null;
+  }
+  const [integer, fraction] = parts;
+  if (fraction.length === 3 && integer.length <= 3) {
+    const amount = Number(`${integer}${fraction}`);
+    return Number.isFinite(amount) ? amount : null;
+  }
+  if (fraction.length >= 1 && fraction.length <= 2) {
+    const amount = Number(`${integer}.${fraction}`);
+    return Number.isFinite(amount) ? amount : null;
+  }
+  return null;
 }
 
 function equivalentAnswer(question, left, right, context = '') {
   const a = comparableAnswer(left);
   const b = comparableAnswer(right);
   if (!a || !b) return false;
-  if (a === b) return true;
   const topic = questionTopic(question, context);
+  if (topic === 'preferred_workload') {
+    if (a === b) return true;
+    const leftPercentage = percentageAnswer(left);
+    const rightPercentage = percentageAnswer(right);
+    return leftPercentage !== null && leftPercentage === rightPercentage;
+  }
+  if (topic.startsWith('salary_expectation:')) {
+    const leftAmount = salaryAmountAnswer(topic, left);
+    const rightAmount = salaryAmountAnswer(topic, right);
+    if (leftAmount === null || rightAmount === null || leftAmount !== rightAmount) return false;
+    const [, expectedPeriod = 'unspecified', expectedCurrency = 'unspecified'] = topic.split(':');
+    if (expectedCurrency === 'unspecified' && (salaryCurrency(left) === 'DOLLAR' || salaryCurrency(right) === 'DOLLAR')) return false;
+    if (expectedCurrency === 'unspecified' && salaryCurrency(left) !== salaryCurrency(right)) return false;
+    return expectedPeriod !== 'unspecified' || salaryPeriod(left) === salaryPeriod(right);
+  }
+  if (a === b) return true;
   if (topic === 'nationality') {
     const leftCode = nationalityOf(left)?.code;
     const rightCode = nationalityOf(right)?.code;
@@ -767,6 +860,7 @@ function recordedAnswerForQuestion(candidate, question, context = '') {
   const normalizedContextQuestion = comparableAnswer(questionFromLabel(context));
   const requestedContext = comparableContext(context);
   const topic = questionTopic(question, context);
+  if (topic === 'start_date_contextual' && !requestedContext) return '';
   const sameContext = (item) => comparableContext(item.context) === requestedContext;
   const matches = items.filter((item) => {
     const itemQuestion = comparableAnswer(questionFromLabel(item.question));
@@ -1053,9 +1147,9 @@ export function candidateAnswerForField(candidate, field) {
       const other = field.options.find((option) => OTHER_OPTION_RE.test(String(option.label || '')));
       if (other) return { value: other.label, source: 'answers' };
     }
-    if (['birth_date', 'nationality', 'start_date', 'availability', 'preferred_workload', 'criminal_record_certificate', 'criminal_record_status'].includes(topic)
+    if (['birth_date', 'nationality', 'start_date', 'start_date_contextual', 'availability', 'preferred_workload', 'criminal_record_certificate', 'criminal_record_status'].includes(topic)
       || topic.startsWith('salary_expectation:') || AVAILABILITY_FIELD_RE.test(String(field?.label || '')) || SALARY_FIELD_RE.test(String(field?.label || ''))) {
-      const value = ['start_date', 'availability'].includes(topic) ? normalizeDateAnswer(field, previous)
+      const value = ['start_date', 'start_date_contextual', 'availability'].includes(topic) ? normalizeDateAnswer(field, previous)
         : field?.options?.length ? optionForAnswer(field, previous) : previous;
       return value ? { value, source: 'answers' } : null;
     }
@@ -1083,7 +1177,7 @@ export function candidateAnswerForField(candidate, field) {
     const value = field?.options?.length ? optionForAnswer(field, candidate.profile.nationality) : candidate.profile.nationality;
     if (value) return { value, source: 'profile' };
   }
-  if (AVAILABILITY_FIELD_RE.test(label)) {
+  if (topic !== 'start_date_contextual' && AVAILABILITY_FIELD_RE.test(label)) {
     const availability = String(candidate?.answers?.availability || candidate?.profile?.availability || '').trim();
     const value = availability && (field?.options?.length ? optionForAnswer(field, availability) : availability);
     if (value) return { value, source: candidate?.answers?.availability ? 'answers' : 'profile' };

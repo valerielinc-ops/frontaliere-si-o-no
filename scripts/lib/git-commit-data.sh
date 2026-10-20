@@ -61,6 +61,11 @@
 #        the bounded number of consecutive transient errors. This is a real
 #        coordination-service failure, not a queue outcome: callers must keep
 #        the workflow red and must not retry the same generation.
+#   46 — CRAWLER_GENERATION_RECEIPT_FAILURE: a grouped batch published or
+#        confirmed its data tree but could not write the delivery receipts.
+#        The generated group workflow retries the same generation token; if the
+#        bounded retry is exhausted, the workflow stays red rather than
+#        reporting a green generation with missing delivery evidence.
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
@@ -194,6 +199,7 @@ EXTRA_ONLY=false
 # one working copy across ~25 concurrent sibling crawlers and therefore must
 # never mutate the shared worktree/index while committing.
 GROUPED_ISOLATED=false
+CRAWLER_GENERATION_RECEIPT_FAILURE_EXIT=46
 if [ "${1:-}" = "--extra-only" ]; then
   EXTRA_ONLY=true
   SLICE_ONLY=true
@@ -376,6 +382,7 @@ declare -A _BATCH_SNAPSHOT_STATE=()
 declare -A _BATCH_SNAPSHOT_MODE=()
 declare -A _BATCH_SNAPSHOT_BASE_BLOB=()
 declare -A _BATCH_SNAPSHOT_BLOB=()
+BATCH_HAS_CHANGES=false
 # Per-file result of the isolated-commit loop, reused by the NEXT push attempt
 # when the inputs of that file are unchanged (see commit_isolated_from_worktree).
 declare -A _ISOLATED_RESULT_KEY=()
@@ -610,6 +617,7 @@ if [ "$GROUP_BATCH" = true ]; then
     _BATCH_SNAPSHOT_MODE["$path_item"]="$snapshot_mode"
     _BATCH_SNAPSHOT_BASE_BLOB["$path_item"]="$snapshot_base_blob"
     _BATCH_SNAPSHOT_BLOB["$path_item"]="$snapshot_blob"
+    [ "$snapshot_operation" = "unchanged" ] || BATCH_HAS_CHANGES=true
   done < "$_batch_snapshots_file"
   # Observability for #7060: report, per path class, how many descriptors in
   # THIS run reached each non-"unchanged" snapshot operation. "unchanged" is
@@ -640,27 +648,40 @@ if [ "$GROUP_BATCH" = true ]; then
   fi
 fi
 
-# Optional shadow-only generation receipt. Disabled callers execute only the
-# empty-env guard below; enabled callers receive a best-effort observation of
-# the exact private-index tree. Receipt failure must never change this helper's
-# push, stdout contract or exit code: the group finalizer treats a missing or
-# corrupt receipt as invalid instead.
+# Generation receipt for the exact private-index tree. Standalone callers keep
+# the historical shadow-only behavior, but a grouped batch makes the receipt a
+# delivery contract: a successful data publication without its receipts is not
+# a successful generation. The generated workflow retries exit 46 in the same
+# token, and a retry is idempotent because the already-published tree becomes
+# the batch's noop candidate.
 emit_crawler_generation_receipt() {
   local outcome="${1:-}"
   local commit_sha="${2:-}"
   local remote_base_sha="${3:-}"
+  local receipt_status=0
+  if [ "$GROUP_BATCH" = true ] && [ -z "${CRAWLER_GENERATION_RECEIPT_DIR:-}" ]; then
+    echo "::error::crawler group batch cannot publish delivery receipts: CRAWLER_GENERATION_RECEIPT_DIR is empty"
+    return "$CRAWLER_GENERATION_RECEIPT_FAILURE_EXIT"
+  fi
   [ -n "${CRAWLER_GENERATION_RECEIPT_DIR:-}" ] || return 0
 
   local receipt_args=("${RESOLVED_FILES[@]}")
   if [ "$GROUP_BATCH" = true ]; then
     receipt_args=(--batch-receipts)
   fi
-  if ! CRAWLER_GENERATION_RECEIPT_OUTCOME="$outcome" \
+  if CRAWLER_GENERATION_RECEIPT_OUTCOME="$outcome" \
     CRAWLER_GENERATION_RECEIPT_COMMIT="$commit_sha" \
     CRAWLER_GENERATION_RECEIPT_REMOTE_BASE="$remote_base_sha" \
     node "$(dirname "$0")/crawler-generation-receipt.mjs" "${receipt_args[@]}"; then
-    echo "::warning::crawler generation receipt failed (shadow only); push outcome remains unchanged"
+    return 0
+  else
+    receipt_status=$?
   fi
+  if [ "$GROUP_BATCH" = true ]; then
+    echo "::error::crawler group batch delivery receipt failed (exit ${receipt_status}); retrying the same generation"
+    return "$CRAWLER_GENERATION_RECEIPT_FAILURE_EXIT"
+  fi
+  echo "::warning::crawler generation receipt failed (shadow only); push outcome remains unchanged"
   return 0
 }
 
@@ -3068,9 +3089,19 @@ commit_isolated_from_worktree() {
     isolated_phase_add tree "$phase_started"
     if [ "$new_tree" = "$remote_tree" ]; then
       isolated_phase_report "$push_attempt"
-      emit_crawler_generation_receipt "noop" "$remote_sha" "$remote_sha"
-      echo "ℹ️ No effective changes for this crawler's files vs origin/main — nothing to commit"
-      [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
+      emit_crawler_generation_receipt "noop" "$remote_sha" "$remote_sha" || return $?
+      if [ "$GROUP_BATCH" = true ] && [ "$BATCH_HAS_CHANGES" = true ]; then
+        # A receipt retry reaches this branch after the first attempt already
+        # published the exact candidate tree. Keep the publication visible to
+        # downstream deploy steps; only a descriptor set with no changed
+        # snapshots is a genuine no-op.
+        echo "✅ Crawler group batch tree already published at ${remote_sha}; receipt delivery repaired"
+        [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
+        [ -n "${GITHUB_OUTPUT:-}" ] && echo "final_commit=$remote_sha" >> "$GITHUB_OUTPUT"
+      else
+        echo "ℹ️ No effective changes for this crawler's files vs origin/main — nothing to commit"
+        [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
+      fi
       return 0
     fi
 
@@ -3109,7 +3140,7 @@ commit_isolated_from_worktree() {
       isolated_phase_add push "$phase_started"
       printf '%s\n' "$push_out"
       isolated_phase_report "$push_attempt"
-      emit_crawler_generation_receipt "pushed" "$new_commit" "$remote_sha"
+      emit_crawler_generation_receipt "pushed" "$new_commit" "$remote_sha" || return $?
       echo "✅ Pushed successfully (grouped-isolated commit ${new_commit})"
       [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
       [ -n "${GITHUB_OUTPUT:-}" ] && echo "final_commit=$new_commit" >> "$GITHUB_OUTPUT"

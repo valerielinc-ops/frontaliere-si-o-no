@@ -1804,7 +1804,7 @@
       "slugByLocale": {
         "it": "servizio-personale-25hours-hotel-zurich-langstrasse-m-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
         "en": "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-        "de": "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland",
+        "de": "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
         "fr": "personnel-de-service-25heures-hotel-zurich-langstrasse-h-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-1766008b"
       },
       "slugDisambiguator": "1766008b",
@@ -1850,7 +1850,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-        "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+        "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1858,7 +1858,7 @@
         ],
         "de": [
           "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-          "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+          "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
         ],
         "fr": [
           "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
@@ -2179,12 +2179,12 @@
     },
     {
       "id": "accor-0d2c4d1a9f36",
-      "slug": "commis-de-rang-montreux-jazz-cafe-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-0d2c4d1a",
+      "slug": "ranger-montreux-jazz-cafe-funky-claudios-bar-m-f-x-cdd-da-2-mesi-ibis-budget-fairmont-le-montreux-palace-0d2c4d1a",
       "slugByLocale": {
         "fr": "commis-de-rang-montreux-jazz-cafe-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-0d2c4d1a",
-        "it": "commis-de-rang-montreux-jazz-cafe-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-0d2c4d1a",
-        "en": "commis-de-rang-montreux-jazz-cafe-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-0d2c4d1a",
-        "de": "commis-de-rang-montreux-jazz-cafe-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-0d2c4d1a"
+        "it": "ranger-montreux-jazz-cafe-funky-claudios-bar-m-f-x-cdd-da-2-mesi-ibis-budget-fairmont-le-montreux-palace-0d2c4d1a",
+        "en": "ranger-montreux-jazz-cafe-funky-claudios-bar-m-f-x-2-months-cdd-ibis-budget-fairmont-le-montreux-palace-0d2c4d1a",
+        "de": "ranger-montreux-jazz-cafe-funky-claudios-bar-m-w-x-2-monate-cdd-ibis-budget-fairmont-le-montreux-palace-0d2c4d1a"
       },
       "slugDisambiguator": "0d2c4d1a",
       "company": "Ibis Budget",
@@ -2243,14 +2243,28 @@
         }
       },
       "postalCode": "1820",
-      "firstSeenAt": "2026-10-20T09:33:25.218Z"
+      "firstSeenAt": "2026-10-20T09:33:25.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-rang-montreux-jazz-cafe-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-0d2c4d1a"
+        ],
+        "en": [
+          "commis-de-rang-montreux-jazz-cafe-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-0d2c4d1a"
+        ],
+        "de": [
+          "commis-de-rang-montreux-jazz-cafe-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-0d2c4d1a"
+        ]
+      },
+      "previousSlugs": [
+        "commis-de-rang-montreux-jazz-cafe-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-0d2c4d1a"
+      ]
     },
     {
       "id": "accor-fb3bf0cdfe20",
-      "slug": "serveur-se-au-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-fb3bf0cd",
+      "slug": "server-presso-funky-claude-s-bar-m-f-x-2-mesi-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-fb3bf0cd",
       "slugByLocale": {
         "fr": "serveur-se-au-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-fb3bf0cd",
-        "it": "serveur-se-au-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-fb3bf0cd",
+        "it": "server-presso-funky-claude-s-bar-m-f-x-2-mesi-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-fb3bf0cd",
         "en": "serveur-se-au-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-fb3bf0cd",
         "de": "serveur-se-au-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-fb3bf0cd"
       },
@@ -2312,7 +2326,15 @@
         }
       },
       "postalCode": "1820",
-      "firstSeenAt": "2026-10-20T09:33:25.216Z"
+      "firstSeenAt": "2026-10-20T09:33:25.216Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "serveur-se-au-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-fb3bf0cd"
+        ]
+      },
+      "previousSlugs": [
+        "serveur-se-au-funky-claude-s-bar-f-h-x-2-mois-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-fb3bf0cd"
+      ]
     }
   ]
 }

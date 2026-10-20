@@ -1221,9 +1221,9 @@
     },
     {
       "id": "kanton-zuerich-c5306515af5d",
-      "slug": "dipl-pflegefachfrau-mann-hf-kantonale-verwaltung-zurich",
+      "slug": "infermiere-a-diplomato-a-sss-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-kantonale-verwaltung-zurich",
+        "it": "infermiere-a-diplomato-a-sss-kantonale-verwaltung-zurich-zurich",
         "en": "registered-nurse-hf-kantonale-verwaltung-zurich-zurich",
         "de": "dipl-pflegefachfrau-mann-hf-kanton-zuerich-zurich",
         "fr": "infirmier-iere-diplome-e-es-kantonale-verwaltung-zurich-zurich"
@@ -1277,13 +1277,13 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-kanton-zuerich-zurich",
         "dipl-pflegefachfrau-mann-hf-kantonale-verwaltung-zurich-zurich-a013389222",
-        "infermiere-a-diplomato-a-sss-kantonale-verwaltung-zurich-zurich"
+        "dipl-pflegefachfrau-mann-hf-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-kanton-zuerich-zurich",
           "dipl-pflegefachfrau-mann-hf-kantonale-verwaltung-zurich-zurich-a013389222",
-          "infermiere-a-diplomato-a-sss-kantonale-verwaltung-zurich-zurich"
+          "dipl-pflegefachfrau-mann-hf-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-10-05T21:40:08.973Z",
@@ -1785,7 +1785,7 @@
       "slug": "esperti-di-trasporto-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "it": "esperti-di-trasporto-kantonale-verwaltung-zurich-zurich",
-        "en": "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich",
+        "en": "transport-expert-kantonale-verwaltung-zurich-zurich",
         "de": "verkehrsexpertin-verkehrsexperte-kanton-zuerich-zurich",
         "fr": "specialiste-des-transports-kantonale-verwaltung-zurich-zurich"
       },
@@ -1838,7 +1838,7 @@
       "previousSlugs": [
         "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich-zurich",
         "verkehrsexpertin-verkehrsexperte-kanton-zuerich-zurich",
-        "transport-expert-kantonale-verwaltung-zurich-zurich"
+        "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1847,7 +1847,7 @@
         ],
         "en": [
           "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich-zurich",
-          "transport-expert-kantonale-verwaltung-zurich-zurich"
+          "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich"
         ],
         "fr": [
           "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich-zurich"
@@ -1978,7 +1978,7 @@
       "slug": "terapista-ambientale-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
         "it": "terapista-ambientale-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
-        "en": "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+        "en": "environmental-therapist-temporary-kantonale-verwaltung-zurich-regensdorf",
         "de": "milieutherapeut-in-befristet-kanton-zuerich-regensdorf",
         "fr": "therapeute-en-milieu-de-vie-duree-limitee-kantonale-verwaltung-zurich-regensdorf"
       },
@@ -2029,8 +2029,7 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf",
-        "milieutherapeut-in-befristet-kanton-zuerich-regensdorf",
-        "environmental-therapist-temporary-kantonale-verwaltung-zurich-regensdorf"
+        "milieutherapeut-in-befristet-kanton-zuerich-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2038,7 +2037,7 @@
           "milieutherapeut-in-befristet-kanton-zuerich-regensdorf"
         ],
         "en": [
-          "environmental-therapist-temporary-kantonale-verwaltung-zurich-regensdorf"
+          "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
         ],
         "fr": [
           "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
@@ -2066,7 +2065,7 @@
         "it": "aspirante-poliziotto-kantonale-verwaltung-zurich-zurich",
         "en": "police-aspirant-kantonale-verwaltung-zurich-zurich",
         "de": "polizeiaspirant-in-kanton-zuerich-zurich",
-        "fr": "polizeiaspirant-in-kantonale-verwaltung-zurich"
+        "fr": "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2117,7 +2116,7 @@
         "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich",
         "inspirant-e-policier-e-kantonale-verwaltung-zurich-zurich",
         "polizeiaspirant-in-kanton-zuerich-zurich",
-        "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich"
+        "polizeiaspirant-in-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2126,7 +2125,7 @@
         "fr": [
           "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich",
           "inspirant-e-policier-e-kantonale-verwaltung-zurich-zurich",
-          "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich"
+          "polizeiaspirant-in-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-09-08T13:51:26.443Z",
@@ -2561,10 +2560,10 @@
     },
     {
       "id": "kanton-zuerich-a8978e0ef92a",
-      "slug": "cloud-system-engineer-kanton-zuerich-zurich",
+      "slug": "cloud-system-ingegnere-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "cloud-system-engineer-kanton-zuerich-zurich",
-        "it": "cloud-system-engineer-kanton-zuerich-zurich",
+        "it": "cloud-system-ingegnere-kantonale-verwaltung-zurich-zurich",
         "en": "cloud-system-engineer-kantonale-verwaltung-zurich-zurich",
         "fr": "cloud-system-engineer-kanton-zuerich-zurich"
       },
@@ -2628,7 +2627,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T09:34:26.053Z"
+      "firstSeenAt": "2026-10-20T09:34:26.053Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cloud-system-engineer-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "cloud-system-engineer-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-fbaf5c225caa",
@@ -3819,7 +3826,7 @@
         "it": "neuropsicologo-neuropsicologo-kantonale-verwaltung-zurich-zurich-altstetten",
         "en": "neuropsychologist-neuropsychologist-kantonale-verwaltung-zurich-zurich-altstetten",
         "de": "neuropsychologin-neuropsychologe-kanton-zuerich-zurich-altstetten",
-        "fr": "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
+        "fr": "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3871,7 +3878,7 @@
         "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten",
         "neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten",
         "neuropsychologin-neuropsychologe-kanton-zuerich-zurich-altstetten",
-        "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
+        "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3880,7 +3887,7 @@
         "fr": [
           "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten",
           "neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten",
-          "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
+          "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
         ]
       },
       "firstSeenAt": "2026-09-04T13:47:25.654Z",
@@ -5161,9 +5168,9 @@
     },
     {
       "id": "kanton-zuerich-014e7479c2f0",
-      "slug": "1-2-lehrpersonen-mba-fach-deutsch-kantonale-verwaltung-zurich-winterthur",
+      "slug": "1-2-insegnanti-kantonale-verwaltung-zurich-winterthur",
       "slugByLocale": {
-        "it": "1-2-lehrpersonen-mba-fach-deutsch-kantonale-verwaltung-zurich-winterthur",
+        "it": "1-2-insegnanti-kantonale-verwaltung-zurich-winterthur",
         "en": "1-2-teachers-mba-subject-german-kantonale-verwaltung-zurich-winterthur",
         "de": "1-2-lehrpersonen-mba-fach-deutsch-kanton-zuerich-winterthur",
         "fr": "1-2-enseignants-mba-sujet-allemand-kantonale-verwaltung-zurich-winterthur"
@@ -5216,12 +5223,12 @@
       "pensum": "50 - 100%",
       "previousSlugs": [
         "1-2-lehrpersonen-mba-fach-deutsch-kanton-zuerich-winterthur",
-        "1-2-insegnanti-kantonale-verwaltung-zurich-winterthur"
+        "1-2-lehrpersonen-mba-fach-deutsch-kantonale-verwaltung-zurich-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "1-2-lehrpersonen-mba-fach-deutsch-kanton-zuerich-winterthur",
-          "1-2-insegnanti-kantonale-verwaltung-zurich-winterthur"
+          "1-2-lehrpersonen-mba-fach-deutsch-kantonale-verwaltung-zurich-winterthur"
         ]
       },
       "firstSeenAt": "2026-10-05T09:35:42.477Z",
@@ -5603,8 +5610,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-sicherheitszentrale-kanton-zuerich-winterthur",
         "it": "collaboratore-trice-sicherheitszentrale-kantonale-verwaltung-zurich-winterthur",
-        "en": "mitarbeiter-in-sicherheitszentrale-kantonale-verwaltung-zurich-winterthur",
-        "fr": "mitarbeiter-in-sicherheitszentrale-kantonale-verwaltung-zurich-winterthur"
+        "en": "security-control-center-employee-kantonale-verwaltung-zurich-winterthur",
+        "fr": "collaborateur-rice-du-centre-de-securite-kantonale-verwaltung-zurich-winterthur"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -5623,7 +5630,6 @@
         "en": "As part of the Zurich Prisons of Detention (UGZ), Winterthur Prison (GFW) assumes central tasks in the area of detention without judgment. The focus is on pre-trial detention and security detention as well as the reception of persons in provisional detention. A total of 101 detention places are available for this purpose. For the security center of the GFW, we are looking for a physically resilient and committed personality immediately or by agreement. The post shall be limited to one year. You do that with us.\n• Monitoring and operation of technical security installations (video surveillance, alarm and access systems)\n• Receiving and handling alarm and malfunction messages and taking the necessary measures\n• Support and coordination of external forces in the event of security incidents\n• Ensuring compliance with security, alert and emergency processes\n• Complete documentation of events, reports and specific occurrences\n• Completion of administrative work in connection with the operation of the security center\n• Completed vocational training, preferably in the security field, technical environment or in a comparable function\n• High attention and a strong sense of responsibility and security\n• Psychological resilience and the ability to act calmly and deliberately even in demanding situations\n• Good IT user knowledge and technical understanding.\n• Style-confident knowledge of German in words and writing, further language skills of advantage\n• Readiness for shift, night and weekend work\n• Team-capable, reliable and discreet personality\n• Judicial experience is beneficial\n• Reliable gum\n• Attitude and human image as well as creative will with regard to a development-oriented pre-trial detention Your contacts Still questions? Katrin Röhm Prison Manager +41 43 258 17 40 Livia Stutz Recruitment & Assessment +41 43 259 47 86 Dear recruitment service providers! Unfortunately, we cannot take account of dossiers relating to fees. Only direct applications will be answered and considered in the selection process. Zurich Detention Centers (UGZ) are one of eight main departments of JuWe. They comprise seven companies with about 735 prison places and about 500 employees. They are responsible for provisional arrest, pre-trial detention and security detention, as well as the early execution of penalties and measures until transfer to a prison facility. From the outset, they thus fulfil a central function within the Zurich justice system. As employees of the Zurich Detention Centers, we provide structured and human support for detained persons with expertise and commitment and help ensure that criminal proceedings are carried out in an orderly manner before a decision is made on guilt or innocence. With around 1400 employees, JuWe is the largest office within the Directorate of Justice and Home Affairs and is responsible for the execution of penalties and measures as well as for the execution of various types of detention. Our employees from around 40 professions support and promote the reintegration of delinquents and work effectively and progressively for a safe and just society. We offer... Lunch-Check a diverse catering offer thanks to Lunch-Check familiarisation a structured and personal familiarisation for a successful start Fair salaries a fair wage with transparent wage system and allowances according to function Good and broad training and further education offer diverse training and further education opportunities Good social benefits (PK) an attractive pension fund with many possibilities Workplace Near train station a central location with good public transport connection Your application process Online Assessment First interview Second interview Final decision More interesting positions at the Canton of Zurich All vacancies\n\nPensum: 80-100 %",
         "fr": "Dans le cadre des prisons de détention de Zurich (UGZ), la prison de Winterthur (GFW) assume des tâches centrales dans le domaine de la détention sans jugement. L ' accent est mis sur la détention provisoire et la détention préventive ainsi que sur l ' accueil des personnes en détention provisoire. Au total, 101 lieux de détention sont disponibles à cette fin. Pour le centre de sécurité du GFW, nous recherchons une personnalité physiquement résiliente et engagée immédiatement ou d'un commun accord. Le poste est limité à un an. Fais ça avec nous.\n• Surveillance et fonctionnement des installations de sécurité technique (surveillance vidéo, systèmes d'alarme et d'accès)\n• Réception et traitement des messages d'alarme et de dysfonctionnement et prise des mesures nécessaires\n• Appui et coordination des forces extérieures en cas d'incidents de sécurité\n• Assurer le respect des processus de sécurité, d'alerte et d'urgence\n• Documentation complète des événements, des rapports et des événements particuliers\n• Achèvement des travaux administratifs relatifs au fonctionnement du centre de sécurité\n• Formation professionnelle terminée, de préférence dans le domaine de la sécurité, de l'environnement technique ou dans une fonction comparable\n• Une grande attention et un fort sens des responsabilités et de la sécurité\n• La résilience psychologique et la capacité à agir calmement et délibérément même dans des situations exigeantes\n• Bonne connaissance des utilisateurs de la TI et compréhension technique.\n• Style-confident connaissance de l'allemand dans les mots et l'écriture, nouvelles compétences linguistiques d'avantage\n• Préparation au travail de nuit et de fin de semaine\n• Personnalité capable d'équipe, fiable et discrète\n• L'expérience judiciaire est bénéfique\n• Gomme fiable\n• Attitude et image humaine ainsi qu'une volonté créative à l'égard d'une détention préventive orientée vers le développement Vos contacts Encore des questions ? Katrin Röhm Directeur de la prison +41 43 258 17 40 Livia Stutz Recrutement et évaluation +41 43 259 47 86 Chers fournisseurs de services de recrutement! Malheureusement, nous ne pouvons pas tenir compte des dossiers relatifs aux redevances. Seules les demandes directes seront répondues et prises en considération dans le processus de sélection. Les centres de détention de Zurich (UGZ) sont l'un des huit principaux départements de JuWe. Ils comprennent sept entreprises comptant environ 735 prisons et environ 500 employés. Ils sont responsables de l ' arrestation provisoire, de la détention provisoire et de la détention provisoire, ainsi que de l ' exécution rapide des peines et des mesures jusqu ' à leur transfert dans un établissement pénitentiaire. Dès le départ, ils remplissent une fonction centrale au sein du système judiciaire de Zurich. En tant qu'employés des centres de détention de Zurich, nous fournissons un soutien structuré et humain aux personnes détenues avec une expertise et un engagement et nous aidons à ce que les procédures pénales soient menées de manière ordonnée avant qu'une décision soit prise sur la culpabilité ou l'innocence. Avec environ 1400 employés, JuWe est le plus grand bureau de la Direction de la justice et des affaires intérieures et est responsable de l'exécution des peines et des mesures ainsi que de l'exécution de divers types de détention. Nos employés d'environ 40 professions soutiennent et favorisent la réinsertion des délinquants et travaillent efficacement et progressivement pour une société sûre et juste. Nous offrons... Lunch-Check une offre variée de restauration grâce à la familiarisation Lunch-Check une familiarisation structurée et personnelle pour un démarrage réussi Salaire équitable un salaire équitable avec un système de salaire transparent et des indemnités selon la fonction Bonne et large formation et formation continue offrent diverses possibilités de formation et de formation continue Bons avantages sociaux (PK) un fonds de pension attrayant avec de nombreuses possibilités Milieu de travail Près de la gare un emplacement central avec bon réseau de transport en commun Votre processus de demande Évaluation en ligne Première interview Deuxième interview Décision finale Plus de postes intéressants au Canton de Zurich Toutes les offres d'emploi\n\nPensum: 80-100 %"
       },
-      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://live.solique.ch/ktzh/job/details/4088769/",
@@ -5657,10 +5663,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-sicherheitszentrale-kanton-zuerich-winterthur"
+        ],
+        "en": [
+          "mitarbeiter-in-sicherheitszentrale-kantonale-verwaltung-zurich-winterthur"
+        ],
+        "fr": [
+          "mitarbeiter-in-sicherheitszentrale-kantonale-verwaltung-zurich-winterthur"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-sicherheitszentrale-kanton-zuerich-winterthur"
+        "mitarbeiter-in-sicherheitszentrale-kanton-zuerich-winterthur",
+        "mitarbeiter-in-sicherheitszentrale-kantonale-verwaltung-zurich-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6178,7 +6191,7 @@
         "it": "tecnico-a-di-laboratorio-di-fisica-kantonale-verwaltung-zurich-wetzikon-zh",
         "en": "physics-laboratory-technician-kantonale-verwaltung-zurich-wetzikon-zh",
         "de": "physik-laborant-in-kanton-zuerich-wetzikon-zh",
-        "fr": "physik-laborant-in-kantonale-verwaltung-zurich-wetzikon-zh"
+        "fr": "laborantin-e-en-physique-kantonale-verwaltung-zurich-wetzikon-zh"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6227,7 +6240,7 @@
       "pensum": "80%",
       "previousSlugs": [
         "physik-laborant-in-kanton-zuerich-wetzikon-zh",
-        "laborantin-e-en-physique-kantonale-verwaltung-zurich-wetzikon-zh"
+        "physik-laborant-in-kantonale-verwaltung-zurich-wetzikon-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6237,7 +6250,7 @@
           "physik-laborant-in-kanton-zuerich-wetzikon-zh"
         ],
         "fr": [
-          "laborantin-e-en-physique-kantonale-verwaltung-zurich-wetzikon-zh"
+          "physik-laborant-in-kantonale-verwaltung-zurich-wetzikon-zh"
         ]
       },
       "firstSeenAt": "2026-10-19T09:34:13.964Z",
@@ -6348,7 +6361,7 @@
         "it": "sorvegliante-a-assistente-a-pianificazione-operativa-benvenuti-e-anche-i-le-candidati-e-provenienti-da-altri-settori",
         "en": "supervisor-attendant-operations-dispatching-career-changers-welcome-kantonale-verwaltung-zurich-zurich",
         "de": "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kanton-zuerich",
-        "fr": "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich"
+        "fr": "surveillant-e-accompagnateur-trice-planification-de-l-exploitation-personnes-en-reconversion-bienvenues-kantonale"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6398,7 +6411,7 @@
       "previousSlugs": [
         "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kanton-zuerich",
         "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich-zurich",
-        "surveillant-e-accompagnateur-trice-planification-de-l-exploitation-personnes-en-reconversion-bienvenues-kantonale"
+        "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6410,7 +6423,7 @@
         ],
         "fr": [
           "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich-zurich",
-          "surveillant-e-accompagnateur-trice-planification-de-l-exploitation-personnes-en-reconversion-bienvenues-kantonale"
+          "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich"
         ]
       },
       "salaryMin": 73500,
@@ -8746,9 +8759,9 @@
     },
     {
       "id": "kanton-zuerich-cc435a09ce1d",
-      "slug": "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf",
+      "slug": "assistenti-di-laboratorio-temporanei-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
-        "it": "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf",
+        "it": "assistenti-di-laboratorio-temporanei-kantonale-verwaltung-zurich-regensdorf",
         "en": "workshop-supervisor-temporary-kantonale-verwaltung-zurich-regensdorf",
         "de": "werkstattbetreuer-befristet-kanton-zuerich-regensdorf",
         "fr": "assistant-d-atelier-a-duree-determinee-kantonale-verwaltung-zurich-regensdorf"
@@ -8802,13 +8815,13 @@
       "previousSlugs": [
         "assistente-di-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf-916fb4",
         "werkstattbetreuer-befristet-kanton-zuerich-regensdorf",
-        "assistenti-di-laboratorio-temporanei-kantonale-verwaltung-zurich-regensdorf"
+        "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-di-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf-916fb4",
           "werkstattbetreuer-befristet-kanton-zuerich-regensdorf",
-          "assistenti-di-laboratorio-temporanei-kantonale-verwaltung-zurich-regensdorf"
+          "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf"
         ]
       },
       "firstSeenAt": "2026-09-24T14:46:32.192Z",
@@ -12486,7 +12499,7 @@
       "slug": "specialista-informatico-a-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "it": "specialista-informatico-a-kantonale-verwaltung-zurich-zurich",
-        "en": "informatikspezialist-in-kantonale-verwaltung-zurich",
+        "en": "it-specialist-kantonale-verwaltung-zurich-zurich",
         "de": "informatikspezialist-in-kanton-zuerich-zurich",
         "fr": "specialiste-en-informatique-kantonale-verwaltung-zurich-zurich"
       },
@@ -12539,7 +12552,7 @@
       "previousSlugs": [
         "informatikspezialist-in-kantonale-verwaltung-zurich-zurich",
         "informatikspezialist-in-kanton-zuerich-zurich",
-        "it-specialist-kantonale-verwaltung-zurich-zurich"
+        "informatikspezialist-in-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12548,7 +12561,7 @@
         ],
         "en": [
           "informatikspezialist-in-kantonale-verwaltung-zurich-zurich",
-          "it-specialist-kantonale-verwaltung-zurich-zurich"
+          "informatikspezialist-in-kantonale-verwaltung-zurich"
         ],
         "fr": [
           "informatikspezialist-in-kantonale-verwaltung-zurich-zurich"
@@ -12811,12 +12824,12 @@
     },
     {
       "id": "kanton-zuerich-92fffef7eb1c",
-      "slug": "it-account-manager-in-strategisches-kundenmanagement-kantonale-verwaltung-zurich-zurich",
+      "slug": "account-manager-it-per-la-gestione-strategica-dei-clienti-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "it-account-manager-in-strategisches-kundenmanagement-kanton-zuerich-zurich",
-        "it": "it-account-manager-in-strategisches-kundenmanagement-kantonale-verwaltung-zurich-zurich",
-        "en": "it-account-manager-in-strategisches-kundenmanagement-kantonale-verwaltung-zurich-zurich",
-        "fr": "it-account-manager-in-strategisches-kundenmanagement-kantonale-verwaltung-zurich-zurich"
+        "it": "account-manager-it-per-la-gestione-strategica-dei-clienti-kantonale-verwaltung-zurich-zurich",
+        "en": "it-account-manager-strategic-customer-management-kantonale-verwaltung-zurich-zurich",
+        "fr": "responsable-de-comptes-it-gestion-strategique-de-la-clientele-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12835,7 +12848,6 @@
         "en": "Create collaboration between customers and IT. In the area of Customer Services & Innovation, as an IT Account Manager, you are the central contact person for your assigned customers. You take up their concerns, coordinate the cooperation with the departments of the Office of Computer Science and accompany them from clarification to decision-making. With your focus on customer needs and service quality, you bring impulses to the further development of services. You move in a demanding environment with different directorates and different stakeholders. You can expect a committed team with a high level of cohesion. As a team, we like to work together on solutions and live a pronounced service orientation. Your tasks:\n• You build sustainable customer relationships and actively maintain them.\n• You take on customer concerns and accompany them from the needs assessment to the decision-making to a possible implementation.\n• You coordinate the cooperation and information flow between the customer and the Office of Computer Science.\n• You discuss service-level reports independently and ensure coordinated customer communication.\n• You clarify complaints and escalations promptly and hand them over to the responsible departments in the Office of Computer Science for further processing.\n• You recognize developments and needs and provide impulses for the further development of services. Your profile:\n• Master's degree in computer science, business administration or a comparable discipline.\n• Several years of professional experience in account management in the IT environment.\n• Sound understanding of IT architectures, IT services and their contexts.\n• Style-confident knowledge of German in word and writing as well as good understanding of reading in English.\n• Strong communication and social competence as well as a secure, convincing appearance – even if tasks or responsibilities have not yet been conclusively clarified.\n• Analytical and conceptual thinking, negotiating skills and a high service orientation.\n• It is a pleasure to coordinate different interests in a demanding stakeholder environment and to find pragmatic and creative solutions if there is no established approach. Your contact Julia Ernst Recruiting Partner +41 43 259 35 19 Dear recruitment service providers! Unfortunately, we cannot take account of dossiers relating to fees. Only direct applications will be answered and considered in the selection process. The Office for Computer Science (AFI) is the computer science competence center of the Canton of Zurich. It provides comprehensive services in the area of central computer infrastructure and canton-wide applications for directorates, authorities, the administration of justice and independent institutions. In charge of implementing the new Information and Communication Technology (ICT) strategy, the Office for Informatics accompanies and supports the Canton of Zurich in the digital world. The Financial Directorate employs around 1200 people at four locations in Zurich. We supervise the dossiers finance, taxes, personnel, procurement and computer science. Those who work with us help shape the canton – versatile, responsible and effective beyond their own remit. We offer: design leeway space for your own ideas and active participation Responsible activity the opportunity to take on responsibility and to shape Mobile working / Home office flexible working – in the office, home office or where it makes sense team a collegial team with appreciative cooperation Flexible working time models flexible working time models that are oriented towards life phases Dealing with eye level an appreciative cooperation at eye level Your application process Pre-selection First interview online with team leader Online Assessment Second interview on site (including getting to know case study and team) Final decision More interesting positions at the Canton of Zurich All vacancies\n\nPensum: 80-100 %",
         "fr": "Créer une collaboration entre les clients et les TI. Dans le domaine des services à la clientèle et de l'innovation, en tant que gestionnaire de compte informatique, vous êtes la personne-ressource centrale pour vos clients assignés. Vous répondez à leurs préoccupations, coordonnez la coopération avec les départements de l'Office de l'informatique et les accompagnez de la clarification à la prise de décision. Avec votre attention sur les besoins des clients et la qualité du service, vous apportez des impulsions au développement ultérieur des services. Vous déménagez dans un environnement exigeant avec différentes directions et différents intervenants. Vous pouvez vous attendre à une équipe engagée avec un haut niveau de cohésion. En tant qu'équipe, nous aimons travailler ensemble sur des solutions et vivre une orientation de service prononcée. Vos tâches:\n• Vous construisez des relations client durables et les maintenez activement.\n• Vous prenez en compte les préoccupations des clients et les accompagnez de l'évaluation des besoins à la prise de décision à une éventuelle mise en œuvre.\n• Vous coordonnez la coopération et le flux d'information entre le client et l'Office of Computer Science.\n• Vous discutez des rapports de niveau de service de manière indépendante et assurez une communication coordonnée avec les clients.\n• Vous éclaircissez rapidement les plaintes et les escalades et les remettez aux services responsables du Bureau de l'informatique pour qu'ils les traitent plus en détail.\n• Vous reconnaissez les développements et les besoins et donnez des impulsions pour le développement ultérieur des services. Votre profil:\n• Maîtrise en informatique, administration des affaires ou discipline comparable.\n• Plusieurs années d'expérience professionnelle en gestion de compte dans l'environnement informatique.\n• Une bonne compréhension des architectures informatiques, des services informatiques et de leur contexte.\n• Style-connaissance de l'allemand dans la parole et l'écriture ainsi que bonne compréhension de la lecture en anglais.\n• Une communication forte et une compétence sociale ainsi qu'une apparence sûre et convaincante – même si les tâches ou les responsabilités n'ont pas encore été clarifiées de manière concluante.\n• Pensée analytique et conceptuelle, compétences de négociation et orientation vers un service élevé.\n• C'est un plaisir de coordonner les différents intérêts dans un environnement exigeant pour les parties prenantes et de trouver des solutions pragmatiques et créatives s'il n'existe pas d'approche établie. Votre contact Julia Ernst Recrutement Associé +41 43 259 35 19 Chers fournisseurs de services de recrutement! Malheureusement, nous ne pouvons pas tenir compte des dossiers relatifs aux redevances. Seules les demandes directes seront répondues et prises en considération dans le processus de sélection. L'Office for Computer Science (AFI) est le centre de compétence en informatique du canton de Zurich. Il fournit des services complets dans le domaine de l'infrastructure informatique centrale et des applications à l'échelle cantonale pour les directions, les autorités, l'administration de la justice et les institutions indépendantes. En charge de la mise en œuvre de la nouvelle stratégie des technologies de l'information et de la communication (TIC), l'Office de l'informatique accompagne et soutient le canton de Zurich dans le monde numérique. La Direction financière emploie environ 1200 personnes dans quatre localités de Zurich. Nous supervisons les dossiers finances, impôts, personnel, achats et informatique. Ceux qui travaillent avec nous aident à façonner le canton – polyvalent, responsable et efficace au-delà de leur propre mandat. Nous offrons: concevoir un espace libre pour vos propres idées et participation active Activité responsable l'occasion de prendre en charge et de façonner le travail mobile / Travail flexible au bureau, au bureau ou là où il est logique d'équiper une équipe collégiale avec une coopération appréciatrice Modèles de temps de travail flexibles modèles de temps de travail flexibles qui sont orientés vers les phases de vie Traiter avec le niveau des yeux une coopération appréciatrice au niveau des yeux Votre processus de candidature Pré-sélection Première entrevue en ligne avec le chef d'équipe Évaluation en ligne Deuxième entrevue sur place (y compris apprendre à connaître l'étude de cas et l'équipe) Décision finale Plus de postes intéressants au Canton de Zurich Toutes les offres d'emploi\n\nPensum: 80-100 %"
       },
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://live.solique.ch/ktzh/job/details/4088696/",
@@ -12868,11 +12880,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "it-account-manager-in-strategisches-kundenmanagement-kanton-zuerich-zurich"
+          "it-account-manager-in-strategisches-kundenmanagement-kanton-zuerich-zurich",
+          "it-account-manager-in-strategisches-kundenmanagement-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "it-account-manager-in-strategisches-kundenmanagement-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "it-account-manager-in-strategisches-kundenmanagement-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "it-account-manager-in-strategisches-kundenmanagement-kanton-zuerich-zurich"
+        "it-account-manager-in-strategisches-kundenmanagement-kanton-zuerich-zurich",
+        "it-account-manager-in-strategisches-kundenmanagement-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -13056,7 +13076,7 @@
         "it": "tirocinante-universitario-a-kantonale-verwaltung-zurich-rheinau",
         "en": "student-intern-kantonale-verwaltung-zurich-rheinau",
         "de": "studienpraktikant-in-kanton-zuerich-rheinau",
-        "fr": "studienpraktikant-in-kantonale-verwaltung-zurich-rheinau"
+        "fr": "stagiaire-etudiant-e-kantonale-verwaltung-zurich-rheinau"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -13105,8 +13125,7 @@
       "pensum": "70 - 100%",
       "previousSlugs": [
         "studienpraktikant-in-kanton-zuerich-rheinau",
-        "studienpraktikant-in-kantonale-verwaltung-zurich-rheinau",
-        "stagiaire-etudiant-e-kantonale-verwaltung-zurich-rheinau"
+        "studienpraktikant-in-kantonale-verwaltung-zurich-rheinau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13117,7 +13136,7 @@
           "studienpraktikant-in-kantonale-verwaltung-zurich-rheinau"
         ],
         "fr": [
-          "stagiaire-etudiant-e-kantonale-verwaltung-zurich-rheinau"
+          "studienpraktikant-in-kantonale-verwaltung-zurich-rheinau"
         ]
       },
       "salaryMin": 62000,

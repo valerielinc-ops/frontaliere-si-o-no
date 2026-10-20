@@ -200,6 +200,54 @@ describe('generateFuelItalianCityPages() — content quality', () => {
     expect(comoPage).toContain('Shell Como');
   });
 
+  it('renders the calculator on a data-driven Livigno page and leaves unknown converted prices blank', () => {
+    const livignoData = {
+      generatedAt: '2026-10-20T06:00:00.000Z',
+      municipalities: [{
+        municipality: 'Livigno',
+        province: 'SO',
+        italy: { stations: [{ id: 'livigno-1', stationName: 'Livigno Sample', brand: 'Test', address: 'Via Rasia 1, 23041 Livigno', priceEur: 1.206, benzinaUpdatedAt: '2026-10-20', isSelf: true, updatedAt: '2026-10-20T06:00:00.000Z' }] },
+        swiss: { nearbyStations: [{ id: 'swiss-1', name: 'Swiss Sample', brand: 'Test', address: 'Via del Forno 1, Zernez', sp95PriceChf: 1.9, updatedAt: '2026-10-20T06:00:00.000Z' }] },
+      }],
+    } as never;
+    const livignoPages = generateFuelItalianCityPages({ dataset: livignoData, today: new Date('2026-10-20T06:00:00.000Z') });
+    const html = livignoPages['/prezzi-benzina/italia/livigno/oggi/'];
+
+    expect(html).toContain('data-fuel-trip-calculator');
+    expect(html).toContain('data-currency=EUR');
+    expect(html).toContain('value=1.206');
+    expect(html).toMatch(/data-fuel-trip-field=alternativePrice[^>]*value(?:="")?(?:\s|>)/);
+    expect(html).toContain('Self-service');
+    expect(html).toContain('Prezzo rilevato: 20/10/2026');
+  });
+
+  it('uses a dated ECB conversion to prefill the Swiss city comparison and marks sample gross savings', () => {
+    const livignoData = {
+      generatedAt: '2026-10-20T06:00:00.000Z',
+      sources: { exchangeRate: {
+        provider: 'ECB',
+        sourceUrl: 'https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html',
+        rateDate: '2026-10-16',
+        chfPerEur: 0.95,
+        eurPerChf: 1 / 0.95,
+      } },
+      municipalities: [{
+        municipality: 'Livigno',
+        province: 'SO',
+        italy: { stations: [{ id: 'livigno-1', stationName: 'Livigno Sample', brand: 'Test', address: 'Via Rasia 1, 23041 Livigno', priceEur: 1.206, isSelf: true, updatedAt: '2026-10-20T06:00:00.000Z' }] },
+        swiss: { nearbyStations: [{ id: 'swiss-1', name: 'Swiss Sample', brand: 'Test', address: 'Via del Forno 1, Zernez', sp95PriceChf: 1.9, updatedAt: '2026-10-20T06:00:00.000Z' }] },
+      }],
+    } as never;
+    const livignoPages = generateFuelItalianCityPages({ dataset: livignoData, today: new Date('2026-10-20T06:00:00.000Z') });
+    const html = livignoPages['/prezzi-benzina/italia/livigno/oggi/'];
+
+    expect(html).toContain('Cambio BCE applicato');
+    expect(html).toContain('16/10/2026');
+    expect(html).toMatch(/data-fuel-trip-field=alternativePrice[^>]*value=2(?:\s|>)/);
+    expect(html).toContain('Differenza lorda sui prezzi del campione');
+    expect(html).not.toMatch(/conviene fare il pieno/i);
+  });
+
   it('body contains cross-link to the nearest Ticino zone hub', () => {
     const comoPage = pages['/prezzi-benzina/italia/como/oggi/'];
     // Como nearestZone = chiasso

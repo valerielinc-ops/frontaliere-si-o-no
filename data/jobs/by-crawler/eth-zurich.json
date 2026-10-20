@@ -9168,7 +9168,7 @@
       "slug": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
       "slugByLocale": {
         "it": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
-        "en": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
+        "en": "fire-protection-specialist-m-f-d-eth-zurich-zurich",
         "de": "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
         "fr": "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
       },
@@ -9212,15 +9212,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
-        "fire-protection-specialist-m-f-d-eth-zurich-zurich"
+        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
-        ],
-        "en": [
-          "fire-protection-specialist-m-f-d-eth-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-24T14:43:35.518Z",
@@ -9321,12 +9317,12 @@
     },
     {
       "id": "eth-zurich-8dc8f43156a6",
-      "slug": "technische-r-betriebspezialist-in-m-w-d-eth-zurich-ch",
+      "slug": "specialista-tecnico-a-d-esercizio-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "technische-r-betriebspezialist-in-m-w-d-eth-zurich-ch",
-        "it": "technische-r-betriebspezialist-in-m-w-d-eth-zurich-ch",
-        "en": "technische-r-betriebspezialist-in-m-w-d-eth-zurich-ch",
-        "fr": "technische-r-betriebspezialist-in-m-w-d-eth-zurich-ch"
+        "it": "specialista-tecnico-a-d-esercizio-m-f-d-eth-zurich-zurich",
+        "en": "technical-operations-specialist-m-f-d-eth-zurich-zurich",
+        "fr": "specialiste-technique-de-l-exploitation-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9369,7 +9365,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -9385,16 +9380,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-20T09:37:48.127Z"
+      "firstSeenAt": "2026-10-20T09:37:48.127Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-betriebspezialist-in-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "technische-r-betriebspezialist-in-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "technische-r-betriebspezialist-in-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-betriebspezialist-in-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-d95793a63041",
-      "slug": "scientific-assistant-real-time-generative-models-computer-vision-eth-zurich-ch",
+      "slug": "assistente-scientifico-modelli-generativi-in-tempo-reale-computer-vision-eth-zurich-zurich",
       "slugByLocale": {
         "en": "scientific-assistant-real-time-generative-models-computer-vision-eth-zurich-ch",
-        "it": "scientific-assistant-real-time-generative-models-computer-vision-eth-zurich-ch",
+        "it": "assistente-scientifico-modelli-generativi-in-tempo-reale-computer-vision-eth-zurich-zurich",
         "de": "scientific-assistant-real-time-generative-models-computer-vision-eth-zurich-ch",
-        "fr": "scientific-assistant-real-time-generative-models-computer-vision-eth-zurich-ch"
+        "fr": "assistant-scientifique-modeles-generiques-en-temps-reel-vision-informatique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9453,7 +9462,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-20T09:37:47.633Z"
+      "firstSeenAt": "2026-10-20T09:37:47.633Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientific-assistant-real-time-generative-models-computer-vision-eth-zurich-ch"
+        ],
+        "fr": [
+          "scientific-assistant-real-time-generative-models-computer-vision-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientific-assistant-real-time-generative-models-computer-vision-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-0de554a74e2f",

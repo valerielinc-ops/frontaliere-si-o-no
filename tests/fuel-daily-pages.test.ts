@@ -205,6 +205,61 @@ describe('fuel-daily page generation — content quality', () => {
     expect(trend7).toBeGreaterThan(driveby);
   });
 
+  it('renders the shared same-currency calculator on regional petrol and diesel pages with known sample prices', () => {
+    const petrol = pages['/prezzi-benzina/oggi/'];
+    const diesel = pages['/prezzi-diesel/oggi/'];
+
+    expect(petrol).toContain('data-fuel-trip-calculator');
+    expect(petrol).toContain('data-currency=CHF');
+    expect(petrol).toContain('TCS · media campione');
+    expect(petrol).toContain('value=1.78');
+    expect(diesel).toMatch(/data-fuel=(?:"diesel"|'diesel'|diesel)(?=\s|>)/);
+    expect(diesel).toContain('data-currency=CHF');
+    expect(diesel).toMatch(/data-fuel-trip-field=(?:"additionalRoundTripKm"|'additionalRoundTripKm'|additionalRoundTripKm)(?=\s|>)/);
+
+    const undatedDatasetPage = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-daily-undated-test', dataset: DATASET, today, history: [] })['/prezzi-benzina/oggi/'];
+    expect(undatedDatasetPage).toContain('Data del prezzo iniziale: data non disponibile');
+
+    const datedDataset = {
+      ...DATASET,
+      municipalities: DATASET.municipalities.map((municipality) => ({
+        ...municipality,
+        swiss: { ...municipality.swiss, nearbyStations: municipality.swiss.nearbyStations.map((station) => station.id === 'c1' ? { ...station, updatedAt: '2026-04-18T06:00:00.000Z', dieselUpdatedAt: '2026-04-19T06:00:00.000Z' } : station) },
+      })),
+    };
+    const datedPages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-daily-dated-test', dataset: datedDataset, today, history: [] });
+    expect(datedPages['/prezzi-benzina/oggi/']).toContain('Data del prezzo iniziale: 18.04.2026');
+    expect(datedPages['/prezzi-diesel/oggi/']).toContain('Data del prezzo iniziale: 19.04.2026');
+  });
+
+  it('renders zone calculators from each zone sample with explicit CHF and known or unavailable dates', () => {
+    const expectedBenzina = {
+      chiasso: [1.795, 1.78],
+      mendrisio: [1.81, 1.8],
+      lugano: [1.85, 1.84],
+      bellinzona: [1.84, 1.83],
+      locarno: [1.88, 1.87],
+    } as const;
+    const readInitialValue = (html: string, field: string): number => {
+      const fieldPattern = `data-fuel-trip-field=(?:"${field}"|'${field}'|${field})(?=\\s|>)`;
+      const tag = html.match(new RegExp(`<input\\b(?=[^>]*${fieldPattern})[^>]*>`))?.[0];
+      expect(tag, `missing ${field} input`).toBeTruthy();
+      const value = tag?.match(/\bvalue=(?:"([^"]*)"|'([^']*)'|([^\s>]+))/);
+      const parsed = Number(value?.[1] ?? value?.[2] ?? value?.[3]);
+      expect(Number.isFinite(parsed), `${field} should have a finite price`).toBe(true);
+      return parsed;
+    };
+
+    for (const zone of FUEL_ZONES) {
+      const html = pages[buildFuelTodayPath('it', 'benzina', zone)];
+      expect(html).toContain('data-fuel-trip-calculator');
+      expect(html).toContain('data-currency=CHF');
+      expect(readInitialValue(html, 'referencePrice')).toBeCloseTo(expectedBenzina[zone][0]);
+      expect(readInitialValue(html, 'alternativePrice')).toBeCloseTo(expectedBenzina[zone][1]);
+      expect(html).toContain('Data del prezzo iniziale: data non disponibile');
+    }
+  });
+
   it('keeps history-rich daily pages above the production text/HTML floor', async () => {
     const history = Array.from({ length: 180 }, (_, index) => {
       const date = new Date(today.getTime() - (179 - index) * 86_400_000);

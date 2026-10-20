@@ -17,6 +17,7 @@
 
 import { describe, expect, it } from 'vitest';
 import {
+  buildItalyStations,
   buildDataset,
   buildSwissBorderStations,
   extractEcbRate,
@@ -105,5 +106,64 @@ describe('generate-fuel-prices-dataset diesel ranking', () => {
     expect(swiss.minDieselPriceEur).toBeNull();
     expect(swiss.minDieselPriceChf).toBeNull();
     expect(swiss.dieselOptionCount).toBe(0);
+  });
+
+  it('keeps the MIMIT benzina and diesel observation dates separate', () => {
+    const italyByMunicipality = buildItalyStations(
+      [COMO],
+      [{
+        idImpianto: 'station-1', Comune: 'Como', Provincia: 'CO',
+        'Nome Impianto': 'Station 1', Bandiera: 'Test', Indirizzo: 'Via Roma 1',
+        Latitudine: '45.81', Longitudine: '9.08',
+      }],
+      [
+        { idImpianto: 'station-1', descCarburante: 'Benzina', prezzo: '1.80', isSelf: '1', dtComu: '09/10/2026 18:21:14' },
+        { idImpianto: 'station-1', descCarburante: 'Gasolio', prezzo: '1.70', isSelf: '1', dtComu: '08/10/2026 10:00:00' },
+      ],
+    );
+    const payload = buildDataset({
+      municipalities: [COMO],
+      italyExtractedAt: '2026-10-10',
+      swissStations: [],
+      italyByMunicipality,
+      exchangeRate: { chfPerEur: 1, eurPerChf: 1 },
+    });
+    const station = payload.municipalities[0].italy.stations[0];
+
+    expect(station).toMatchObject({
+      benzinaUpdatedAt: '2026-10-09',
+      dieselUpdatedAt: '2026-10-08',
+      // Retain the historic ambiguous field for older consumers.
+      updatedAt: '08/10/2026 10:00:00',
+    });
+  });
+
+  it('rejects invalid or non-contract MIMIT date strings while accepting explicit ISO timestamps', () => {
+    const stationIds = ['bad-day', 'bad-time', 'ambiguous', 'iso'];
+    const stationRows = stationIds.map((id) => ({
+      idImpianto: id, Comune: 'Como', Provincia: 'CO',
+      'Nome Impianto': id, Bandiera: 'Test', Indirizzo: 'Via Roma 1',
+      Latitudine: '45.81', Longitudine: '9.08',
+    }));
+    const timestamps = [
+      '31/02/2026 12:00:00',
+      '12/10/2026 25:61:00',
+      '10-12-2026',
+      '2026-10-12T08:30:00+02:00',
+    ];
+    const italyByMunicipality = buildItalyStations(
+      [COMO],
+      stationRows,
+      stationIds.map((id, index) => ({
+        idImpianto: id, descCarburante: 'Benzina', prezzo: '1.80', isSelf: '1', dtComu: timestamps[index],
+      })),
+    );
+    const stations = italyByMunicipality.get('Como:CO')! as Array<{ id: string; benzinaUpdatedAt: string | null }>;
+    const byId = new Map<string, typeof stations[number]>(stations.map((station) => [station.id, station]));
+
+    expect(byId.get('bad-day')?.benzinaUpdatedAt).toBeNull();
+    expect(byId.get('bad-time')?.benzinaUpdatedAt).toBeNull();
+    expect(byId.get('ambiguous')?.benzinaUpdatedAt).toBeNull();
+    expect(byId.get('iso')?.benzinaUpdatedAt).toBe('2026-10-12T06:30:00.000Z');
   });
 });

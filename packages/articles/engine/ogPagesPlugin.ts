@@ -191,6 +191,185 @@ function isMissingPathError(error: unknown): boolean {
   return (error as NodeJS.ErrnoException).code === 'ENOENT';
 }
 
+interface StaticTsStringLiteral {
+ quote: string;
+ raw: string;
+ end: number;
+}
+
+/**
+ * Read one static TypeScript string literal without evaluating source code.
+ * Locale files are data modules, so interpolated template literals are not a
+ * supported representation: accepting one as a partial string would silently
+ * emit a body different from the module's runtime value.
+ */
+function readStaticTsStringLiteral(source: string, start: number, sourcePath: string): StaticTsStringLiteral {
+ const quote = source[start];
+ if (quote !== "'" && quote !== '"' && quote !== '`') {
+  throw new Error(`[og-pages] Expected a quoted literal in ${sourcePath}`);
+ }
+
+ let cursor = start + 1;
+ while (cursor < source.length) {
+  const char = source[cursor];
+  if (char === '\\') {
+   // A backslash consumes the next code unit. Keep CRLF together so a TS line
+   // continuation is not mistaken for the end of an ordinary string.
+   if (source[cursor + 1] === '\r' && source[cursor + 2] === '\n') {
+    cursor += 3;
+   } else {
+    cursor += 2;
+   }
+   continue;
+  }
+  if (quote === '`' && char === '$' && source[cursor + 1] === '{') {
+   throw new Error(`[og-pages] Interpolated template literal is not static article data: ${sourcePath}`);
+  }
+  // esbuild accepts U+2028/U+2029 inside generated corpus literals and
+  // preserves them as string data. Treat those separators like other body
+  // content so this source scanner stays aligned with the TS loader; raw LF
+  // and CR remain invalid in ordinary quoted literals.
+  if (quote !== '`' && (char === '\n' || char === '\r')) {
+   throw new Error(`[og-pages] Unterminated string literal in ${sourcePath}`);
+  }
+  if (char === quote) {
+   return { quote, raw: source.slice(start + 1, cursor), end: cursor + 1 };
+  }
+  cursor += 1;
+ }
+
+ throw new Error(`[og-pages] Unterminated string literal in ${sourcePath}`);
+}
+
+function skipStaticTsTrivia(source: string, start: number, sourcePath: string): number {
+ let cursor = start;
+ while (cursor < source.length) {
+  if (/\s/.test(source[cursor])) {
+   cursor += 1;
+   continue;
+  }
+  if (source.startsWith('//', cursor)) {
+   cursor += 2;
+   while (cursor < source.length && source[cursor] !== '\n' && source[cursor] !== '\r') cursor += 1;
+   continue;
+  }
+  if (source.startsWith('/*', cursor)) {
+   const close = source.indexOf('*/', cursor + 2);
+   if (close === -1) throw new Error(`[og-pages] Unterminated comment in ${sourcePath}`);
+   cursor = close + 2;
+   continue;
+  }
+  break;
+ }
+ return cursor;
+}
+
+/**
+ * Match TypeScript's static literal escapes while retaining the historical
+ * body decoder's handling of newlines, tabs, and malformed JSON escapes.
+ */
+function decodeStaticTsStringLiteral(raw: string, quote: string): string {
+ let value = '';
+ for (let cursor = 0; cursor < raw.length;) {
+  if (raw[cursor] !== '\\') {
+   value += raw[cursor];
+   cursor += 1;
+   continue;
+  }
+
+  const escaped = raw[cursor + 1];
+  if (escaped === undefined) {
+   value += '\\';
+   cursor += 1;
+   continue;
+  }
+
+  // A line continuation consumes exactly one backslash. Runs are handled
+  // left-to-right, so `\\` plus a physical newline keeps both the literal
+  // backslash and newline in a template value.
+  if (escaped === '\r' || escaped === '\n' || escaped === '\u2028' || escaped === '\u2029') {
+   cursor += escaped === '\r' && raw[cursor + 2] === '\n' ? 3 : 2;
+   continue;
+  }
+
+  if (quote === '`' && (escaped === '`' || escaped === '$')) {
+   // Escaped delimiters are template syntax, and must be consumed before
+   // output is appended so a produced backslash is never reinterpreted.
+   value += escaped;
+   cursor += 2;
+   continue;
+  }
+
+  // Decode one source escape at a time. This keeps the shared decoder's
+  // established escape policy without allowing output from one escape to be
+  // parsed again by a later template-specific replace pass.
+  const escapeLength = escaped === 'u' && /^[0-9a-fA-F]{4}$/.test(raw.slice(cursor + 2, cursor + 6)) ? 6 : 2;
+  value += decodeTsStringEscapes(raw.slice(cursor, cursor + escapeLength), { newlineAs: '\n' });
+  cursor += escapeLength;
+ }
+ return value;
+}
+
+/**
+ * Extract body/FAQ properties from a static TypeScript record. Unlike the
+ * former quote-specific regex, this scans source tokens so keys inside comments
+ * or body values cannot be mistaken for record properties.
+ */
+export function parseStaticBlogBodySource(source: string, sourcePath: string): Record<string, Record<string, string>> {
+ const out: Record<string, Record<string, string>> = {};
+ const expectedArticleId = path.basename(sourcePath, '.ts');
+ let bodyFieldCount = 0;
+ let cursor = 0;
+
+ while (cursor < source.length) {
+  cursor = skipStaticTsTrivia(source, cursor, sourcePath);
+  if (cursor >= source.length) break;
+  const char = source[cursor];
+  if (char !== "'" && char !== '"' && char !== '`') {
+   cursor += 1;
+   continue;
+  }
+
+  const keyToken = readStaticTsStringLiteral(source, cursor, sourcePath);
+  const key = decodeStaticTsStringLiteral(keyToken.raw, keyToken.quote);
+  const match = /^blog\.article\.(.+)\.(body\d+|faq)$/.exec(key);
+  if (!match) {
+   cursor = keyToken.end;
+   continue;
+  }
+  if (match[1] !== expectedArticleId) {
+   throw new Error(`[og-pages] Article body key ${match[1]} does not match file ${sourcePath}`);
+  }
+
+  const colonIndex = skipStaticTsTrivia(source, keyToken.end, sourcePath);
+  if (source[colonIndex] !== ':') {
+   throw new Error(`[og-pages] Malformed article body property ${key} in ${sourcePath}`);
+  }
+  const valueIndex = skipStaticTsTrivia(source, colonIndex + 1, sourcePath);
+  const valueQuote = source[valueIndex];
+  if (valueQuote !== "'" && valueQuote !== '"' && valueQuote !== '`') {
+   throw new Error(`[og-pages] Article body property ${key} is not a static string in ${sourcePath}`);
+  }
+  const valueToken = readStaticTsStringLiteral(source, valueIndex, sourcePath);
+  const valueDelimiter = skipStaticTsTrivia(source, valueToken.end, sourcePath);
+  if (source[valueDelimiter] !== ',' && source[valueDelimiter] !== '}') {
+   throw new Error(`[og-pages] Article body property ${key} must have a static string literal value in ${sourcePath}`);
+  }
+  const decoded = decodeStaticTsStringLiteral(valueToken.raw, valueToken.quote);
+  const field = match[2];
+  const value = field === 'faq' ? decoded : repairLegacyDoubleEscapedBreaks(decoded);
+  if (!out[match[1]]) out[match[1]] = {};
+  out[match[1]][field] = value;
+  if (field !== 'faq') bodyFieldCount += 1;
+  cursor = valueToken.end;
+ }
+
+ if (bodyFieldCount === 0) {
+  throw new Error(`[og-pages] Existing article body file has no static body fields: ${sourcePath}`);
+ }
+ return out;
+}
+
 /**
  * Google Discover's large-image-card width floor.
  *
@@ -868,20 +1047,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // corpus) and reads its slugs from the core entry the descriptor carries.
  const blogIndexSlug: Record<string, string> = SHELL_INDEX_SLUGS_BY_KIND[SECTION.kind](shell, SECTION);
 
- // Both were chains of .replace() until 2026-08-11, which cannot decode
- // escapes: each pass re-reads the previous pass's output, and `\\` — the
- // escape that protects every other one — was resolved LAST. The source text
- // `\\t` (a JSON tab escape, correctly spelled for a single-quoted TS
- // literal) came out as `\` + a space, and for `faq` that lone backslash made
- // JSON.parse throw, dropping the article's FAQPage schema and its visible
- // accordion without a word. See shared/tsStringEscapes.ts for the full
- // measurement; the two decoders now differ ONLY in what `\n` becomes.
+ // Meta fields flatten line breaks to spaces; body/FAQ literals keep them for
+ // Markdown and JSON structure.
  const unescapeTsString = (value: string): string =>
  decodeTsStringEscapes(value, { newlineAs: ' ' });
 
- // Preserves \n as actual newlines (needed for body markdown structure: headings/lists/FAQ).
- const unescapeTsStringRaw = (value: string): string =>
- decodeTsStringEscapes(value, { newlineAs: '\n' });
 
  const parseBlogMetaLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
  const out: Record<string, { title?: string; excerpt?: string; imageAlt?: string }> = {};
@@ -936,11 +1106,6 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  throw err;
  }
  }
- // Body and FAQ values are emitted both as ordinary quoted strings and as
- // template literals. The latter are valid corpus output (and are used by
- // recent articles); ignoring them silently removes the visible body and
- // prevents the corresponding FAQPage schema from being rendered.
- const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*(?:'((?:[^'\\]|\\.)*)'|`((?:[^`\\]|\\.)*)`)/g;
  for (const file of files) {
  if (!file.endsWith('.ts')) continue;
  let src = '';
@@ -950,17 +1115,9 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (isMissingPathError(err)) continue;
  throw err;
  }
- let m: RegExpExecArray | null;
- while ((m = rx.exec(src)) !== null) {
- const articleId = m[1];
- const field = m[2];
- // `faq` is JSON and keeps its escapes verbatim for JSON.parse; body text
- // is markdown, where a leftover literal `\n` is legacy corpus damage that
- // renders as a visible backslash. See repairLegacyDoubleEscapedBreaks.
- const decoded = unescapeTsStringRaw(m[3] ?? m[4]);
- const value = field === 'faq' ? decoded : repairLegacyDoubleEscapedBreaks(decoded);
- if (!out[articleId]) out[articleId] = {};
- out[articleId][field] = value;
+  const parsed = parseStaticBlogBodySource(src, np.join(dir, file));
+  for (const [articleId, fields] of Object.entries(parsed)) {
+   out[articleId] = { ...out[articleId], ...fields };
  }
  }
  return out;
@@ -1278,13 +1435,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // alt="" would tell Discover this image is not about the article.
  const socialTitle = articleLocale === 'it' ? normalizeArticleTitle(en.ogT) : localizedTitle;
  const heroAlt = localizedMeta?.imageAlt || socialTitle;
- // Pad short descriptions to ≥150 chars for Bing (locale variant excerpts are often <150)
+ // Pad short descriptions to the active shell budget for Bing (locale variant excerpts are often shorter).
  const LOCALE_DESC_CONTEXT: Partial<Record<string, string>> = {
  en: ' Practical guide and free tools for cross-border workers (frontalieri) between Switzerland and Italy. Frontaliere Ticino.',
  de: ' Praxisratgeber und kostenlose Tools für Grenzgänger zwischen der Schweiz und Italien. Frontaliere Ticino.',
  fr: " Guide pratique et outils gratuits pour travailleurs frontaliers entre la Suisse et l'Italie. Frontaliere Ticino.",
  };
- const metaDescPadded = (localeForMeta && localizedDesc.length < 150)
+ const metaDescPadded = (localeForMeta && localizedDesc.length < shell.metaDescriptionMaxChars)
  ? localizedDesc + (LOCALE_DESC_CONTEXT[localeForMeta] ?? '')
  : localizedDesc;
  // SERP-CTR lever (issue #4300 plan item 2): title/h1/headline are locked by
@@ -1295,16 +1452,16 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const metaDescRaw = boostDescriptionForCtr(
  metaDescPadded,
  (localeForMeta ?? 'it') as 'it' | 'en' | 'de' | 'fr',
- { maxLength: 155 },
+ { maxLength: shell.metaDescriptionMaxChars },
  );
- // Truncate to ≤155 chars for Bing/Google snippet display.
+ // Truncate to the active shell budget for Bing/Google snippet display.
  // truncateHeadline, NOT truncateCodeUnits: the raw code-unit slice cut mid
  // WORD and shipped snippets like "…impatto su perme…" (live offender
  // /articoli-frontaliere/calendario-festivi-ticino-2026/). truncateHeadline
  // cuts on a word boundary and peels the dangling clause tail, so the snippet
  // always ends on a content word — same helper every other template family
  // already reaches through clampMetaDescription.
- const metaDesc = truncateHeadline(metaDescRaw, 155);
+ const metaDesc = truncateHeadline(metaDescRaw, shell.metaDescriptionMaxChars);
  // <title>: headline VERBATIM, brand suffix only when total <= TITLE_MAX_CHARS.
  // Per build-plugins/shared/titleSuffix.ts, mid-headline ellipsis truncation
  // tanks CTR (see /calcola-stipendio/ regression doc). We only force a

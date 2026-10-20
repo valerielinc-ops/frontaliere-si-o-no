@@ -1731,12 +1731,12 @@
     },
     {
       "id": "spital-thusis-a915534d1f19",
-      "slug": "fachverantwortung-finanz-e-betriebsbuchhaltung-40-100-spital-thusis",
+      "slug": "responsabile-della-contabilita-finanziaria-e-aziendale-40-100-spital-thusis-thusis",
       "slugByLocale": {
         "de": "fachverantwortung-finanz-und-betriebsbuchhaltung-40-100-spital-thusis-ch",
-        "it": "fachverantwortung-finanz-e-betriebsbuchhaltung-40-100-spital-thusis",
-        "en": "fachverantwortung-finanz-und-betriebsbuchhaltung-40-100-spital-thusis-ch",
-        "fr": "fachverantwortung-finanz-und-betriebsbuchhaltung-40-100-spital-thusis-ch"
+        "it": "responsabile-della-contabilita-finanziaria-e-aziendale-40-100-spital-thusis-thusis",
+        "en": "financial-and-accounting-responsibility-40-100-spital-thusis-thusis",
+        "fr": "responsabilite-financiere-et-comptable-40-100-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -1796,14 +1796,21 @@
       "pensumMin": 40,
       "pensumMax": 100,
       "pensum": "40 - 100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "fachverantwortung-finanz-und-betriebsbuchhaltung-40-100-spital-thusis-ch",
+          "fachverantwortung-finanz-e-betriebsbuchhaltung-40-100-spital-thusis"
+        ],
+        "en": [
+          "fachverantwortung-finanz-und-betriebsbuchhaltung-40-100-spital-thusis-ch"
+        ],
+        "fr": [
           "fachverantwortung-finanz-und-betriebsbuchhaltung-40-100-spital-thusis-ch"
         ]
       },
       "previousSlugs": [
-        "fachverantwortung-finanz-und-betriebsbuchhaltung-40-100-spital-thusis-ch"
+        "fachverantwortung-finanz-und-betriebsbuchhaltung-40-100-spital-thusis-ch",
+        "fachverantwortung-finanz-e-betriebsbuchhaltung-40-100-spital-thusis"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

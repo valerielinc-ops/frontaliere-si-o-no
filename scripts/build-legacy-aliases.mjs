@@ -78,6 +78,7 @@ import {
   gscOrphanRouteKey,
   mergeGscOrphanRecords,
 } from './lib/gsc-orphan-snapshot.mjs';
+import { resolveFuelStation } from './lib/fuel-station-aliases.mjs';
 import { isFuelSectionPath } from './lib/fuelSections.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -150,16 +151,9 @@ const COHORT_PATTERNS = [
   // This PR's cohorts
   { cohort: 'blogLocaleMismatch', re: /^\/(en|de|fr)\/(cross-border-articles|grenzgaenger-artikel|articles-frontalier)\// },
   { cohort: 'blogITMissing', re: /^\/articoli-frontaliere\// },
-  // Cohort DETECTION delegates the "is this under a fuel section" check to
-  // the shared isFuelSectionPath() (scripts/lib/fuelSections.mjs) instead of
-  // an inline slug alternation — same drift class as #2853. resolveFuelStation()
-  // below intentionally keeps its OWN narrower capture regex: it needs the
-  // literal matched segment to reconstruct the canonical section path, and
-  // widening it to the full canonical+legacy-alias list would let a legacy
-  // alias segment (e.g. `prezzi-benzina-svizzera`) leak into a reconstructed
-  // "canonical" path that isn't actually live. Any path this cohort check
-  // newly matches but resolveFuelStation() can't parse is skipped in main()
-  // exactly as before (behavior-neutral — see comparison script).
+  // Cohort detection and URL resolution share the fuel route registry. Legacy
+  // section aliases are accepted only through an explicit locale/fuel mapping;
+  // never reuse an alias segment as though it were a live canonical section.
   { cohort: 'fuelStation', test: (p) => isFuelSectionPath(p) && /\/(stazioni|stations|tankstellen)\//.test(p) },
   { cohort: 'fuelLocaleAlias', re: /^\/de\/dieselpreise\// },
   { cohort: 'jobLegacySection', re: /^\/cerca-lavoro\/[^/]+\/?$/ },
@@ -217,22 +211,6 @@ function resolveBlogITMissing(orphanPath, blogIdToSlug) {
     }
   }
   return { kind: 'unmatched', canonicalPath: `${BLOG_HUB_PATH.it}/` };
-}
-
-const FUEL_SECTION_ROOT = {
-  it: { benzina: '/prezzi-benzina', diesel: '/prezzi-diesel' },
-  en: { benzina: '/en/gasoline-price-switzerland', diesel: '/en/diesel-price-switzerland' },
-  de: { benzina: '/de/benzinpreis-schweiz', diesel: '/de/dieselpreis-schweiz' },
-  fr: { benzina: '/fr/prix-essence-suisse', diesel: '/fr/prix-diesel-suisse' },
-};
-
-function resolveFuelStation(orphanPath) {
-  const m = orphanPath.match(/^\/(prezzi-benzina|prezzi-diesel|en\/gasoline-price-switzerland|de\/benzinpreis-schweiz|fr\/prix-essence-suisse)\/([^/]+)\/(stazioni|stations|tankstellen)\/[^/]+\/?$/);
-  if (!m) return null;
-  const sectionPath = '/' + m[1];
-  const city = m[2];
-  // City page is the parent dir of /stazioni|stations|tankstellen
-  return { kind: 'matched', canonicalPath: `${sectionPath}/${city}/` };
 }
 
 function resolveFuelLocaleAlias(orphanPath) {
@@ -309,7 +287,7 @@ function classifyLegacyAlias(orphanPath, blogIdToSlug) {
 
   return {
     orphanPath,
-    locale: pathLocale(orphanPath),
+    locale: resolution.locale ?? pathLocale(orphanPath),
     kind: resolution.kind,
     canonicalPath: resolution.canonicalPath,
     cohort,

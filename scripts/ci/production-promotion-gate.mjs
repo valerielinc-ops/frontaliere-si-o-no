@@ -31,7 +31,7 @@ export const EXPECTED_BUILD_EVENTS = Object.freeze(['push', 'workflow_dispatch']
 export const EXPECTED_PUBLISH_WORKFLOW = 'Publish to GitHub Pages (deploy + validate)';
 // The caller gate runs inside the reusable workflow, but GitHub's
 // `workflow_ref` in that context identifies the orchestrator that invoked it.
-// Keep this tied to the canonical workflow_run caller, not the callee path.
+// Keep this tied to the canonical deploy-publish caller, not the callee path.
 export const EXPECTED_PUBLISH_WORKFLOW_PATH = '.github/workflows/deploy-publish.yml';
 
 function normalizeRef(value) {
@@ -48,7 +48,7 @@ function normalizeRef(value) {
  * @param {string} input.ref branch/ref of the source event
  * @param {string} input.repository repository receiving the promotion
  * @param {string} input.sourceRepository repository that produced the source
- * @param {string} [input.conclusion] upstream conclusion for workflow_run
+ * @param {string} [input.conclusion] upstream conclusion for the source build
  * @param {string} [input.sourceWorkflow] upstream workflow name
  * @param {string} [input.sourceWorkflowPath] upstream workflow path
  * @param {string|number} [input.sourceWorkflowId] upstream workflow ID
@@ -119,8 +119,9 @@ export function validatePromotionTrigger({
  * Validate the normal post-deploy publisher caller contract.
  *
  * A reusable workflow inherits the caller's github context. The normal
- * deploy-publish caller therefore arrives here as workflow_run, not
- * workflow_call. Keep the caller identity and every artifact selector tied to
+ * deploy-publish caller arrives here as workflow_dispatch (the durable
+ * coordinator dispatches it), while legacy runs can still arrive as
+ * workflow_run. Keep the caller identity and every artifact selector tied to
  * that canonical event so an arbitrary reusable-workflow call cannot reach
  * production side effects.
  *
@@ -172,8 +173,8 @@ export function validateDeployPublishCaller({
   const requestedRef = String(deployRef || '').trim();
   const expectedWorkflowRef = `${EXPECTED_REPOSITORY}/${EXPECTED_PUBLISH_WORKFLOW_PATH}@${MAIN_REF}`;
 
-  if (event !== 'workflow_run') {
-    errors.push('normal post-deploy publishing requires a workflow_run caller context');
+  if (event !== 'workflow_run' && event !== 'workflow_dispatch') {
+    errors.push('normal post-deploy publishing requires a canonical workflow caller context');
   }
   if (String(workflow || '').trim() !== EXPECTED_PUBLISH_WORKFLOW) {
     errors.push(`caller workflow must be ${EXPECTED_PUBLISH_WORKFLOW}`);
@@ -185,20 +186,24 @@ export function validateDeployPublishCaller({
     errors.push('caller source build run id is missing or malformed');
   }
   if (requestedRun !== sourceRun) {
-    errors.push('deploy_run_id does not match the caller workflow_run id');
+    errors.push('deploy_run_id does not match the caller source build run id');
   }
   if (!sourceEvent || requestedEvent !== sourceEvent) {
-    errors.push('deploy_event_name does not match the caller workflow_run event');
+    errors.push('deploy_event_name does not match the caller source build event');
   }
   if (!/^[0-9a-f]{40}$/i.test(sourceSha)) {
     errors.push('caller source build SHA is missing or malformed');
   }
   if (requestedRef !== sourceSha) {
-    errors.push('deploy_ref does not match the caller workflow_run head SHA');
+    errors.push('deploy_ref does not match the caller source build SHA');
   }
 
+  // The outer caller event is now workflow_dispatch, but the values above
+  // describe a completed source build. Validate them with the workflow_run
+  // branch/conclusion/identity contract instead of treating an arbitrary
+  // dispatch as a direct production promotion.
   const trigger = validatePromotionTrigger({
-    eventName: event,
+    eventName: 'workflow_run',
     ref: sourceRef,
     repository: targetRepository,
     sourceRepository,
@@ -313,7 +318,7 @@ function runCli(mode) {
       deployRef: process.env.INPUT_DEPLOY_REF,
     });
     if (!verdict.valid) return fail(verdict.errors);
-    console.log('[production-promotion-gate] canonical deploy-publish workflow_run caller admitted');
+    console.log('[production-promotion-gate] canonical deploy-publish caller admitted');
     return;
   }
 

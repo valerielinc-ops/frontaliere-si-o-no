@@ -1266,12 +1266,12 @@
     },
     {
       "id": "flury-stiftung-009b57885133",
-      "slug": "wundfachperson-flury-stiftung-ch",
+      "slug": "specialista-del-tessuto-flury-stiftung-schiers",
       "slugByLocale": {
         "de": "wundfachperson-flury-stiftung-ch",
-        "it": "wundfachperson-flury-stiftung-ch",
-        "en": "wundfachperson-flury-stiftung-ch",
-        "fr": "wundfachperson-flury-stiftung-ch"
+        "it": "specialista-del-tessuto-flury-stiftung-schiers",
+        "en": "wound-specialist-flury-stiftung-schiers",
+        "fr": "specialiste-des-blessures-flury-stiftung-schiers"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -1333,7 +1333,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-20T09:30:57.503Z"
+      "firstSeenAt": "2026-10-20T09:30:57.503Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wundfachperson-flury-stiftung-ch"
+        ],
+        "en": [
+          "wundfachperson-flury-stiftung-ch"
+        ],
+        "fr": [
+          "wundfachperson-flury-stiftung-ch"
+        ]
+      },
+      "previousSlugs": [
+        "wundfachperson-flury-stiftung-ch"
+      ]
     },
     {
       "id": "flury-stiftung-0521ebbde522",
@@ -1673,12 +1687,12 @@
     },
     {
       "id": "flury-stiftung-896727b2296d",
-      "slug": "collaboratore-trice-in-kundenadministration-80-flury-stiftung-schiers",
+      "slug": "addetto-a-all-amministrazione-clienti-80-flury-stiftung-schiers",
       "slugByLocale": {
         "de": "mitarbeiter-in-kundenadministration-80-flury-stiftung-ch",
-        "it": "collaboratore-trice-in-kundenadministration-80-flury-stiftung-schiers",
-        "en": "mitarbeiter-in-kundenadministration-80-flury-stiftung-ch",
-        "fr": "mitarbeiter-in-kundenadministration-80-flury-stiftung-ch"
+        "it": "addetto-a-all-amministrazione-clienti-80-flury-stiftung-schiers",
+        "en": "customer-administration-specialist-80-flury-stiftung-schiers",
+        "fr": "collaborateur-rice-administration-clientele-80-flury-stiftung-schiers"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -1726,14 +1740,21 @@
       "pensum": "80%",
       "pensumMin": 80,
       "pensumMax": 80,
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kundenadministration-80-flury-stiftung-ch",
+          "collaboratore-trice-in-kundenadministration-80-flury-stiftung-schiers"
+        ],
+        "en": [
+          "mitarbeiter-in-kundenadministration-80-flury-stiftung-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-kundenadministration-80-flury-stiftung-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundenadministration-80-flury-stiftung-ch"
+        "mitarbeiter-in-kundenadministration-80-flury-stiftung-ch",
+        "collaboratore-trice-in-kundenadministration-80-flury-stiftung-schiers"
       ],
       "salaryMin": 65200,
       "salaryMax": 91200,
