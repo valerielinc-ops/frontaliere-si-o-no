@@ -28,6 +28,42 @@ function storeWith(candidates: Record<string, any>, rejectedTombstones: Record<s
 }
 
 describe('prospector candidate store — rejected tombstones (#6903)', () => {
+  it('bootstraps only when the candidate file is missing', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-candidates-missing-'));
+    try {
+      expect(loadCandidates(path.join(dir, 'candidates.json'))).toMatchObject({
+        candidates: {},
+        rejectedTombstones: {},
+      });
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it.each([
+    ['malformed JSON', 'not json'],
+    ['invalid shape', '{"version":2}'],
+  ])('refuses to turn %s into an empty store that could overwrite the queue', (_label, contents) => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-candidates-invalid-'));
+    const file = path.join(dir, 'candidates.json');
+    try {
+      fs.writeFileSync(file, contents, 'utf8');
+      expect(() => loadCandidates(file)).toThrow(/Prospector candidate store/);
+      expect(fs.readFileSync(file, 'utf8')).toBe(contents);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('propagates non-missing filesystem errors instead of silently bootstrapping', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-candidates-io-'));
+    try {
+      expect(() => loadCandidates(dir)).toThrow(/Cannot read Prospector candidate store/);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('requeues only a promoted candidate after a retryable validation failure', () => {
     const key = 'source-location.example';
     const store = storeWith({

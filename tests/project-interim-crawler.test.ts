@@ -151,16 +151,20 @@ describe('Project Interim muratore:GE crawler', () => {
       distinctRate: 1,
       detailDistinctRate: 1,
       jobLikeRate: 1,
+      jobLikeEvidenceRate: 1,
+      employerIdentityRate: 1,
+      employerIdentityMismatchCount: 0,
       logoFound: true,
     };
     const gate = evaluatePromotion({
       status: 'promoted',
+      qualityContractVersion: 3,
       crawlerKey: PROJECT_INTERIM_KEY,
       tenantHost: 'projectinterim.ch',
       aggregator: false,
       validationHistory: [
-        { ...observed, at: daysAgo(2) },
-        { ...observed, at: daysAgo(1) },
+        { ...observed, qualityContractVersion: 3, at: daysAgo(2) },
+        { ...observed, qualityContractVersion: 3, at: daysAgo(1) },
       ],
     }, { existingKeys: new Set(), hostOwners: new Map() });
     expect(gate.passed, gate.reasons.join('\n')).toBe(true);

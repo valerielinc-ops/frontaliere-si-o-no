@@ -37,8 +37,8 @@ const API = 'https://www.job-room.ch/jobadservice/api/jobAdvertisements/_search'
  */
 
 /**
- * @param {{ cantons?: string[], onlineSince?: number, maxPages?: number, pageSize?: number }} [opts]
- * @returns {Promise<{ employers: SecoEmployer[], adCount: number, hostHistogram: Record<string, number> }>}
+ * @param {{ cantons?: string[], onlineSince?: number, maxPages?: number, pageSize?: number, fetchImpl?: typeof fetch, sleepImpl?: (ms:number) => Promise<unknown>, lookupImpl?: any }} [opts]
+ * @returns {Promise<{ employers: SecoEmployer[], adCount: number, hostHistogram: Record<string, number>, outcome: 'complete'|'partial'|'unavailable'|'malformed', errorCode: string|null, pagesRead: number }>}
  */
 export async function fetchSecoEmployers(opts = {}) {
   const cantons = opts.cantons || ['TI'];
@@ -51,33 +51,51 @@ export async function fetchSecoEmployers(opts = {}) {
   /** @type {Record<string, number>} */
   const hostHistogram = {};
   let adCount = 0;
+  let pagesRead = 0;
+  let malformedRows = 0;
+  const finish = (outcome = 'complete', errorCode = null) => ({
+    employers: [...employers.values()], adCount, hostHistogram, outcome, errorCode, pagesRead,
+  });
+  const failedOutcome = (failure, code) => (pagesRead > 0 || employers.size > 0)
+    ? finish('partial', code)
+    : finish(failure, code);
 
   for (let page = 0; page < maxPages; page++) {
-    const res = await politeFetch(`${API}?page=${page}&size=${pageSize}&sort=date_desc`, {
-      method: 'POST',
-      accept: 'application/json',
-      ignoreRobots: true,
-      body: JSON.stringify({
-        permanent: null,
-        workloadPercentageMin: 0,
-        workloadPercentageMax: 100,
-        onlineSince,
-        displayRestricted: false,
-        keywords: [],
-        professionCodes: [],
-        cantonCodes: cantons,
-        communalCodes: [],
-        companyName: null,
-      }),
-    });
-    if (!res.ok) break;
+    let res;
+    try {
+      res = await politeFetch(`${API}?page=${page}&size=${pageSize}&sort=date_desc`, {
+        method: 'POST',
+        accept: 'application/json',
+        ignoreRobots: true,
+        body: JSON.stringify({
+          permanent: null,
+          workloadPercentageMin: 0,
+          workloadPercentageMax: 100,
+          onlineSince,
+          displayRestricted: false,
+          keywords: [],
+          professionCodes: [],
+          cantonCodes: cantons,
+          communalCodes: [],
+          companyName: null,
+        }),
+        fetchImpl: opts.fetchImpl,
+        sleepImpl: opts.sleepImpl,
+        lookupImpl: opts.lookupImpl,
+      });
+    } catch {
+      return failedOutcome('unavailable', 'network_error');
+    }
+    if (!res.ok) return failedOutcome('unavailable', `http_${res.status}`);
     let batch;
-    try { batch = JSON.parse(res.body); } catch { break; }
-    if (!Array.isArray(batch) || !batch.length) break;
+    try { batch = JSON.parse(res.body); } catch { return failedOutcome('malformed', 'malformed_json'); }
+    if (!Array.isArray(batch)) return failedOutcome('malformed', 'unexpected_payload');
+    pagesRead++;
+    if (!batch.length) return malformedRows ? finish('partial', 'malformed_records') : finish();
 
     for (const row of batch) {
       const jc = row?.jobAdvertisement?.jobContent;
-      if (!jc) continue;
+      if (!jc) { malformedRows++; continue; }
       adCount++;
       const c = jc.company || {};
       const name = String(c.name || '').trim();
@@ -110,8 +128,12 @@ export async function fetchSecoEmployers(opts = {}) {
         } catch { /* malformed apply URL */ }
       }
     }
-    if (batch.length < pageSize) break;
+    if (batch.length < pageSize) return malformedRows
+      ? finish('partial', 'malformed_records')
+      : finish();
   }
 
-  return { employers: [...employers.values()], adCount, hostHistogram };
+  if (pagesRead >= maxPages && malformedRows) return finish('partial', 'malformed_records');
+  if (pagesRead >= maxPages) return finish('partial', 'page_limit_reached');
+  return malformedRows ? finish('partial', 'malformed_records') : finish();
 }

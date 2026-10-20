@@ -33,14 +33,20 @@ on:
         description: 'Sorgenti: own,seco,osm,web'
         default: 'own,seco,web,osm'
       trace_limit:
-        description: 'Quanti candidati tracciare'
-        default: '300'
+        description: 'Quanti candidati tracciare; 450 conserva la stessa attesa minima tra richieste allo stesso host'
+        default: '450'
       expand_platforms:
         description: 'Quante piattaforme espandere'
         default: '4'
+      web_pages:
+        description: 'Pagine Common Crawl per run; 40 riduce la copertura di una collection da ~62 a ~31 run'
+        default: '40'
+      osm_cantons:
+        description: 'Cantoni OSM da interrogare per run (rotazione nazionale)'
+        default: '3'
       promote_max:
         description: 'Quanti crawler validati promuovere in produzione per giro'
-        default: '10'
+        default: '15'
       promote_min_days:
         description: 'Giorni distinti di validazione richiesti (2 = normale; 1 SOLO per un giro di verifica)'
         default: '2'
@@ -61,8 +67,10 @@ env:
   # `own` erano gia' nazionali per costruzione.
   CANTONS: ${{ github.event.inputs.cantons || 'all' }}
   SOURCES: ${{ github.event.inputs.sources || 'own,seco,web,osm' }}
-  TRACE_LIMIT: ${{ github.event.inputs.trace_limit || '300' }}
+  TRACE_LIMIT: ${{ github.event.inputs.trace_limit || '450' }}
   EXPAND_PLATFORMS: ${{ github.event.inputs.expand_platforms || '4' }}
+  WEB_PAGES: ${{ github.event.inputs.web_pages || '40' }}
+  OSM_CANTONS: ${{ github.event.inputs.osm_cantons || '3' }}
   # Politeness is not a default worth leaving to chance: these employers never
   # asked to be crawled.
   PROSPECTOR_HOST_DELAY_MS: '1200'
@@ -162,7 +170,7 @@ jobs:
         # colpa di un altro, PR #6287): lo step appare rosso in Actions per la
         # visibilita', ma non blocca Trace/Expand/Synthesize/Validate.
         continue-on-error: true
-        run: node scripts/prospect-discover.mjs --cantons="$CANTONS" --sources="$SOURCES"
+        run: node scripts/prospect-discover.mjs --cantons="$CANTONS" --sources="$SOURCES" --pages="$WEB_PAGES" --osm-cantons="$OSM_CANTONS"
 
       - name: Trace
         run: node scripts/prospect-trace.mjs --limit="$TRACE_LIMIT"
@@ -257,7 +265,7 @@ jobs:
           # capacita' verificata del GH_TOKEN qui sopra.
           APP_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          PROMOTE_MAX: ${{ github.event.inputs.promote_max || '10' }}
+          PROMOTE_MAX: ${{ github.event.inputs.promote_max || '15' }}
           # Il cron non passa mai questo input, quindi resta 2: la leva e'
           # raggiungibile solo da un dispatch manuale, e ogni uso finisce
           # scritto nel titolo e nel corpo della PR prodotta.

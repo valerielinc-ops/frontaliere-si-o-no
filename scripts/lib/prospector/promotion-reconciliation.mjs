@@ -26,8 +26,10 @@ export async function reconcileOpenPromotions(store, lookupPullRequest, ledgerFi
     if (Number(pullRequest?.number) !== Number(associatedNumber)) continue;
 
     if (pullRequest.state === 'MERGED') {
-      setStatus(store, candidate.key, 'production', {
+      setStatus(store, candidate.key, 'awaiting_first_crawl', {
         promotedAt: pullRequest.mergedAt || new Date().toISOString(),
+        firstCrawlerOutputStatus: 'pending',
+        firstCrawlerOutputAttention: false,
       }, ledgerFile);
       landed++;
     } else if (pullRequest.state === 'CLOSED'

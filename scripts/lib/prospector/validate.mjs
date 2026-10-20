@@ -46,6 +46,7 @@ import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { extractRuntimeDetailFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
 import { selectValidationSample } from './validation-sample.mjs';
 import { qualityContractVersionOf } from './quality-contract.mjs';
+import { checkEmployerIdentity } from './employer-identity.mjs';
 import {
   isGenericVacancyTitle,
   rawDetailTitleEvidence,
@@ -255,7 +256,9 @@ export function bodySignature(text = '') {
  *   rawDocumentTitle: string, finalTitle: string, recordedFinalTitle: string,
  *   authoritativeTitle: string, titleEvidenceSource: 'listing'|'raw_h1'|'raw_document_title'|'none',
  *   contentful: boolean, sourceBackedLocation: boolean, words: number, status: number,
- *   jobLike: boolean|null, jobSignals: string[], notJobSignals: string[] }>}
+ *   jobLike: boolean|null, jobLikeEvidence: boolean|null, jobLikeEvidenceMode: string,
+ *   employerIdentityStatus: string, employerIdentityEvidence: string,
+ *   jobSignals: string[], notJobSignals: string[] }>}
  */
 export async function gradeVacancy(vacancy, fetchOptions = {}) {
   const out = {
@@ -277,6 +280,10 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
     status: 0,
     /** `null` means "not measured", never "measured and fine". */
     jobLike: null,
+    jobLikeEvidence: null,
+    jobLikeEvidenceMode: 'unmeasured',
+    employerIdentityStatus: 'unknown',
+    employerIdentityEvidence: 'identity_unavailable',
     jobSignals: [],
     notJobSignals: [],
   };
@@ -347,6 +354,11 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
     ? 0
     : (titleProof?.match || 0);
   out.sourceBackedLocation = Boolean(resolveDetailOrListingSwissGeography(detail, vacancy).geography);
+  const identity = checkEmployerIdentity(detail, res.url || vacancy.url, fetchOptions.spec || {}, fetchOptions.expectedIdentity);
+  out.employerIdentityStatus = identity.status;
+  out.employerIdentityEvidence = identity.evidence;
+  out.employerIdentityName = identity.observedName;
+  out.employerIdentityHost = identity.observedHost;
 
   const words = bodyText.split(/\s+/).filter(Boolean).length;
   out.words = words;
@@ -367,6 +379,17 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
     out.jobLike = jl.jobLike;
     out.jobSignals = jl.jobHits;
     out.notJobSignals = jl.notJobHits;
+    out.jobLikeEvidence = jl.jobLike;
+    out.jobLikeEvidenceMode = 'published_description';
+  } else if (detail.hasStructuredVacancy === true
+    && out.titleMatch >= 0.8
+    && identity.status === 'match'
+    && (Boolean(detail.employmentType) || out.sourceBackedLocation)) {
+    // A PDF or opaque detail can still be proven semantically when the page
+    // carries a selected schema.org JobPosting with a matching title and
+    // employer, plus an employment type or source-backed workplace.
+    out.jobLikeEvidence = true;
+    out.jobLikeEvidenceMode = 'structured_job_posting';
   }
   return out;
 }
@@ -384,6 +407,8 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
  * @property {number} distinctRate
  * @property {number} detailDistinctRate quota di pagine campionate fra loro diverse
  * @property {number|null} jobLikeRate  `null` when no sample was readable text
+ * @property {number} jobLikeEvidenceRate conservative semantic proof across the whole sample
+ * @property {number} employerIdentityRate proportion with confirmed employer identity
  * @property {number} score           0..1, the gate value
  * @property {'good'|'weak'|'bad'|'insufficient'} verdict
  * @property {string[]} problems
@@ -397,7 +422,7 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
  *
  * @param {{ companyKey: string, qualityContractVersion?: number }} spec
  * @param {any[]} vacancies
- * @param {{ sampleSize?: number, goodAt?: number, weakAt?: number, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown>, detailExtractor?: (html: string, url: string) => any, observedDetailsByUrl?: Map<string, any>, requireObservedDetails?: boolean, titleEvidenceByUrl?: Map<string, any>, runtimeObservation?: Record<string, any>, sampleDate?: Date|string|number }} [opts]
+ * @param {{ sampleSize?: number, anomalyIds?: string[], expectedIdentity?: Record<string, any>, goodAt?: number, weakAt?: number, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown>, detailExtractor?: (html: string, url: string) => any, observedDetailsByUrl?: Map<string, any>, requireObservedDetails?: boolean, titleEvidenceByUrl?: Map<string, any>, runtimeObservation?: Record<string, any>, sampleDate?: Date|string|number }} [opts]
  * @returns {Promise<QualityReport>}
  */
 export async function gradeExtraction(spec, vacancies, opts = {}) {
@@ -413,6 +438,7 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
   const selection = selectValidationSample(vacancies, {
     companyKey: spec.companyKey,
     sampleSize,
+    anomalyIds: opts.anomalyIds,
     date: opts.sampleDate,
   });
 
@@ -431,6 +457,7 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
         observedDetail: opts.observedDetailsByUrl?.get(picked.vacancy.url),
         requireObservedDetail: opts.requireObservedDetails === true,
         titleEvidence: opts.titleEvidenceByUrl?.get(picked.vacancy.url),
+        expectedIdentity: opts.expectedIdentity,
         ...(isPageExecutive ? { headers: { 'Accept-Encoding': 'identity' } } : {}),
       });
       graded.push({
@@ -472,6 +499,14 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
   const jobLikeRate = jobLikeGraded.length
     ? jobLikeGraded.filter((g) => g.jobLike).length / jobLikeGraded.length
     : null;
+  const jobLikeEvidenceRate = graded.length
+    ? graded.filter((g) => g.jobLikeEvidence === true).length / graded.length
+    : 0;
+  const jobLikeEvidenceMeasured = graded.filter((g) => g.jobLikeEvidence !== null).length;
+  const identityMatches = graded.filter((g) => g.employerIdentityStatus === 'match').length;
+  const identityMismatches = graded.filter((g) => g.employerIdentityStatus === 'mismatch').length;
+  const identityUnknown = graded.filter((g) => g.employerIdentityStatus !== 'match' && g.employerIdentityStatus !== 'mismatch').length;
+  const employerIdentityRate = graded.length ? identityMatches / graded.length : 0;
 
   if (reachableRate < 1 && graded.length) problems.push(`${Math.round((1 - reachableRate) * 100)}% degli URL non risolve`);
   if (titleMatchRate < 0.5 && graded.length) problems.push('i titoli estratti non corrispondono alla pagina ufficiale');
@@ -479,9 +514,11 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
   if (jobLikeRate !== null && jobLikeRate < 1) {
     problems.push(`${Math.round((1 - jobLikeRate) * 100)}% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale`);
   }
-  if (jobLikeRate === null && graded.length) {
-    problems.push('nessuna pagina di dettaglio leggibile come testo: controllo semantico non eseguito');
+  if (jobLikeEvidenceRate < 1 && graded.length) {
+    problems.push(`${graded.length - graded.filter((g) => g.jobLikeEvidence === true).length}/${graded.length} campioni senza prova semantica sufficiente di annuncio di lavoro`);
   }
+  if (identityMismatches) problems.push(`${identityMismatches} campione/i riportano un datore diverso da quello atteso: candidato da riesaminare`);
+  if (identityUnknown) problems.push(`${identityUnknown} campione/i senza prova indipendente dell'identita' del datore`);
 
   // `jobLike` takes its weight from the other four rather than being added on
   // top, so a perfect spec still scores 1.00 and the existing thresholds keep
@@ -489,9 +526,7 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
   // back up, which reproduces the pre-2026-08-24 formula exactly.
   const base = (reachableRate * 0.35) + (titleMatchRate * 0.35) + (contentfulRate * 0.2) + (distinctRate * 0.1);
   const score = graded.length
-    ? (jobLikeRate === null
-      ? base
-      : (base * (1 - JOB_LIKE_WEIGHT)) + (jobLikeRate * JOB_LIKE_WEIGHT))
+    ? (base * (1 - JOB_LIKE_WEIGHT)) + (jobLikeEvidenceRate * JOB_LIKE_WEIGHT)
     : 0;
 
   /** @type {QualityReport['verdict']} */
@@ -503,6 +538,9 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
   // irraggiungibile per costruzione.
   const minimumGradedForVerdict = vacancies.length > 0 ? Math.min(2, vacancies.length) : 2;
   if (graded.length >= minimumGradedForVerdict) verdict = score >= goodAt ? 'good' : (score >= weakAt ? 'weak' : 'bad');
+  if (graded.length && (identityMismatches > 0 || identityUnknown > 0 || jobLikeEvidenceMeasured < graded.length)) {
+    verdict = 'weak';
+  }
 
   return {
     companyKey: spec.companyKey,
@@ -516,6 +554,15 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
     locationSourceRate: Number(locationSourceRate.toFixed(3)),
     distinctRate: Number(distinctRate.toFixed(3)),
     jobLikeRate: jobLikeRate === null ? null : Number(jobLikeRate.toFixed(3)),
+    jobLikeEvidenceRate: Number(jobLikeEvidenceRate.toFixed(3)),
+    jobLikeEvidenceMeasured,
+    jobLikeEvidenceUnmeasured: Math.max(0, graded.length - jobLikeEvidenceMeasured),
+    jobLikeEvidenceModes: Object.fromEntries([...new Set(graded.map((g) => g.jobLikeEvidenceMode))]
+      .map((mode) => [mode, graded.filter((g) => g.jobLikeEvidenceMode === mode).length])),
+    employerIdentityRate: Number(employerIdentityRate.toFixed(3)),
+    employerIdentityMatchCount: identityMatches,
+    employerIdentityMismatchCount: identityMismatches,
+    employerIdentityUnknownCount: identityUnknown,
     score: Number(score.toFixed(3)),
     verdict,
     problems,

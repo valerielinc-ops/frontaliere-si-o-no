@@ -53,13 +53,25 @@ const EMPTY = { version: 1, updatedAt: null, platforms: {} };
  * @returns {{ version: number, updatedAt: string|null, platforms: Record<string, Platform> }}
  */
 export function loadRegistry(file = PLATFORMS_PATH) {
+  let text;
   try {
-    const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
-    if (!raw || typeof raw !== 'object' || !raw.platforms) return structuredClone(EMPTY);
-    return raw;
-  } catch {
-    return structuredClone(EMPTY);
+    text = fs.readFileSync(file, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return structuredClone(EMPTY);
+    throw new Error(`Cannot read Prospector platform registry at ${file}`, { cause: error });
   }
+
+  let raw;
+  try {
+    raw = JSON.parse(text);
+  } catch (error) {
+    throw new Error(`Malformed Prospector platform registry at ${file}`, { cause: error });
+  }
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)
+    || !raw.platforms || typeof raw.platforms !== 'object' || Array.isArray(raw.platforms)) {
+    throw new Error(`Invalid Prospector platform registry shape at ${file}`);
+  }
+  return raw;
 }
 
 /**
