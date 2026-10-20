@@ -499,15 +499,18 @@ export async function releaseImageNamespaceLock(
 export async function releaseImageNamespaceLeases(leases, options = {}) {
   if (!Array.isArray(leases)) throw new Error('[r2-image-namespace-lock] leases must be an array');
   const released = [];
-  let firstError;
+  const errors = [];
   for (const lease of [...leases].reverse()) {
     try {
       if (await releaseImageNamespaceLock(lease, options)) released.push(lease.namespace);
     } catch (error) {
-      firstError ??= error;
+      errors.push(error);
     }
   }
-  if (firstError) throw firstError;
+  if (errors.length) {
+    const messages = errors.map((error) => (error instanceof Error ? error.message : String(error)));
+    throw new AggregateError(errors, messages.join('; '), { cause: errors[0] });
+  }
   return released;
 }
 
