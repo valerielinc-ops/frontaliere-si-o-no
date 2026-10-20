@@ -2087,7 +2087,7 @@ function renderArchive(inp: ArchiveInputs): string {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${buildFuelTodayPath(locale, fuel, zone)}` },
+      { '@type': 'ListItem', position: 2, name: zoneLabel, item: `${BASE_URL}${buildFuelTodayPath(locale, fuel, zone)}` },
       { '@type': 'ListItem', position: 3, name: `${zoneLabel} ${monthKey}`, item: canonicalUrl },
     ],
   });
