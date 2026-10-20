@@ -4457,8 +4457,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
         "it": "operatore-macchina-m-f-d-endress-hauser-reinach",
-        "en": "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-        "fr": "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach"
+        "en": "machine-operator-m-f-d-endress-hauser-reinach",
+        "fr": "operateur-de-machine-h-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -4508,19 +4508,18 @@
           "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach"
         ],
         "en": [
-          "machine-operator-m-f-d-endress-hauser-reinach"
+          "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach"
         ],
         "de": [
           "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach"
         ],
         "fr": [
-          "operateur-de-machine-h-f-d-endress-hauser-reinach"
+          "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach",
-        "machine-operator-m-f-d-endress-hauser-reinach",
-        "operateur-de-machine-h-f-d-endress-hauser-reinach"
+        "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
