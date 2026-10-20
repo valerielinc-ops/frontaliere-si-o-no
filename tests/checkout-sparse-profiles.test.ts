@@ -134,7 +134,7 @@ describe('profili di sparse-checkout', () => {
       { logLevel: 'silent' },
     );
     const measurement = YAML.parse(
-      fs.readFileSync(path.join(WF_DIR, 'post-build-matrix-test.yml'), 'utf8'),
+      fs.readFileSync(path.join(WF_DIR, 'validate-modified-workflows.yml'), 'utf8'),
       { logLevel: 'silent' },
     );
     const issueCheckout = issueFix?.jobs?.fix?.steps?.find(
@@ -148,6 +148,10 @@ describe('profili di sparse-checkout', () => {
       .map((entry: string) => entry.trim())
       .filter(Boolean);
 
+    expect(measurement?.jobs?.validate?.outputs?.files).toBe('${{ steps.contracts.outputs.files }}');
+    expect(String(measurement?.jobs?.checkout_measurement?.if ?? '')).toContain(
+      "contains(needs.validate.outputs.files, '.github/workflows/issue-fix.yml')",
+    );
     expect(fullCheckout?.with?.ref).toBe('${{ github.event.pull_request.head.sha || github.ref }}');
     expect(sparseCheckout?.with?.ref).toBe('${{ github.event.pull_request.head.sha || github.ref }}');
     expect(fullCheckout?.with?.['fetch-depth']).toBe(0);

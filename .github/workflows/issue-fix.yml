@@ -417,9 +417,9 @@ jobs:
         # annulla del tutto.
         # Il run 39442331917 (2026-10-20) ha confermato la causa di famiglia:
         # l'albero pieno è arrivato al tetto di 1440s prima del fixer. La
-        # misura full-vs-sparse del profilo corrente è prodotta dal dispatch
-        # `post-build-matrix-test.yml` con `checkout_measurement=true`; il
-        # risultato del run sulla HEAD va mantenuto nel body della PR.
+        # misura full-vs-sparse del profilo corrente è prodotta dal job
+        # `issue-fix checkout measurement` di `validate-modified-workflows.yml`;
+        # il risultato del run sulla HEAD va mantenuto nel body della PR.
         timeout-minutes: 24
 
       - name: Setup Node.js
