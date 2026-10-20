@@ -4,7 +4,7 @@ import { clampMetaDescription } from './titleSuffix';
 export interface TwitterCardMetaOptions {
   title: string;
   description: string;
-  locale: 'it' | 'en' | 'de' | 'fr';
+  locale: string;
   image?: string;
   existingHead?: string;
 }
