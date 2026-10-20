@@ -33,6 +33,11 @@ import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { JOB_BOARD_HEAD_TAGS } from './jobBoardGpt';
 import { firstParsableMs } from './shared/firstParsableDate';
+import {
+ CATEGORY_LISTING_MAX_PAGES,
+ CATEGORY_LISTING_PAGE_SIZE,
+ sortCategoryListingJobs,
+} from './shared/categoryListingInventory';
 import { buildSlimSeed } from './shared/slimJobIndex';
 import { isListingInventoryJob, normalizeListingIdentity, selectJobBoardInventory } from '../services/jobBoardInventory';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
@@ -8114,12 +8119,7 @@ ${staticAnalyticsHtml}
  const paginationSlugs: Record<'it' | 'en' | 'de' | 'fr', string> = { it: 'pagina', en: 'page', de: 'seite', fr: 'page' };
  const JOBS_PER_LISTING_PAGE = 20;
  const MAX_LISTING_PAGES = 25;
- const sortedForPagination = [...validJobs].sort((a: any, b: any) => {
- const da = firstParsableMs(b.crawledAt, b.datePosted);
- const db = firstParsableMs(a.crawledAt, a.datePosted);
- if (da !== db) return da - db;
- return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
- });
+ const sortedForPagination = sortCategoryListingJobs(validJobs);
  const ticinoPaginationJobs = selectJobBoardInventory(sortedForPagination, DEFAULT_CANTON);
  const totalListingPages = Math.min(MAX_LISTING_PAGES, Math.ceil(ticinoPaginationJobs.length / JOBS_PER_LISTING_PAGE));
  let paginationPageCount = 0;
@@ -8388,14 +8388,13 @@ ${staticAnalyticsHtml}
  };
  let categoryPageCount = 0;
  const categorySitemapEntries: string[] = [];
- const CAT_PER_PAGE = 30;
  for (const catKey of Object.keys(catSlugsMap)) {
  const catJobs = sortedForPagination.filter((j: any) => String(j.category || '').toLowerCase() === catKey);
  if (catJobs.length < 3) continue;
- const catTotalPages = Math.min(10, Math.ceil(catJobs.length / CAT_PER_PAGE));
+ const catTotalPages = Math.min(CATEGORY_LISTING_MAX_PAGES, Math.ceil(catJobs.length / CATEGORY_LISTING_PAGE_SIZE));
  for (let catPage = 1; catPage <= catTotalPages; catPage++) {
- const catStart = (catPage - 1) * CAT_PER_PAGE;
- const catPageJobs = catJobs.slice(catStart, catStart + CAT_PER_PAGE);
+ const catStart = (catPage - 1) * CATEGORY_LISTING_PAGE_SIZE;
+ const catPageJobs = catJobs.slice(catStart, catStart + CATEGORY_LISTING_PAGE_SIZE);
  if (catPageJobs.length === 0) break;
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b

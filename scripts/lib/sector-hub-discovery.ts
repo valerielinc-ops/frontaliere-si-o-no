@@ -8,7 +8,12 @@ import {
   type SectorHubKey,
 } from '../../build-plugins/jobSectorLanding';
 import { isKnownExistingCategorySlug } from '../../build-plugins/shared/autoSectorHubPaths';
+import {
+  CATEGORY_LISTING_PAGE_SIZE,
+  compareCategoryListingJobs,
+} from '../../build-plugins/shared/categoryListingInventory';
 import { resolveJobCanton, SECTION_LEGACY_TI } from '../../build-plugins/shared/cantonSection';
+import { resolveJobsSeoSample, selectJobsSeoSample } from '../../build-plugins/shared/jobsSeoSample';
 import { isListingInventoryJob, normalizeListingIdentity } from '../../services/jobBoardInventory';
 import { jobQueuedAtMs, jobTrafficScore } from './job-traffic-priority.mjs';
 import { isFixtureJob } from './fixture-data-filter.mjs';
@@ -118,6 +123,7 @@ export interface DiscoveryJob {
   postedDate?: string;
   datePosted?: string;
   crawledAt?: string;
+  qualityScore?: number | null;
 }
 
 export interface TrafficSnapshot {
@@ -382,24 +388,51 @@ export function buildSectorHubDiscoveryReport({
     labels: Map<string, number>;
     fields: Set<string>;
   }>();
-  // jobsSeoPagesPlugin emits a static category route only when its exact
-  // production listing pool contains at least three records for that key.
-  // Keep the route choice in the weekly registry so routing, the index, and
-  // generated HTML all agree about whether that page really exists.
+  // Mirror the valid listing pool and first-page ordering used by
+  // jobsSeoPagesPlugin. A static category route covers candidates only when
+  // every active Ticino candidate appears in the first page it emits.
   const existingCategoryJobCounts = new Map<string, number>();
-  const existingCategoryJobIds = new Map<string, Map<string, number>>();
+  const existingCategoryJobIds = new Map<string, Set<string>>();
+  const categoryListingRecency = (job: DiscoveryJob): number => {
+    const posted = job.datePosted ? new Date(job.datePosted).getTime() : 0;
+    if (posted > 0 && !Number.isNaN(posted)) return posted;
+    const crawled = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
+    if (crawled > 0 && !Number.isNaN(crawled)) return crawled;
+    return 0;
+  };
+  const categoryListingEntries = jobs.flatMap((job, index) => {
+    if (isFixtureJob(job) || !isListingInventoryJob(job)) return [];
+    const listing = normalizeListingIdentity(job);
+    if (!listing.slug || !isKnownExistingCategorySlug(String(listing.category || '').toLowerCase())) return [];
+    return [{ job: listing as DiscoveryJob, id: jobIdentity(listing, index) }];
+  }).sort((a, b) => {
+    const recencyDifference = categoryListingRecency(b.job) - categoryListingRecency(a.job);
+    if (recencyDifference !== 0) return recencyDifference;
+    return String(a.job.id || a.job.slug || '').localeCompare(String(b.job.id || b.job.slug || ''));
+  });
+  const jobsSeoSample = resolveJobsSeoSample();
+  const sampledCategoryJobs = jobsSeoSample === null
+    ? null
+    : new Set(selectJobsSeoSample(
+      categoryListingEntries.map(({ job }) => job as unknown as Record<string, unknown>),
+      jobsSeoSample,
+    ));
+  const sortedCategoryListingEntries = categoryListingEntries
+    .filter(({ job }) => sampledCategoryJobs === null || sampledCategoryJobs.has(job as unknown as Record<string, unknown>))
+    .sort((a, b) => compareCategoryListingJobs(a.job, b.job));
+  for (const { job, id } of sortedCategoryListingEntries) {
+    const categorySlug = String(job.category || '').toLowerCase();
+    const count = (existingCategoryJobCounts.get(categorySlug) || 0) + 1;
+    existingCategoryJobCounts.set(categorySlug, count);
+    const ids = existingCategoryJobIds.get(categorySlug) || new Set<string>();
+    if (count <= CATEGORY_LISTING_PAGE_SIZE) ids.add(id);
+    existingCategoryJobIds.set(categorySlug, ids);
+  }
   jobs.forEach((job, index) => {
     if (isFixtureJob(job) || !isListingInventoryJob(job)
       || !isSectorHubJobActive(job, 'it') || resolveJobCanton(job) !== 'TI') return;
     const listing = normalizeListingIdentity(job);
     const id = jobIdentity(listing, index);
-    const categorySlug = String(listing.category || '').toLowerCase();
-    if (isKnownExistingCategorySlug(categorySlug)) {
-      existingCategoryJobCounts.set(categorySlug, (existingCategoryJobCounts.get(categorySlug) || 0) + 1);
-      const ids = existingCategoryJobIds.get(categorySlug) || new Map<string, number>();
-      ids.set(id, (ids.get(id) || 0) + 1);
-      existingCategoryJobIds.set(categorySlug, ids);
-    }
     if (seenJobIds.has(id)) return;
     seenJobIds.add(id);
     const views = jobTrafficScore(listing, popularity);
@@ -485,9 +518,7 @@ export function buildSectorHubDiscoveryReport({
     const activeJobCount = jobEntries.length;
     const staticCategoryIds = existingCategoryJobIds.get(slug);
     const existingCategoryInventoryMatches = Boolean(staticCategoryIds)
-      && existingCategoryJobCounts.get(slug) === jobEntries.length
-      && staticCategoryIds?.size === jobEntries.length
-      && [...(staticCategoryIds || [])].every(([id, count]) => count === 1 && acc.jobs.has(id));
+      && jobEntries.every(({ id }) => staticCategoryIds?.has(id));
     if (activeJobCount < MIN_TRACKED_JOBS) continue;
     currentSlugs.add(slug);
     let activeJobViews = 0;
