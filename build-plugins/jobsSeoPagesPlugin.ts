@@ -1674,13 +1674,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // back to job.description for some locales) hits the cache.
  // `localizeFallbackCanonical()` is called fresh per-locale — only swaps the
  // 4 extra section headings and recomputes the (cheap) readingMinutes.
- // The pre-pass still populates every fallback tuple before the main loop so
- // the worker result is reused across locales. Entries are now reference-counted
- // by the active readers and evicted at their last use; without that boundary
- // the ~21k cleaned descriptions stayed live until the end of all active pages
- // and added roughly 2.4 GB to the peak heap (run 36088944074). The size cap
- // remains a safety net for an unexpected/untracked access pattern.
- const CANONICAL_CLEANED_CACHE_MAX = 30000;
+ // The pre-pass is only an optimization: a cache miss can always rebuild the
+ // pure value. Keep the working set deliberately small because the corpus has
+ // ~21k distinct fallback tuples, while one cleaned value retains the parsed
+ // description and several derived arrays. The old 30k cap never engaged, so
+ // the worker merge held the whole corpus through the active-page peak even
+ // after the last-reader eviction fix (issue #12763 recurrence).
+ const CANONICAL_CLEANED_CACHE_MAX = 2048;
  const canonicalCleanedCache = new Map<string, CleanedFallbackContent>();
  jobsSeoMemContext.canonicalCleanedCache = canonicalCleanedCache;
  const canonicalFallbackUsesRemaining = new Map<string, number>();
@@ -1693,6 +1693,20 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // emit completes) so the end-of-build diagnostic log keeps reporting the
  // true peak size, not the post-clear `0`.
  let _canonicalCleanedCacheSizeAtEnd = 0;
+ const cacheCanonicalCleaned = (key: string, cleaned: CleanedFallbackContent): void => {
+   if (!canonicalCleanedCache.has(key) && canonicalCleanedCache.size >= CANONICAL_CLEANED_CACHE_MAX) {
+     const oldestKey = canonicalCleanedCache.keys().next().value;
+     if (oldestKey !== undefined) {
+       canonicalCleanedCache.delete(oldestKey);
+       _canonicalCleanedEvictions += 1;
+     }
+   }
+   canonicalCleanedCache.set(key, cleaned);
+   _canonicalCleanedCachePeakEntries = Math.max(
+     _canonicalCleanedCachePeakEntries,
+     canonicalCleanedCache.size,
+   );
+ };
  const releaseCanonicalCleanedAfterUse = (key: string): void => {
    const remaining = canonicalFallbackUsesRemaining.get(key);
    if (remaining === undefined) return;
@@ -1718,18 +1732,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    }
    _canonicalCleanedMisses += 1;
    const result = canonicalizeFallbackCleaned(description, requirements);
-   if (canonicalCleanedCache.size >= CANONICAL_CLEANED_CACHE_MAX) {
-     const oldestKey = canonicalCleanedCache.keys().next().value;
-     if (oldestKey !== undefined) {
-       canonicalCleanedCache.delete(oldestKey);
-       _canonicalCleanedEvictions += 1;
-     }
-   }
-   canonicalCleanedCache.set(key, result);
-   _canonicalCleanedCachePeakEntries = Math.max(
-     _canonicalCleanedCachePeakEntries,
-     canonicalCleanedCache.size,
-   );
+   cacheCanonicalCleaned(key, result);
    releaseCanonicalCleanedAfterUse(key);
    return result;
  };
@@ -3217,6 +3220,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   return;
  }
 
+ // Do not compute a corpus-sized worker result only to evict it immediately.
+ // The active loop will fill the same bounded cache on demand, preserving the
+ // pure fallback output while avoiding a second copy of every cleaned value.
+ if (tuples.length > CANONICAL_CLEANED_CACHE_MAX) {
+  logJobsSeoMem('after-canonical-prepass', {
+   canonicalPrepassSkipped: 1,
+   canonicalPrepassReason: 'cache-cap',
+  });
+  return;
+ }
+
  // Phase 2: decide on parallelism. Below 500 unique tuples the worker
  // setup overhead (~500 ms × N for spawn + dynamic import) costs more
  // than running inline.
@@ -3239,11 +3253,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Inline single-threaded path — same code as the worker body.
  for (const t of tuples) {
  const cleaned = canonicalizeFallbackCleaned(t.description, t.requirements);
- canonicalCleanedCache.set(t.key, cleaned);
- _canonicalCleanedCachePeakEntries = Math.max(
-  _canonicalCleanedCachePeakEntries,
-  canonicalCleanedCache.size,
- );
+ cacheCanonicalCleaned(t.key, cleaned);
  }
  jobsSeoMemContext.canonical.chunks = 1;
  jobsSeoMemContext.canonical.results = 1;
@@ -3289,19 +3299,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  );
  const dispatchMs = Date.now() - tStartDispatch;
 
- // Phase 4: merge — populate cache. The cache cap is intentionally
- // bypassed here: the pre-pass output is exactly what the main loop will
- // need, so evicting would just cause inline recomputation right after.
+ // Phase 4: merge — populate the same bounded cache used by the main loop.
+ // A large corpus skips this phase above; for smaller inputs the cap is still
+ // enforced so this optimization cannot silently become an unbounded retainer.
  const tStartMerge = Date.now();
  let canonicalResultEntries = 0;
  for (const r of results) {
  for (const entry of r.entries) {
  canonicalResultEntries++;
- canonicalCleanedCache.set(entry.key, entry.cleaned);
- _canonicalCleanedCachePeakEntries = Math.max(
-  _canonicalCleanedCachePeakEntries,
-  canonicalCleanedCache.size,
- );
+   cacheCanonicalCleaned(entry.key, entry.cleaned);
  }
  }
  const mergeMs = Date.now() - tStartMerge;

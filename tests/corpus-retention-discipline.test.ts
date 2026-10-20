@@ -267,6 +267,22 @@ describe('corpus retention discipline (#5330)', () => {
     expect(useCountClear, 'canonical fallback use counter released too late').toBeLessThan(activeMarker);
   });
 
+  it('bounds the canonical fallback pre-pass instead of retaining the corpus', () => {
+    const source = fs.readFileSync(path.join(PLUGIN_DIR, 'jobsSeoPagesPlugin.ts'), 'utf8');
+    const cap = source.match(/const CANONICAL_CLEANED_CACHE_MAX = (\d+);/);
+    expect(cap, 'canonical fallback cache cap disappeared').not.toBeNull();
+    expect(Number(cap![1]), 'canonical fallback cache cap is still corpus-sized').toBeLessThanOrEqual(2048);
+
+    const helper = source.indexOf('const cacheCanonicalCleaned =');
+    const prepassSkip = source.indexOf("canonicalPrepassReason: 'cache-cap'");
+    const merge = source.indexOf('const tStartMerge = Date.now();');
+    expect(helper, 'bounded canonical cache helper disappeared').toBeGreaterThan(-1);
+    expect(prepassSkip, 'large canonical pre-pass is not skipped').toBeGreaterThan(helper);
+    expect(merge, 'canonical pre-pass merge disappeared').toBeGreaterThan(prepassSkip);
+    expect(source.slice(merge, merge + 900)).toContain('cacheCanonicalCleaned(entry.key, entry.cleaned);');
+    expect(source.slice(merge, merge + 900)).not.toContain('canonicalCleanedCache.set(entry.key, entry.cleaned);');
+  });
+
   it('keeps the retention probe opt-in and limited to one candidate', () => {
     const source = fs.readFileSync(path.join(PLUGIN_DIR, 'jobsSeoPagesPlugin.ts'), 'utf8');
 
