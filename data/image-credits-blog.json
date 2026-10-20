@@ -62508,6 +62508,228 @@
           "notes": "Generic synthetic airport disruption illustration with no readable text, logos, identifiable people, or specific-event cues."
         }
       }
+    },
+    "generated:article-voto-comunale-stranieri-berna": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-20T22:00:39.652Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-20",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-voto-comunale-stranieri-berna",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "e5b98dd6d5afe5dd9df1149a9c1948b7342e21bf78dcadeb8d0dd6271ae32b86",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "7a77d09088244e9302885468d9d05cbd06594edfd70d4fc7c8af632566abbd97",
+        "bytes": 167954,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-20T22:00:39.652Z",
+        "verifiedAt": "2026-10-20T22:00:47.539Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-voto-comunale-stranieri-berna.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic civic-building illustration with Swiss flags; no text, logos, people, or event-specific documentation."
+        }
+      }
+    },
+    "generated:article-weissenbach-incidente-quattro-auto": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-20T22:20:14.961Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-20",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-weissenbach-incidente-quattro-auto",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "3fe0dbb07f38c45e4345f2001230406984e1ae16fad4cc7dd45db558bda45987",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "9d220b5839d787efaca869bad86820ed645811460a40256b242dfd0922becb6c",
+        "bytes": 173618,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-20T22:20:14.961Z",
+        "verifiedAt": "2026-10-20T22:21:08.206Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-weissenbach-incidente-quattro-auto.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic illustration of a four-car collision scene; no readable text, logos, recognizable faces, or foreground people."
+        }
+      }
+    },
+    "generated:article-zugo-governo-direzioni-2027": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-20T23:12:39.153Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-20",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-zugo-governo-direzioni-2027",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "3b5efac660f11f7ce3114153d9dc1feadcaa0dca1443230661b55dc6047f1b41",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "18688d08cc1d7b3ad45bdc19c6512a0f569464676c46c61cfbf9365fe5e57d30",
+        "bytes": 136550,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-20T23:12:39.153Z",
+        "verifiedAt": "2026-10-20T23:12:46.475Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-zugo-governo-direzioni-2027.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic photorealistic editorial illustration of a Swiss government-style building with distant, unrecognizable pedestrians; no readable text, signage, logos, watermarks, or specific event."
+        }
+      }
     }
   },
   "covers": {
@@ -102215,6 +102437,18 @@
     },
     "article-skyguide-ginevra-capacita-ottobre": {
       "file": "generated:article-skyguide-ginevra-capacita-ottobre",
+      "modified": "resized"
+    },
+    "article-voto-comunale-stranieri-berna": {
+      "file": "generated:article-voto-comunale-stranieri-berna",
+      "modified": "resized"
+    },
+    "article-weissenbach-incidente-quattro-auto": {
+      "file": "generated:article-weissenbach-incidente-quattro-auto",
+      "modified": "resized"
+    },
+    "article-zugo-governo-direzioni-2027": {
+      "file": "generated:article-zugo-governo-direzioni-2027",
       "modified": "resized"
     }
   }

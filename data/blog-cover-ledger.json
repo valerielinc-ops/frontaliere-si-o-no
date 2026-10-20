@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 708,
+      "5": 711,
       "6": 5054
     },
-    "publishedCovers": 7445,
+    "publishedCovers": 7448,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204071,6 +204071,105 @@
         "provider": "openai-codex",
         "assetId": "article-skyguide-ginevra-capacita-ottobre",
         "imageUrl": "/images/blog/article-skyguide-ginevra-capacita-ottobre.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-voto-comunale-stranieri-berna": {
+      "cover": "/images/blog/article-voto-comunale-stranieri-berna.webp",
+      "hash": "7a77d09088244e9302885468d9d05cbd06594edfd70d4fc7c8af632566abbd97",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "voto-comunale-stranieri-berna",
+          "category": "novita",
+          "date": "2026-10-20T22:00:47.607Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-voto-comunale-stranieri-berna.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-voto-comunale-stranieri-berna",
+        "imageUrl": "/images/blog/article-voto-comunale-stranieri-berna.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-weissenbach-incidente-quattro-auto": {
+      "cover": "/images/blog/article-weissenbach-incidente-quattro-auto.webp",
+      "hash": "9d220b5839d787efaca869bad86820ed645811460a40256b242dfd0922becb6c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "weissenbach-incidente-quattro-auto",
+          "category": "pratico",
+          "date": "2026-10-20T22:21:08.267Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-weissenbach-incidente-quattro-auto.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-weissenbach-incidente-quattro-auto",
+        "imageUrl": "/images/blog/article-weissenbach-incidente-quattro-auto.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-zugo-governo-direzioni-2027": {
+      "cover": "/images/blog/article-zugo-governo-direzioni-2027.webp",
+      "hash": "18688d08cc1d7b3ad45bdc19c6512a0f569464676c46c61cfbf9365fe5e57d30",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zg",
+          "id": "zugo-governo-direzioni-2027",
+          "category": "novita",
+          "date": "2026-10-20T23:12:46.533Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-zugo-governo-direzioni-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-zugo-governo-direzioni-2027",
+        "imageUrl": "/images/blog/article-zugo-governo-direzioni-2027.webp",
         "evidence": "generated-engine-record"
       }
     }
