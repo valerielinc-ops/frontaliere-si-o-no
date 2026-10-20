@@ -8517,6 +8517,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  }
  }
+ }
 
  const authPendingNoticeJsx = authNotice?.kind === 'pending' ? (
  // Mobile-collapsed by design: the user is at the top of a job-detail page
