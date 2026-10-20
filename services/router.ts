@@ -53,6 +53,8 @@ import { getJobIntentLandingSlug } from '../build-plugins/jobIntentLanding';
 import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS } from '../build-plugins/jobRecencyLanding';
 import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyData';
 import { HEALTH_PREMIUMS_ROUTES, isHealthPremiumsPath } from '../build-plugins/shared/healthPremiumsPaths';
+import { parseAutoSectorHubPath } from '../build-plugins/shared/autoSectorHubPaths';
+import sectorHubPublicationRegistry from '../data/sector-hub-publications.json';
 import { JOB_MARKET_SNAPSHOT_ROUTES, isJobMarketSnapshotPath } from '../build-plugins/jobMarketSnapshotData';
 import { isSalaryStatsPath, parseSalaryStatsPath } from '../build-plugins/salaryStatsData';
 import { isExchangeSsgPath, parseExchangeSsgPath } from './exchangeSsgPaths';
@@ -157,6 +159,20 @@ export {
   getAggregatorJobBoardSlug,
   parseJobBoardSlug,
 };
+
+const AUTO_SECTOR_HUB_LOCALES = new Map<string, Set<Locale>>();
+for (const hub of (sectorHubPublicationRegistry as {
+  hubs?: Array<{ slug?: unknown; routeKind?: unknown; labelByLocale?: Partial<Record<Locale, unknown>> }>;
+}).hubs || []) {
+  const slug = typeof hub.slug === 'string' ? hub.slug : '';
+  if (!slug || hub.routeKind === 'static-category') continue;
+  const locales = new Set<Locale>();
+  for (const candidateLocale of ['it', 'en', 'de', 'fr'] as const) {
+    const label = hub.labelByLocale?.[candidateLocale];
+    if (typeof label === 'string' && label.trim()) locales.add(candidateLocale);
+  }
+  AUTO_SECTOR_HUB_LOCALES.set(slug, locales);
+}
 
 // ── Workstream C SemRush landings ────────────────────────────
 // Five static-HTML-only long-tail SEO pages (Workstream C of the SemRush
@@ -2132,6 +2148,15 @@ export function parsePath(pathname: string): ParseResult {
  const path = pathname.replace(/\/$/, '').toLowerCase() || '/';
  const allParts = path.split('/').filter(Boolean);
  const [locale, parts] = detectLocaleFromPath(allParts);
+
+ // Dynamic sector hubs live in a reserved, locale-aware path segment. The
+ // slug list comes from the same compact registry that the weekly job writes;
+ // this keeps unknown URLs on the normal not-found route while retaining
+ // noindex retirement pages for already-published hubs.
+ const autoSectorSlug = parseAutoSectorHubPath(parts, locale);
+ if (autoSectorSlug && AUTO_SECTOR_HUB_LOCALES.get(autoSectorSlug)?.has(locale)) {
+   return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
+ }
 
  // The clean service landing is a real SPA page, not the generic job-board
  // listing. Returning the job-board tab keeps the existing shell and lazy

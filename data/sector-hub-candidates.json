@@ -6,18 +6,33 @@
     "startDate": "2026-09-20",
     "endDate": "2026-10-17"
   },
-  "publicationMode": "proposal-only",
+  "publicationMode": "automatic-quality-gated",
   "promotionRules": {
     "minActiveJobs": 15,
     "minDistinctEmployers": 4,
     "minConsecutiveWeeks": 3,
     "requiresTrafficEvidence": true,
-    "trafficEvidenceRule": "At least one listed traffic source must cross its threshold.",
+    "trafficEvidenceRule": "Sustained promotion needs one traffic threshold; fast-track promotion needs two of the three strong, complete traffic signals plus minimum inventory and employer counts.",
     "trafficSources": [
       "active-ad views",
       "GA4 job-page sessions",
       "GSC impressions and clicks"
-    ]
+    ],
+    "automaticFastTrack": {
+      "minActiveJobs": 20,
+      "minDistinctEmployers": 5,
+      "minJobsWithViews": 12,
+      "minStrongTrafficSignals": 2,
+      "strongSignalThresholds": {
+        "viewsPerLiveDay": 10,
+        "ga4Sessions28d": 100,
+        "gscJobPageImpressions28d": 1500
+      }
+    },
+    "fastTrackSourceRule": "Count only fresh popularity exports, complete GA4 page data and GSC page impressions marked complete.",
+    "automaticSustainedTrack": "eligible-for-review status for 3 consecutive weeks with the normal inventory, employer and traffic gates",
+    "staticCategoryRouteRule": "Reuse a static category URL only when the candidate and validated category-page job ID inventories match exactly without duplicates; otherwise emit a dynamic sector route.",
+    "localizedLabelRule": "Only locales with an explicit localized label are emitted, linked and indexed."
   },
   "scoring": {
     "weights": {
@@ -1073,7 +1088,9 @@
     "Candidates are grouped only from active Ticino ads whose title/category does not match any of the 50 curated hubs.",
     "The popularity export is cumulative; only views attached to active ads are counted and the score uses views per live day from the best available posting date.",
     "Eligible candidates require 15 active ads, 4 distinct employers, traffic evidence and 3 consecutive weekly observations.",
-    "Eligibility means ready for editorial review. New indexed routes still require localized labels, a matcher, unique SEO copy, canonical/hreflang and thin-content checks.",
+    "Automatic publication accepts every candidate that passes either the sustained three-week gate or the fast-track inventory and multi-source traffic gate; there is no one-hub promotion slot.",
+    "Generated pages use localized templates, exact publisher category fields, live inventory floors, canonical/hreflang and noindex retirement bridges.",
+    "Static category URLs are reused only when the candidate inventory exactly matches the validated category-page inventory; otherwise the candidate gets a dynamic sector URL.",
     "A missing or partial GA4/GSC source is reported as such; its absent rows are not interpreted as measured zero demand."
   ]
 }
