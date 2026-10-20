@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ 'whatsNew.v3994.title': "Des repères emploi plus utiles par canton",
+ 'whatsNew.v3994.regionalJobs.title': "Grisons, Genève, Vaud et Neuchâtel",
+ 'whatsNew.v3994.regionalJobs.desc': "Les pages cantonales ajoutent des repères locaux sur les régions linguistiques et les transports. Les localités et employeurs affichés proviennent des annonces recueillies ; vérifiez toujours les exigences et la disponibilité dans la source d’origine.",
  'whatsNew.v3993.title': 'Un parcours clair pour chercher un emploi dans votre secteur',
  'whatsNew.v3993.professionJourney.title': 'Du métier à la candidature, étape par étape',
  'whatsNew.v3993.professionJourney.desc': 'Les pages métiers et secteurs relient les offres, les repères pour le poste, une estimation du salaire net, les employeurs cités dans les annonces et les alertes pour les nouvelles offres correspondantes.',

@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const enCore: Record<string, string> = {
+ 'whatsNew.v3994.title': "More useful job guides by canton",
+ 'whatsNew.v3994.regionalJobs.title': "Graubünden, Geneva, Vaud and Neuchâtel",
+ 'whatsNew.v3994.regionalJobs.desc': "Canton pages now add local guidance on language regions and transport. Locations and employers shown come from collected listings; always check requirements and availability on the original source.",
  'whatsNew.v3993.title': 'A clear path through your sector’s job search',
  'whatsNew.v3993.professionJourney.title': 'From a role to an application, one step at a time',
  'whatsNew.v3993.professionJourney.desc': 'Profession and sector pages now link openings, role guidance, a net-pay estimate, employers named in listings and alerts for new matching jobs.',

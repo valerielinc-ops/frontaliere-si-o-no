@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3994.title': "Nützlichere Stellenhinweise nach Kanton",
+ 'whatsNew.v3994.regionalJobs.title': "Graubünden, Genf, Waadt und Neuenburg",
+ 'whatsNew.v3994.regionalJobs.desc': "Kantonsseiten enthalten jetzt lokale Hinweise zu Sprachregionen und Verkehr. Angezeigte Orte und Arbeitgeber stammen aus den gesammelten Ausschreibungen; Anforderungen und Verfügbarkeit bitte immer in der Originalquelle prüfen.",
  'whatsNew.v3993.title': 'Ein klarer Weg durch die Jobsuche in deiner Branche',
  'whatsNew.v3993.professionJourney.title': 'Vom Beruf zur Bewerbung in geführten Schritten',
  'whatsNew.v3993.professionJourney.desc': 'Berufs- und Branchenseiten verbinden Stellenangebote, Hinweise zur Rolle, eine Nettolohn-Schätzung, in Anzeigen genannte Arbeitgeber und Benachrichtigungen zu neuen passenden Stellen.',

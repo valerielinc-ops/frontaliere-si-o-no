@@ -1,6 +1,9 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ 'whatsNew.v3994.title': "Guide di lavoro per cantone più utili",
+ 'whatsNew.v3994.regionalJobs.title': "Grigioni, Ginevra, Vaud e Neuchâtel",
+ 'whatsNew.v3994.regionalJobs.desc': "Le pagine cantonali aggiungono indicazioni locali su valli italofone, regioni e trasporti. Località e aziende mostrate provengono dagli annunci raccolti; verifica sempre requisiti e disponibilità sulla fonte originale.",
  'whatsNew.v3993.title': 'Un percorso chiaro per trovare lavoro nel tuo settore',
  'whatsNew.v3993.professionJourney.title': 'Dal ruolo alla candidatura, con passaggi guidati',
  'whatsNew.v3993.professionJourney.desc': 'Nelle pagine di professioni e settori puoi passare dalle offerte ai requisiti, simulare il netto, consultare i datori presenti negli annunci e attivare un avviso per nuove offerte.',
