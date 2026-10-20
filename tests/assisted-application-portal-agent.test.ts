@@ -354,6 +354,17 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: shortLanguageCode })],
     });
 
+    const ambiguousLanguageCode = 'Do you speak English and de at C2?';
+    const partialAmbiguousLanguageCode = guardAgentStep(turn('act', [act({
+      ref: 'e39', action: 'select', value: 'Yes', question: ambiguousLanguageCode, answer: 'Yes',
+      source: 'profile', evidence: 'English C2',
+    })]), {
+      answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialAmbiguousLanguageCode).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: ambiguousLanguageCode })],
+    });
+
     const atLeastUnknownLanguage = 'What is your German level and at least Xhosa?';
     const partialAtLeastUnknownLanguage = guardAgentStep(turn('act', [act({
       ref: 'e37', action: 'select', value: 'C2', question: atLeastUnknownLanguage, answer: 'C2',

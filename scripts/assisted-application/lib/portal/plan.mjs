@@ -390,13 +390,13 @@ function isPotentialLanguageTarget(value, knownLanguageCodes = []) {
   for (const word of words) {
     const lower = word.toLowerCase();
     const normalized = lower.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    if (LANGUAGE_TARGET_ARTICLES.has(lower) || LANGUAGE_TARGET_QUALIFIERS.has(normalized)) continue;
-    if (LANGUAGE_TARGET_STOP_WORDS.has(normalized)) continue;
     const languageCode = languageCodeOf(word);
     if (languageCode) {
       if (knownLanguageCodes.includes(languageCode)) continue;
       return true;
     }
+    if (LANGUAGE_TARGET_ARTICLES.has(lower) || LANGUAGE_TARGET_QUALIFIERS.has(normalized)) continue;
+    if (LANGUAGE_TARGET_STOP_WORDS.has(normalized)) continue;
     if (word.length >= 3) return true;
   }
   return false;

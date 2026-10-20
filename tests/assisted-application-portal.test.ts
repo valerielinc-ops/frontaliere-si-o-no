@@ -1065,6 +1065,17 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     }, [shortLanguageCode], { ...candidate, profile: { cvText: 'German C2' } });
     expect(partialShortLanguageCode.missingRequired).toEqual([expect.objectContaining({ fieldId: shortLanguageCode.id })]);
 
+    const ambiguousLanguageCode = {
+      id: 'ambiguous-language-code-target', kind: 'select',
+      label: 'Do you speak English and de at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialAmbiguousLanguageCode = guardPlan({
+      actions: [{ fieldId: ambiguousLanguageCode.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'English C2' }],
+      missingRequired: [],
+    }, [ambiguousLanguageCode], { ...candidate, profile: { cvText: 'English C2' } });
+    expect(partialAmbiguousLanguageCode.missingRequired).toEqual([expect.objectContaining({ fieldId: ambiguousLanguageCode.id })]);
+
     const atLeastUnknownLanguage = {
       id: 'at-least-unknown-language', kind: 'select',
       label: 'What is your German level and at least Xhosa?', required: true,
