@@ -8553,10 +8553,10 @@ ${staticAnalyticsHtml}
  if (da !== db) return da - db;
  return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });
- const catTotalPages = Math.min(10, Math.ceil(catJobs.length / CAT_PER_PAGE));
+ const catTotalPages = Math.min(CATEGORY_LISTING_MAX_PAGES, Math.ceil(catJobs.length / CATEGORY_LISTING_PAGE_SIZE));
  for (let catPage = 1; catPage <= catTotalPages; catPage++) {
- const catStart = (catPage - 1) * CAT_PER_PAGE;
- const catPageJobs = catJobs.slice(catStart, catStart + CAT_PER_PAGE);
+ const catStart = (catPage - 1) * CATEGORY_LISTING_PAGE_SIZE;
+ const catPageJobs = catJobs.slice(catStart, catStart + CATEGORY_LISTING_PAGE_SIZE);
  if (catPageJobs.length === 0) break;
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
