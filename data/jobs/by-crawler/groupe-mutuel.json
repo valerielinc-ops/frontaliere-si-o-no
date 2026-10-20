@@ -1,7 +1,202 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-10-19T21:15:15.883Z",
+  "assembledAt": "2026-10-20T21:17:54.639Z",
   "jobs": [
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4440?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4440?c=groupemutuel&lang=fr-FR",
+      "title": "Stagiaire MPE (h/f) - 100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Fribourg",
+      "canton": "FR",
+      "country": "CH",
+      "description": "Tu exerces une pratique professionnelle contrôlée dans une entreprise Ton sens des responsabilités, ainsi que tes capacités d’intégration et d’autonomie seront développé lors de cette année Tu démontres tes aptitudes et tu découvres tes intérêts et tes potentialités pour l’élaboration de ton plan de formation et de carrière L’acquisition d’un véritable esprit d’entreprise complète ton apprentissage La mise en pratique de tes connaissances théoriques à travers des cas concrets te permet de progresser rapidement Tu apprends également à communiquer de façon professionnelle dans différents contextes",
+      "descriptionByLocale": {
+        "fr": "Tu exerces une pratique professionnelle contrôlée dans une entreprise Ton sens des responsabilités, ainsi que tes capacités d’intégration et d’autonomie seront développé lors de cette année Tu démontres tes aptitudes et tu découvres tes intérêts et tes potentialités pour l’élaboration de ton plan de formation et de carrière L’acquisition d’un véritable esprit d’entreprise complète ton apprentissage La mise en pratique de tes connaissances théoriques à travers des cas concrets te permet de progresser rapidement Tu apprends également à communiquer de façon professionnelle dans différents contextes",
+        "it": "Tu exerces une pratique professionnelle contrôlée dans une entreprise Ton sens des responsabilités, ainsi que tes capacités d’intégration et d’autonomie seront développé lors de cette année Tu démontres tes aptitudes et tu découvres tes intérêts et tes potentialités pour l’élaboration de ton plan de formation et de carrière L’acquisition d’un véritable esprit d’entreprise complète ton apprentissage La mise en pratique de tes connaissances théoriques à travers des cas concrets te permet de progresser rapidement Tu apprends également à communiquer de façon professionnelle dans différents contextes",
+        "en": "Tu exerces une pratique professionnelle contrôlée dans une entreprise Ton sens des responsabilités, ainsi que tes capacités d’intégration et d’autonomie seront développé lors de cette année Tu démontres tes aptitudes et tu découvres tes intérêts et tes potentialités pour l’élaboration de ton plan de formation et de carrière L’acquisition d’un véritable esprit d’entreprise complète ton apprentissage La mise en pratique de tes connaissances théoriques à travers des cas concrets te permet de progresser rapidement Tu apprends également à communiquer de façon professionnelle dans différents contextes",
+        "de": "Tu exerces une pratique professionnelle contrôlée dans une entreprise Ton sens des responsabilités, ainsi que tes capacités d’intégration et d’autonomie seront développé lors de cette année Tu démontres tes aptitudes et tu découvres tes intérêts et tes potentialités pour l’élaboration de ton plan de formation et de carrière L’acquisition d’un véritable esprit d’entreprise complète ton apprentissage La mise en pratique de tes connaissances théoriques à travers des cas concrets te permet de progresser rapidement Tu apprends également à communiquer de façon professionnelle dans différents contextes"
+      },
+      "titleByLocale": {
+        "fr": "Stagiaire MPE (h/f) - 100%",
+        "it": "Stagiaire MPE (h/f) - 100%",
+        "en": "Stagiaire MPE (h/f) - 100%",
+        "de": "Stagiaire MPE (h/f) - 100%"
+      },
+      "slug": "stagiaire-mpe-h-f-100-groupe-mutuel",
+      "slugByLocale": {
+        "fr": "stagiaire-mpe-h-f-100-groupe-mutuel",
+        "en": "stagiaire-mpe-h-f-100-groupe-mutuel",
+        "it": "stagiaire-mpe-h-f-100-groupe-mutuel",
+        "de": "stagiaire-mpe-h-f-100-groupe-mutuel"
+      },
+      "category": "general",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
+      "datePosted": "2026-10-20",
+      "postedDate": "2026-10-20",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Fribourg"
+      },
+      "jobReqId": "4440",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-a812e9030c74",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1700",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-08-27T19:54:30.926Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4438?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4438?c=groupemutuel&lang=fr-FR",
+      "title": "Compliance Officer - DPO Office (h/f) 60%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "description": "En soutien de l'équipe Protection des données de la Conformité, tu interviens sur des sujets variés : assistance des métiers sur les questions de protection des données, gestion des demandes LPD (droit d'accès, droit de suppression, etc.), analyse des risques en matière de protection des données (pour les partenaires et les projets), formations et sensibilisation des métiers, etc. Le conseil aux équipes en matière de protection des données fait partie intégrante de ton quotidien Tu t’assures que les mesures nécessaires à la mise en conformité et notamment à la LPD soient bien implémentées dans les projets et les processus La documentation interne reste à jour grâce à ton suivi rigoureux L’échange au sein de l’entreprise sur les sujets de protection des données est entre de bonnes mains : tu l’animes, tu l’alimentes et tu réponds aux questions avec réactivité",
+      "descriptionByLocale": {
+        "fr": "En soutien de l'équipe Protection des données de la Conformité, tu interviens sur des sujets variés : assistance des métiers sur les questions de protection des données, gestion des demandes LPD (droit d'accès, droit de suppression, etc.), analyse des risques en matière de protection des données (pour les partenaires et les projets), formations et sensibilisation des métiers, etc. Le conseil aux équipes en matière de protection des données fait partie intégrante de ton quotidien Tu t’assures que les mesures nécessaires à la mise en conformité et notamment à la LPD soient bien implémentées dans les projets et les processus La documentation interne reste à jour grâce à ton suivi rigoureux L’échange au sein de l’entreprise sur les sujets de protection des données est entre de bonnes mains : tu l’animes, tu l’alimentes et tu réponds aux questions avec réactivité",
+        "it": "En soutien de l'équipe Protection des données de la Conformité, tu interviens sur des sujets variés : assistance des métiers sur les questions de protection des données, gestion des demandes LPD (droit d'accès, droit de suppression, etc.), analyse des risques en matière de protection des données (pour les partenaires et les projets), formations et sensibilisation des métiers, etc. Le conseil aux équipes en matière de protection des données fait partie intégrante de ton quotidien Tu t’assures que les mesures nécessaires à la mise en conformité et notamment à la LPD soient bien implémentées dans les projets et les processus La documentation interne reste à jour grâce à ton suivi rigoureux L’échange au sein de l’entreprise sur les sujets de protection des données est entre de bonnes mains : tu l’animes, tu l’alimentes et tu réponds aux questions avec réactivité",
+        "en": "En soutien de l'équipe Protection des données de la Conformité, tu interviens sur des sujets variés : assistance des métiers sur les questions de protection des données, gestion des demandes LPD (droit d'accès, droit de suppression, etc.), analyse des risques en matière de protection des données (pour les partenaires et les projets), formations et sensibilisation des métiers, etc. Le conseil aux équipes en matière de protection des données fait partie intégrante de ton quotidien Tu t’assures que les mesures nécessaires à la mise en conformité et notamment à la LPD soient bien implémentées dans les projets et les processus La documentation interne reste à jour grâce à ton suivi rigoureux L’échange au sein de l’entreprise sur les sujets de protection des données est entre de bonnes mains : tu l’animes, tu l’alimentes et tu réponds aux questions avec réactivité",
+        "de": "En soutien de l'équipe Protection des données de la Conformité, tu interviens sur des sujets variés : assistance des métiers sur les questions de protection des données, gestion des demandes LPD (droit d'accès, droit de suppression, etc.), analyse des risques en matière de protection des données (pour les partenaires et les projets), formations et sensibilisation des métiers, etc. Le conseil aux équipes en matière de protection des données fait partie intégrante de ton quotidien Tu t’assures que les mesures nécessaires à la mise en conformité et notamment à la LPD soient bien implémentées dans les projets et les processus La documentation interne reste à jour grâce à ton suivi rigoureux L’échange au sein de l’entreprise sur les sujets de protection des données est entre de bonnes mains : tu l’animes, tu l’alimentes et tu réponds aux questions avec réactivité"
+      },
+      "titleByLocale": {
+        "fr": "Compliance Officer - DPO Office (h/f) 60%",
+        "it": "Compliance Officer - DPO Office (h/f) 60%",
+        "en": "Compliance Officer - DPO Office (h/f) 60%",
+        "de": "Compliance Officer - DPO Office (h/f) 60%"
+      },
+      "slug": "compliance-officer-dpo-office-h-f-60-groupe-mutuel",
+      "slugByLocale": {
+        "fr": "compliance-officer-dpo-office-h-f-60-groupe-mutuel",
+        "en": "compliance-officer-dpo-office-h-f-60-groupe-mutuel",
+        "it": "compliance-officer-dpo-office-h-f-60-groupe-mutuel",
+        "de": "compliance-officer-dpo-office-h-f-60-groupe-mutuel"
+      },
+      "category": "legal",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
+      "datePosted": "2026-10-20",
+      "postedDate": "2026-10-20",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Lausanne"
+      },
+      "jobReqId": "4438",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-53976a0ffa93",
+      "salaryMin": 41400,
+      "salaryMax": 70800,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41400,
+          "maxValue": 70800,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-20T21:17:52.856Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4424?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4424?c=groupemutuel&lang=fr-FR",
+      "title": "Case Manager Entreprise (h/f) 70-80%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "description": "Tu prends en charge de manière autonome des situations complexes d'incapacité de travail, de l'analyse initiale jusqu'à la réintégration professionnelle Grâce à ton sens de la coordination, tu assures le lien entre les assurés, les employeurs, les médecins, les assurances sociales et les autres intervenants du réseau Tu développes des stratégies de réinsertion réalistes et efficaces permettant aux personnes accompagnées de retrouver durablement leur place dans le monde professionnel Par ton approche proactive et orientée résultats, tu contribues à limiter l'impact humain et financier des incapacités de travail Véritable partenaire de confiance, tu représentes le Groupe Mutuel auprès de nos clients et partenaires externes",
+      "descriptionByLocale": {
+        "fr": "Tu prends en charge de manière autonome des situations complexes d'incapacité de travail, de l'analyse initiale jusqu'à la réintégration professionnelle Grâce à ton sens de la coordination, tu assures le lien entre les assurés, les employeurs, les médecins, les assurances sociales et les autres intervenants du réseau Tu développes des stratégies de réinsertion réalistes et efficaces permettant aux personnes accompagnées de retrouver durablement leur place dans le monde professionnel Par ton approche proactive et orientée résultats, tu contribues à limiter l'impact humain et financier des incapacités de travail Véritable partenaire de confiance, tu représentes le Groupe Mutuel auprès de nos clients et partenaires externes",
+        "it": "Tu prends en charge de manière autonome des situations complexes d'incapacité de travail, de l'analyse initiale jusqu'à la réintégration professionnelle Grâce à ton sens de la coordination, tu assures le lien entre les assurés, les employeurs, les médecins, les assurances sociales et les autres intervenants du réseau Tu développes des stratégies de réinsertion réalistes et efficaces permettant aux personnes accompagnées de retrouver durablement leur place dans le monde professionnel Par ton approche proactive et orientée résultats, tu contribues à limiter l'impact humain et financier des incapacités de travail Véritable partenaire de confiance, tu représentes le Groupe Mutuel auprès de nos clients et partenaires externes",
+        "en": "Tu prends en charge de manière autonome des situations complexes d'incapacité de travail, de l'analyse initiale jusqu'à la réintégration professionnelle Grâce à ton sens de la coordination, tu assures le lien entre les assurés, les employeurs, les médecins, les assurances sociales et les autres intervenants du réseau Tu développes des stratégies de réinsertion réalistes et efficaces permettant aux personnes accompagnées de retrouver durablement leur place dans le monde professionnel Par ton approche proactive et orientée résultats, tu contribues à limiter l'impact humain et financier des incapacités de travail Véritable partenaire de confiance, tu représentes le Groupe Mutuel auprès de nos clients et partenaires externes",
+        "de": "Tu prends en charge de manière autonome des situations complexes d'incapacité de travail, de l'analyse initiale jusqu'à la réintégration professionnelle Grâce à ton sens de la coordination, tu assures le lien entre les assurés, les employeurs, les médecins, les assurances sociales et les autres intervenants du réseau Tu développes des stratégies de réinsertion réalistes et efficaces permettant aux personnes accompagnées de retrouver durablement leur place dans le monde professionnel Par ton approche proactive et orientée résultats, tu contribues à limiter l'impact humain et financier des incapacités de travail Véritable partenaire de confiance, tu représentes le Groupe Mutuel auprès de nos clients et partenaires externes"
+      },
+      "titleByLocale": {
+        "fr": "Case Manager Entreprise (h/f) 70-80%",
+        "en": "Case Manager Entreprise (h/f) 70-80%",
+        "it": "Case Manager Entreprise (h/f) 70-80%",
+        "de": "Case Manager Entreprise (h/f) 70-80%"
+      },
+      "slug": "case-manager-entreprise-h-f-70-80-groupe-mutuel",
+      "slugByLocale": {
+        "fr": "case-manager-entreprise-h-f-70-80-groupe-mutuel",
+        "en": "case-manager-entreprise-h-f-70-80-groupe-mutuel",
+        "it": "case-manager-entreprise-h-f-70-80-groupe-mutuel",
+        "de": "case-manager-entreprise-h-f-70-80-groupe-mutuel"
+      },
+      "category": "management",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
+      "datePosted": "2026-10-20",
+      "postedDate": "2026-10-20",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Lausanne"
+      },
+      "jobReqId": "4424",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-1b9b77d1ef89",
+      "salaryMin": 66800,
+      "salaryMax": 101200,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 66800,
+          "maxValue": 101200,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-20T21:17:52.856Z"
+    },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4428?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4428?c=groupemutuel&lang=fr-FR",
@@ -13,26 +208,26 @@
       "country": "CH",
       "description": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
       "descriptionByLocale": {
-        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
         "it": "Si consiglia in salute, vita, ricchezza e assicurazione aziendale e offrire soluzioni su misura per le esigenze del cliente Attraverso cross-selling mirato e upselling, si costruisce relazioni di fiducia e rafforzare la fedeltà del cliente L'acquisizione di nuovi clienti – sia attraverso la propria iniziativa o raccomandazioni – fa parte della vostra vita quotidiana Si organizza e conduce consultazioni, per telefono o personalmente, con impegno e sensibilità.\n• Completi con precisione ed efficienza",
         "en": "You advise in health, life, wealth and corporate insurance and offer tailor-made solutions for customer needs Through targeted cross-selling and upselling, you build trusting relationships and strengthen customer loyalty The acquisition of new customers – be it through own initiative or recommendations – is part of your everyday life You organize and lead consultations, by phone or personally, with commitment and sensitivity.\n• Complete tasks precisely and efficiently",
+        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
         "fr": "Vous conseillez en assurance santé, vie, fortune et entreprise et offrez des solutions sur mesure pour les besoins des clients. L'acquisition de nouveaux clients – que ce soit par son initiative ou ses recommandations – fait partie de votre vie quotidienne.Vous organisez et dirigez des consultations, par téléphone ou personnellement, avec engagement et sensibilité.\n• Achever les tâches avec précision et efficacité"
       },
       "titleByLocale": {
-        "de": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
         "it": "Consulente assicurativo e previdenziale (m/f) 80-100%",
         "en": "Insurance and pension advisor (m/f) 80-100 %",
+        "de": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
         "fr": "Conseiller en assurance et pension (h/f) 80-100 %"
       },
       "slug": "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-chur",
       "slugByLocale": {
-        "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-chur",
-        "en": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-chur",
         "it": "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-chur",
-        "de": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        "en": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-chur",
+        "de": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+        "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-chur"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
@@ -47,6 +242,10 @@
       },
       "jobReqId": "4428",
       "id": "groupe-mutuel-d6ccfafd670a",
+      "previousSlugs": [
+        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-chur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
@@ -59,10 +258,7 @@
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
         ]
       },
-      "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
-        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-chur"
-      ],
+      "firstSeenAt": "2026-09-19T22:52:47.178Z",
       "salaryMin": 62000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -79,8 +275,7 @@
       },
       "postalCode": "7000",
       "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-09-19T22:52:47.178Z"
+      "addressRegion": "GR"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4421?c=groupemutuel&lang=fr-FR",
@@ -112,7 +307,7 @@
         "fr": "gestionnaire-entreprise-specialise-laa-h-f-80-100-groupe-mutuel"
       },
       "category": "administration",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
@@ -192,7 +387,7 @@
         "fr": "h-f-50-consultant-en-securite-sociale-groupe-mutuel-paradiso"
       },
       "category": "general",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-10-16",
       "postedDate": "2026-10-16",
       "postingDateSource": "reported",
@@ -256,7 +451,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-thun"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -338,7 +533,7 @@
         "fr": "conseillers-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-bern"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -418,7 +613,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-100-groupe-mutuel-luzern"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -498,7 +693,7 @@
         "fr": "portfolio-manager-senior-h-f-80-100-groupe-mutuel"
       },
       "category": "management",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
@@ -562,7 +757,7 @@
         "fr": "gestionnaire-lpp-prevoyance-h-f-80-100-temporaire-3-mois-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-10-12",
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
@@ -642,7 +837,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-10-07",
       "postedDate": "2026-10-07",
       "postingDateSource": "reported",
@@ -720,7 +915,7 @@
         "fr": "assistant-medical-temporaire-12-mois-h-f-100-groupe-mutuel-sion"
       },
       "category": "general",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-10-06",
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
@@ -792,7 +987,7 @@
         "fr": "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-09-30",
       "postedDate": "2026-09-30",
       "postingDateSource": "reported",
@@ -864,7 +1059,7 @@
         "fr": "apprentissage-employee-de-commerce-cfc-services-et-administration-100-groupe-mutuel-sion"
       },
       "category": "claims",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
       "postingDateSource": "reported",
@@ -946,7 +1141,7 @@
         "fr": "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
       "postingDateSource": "reported",
@@ -1018,7 +1213,7 @@
         "fr": "conseiller-de-precaution-h-f-80-100-groupe-mutuel-zurich"
       },
       "category": "general",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-09-24",
       "postedDate": "2026-09-24",
       "postingDateSource": "reported",
@@ -1090,7 +1285,7 @@
         "fr": "conseiller-clientele-agence-h-f-60-100-groupe-mutuel"
       },
       "category": "customer-service",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-09-24",
       "postedDate": "2026-09-24",
       "postingDateSource": "reported",
@@ -1170,7 +1365,7 @@
         "fr": "agences-de-service-a-la-clientele-h-f-80-100-groupe-mutuel-biel-bienne"
       },
       "category": "customer-service",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-09-22",
       "postedDate": "2026-09-22",
       "postingDateSource": "reported",
@@ -1242,7 +1437,7 @@
         "fr": "conseiller-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-st-gallen"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
@@ -1328,7 +1523,7 @@
         "fr": "conseiller-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-wil"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
@@ -1408,7 +1603,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
@@ -1485,7 +1680,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-09-16",
       "postedDate": "2026-09-16",
       "postingDateSource": "reported",
@@ -1562,7 +1757,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-aarau"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-09-10",
       "postedDate": "2026-09-10",
       "postingDateSource": "reported",
@@ -1642,7 +1837,7 @@
         "fr": "agences-de-service-a-la-clientele-h-f-80-100-groupe-mutuel-olten"
       },
       "category": "customer-service",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-09-07",
       "postedDate": "2026-09-07",
       "postingDateSource": "reported",
@@ -1725,7 +1920,7 @@
         "fr": "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
       },
       "category": "it",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
       "postingDateSource": "reported",
@@ -1797,7 +1992,7 @@
         "fr": "stagiaire-mpe-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-08-27",
       "postedDate": "2026-08-27",
       "postingDateSource": "reported",
@@ -1869,7 +2064,7 @@
         "fr": "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-08-10",
       "postedDate": "2026-08-10",
       "postingDateSource": "reported",
@@ -1949,7 +2144,7 @@
         "fr": "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-08-10",
       "postedDate": "2026-08-10",
       "postingDateSource": "reported",
@@ -2039,7 +2234,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-08-06",
       "postedDate": "2026-08-06",
       "postingDateSource": "reported",
@@ -2145,7 +2340,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-winterthur"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-07-23",
       "postedDate": "2026-07-23",
       "postingDateSource": "reported",
@@ -2191,7 +2386,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-solothurn",
           "conseiller-en-assurance-et-prevoyance-h-f-80-100-groupe-mutuel-solothurn",
           "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-wil",
           "versicherungs-und-vorsorgeberater-m-w-100-groupe-mutuel",
@@ -2210,7 +2404,8 @@
           "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-wil",
           "conseiller-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-wil",
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
-          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-winterthur"
+          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-winterthur",
+          "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-solothurn"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
@@ -2269,7 +2464,7 @@
         "fr": "conseiller-en-soins-m-f-60-100-groupe-mutuel-sargans"
       },
       "category": "general",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-07-10",
       "postedDate": "2026-07-10",
       "postingDateSource": "reported",
@@ -2341,7 +2536,7 @@
         "fr": "conseillers-en-assurance-et-retraite-m-f-80-100-groupe-mutuel-solothurn"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-06-25",
       "postedDate": "2026-06-25",
       "postingDateSource": "reported",
@@ -2419,7 +2614,7 @@
         "fr": "entraineur-commercial-specialiste-des-pensions-m-f-80-100-groupe-mutuel-st-gallen"
       },
       "category": "sales",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-06-15",
       "postedDate": "2026-06-15",
       "postingDateSource": "reported",
@@ -2491,7 +2686,7 @@
         "fr": "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-05-22",
       "postedDate": "2026-05-22",
       "postingDateSource": "reported",
@@ -2563,7 +2758,7 @@
         "fr": "conseiller-en-assurance-et-prevoyance-h-f-80-100-groupe-mutuel-zurich"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-19T21:15:12.596Z",
+      "crawledAt": "2026-10-20T21:17:52.856Z",
       "datePosted": "2026-04-16",
       "postedDate": "2026-04-16",
       "postingDateSource": "reported",
@@ -2612,236 +2807,6 @@
       "postalCode": "8001",
       "addressLocality": "Zürich",
       "addressRegion": "ZH"
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4391?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4391?c=groupemutuel&lang=fr-FR",
-      "title": "Apprenti Employé de commerce/Services et administration (h/f) - 100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Martigny",
-      "canton": "VS",
-      "country": "CH",
-      "description": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les clients internes et externes est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant",
-      "descriptionByLocale": {
-        "it": "Immergersi in tutte le sfaccettature del lavoro amministrativo e commerciale consente di scoprire una professione ricca e varia Tra gestione dei casi, elaborazione delle applicazioni e organizzazione quotidiana, si impara a evolversi in un ambiente strutturato Ogni scambio con i clienti interni ed esterni è un'opportunità per sviluppare le proprie competenze relazionali e il senso del servizio Scoprire diversi settori di attività ti dà una visione globale e arricchente dell'azienda Parallelamente, sviluppi competenze professionali, metodologiche, sociali e personali che ti serviranno durante la tua carriera La combinazione di teoria e pratica, sia a scuola che in affari, rende il vostro apprendimento concreto e motivante",
-        "en": "Immersing yourself in all facets of administrative and commercial work allows you to discover a rich and varied profession Between case management, application processing and daily organisation, you learn how to evolve in a structured environment Every exchange with internal and external clients is an opportunity to develop your relational skills and your sense of service Discovering different sectors of activity gives you a global and enriching vision of the company In parallel, you develop professional, methodological, social and personal skills that will serve you throughout your career The combination of theory and practice, both at school and in business, makes your learning concrete and motivating",
-        "de": "Eintauchen in alle Facetten der administrativen und kaufmännischen Arbeit ermöglicht es Ihnen, einen reichen und abwechslungsreichen Beruf zu entdecken Zwischen Fallmanagement, Anwendungsbearbeitung und täglicher Organisation lernen Sie, wie Sie sich in einer strukturierten Umgebung entwickeln Jeder Austausch mit internen und externen Kunden ist eine Gelegenheit, Ihre Beziehungsfähigkeiten und Ihren Service zu entwickeln Verschiedene Tätigkeitsbereiche geben Ihnen eine globale und bereichernde Vision des Unternehmens Parallel dazu entwickeln Sie professionelle, methodische, soziale und persönliche Fähigkeiten, die Ihnen während Ihrer gesamten Karriere dienen werden. Die Kombination von Theorie und Praxis, sowohl in der Schule als auch in der Wirtschaft, macht Ihr Lernen konkret und motivierend",
-        "fr": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les clients internes et externes est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant"
-      },
-      "titleByLocale": {
-        "it": "Apprendista Impiegato di commercio/Servizi e amministrazione (m/f) - 100%",
-        "en": "Apprentice Commercial Employee/Services and Administration (m/f) - 100%",
-        "de": "Auszubildender kaufmännischer Angestellter/Dienstleistungen und Verwaltung (m/w) - 100 %",
-        "fr": "Apprenti Employé de commerce/Services et administration (h/f) - 100%"
-      },
-      "slug": "apprendista-impiegato-di-commercio-servizi-e-amministrazione-m-f-100-groupe-mutuel-martigny",
-      "slugByLocale": {
-        "it": "apprendista-impiegato-di-commercio-servizi-e-amministrazione-m-f-100-groupe-mutuel-martigny",
-        "en": "apprentice-commercial-employee-services-and-administration-m-f-100-groupe-mutuel-martigny",
-        "de": "auszubildender-kaufmannischer-angestellter-dienstleistungen-und-verwaltung-m-w-100-groupe-mutuel-martigny",
-        "fr": "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel"
-      },
-      "category": "administration",
-      "crawledAt": "2026-10-18T09:12:51.391Z",
-      "datePosted": "2026-09-29",
-      "postedDate": "2026-09-29",
-      "postingDateSource": "reported",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Martigny"
-      },
-      "jobReqId": "4391",
-      "id": "groupe-mutuel-30467c448a1b",
-      "previousSlugs": [
-        "apprenti-business-dipendente-servizi-e-amministrazione-m-f-100-groupe-mutuel-martigny",
-        "apprenti-business-mitarbeiter-dienstleistungen-und-verwaltung-m-w-100-groupe-mutuel-martigny",
-        "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-business-dipendente-servizi-e-amministrazione-m-f-100-groupe-mutuel-martigny",
-          "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel"
-        ],
-        "de": [
-          "apprenti-business-mitarbeiter-dienstleistungen-und-verwaltung-m-w-100-groupe-mutuel-martigny"
-        ]
-      },
-      "firstSeenAt": "2026-09-29T21:20:20.573Z",
-      "salaryMin": 51000,
-      "salaryMax": 77500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1920",
-      "addressLocality": "Martigny",
-      "addressRegion": "VS",
-      "crawlerMissStreak": 2
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4306?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4306?c=groupemutuel&lang=fr-FR",
-      "title": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Lausanne",
-      "canton": "VD",
-      "country": "CH",
-      "description": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant",
-      "descriptionByLocale": {
-        "it": "Immergersi in tutte le sfaccettature del lavoro amministrativo e commerciale consente di scoprire una professione ricca e varia Tra gestione del caso cliente, elaborazione delle applicazioni e organizzazione quotidiana, si impara a evolversi in un ambiente strutturato Ogni scambio con gli assicurati e potenziali clienti è un'opportunità per sviluppare le tue capacità relazionali e il tuo senso di servizio Scoprire diversi settori di attività ti dà una visione globale e arricchente dell'azienda Parallelamente, sviluppi competenze professionali, metodologiche, sociali e personali che ti serviranno durante la tua carriera La combinazione di teoria e pratica, sia a scuola che in affari, rende il vostro apprendimento concreto e motivante",
-        "en": "Immersing yourself in all facets of administrative and commercial work allows you to discover a rich and varied profession Between customer case management, application processing and daily organisation, you learn to evolve in a structured environment Every exchange with policyholders and potential clients is an opportunity to develop your relational skills and your sense of service Discovering different sectors of activity gives you a global and enriching vision of the company In parallel, you develop professional, methodological, social and personal skills that will serve you throughout your career The combination of theory and practice, both at school and in business, makes your learning concrete and motivating",
-        "de": "Eintauchen in alle Facetten der administrativen und kaufmännischen Arbeit ermöglicht es Ihnen, einen reichen und abwechslungsreichen Beruf zu entdecken Zwischen Kunden-Fallmanagement, Anwendungsbearbeitung und täglicher Organisation lernen Sie, sich in einer strukturierten Umgebung zu entwickeln Jeder Austausch mit Versicherungsnehmern und potenziellen Kunden ist eine Gelegenheit, Ihre Beziehungsfähigkeiten und Ihren Service zu entwickeln Verschiedene Tätigkeitsbereiche geben Ihnen eine globale und bereichernde Vision des Unternehmens Parallel dazu entwickeln Sie professionelle, methodische, soziale und persönliche Fähigkeiten, die Ihnen während Ihrer gesamten Karriere dienen werden. Die Kombination von Theorie und Praxis, sowohl in der Schule als auch in der Wirtschaft, macht Ihr Lernen konkret und motivierend",
-        "fr": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant"
-      },
-      "titleByLocale": {
-        "it": "Apprendista Impiegato di commercio/Assicurazioni malattia e sociali (m/f) - 100%",
-        "en": "Apprentice Commercial Employee/Health and Social Insurance (m/f) - 100%",
-        "de": "Auszubildender kaufmännischer Mitarbeiter / Kranken- und Sozialversicherung (m/w) - 100%",
-        "fr": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%"
-      },
-      "slug": "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-lausanne",
-      "slugByLocale": {
-        "it": "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-lausanne",
-        "en": "apprenti-commercial-employee-health-and-social-insurance-m-f-100-groupe-mutuel-lausanne",
-        "de": "auszubildender-kaufmannischer-mitarbeiter-kranken-und-sozialversicherung-m-w-100-groupe-mutuel-lausanne",
-        "fr": "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
-      },
-      "category": "insurance",
-      "crawledAt": "2026-10-18T09:12:51.391Z",
-      "datePosted": "2026-08-10",
-      "postedDate": "2026-08-10",
-      "postingDateSource": "reported",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VD",
-        "location": "Lausanne"
-      },
-      "jobReqId": "4306",
-      "id": "groupe-mutuel-7bfc97dd04cf",
-      "previousSlugs": [
-        "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
-        ]
-      },
-      "firstSeenAt": "2026-08-10T21:51:09.427Z",
-      "salaryMin": 53000,
-      "salaryMax": 88500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53000,
-          "maxValue": 88500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "crawlerMissStreak": 2
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4304?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4304?c=groupemutuel&lang=fr-FR",
-      "title": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Martigny",
-      "canton": "VS",
-      "country": "CH",
-      "description": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant",
-      "descriptionByLocale": {
-        "it": "Immergersi in tutte le sfaccettature del lavoro amministrativo e commerciale consente di scoprire una professione ricca e varia Tra gestione del caso cliente, elaborazione delle applicazioni e organizzazione quotidiana, si impara a evolversi in un ambiente strutturato Ogni scambio con gli assicurati e potenziali clienti è un'opportunità per sviluppare le tue capacità relazionali e il tuo senso di servizio Scoprire diversi settori di attività ti dà una visione globale e arricchente dell'azienda Parallelamente, sviluppi competenze professionali, metodologiche, sociali e personali che ti serviranno durante la tua carriera La combinazione di teoria e pratica, sia a scuola che in affari, rende il vostro apprendimento concreto e motivante",
-        "en": "Immersing yourself in all facets of administrative and commercial work allows you to discover a rich and varied profession Between customer case management, application processing and daily organisation, you learn to evolve in a structured environment Every exchange with policyholders and potential clients is an opportunity to develop your relational skills and your sense of service Discovering different sectors of activity gives you a global and enriching vision of the company In parallel, you develop professional, methodological, social and personal skills that will serve you throughout your career The combination of theory and practice, both at school and in business, makes your learning concrete and motivating",
-        "de": "Eintauchen in alle Facetten der administrativen und kaufmännischen Arbeit ermöglicht es Ihnen, einen reichen und abwechslungsreichen Beruf zu entdecken Zwischen Kunden-Fallmanagement, Anwendungsbearbeitung und täglicher Organisation lernen Sie, sich in einer strukturierten Umgebung zu entwickeln Jeder Austausch mit Versicherungsnehmern und potenziellen Kunden ist eine Gelegenheit, Ihre Beziehungsfähigkeiten und Ihren Service zu entwickeln Verschiedene Tätigkeitsbereiche geben Ihnen eine globale und bereichernde Vision des Unternehmens Parallel dazu entwickeln Sie professionelle, methodische, soziale und persönliche Fähigkeiten, die Ihnen während Ihrer gesamten Karriere dienen werden. Die Kombination von Theorie und Praxis, sowohl in der Schule als auch in der Wirtschaft, macht Ihr Lernen konkret und motivierend",
-        "fr": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant"
-      },
-      "titleByLocale": {
-        "it": "Apprendista Impiegato di commercio/Assicurazioni malattia e sociali (m/f) - 100%",
-        "en": "Apprentice Commercial Employee/Health and Social Insurance (m/f) - 100%",
-        "de": "Auszubildender kaufmännischer Mitarbeiter / Kranken- und Sozialversicherung (m/w) - 100%",
-        "fr": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%"
-      },
-      "slug": "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-martigny",
-      "slugByLocale": {
-        "it": "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-martigny",
-        "en": "apprenti-commercial-employee-health-and-social-insurance-m-f-100-groupe-mutuel-martigny",
-        "de": "auszubildender-kaufmannischer-mitarbeiter-kranken-und-sozialversicherung-m-w-100-groupe-mutuel-martigny",
-        "fr": "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
-      },
-      "category": "insurance",
-      "crawledAt": "2026-10-18T09:12:51.391Z",
-      "datePosted": "2026-08-10",
-      "postedDate": "2026-08-10",
-      "postingDateSource": "reported",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Martigny"
-      },
-      "jobReqId": "4304",
-      "id": "groupe-mutuel-1b6ea619c3ff",
-      "previousSlugs": [
-        "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel",
-        "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel-prj6dm"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel",
-          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel-prj6dm"
-        ],
-        "en": [
-          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
-        ]
-      },
-      "firstSeenAt": "2026-08-10T21:51:09.427Z",
-      "salaryMin": 53000,
-      "salaryMax": 88500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53000,
-          "maxValue": 88500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1920",
-      "addressLocality": "Martigny",
-      "addressRegion": "VS",
-      "crawlerMissStreak": 2
     }
   ]
 }
