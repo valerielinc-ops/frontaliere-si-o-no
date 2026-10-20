@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
 import { observeSpecInProduction, runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
 import { gradeExtraction, gradeVacancy } from '../scripts/lib/prospector/validate.mjs';
-import { isGenericVacancyTitle, selectPublishableTitle } from '../scripts/lib/prospector/production-title.mjs';
+import { isGenericVacancyTitle, rawDetailTitleEvidence, selectPublishableTitle } from '../scripts/lib/prospector/production-title.mjs';
 import { selectValidationSample } from '../scripts/lib/prospector/validation-sample.mjs';
 import { prioritizeValidationSpecs } from '../scripts/lib/prospector/validation-schedule.mjs';
 import { reconcileOpenPromotions } from '../scripts/lib/prospector/promotion-reconciliation.mjs';
@@ -84,6 +84,15 @@ function fixtureSpec({
 }
 
 describe('Prospector production validation', () => {
+  it('reads Open Graph title regardless of meta attribute order', () => {
+    expect(rawDetailTitleEvidence('<meta property="og:title" content="Senior Engineer">').rawOpenGraphTitle)
+      .toBe('Senior Engineer');
+    expect(rawDetailTitleEvidence('<meta content="Senior Engineer" property="og:title">').rawOpenGraphTitle)
+      .toBe('Senior Engineer');
+    expect(rawDetailTitleEvidence('<meta content="Senior Engineer" name="og:title">').rawOpenGraphTitle)
+      .toBe('Senior Engineer');
+  });
+
   it('keeps a valid listing title when the detail H1 is generic chrome', () => {
     expect(isGenericVacancyTitle('Header')).toBe(true);
     expect(selectPublishableTitle('Header', 'Platform Engineer')).toBe('Platform Engineer');

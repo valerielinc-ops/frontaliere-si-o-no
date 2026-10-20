@@ -10,6 +10,23 @@ const GENERIC_VACANCY_TITLES = new Set([
 ]);
 
 /**
+ * Read a quoted or unquoted HTML attribute without depending on its position
+ * among the other attributes in the tag.
+ *
+ * @param {string} tag
+ * @param {'property'|'name'|'content'} attributeName
+ * @returns {string}
+ */
+function readHtmlAttribute(tag, attributeName) {
+  const pattern = new RegExp(
+    `(?:^|\\s)${attributeName}\\s*=\\s*(?:"([^"]{0,1000})"|'([^']{0,1000})'|([^\\s>]{1,1000}))`,
+    'i',
+  );
+  const match = pattern.exec(tag);
+  return match?.[1] ?? match?.[2] ?? match?.[3] ?? '';
+}
+
+/**
  * Read title evidence directly from the raw detail-page markup. These signals
  * remain independent of the crawler's structured-detail extractor and its
  * final output title.
@@ -20,8 +37,17 @@ const GENERIC_VACANCY_TITLES = new Set([
 export function rawDetailTitleEvidence(html = '') {
   const source = String(html);
   const h1 = /<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(source)?.[1] || '';
-  const openGraphTag = /<meta\b[^>]*\bproperty\s*=\s*["']og:title["'][^>]*>/i.exec(source)?.[0] || '';
-  const openGraphTitle = /\bcontent\s*=\s*["']([^"']{0,1000})["']/i.exec(openGraphTag)?.[1] || '';
+  let openGraphTitle = '';
+  for (const tag of source.match(/<meta\b[^>]*>/gi) || []) {
+    const property = readHtmlAttribute(tag, 'property').toLowerCase();
+    const name = readHtmlAttribute(tag, 'name').toLowerCase();
+    if (property !== 'og:title' && name !== 'og:title') continue;
+    const content = readHtmlAttribute(tag, 'content');
+    if (content) {
+      openGraphTitle = content;
+      break;
+    }
+  }
   const documentTitle = /<title\b[^>]*>([\s\S]{0,1000}?)<\/title>/i.exec(source)?.[1] || '';
   const clean = (value) => String(value)
     .replace(/<[^>]*>/g, ' ')
