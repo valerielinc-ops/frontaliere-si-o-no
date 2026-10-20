@@ -312,5 +312,32 @@ describe('Seniorenzentrum Engelhof crawler parser', () => {
         complete: false,
       });
     });
+
+    it('keeps a failed endpoint outcome when a later endpoint succeeds', async () => {
+      const failedBatch: any[] = [];
+      Object.defineProperty(failedBatch, 'fetchOutcome', {
+        value: 'connection_error',
+        enumerable: false,
+      });
+      const successfulBatch: any[] = [sourceListing];
+      Object.defineProperty(successfulBatch, 'fetchOutcome', {
+        value: 'ok',
+        enumerable: false,
+      });
+      specCrawlerMocks.loadSpec.mockReturnValue({
+        companyKey: SENIORENZENTRUM_ENGELHOF_KEY,
+        listingEndpoints: ['current', 'apprenticeships'],
+      });
+      specCrawlerMocks.runSpecInProduction
+        .mockResolvedValueOnce(failedBatch)
+        .mockResolvedValueOnce(successfulBatch);
+
+      const jobs = await fetchAllSeniorenzentrumEngelhofJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(Object.getOwnPropertyDescriptor(jobs, 'fetchOutcome')).toMatchObject({
+        value: 'connection_error', enumerable: false,
+      });
+    });
   });
 });

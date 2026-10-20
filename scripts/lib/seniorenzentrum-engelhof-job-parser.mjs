@@ -15,6 +15,7 @@ import { bodyTextOf, extractDetailFields } from './prospector/extract.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { matchProfessionTitle, normalizeText } from './profession-taxonomy.mjs';
 import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { CRAWLER_FETCH_FAILURE_OUTCOMES, CRAWLER_FETCH_OUTCOMES } from './crawler-fetch-outcome.mjs';
 import {
   freeTextPostalCandidates,
   resolveSourceBackedSwissGeography,
@@ -356,7 +357,19 @@ async function fetchJobListings(runtime = {}) {
 
   const listings = batches.flat();
   const metadata = {};
-  for (const key of ['fetchOutcome', 'fetchDetail', 'expectedFilterCount', 'expectedFilters', 'authoritativeEmptyState']) {
+  const outcomeValues = batches
+    .map((batch) => Object.getOwnPropertyDescriptor(batch, 'fetchOutcome')?.value)
+    .filter((value) => value !== undefined && value !== null);
+  const failedOutcome = outcomeValues.find((outcome) => (
+    typeof outcome !== 'string'
+    || !CRAWLER_FETCH_OUTCOMES.has(outcome)
+    || CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome)
+  ));
+  if (failedOutcome !== undefined) metadata.fetchOutcome = failedOutcome;
+  else if (outcomeValues.length) {
+    metadata.fetchOutcome = outcomeValues.includes('ok') ? 'ok' : outcomeValues[0];
+  }
+  for (const key of ['fetchDetail', 'expectedFilterCount', 'expectedFilters', 'authoritativeEmptyState']) {
     const values = batches
       .map((batch) => Object.getOwnPropertyDescriptor(batch, key)?.value)
       .filter((value) => value !== undefined && value !== null);
