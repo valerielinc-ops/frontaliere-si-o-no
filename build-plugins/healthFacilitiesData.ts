@@ -12,8 +12,9 @@
  * scripts/generate-health-facilities-jobs.mjs) is the STABLE universe: every
  * facility here gets, on every build, EITHER a full indexable page (live job
  * count ≥ floor) OR a noindex,follow below-floor bridge — always at the SAME
- * canonical path. So every path enumerated here is guaranteed to have a live
- * target, which is exactly the invariant the searchConsoleCompat self-map
+ * canonical path. The localised section root is emitted as the collection hub
+ * for that universe. So every path enumerated here is guaranteed to have a
+ * live target, which is exactly the invariant the searchConsoleCompat self-map
  * relies on (mirrors professionCantonData's isProfessionCantonPath).
  *
  * A static JSON import is safe here (the registry is ~85 KB, not the 150 MB
@@ -36,8 +37,7 @@ export const HEALTH_FACILITY_SECTION: Record<HealthFacilityLocale, string> = {
   fr: 'fr/etablissements-sante',
 };
 
-/** Locale → the hub root path (index of all facilities is NOT emitted; this is
- * used only for breadcrumbs / hreflang of the section). */
+/** Locale → the emitted hub root path for the complete facility directory. */
 export function buildHealthFacilitySectionPath(locale: HealthFacilityLocale): string {
   return `/${HEALTH_FACILITY_SECTION[locale]}/`.replace(/\/{2,}/g, '/');
 }
@@ -105,6 +105,29 @@ const PATH_INDEX: ReadonlySet<string> = new Set(listHealthFacilityPaths());
 function normalizePath(urlPath: string): string {
   const p = String(urlPath || '').split('?')[0].split('#')[0];
   return p.endsWith('/') ? p : `${p}/`;
+}
+
+export interface HealthFacilitySectionRoutePath {
+  locale: HealthFacilityLocale;
+}
+
+// Root twin of PATH_INDEX — services/router.ts and searchConsoleCompat need
+// the locale for the emitted collection hub, not only a boolean match.
+const SECTION_PATH_INDEX: ReadonlyMap<string, HealthFacilitySectionRoutePath> = new Map(
+  HEALTH_FACILITY_LOCALES.map((locale) => [
+    buildHealthFacilitySectionPath(locale),
+    { locale },
+  ] as const),
+);
+
+/** Parses a localised facility section root, or null when unmatched. */
+export function parseHealthFacilitySectionPath(urlPath: string): HealthFacilitySectionRoutePath | null {
+  return SECTION_PATH_INDEX.get(normalizePath(urlPath)) ?? null;
+}
+
+/** True when the path is one of the four emitted facility section roots. */
+export function isHealthFacilitySectionPath(urlPath: string): boolean {
+  return SECTION_PATH_INDEX.has(normalizePath(urlPath));
 }
 
 /** True when the path is one of the enumerated facility canonical paths. */

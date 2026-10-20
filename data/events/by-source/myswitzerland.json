@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-19T11:38:31.987Z",
+  "assembledAt": "2026-10-20T10:49:23.342Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -267271,7 +267271,7 @@
       "venue": "Geneva",
       "comune": "Genève",
       "canton": "GE",
-      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/pop-concert-de-noel-de-lorchestre-de-chambre-de-geneve-1/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/pop-concert-de-noel-de-lorchestre-de-chambre-de-geneve-1/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -267519,7 +267519,7 @@
       "venue": "Laufenburg",
       "comune": "Laufenburg",
       "canton": "AG",
-      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/altstadtmarkt-laufenburg-100-handgemacht/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/altstadtmarkt-laufenburg-100-handgemacht/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -268170,6 +268170,608 @@
         "name": "Arosa"
       },
       "sourceDescriptionHash": "b16acfd9d7762cc62a67c72244257af6c0eeb39368ac83bd24696c8ff829c21f"
+    },
+    {
+      "id": "myswitzerland:8196192c53fe40749acee10f9f73cbe2",
+      "title": "Explora präsentiert: Roadtrip Italien",
+      "titleByLocale": {
+        "it": "Explora präsentiert: Roadtrip Italien",
+        "en": "Explora präsentiert: Roadtrip Italien",
+        "de": "Explora präsentiert: Roadtrip Italien",
+        "fr": "Explora präsentiert: Roadtrip Italien"
+      },
+      "startDate": "2026-11-08",
+      "endDate": "2026-11-08",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Rorschach",
+      "comune": "Rorschach",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/explora-praesentiert-roadtrip-italien/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4786506,
+        "lng": 9.5064734
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Rorschach"
+      },
+      "sourceDescriptionHash": "a0780815a6905c49382b032e66a46ab70bac22c2bab4d328b80bd98f34886695"
+    },
+    {
+      "id": "myswitzerland:810f0e5e288442229540605abdbcb457",
+      "title": "Un parfum de Chocolat",
+      "titleByLocale": {
+        "it": "Un parfum de Chocolat",
+        "en": "Un parfum de Chocolat",
+        "de": "Un parfum de Chocolat",
+        "fr": "Un parfum de Chocolat"
+      },
+      "startDate": "2026-11-05",
+      "endDate": "2026-11-30",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "Boudry",
+      "comune": "Boudry",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/un-parfum-de-chocolat-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "price": {
+        "amount": 5,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "myswitzerland",
+        "priceField": "index-content"
+      },
+      "geo": {
+        "lat": 46.9496334,
+        "lng": 6.839554
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Boudry"
+      },
+      "sourceDescriptionHash": "89371fa38bd87b68c8462b646156dfd410564dfb1951cace8378b263f2794bc2"
+    },
+    {
+      "id": "myswitzerland:80bb53c2caad4d8e98e1de4259711ac5",
+      "title": "Jérémie Kisling",
+      "titleByLocale": {
+        "it": "Jérémie Kisling",
+        "en": "Jérémie Kisling",
+        "de": "Jérémie Kisling",
+        "fr": "Jérémie Kisling"
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-13",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Chexbres",
+      "comune": "Chexbres",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/jeremie-kisling-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.481066,
+        "lng": 6.7801787
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Chexbres"
+      },
+      "sourceDescriptionHash": "9c36c197fb51bd89d320bfb0caca8657fbf5b092d79a6addf5f8d2f0b7236a2a"
+    },
+    {
+      "id": "myswitzerland:80910645d4ff488fb1a8c4951a06b710",
+      "title": "VITRAUX SYMBOLIQUES",
+      "titleByLocale": {
+        "it": "VITRAUX SYMBOLIQUES",
+        "en": "VITRAUX SYMBOLIQUES",
+        "de": "VITRAUX SYMBOLIQUES",
+        "fr": "VITRAUX SYMBOLIQUES"
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Couvet",
+      "comune": "Val-de-Travers",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/vitraux-symboliques/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.92537,
+        "lng": 6.6320258
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Couvet"
+      },
+      "sourceDescriptionHash": "e9ddb8bdf65d8f24c58696c2102b35856289c5a614ec75ad8204c1567d2fd657"
+    },
+    {
+      "id": "myswitzerland:80830a5ab8044d48aa14b016c7e0d41c",
+      "title": "biche2biche",
+      "titleByLocale": {
+        "it": "biche2biche",
+        "en": "biche2biche",
+        "de": "biche2biche",
+        "fr": "biche2biche"
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "startTime": "22:00",
+      "category": "Event",
+      "venue": "Nyon",
+      "comune": "Nyon",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/biche2biche/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3838021,
+        "lng": 6.2439331
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Nyon"
+      },
+      "sourceDescriptionHash": "e7dfc99f1dc8d3db1f0241d6b989ebb85290e900263130fc5a24db2b6bc0211b"
+    },
+    {
+      "id": "myswitzerland:802b7e7f24044705ae976eac7e927452",
+      "title": "RSSK – Kerzenziehen",
+      "titleByLocale": {
+        "it": "RSSK – Kerzenziehen",
+        "en": "RSSK – Kerzenziehen",
+        "de": "RSSK – Kerzenziehen",
+        "fr": "RSSK – Kerzenziehen"
+      },
+      "startDate": "2026-11-23",
+      "endDate": "2026-11-27",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "Kreuzlingen",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/eintauchen-kerzenziehen-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.6517152,
+        "lng": 9.1711736
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kreuzlingen"
+      },
+      "sourceDescriptionHash": "cd09ba4c301f37bab58c18b3693c209ea9a13ff9a2b14adb8505dbbc1ee27931"
+    },
+    {
+      "id": "myswitzerland:7f6b5cdbbd54452f8d5317e37422754c",
+      "title": "End-of-year tastings & craft market",
+      "titleByLocale": {
+        "it": "End-of-year tastings & craft market",
+        "en": "End-of-year tastings & craft market",
+        "de": "Weinverkostungen zum Jahresende & Kunsthandwerksmarkt",
+        "fr": "Dégustations de fin d'année & marché des saveurs artisanal"
+      },
+      "startDate": "2026-11-27",
+      "endDate": "2026-11-28",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "St-Prex",
+      "comune": "Saint-Prex",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/endofyear-tastings-craft-market/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.491605,
+        "lng": 6.4645879
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "St-Prex"
+      },
+      "sourceDescriptionHash": "f116758c010399d081a055771f6914f0327384a68dba23fcfba75edd7336b1ef"
+    },
+    {
+      "id": "myswitzerland:7f56c11c440142db9189c0ff014ecb58",
+      "title": "Öffentliche Kunstführung",
+      "titleByLocale": {
+        "it": "Öffentliche Kunstführung",
+        "en": "Öffentliche Kunstführung",
+        "de": "Öffentliche Kunstführung",
+        "fr": "Öffentliche Kunstführung"
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2027-03-28",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Rorschach",
+      "comune": "Rorschach",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/oeffentliche-kunstfuehrung/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4786506,
+        "lng": 9.5064734
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Rorschach"
+      },
+      "sourceDescriptionHash": "bf53809b3c48a09060a6cce6c0eae69a78a138899a12bb3fef7516678274026d"
+    },
+    {
+      "id": "myswitzerland:7f0b39597b1043b3b687ee4df28b7703",
+      "title": "Les vacances du Grand Théâtre Jeunesse",
+      "titleByLocale": {
+        "it": "Les vacances du Grand Théâtre Jeunesse",
+        "en": "Les vacances du Grand Théâtre Jeunesse",
+        "de": "Les vacances du Grand Théâtre Jeunesse",
+        "fr": "Les vacances du Grand Théâtre Jeunesse"
+      },
+      "startDate": "2026-10-20",
+      "endDate": "2026-10-20",
+      "startTime": "14:30",
+      "category": "Event",
+      "venue": "Geneva",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/les-vacances-du-grand-theatre-jeunesse/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2034695,
+        "lng": 6.1484179
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Geneva"
+      },
+      "sourceDescriptionHash": "511c7ed55cbc40b8c552ae928ec8bed7d770717fa5cd12cdecf18487c7d899e8"
+    },
+    {
+      "id": "myswitzerland:7ef09aa9223448cca1ebef2c083b782e",
+      "title": "2000er Party",
+      "titleByLocale": {
+        "it": "2000er Party",
+        "en": "2000er Party",
+        "de": "2000er Party",
+        "fr": "2000er Party"
+      },
+      "startDate": "2026-11-07",
+      "endDate": "2026-11-07",
+      "startTime": "23:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/2000er-party/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3740855,
+        "lng": 8.5246346
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "14a6476baad8685de6ccae0e2cfe523ec094f949cf9f15ed71c182a8312cfee8"
+    },
+    {
+      "id": "myswitzerland:7dab534dba6848c5871186fb1c1f1392",
+      "title": "Les Jeudis du Sens",
+      "titleByLocale": {
+        "it": "Les Jeudis du Sens",
+        "en": "Les Jeudis du Sens",
+        "de": "Les Jeudis du Sens",
+        "fr": "Les Jeudis du Sens"
+      },
+      "startDate": "2026-11-26",
+      "endDate": "2026-11-26",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Eclépens",
+      "comune": "Eclépens",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/les-jeudis-du-sens/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.6530869,
+        "lng": 6.5245821
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Eclépens"
+      },
+      "sourceDescriptionHash": "e7fff76cb70cc75caa2db4e2ed637edd4ccdfe71a60f2f4676159cdc4739ee59"
+    },
+    {
+      "id": "myswitzerland:7ccca33f7210400ebfd0d84acb5a9131",
+      "title": "Wakker-Museumsnacht im Stockalperschloss",
+      "titleByLocale": {
+        "it": "Wakker-Museumsnacht im Stockalperschloss",
+        "en": "Wakker-Museumsnacht im Stockalperschloss",
+        "de": "Wakker-Museumsnacht im Stockalperschloss",
+        "fr": "Wakker-Museumsnacht im Stockalperschloss"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Brig",
+      "comune": "Brig-Glis",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/wakker-museumsnacht-im-stockalperschloss-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.315289,
+        "lng": 7.990646
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Brig"
+      },
+      "sourceDescriptionHash": "6781b03ecd7de2817efd6b7b48f00994a38e33e3fe219710446d1714581922d4"
+    },
+    {
+      "id": "myswitzerland:7c4ae87a5bf645579fabd60fb64fe029",
+      "title": "Art Book Club",
+      "titleByLocale": {
+        "it": "Art Book Club",
+        "en": "Art Book Club",
+        "de": "Art Book Club",
+        "fr": "Art Book Club"
+      },
+      "startDate": "2027-02-11",
+      "endDate": "2027-02-11",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Rorschach",
+      "comune": "Rorschach",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/art-book-club/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4786506,
+        "lng": 9.5064734
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Rorschach"
+      },
+      "sourceDescriptionHash": "1b17064aa860937ca158d97d295435ac9a0a9606cd2e8599be6de86d84f576a2"
+    },
+    {
+      "id": "myswitzerland:7b4863fe35e649ffa1d11e475d1c829b",
+      "title": "Lottomatch Brass Band Frutigen",
+      "titleByLocale": {
+        "it": "Lottomatch Brass Band Frutigen",
+        "en": "Lottomatch Brass Band Frutigen",
+        "de": "Lottomatch Brass Band Frutigen",
+        "fr": "Lottomatch Brass Band Frutigen"
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "16:00",
+      "category": "Event",
+      "venue": "Frutigen",
+      "comune": "Frutigen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/lottomatch-brass-band-frutigen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5860775,
+        "lng": 7.6476635
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Frutigen"
+      },
+      "sourceDescriptionHash": "a8f8834e799201bf8aafebfe1f71b2ebb79d83931bc58d9cbc69240a20e105e2"
+    },
+    {
+      "id": "myswitzerland:7ad35cf290c248a9935f1a4c21defec9",
+      "title": "BaileSystem: O Puro Suco Do Brasil edition #2",
+      "titleByLocale": {
+        "it": "BaileSystem: O Puro Suco Do Brasil edition #2",
+        "en": "BaileSystem: O Puro Suco Do Brasil edition #2",
+        "de": "BaileSystem: O Puro Suco Do Brasil edition #2",
+        "fr": "BaileSystem: O Puro Suco Do Brasil edition #2"
+      },
+      "startDate": "2026-11-08",
+      "endDate": "2026-11-08",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/bailesystem-o-puro-suco-do-brasil-edition-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3740855,
+        "lng": 8.5246346
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "0280342ca38cf03745c327e7d306f475f593443db8f8cb00ce8cbdf3e8afa47b"
+    },
+    {
+      "id": "myswitzerland:7ad340ba480d44d081e879d11888db4a",
+      "title": "Trachtengruppe Gohl Unterhaltungsabend 2026",
+      "titleByLocale": {
+        "it": "Trachtengruppe Gohl Unterhaltungsabend 2026",
+        "en": "Trachtengruppe Gohl Unterhaltungsabend 2026",
+        "de": "Trachtengruppe Gohl Unterhaltungsabend 2026",
+        "fr": "Trachtengruppe Gohl Unterhaltungsabend 2026"
+      },
+      "startDate": "2026-11-08",
+      "endDate": "2026-11-08",
+      "startTime": "13:15",
+      "category": "Event",
+      "venue": "Langnau i.E.",
+      "comune": "Langnau im Emmental",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/trachtengruppe-gohl-unterhaltungsabend-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9400202,
+        "lng": 7.7905962
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Langnau i.E."
+      },
+      "sourceDescriptionHash": "05ce1ce2a94f78532092f0e3a01e81e005e7238e16215413180b45de65f15cc3"
+    },
+    {
+      "id": "myswitzerland:795734d1c91d40de93417c22a667d893",
+      "title": "Finissage",
+      "titleByLocale": {
+        "it": "Finissage",
+        "en": "Finissage",
+        "de": "Finissage",
+        "fr": "Finissage"
+      },
+      "startDate": "2027-02-21",
+      "endDate": "2027-02-21",
+      "startTime": "11:00",
+      "category": "Event",
+      "venue": "Rorschach",
+      "comune": "Rorschach",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/finissage-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4786506,
+        "lng": 9.5064734
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Rorschach"
+      },
+      "sourceDescriptionHash": "599362b15903cb6891aa03ca37da828993febf625d38fced0e943559fc059fc9"
     }
   ]
 }

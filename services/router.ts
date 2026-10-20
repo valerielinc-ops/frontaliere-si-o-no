@@ -68,7 +68,11 @@ import { FRONTALIERE_PILLAR_ROUTES, isFrontalierePillarPath, parseFrontalierePil
 import { isProfessionCantonPath, parseProfessionCantonPath } from '../build-plugins/professionCantonData';
 import { isSalaryProfessionCantonPath, parseSalaryProfessionCantonPath } from '../build-plugins/salaryProfessionCantonData';
 import { isProfessionCityPath, parseProfessionCityPath } from '../build-plugins/professionCityData';
-import { isHealthFacilityPath, parseHealthFacilityPath } from '../build-plugins/healthFacilitiesData';
+import {
+  isHealthFacilityPath,
+  parseHealthFacilityPath,
+  parseHealthFacilitySectionPath,
+} from '../build-plugins/healthFacilitiesData';
 import { isChCantonSnapshotPath, parseChCantonSnapshotPath } from '../build-plugins/jobMarketSnapshotChCantonPathsData';
 import { parseChCantonEmployersPath } from '../build-plugins/weeklyEmployersChCantonPathsData';
 import { isSectionPagePath, parseSectionPagePath } from '../build-plugins/sectionPagesPathsData';
@@ -2916,11 +2920,14 @@ export function parsePath(pathname: string): ParseResult {
    }
  }
 
- // Health-facilities hub (/strutture-sanitarie/{slug}/ + locale variants,
- // epic #4455). This branch was missing entirely — same failure mode as the
- // exchange-vertical bug (notFoundPath fallback + URL rewritten to '/').
- // Static HTML emitted by healthFacilitiesPlugin; staticOverlay hydrates to
- // the job board so the SPA doesn't replace the facility content.
+ // Health-facilities hub (section root + /{slug}/ detail pages, epic #4455).
+ // Both the localised collection roots and detail pages are emitted by
+ // healthFacilitiesPlugin; staticOverlay hydrates to the job board so the SPA
+ // does not replace the static content or fall through to notFoundPath.
+ const healthFacilitySection = parseHealthFacilitySectionPath(pathname);
+ if (healthFacilitySection) {
+   return { route: { activeTab: 'job-board', staticOverlay: true }, locale: healthFacilitySection.locale as Locale };
+ }
  if (isHealthFacilityPath(pathname)) {
    const parsed = parseHealthFacilityPath(pathname);
    if (parsed) {
