@@ -225,7 +225,22 @@ export function createR2Request(env = process.env, { fetchImpl = globalThis.fetc
   if (typeof fetchImpl !== 'function') throw new Error('[r2-section-lock] fetch is unavailable');
 
   return async ({ method, key, body = '', headers = {} }) => {
-    const signed = signRequest({ ...config, now: now(), method, key, body, headers });
+    // Cloudflare can rewrite a strong R2 ETag to a weak validator when the
+    // response is compressed. Weak validators are not safe for the If-Match
+    // CAS used by the lease protocol, so metadata reads must stay unencoded.
+    const requestHeaders = method === 'GET' || method === 'HEAD'
+      ? {
+        // The identity encoding is part of the CAS safety contract, not a
+        // caller preference. Remove every spelling before adding one
+        // canonical header so a mixed-case override cannot produce a weak
+        // ETag or duplicate signed headers.
+        ...Object.fromEntries(
+          Object.entries(headers).filter(([name]) => name.toLowerCase() !== 'accept-encoding'),
+        ),
+        'accept-encoding': 'identity',
+      }
+      : headers;
+    const signed = signRequest({ ...config, now: now(), method, key, body, headers: requestHeaders });
     const response = await fetchImpl(signed.url, {
       method,
       headers: signed.headers,
