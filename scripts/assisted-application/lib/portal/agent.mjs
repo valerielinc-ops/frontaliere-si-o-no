@@ -16,7 +16,7 @@
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
-import { isLanguageAbilityQuestion, isLanguageIntentQuestion } from '../../../../functions/src/lib/languageFacts.js';
+import { isLanguageAbilityQuestion, isLanguageIntentQuestion, isLanguageNameOnly } from '../../../../functions/src/lib/languageFacts.js';
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseChooserFiles, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel, uploadReceipt } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
@@ -100,10 +100,23 @@ function hasLanguageActionAnswer(action) {
 
 function isWidgetNavigationTarget(value) {
   const name = normalizeOptionAnswer(value);
-  return /^(?:open|show|expand|collapse|toggle|next|previous|back|close|more|options|dropdown|menu|list|search)\b/.test(name)
-    || /^(?:mehr anzeigen|weitere? optionen|optionen anzeigen|dropdown offnen|erweitern|anzeigen)/.test(name)
-    || /^(?:afficher|voir|plus d options|ouvrir|developper|options supplementaires)/.test(name)
-    || /^(?:apri|mostra|visualizza|altre opzioni|vedi altro|espandi|opzioni aggiuntive)/.test(name);
+  return /^(?:open|show|expand|collapse|toggle) (?:the )?(?:options?|menu|dropdown|list|search|details|suggestions)$/.test(name)
+    || /^(?:next|previous|back|close|options?|dropdown|menu|list|search)$/.test(name)
+    || /^(?:more options|show more|view more|see more|load more|display more)$/.test(name)
+    || /^(?:mehr anzeigen|mehr optionen anzeigen|weitere optionen(?: anzeigen)?|optionen anzeigen|dropdown offnen|menu offnen|liste offnen|ausklappen|erweitern)$/.test(name)
+    || /^(?:afficher plus|afficher plus d options|voir plus|plus d options|ouvrir les? options?|ouvrir le menu|ouvrir la liste|options supplementaires|developper les options)$/.test(name)
+    || /^(?:apri le? opzioni?|mostra le? opzioni?|mostra altro|altre opzioni|vedi altro|espandi le? opzioni?|opzioni aggiuntive)$/.test(name);
+}
+
+function languageActionKind(action) {
+  const question = String(action.question || '').trim();
+  const context = boundedPortalContext(action.context);
+  const prompt = `${question} ${context}`;
+  const languageIntent = isLanguageIntentQuestion(prompt);
+  const languageAbility = isLanguageAbilityQuestion(prompt);
+  const languageLabelOnly = !languageIntent && !languageAbility
+    && (isLanguageNameOnly(question) || (!question && isLanguageNameOnly(context)));
+  return { languageIntent, languageAbility, languageLabelOnly, languageAction: languageIntent || languageAbility || languageLabelOnly };
 }
 
 export const HINTS = {
@@ -245,8 +258,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   const sensitive = (raw.actions || []).filter((action) => {
     const question = String(action.question || '').trim();
     const context = boundedPortalContext(action.context);
-    const languagePrompt = `${question} ${context}`;
-    const languageAction = isLanguageIntentQuestion(languagePrompt) || isLanguageAbilityQuestion(languagePrompt);
+    const { languageAction } = languageActionKind(action);
     return (languageAction && hasLanguageActionAnswer(action))
       || SENSITIVE.test(question)
       || KNOCK_OUT.test(question)
@@ -254,9 +266,12 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   });
   for (const action of sensitive) {
     const context = boundedPortalContext(action.context);
-    const languageIntent = isLanguageIntentQuestion(`${action.question || ''} ${context}`);
-    const languageAbility = isLanguageAbilityQuestion(`${action.question || ''} ${context}`);
-    if (!String(action.question || '').trim() && (languageIntent || languageAbility)) action.question = context;
+    const { languageIntent, languageAbility, languageLabelOnly } = languageActionKind(action);
+    if (!String(action.question || '').trim() && languageLabelOnly) {
+      action.question = `What does the form ask about ${context}, and how should it be answered?`;
+    } else if (!String(action.question || '').trim() && (languageIntent || languageAbility)) {
+      action.question = context;
+    }
     const declines = action.source !== 'widget' && PREFER_NOT.test(action.answer || action.value || '');
     const answer = action.answer || action.value;
     const addressTopic = questionTopic(action.question, context);
@@ -304,12 +319,12 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     }
     // A knock-out ("Deutsch C1?") is grounded by the candidate's own answer to it, or by a
     // quote that supports the answer (review of #10715), never by "Ja" occurring in the data.
-    const knockOut = !languageIntent && !languageAbility && !SENSITIVE.test(action.question);
+    const knockOut = !languageIntent && !languageAbility && !languageLabelOnly && !SENSITIVE.test(action.question);
     // A permit or nationality question: the candidate's own status or nationality as the catalogue words it, or
     // their answer to this very question (decision 9), never the value occurring in the data.
     const own = action.source === 'widget' ? null : ownStatusAnswer(candidate, action.question, answer);
     const native = action.source !== 'widget' && nativeLanguageAnswerMatches(candidate, action.question, answer, context);
-    const fromCandidate = languageIntent || languageAbility
+    const fromCandidate = languageIntent || languageAbility || languageLabelOnly
       ? answeredByCandidate(candidate, action.question, answer, context)
       : own !== null
         ? own || answeredByCandidate(candidate, action.question, answer, context)
@@ -378,17 +393,16 @@ async function describe(locator) {
 
 /** Why the action must not run on this element, or '' (the runner alone moves on and submits). */
 export function refusal(action, info) {
-  const languagePrompt = `${action.question || ''} ${action.context || ''}`;
-  const languageIntent = isLanguageIntentQuestion(languagePrompt);
-  const languageAbility = isLanguageAbilityQuestion(languagePrompt);
+  const { languageIntent, languageAbility, languageLabelOnly } = languageActionKind(action);
+  const languageAction = languageIntent || languageAbility || languageLabelOnly;
   if (action.action === 'press' && languageIntent) {
     return 'language_choice_keyboard_selection_unsupported';
   }
-  if (action.action === 'press' && languageAbility && action.value === 'Enter') {
+  if (action.action === 'press' && (languageAbility || languageLabelOnly) && action.value === 'Enter') {
     if (!String(action.answer || '').trim()) return 'language_answer_requires_candidate';
     if (!optionAnswerMatches(action.answer, info.name)) return 'answer_option_mismatch';
   }
-  if (action.action === 'click' && (languageIntent || languageAbility)) {
+  if (action.action === 'click' && languageAction) {
     const hasQuestion = Boolean(String(action.question || '').trim());
     const hasCandidateAnswer = Boolean(String(action.answer || '').trim());
     if (!hasCandidateAnswer && isWidgetNavigationTarget(info.name)) {

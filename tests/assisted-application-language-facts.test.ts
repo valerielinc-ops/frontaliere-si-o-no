@@ -1,9 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { ensureRequiredQuestions } from '../functions/src/assistedApplicationAiDraftCore.js';
-import { isLanguageAbilityQuestion, isLanguageIntentQuestion, languageCodeOf, languageExplicitlyAbsent } from '../functions/src/lib/languageFacts.js';
+import { isLanguageAbilityQuestion, isLanguageIntentQuestion, isLanguageNameOnly, languageCodeOf, languageExplicitlyAbsent } from '../functions/src/lib/languageFacts.js';
 import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
 describe('language facts stay conservative when a CV entry or question is ambiguous', () => {
+  it('recognizes only exact language names and codes as language-only labels', () => {
+    expect(isLanguageNameOnly('German')).toBe(true);
+    expect(isLanguageNameOnly('de-CH')).toBe(true);
+    expect(isLanguageNameOnly('German proficiency')).toBe(false);
+    expect(isLanguageNameOnly('Are you German?')).toBe(false);
+  });
+
   it('does not infer absence from a multi-language or unrecognized CV entry', () => {
     const mixed = {
       languagesExplicitList: true,

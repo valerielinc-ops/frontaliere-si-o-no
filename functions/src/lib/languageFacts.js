@@ -82,6 +82,15 @@ export function languageCodeOf(value) {
   return codes.length === 1 ? codes[0] : '';
 }
 
+/** Whether the entire value is a recognized language name or language code. */
+export function isLanguageNameOnly(value) {
+  const text = fold(value).replace(/\s+/g, ' ').trim();
+  if (!text) return false;
+  const exactCode = /^([a-z]{2})(?:[-_]\w+)?$/i.exec(String(value ?? '').trim())?.[1]?.toLowerCase();
+  if (exactCode && Object.hasOwn(LANGUAGE_NAMES, exactCode)) return true;
+  return Object.values(LANGUAGE_NAMES).some((names) => names.some((name) => fold(name) === text));
+}
+
 function languageCodesForEntry(value) {
   const text = fold(value).replace(/\b[abc][12]\b/g, '').replace(/\s+/g, ' ').trim();
   const exactCode = /^([a-z]{2})(?:[-_]\w+)?$/i.exec(String(value ?? '').trim())?.[1]?.toLowerCase();

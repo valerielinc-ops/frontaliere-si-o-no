@@ -190,7 +190,7 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
   it('allows localized widget navigation and asks before a questionless language answer click', async () => {
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
     const navigation = guardAgentStep(turn('act', [act({
-      ref: 'e12', action: 'click', value: 'Open options', question: '', context: 'German proficiency', answer: '', source: 'widget',
+      ref: 'e12', action: 'click', value: 'Afficher plus', question: '', context: 'German', answer: '', source: 'widget',
     })]), candidate);
     expect(navigation).toMatchObject({ status: 'act', questions: [] });
 
@@ -201,6 +201,17 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     };
     await expect(runAction({ locator: () => navigationLocator } as any, navigation.actions[0])).resolves.toEqual({ ok: true });
     expect(navigationClicks).toBe(1);
+
+    const durationQuestion = 'How long have you spoken German?';
+    const durationAnswer = guardAgentStep(turn('act', [act({
+      ref: 'e14', action: 'click', value: 'More than 3 years', question: durationQuestion,
+      context: 'German proficiency', answer: 'More than 3 years', source: 'widget',
+    })]), candidate);
+    expect(durationAnswer).toMatchObject({ status: 'needs_candidate', actions: [] });
+    expect(refusal(act({
+      action: 'click', value: 'More than 3 years', context: 'German',
+    }), { name: 'More than 3 years', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
+      .toBe('language_answer_requires_candidate');
 
     let answerClicks = 0;
     const answerLocator = {
@@ -220,12 +231,15 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       candidate,
       candidateLocale: 'en',
       codex: async () => turn('act', [act({
-        action: 'click', ref: 'e13', value: 'Open options', question: '', context: 'German proficiency', answer: '', source: 'widget',
+        action: 'click', ref: 'e13', value: 'Yes', question: '', context: 'German', answer: '', source: 'widget',
       })]),
     });
     expect(result).toMatchObject({
       status: 'needs_candidate',
-      questions: [expect.objectContaining({ question: 'German proficiency', context: 'German proficiency' })],
+      questions: [expect.objectContaining({
+        question: 'What does the form ask about German, and how should it be answered?',
+        context: 'German',
+      })],
     });
     expect(answerClicks).toBe(0);
   });
