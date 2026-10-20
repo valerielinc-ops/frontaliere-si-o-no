@@ -321,7 +321,20 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     return response;
   };
   const capturingDetailExtractor = (html, pageUrl, opts = {}) => {
-    const base = upstreamDetailExtractor(html, pageUrl, opts);
+    // iPersonal's Simple Job Board uses a marketing-rich H1/listing title
+    // (for example, `Elektroplaner 100% in der Region Mels – Direkte
+    // Festanstellung`) while its schema.org JobPosting carries the shorter
+    // source identity (`Elektroplaner – Region Mels`). The title is therefore
+    // not a safe identity key here. The resolved detail URL is the document
+    // actually fetched for this row, and the shared selector uses it to
+    // discard related/recommended JobPosting nodes with another URL. Keep
+    // that URL match explicit while bypassing only the incompatible rendered
+    // title check; the selector remains fail-closed for ambiguous records.
+    const base = upstreamDetailExtractor(html, pageUrl, {
+      ...opts,
+      recordUrl: canonicalUrl(pageUrl),
+      recordTitle: undefined,
+    });
     // The Simple Job Board body is the description this runtime publishes (see
     // the `enriched` map below), so it belongs to the verdict this extractor
     // returns, not to a later fill. Returning the generic reading and counting
