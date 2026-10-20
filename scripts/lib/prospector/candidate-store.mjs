@@ -331,6 +331,10 @@ export function upsertCandidate(store, incoming, source) {
     return { key, created: false };
   }
   if (existing && !Array.isArray(existing.sources)) existing.sources = [];
+  const sourcePreviouslyObserved = Boolean(existing && (
+    existing.sources.includes(source)
+    || (isObjectMap(existing.sourceSeenAt) && Object.hasOwn(existing.sourceSeenAt, source))
+  ));
   // Legacy exhausted domain guesses have no evidence baseline. Save the
   // pre-upsert snapshot before merging, so an unchanged rediscovery cannot
   // wake the same failed guess merely by refreshing sourceSeenAt.
@@ -360,6 +364,12 @@ export function upsertCandidate(store, incoming, source) {
     if (k === 'status' || k === 'sources' || k === 'sourceSeenAt') continue;
     if (SECO_SIGNAL_FIELDS.has(k)) {
       if (source === 'seco') existing[k] = v;
+      continue;
+    }
+    // A source can correct its own previously stored TRACE evidence. Keep the
+    // fill-only merge for fields first reported by a different source.
+    if (TRACE_RETRY_EVIDENCE_FIELDS.includes(k) && sourcePreviouslyObserved) {
+      existing[k] = v;
       continue;
     }
     if (existing[k] === undefined || existing[k] === '' || existing[k] === null) existing[k] = v;
