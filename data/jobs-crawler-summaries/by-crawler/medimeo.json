@@ -1,30 +1,158 @@
 {
   "key": "medimeo",
   "label": "Medimeo AG",
-  "generatedAt": "2026-10-20T09:17:10.723Z",
-  "total": 9,
+  "generatedAt": "2026-10-20T21:17:57.231Z",
+  "total": 12,
   "discovered": null,
-  "parsed": 8,
+  "parsed": 4,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 9,
+  "written": 12,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 3,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 17002,
-  "avgDurationMs": 17002,
+  "unchangedCount": 8,
+  "durationMs": 16804,
+  "avgDurationMs": 16804,
   "durationHistory": [
-    17002
+    16804
   ],
   "newJobs": [
     {
+      "id": "medimeo-b23b74a2b654",
+      "slug": "facharztin-oberarztin-gynakologie-geburtshilfe-60-100-jobsharing-willkommen-region-zurich",
+      "company": "Medimeo AG",
+      "companyKey": "medimeo",
+      "companyDomain": "medimeo.ch",
+      "title": "Fachärztin / Oberärztin Gynäkologie & Geburtshilfe (60–100%) – Jobsharing willkommen",
+      "location": "Region Zürich",
+      "canton": "ZH",
+      "url": "https://medimeo.ch/job/fachaerztin-oberaerztin-gynaekologie-geburtshilfe-60-100-jobsharing-willkommen-3483/",
+      "source": "Medimeo AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-20T21:17:41.003Z",
+      "addressLocality": "Region Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-20T00:00:00+02:00",
+      "postedDate": "2026-10-20T00:00:00+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://medimeo.ch/job/fachaerztin-oberaerztin-gynaekologie-geburtshilfe-60-100-jobsharing-willkommen-3483/",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-10-20T21:17:41.003Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "medimeo-74680efc30a8",
+      "slug": "facharztin-facharzt-kinder-e-jugendmedizin-50-100-ihr-einstieg-in-la-schweiz-medimeo-ag-region-zurich",
+      "company": "Medimeo AG",
+      "companyKey": "medimeo",
+      "companyDomain": "medimeo.ch",
+      "title": "Fachärztin / Facharzt Kinder- und Jugendmedizin 50–100% | Ihr Einstieg in die Schweiz",
+      "location": "Region Zürich",
+      "canton": "ZH",
+      "url": "https://medimeo.ch/job/fachaerztin-facharzt-kinder-und-jugendmedizin-50-100-ihr-einstieg-in-die-schweiz-3629/",
+      "source": "Medimeo AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-20T21:17:40.994Z",
+      "addressLocality": "Region Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-20T00:00:00+02:00",
+      "postedDate": "2026-10-20T00:00:00+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://medimeo.ch/job/fachaerztin-facharzt-kinder-und-jugendmedizin-50-100-ihr-einstieg-in-die-schweiz-3629/",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-10-20T21:17:40.994Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "medimeo-5a2569d268fa",
+      "slug": "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-come-infrastrukturnutzer-in-medimeo-ag-region-zurich",
+      "company": "Medimeo AG",
+      "companyKey": "medimeo",
+      "companyDomain": "medimeo.ch",
+      "title": "Fachärztin / Facharzt Psychiatrie 40-100% – Selbständigkeit als Infrastrukturnutzer/in",
+      "location": "Region Zürich",
+      "canton": "ZH",
+      "url": "https://medimeo.ch/job/fachaerztin-facharzt-psychiatrie-40-100-selbstaendigkeit-als-infrastrukturnutzer-in-3630/",
+      "source": "Medimeo AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-20T21:17:40.987Z",
+      "addressLocality": "Region Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-20T00:00:00+02:00",
+      "postedDate": "2026-10-20T00:00:00+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://medimeo.ch/job/fachaerztin-facharzt-psychiatrie-40-100-selbstaendigkeit-als-infrastrukturnutzer-in-3630/",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-10-20T21:17:40.987Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 22
+      }
+    }
+  ],
+  "updatedJobs": [
+    {
       "id": "medimeo-1f2fd0dcbc48",
-      "slug": "allgemeinmedizinerin-hausarzt-allgemeine-innere-medizin-50-90-familiare-praxis-attraktiver",
+      "slug": "medica-di-medicina-generale-medico-di-famiglia-in-medicina-interna-generale-50-90-studio-medico-di-famiglia-stipendio",
       "company": "Medimeo AG",
       "companyKey": "medimeo",
       "companyDomain": "medimeo.ch",
@@ -34,7 +162,7 @@
       "url": "https://medimeo.ch/job/allgemeinmedizinerin-hausarzt-allgemeine-innere-medizin-50-90-familiaere-praxis-attraktiver-lohn-und-viel-lebensqualitaet-3622/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:17:02.339Z",
+      "crawledAt": "2026-10-20T21:17:40.998Z",
       "addressLocality": "Region Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -50,22 +178,22 @@
       "postedDate": "2026-10-20T00:00:00+02:00",
       "postingDateSource": "reported",
       "applyUrl": "https://medimeo.ch/job/allgemeinmedizinerin-hausarzt-allgemeine-innere-medizin-50-90-familiaere-praxis-attraktiver-lohn-und-viel-lebensqualitaet-3622/",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-20T09:17:02.339Z",
       "salaryMin": 55800,
       "salaryMax": 84600,
       "salarySource": "estimated",
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-20T09:17:02.339Z",
-      "_qualityScore": 88,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "medimeo-684bc8d175a2",
       "slug": "lavorare-vicino-al-confine-medica-specialista-medico-specialista-in-medicina-interna-generale-medimeo-ag-region-basel",
@@ -99,6 +227,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "postalCode": "4001",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -139,12 +268,14 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "crawlerMissStreak": 1,
+      "postalCode": "4500",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -180,6 +311,7 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8400",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -221,6 +353,7 @@
       "salaryMax": 143000,
       "salarySource": "estimated",
       "postalCode": "4600",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -262,6 +395,7 @@
       "salaryMax": 143000,
       "salarySource": "estimated",
       "postalCode": "3001",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -303,6 +437,7 @@
       "salaryMax": 143000,
       "salarySource": "estimated",
       "postalCode": "3001",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -344,6 +479,7 @@
       "salaryMax": 143000,
       "salarySource": "estimated",
       "postalCode": "3001",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -351,10 +487,7 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "medimeo-f1c343bc446f",
       "slug": "medico-senior-ginecologia-senior-ostetricia-medimeo-ag-olten-aargau",
@@ -388,7 +521,7 @@
       "salarySource": "reported",
       "postalCode": "4600",
       "firstSeenAt": "2026-10-19T21:18:00.259Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -398,5 +531,5 @@
       }
     }
   ],
-  "codeCommit": "a1bd59ecfe0dd8e9073ead0a9cb11e2d39e2c95a"
+  "codeCommit": "5d413b0550f3391711b8d8bf8b472520011f35e5"
 }
