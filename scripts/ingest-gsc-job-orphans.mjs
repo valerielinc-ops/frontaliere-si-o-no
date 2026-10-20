@@ -32,7 +32,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
-import { gscJobOrphanRouteKey, mergeGscJobOrphans, urlToOrphan } from './lib/gsc-job-orphans.mjs';
+import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
+import { urlToOrphan } from './lib/gsc-job-orphans.mjs';
+import {
+  assertGscOrphanSnapshot,
+  gscOrphanRouteKey,
+  mergeGscOrphanRecords,
+} from './lib/gsc-orphan-snapshot.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(__filename, '..', '..');
@@ -164,9 +170,7 @@ function extractCompanyHint(slug) {
   return tokens.slice(-Math.min(4, Math.max(2, Math.floor(tokens.length / 2)))).join('-');
 }
 
-function classifyOrphan(orphan, jobs, expiredIdx, csvBasename) {
-  const slugIndex = buildSlugIndex(jobs);
-
+function classifyOrphan(orphan, jobs, slugIndex, jobsById, expiredIdx, csvBasename) {
   // Match against current jobs (any locale's current/previous slug)
   for (const loc of ['it', 'en', 'de', 'fr']) {
     const hit = slugIndex.idx.get(`${loc}::${orphan.slug}`);
@@ -183,6 +187,25 @@ function classifyOrphan(orphan, jobs, expiredIdx, csvBasename) {
         };
       }
     }
+  }
+
+  // Keep a previous job-id association when a job's slug changed enough that
+  // the old route no longer matches by exact, prefix, or reslug heuristics.
+  const previouslyMatchedJob = orphan.kind === 'matched' && orphan.jobId
+    ? jobsById.get(orphan.jobId)
+    : null;
+  const previousLocalizedSlug = previouslyMatchedJob?.slugByLocale?.[orphan.locale]
+    || previouslyMatchedJob?.slug
+    || '';
+  if (previouslyMatchedJob && previousLocalizedSlug) {
+    return {
+      ...orphan,
+      kind: 'matched',
+      jobId: previouslyMatchedJob.id,
+      currentSlug: previousLocalizedSlug,
+      matchType: 'previous-job-id',
+      csvOrigin: csvBasename,
+    };
   }
 
   // Prefix match (90-char truncation case)
@@ -250,13 +273,15 @@ function buildExpiredIndex(expiredArr) {
 function main() {
   if (!fs.existsSync(JOBS_PATH)) {
     console.error(`✗ ${JOBS_PATH} not found.`);
-    process.exit(1);
+    process.exitCode = 1;
+    return;
   }
 
   const csvFiles = findCsvFiles();
   if (csvFiles.length === 0) {
     console.error('No GSC CSV exports found under download/frontaliereticino.ch-Coverage-*');
-    process.exit(1);
+    process.exitCode = 1;
+    return;
   }
 
   const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf-8'));
@@ -264,6 +289,8 @@ function main() {
     ? (() => { const e = JSON.parse(fs.readFileSync(EXPIRED_PATH, 'utf-8')); return Array.isArray(e) ? e : (e.jobs || e.entries || []); })()
     : [];
   const expiredIdx = buildExpiredIndex(expiredArr);
+  const slugIndex = buildSlugIndex(jobs);
+  const jobsById = new Map(jobs.map((job) => [job.id, job]));
 
   console.log(`Loaded ${jobs.length} jobs, ${expiredArr.length} expired-job records.`);
 
@@ -274,22 +301,40 @@ function main() {
     for (const url of urls) {
       const o = urlToOrphan(url, JOB_SECTION_SLUGS);
       if (!o) continue;
-      const classified = classifyOrphan(o, jobs, expiredIdx, basename);
-      importedByUrl.set(gscJobOrphanRouteKey(classified), classified);
+      const classified = classifyOrphan(o, jobs, slugIndex, jobsById, expiredIdx, basename);
+      importedByUrl.set(gscOrphanRouteKey(classified), classified);
     }
   }
 
   let existingFile = { sources: [], orphans: [] };
   if (fs.existsSync(OUT_PATH)) {
     existingFile = JSON.parse(fs.readFileSync(OUT_PATH, 'utf-8'));
-    if (!Array.isArray(existingFile.orphans)) {
-      throw new Error(`${path.relative(ROOT, OUT_PATH)} has no valid orphans array; refusing to overwrite it.`);
-    }
+    assertGscOrphanSnapshot(existingFile, {
+      file: path.relative(ROOT, OUT_PATH),
+      recordsKey: 'orphans',
+      identityField: 'slug',
+      kinds: ['matched', 'expired-tracked', 'expired'],
+      validateRoute: (entry) => {
+        const parsed = urlToOrphan(entry.url, JOB_SECTION_SLUGS);
+        return parsed?.locale === entry.locale && parsed?.slug === entry.slug;
+      },
+      validateRecord: (entry) => entry.kind === 'matched'
+        ? typeof entry.jobId === 'string' && entry.jobId.length > 0
+        : entry.jobId === undefined,
+    });
   }
   const imported = [...importedByUrl.values()];
   // GSC's export is a capped sample: disappearance from a later sample is not
-  // evidence that the source URL resolved, so the registry is never pruned here.
-  const orphans = mergeGscJobOrphans(existingFile.orphans || [], imported);
+  // evidence that the source URL resolved, so prior routes are retained.
+  const refreshedExisting = existingFile.orphans.map((old) => classifyOrphan(
+    { locale: old.locale, slug: old.slug, url: old.url, kind: old.kind, jobId: old.jobId },
+    jobs,
+    slugIndex,
+    jobsById,
+    expiredIdx,
+    old.csvOrigin,
+  ));
+  const orphans = mergeGscOrphanRecords(refreshedExisting, imported);
   const retained = Math.max(0, orphans.length - imported.length);
 
   // Summary
@@ -322,4 +367,8 @@ function main() {
   console.log(`\nWrote ${orphans.length} job-orphan records to ${path.relative(ROOT, OUT_PATH)}`);
 }
 
-main();
+const lock = withSingleFlightLock(`${OUT_PATH}.lock`, main);
+if (!lock.acquired) {
+  console.error(`✗ ${path.relative(ROOT, OUT_PATH)} is already being updated; retry after it completes.`);
+  process.exitCode = 1;
+}

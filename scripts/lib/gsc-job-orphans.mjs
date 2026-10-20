@@ -32,20 +32,3 @@ export function urlToOrphan(url, jobSectionSlugs) {
   if (HUB_PREFIXES.some((rx) => rx.test(slug))) return null;
   return { locale, slug, url };
 }
-
-export function gscJobOrphanRouteKey(entry) {
-  try {
-    const pathname = new URL(entry.url).pathname;
-    const segments = pathname.split('/').filter(Boolean);
-    return segments.length ? `/${segments.join('/')}/` : '/';
-  } catch {
-    return `${entry.locale}::${entry.url}`;
-  }
-}
-
-/** Merge imports by rendered route. Missing URLs are not evidence of recovery. */
-export function mergeGscJobOrphans(existing, incoming) {
-  const byRoute = new Map();
-  for (const entry of [...existing, ...incoming]) byRoute.set(gscJobOrphanRouteKey(entry), entry);
-  return [...byRoute.values()];
-}
