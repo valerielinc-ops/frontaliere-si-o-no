@@ -16,6 +16,7 @@ import {
   buildAutoSectorHubPath,
   buildJobCategoryPath,
 } from '../build-plugins/shared/autoSectorHubPaths';
+import { buildAutoSectorHubPage } from '../build-plugins/autoSectorHubPagesPlugin';
 import { SECTOR_HUB_SECTION } from '../build-plugins/shared/jobSectorPaths';
 
 const DESCRIPTION = Array.from({ length: 60 }, () => 'contenuto').join(' ');
@@ -41,6 +42,41 @@ function jobsForCategory(
 }
 
 describe('automatic sector hub publication', () => {
+  it('emits BreadcrumbList JSON-LD on indexable dynamic sector pages', () => {
+    const publication = {
+      slug: 'sanita-ospedali',
+      routeKind: 'dynamic' as const,
+      label: 'Sanità ospedali',
+      labelByLocale: {
+        it: 'Sanità ospedali',
+        en: 'Hospital healthcare',
+        de: 'Spitalwesen',
+        fr: 'Santé hospitalière',
+      },
+      sourceFields: ['category' as const],
+      matchLabels: ['sanità ospedali'],
+      firstPublishedAt: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
+      status: 'active' as const,
+    } as Parameters<typeof buildAutoSectorHubPage>[2];
+    const jobs = Array.from({ length: 5 }, (_, index) => ({
+      id: `sanita-ospedali-${index}`,
+      slug: `sanita-ospedali-${index}`,
+      title: 'Operatore sanitario',
+      company: index % 2 === 0 ? 'EOC' : 'Clinica Ticino',
+      companyKey: index % 2 === 0 ? 'eoc' : 'clinica-ticino',
+      location: 'Bellinzona',
+      canton: 'TI',
+      category: 'health',
+      firstSeenAt: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
+    })) as unknown as Parameters<typeof buildAutoSectorHubPage>[3];
+
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const page = buildAutoSectorHubPage('', locale, publication, jobs, '2026-10-20');
+      expect(page.indexable).toBe(true);
+      expect(page.html).toContain('"@type":"BreadcrumbList"');
+    }
+  });
+
   it('keeps static category paths owned by the job-board emitter in every locale', () => {
     const locales = ['it', 'en', 'de', 'fr'] as const;
     const cantonSections = {

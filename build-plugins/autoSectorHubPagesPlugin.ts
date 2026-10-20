@@ -182,7 +182,7 @@ function toCardItem(job: AutoSectorJob, locale: JobBoardLocale): JobCardListItem
   };
 }
 
-function buildPage(
+export function buildAutoSectorHubPage(
   distDir: string,
   locale: JobBoardLocale,
   publication: SectorHubPublication,
@@ -267,6 +267,25 @@ function buildPage(
       <p>${esc(methodText)}</p>
       <a href="${esc(sectionRoot)}" style="font-weight:700;display:inline-flex;min-height:44px;align-items:center">${esc(copy.allJobs)} →</a>
     </section>`;
+  const breadcrumbLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: copy.breadcrumbHome,
+        item: `${BASE_URL}${SECTOR_HUB_LOCALE_PREFIX[locale]}/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: copy.breadcrumbJobs,
+        item: `${BASE_URL}${sectionRoot}`,
+      },
+      { '@type': 'ListItem', position: 3, name: copy.h1(label), item: canonicalUrl },
+    ],
+  });
   const jsonLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -290,7 +309,7 @@ function buildPage(
     canonicalUrl,
     hreflangHtml,
     bodyHtml,
-    jsonLdScripts: [jsonLd],
+    jsonLdScripts: [breadcrumbLd, jsonLd],
     robots: indexable ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     distDir,
@@ -328,7 +347,7 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
         for (const locale of LOCALES) {
           if (!shouldEmitLocale(locale)) continue;
           if (!publication.labelByLocale[locale]) continue;
-          const page = buildPage(distDir, locale, publication, jobs, dateStamp);
+          const page = buildAutoSectorHubPage(distDir, locale, publication, jobs, dateStamp);
           const file = np.join(distDir, buildAutoSectorHubPath(locale, publication.slug, publication.routeKind).slice(1), 'index.html');
           collector.add(file, page.html);
           emitted += 1;
