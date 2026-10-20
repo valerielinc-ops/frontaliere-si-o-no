@@ -308,7 +308,7 @@ _release_image_namespace_lease() {
   [ "${image_lease_owned_here:-0}" -eq 1 ] || return 0
   image_lease_owned_here=0
   if [ "${image_lease_acquire_pending:-0}" -eq 1 ]; then
-    if ! node "$image_lease_cli" release --context "$image_lease_context" --ignore-not-owned true >/dev/null; then
+    if ! node "$image_lease_cli" release --context "$image_lease_context" --fence-missing-candidate true >/dev/null; then
       echo "::error::[cdn-upload] could not reconcile an interrupted $image_namespace lease acquisition" >&2
       return 1
     fi
@@ -361,14 +361,19 @@ if [ -n "$image_namespace" ]; then
     }
     image_lease_owner="${lease_identity:0:32}"
     image_lease_id="${lease_identity:32:32}"
-    image_lease_context="$(printf '{\"version\":1,\"leases\":[{\"namespace\":\"%s\",\"owner\":\"%s\",\"leaseId\":\"%s\",\"expiresAt\":0}]}' \
-      "$image_namespace" "$image_lease_owner" "$image_lease_id")"
+    image_lease_acquired_at="$(date +%s)000" || {
+      echo "::warning::[cdn-upload] could not create a recovery timestamp for the ${image_namespace} lease — skipping upload of ${cdn_key}"
+      exit 0
+    }
+    image_lease_context="$(printf '{\"version\":1,\"leases\":[{\"namespace\":\"%s\",\"owner\":\"%s\",\"leaseId\":\"%s\",\"acquiredAt\":%s,\"expiresAt\":0}]}' \
+      "$image_namespace" "$image_lease_owner" "$image_lease_id" "$image_lease_acquired_at")"
     image_lease_owned_here=1
     image_lease_acquire_pending=1
     acquired_context=""
     if acquired_context="$(
       FRONTALIERE_R2_IMAGE_LEASE_OWNER="$image_lease_owner" \
       FRONTALIERE_R2_IMAGE_LEASE_ID="$image_lease_id" \
+      FRONTALIERE_R2_IMAGE_LEASE_ACQUIRED_AT="$image_lease_acquired_at" \
         node "$image_lease_cli" acquire --namespace "$image_namespace"
     )"; then
       :

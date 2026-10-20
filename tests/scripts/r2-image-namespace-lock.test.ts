@@ -339,6 +339,7 @@ globalThis.fetch = async (url) => {
       imageNamespaceLockKey('places'),
     ]);
     const context = serializeImageLeaseContext(leases);
+    expect(JSON.parse(context).leases[0].acquiredAt).toBe(leases[0].acquiredAt);
     await expect(verifyImageNamespaceLease(context, 'blog', { request, now: () => now })).resolves.toMatchObject({
       namespace: 'blog',
       owner: leases[0].owner,
