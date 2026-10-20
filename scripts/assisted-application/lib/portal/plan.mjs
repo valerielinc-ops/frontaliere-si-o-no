@@ -686,7 +686,7 @@ function recordedAnswerForQuestion(candidate, question, context = '') {
   // too: the answer id still carries the portal question's wording as a slug.
   const fromAnswerIds = Object.entries(candidate?.answers || {})
     .filter(([id, answer]) => /^portal_/i.test(id) && String(answer || '').trim())
-    .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer }));
+    .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer, source: 'answer-id' }));
   const items = [...recorded, ...fromAnswerIds];
   const normalized = comparableAnswer(questionFromLabel(question));
   const normalizedContextQuestion = comparableAnswer(questionFromLabel(context));
@@ -702,7 +702,13 @@ function recordedAnswerForQuestion(candidate, question, context = '') {
   if (exact) return String(exact.answer).trim();
   const topic = questionTopic(question, context);
   if (!topic) return '';
-  const semantic = items.find((item) => sameContext(item) && questionTopic(item.question, item.context) === topic);
+  // An answer id is only a slug, not proof that the candidate answered the
+  // full question currently on the page.  For sensitive topics, reusing a
+  // slug with the same broad topic can turn an answer to another question
+  // (for example a driving licence's "Ja") into a work-permit answer.
+  const semantic = items.find((item) => sameContext(item)
+    && questionTopic(item.question, item.context) === topic
+    && (!['permit', 'nationality'].includes(topic) || item.source !== 'answer-id'));
   return semantic ? String(semantic.answer).trim() : '';
 }
 
@@ -982,19 +988,20 @@ export function candidateAnswerForField(candidate, field) {
   if (topic === 'permit') {
     const status = candidate?.swissStatus?.code || permitStatusOf(candidate?.profile?.workPermit);
     if (!status || !asksHeldStatus(field?.label)) return null;
+    const statusSource = candidate?.swissStatus?.code ? 'rule' : 'profile';
     const options = Array.isArray(field?.options) ? field.options : [];
     const matchingPermit = options.filter((option) => permitOptionCode(option.label) === status);
-    if (matchingPermit.length === 1) return { value: matchingPermit[0].label, source: candidate?.swissStatus?.code ? 'answers' : 'profile' };
+    if (matchingPermit.length === 1) return { value: matchingPermit[0].label, source: statusSource };
     const yesNo = yesOption(options);
     if (yesNo) {
       const positive = status !== 'none';
       const selected = options.find((option) => booleanAnswer(String(option?.label ?? option)) === positive);
-      if (selected) return { value: String(selected?.label ?? selected), source: candidate?.swissStatus?.code ? 'answers' : 'profile' };
+      if (selected) return { value: String(selected?.label ?? selected), source: statusSource };
     }
     if (!options.length && isYesNoPermitQuestion(field?.label)) {
-      return { value: localizedBoolean(status !== 'none', formLanguage(field?.label, candidate)), source: candidate?.swissStatus?.code ? 'answers' : 'profile' };
+      return { value: localizedBoolean(status !== 'none', formLanguage(field?.label, candidate)), source: 'profile' };
     }
-    if (!options.length) return { value: candidate?.swissStatus?.statement || candidate?.profile?.workPermit || '', source: candidate?.swissStatus?.code ? 'answers' : 'profile' };
+    if (!options.length) return { value: candidate?.swissStatus?.statement || candidate?.profile?.workPermit || '', source: 'profile' };
     return null;
   }
   const native = nativeLanguageOption(field, candidate);
@@ -1143,6 +1150,11 @@ export function guardPlan(plan, fields, candidate = null) {
       missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), why: '', type: isDateField(field) ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
     }
   };
+  // Once a candidate-only action has been rejected, the recovery pass below
+  // must not silently replace it with a profile-derived value. That would
+  // turn an invalid nationality/permit answer into an unrelated automatic
+  // answer instead of keeping the required question.
+  const rejectedActionFields = new Set();
   for (const plannedAction of plan.actions || []) {
     let action = plannedAction;
     const field = byId.get(action.fieldId);
@@ -1193,6 +1205,7 @@ export function guardPlan(plan, fields, candidate = null) {
     const own = ['fill', 'select'].includes(action.action) ? ownStatusAnswer(candidate, field.label, action.value, { option: action.action === 'select' }) : null;
     if (own !== null) {
       if (!own && !answeredByCandidate(candidate, field.label, action.value, field.context) && !declines) {
+        rejectedActionFields.add(field.id);
         ask(field);
         continue;
       }
@@ -1237,7 +1250,7 @@ export function guardPlan(plan, fields, candidate = null) {
   // The page may expose a renamed/reworded version of a question already
   // answered in the review. Reuse it before turning the field into a new hold.
   for (const field of fields) {
-    if (!field.required || answered.has(field.id) || holdsValue(field)) continue;
+    if (!field.required || answered.has(field.id) || holdsValue(field) || rejectedActionFields.has(field.id)) continue;
     const answer = candidateAnswerForField(candidate, field);
     if (!answer) continue;
     const value = field.options?.length ? answer.value : normalizeDateAnswer(field, answer.value);
