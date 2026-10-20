@@ -19,6 +19,7 @@ import {
 
 export const SUMUP_PAYMENT_TESTS_COLLECTION = 'sumup_payment_tests';
 export const SUMUP_PAYMENT_TEST_ORIGINS = Object.freeze([
+  'https://frontaliereticino.ch',
   'https://frontaliere-ticino.web.app',
   'https://frontaliere-ticino.firebaseapp.com',
 ]);

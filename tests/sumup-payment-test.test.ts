@@ -139,10 +139,26 @@ describe('isolated SumUp sandbox payment test flow', () => {
     }));
   });
 
-  it('rejects browser origins outside the dedicated staging hosts', async () => {
+  it('allows the canonical production host for the isolated sandbox page', async () => {
+    const firestore = makeDb();
+    mocks.createCheckout.mockResolvedValue({ id: 'sandbox_checkout_canonical' });
     await expect(handleCreateSumUpPaymentTestCheckout({
       method: 'POST',
       headers: { origin: 'https://frontaliereticino.ch' },
+      body: {},
+    }, { db: firestore.db, createCheckout: mocks.createCheckout })).resolves.toEqual(expect.objectContaining({
+      status: 200,
+      body: expect.objectContaining({
+        ok: true,
+        checkoutId: 'sandbox_checkout_canonical',
+      }),
+    }));
+  });
+
+  it('rejects browser origins outside the dedicated staging and canonical hosts', async () => {
+    await expect(handleCreateSumUpPaymentTestCheckout({
+      method: 'POST',
+      headers: { origin: 'https://unauthorized.example' },
       body: {},
     }, { db: makeDb().db, createCheckout: mocks.createCheckout })).resolves.toEqual({
       status: 403,
