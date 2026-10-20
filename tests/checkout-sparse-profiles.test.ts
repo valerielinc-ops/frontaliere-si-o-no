@@ -105,6 +105,64 @@ describe('profili di sparse-checkout', () => {
     expect(offenders).toEqual([]);
   });
 
+  it('mantiene l agent issue-fix sul codice ma non sull albero generato pesante', () => {
+    const workflow = YAML.parse(
+      fs.readFileSync(path.join(WF_DIR, 'issue-fix.yml'), 'utf8'),
+      { logLevel: 'silent' },
+    );
+    const checkout = workflow?.jobs?.fix?.steps?.find(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    const sparse = String(checkout?.with?.['sparse-checkout'] ?? '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
+
+    expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    expect(sparse).toContain('/scripts/');
+    expect(sparse).toContain('/packages/');
+    expect(sparse).toContain('/data/canton-municipalities.json');
+    expect(isExcludedBy(sparse, 'scripts/ci/report-workflow-failure.mjs')).toBe(false);
+    expect(isExcludedBy(sparse, 'packages/articles/content/it/example.ts')).toBe(false);
+    expect(sparse).not.toContain('/public/images/');
+    expect(sparse).not.toContain('/data/jobs/');
+  });
+
+  it('misura il profilo issue-fix sullo stesso ref e con la stessa allow-list', () => {
+    const issueFix = YAML.parse(
+      fs.readFileSync(path.join(WF_DIR, 'issue-fix.yml'), 'utf8'),
+      { logLevel: 'silent' },
+    );
+    const measurement = YAML.parse(
+      fs.readFileSync(path.join(WF_DIR, 'validate-modified-workflows.yml'), 'utf8'),
+      { logLevel: 'silent' },
+    );
+    const issueCheckout = issueFix?.jobs?.fix?.steps?.find(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    const measuredSteps = measurement?.jobs?.checkout_measurement?.steps ?? [];
+    const fullCheckout = measuredSteps.find((step: any) => step?.name === 'Full checkout baseline');
+    const sparseCheckout = measuredSteps.find((step: any) => step?.name === 'Issue-fix sparse checkout');
+    const patterns = (step: any) => String(step?.with?.['sparse-checkout'] ?? '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
+
+    expect(measurement?.jobs?.validate?.outputs?.files).toBe('${{ steps.contracts.outputs.files }}');
+    expect(String(measurement?.jobs?.checkout_measurement?.if ?? '')).toContain(
+      "contains(needs.validate.outputs.files, '.github/workflows/issue-fix.yml')",
+    );
+    expect(fullCheckout?.with?.ref).toBe('${{ github.event.pull_request.head.sha || github.ref }}');
+    expect(sparseCheckout?.with?.ref).toBe('${{ github.event.pull_request.head.sha || github.ref }}');
+    expect(fullCheckout?.with?.['fetch-depth']).toBe(0);
+    expect(sparseCheckout?.with?.['fetch-depth']).toBe(0);
+    expect(fullCheckout?.with?.filter).toBe('blob:none');
+    expect(sparseCheckout?.with?.filter).toBe('blob:none');
+    expect(sparseCheckout?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    expect(patterns(sparseCheckout)).toEqual(patterns(issueCheckout));
+    expect(measuredSteps.some((step: any) => String(step?.run ?? '').includes('measure-checkout-profile.mjs'))).toBe(true);
+  });
+
   it('non escludono mai un file che il job carica come codice', () => {
     // Coperto da verifyCheckoutProfiles, ma esplicitato: e' l'invariante che, se saltasse,
     // produrrebbe un ENOENT su un import — il guasto piu' immediato.
