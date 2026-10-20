@@ -125,7 +125,52 @@ describe('USI listing transport rescue', () => {
     await expect(fetchUsiPageViaBrowser(listingUrl, 1000, {
       launchBrowser: vi.fn(async () => browser),
     })).resolves.toBe(listingHtml);
+    expect(browser.newContext).toHaveBeenCalledWith(expect.objectContaining({
+      viewport: { width: 1280, height: 720 },
+      timezoneId: 'Europe/Zurich',
+    }));
     expect(page.goto).toHaveBeenCalledWith(listingUrl, expect.objectContaining({ waitUntil: 'domcontentloaded' }));
+    expect(browser.close).toHaveBeenCalledTimes(1);
+  });
+
+  it('uses a stealth browser and retries an unverified WAF document', async () => {
+    const firstPage = {
+      goto: vi.fn(async () => ({ ok: () => false, status: () => 403 })),
+      content: vi.fn(async () => '<html><title>Access denied</title></html>'),
+      close: vi.fn(async () => {}),
+    };
+    const secondPage = {
+      goto: vi.fn(async () => ({ ok: () => false, status: () => 403 })),
+      content: vi.fn(async () => listingHtml),
+      close: vi.fn(async () => {}),
+    };
+    const context = {
+      addInitScript: vi.fn(async () => {}),
+      newPage: vi.fn()
+        .mockResolvedValueOnce(firstPage)
+        .mockResolvedValueOnce(secondPage),
+    };
+    const browser = {
+      newContext: vi.fn(async () => context),
+      close: vi.fn(async () => {}),
+    };
+    const launchBrowser = vi.fn(async () => browser);
+    const sleepImpl = vi.fn(async () => {});
+
+    await expect(fetchUsiPageViaBrowser(listingUrl, 1000, {
+      launchBrowser,
+      attempts: 2,
+      sleepImpl,
+    })).resolves.toBe(listingHtml);
+
+    expect(launchBrowser).toHaveBeenCalledWith({
+      headless: true,
+      args: ['--disable-blink-features=AutomationControlled'],
+    });
+    expect(context.addInitScript).toHaveBeenCalledTimes(1);
+    expect(context.newPage).toHaveBeenCalledTimes(2);
+    expect(sleepImpl).toHaveBeenCalledWith(2500);
+    expect(firstPage.close).toHaveBeenCalledTimes(1);
     expect(browser.close).toHaveBeenCalledTimes(1);
   });
 
