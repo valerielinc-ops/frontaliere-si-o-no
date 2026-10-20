@@ -38,8 +38,8 @@ export function portalQuestionKey(question, context = '') {
   const surrounding = typeof question === 'object' ? question?.context : context;
   const topic = questionTopic(label, surrounding);
   if (!topic) return portalQuestionId(label, surrounding);
-  const contextSensitive = /^(?:address|address_street|address_house_number|residence_|current_school$)/.test(topic);
-  return contextSensitive && normalizedPortalContext(surrounding)
-    ? `${topic}|${normalizedPortalContext(surrounding)}`
-    : topic;
+  const contextSensitive = /^(?:address|address_street|address_house_number|residence_|current_school$|start_date_contextual$)/.test(topic);
+  const normalizedContext = normalizedPortalContext(surrounding);
+  if (topic === 'start_date_contextual' && !normalizedContext) return portalQuestionId(label, surrounding);
+  return contextSensitive && normalizedContext ? `${topic}|${normalizedContext}` : topic;
 }
