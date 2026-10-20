@@ -608,16 +608,41 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       break;
     case 'submit_needs_candidate': {
       if (state !== 'submitting') return ignore('not_submitting');
-      next.state = 'needs_candidate_action';
       // Portal adapters return question IDs as strings; submit.mjs returns
       // objects with an `id`. Normalize both shapes before persisting the hold.
-      const questionIds = (Array.isArray(event.questions) ? event.questions : []).map((question) => {
+      const questionIds = [...new Set((Array.isArray(event.questions) ? event.questions : []).map((question) => {
         const id = typeof question === 'string' ? question : question?.id;
         return typeof id === 'string' || typeof id === 'number' ? String(id).trim() : '';
-      }).filter(Boolean);
+      }).filter(Boolean))];
+      const eventDocuments = Array.isArray(event.documents) ? event.documents : [];
+      const answersAlreadyExist = questionIds.length > 0 && questionIds.every((id) => {
+        if (!Object.prototype.hasOwnProperty.call(answers || {}, id)) return false;
+        const answer = answers?.[id];
+        return typeof answer === 'boolean'
+          || (typeof answer === 'number' && Number.isFinite(answer))
+          || (typeof answer === 'string' && answer.trim().length > 0)
+          || (Array.isArray(answer) && answer.some((value) => String(value ?? '').trim().length > 0));
+      });
+      const attempts = Number(flow?.dispatch?.attempts) || 1;
+      // A portal can report a validation step as a candidate question even
+      // after the runner filled it from an answer already saved in the flow.
+      // Retry once without sending an unnecessary candidate-action notice;
+      // if the portal still asks, hand it to the candidate as usual.
+      if (
+        answersAlreadyExist
+        && eventDocuments.length === 0
+        && candidateHolds(flags).length === 0
+        && roundWasSent(flow, current.round)
+        && attempts < 2
+      ) {
+        effects = enterSubmitting(next, 'existing_candidate_answers');
+        effects[0].attempts = attempts + 1;
+        break;
+      }
+      next.state = 'needs_candidate_action';
       next.heldBy = [
         ...questionIds.map((id) => `question:${id}`),
-        ...(event.documents || []).map((id) => `document:${id}`),
+        ...eventDocuments.map((id) => `document:${id}`),
       ];
       next.heldSince = null;
       if (next.heldBy.length) waitForCandidate(next, nowMs);

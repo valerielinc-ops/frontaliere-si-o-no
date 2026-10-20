@@ -275,13 +275,14 @@ const asksSalutation = (question) => SALUTATION_RE.test(`${question?.question ||
 /**
  * The form of address, asked on the first review when the application leaves
  * through a portal's form. umantis (2026-10-03) requires «Title: Ms / Mr /
- * Other», as most Swiss portals require «Anrede»; the candidate's answer or
- * an explicit statement in the CV fills it without a question.
+ * Other», as most Swiss portals require «Anrede»; the candidate's answer, an
+ * explicit statement in the CV, or an unambiguous locale-aware first name
+ * fills it without a question. Ambiguous names stay blank.
  * Optional: a candidate who does not answer is not held, and the portal's own
  * question then comes at submit time as before. Never for an e-mail
- * application, nor when a question already asks it, nor when the candidate
- * has said it: by an answer, or in their CV's own words («Né le», «Mariée»:
- * lib/personalFacts.js; `answers.salutation` then holds it, see
+ * application, nor when a question already asks it, nor when a value is
+ * already known from their answer, their CV's own words («Né le», «Mariée»)
+ * or an unambiguous first name (`answers.salutation` then holds it, see
  * candidateWithEdits). Nor when they corrected the field on the review page
  * (`corrected`), even to nothing: asked again, the question would bring an
  * older answer back in place of what they chose.
