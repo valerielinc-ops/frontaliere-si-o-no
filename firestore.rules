@@ -1074,7 +1074,8 @@ service cloud.firestore {
           || request.resource.data.cvStorageKey is string)
         && (request.resource.data.cvStorageKey == null
           || request.resource.data.cvStorageKey.matches('^assisted-application-uploads/' + orderId + '/[A-Za-z0-9._-]+$'))
-        && (request.resource.data.cvFileName == null
+        && (!request.resource.data.keys().hasAny(['cvFileName'])
+          || request.resource.data.cvFileName == null
           || (request.resource.data.cvFileName is string && request.resource.data.cvFileName.size() <= 160))
         && (!request.resource.data.keys().hasAll(['cvUploadedAt'])
           || request.resource.data.cvUploadedAt == null
