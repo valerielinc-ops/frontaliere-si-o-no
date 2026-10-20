@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-01T09:18:11.687Z",
+  "generatedAt": "2026-10-20T15:40:56.000Z",
   "counts": {
     "blogLocaleMismatch": 13,
     "blogITMissing": 8,
-    "fuelStation": 3
+    "fuelStation": 5
   },
   "aliases": [
     {
@@ -80,7 +80,7 @@
       "orphanPath": "/prezzi-benzina/chiasso/stazioni/piccadilly-via-s-gottardo/",
       "locale": "it",
       "kind": "matched",
-      "canonicalPath": "/prezzi-benzina/chiasso/",
+      "canonicalPath": "/prezzi-benzina/chiasso/oggi/",
       "cohort": "fuelStation"
     },
     {
@@ -115,7 +115,21 @@
       "orphanPath": "/en/gasoline-price-switzerland/bellinzona/stations/avia-via-cantonale/",
       "locale": "en",
       "kind": "matched",
-      "canonicalPath": "/en/gasoline-price-switzerland/bellinzona/",
+      "canonicalPath": "/en/gasoline-price-switzerland/bellinzona/today/",
+      "cohort": "fuelStation"
+    },
+    {
+      "orphanPath": "/prezzi-benzina/bellinzona/stazioni/socar-via-san-gottardo/",
+      "locale": "it",
+      "kind": "matched",
+      "canonicalPath": "/prezzi-benzina/bellinzona/oggi/",
+      "cohort": "fuelStation"
+    },
+    {
+      "orphanPath": "/fr/prix-essence-suisse/bellinzona/stations/socar-via-san-gottardo/",
+      "locale": "fr",
+      "kind": "matched",
+      "canonicalPath": "/fr/prix-essence-suisse/bellinzona/aujourd-hui/",
       "cohort": "fuelStation"
     },
     {
@@ -129,7 +143,7 @@
       "orphanPath": "/prezzi-diesel/mendrisio/stazioni/eni-via-gaggiolo/",
       "locale": "it",
       "kind": "matched",
-      "canonicalPath": "/prezzi-diesel/mendrisio/",
+      "canonicalPath": "/prezzi-diesel/mendrisio/oggi/",
       "cohort": "fuelStation"
     },
     {
