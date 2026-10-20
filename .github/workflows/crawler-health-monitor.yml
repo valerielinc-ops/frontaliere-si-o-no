@@ -28,7 +28,10 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # The blobless full-history checkout is still growing with the repository.
+    # Keep enough room for the monitor and its bounded push/rebase loop after
+    # the checkout has materialized the sparse tree.
+    timeout-minutes: 20
     steps:
       - name: Checkout main
         uses: actions/checkout@v7
@@ -52,10 +55,11 @@ jobs:
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
         # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
         # posteriori. Col tetto e' un `failure` diagnosticabile.
-        # Ha gia' blob:none (#4380) e i numeri lo confermano: Checkout 96-239s su
-        # 10 run, max = 40% di un cap da 10min. Nessun altro cambio, solo il
-        # tetto.
-        timeout-minutes: 7
+        # Ha gia' blob:none (#4380), ma il checkout piu' recente ha superato il
+        # vecchio tetto di 7 minuti mentre aggiornava il commit-graph completo.
+        # Il margine evita di trasformare la crescita normale del clone in un
+        # falso fallimento del monitor prima che il controllo inizi.
+        timeout-minutes: 15
 
       - name: Setup Node
         uses: actions/setup-node@v7
